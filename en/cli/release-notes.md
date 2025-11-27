@@ -7,6 +7,75 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.174.0 (06/11/25) {#version0.174.0}
+
+#### Changes to the CLI {#cli}
+
+Added the `subject-id` parameter to the `yc init` command.
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ alb-name }}
+
+Added support for the `path` field for ALB session affinity using cookies.
+  * `yc application-load-balancer backend-group update`
+  * `yc application-load-balancer backend-group create`
+
+##### {{ baremetal-full-name }}
+
+Added the `yc baremetal private-cloud-connection` command group:
+  * `yc baremetal private-cloud-connection get`
+  * `yc baremetal private-cloud-connection list`
+  * `yc baremetal private-cloud-connection create`
+  * `yc baremetal private-cloud-connection delete`
+
+##### {{ iam-full-name }}
+
+Added a command to view the list of access policy templates:
+  * `yc iam access-policy-template list`
+
+##### {{ org-full-name }}
+
+* Added the `yc organization-manager idp application saml application` command group for SAML app management:
+  * `yc iam organization-manager idp application saml application get`
+  * `yc iam organization-manager idp application saml application list`
+  * `yc iam organization-manager idp application saml application create`
+  * `yc iam organization-manager idp application saml application update`
+  * `yc iam organization-manager idp application saml application delete`
+  * `yc iam organization-manager idp application saml application suspend`
+  * `yc iam organization-manager idp application saml application reactivate`
+  * `yc iam organization-manager idp application saml application list-operations`
+  * `yc iam organization-manager idp application saml application list-assignments`
+  * `yc iam organization-manager idp application saml application add-assignments`
+  * `yc iam organization-manager idp application saml application remove-assignments`
+  * `yc iam organization-manager idp application saml application list-access-bindings`
+  * `yc iam organization-manager idp application saml application set-access-bindings`
+  * `yc iam organization-manager idp application saml application update-access-bindings`
+
+* Added the `yc organization-manager idp application saml signature-certificate` command group for SAML certificate management:
+  * `yc iam organization-manager idp application saml signature-certificate get`
+  * `yc iam organization-manager idp application saml signature-certificate list`
+  * `yc iam organization-manager idp application saml signature-certificate create`
+  * `yc iam organization-manager idp application saml signature-certificate update`
+  * `yc iam organization-manager idp application saml signature-certificate delete`
+
+##### {{ mgp-full-name }}
+
+Added the `--connection-pooling-idle-in-transaction-timeout` parameter to the `yc managed-greenplum cluster update` command:
+  * `yc managed-greenplum cluster update`
+
+##### {{ mpg-name }}
+
+Added the `AUTH_METHOD_PASSWORD` and `AUTH_METHOD_IAM` user authentication methods to these commands:
+  * `yc managed-postgresql user create`
+  * `yc managed-postgresql user update`
+
+##### {{ objstorage-full-name }}
+
+Fixed the error with filtering uploaded objects in the `yc storage s3 cp` command.
+
+## Previous releases {#previous-release}
+
 ### Version 0.173.0 (30/10/25) {#version0.173.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -28,8 +97,6 @@ Added the `yc baremetal image` command for working with images:
 
 * Added support for {{ mspqr-full-name}}. Use the `yc managed-sharded-postgresql` commands.
 * Added the `userpool-id` parameter to `yc init`.
-
-## Previous releases {#previous-release}
 
 ### Version 0.172.0 (27/10/25) {#version0.172.0}
 
@@ -429,7 +496,7 @@ Fixed the `--deletion-protection` flag in the `yc serverless eventrouter connect
 
 Fixed the display of timestamps in the listing of SAML federation domains.
 
-### Version 0.158.0 (11/08/25) {#version0.158.0}
+### Version 0.158.0 (11/08/25) {#version0.158.0}
 
 #### Changes in {{ yandex-cloud }} services
 
@@ -2273,16 +2340,16 @@ Added the `yc managed-clickhouse cluster list-external-dictionaries` command to 
 
 ##### {{ cloud-logging-name }} {#cloud-logging}
 
-* Added the `SINCE` and `FILTER` positional parameters to the `yc logging read` command, e.g., `yc logging read default 1d "level = INFO"`.
-* Added the `MESSAGE` and `JSON-PAYLOAD` positional parameters to the `yc logging write` command, e.g., `yc logging write default test "{\"key\":\"value\"}"`.
+* Added the `SINCE` and `FILTER` positional parameters to the `yc logging read` command, e.g.: `yc logging read default 1d "level = INFO"`.
+* Added the `MESSAGE` and `JSON-PAYLOAD` positional parameters to the `yc logging write` command, e.g.: `yc logging write default test "{\"key\":\"value\"}"`.
 
 ##### {{ sf-name }} {#functions}
 
-* Added the `SINCE` and `FILTER` positional parameters to the `yc serverless function logs` and `yc serverless function version logs` commands, e.g., `yc serverless function logs default 1d "level = INFO"`.
+* Added the `SINCE` and `FILTER` positional parameters to the `yc serverless function logs` and `yc serverless function version logs` commands, e.g.: `yc serverless function logs default 1d "level = INFO"`.
 
 ##### {{ iot-name }} {#iot}
 
-Added the `SINCE` and `FILTER` positional parameters to the `yc iot broker logs` command, e.g., `yc iot broker logs default 1d "level = INFO"`.
+Added the `SINCE` and `FILTER` positional parameters to the `yc iot broker logs` command, e.g.: `yc iot broker logs default 1d "level = INFO"`.
 
 ### Version 0.103.0 (15/03/23) {#version0.103.00}
 
@@ -2350,7 +2417,7 @@ Added the `--master-logging` parameter with the following properties to the `yc 
 
 * `enabled`: Flag to send the logs to {{ cloud-logging-name }}.
 * `log-group-id`: ID of the [log group](../logging/concepts/log-group.md) to send the logs to.
-* `folder-id`: ID of the folder to send the logs to. The logs will be sent to the log group of the default folder.
+* `folder-id`: ID of the folder to send the logs to. Logs will be sent to the log group of the default folder.
 * `kube-apiserver-enabled`: Flag to send the `kube-apiserver` logs to {{ cloud-logging-name }}.
 * `cluster-autoscaler-enabled`: Flag to send the `cluster-autoscaler` logs to {{ cloud-logging-name }}.
 * `events-enabled`: Flag to send the {{ k8s }} events to {{ cloud-logging-name }}.
@@ -2369,7 +2436,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 * `--no-logging`: Flag to disable logging from a container.
 * `--log-group-id` and `--log-group-name`: ID or name of the [log group](../logging/concepts/log-group.md) to send the logs to.
-* `--log-folder-id` and `--log-folder-name`: ID or name of the folder to send the logs to. The logs will be sent to the log group of the default folder.
+* `--log-folder-id` and `--log-folder-name`: ID or name of the folder to send the logs to. Logs will be sent to the log group of the default folder.
 * `--min-log-level`: Minimum logging level.
 
 
@@ -2754,7 +2821,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 **Managed Service for Redis**
 
-* Added the `--client-output-buffer-limit-normal` and `--client-output-buffer-limit-pubsub` flags to the `yc managed-redis cluster` command group for `create`, `restore`, `update` (see redis.conf for a description).
+* Added the `--client-output-buffer-limit-normal` and `--client-output-buffer-limit-pubsub` flags to the `yc managed-redis cluster` command group for `create`, `restore`, `update` (see redis.conf for a description). 
 
 **{{ mgp-name }}**
 

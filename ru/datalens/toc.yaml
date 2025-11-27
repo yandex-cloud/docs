@@ -1194,6 +1194,9 @@ items:
       - name: Ошибка на стороне БД
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Ошибка при обработке ответа
+        hidden: true
+        href: troubleshooting/errors/SDK_REQUEST_ERROR.md
       - name: Ошибка в синтаксисе формулы
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md

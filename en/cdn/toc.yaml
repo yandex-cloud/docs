@@ -11,7 +11,7 @@ items:
         items:
           - name: Creating a resource
             href: operations/resources/create-resource.md
-          - name: Copying a configuration from one resource to another
+          - name: Copying configuration from one resource to another
             href: operations/resources/copy-resource.md
           - name: Updating basic settings of a resource
             href: operations/resources/configure-basics.md
@@ -88,7 +88,13 @@ items:
       - name: >-
           Setting up static website hosting in a {{ objstorage-full-name }}
           bucket with {{ cdn-full-name }} access
-        href: tutorials/cdn-hosting.md
+        items:
+          - name: Overview
+            href: tutorials/cdn-hosting/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/cdn-hosting/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-hosting/terraform.md
   - name: Concepts
     items:
       - name: Overview

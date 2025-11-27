@@ -29,6 +29,8 @@ description: Управление доступом в сервисе по соз
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ dataproc-name }}.
 
+{% include [roles-data-proc](../../_mermaid/roles/data-proc.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### dataproc.agent {#dataproc-agent}

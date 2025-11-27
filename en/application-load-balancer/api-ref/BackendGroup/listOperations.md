@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the backend group to get operations for.
             To get the backend group ID, use a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - backendGroupId
@@ -25,6 +26,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListBackendGroupOperationsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -33,6 +35,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListBackendGroupOperationsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -58,7 +61,9 @@ GET https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}
 
 Required field. ID of the backend group to get operations for.
 
-To get the backend group ID, use a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request. ||
+To get the backend group ID, use a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsRequest}
@@ -70,11 +75,15 @@ To get the backend group ID, use a [BackendGroupService.List](/docs/application-
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListBackendGroupOperationsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListBackendGroupOperationsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsResponse) returned by a previous list request. ||
+[ListBackendGroupOperationsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsResponse}

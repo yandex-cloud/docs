@@ -23,6 +23,7 @@ apiPlayground:
           description: |-
             **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
             List of targets to remove from the target group.
+            The number of elements must be greater than 0.
           type: array
           items:
             $ref: '#/definitions/Target'
@@ -98,7 +99,9 @@ To get the target group ID, make a [TargetGroupService.List](/docs/application-l
 ||Field | Description ||
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
 
-List of targets to remove from the target group. ||
+List of targets to remove from the target group.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## Target {#yandex.cloud.apploadbalancer.v1.Target}

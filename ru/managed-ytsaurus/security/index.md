@@ -31,6 +31,8 @@ description: Управление доступом в сервисе по соз
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе.
 
+{% include [roles-managed-ytsaurus](../../_mermaid/roles/managed-ytsaurus.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### managed-ytsaurus.auditor {#managed-ytsaurus-auditor}

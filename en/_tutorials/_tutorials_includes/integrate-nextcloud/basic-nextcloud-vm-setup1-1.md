@@ -1,0 +1,1 @@
+[Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to `nextcloud-vm` over SSH.

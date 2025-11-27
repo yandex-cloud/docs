@@ -19,18 +19,21 @@ apiPlayground:
             **string**
             Name of the target group.
             The name must be unique within the folder.
+            Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
           pattern: ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?
           type: string
         description:
           description: |-
             **string**
             Description of the target group.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Target group labels as `key:value` pairs.
             For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -122,14 +125,20 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
 || name | **string**
 
 Name of the target group.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
 || description | **string**
 
-Description of the target group. ||
+Description of the target group.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
-For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
+For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
 
 List of targets in the target group. ||

@@ -14,16 +14,15 @@ description: Follow this guide to connect to a node via {{ oslogin }}.
 [Configure your cluster node](#configure-node) and then connect to it using one of the two methods:
 
 * [Using the CLI](#connect-via-cli).
-* [Using the SSH](#connect-via-ssh).
+* [Over SSH](#connect-via-ssh).
 
-## Getting started
+## Getting started {#before-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Enable access via {{ oslogin }}](../../organization/operations/os-login-access.md) at the organization level.
-
 1. [Enable access to nodes from the internet](./node-group/node-group-update.md#node-internet-access) for the node group containing the node you need to connect to.
 
 1. Make sure the account you are using to connect to the node [has one of these roles](../../iam/operations/roles/grant.md):
@@ -78,7 +77,7 @@ Set up your cluster node for connection:
             --metadata enable-oslogin=true
           ```
 
-          You can get the name of a node group with the [list of node groups in the folder](./node-group/node-group-list.md#list).
+          You can get the node group name with the [list of node groups in the folder](./node-group/node-group-list.md#list).
 
           {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 
@@ -133,7 +132,7 @@ Set up your cluster node for connection:
 
             {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-          * `nodeTemplate.metadata` parameter listing all existing node group metadata as `key=value` pairs without any changes.
+          * `nodeTemplate.metadata` parameter listing all current node group metadata as `key=value` pairs without any changes.
 
             For the `enable-oslogin` key, replace the current value with `true`. If there is no such key, add it.
 
@@ -141,14 +140,14 @@ Set up your cluster node for connection:
 
             {% cut "Example of listing metadata in a parameter" %}
 
-            > * Existing metadata keys in a node group:
+            > * Current metadata keys in a node group:
             >
             >   ```json
             >   "nodeTemplate": {
             >       "metadata": {
             >           "enable-oslogin": "undefined",
-            >           "<existing_key_1>": "<existing_value_1>",
-            >           "<existing_key_2>": "<existing_value_2>"
+            >           "<current_key_1>": "<current_value_1>",
+            >           "<current_key_2>": "<current_value_2>"
             >       },
             >       ...
             >   }
@@ -160,8 +159,8 @@ Set up your cluster node for connection:
             >   "nodeTemplate": {
             >       "metadata": {
             >           "enable-oslogin": "true",
-            >           "<existing_key_1>": "<existing_value_1>",
-            >           "<existing_key_2>": "<existing_value_2>"
+            >           "<current_key_1>": "<current_value_1>",
+            >           "<current_key_2>": "<current_value_2>"
             >       }
             >   }
             >   ```
@@ -202,6 +201,12 @@ Set up your cluster node for connection:
     ```bash
     yc compute ssh --name <node_name>
     ```
+
+    {% note info %}
+
+    {% include [os-login-sa-default-profile-notice](../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+    {% endnote %}
 
 ## Connect to the node over SSH {#connect-via-ssh}
 
@@ -260,7 +265,14 @@ Set up your cluster node for connection:
     Where:
 
     * `<path_to_certificate_file>`: Path to the certificate's `Identity` file you saved earlier, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-    * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). It is also appended to the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
+    * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). This login is also specified at the end of the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
+
+        {% note info %}
+
+        {% include [os-login-sa-default-profile-notice](../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+        {% endnote %}
+
     * `<node_public_IP_address>`: Public IP address of the node obtained earlier.
 
     If this is your first time connecting to the node, you will get an unknown host warning:

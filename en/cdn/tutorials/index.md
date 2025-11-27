@@ -1,6 +1,6 @@
 ---
 title: '{{ cdn-full-name }} use cases'
-description: Various {{ cdn-full-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ cdn-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ cdn-name }} tutorials
@@ -11,4 +11,4 @@ description: Various {{ cdn-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](blue-green-canary-deployment.md)
 * [{#T}](protected-access-to-content/index.md)
 * [{#T}](migrate-to-yc-cdn.md)
-* [{#T}](cdn-hosting.md)
+* [{#T}](cdn-hosting/index.md)

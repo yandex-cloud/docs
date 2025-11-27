@@ -34,9 +34,9 @@ The infrastructure support costs include:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-    1. Enter a name for the service account: `my-db-function-service-account`.
+    1. Enter the service account name: `my-db-function-service-account`.
     1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-invoker }}` and `{{ roles-editor }}` [roles](../../iam/concepts/access-control/roles.md).
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -57,10 +57,10 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 - Management console {#console}
 
     1. In [the management console]({{ link-console-main }}), select the folder where you want to create a registry.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `my-registry`.
-    1. Enter the password.
+    1. Enter a password.
 
         * The minimum password length is 14 characters.
         * The password must contain uppercase and lowercase letters and numbers.
@@ -86,7 +86,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
     1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
     1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `my-device`.
-    1. Enter the password.
+    1. Enter a password.
 
         * The minimum password length is 14 characters.
         * The password must contain uppercase and lowercase letters and numbers.
@@ -114,7 +114,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter `my-pg-database`.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** field, select `PRODUCTION`.
@@ -137,7 +137,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 
         {% note info %}
 
-        The type and size of the disk should be selected according to the projects to be implemented. The above values are used for testing.
+        Select the type and size of the disk to fit your purpose. The above values are used for testing.
 
         {% endnote %}
 
@@ -147,7 +147,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
         * DB owner username. It may only contain Latin letters, numbers, and underscores.
         * User password. It must be from 8 to 128 characters long.
 
-        For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You cannot change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
+        For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You cannot change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the appropriate settings.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **Access from the management console**.
@@ -186,7 +186,7 @@ As a sample data source, the scenario uses an air sensor that measures the follo
 * Pressure
 * Temperature
 
-The sensor outputs the result in JSON format. For example:
+The sensor outputs the result in JSON format. Here is an example:
 
 ```json
 {
@@ -209,7 +209,7 @@ Once you [connect to the cluster](#connect-to-cluster), create a table. To do th
 
 - Management console {#console}
 
-    1. In the edit window, enter the following query:
+    1. In the edit window, enter the following request:
 
         {% note warning %}
 
@@ -231,7 +231,7 @@ Once you [connect to the cluster](#connect-to-cluster), create a table. To do th
 
     1. Click **Execute**.
 
-    Wait until a message confirms that the query is complete.
+    Wait until a message confirms that the request is complete.
 
 {% endlist %}
 
@@ -244,7 +244,7 @@ The function will receive messages from the MQTT broker and write data to the ta
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Enter a function name.
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -285,7 +285,7 @@ After creating the function, you will be automatically redirected to the **{{ ui
 
         * `VERBOSE_LOG`: Parameter displaying detailed information about the function. Type in `True`.
         * `DB_HOSTNAME`: Name of the {{ PG }} database host to connect to.
-        * `DB_PORT`: Port for connection.
+        * `DB_PORT`: Port for the connection.
         * `DB_NAME`: Name of the database to connect to.
         * `DB_USER`: Username for the connection.
         * `DB_PASSWORD`: Password you entered when [creating your cluster](#cluster).
@@ -293,8 +293,8 @@ After creating the function, you will be automatically redirected to the **{{ ui
         To define the values of connection parameters:
 
         1. In the [management console]({{ link-console-main }}), select the folder where you created the cluster.
-        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-        1. Select the `my-pg-database` cluster.
+        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Select `my-pg-database`.
         1. In the line with the database you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
         1. On the **PowerShell** tab, find a sample connection string.
         1. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **{{ ui-key.yacloud.common.value }}** field for the function environment variables.
@@ -312,7 +312,7 @@ The trigger will accept copies of messages from the device topic and pass them t
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -341,7 +341,7 @@ The trigger will accept copies of messages from the device topic and pass them t
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** field, specify `$latest`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** field, specify `my-db-function-service-account`.
 
-    1. Leave the other fields empty or fill them in at your discretion.
+    1. Leave the other fields empty or fill them out at your discretion.
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 {% endlist %}

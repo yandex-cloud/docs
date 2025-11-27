@@ -17,7 +17,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the zone from the list.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
-  1. Specify the resource record settings:
+  1. Specify the record settings:
      1. In the **{{ ui-key.yacloud.common.name }}** field, specify the record name.
      1. Select the [record type](../concepts/resource-record.md#rr-types) from the drop-down list.
      1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, select the record TTL (Time to Live) value from the dropdown list or specify a custom duration in seconds.
@@ -106,7 +106,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
         * `zone`: Domain zone. Note that the zone name must end with a trailing dot. You cannot create top-level domain (TLD) zones. This is a required setting.
         * `folder_id`: ID of the folder where you want to create your zone. If no folder is specified, the system will use the default one. This is an optional setting.
-        * `name`: Zone name. Note that the zone name must be unique within the folder. This is an optional setting.
+        * `name`: Zone name. It must be unique within the folder. This is an optional setting.
         * `description`: Zone description. This is an optional setting.
         * `labels`: DNS zone labels. This is an optional setting.
         * `public`: Zone visibility, public or private. This is an optional setting.
@@ -126,7 +126,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
   
-     {{ TF }} will create all required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc dns zone list-records <zone_name>

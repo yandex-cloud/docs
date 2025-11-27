@@ -24,7 +24,9 @@ To [purge the cache](../../concepts/caching.md) of the resource:
   1. Select the type of cache purging:
 
       * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-full }}`: To purge the cache for all files.
-      * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`: To purge the cache for selected files. Enter the names of the required files in the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-paths }}** field.
+      * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`: To purge the cache for selected files. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-paths }}** field, specify comma-separated paths to the files.
+
+          {% include [wildcard-paths-purging-specifics](../../../_includes/cdn/wildcard-paths-purging-specifics.md) %}
 
   1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
@@ -40,7 +42,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
       yc cdn resource update --help
       ```
 
-  1. Get a list of all resources in the default folder:
+  1. Get a list of all [CDN resources](../../concepts/resource.md) in the default folder:
 
       ```bash
       yc cdn resource list --format yaml
@@ -87,15 +89,25 @@ To [purge the cache](../../concepts/caching.md) of the resource:
         status: READY
       ```
 
-  1. Purge the file cache using the `cache purge` argument:
+  1. Purge the file cache:
 
       ```bash
-      yc cdn cache purge --resource-id <resource_ID> \
-        --path <file_paths>
+      yc cdn cache purge \
+        --resource-id <resource_ID> \
+        --path <file_path_1>,<file_path_2>,...,<file_path_n>
       ```
-      If you omit the `--path` parameter with paths to files, the cache of all files will be purged.
 
-      For more information about the `yc cdn cache purge` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
+      Where:
+      * `--resource-id`: ID of the CDN resource to purge cache in.
+      * `--path`: List of paths to CDN resource files whose cache needs purging.
+
+          {% include [wildcard-paths-purging-specifics](../../../_includes/cdn/wildcard-paths-purging-specifics.md) %}
+
+          {% include [the-vary-headers-purge-warning](../../../_includes/cdn/the-vary-headers-purge-warning.md) %}
+
+          If you omit the `--path` setting with paths to files, the cache of all resource files will be purged. Learn more in [{#T}](../../concepts/caching.md#purge).
+
+      For more information about the `yc cdn cache purge` command, see this [CLI reference](../../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
 
 - API {#api}
 

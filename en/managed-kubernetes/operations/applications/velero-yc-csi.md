@@ -6,10 +6,10 @@ description: Follow this guide to install Velero.
 # Installing Velero
 
 
-[Velero](https://velero.io/) is a backup, recovery, and migration tool for [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) objects, including [persistent volumes](../../concepts/volume.md#persistent-volume). With Velero, you can:
-* Protect your data from loss using a flexible backup system.
+[Velero](https://velero.io/) is a tool for backing up, recovering, and migrating [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) objects, including [persistent volumes](../../concepts/volume.md#persistent-volume). With Velero, you can:
+* Prevent data losses using a flexible backup system.
 * Recover a {{ managed-k8s-name }} cluster faster if it goes down.
-* Move your data from one {{ managed-k8s-name }} cluster to another.
+* Migrate your data from one {{ managed-k8s-name }} cluster to another.
 
 Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-backup.md) and restore persistent volumes from {{ yandex-cloud }} [disk snapshots](../../../compute/concepts/snapshot.md).
 
@@ -19,7 +19,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. [Create a service account](../../../iam/operations/sa/create.md) needed to access [{{ objstorage-full-name }}](../../../storage/).
+1. [Create a service account](../../../iam/operations/sa/create.md) to access [{{ objstorage-full-name }}](../../../storage/).
 
    ```bash
    yc iam service-account create --name <service_account_name>
@@ -35,7 +35,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
 
 1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for your [service account](../../../iam/concepts/users/service-accounts.md).
 
-   * If installing Velero [in the management console using {{ marketplace-full-name }}](#marketplace-install), create a static key in JSON format and save it to the `sa-key.json` file:
+   * If installing Velero [in the management console from {{ marketplace-full-name }}](#marketplace-install), create a static key in JSON format and save it to the `sa-key.json` file:
 
      ```bash
      yc iam access-key create \
@@ -58,13 +58,13 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
 
 1. Make sure you have enough disk snapshot and disk size quotas to create a backup. To do this, you can use the [service for viewing quotas](../../../quota-manager/operations/read-quotas.md).
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Velero](/marketplace/products/yc/velero-yc-csi) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Create a [namespace](../../concepts/index.md#namespace) named `velero`. The application uses it by default. If you leave the default namespace, Velero may work incorrectly.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace) named `velero`. The application uses it by default. If you leave the default namespace, Velero may work incorrectly.
 
      {% note info %}
 
@@ -76,7 +76,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
    * **{{ objstorage-name }} static access key**: Copy the contents of the `sa-key.json` file or create a new [access key](../../../iam/concepts/authorization/access-key.md) for the service account. The service account must have the `storage.editor` role.
    * **{{ objstorage-name }} bucket name**: Specify the name of the {{ objstorage-name }} bucket.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -91,7 +91,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
    helm install \
         --namespace velero \
         --create-namespace \
-        --set configuration.backupStorageLocation.bucket=<bucket_name> \
+        --set backupStorageLocationCustom.bucket=<bucket_name> \
         --set serviceaccountawskeyvalue_generated.accessKeyID=<key_ID> \
         --set serviceaccountawskeyvalue_generated.secretAccessKey=<secret_key> \
         velero ./velero/

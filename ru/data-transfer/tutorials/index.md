@@ -73,7 +73,9 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ KF }} в {{ MY }}](mkf-to-mmy.md)
 * [{{ KF }} в {{ OS }}](mkf-to-mos.md)
 * [{{ KF }} в {{ ydb-short-name }}](mkf-to-ydb.md)
+
 * [{{ KF }} в {{ DS }}](mkf-to-yds.md)
+
 * [{{ DS }} в {{ CH }}](yds-to-clickhouse.md)
 * [{{ DS }} в {{ objstorage-name }}](yds-to-objstorage.md)
 * [{{ DS }} в {{ ydb-name }}](yds-to-ydb.md)

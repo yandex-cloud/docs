@@ -14,7 +14,7 @@ links:
     description: Learn about the basic {{ TF }} concepts
     href: concepts/
   - title: Tutorials
-    description: Configure access permissions for the service
+    description: Configure access permissions to use this service
     href: tutorials/
   - title: '{{ yandex-cloud }} provider'
     description: Reference of resources and {{ yandex-cloud }} data sources

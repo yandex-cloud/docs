@@ -1,0 +1,1 @@
+[Stop](../../../compute/operations/vm-control/vm-stop-and-start.md#stop) the `nextcloud-vm` virtual machine.

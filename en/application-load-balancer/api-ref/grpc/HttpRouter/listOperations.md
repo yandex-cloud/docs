@@ -27,17 +27,23 @@ Lists operations for the specified HTTP router.
 
 Required field. ID of the HTTP router to get operations for.
 
-To get the HTTP router ID, use a [HttpRouterService.List](/docs/application-load-balancer/api-ref/grpc/HttpRouter/list#List) request. ||
+To get the HTTP router ID, use a [HttpRouterService.List](/docs/application-load-balancer/api-ref/grpc/HttpRouter/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListHttpRouterOperationsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListHttpRouterOperationsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsResponse) returned by a previous list request. ||
+[ListHttpRouterOperationsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListHttpRouterOperationsResponse {#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsResponse}

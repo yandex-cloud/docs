@@ -31,12 +31,7 @@ MSS in private network | 8870
 
 ### Bandwidth model in a public network {#bandwidth-for-pubic-network}
 
-
 {% include [public-net-bandwidth-restrictions](../../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
-
-Data amount, TB per day | Connection capacity, Gbps
---- | ---
-10 | 1 
 
 {% note info %}
 
@@ -50,7 +45,7 @@ Data amount, TB per day | Connection capacity, Gbps | Note
 --- | --- | ---
 100 | 10 | You can use this package only for servers with 10 and 25 Gbps NICs.
 
-[Billing for increased bandwidth](../../baremetal/pricing#bandwidth-package).
+[Billing for increased bandwidth](../../baremetal/pricing.md#bandwidth-package).
 
 ### Bandwidth between Baremetal and VPC {#bandwidth-bm-vpc}
 

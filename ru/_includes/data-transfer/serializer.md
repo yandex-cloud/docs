@@ -20,6 +20,8 @@
       {% endnote %}
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.username.title }}** — `api-key`.
+
+  
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.password.title }}** — значение [API-ключа](../../iam/concepts/authorization/api-key.md) с ограниченной областью действия для подключения к {{ schema-registry-name }}. Чтобы получить значение:
       1. Создайте API-ключ с ограниченной областью действия и поместите его в локальную переменную `SECRET`:
 
@@ -38,6 +40,7 @@
           ```
 
       1. Скопируйте полученное значение и вставьте его в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.password.title }}** в окне создания эндпоинта.
+
 
 * В блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.parameters.title }}**:
     * Чтобы генерировать закрытую схему для ключей, добавьте параметр `key.converter.dt.json.generate.closed.content.schema` со значением `true`.

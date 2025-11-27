@@ -99,6 +99,75 @@ description: Следуя данной инструкции, вы сможете
          kubectl create token <название_аккаунта>
          ```
 
+## Работа с ресурсами {{ yandex-cloud }} {#yandex-cloud-resources}
+
+В приложении доступен сценарий `YCChaos`, который позволяет моделировать отказы ВМ узлов (например, перезапуск или остановку). С его помощью можно проверять отказоустойчивость систем, зависящих от облачной инфраструктуры.
+
+Например, чтобы смоделировать перезапуск ВМ узлов с помощью `YCChaos`:
+
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `compute.operator`.
+1. [Выпустите авторизованный ключ](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) и сохраните его в файл `sa-key.json`
+1. Создайте пространство имен `chaos-testing`.
+1. Создайте секрет {{ k8s }} на основе созданного ранее авторизованного ключа:
+
+   ```shell
+   kubectl create secret generic yc-sa-secret \
+       --from-file=sa-key.json=./sa-key.json \
+       -n chaos-testing
+   ```
+
+1. Сохраните в файле `chaos.yaml` пример workflow со сценарием `YCChaos`:
+
+   {% cut "chaos.yaml" }
+
+   ```yaml
+   apiVersion: chaos-mesh.org/v1alpha1
+   kind: Workflow
+   metadata:
+     name: yc-random-batch
+     namespace: chaos-testing
+   spec:
+     entry: parallel
+     templates:
+     - name: parallel
+       templateType: Parallel
+       children: [yc-1, yc-2]
+
+     - name: yc-1
+       templateType: YCChaos
+       deadline: 5m
+       ycChaos:
+         action: compute-restart
+         computeInstance: <идентификатор_ВМ_1>
+         secretName: yc-sa-secret
+
+     - name: yc-2
+       templateType: YCChaos
+       deadline: 5m
+       ycChaos:
+         action: compute-restart
+         computeInstance: <идентификатор_ВМ_2>
+         secretName: yc-sa-secret
+   ```
+
+   {% endcut %}
+
+1. Создайте workflow с помощью команды:
+
+   ```shell
+   kubectl apply -f chaos.yaml
+   ```
+
+1. Убедитесь, что указанные виртуальные машины перезапустились после создания workflow.
+
+   Также вы можете посмотреть результаты работы workflow в [веб-интерфейсе Chaos Mesh](#interface-and-authorization).
+
+{% note info %}
+
+Вы можете проводить эксперименты с использованием сценария `YCChaos` непосредственно в веб-интерфейсе Chaos Mesh.
+
+{% endnote %}
+
 ## См. также {#see-also}
 
 * [Документация Chaos Mesh](https://chaos-mesh.org/docs/).

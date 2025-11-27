@@ -363,14 +363,20 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
 || name | **string**
 
 Name of the HTTP router.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
 || description | **string**
 
-Description of the HTTP router. ||
+Description of the HTTP router.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 HTTP router labels as `key:value` pairs.
-For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
+For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || virtual_hosts[] | **[VirtualHost](#yandex.cloud.apploadbalancer.v1.VirtualHost)**
 
 Virtual hosts that combine routes inside the router.
@@ -508,12 +514,16 @@ If not specified, the route matches all paths. ||
 
 Headers specify HTTP request header matchers. Multiple match values are
 ANDed together, meaning, a request must match all the specified headers
-to select the route. Headers must be unique. ||
+to select the route. Headers must be unique.
+
+The maximum number of elements is 32. ||
 || query_parameters[] | **[HttpRouteQueryParamMatch](#yandex.cloud.apploadbalancer.v1.HttpRouteQueryParamMatch)**
 
 Query Parameters specify HTTP query parameter matchers. Multiple match
 values are ANDed together, meaning, a request must match all the
-specified query parameters to select the route. Query parameters must be unique. ||
+specified query parameters to select the route. Query parameters must be unique.
+
+The maximum number of elements is 32. ||
 |#
 
 ## StringMatch {#yandex.cloud.apploadbalancer.v1.StringMatch}
@@ -551,7 +561,9 @@ Match string for either exact or prefix match. ||
 ||Field | Description ||
 || name | **string**
 
-Name of the HTTP Header to be matched. ||
+Name of the HTTP Header to be matched.
+
+The string length in characters must be 1-256. Value must match the regular expression ` [-0-9a-zA-Z]+ `. ||
 || value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
 
 Value of HTTP Header to be matched. ||
@@ -563,7 +575,9 @@ Value of HTTP Header to be matched. ||
 ||Field | Description ||
 || name | **string**
 
-Name of the HTTP query parameter to be matched. ||
+Name of the HTTP query parameter to be matched.
+
+The string length in characters must be 1-256. Value must match the regular expression ` [-_0-9a-zA-Z]+ `. ||
 || value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
 
 Value of HTTP query parameter to be matched. ||
@@ -678,10 +692,14 @@ Limit is a rate limit value settings.
 
 PerSecond is a limit value specified with per second time unit.
 
+Value must be greater than 0.
+
 Includes only one of the fields `per_second`, `per_minute`. ||
 || per_minute | **int64**
 
 PerMinute is a limit value specified with per minute time unit.
+
+Value must be greater than 0.
 
 Includes only one of the fields `per_second`, `per_minute`. ||
 |#
@@ -767,7 +785,9 @@ A direct response action resource.
 ||Field | Description ||
 || status | **int64**
 
-HTTP status code to use in responses. ||
+HTTP status code to use in responses.
+
+Acceptable values are 100 to 599, inclusive. ||
 || body | **[Payload](#yandex.cloud.apploadbalancer.v1.Payload)**
 
 Response body. ||
@@ -782,6 +802,8 @@ A health check payload resource.
 || text | **string**
 
 Payload text.
+
+The string length in characters must be greater than 0.
 
 Includes only one of the fields `text`.
 
@@ -977,12 +999,13 @@ allowed.
 
 Required field. The action to take if a principal matches. Every action either allows or denies a request.
 
-- `ACTION_UNSPECIFIED`
 - `ALLOW`: Allows the request if and only if there is a principal that matches the request.
 - `DENY`: Allows the request if and only if there are no principal that match the request. ||
 || principals[] | **[Principals](#yandex.cloud.apploadbalancer.v1.Principals)**
 
-Required. A match occurs when at least one matches the request. ||
+Required. A match occurs when at least one matches the request.
+
+The minimum number of elements is 1. ||
 |#
 
 ## Principals {#yandex.cloud.apploadbalancer.v1.Principals}
@@ -993,7 +1016,9 @@ Principals define a group of identities for a request.
 ||Field | Description ||
 || and_principals[] | **[Principal](#yandex.cloud.apploadbalancer.v1.Principal)**
 
-Required. A match occurs when all principals match the request. ||
+Required. A match occurs when all principals match the request.
+
+The minimum number of elements is 1. ||
 |#
 
 ## Principal {#yandex.cloud.apploadbalancer.v1.Principal}
@@ -1616,12 +1641,16 @@ If not specified, the route matches all paths. ||
 
 Headers specify HTTP request header matchers. Multiple match values are
 ANDed together, meaning, a request must match all the specified headers
-to select the route. Headers must be unique. ||
+to select the route. Headers must be unique.
+
+The maximum number of elements is 32. ||
 || query_parameters[] | **[HttpRouteQueryParamMatch](#yandex.cloud.apploadbalancer.v1.HttpRouteQueryParamMatch2)**
 
 Query Parameters specify HTTP query parameter matchers. Multiple match
 values are ANDed together, meaning, a request must match all the
-specified query parameters to select the route. Query parameters must be unique. ||
+specified query parameters to select the route. Query parameters must be unique.
+
+The maximum number of elements is 32. ||
 |#
 
 ## StringMatch {#yandex.cloud.apploadbalancer.v1.StringMatch2}
@@ -1659,7 +1688,9 @@ Match string for either exact or prefix match. ||
 ||Field | Description ||
 || name | **string**
 
-Name of the HTTP Header to be matched. ||
+Name of the HTTP Header to be matched.
+
+The string length in characters must be 1-256. Value must match the regular expression ` [-0-9a-zA-Z]+ `. ||
 || value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2)**
 
 Value of HTTP Header to be matched. ||
@@ -1671,7 +1702,9 @@ Value of HTTP Header to be matched. ||
 ||Field | Description ||
 || name | **string**
 
-Name of the HTTP query parameter to be matched. ||
+Name of the HTTP query parameter to be matched.
+
+The string length in characters must be 1-256. Value must match the regular expression ` [-_0-9a-zA-Z]+ `. ||
 || value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2)**
 
 Value of HTTP query parameter to be matched. ||
@@ -1786,10 +1819,14 @@ Limit is a rate limit value settings.
 
 PerSecond is a limit value specified with per second time unit.
 
+Value must be greater than 0.
+
 Includes only one of the fields `per_second`, `per_minute`. ||
 || per_minute | **int64**
 
 PerMinute is a limit value specified with per minute time unit.
+
+Value must be greater than 0.
 
 Includes only one of the fields `per_second`, `per_minute`. ||
 |#
@@ -1875,7 +1912,9 @@ A direct response action resource.
 ||Field | Description ||
 || status | **int64**
 
-HTTP status code to use in responses. ||
+HTTP status code to use in responses.
+
+Acceptable values are 100 to 599, inclusive. ||
 || body | **[Payload](#yandex.cloud.apploadbalancer.v1.Payload2)**
 
 Response body. ||
@@ -1890,6 +1929,8 @@ A health check payload resource.
 || text | **string**
 
 Payload text.
+
+The string length in characters must be greater than 0.
 
 Includes only one of the fields `text`.
 
@@ -2085,12 +2126,13 @@ allowed.
 
 Required field. The action to take if a principal matches. Every action either allows or denies a request.
 
-- `ACTION_UNSPECIFIED`
 - `ALLOW`: Allows the request if and only if there is a principal that matches the request.
 - `DENY`: Allows the request if and only if there are no principal that match the request. ||
 || principals[] | **[Principals](#yandex.cloud.apploadbalancer.v1.Principals2)**
 
-Required. A match occurs when at least one matches the request. ||
+Required. A match occurs when at least one matches the request.
+
+The minimum number of elements is 1. ||
 |#
 
 ## Principals {#yandex.cloud.apploadbalancer.v1.Principals2}
@@ -2101,7 +2143,9 @@ Principals define a group of identities for a request.
 ||Field | Description ||
 || and_principals[] | **[Principal](#yandex.cloud.apploadbalancer.v1.Principal2)**
 
-Required. A match occurs when all principals match the request. ||
+Required. A match occurs when all principals match the request.
+
+The minimum number of elements is 1. ||
 |#
 
 ## Principal {#yandex.cloud.apploadbalancer.v1.Principal2}

@@ -49,6 +49,7 @@ apiPlayground:
             1. Get the current set of server names with a [LoadBalancerService.Get](/docs/application-load-balancer/api-ref/LoadBalancer/get#Get) request.
             2. Add or remove a server name in this set.
             3. Send the new set in this field.
+            The number of elements must be greater than 0.
           type: array
           items:
             type: string
@@ -153,6 +154,7 @@ apiPlayground:
               **string**
               ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
               RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+              The number of elements must be greater than 0.
             type: array
             items:
               type: string
@@ -245,7 +247,9 @@ Existing set of server names is completely replaced by the provided set, so if y
 to add or remove a server name:
 1. Get the current set of server names with a [LoadBalancerService.Get](/docs/application-load-balancer/api-ref/LoadBalancer/get#Get) request.
 2. Add or remove a server name in this set.
-3. Send the new set in this field. ||
+3. Send the new set in this field.
+
+The number of elements must be greater than 0. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
 
 Required field. New settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values. ||
@@ -275,7 +279,9 @@ Settings for handling requests. ||
 
 ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
 
-RSA and ECDSA certificates are supported, and only the first certificate of each type is used. ||
+RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## HttpHandler {#yandex.cloud.apploadbalancer.v1.HttpHandler}

@@ -70,3 +70,4 @@ description: На странице приведены коды ошибок в {
 [ERR.FILE.PARSE_FAILED.INVALID_EXCEL](ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md) | Неверный формат файла |
 [ERR.FILE.UNSUPPORTED_DOCUMENT](ERR-FILE-UNSUPPORTED_DOCUMENT.md) | File check failed |
 [ERR.US.BAD_REQUEST.ALREADY_EXISTS](ERR-US-BAD_REQUEST-ALREADY_EXISTS.md) | Не удалось создать <тип_объекта> |
+[SDK_REQUEST_ERROR](SDK_REQUEST_ERROR.md) | Ошибка при обработке ответа |

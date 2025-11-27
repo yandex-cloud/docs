@@ -27,7 +27,7 @@ If you no longer need the image you created, [delete it](#clear-out).
 1. Depending on the type of account you are working under, you will get:
 
     * [OAuth token]({{ link-cloud-oauth }}) for a [Yandex account](../../iam/concepts/users/accounts.md#passport).
-    * [IAM token](../../iam/concepts/authorization/iam-token.md) for [federated](../../iam/concepts/users/accounts.md#saml-federation) or [service](../../iam/concepts/users/accounts.md#sa) accounts.
+    * [IAM token](../../iam/concepts/authorization/iam-token.md) of a [federated](../../iam/concepts/users/accounts.md#saml-federation), [local](../../iam/concepts/users/accounts.md#local), or [service](../../iam/concepts/users/accounts.md#sa) account.
 
 1. Make sure your account has enough permissions to create resources in {{ compute-name }}. The minimum [role](../../compute/security/index.md#compute-editor) you need for the folder is `compute.editor`.
 

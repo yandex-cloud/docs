@@ -1,0 +1,1 @@
+Wait until the TLS certificate is issued and switches to the `Issued` status. After that, make sure the redirect works: opening the `https://example2.com` website should take you to `https://example.com`.

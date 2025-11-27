@@ -16,8 +16,10 @@
 
 * [Where can I track my disk space usage?](#disk-space)
 
-* [How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up?](#alert-for-disk-space)
+* [How do I set up an alert that triggers when a certain percentage of disk space is used?](#alert-for-disk-space)
 
 * [Why backups are not created?](#backup-failed)
 
 * [Can I change instance type or disk size after the instance has been created?](#change-type-size)
+
+* [What should I do if I cannot connect to the system hook on `localhost`?](#system-hooks-localhost)

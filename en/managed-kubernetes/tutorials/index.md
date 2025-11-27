@@ -65,7 +65,8 @@ For how to install an NGINX ingress controller with the help of {{ marketplace-f
 * [{#T}](kubernetes-backup.md)
 * [{#T}](pvc-snapshot-restore.md)
 
-## Monitoring {#monitoring}
+
+## Monitoring {#monitoring}
 
 * [{#T}](prometheus-grafana-monitoring.md)
 * [{#T}](k8s-fluent-bit-logging.md)

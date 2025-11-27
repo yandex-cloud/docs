@@ -24,7 +24,7 @@ description: In this article, you will learn about S3cmd, how to install and con
 
 To install S3cmd, check out the [installation section](https://github.com/s3tools/s3cmd/blob/master/INSTALL.md) in the S3cmd repository on GitHub.
 
-## Setup {#setup}
+## Configuration {#setup}
 
 To configure S3cmd, use the `s3cmd --configure` command. Specify values for the following parameters in the request:
 
