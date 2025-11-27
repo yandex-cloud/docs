@@ -1,11 +1,13 @@
 ---
 title: Getting started with {{ search-api-full-name }}
-description: Follow this guide to set up your {{ yandex-cloud }} workspace and get started with {{ search-api-name }}
+description: Follow this guide to set up your {{ yandex-cloud }} workspace and get started with {{ search-api-full-name }}.
 ---
 
-# How to get started with {{ search-api-name }}
+# Getting started with {{ search-api-name }}
 
-The [API](../concepts/index.md#api-v2) is the recommended {{ search-api-name }} interface. The API is fully integrated into the [{{ yandex-cloud }} ecosystem](../../overview/concepts/services.md) and supports both [API key](../../iam/concepts/authorization/api-key.md) authentication as well as the more secure [authentication](../api-ref/authentication.md) based on short-lived [IAM tokens](../../iam/concepts/authorization/iam-token.md).
+[{{ search-api-full-name }}](../concepts/index.md) is fully integrated into the [{{ yandex-cloud }} ecosystem](../../overview/concepts/services.md) and alongside the [API key](../../iam/concepts/authorization/api-key.md) authentication supports the more secure short-lived [IAM token](../../iam/concepts/authorization/iam-token.md) [authentication](../api-ref/authentication.md).
+
+You can run queries to {{ search-api-name }} using the [{{ ml-sdk-full-name }}](../../ai-studio/sdk/index.md), [REST API](../api-ref/index.md), and [gRPC API](../api-ref/grpc/index.md). The search results you get depend on the parameters specified in your query.
 
 For {{ search-api-name }} prices, see [{#T}](../pricing.md).
 
@@ -13,131 +15,246 @@ For {{ search-api-name }} prices, see [{#T}](../pricing.md).
 
 {% include [before-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-## Get your cloud ready {#initial-setup}
+### Get your cloud ready {#initial-setup}
 
-1. [Create](../../iam/operations/sa/create.md) a service account you will use to send requests to {{ search-api-name }}.
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `search-api.webSearch.user` [role](../../search-api/security/index.md#search-api-webSearch-user) to the service account you created.
-1. [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the [service account](../../iam/concepts/users/service-accounts.md) with `yc.search-api.execute` for its [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
-1. To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://stedolan.github.io/jq) utilities.
+To use the examples:
 
-The following examples use [API key](../../iam/concepts/authorization/api-key.md) authentication. To use an [IAM token](../../iam/concepts/authorization/iam-token.md) for authentication, edit the `Authorization` header in the request examples. For more information, see [{#T}](../../search-api/api-ref/authentication.md).
+{% list tabs group=instructions %}
 
-In the provided examples, requests to {{ search-api-name }} are [REST API](../api-ref/) requests. For sample [gRPC API](../api-ref/grpc/) request, see [{#T}](../operations/web-search.md).
+- SDK {#sdk}
 
-## Create a search query {#form-request}
+  1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user) to it.
+  1. {% include [sdk-before-begin-step2](../../_includes/search-api/sdk-before-begin-step2.md) %}
+  1. {% include [sdk-before-begin-step3](../../_includes/ai-studio/sdk-before-begin-step3.md) %}
+  1. {% include [sdk-before-begin-step4](../../_includes/ai-studio/sdk-before-begin-step4.md) %}
+  1. {% include [sdk-before-begin-step5](../../_includes/ai-studio/sdk-before-begin-step5.md) %}
+  1. {% include [sdk-before-begin-step6](../../_includes/ai-studio/sdk-before-begin-step6.md) %}
+
+- REST API {#api}
+
+  1. [Create](../../iam/operations/sa/create.md) a service account you will use to send requests to {{ search-api-name }}.
+  1. [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `search-api.webSearch.user` [role](../../search-api/security/index.md#search-api-webSearch-user) to the service account you created.
+  1. [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the [service account](../../iam/concepts/users/service-accounts.md) with `yc.search-api.execute` for its [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
+  1. To use the examples, you should additionally install [cURL](https://curl.haxx.se) and [jq](https://stedolan.github.io/jq).
+
+  The following examples use [API key](../../iam/concepts/authorization/api-key.md) authentication. To use an [IAM token](../../iam/concepts/authorization/iam-token.md) for authentication, edit the `Authorization` header in the request examples. For more information, see [{#T}](../../search-api/api-ref/authentication.md).
+
+  In the provided examples, requests to {{ search-api-name }} are [REST API](../api-ref/) requests. For sample [gRPC API](../api-ref/grpc/) request, see [{#T}](../operations/web-search.md).
+
+{% endlist %}
+
+## Send a search query {#make-request}
 
 In the example, the request returns a page of search results for the `coffee machine` query in [HTML](../concepts/html-response.md) and [XML](../concepts/response.md) formats.
 
-1. Create a [request body](../concepts/web-search.md#parameters) file (e.g., `body.json`) with the [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are going to use for {{ search-api-name }} in the `folderId` field:
+To run a search query using {{ search-api-name }}:
 
-    {% list tabs group=search_api_request %}
+{% list tabs group=instructions %}
 
-    - HTML {#html}
+- SDK {#sdk}
 
-      **body.json**
+  1. Create a file named `web-search.py` and paste the following code into it:
 
-      ```json
-      {
-          "query": {
-            "searchType": "SEARCH_TYPE_RU",
-            "queryText": "coffee machine"
-          },
-          "folderId": "<folder_ID>",
-          "responseFormat": "FORMAT_HTML",
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 YaBrowser/25.2.0.0 Safari/537.36"
-      }
+      ```python
+      #!/usr/bin/env python3
+
+      from __future__ import annotations
+
+      from yandex_cloud_ml_sdk import YCloudML
+
+      from yandex_cloud_ml_sdk.search_api import (
+          FamilyMode,
+          FixTypoMode,
+          GroupMode,
+          Localization,
+          SearchType,
+          SortMode,
+          SortOrder,
+      )
+
+      import pathlib
+
+      USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 YaBrowser/25.2.0.0 Safari/537.36"
+
+      search_query = "coffee machine"
+
+      formats = ["xml", "html"]
+
+
+      def main() -> None:
+
+          sdk = YCloudML(
+              folder_id="<folder_ID>",
+              auth="<API_key>",
+          )
+          sdk.setup_default_logging("error")
+
+          search = sdk.search_api.web(
+              search_type="ru",
+              user_agent=USER_AGENT,
+          )
+
+          for format in formats:
+
+              print(f"Saving results in the {format.upper()} format:")
+              for page in range(0, 3):
+                  operation = search.run_deferred(search_query, format=format, page=page)
+                  search_result = operation.wait(poll_interval=1)
+                  output_filename = (
+                      str(pathlib.Path(__file__).parent)
+                      + "/"
+                      + "page_"
+                      + str(page + 1)
+                      + "."
+                      + format
+                  )
+                  file = open(output_filename, "a")
+                  file.write(search_result.decode("utf-8"))
+                  print(f"Page {page} saved to file {output_filename}")
+                  file.close()
+              print()
+
+
+      if __name__ == "__main__":
+          main()
       ```
 
-    - XML {#xml}
+      Where:
 
-      **body.json**
+      {% include [sdk-code-legend](../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      ```json
-      {
-          "query": {
-            "searchType": "SEARCH_TYPE_RU",
-            "queryText": "coffee machine"
-          },
-          "folderId": "<folder_ID>",
-          "responseFormat": "FORMAT_XML",
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 YaBrowser/25.2.0.0 Safari/537.36"
-      }
-      ```
+      For more information on query parameters, see [{#T}](../operations/web-search.md).
 
-    {% endlist %}
-
-    For more information about the request body parameters, see [{#T}](../concepts/web-search.md#parameters).
-1. Send your HTTP request by specifying the API key created earlier and the path to the request body file:
+  1. Run the file you created:
 
       ```bash
-      curl \
-        --request POST \
-        --header "Authorization: Api-Key <API_key>" \
-        --data "@body.json" \
-        "https://searchapi.{{ api-host }}/v2/web/searchAsync"
+      python3 web-search.py
       ```
 
-      Result:
+      As a result of execution, the code will save the first three pages of search results for the `coffee machine` query in the current directory in XML and HTML formats:
 
       ```text
-      {
-      "done": false,
-      "id": "sprqjo0kf40j********",
-      "description": "WEB search async",
-      "createdAt": "2025-05-05T18:10:44Z",
-      "createdBy": "ajegtlf2q28a********",
-      "modifiedAt": "2025-05-05T18:10:44Z"
-      }
+      Saving results in the XML format:
+      Page 0 saved to file /Users/MyUser/Desktop/page_1.xml
+      Page 1 saved to file /Users/MyUser/Desktop/page_2.xml
+      Page 2 saved to file /Users/MyUser/Desktop/page_3.xml
+
+      Saving results in the HTML format:
+      Page 0 saved to file /Users/MyUser/Desktop/page_1.html
+      Page 1 saved to file /Users/MyUser/Desktop/page_2.html
+      Page 2 saved to file /Users/MyUser/Desktop/page_3.html
       ```
 
-      This will return the [Operation object](../../api-design-guide/concepts/operation.md) ID (`id` value), by which you can retrieve the result of the operation. Save the ID for later.
+- REST API {#api}
 
-## Make sure the request was executed successfully and get the result {#verify-operation}
+  1. Send a search query:
 
-Wait until {{ search-api-name }} executes the request and generates a response. This may take from a few minutes to a few hours.
+      1. Create a [request body](../concepts/web-search.md#parameters) file (e.g., `body.json`) with the [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are going to use for {{ search-api-name }} in the `folderId` field:
 
-To make sure your search query was executed successfully, send the following HTTP request:
+          {% list tabs group=search_api_request %}
 
-  ```bash
-  curl \
-    --request GET \
-    --header "Authorization: Api-Key <API_key>" \
-    https://operation.{{ api-host }}/operations/<request_ID> \
-    > result.json
-  ```
+          - HTML {#html}
 
-  Where:
+            **body.json**
 
-  * `<API_key>`: API key you created earlier.
-  * `<request_ID>`: The Operation object ID you saved in the previous step.
+            ```json
+            {
+                "query": {
+                  "searchType": "SEARCH_TYPE_RU",
+                  "queryText": "coffee machine"
+                },
+                "folderId": "<folder_ID>",
+                "responseFormat": "FORMAT_HTML",
+                "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 YaBrowser/25.2.0.0 Safari/537.36"
+            }
+            ```
 
-  The response will be saved to the `result.json` file. Open the file to make sure its `done` field is set to `true`, and the `response` field contains the result of the search query.
+          - XML {#xml}
 
-## Decode the result {#decode}
+            **body.json**
 
-The `result.json` file stores the [Base64](https://en.wikipedia.org/wiki/Base64)-encoded search query result in its `response` field. To decode the result, run this command:
+            ```json
+            {
+                "query": {
+                  "searchType": "SEARCH_TYPE_RU",
+                  "queryText": "coffee machine"
+                },
+                "folderId": "<folder_ID>",
+                "responseFormat": "FORMAT_XML",
+                "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 YaBrowser/25.2.0.0 Safari/537.36"
+            }
+            ```
 
-{% list tabs group=search_api_request %}
+          {% endlist %}
 
-- HTML {#html}
+          For more information about the request body parameters, see [{#T}](../concepts/web-search.md#parameters).
+      1. Send your HTTP request by specifying the API key created earlier and the path to the request body file:
 
-  ```bash
-  echo "$(< result.json)" | \
-    jq -r .response.rawData | \
-    base64 --decode > result.html
-  ```
+            ```bash
+            curl \
+              --request POST \
+              --header "Authorization: Api-Key <API_key>" \
+              --data "@body.json" \
+              "https://searchapi.{{ api-host }}/v2/web/searchAsync"
+            ```
 
-  The HTML response to the query will be saved to a file named `result.html`.
+            Result:
 
-- XML {#xml}
+            ```text
+            {
+            "done": false,
+            "id": "sprqjo0kf40j********",
+            "description": "WEB search async",
+            "createdAt": "2025-05-05T18:10:44Z",
+            "createdBy": "ajegtlf2q28a********",
+            "modifiedAt": "2025-05-05T18:10:44Z"
+            }
+            ```
 
-  ```bash
-  echo "$(< result.json)" | \
-    jq -r .response.rawData | \
-    base64 --decode > result.xml
-  ```
+            This will return the [Operation object](../../api-design-guide/concepts/operation.md) ID (`id` field value) by which you can retrieve the result of the operation. Save the ID for later.
+  1. Wait until {{ search-api-name }} executes the request and generates a response. This may take from a few minutes to a few hours.
 
-  The XML response to the query will be saved to a file named `result.xml`.
+      To make sure your search query was executed successfully, send the following HTTP request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Api-Key <API_key>" \
+          https://operation.{{ api-host }}/operations/<request_ID> \
+          > result.json
+        ```
+
+        Where:
+
+        * `<API_key>`: API key you created earlier.
+        * `<request_ID>`: The Operation object ID you saved in the previous step.
+
+        The response will be saved to the `result.json` file. Open the file to make sure its `done` field is set to `true`, and the `response` field contains the result of the search query. The result in the `response` field is saved in [Base64](https://en.wikipedia.org/wiki/Base64) encoding.
+  1. Decode the result. To do this, run this command:
+
+      {% list tabs group=search_api_request %}
+
+      - HTML {#html}
+
+        ```bash
+        echo "$(< result.json)" | \
+          jq -r .response.rawData | \
+          base64 --decode > result.html
+        ```
+
+        The HTML response to the query will be saved to a file named `result.html`.
+
+      - XML {#xml}
+
+        ```bash
+        echo "$(< result.json)" | \
+          jq -r .response.rawData | \
+          base64 --decode > result.xml
+        ```
+
+        The XML response to the query will be saved to a file named `result.xml`.
+
+      {% endlist %}
 
 {% endlist %}
 

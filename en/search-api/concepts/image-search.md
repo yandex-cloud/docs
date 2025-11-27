@@ -11,7 +11,13 @@ With {{ search-api-full-name }}, you can search for images through the [Yandex I
 
 To [search](../operations/search-images.md) by text description, provide your search parameters in the [request body](#request-body-format) and get your search result in [XML format](#xml-response-format).
 
-### Request body format {#request-body-format}
+{% note info %}
+
+For parameters and examples of search queries via the [{{ ml-sdk-full-name }}](./index.md#sdk), see [{#T}](../operations/search-images.md).
+
+{% endnote %}
+
+### API request body format {#request-body-format}
 
 {% include [rest-grpc-fields-differ](../../_includes/search-api/rest-grpc-fields-differ.md) %}
 
@@ -273,7 +279,13 @@ The value being provided must be used when generating search results.
 
 To [search](../operations/search-images-by-pic.md) by image, provide the image and your search parameters in the [request body](#request-body-by-pic) and get your search result in [JSON](#json-response-format) format.
 
-### Request body format {#request-body-by-pic}
+{% note info %}
+
+For parameters and examples of search queries via the [{{ ml-sdk-full-name }}](./index.md#sdk), see [{#T}](../operations/search-images-by-pic.md).
+
+{% endnote %}
+
+### API request body format {#request-body-by-pic}
 
 {% include [rest-grpc-fields-differ](../../_includes/search-api/rest-grpc-fields-differ.md) %}
 

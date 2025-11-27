@@ -18,6 +18,14 @@ In {{ search-api-name }}, you can run queries in synchronous and deferred (async
 
 With the API, you can use text queries to [search](../operations/search-images.md) for images. [Image search](image-search.md) is only available in synchronous mode.
 
-You can also use the API for text search in combination [{{ yagpt-name }}](../../ai-studio/concepts/generation/index.md)'s generative features. This gives you a single concise and coherent [generative response](./generative-response.md) to produce which the neural network analyzes the relevant results of the {{ search-api-name }}'s text search across websites.
+You can also use the API for text search in combination [{{ yagpt-name }}](../../ai-studio/concepts/generation/index.md)'s generative features. This gives you a single concise and coherent [generative response](./generative-response.md) to generate which the neural network analyzes relevant {{ search-api-name }} text search results across websites.
 
 With API, you set the search type directly in the [body](./web-search.md#parameters) of each query. You need a {{ yandex-cloud }} [user](../../iam/concepts/users/accounts.md) or [service](../../iam/concepts/users/service-accounts.md) account and [authentication data](../api-ref/authentication.md) to send queries. You do not need to specify trusted IP addresses when using API.
+
+## {{ ml-sdk-full-name }} {#sdk}
+
+{{ ai-studio-full-name }} provides [{{ ml-sdk-full-name }}](../../ai-studio/sdk/index.md), a library of tools and code examples for Python development. {{ ml-sdk-name }} employs a standardized method of working with {{ search-api-name }} and simplifies integration with other {{ ai-studio-full-name }} services.
+
+The {{ ml-sdk-name }} library implements the synchronous and asynchronous Python interfaces based on gRPC API calls of {{ search-api-name }} and [{{ ai-studio-name }}](../../ai-studio/index.yaml) services. For the full list of supported functions, library source code, and use cases, visit [this GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).
+
+You can learn more about {{ ml-sdk-full-name }} in [this {{ ai-studio-name }} guide](../../ai-studio/sdk/index.md).

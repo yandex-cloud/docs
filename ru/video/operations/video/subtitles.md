@@ -7,6 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете [добавлять](#add) и [удалять](#delete) субтитры во время загрузки или изменения видео. После загрузки видео вы также сможете [скачать](#download) файлы [субтитров](../../concepts/videos.md#subtitles).
 
+{% include [free-neuro](../../../_includes/video/free-neuro.md) %}
 
 ## Добавить субтитры {#add}
 
@@ -16,15 +17,23 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
-  1. В поле **{{ ui-key.yacloud_video.videos.label_subtitles }}** нажмите кнопку **{{ ui-key.yacloud_video.common.action_add }}**.
-  1. В открывшемся окне выберите язык субтитров.
-  1. Нажмите кнопку **Выбрать файл** и выберите файл субтитров.
-  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. В блоке **{{ ui-key.yacloud_video.videos.label_subtitles }}** нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.common.action_add }}**.
+  1. Выберите способ добавления субтитров:
 
-     Дождитесь загрузки файла.
+     * ![image](../../../_assets/console-icons/magic-wand.svg) **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}** — чтобы автоматически сгенерировать субтитры на основе анализа видео. В открывшемся окне укажите исходный язык видео и языки, для которых нужно создать субтитры, и нажмите **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
+     * ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud_video.common.upload }}** — чтобы загрузить субтитры из файла. В открывшемся окне укажите язык субтитров, выберите файл с субтитрами и дождитесь его загрузки. Нажмите **{{ ui-key.yacloud_video.common.action_create }}**.
+
+        {% include [max-len-video-subtitle](../../../_includes/video/max-len-video-subtitle.md) %}
+     
+  1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
+
+- API {#api}
+
+  Создайте запись о субтитрах методом REST API [Create](../../api-ref/Subtitle/create.md) для ресурса [Subtitle](../../api-ref/Subtitle/) или вызовом gRPC API [SubtitleService.Create](../../api-ref/grpc/Subtitle/create.md).
+
+  Загрузите файл субтитров по URL, полученному методом REST API [GenerateUploadURL](../../api-ref/Subtitle/generateUploadURL.md) для ресурса [Subtitle](../../api-ref/Subtitle/) или вызовом gRPC API [SubtitleService.GenerateUploadURL](../../api-ref/grpc/Subtitle/generateUploadURL.md).
 
 {% endlist %}
 
@@ -37,16 +46,20 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
-  1. Нажмите значок ![image](../../../_assets/console-icons/xmark.svg) справа от названия файла субтитров, который нужно заменить.
-  1. В поле **{{ ui-key.yacloud_video.videos.label_subtitles }}** нажмите кнопку **{{ ui-key.yacloud_video.common.action_add }}**.
-  1. В открывшемся окне выберите язык субтитров.
-  1. Нажмите кнопку **Выбрать файл** и выберите файл субтитров.
-  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. В блоке **{{ ui-key.yacloud_video.videos.label_subtitles }}** выберите способ изменения:
 
-     Дождитесь загрузки файла.
+     * Чтобы изменить субтитры, загруженные из файла, справа от названия нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud_video.videos.action_subtitles_upload_again }}**. В открывшемся окне укажите язык субтитров, выберите файл с субтитрами и дождитесь его загрузки. Нажмите **{{ ui-key.yacloud_video.common.action_create }}**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
+     * Чтобы изменить сгенерированные субтитры, нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.common.action_add }}** и выберите ![image](../../../_assets/console-icons/magic-wand.svg) **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}**. В открывшемся окне укажите языки, для которых нужно изменить субтитры, и нажмите **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}**.
+
+        {% include [max-len-video-subtitle](../../../_includes/video/max-len-video-subtitle.md) %}
+
+  1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
+
+- API {#api}
+
+  Сгенерируйте новый URL и загрузите файл субтитров методом REST API [GenerateUploadURL](../../api-ref/Subtitle/generateUploadURL.md) для ресурса [Subtitle](../../api-ref/Subtitle/) или вызовом gRPC API [SubtitleService.GenerateUploadURL](../../api-ref/grpc/Subtitle/generateUploadURL.md).
 
 {% endlist %}
 
@@ -60,7 +73,7 @@ description: Следуя данной инструкции, вы сможете
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
   1. На вкладке ![video](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** выберите видео.
-  1. В блоке **{{ ui-key.yacloud_video.videos.label_subtitles }}** нажмите значок ![image](../../../_assets/console-icons/arrow-down-to-line.svg) справа от названия файла субтитров, который нужно скачать.
+  1. В блоке **{{ ui-key.yacloud_video.videos.label_subtitles }}** нажмите ![image](../../../_assets/console-icons/arrow-down-to-line.svg) справа от названия файла субтитров, который нужно скачать.
 
 {% endlist %}
 
@@ -73,8 +86,12 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
-  1. Нажмите значок ![image](../../../_assets/console-icons/xmark.svg) справа от названия файла субтитров, который нужно удалить.
-  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. В блоке **{{ ui-key.yacloud_video.videos.label_subtitles }}** справа от названия нужного файла субтитров нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_video.common.action_delete }}**.
+  1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
+
+- API {#api}
+
+  Для удаления субтитров воспользуйтесь методом REST API [Delete](../../api-ref/Subtitle/delete.md) для ресурса [Subtitle](../../api-ref/Subtitle/) или вызовом gRPC API [SubtitleService.Delete](../../api-ref/grpc/Subtitle/delete.md).
 
 {% endlist %}

@@ -66,6 +66,36 @@ keywords:
         1. (Опционально) Выберите время [технического обслуживания](../concepts/maintenance.md) кластера:
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+        
+        1. (Опционально) Задайте параметры [TLS](../../glossary/tls.md).
+        
+           {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+           
+           Загрузите один или несколько пользовательских сертификатов в PEM-формате:
+           * самоподписанный сертификат;
+           * сертификат, выпущенный в стороннем центре сертификации с цепочкой промежуточных сертификатов. Сертификат вместе с цепочкой сертификатов необходимо загружать в одном поле.
+
+              {% cut "Пример" %}
+              
+              ```text
+              -----BEGIN CERTIFICATE-----
+              <сертификат>
+              -----END CERTIFICATE-----
+              -----BEGIN CERTIFICATE-----
+              <промежуточный_сертификат_1>
+              -----END CERTIFICATE-----
+              ...
+              -----BEGIN CERTIFICATE-----
+              <промежуточный_сертификат_N>
+              -----END CERTIFICATE-----
+              -----BEGIN CERTIFICATE-----
+              <корневой_сертификат>
+              -----END CERTIFICATE-----
+              ```
+              
+              {% endcut %}
+
+           {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
         1. (Опционально) Настройте логирование:
 
@@ -85,7 +115,6 @@ keywords:
 
     Чтобы создать кластер {{ mtr-name }}:
 
-    
     1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
         ```bash
@@ -93,7 +122,6 @@ keywords:
         ```
 
         Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
-
 
     1. Посмотрите описание команды CLI для создания кластера:
 
@@ -112,7 +140,8 @@ keywords:
            --security-group-ids <список_идентификаторов_групп_безопасности> \
            --coordinator resource-preset-id=<класс_вычислительных_ресурсов> \
            --worker resource-preset-id=<класс_вычислительных_ресурсов>,count=<количество_воркеров> \
-           --deletion-protection
+           --deletion-protection \
+           --trusted-certs-from-files <список_путей_к_сертификатам>
         ```
 
         Где:
@@ -141,6 +170,14 @@ keywords:
         * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+        
+        * `--trusted-certs-from-files` — список путей к сертификатам, разделенных запятой.
+
+           {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+        
+           {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
+           
+           {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
     1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/), задайте параметры логирования:
 
@@ -234,6 +271,10 @@ keywords:
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
+    1. Чтобы задать параметры [TLS](../../glossary/tls.md):
+
+       {% include [tls description](../../_includes/managed-trino/terraform/tls.md) %}
+
     1. Проверьте корректность настроек.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -291,7 +332,10 @@ keywords:
               },
               "additionalProperties": {<дополнительные_параметры_перезапросов>}
             },
-            "version": "<версия>"
+            "version": "<версия>",
+            "tls": {
+              "trustedCertificates": [ <список_сертификатов> ]
+            }
           },
           "network": {
             "subnetIds": [ <список_идентификаторов_подсетей> ],
@@ -350,6 +394,16 @@ keywords:
             * `version` — версия {{ TR }}.
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
+
+            * `tls` — параметры [TLS](../../glossary/tls.md).
+
+               {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+
+               * `trustedCertificates` — список сертификатов, разделенных запятой.
+
+                  {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
+               
+               {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
         * `network` — сетевые настройки:
 
@@ -431,7 +485,10 @@ keywords:
               },
               "additional_properties": {<дополнительные_параметры_перезапросов>}
             },
-            "version": "<версия>"
+            "version": "<версия>",
+            "tls": {
+              "trusted_certificates": [ <список_сертификатов> ]
+            }
           },
           "network": {
             "subnet_ids": [ <список_идентификаторов_подсетей> ],
@@ -490,6 +547,16 @@ keywords:
             * `version` — версия {{ TR }}.
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
+
+            * `tls` — параметры [TLS](../../glossary/tls.md).
+
+               {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+
+               * `trusted_certificates` — список сертификатов, разделенных запятой.
+
+                  {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
+               
+               {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
         * `network` — сетевые настройки:
 

@@ -5,7 +5,8 @@ This section describes how to use {{ yandex-cloud }} from within a [VM](../../co
 {% include [what-for-to-use-sa-with-vm](../../../_includes/compute/what-for-to-use-sa-with-vm.md) %}
 
 Yandex Cloud provides simplified API and CLI authentication from within a VM for service accounts. To authenticate:
-1. If you do not have a service account yet, [create one](../../../iam/operations/sa/create.md) and [configure access permissions for it](../../../iam/operations/sa/assign-role-for-sa.md).
+1. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
+1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) to the service account a [role](../../../iam/concepts/access-control/roles.md) consistent with the actions you want to perform from within the VM. For example, for {{ compute-name }} resource management, this could be the `compute.admin` [role](../../../iam/roles-reference.md#compute-admin) for a folder or the primitive `editor` [role](../../security/index.md#primitive-roles).
 1. [Link the service account](#link-sa-with-instance) to your VM.
 1. [Get authenticated from within your VM](#auth-inside-vm).
 
@@ -17,7 +18,11 @@ Link your service account to an existing or new VM.
 
 ## Authentication from within a VM {#auth-inside-vm}
 
-To get authenticated from within your VM using the linked service account:
+{% note warning %}
+
+Simplified authentication to the {{ yandex-cloud }} API or CLI from within a VM is only possible using a service account [associated](#link-sa-with-instance) with the VM.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -57,7 +62,7 @@ To get authenticated from within your VM using the linked service account:
 
      Result:
 
-     ```
+     ```text
      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
      ```
 

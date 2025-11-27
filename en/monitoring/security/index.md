@@ -5,17 +5,17 @@ description: How access management works in {{ monitoring-full-name }}, a servic
 
 # Access management in {{ monitoring-name }}
 
-Working with {{ yandex-cloud }} resources, users can only perform operations allowed by the roles assigned to them. With no roles assigned, a user cannot perform most operations.
+{{ yandex-cloud }} users can only perform operations on resources in accordance with the roles assigned to them. Without assigned roles, a user cannot perform most operations.
 
-To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md), access to {{ monitoring-full-name }} resources, assign them the roles from the list below. 
+To allow access to {{ monitoring-full-name }} resources, assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). 
 
-Currently, a role can only be assigned for a folder or cloud and it is inherited by nested resources.
+Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
 {% note info %}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} guide.
 
 {% endnote %}
 
@@ -27,7 +27,7 @@ To assign a role to a user:
 
 ## Roles this service has {#roles-list}
 
-The list below shows {{ monitoring-full-name }} roles.
+The list below shows all roles used for access control in {{ monitoring-full-name }}.
 
 ### Service roles {#service-roles}
 

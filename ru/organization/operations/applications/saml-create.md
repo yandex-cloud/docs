@@ -33,6 +33,62 @@ description: Следуя данной инструкции, вы сможете
           1. Нажмите **Enter**.
       1. Нажмите кнопку **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для создания SAML-приложения:
+
+     ```bash
+     yc organization-manager idp application saml application create --help
+     ```
+
+  1. Создайте SAML-приложение:
+
+     ```bash
+     yc organization-manager idp application saml application create \
+       --organization-id <идентификатор_организации> \
+       --name <имя_приложения> \
+       --description <описание_приложения> \
+       --labels <ключ>=<значение>[,<ключ>=<значение>]
+     ```
+
+     Где:
+
+     * `--organization-id` — [идентификатор организации](../organization-get-id.md), в которой нужно создать SAML-приложение. Обязательный параметр.
+     * `--name` — имя SAML-приложения. Обязательный параметр. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `--description` — описание SAML-приложения. Необязательный параметр.
+     * `--labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр. Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
+
+     Результат:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: saml-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: NONE
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
+     Сохраните значение поля `id`, оно понадобится для настройки приложения.
+
+  1. (Опционально) Получите информацию о сертификатах приложения:
+
+     ```bash
+     yc organization-manager idp application saml signature-certificate list \
+       --application-id <идентификатор_приложения>
+     ```
+
+     При создании SAML-приложения автоматически создается сертификат для проверки подписи SAML-ответов.
+
 {% endlist %}
 
 ## Настройте приложение {#setup-application}
@@ -87,6 +143,55 @@ description: Следуя данной инструкции, вы сможете
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
   1. {% include [saml-app-update-sp-settings](../../../_includes/organization/saml-app-update-sp-settings.md) %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для настройки SAML-приложения:
+
+     ```bash
+     yc organization-manager idp application saml application update --help
+     ```
+
+  1. Выполните команду для настройки параметров поставщика услуг:
+
+     ```bash
+     yc organization-manager idp application saml application update \
+       --id <идентификатор_приложения> \
+       --sp-entity-id <идентификатор_поставщика_услуг> \
+       --acs-urls <URL>[,<URL>] \
+       --signature-mode <режим_подписи>
+     ```
+
+     Где:
+
+     * `--id` — идентификатор SAML-приложения. Обязательный параметр.
+     * `--sp-entity-id` — уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-name }}.
+     * `--acs-urls` — URL-адрес или несколько адресов через запятую, на которые {{ org-name }} будет отправлять SAML-ответ. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
+     * `--signature-mode` — элементы SAML-ответа, которые будут подписываться электронной подписью. Возможные значения:
+       * `assertion_only` — только передаваемые атрибуты пользователя;
+       * `response_only` — весь SAML-ответ целиком;
+       * `response_and_assertion` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
+
+     Результат:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: saml-app
+     organization_id: bpf2c65rqcl8********
+     sp_entity_id: https://example.com/saml
+     acs_urls:
+       - url: https://example.com/saml/acs
+     signature_mode: RESPONSE_AND_ASSERTION
+     group_claims_settings:
+       group_distribution_type: NONE
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
 
 {% endlist %}
 

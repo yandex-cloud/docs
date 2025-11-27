@@ -19,7 +19,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Select **Advanced setup**.
@@ -103,7 +103,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create a VM from disks:
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {

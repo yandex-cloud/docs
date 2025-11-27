@@ -59,7 +59,7 @@ CPU core workload.
 | `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read rate | 
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second | 
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second | 
-| `io.utilization`<br/>`DGAUGE`, % | Disk utilization | 
+| `io.utilization`<br/>`DGAUGE`, % | Disk utilization disabled for network drives | 
 | `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |

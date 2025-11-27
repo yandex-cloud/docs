@@ -11,7 +11,7 @@ sourcePath: ru/logging_includes/operations/create-group.md
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [лог-группу](../concepts/log-group.md).
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
     1. (Опционально) Введите имя и описание лог-группы. Формат имени:
 

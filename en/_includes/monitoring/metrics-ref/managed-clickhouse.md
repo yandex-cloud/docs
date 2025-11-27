@@ -13,7 +13,7 @@ subcluster_name | Subcluster type: `clickhouse_subcluster` or `zookeeper_subclus
 shard | Shard ID
 
 ## CPU metrics {#managed-clickhouse-cpu-metrics}
-These metrics show processor core workload.
+CPU core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -44,7 +44,7 @@ These metrics show processor core workload.
 | `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space | 
 | `disk.used_inodes`<br/>`DGAUGE`, count | Used inodes |
 
-## Disk I/O metrics {#managed-clickhouse-diskio-metrics}
+## Disk operation metrics {#managed-clickhouse-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
@@ -61,7 +61,7 @@ These metrics show processor core workload.
 | `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read rate | 
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second | 
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second | 
-| `io.utilization`<br/>`DGAUGE`, % | Disk utilization | 
+| `io.utilization`<br/>`DGAUGE`, % | Disk utilization disabled for network drives | 
 | `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
@@ -95,7 +95,7 @@ These metrics show processor core workload.
 ## Service metrics {#managed-clickhouse-metrics}
 #### System event metrics {#managed-clickhouse-system-events-metrics}
 These are {{ CH }} native metrics from the [system.events]({{ ch.docs }}/operations/system-tables/events) table.
-For each metric, the increment (`inc`) and rate of change (`rate`) per unit of time are calculated.
+For each metric, the increment (`inc`) and change per unit of time (`rate`) are calculated.
 
 | Name<br/>Type |
 | ----- |
@@ -561,7 +561,7 @@ For each metric, the increment per unit of time (second) is calculated.
 | `ch_replication-inserts_in_queue`<br/>`DGAUGE`, count | Number of data parts enqueued for insert | 
 | `ch_replication-is_alive`<br/>`DGAUGE`, 0/1 | Replication performance indicator.<br/>It can be either `1` if DB replication is alive or `0` if it is not. | 
 | `ch_replication-max_absolute_delay`<br/>`DGAUGE`, seconds | Maximum replication delay | 
-| `ch_replication-merges_in_queue`<br/>`DGAUGE`, count | Merges enqueued | 
+| `ch_replication-merges_in_queue`<br/>`DGAUGE`, count | Number of merges enqueued | 
 | `ch_replication-parts_to_check`<br/>`DGAUGE`, count | Number of data parts to check | 
 | `ch_replication-queue_size`<br/>`DGAUGE`, count | Merge and insert queue size | 
 | `ch_replication-tables`<br/>`DGAUGE`, count | Number of replicated tables |
@@ -594,6 +594,6 @@ For each metric, the increment per unit of time (second) is calculated.
 ## Other metrics {#managed-clickhouse-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a service on the host is available for reads or `0` if it is not. |
-| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a service on the host is available for writes or `0` if it is not. |
-| `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is alive or `0` if it is not. |
+| `can_read`<br/>`DGAUGE`, 0/1 | Host read access indicator.<br/>`1` if the host service is available for reads, `0` if not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the host service is available for writes, `0` if not. |
+| `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. |

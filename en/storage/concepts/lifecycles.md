@@ -14,6 +14,10 @@ Types of actions include:
 * Delete objects or their non-current versions.
 * Delete incomplete multipart uploads.
 
+
+{% include [changing-storage-class](../../_includes/storage/changing-storage-class.md) %}
+
+
 Filters for grouping objects include:
 
 * Object [key](object.md#key) prefix.

@@ -36,6 +36,66 @@
 
       {% endnote %}
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для добавления атрибута:
+
+     ```bash
+     yc organization-manager idp application saml attribute create --help
+     ```
+
+  1. Чтобы добавить атрибут пользователя, выполните команду:
+
+     ```bash
+     yc organization-manager idp application saml attribute create \
+       --application-id <идентификатор_приложения> \
+       --name <имя_атрибута> \
+       --value <значение_атрибута>
+     ```
+
+     Где:
+
+     * `--application-id` — идентификатор SAML-приложения.
+     * `--name` — имя атрибута, уникальное для вашего приложения.
+     * `--value` — значение атрибута. Возможные значения:
+
+       {% include [saml-app-assertion-list](./saml-app-assertion-list.md) %}
+
+  1. Чтобы добавить атрибут групп пользователей, выполните команду:
+
+     ```bash
+     yc organization-manager idp application saml attribute create \
+       --application-id <идентификатор_приложения> \
+       --name <имя_атрибута_групп> \
+       --value <значение_атрибута_групп>
+     ```
+
+     Где:
+
+     * `--name` — имя атрибута групп пользователей. Имя атрибута должно быть уникальным для вашего приложения.
+     * `--value` — значение атрибута групп. Возможные значения:
+
+       {% include [saml-app-group-assertion](./saml-app-group-assertion.md) %}
+
+  1. Чтобы изменить атрибут, выполните команду:
+
+     ```bash
+     yc organization-manager idp application saml attribute update \
+       --id <идентификатор_атрибута> \
+       --name <новое_имя_атрибута> \
+       --value <новое_значение_атрибута>
+     ```
+
+  1. Чтобы удалить атрибут, выполните команду:
+
+     ```bash
+     yc organization-manager idp application saml attribute delete <идентификатор_атрибута>
+     ```
+
 {% endlist %}
 
 Убедитесь, что добавленные атрибуты также добавлены в настройки интеграции SAML-приложения на стороне поставщика услуг и корректно обрабатываются им.

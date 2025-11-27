@@ -7,6 +7,8 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете [добавлять](#enable) и [удалять](#disable) суммаризацию во время загрузки или изменения видео.
 
+{% include [free-neuro](../../../_includes/video/free-neuro.md) %}
+
 ## Включить суммаризацию {#enable}
 
 {% list tabs group=instructions %}

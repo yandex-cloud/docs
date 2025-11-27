@@ -7,6 +7,8 @@ items:
     href: concepts/index.md
   - name: Request examples
     href: requests-examples.md
+  - name: Quota reference
+    href: all-quotas.md
   - name: Step-by-step guides
     expanded: true
     items:
@@ -51,7 +53,6 @@ items:
           - name: list-operations
             href: cli-ref/quota-request/list-operations.md
   - name: API reference
-    expanded: true
     items:
       - name: API authentication
         href: api-ref/authentication.md

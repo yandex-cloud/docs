@@ -30,8 +30,9 @@ Potentially, you can change your quotas ​​up to the limit values, i.e., the 
 
 You can view the default quotas in the relevant documentation:
 
-* On the general [quota page](../../overview/concepts/quotas-limits.md#quotas-limits-default).
-* On the **Concepts > Quotas and Limits** page for each service.
+* [Quota reference](../all-quotas.md).
+* [Platform overview](../../overview/concepts/quotas-limits.md#quotas-limits-default) section.
+* **Concepts > Quotas and Limits** page for each service.
 
 There is no reset to default values in {{ quota-manager-name }}.
 

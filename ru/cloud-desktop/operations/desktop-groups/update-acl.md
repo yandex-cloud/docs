@@ -12,7 +12,7 @@ description: Из статьи вы узнаете, как изменить пр
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположена группа рабочих столов.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Выберите группу рабочих столов, к которой хотите изменить права доступа.
   1. На панели слева выберите ![persons](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
   1. Нажмите **{{ ui-key.yacloud_org.common.resource-acl.button_new-bindings }}**.

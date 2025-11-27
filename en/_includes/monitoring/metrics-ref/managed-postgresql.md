@@ -1,4 +1,4 @@
-The `name` label contains the metric name.
+The metric name goes into the `name` label.
 
 Labels shared by all {{ mpg-name }} metrics:
 
@@ -13,7 +13,7 @@ subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-postgresql-cpu-metrics}
 
-These metrics show processor core workload.
+CPU core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -64,7 +64,7 @@ These metrics show processor core workload.
 | `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read rate |
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
-| `io.utilization`<br/>`DGAUGE`, % | Disk utilization |
+| `io.utilization`<br/>`DGAUGE`, % | Disk utilization disabled for network drives |
 | `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second |
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
@@ -102,8 +102,8 @@ These metrics show processor core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a service on the host is available for reads or `0` if it is not. |
-| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a service on the host is available for writes or `0` if it is not. |
+| `can_read`<br/>`DGAUGE`, 0/1 | Host read access indicator.<br/>`1` if the host service is available for reads, `0` if not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the host service is available for writes, `0` if not. |
 | `postgres-is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. |
 | `postgres-is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>It can be either `1` if a DB host is a master or `0` if it is not. |
 | `postgres-is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>It can be either `1` if a DB host is a replica or `0` if it is not. |
@@ -129,7 +129,7 @@ These metrics show processor core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `_pg_database_size`<br/>`DGAUGE`, bytes | Database size. <br/>Additional labels: `dbname`|
+| `_pg_database_size`<br/>`DGAUGE`, bytes | Database size. <br/>Additional labels: `dbname` |
 | `<DB_name>_tup_deleted`<br/>`DGAUGE`, count | Number of rows deleted by queries in `<DB_name>` |
 | `<DB_name>_tup_fetched`<br/>`DGAUGE`, count | Number of rows fetched by queries in `<DB_name>` |
 | `<DB_name>_tup_inserted`<br/>`DGAUGE`, count | Number of rows inserted by queries in `<DB_name>` |

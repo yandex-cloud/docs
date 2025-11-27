@@ -39,10 +39,12 @@ items:
             href: operations/add-account.md
           - name: Получить информацию о пользователе
             href: operations/users-get.md
-          - name: Изменить данные пользователя
+          - name: Изменить данные локального пользователя
             href: operations/user-pools/edit-user.md
           - name: Изменить пароль локального пользователя
             href: operations/user-pools/reset-user-password.md
+          - name: Управление пользователем в портале Мой аккаунт
+            href: operations/manage-account.md
           - name: Посмотреть группы пользователя
             href: operations/get-users-groups.md
           - name: Активировать пользователя
@@ -267,6 +269,8 @@ items:
         href: concepts/mfa.md
       - name: Управляемые организации
         href: concepts/controlled-org.md
+      - name: Портал Мой аккаунт
+        href: concepts/my-account.md
       - name: Синхронизация с {{ microsoft-idp.ad-short }}
         href: concepts/ad-sync.md
       - name: Квоты и лимиты

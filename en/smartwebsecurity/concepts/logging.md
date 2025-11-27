@@ -4,7 +4,7 @@
 
 {{ sws-name }} allows you to collect and view service logs to configure protection and monitor security events.
 
-There are two options for collecting logs: via {{ sws-name }} and via an L7 {{ alb-name }} the security profile is connected to.
+There are two log collection options available: via {{ sws-name }} and via the L7 {{ alb-name }} the security profile is connected to.
 
 This section provides information on logging via {{ sws-name }}. If you want to learn about collecting logs via an L7 balancer, see [{#T}](../operations/configure-logging-alb.md).
 
