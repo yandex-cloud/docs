@@ -45,6 +45,9 @@ Number of input [tokens](../ai-studio/concepts/generation/tokens.md) | 2,000
 Output vector size | {{ emb-vector }}
 **[Text generation](../ai-studio/concepts/generation/index.md)** |
 Maximum number of tokens per response in the [management console]({{ link-console-main }}) | 1,000
+**[Text classification](../ai-studio/concepts/classifier/index.md)** |
+Number of classes in prompt-based classifiers | 20
+Number of classes in fine-tuned classifiers | 100
 **[Assistants](../ai-studio/concepts/assistant/index.md)**|
 Maximum number of assistants | 1,000
 Maximum number of threads | 10,000

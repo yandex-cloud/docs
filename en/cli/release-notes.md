@@ -7,6 +7,19 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.175.0 (10/11/25) {#version0.175.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ org-name }}
+
+Added missing fields to SAML application management commands:
+
+* `organization-manager idp application saml application create`
+* `organization-manager idp application saml application update`
+
+## Previous releases {#previous-release}
+
 ### Version 0.174.0 (06/11/25) {#version0.174.0}
 
 #### Changes to the CLI {#cli}
@@ -17,7 +30,7 @@ Added the `subject-id` parameter to the `yc init` command.
 
 ##### {{ alb-name }}
 
-Added support for the `path` field for ALB session affinity using cookies.
+Added support for the `path` field for ALB session affinity using cookies:
   * `yc application-load-balancer backend-group update`
   * `yc application-load-balancer backend-group create`
 
@@ -73,8 +86,6 @@ Added the `AUTH_METHOD_PASSWORD` and `AUTH_METHOD_IAM` user authentication metho
 ##### {{ objstorage-full-name }}
 
 Fixed the error with filtering uploaded objects in the `yc storage s3 cp` command.
-
-## Previous releases {#previous-release}
 
 ### Version 0.173.0 (30/10/25) {#version0.173.0}
 
@@ -1175,7 +1186,7 @@ Added commands to link instances to reserved instance pools.
 
 ##### {{ sf-name }} {#serverless-functions}
 
-Added the `--metadata-options` parameter to the `yc serverless function version create` command to specify options to obtain metadata in a function. Here is a possible use case:
+Added the `--metadata-options` parameter to the `yc serverless function version create` command to specify options to obtain metadata in a function. Here is a possible use case: 
 
 ```bash
 yc serverless function version create --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
@@ -1191,7 +1202,7 @@ yc serverless container revision deploy --metadata-options aws-v1-http-endpoint=
 
 ##### {{ iam-name }}
 
-Added the `--scopes` parameter to the `yc iam api-key create` command to specify the scope of the API key. If the parameter is not specified, no restrictions will apply to the new key.
+Added the `--scopes` parameter to the `yc iam api-key create` command to specify the scope of the API key. If the parameter is not specified, no restrictions will apply to the new key. 
 
 The `--scope` parameter will be removed in the next YC CLI version.
 
@@ -1204,7 +1215,7 @@ The `--scope` parameter will be removed in the next YC CLI version.
 
 **{{ mgp-name }}**
 
-Added the `--cloud-storage` parameter to the `yc managed-greenplum cluster create` command to specify the cloud storage management parameters. Example command to enable cloud storage:
+Added the `--cloud-storage` parameter to the `yc managed-greenplum cluster create` command to specify the cloud storage management parameters. Example command to enable cloud storage: 
 
 ```bash 
 yc managed-greenplum cluster create --cloud-storage enabled=true
@@ -1307,7 +1318,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ alb-name }} {#alb}
 
-* The `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` commands have been updated with the `--idle-timeout` parameter allowing you to specify the connection idle timeout.
+* The `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` commands have been updated with the `--idle-timeout` parameter allowing you to specify the connection idle timeout. 
 
 ##### {{ er-name }} {#eventrouter}
 
@@ -1394,7 +1405,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ cloud-desktop-name }} {#cloud-desktop}
 
-* Added the `--image-id` parameter to the `yc desktops group create` command to provide an image ID to a desktop group.
+* Added the `--image-id` parameter to the `yc desktops group create` command to provide an image ID to a desktop group. 
 
 ##### {{ backup-name }} {#backup}
 
@@ -2524,7 +2535,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 ##### {{ sf-name }} {#serverless-functions}
 
-Added the following parameters to the `yc serverless function version create` command:
+Added the following parameters to the `yc serverless function version create` command: 
 * `--no-logging`: Disables logging for a function.
 * `--log-group-id` and `--log-group-name`: Sends the logs to the specified log group.
 * `--log-folder-id` and `--log-folder-name`: Sends the logs to the default log group of the specified folder.

@@ -15,7 +15,7 @@ To create a VM:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Select **Advanced setup**.
@@ -136,7 +136,7 @@ To create a VM:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
 
@@ -205,7 +205,7 @@ To create a VM:
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
-       * `metadata`: In the metadata, provide the username and [public key for SSH access](../vm-connect/ssh.md#creating-ssh-keys) to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
+       * `metadata`: In the metadata, provide the username and [public key for SSH access](../vm-connect/ssh.md#creating-ssh-keys) to the VM. Learn more in [{#T}](../../concepts/vm-metadata.md).
 
            If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in a file and provide it under `metadata`.
      * `yandex_vpc_network`: Cloud network description.

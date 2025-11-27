@@ -15,4 +15,72 @@
       1. В списке пользователей и групп в строке с нужным пользователем или группой нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
       1. Подтвердите удаление.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md) или [группы пользователей](../../organization/operations/group-get-id.md).
+
+  1. Чтобы добавить в приложение пользователя или группу пользователей:
+   
+     1. Посмотрите описание команды CLI для добавления пользователей в приложение:
+   
+        ```bash
+        yc organization-manager idp application saml application add-assignments --help
+        ```
+   
+     1. Выполните команду:
+   
+        ```bash
+        yc organization-manager idp application saml application add-assignments \
+          --id <идентификатор_приложения> \
+          --subject-id <идентификатор_пользователя_или_группы>
+        ```
+   
+        Где:
+   
+        * `--id` — идентификатор приложения.
+        * `--subject-id` — идентификатор нужного пользователя или группы пользователей.
+   
+        Результат:
+   
+        ```text
+        assignment_deltas:
+          - action: ADD
+            assignment:
+              subject_id: ajetvnq2mil8********
+        ```
+
+  1. Чтобы удалить пользователя или группу пользователей из приложения:
+
+     1. Посмотрите описание команды CLI для удаления пользователей из приложения:
+   
+        ```bash
+        yc organization-manager idp application saml application remove-assignments --help
+        ```
+   
+     1. Выполните команду:
+   
+        ```bash
+        yc organization-manager idp application saml application remove-assignments \
+          --id <идентификатор_приложения> \
+          --subject-id <идентификатор_пользователя_или_группы>
+        ```
+   
+        Где:
+   
+        * `--id` — идентификатор SAML-приложения.
+        * `--subject-id` — идентификатор нужного пользователя или группы пользователей.
+   
+        Результат:
+   
+        ```text
+        assignment_deltas:
+          - action: REMOVE
+            assignment:
+              subject_id: ajetvnq2mil8********
+        ```
+
 {% endlist %}

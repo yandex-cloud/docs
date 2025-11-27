@@ -31,15 +31,14 @@ description: Следуя данной инструкции, вы сможете
           {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
   1. Включите или выключите [суммаризацию](../../concepts/videos.md#summarization).
-  1. Чтобы изменить [субтитры](../../concepts/videos.md#subtitles), удалите лишние и добавьте нужные:
+  
+  1. Чтобы добавить [субтитры](../../concepts/videos.md#subtitles), нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.common.action_add }}** и выберите способ добавления субтитров:
 
-      1. Нажмите значок ![image](../../../_assets/console-icons/xmark.svg) справа от названия файла субтитров, который нужно заменить.
-      1. В поле **{{ ui-key.yacloud_video.videos.label_subtitles }}** нажмите кнопку **{{ ui-key.yacloud_video.common.action_add }}**.
-      1. В открывшемся окне выберите язык субтитров.
-      1. Нажмите кнопку **Выбрать файл** и выберите файл субтитров.
-      1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
+     * ![image](../../../_assets/console-icons/magic-wand.svg) **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}** — чтобы автоматически сгенерировать субтитры на основе анализа видео. В открывшемся окне укажите исходный язык видео и языки, для которых нужно создать субтитры, и нажмите **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}**.
 
-          Дождитесь загрузки файла.
+     * ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud_video.common.upload }}** — чтобы загрузить субтитры из файла. В открывшемся окне укажите язык субтитров, выберите файл с субтитрами и дождитесь его загрузки. Нажмите **{{ ui-key.yacloud_video.common.action_create }}**.
+
+  1. Чтобы удалить субтитры, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
 
   1. Чтобы изменить [нейроперевод](../../concepts/videos.md#translation), удалите старые языки и добавьте новые:
       

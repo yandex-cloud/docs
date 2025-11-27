@@ -2,5 +2,5 @@
 * Hive
 * Iceberg
 * Oracle {{ preview-stage }}
-* PostgreSQL
+* {{ PG }}
 * MS SQL Server {{ preview-stage }}

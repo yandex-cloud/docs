@@ -30,13 +30,13 @@ Quotas can potentially be increased up to the limit values. Quotas do not guaran
 
 Quota management via the CLI and API relies on quota ID in `<service_name>.<resource_name>.<unit_of_measurement>` format, e.g., `dns.zones.count`, `serverless.networkPackets.rate`, or `mdb.memory.size`. 
 
-See [{#T}](../../overview/concepts/quotas-limits.md#quotas-limits-default) for quota IDs and default quotas for all {{ yandex-cloud}} services.
+See [{#T}](../all-quotas.md) for quota IDs and default quotas for all {{ yandex-cloud}} services.
 
 You can look up quota usage info in the console on the [{{ quota-manager-name }}]({{ link-console-quotas }}) page or via an [API request](../operations/list-quotas.md).
 
 ## Why quotas are needed {#quotas-need}
 
-Quotas serve as a soft constraint for requesting resources and allow you to manage cloud service usage: with quotas, new users cannot take up too much resources for testing purposes.
+Quotas serve as a soft constraint for requesting resources and allow you to manage cloud service usage: with quotas, new users cannot take up too many resources for testing purposes.
 
 ## Resource types {#resources-types}
 

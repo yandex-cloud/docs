@@ -91,7 +91,7 @@ To check rights for the `example.com` domain, follow these steps:
 
     - {{ dns-full-name }} {#dns}
 
-       Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the `TXT` record type section, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens:
+      Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the `TXT` record type section, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens, do the following:
 
       1. If the current folder contains an appropriate DNS zone, it will be automatically inserted into the **{{ ui-key.yacloud.dns.label_zone }}** field. If there is no appropriate DNS zone, click **{{ ui-key.yacloud.dns.button_zone-create }}** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
       1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -144,7 +144,7 @@ A check is performed automatically if the following conditions are met:
     ```
     http://<domain>/.well-known/acme-challenge/*
     ```
-    to
+    with
     ```
     https://{{ api-host-certmanager-validation }}/<certificate_ID>/*
     ```

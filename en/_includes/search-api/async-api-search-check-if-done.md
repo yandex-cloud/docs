@@ -1,0 +1,1 @@
+If the `done` field is set to `true` and the `response` object is present in the output, the request has been completed, so you can move on to the next step. Otherwise, repeat the check after some time.

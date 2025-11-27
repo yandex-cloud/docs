@@ -114,6 +114,8 @@ items:
         href: concepts/caching.md
       - name: Объединение данных
         href: concepts/data-join.md
+      - name: Добавление информации о подключении
+        href: operations/connection/add-description.md
       - name: Базы данных
         items:
           - name: Создание подключения к {{ CH }}
@@ -194,6 +196,8 @@ items:
         href: dataset/settings.md
       - name: Версионирование
         href: dataset/versioning.md
+      - name: Добавление информации о датасете
+        href: dataset/add-description.md
       - name: Параметризация источников
         href: dataset/parametrization.md
       - name: Типы данных

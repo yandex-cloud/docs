@@ -13,7 +13,7 @@
     Чтобы переключить мастер в нешардированном кластере:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нешардированным кластером.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. В строке хоста с ролью `MASTER` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label-title }}**.
     1. В открывшемся окне выберите опцию **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label_confirmation }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
@@ -21,7 +21,7 @@
     Чтобы переключить мастер в шардированном кластере:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с шардированным кластером.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. В строке хоста с ролью `MASTER` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label-title }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.

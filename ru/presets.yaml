@@ -329,6 +329,7 @@ default:
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
   link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
   link-monitoring: https://monitoring.yandex.cloud
+  link-my-account: https://myaccount.yandex.cloud/
   link-org-cloud-center: https://center.yandex.cloud/organization
   link-org-federations: https://org.yandex.cloud/federations
   link-org-main: https://org.yandex.cloud/
@@ -8605,6 +8606,10 @@ default:
       center-layout:
         Layout:
           organization-description_kvoUz: Пользователи и приложения
+        MyAccountLayout:
+          groups_pqQRu: Группы
+          profile_8kyBA: Профиль
+          security_7zQ3g: Вход и безопасность
       cloud-components:
         manage-cert-dialog:
           action-generate-new-certificate: Сгенерировать новый сертификат
@@ -8767,6 +8772,29 @@ default:
         organization: Identity Hub
       mfa-policy-audiences:
         action_add-users: Добавить пользователей
+      my-account:
+        GroupsPageLayout:
+          header: Мои группы
+        login:
+          entry-methods:
+            header: Способы входа
+        ProfileEditPageLayout:
+          main_breadcrumb: Данные профиля
+        ProfilePage:
+          edit_action: Редактировать
+        refresh-tokens:
+          action_remove_all: Удалить все токены
+        security:
+          login-confirmation:
+            header: Подтверждение входа
+        SecurityPageLayout:
+          refresh_breadcrumb: Refresh-токены
+      myaccount:
+        security:
+          EntryMethodsTable:
+            change-action: Изменить
+          LoginConfirmationTable:
+            delete-action: Удалить
       organization:
         apps:
           AppAssignmentsPage:
@@ -8807,6 +8835,9 @@ default:
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
+        idp:
+          PasswordDialog:
+            action_save-password_gaB2s: Сохранить пароль
         security-settings:
           acr_any-mfa_j6PdY: Любые методы
           acr_phr_7hMqk: Устойчивые к фишингу
@@ -9078,6 +9109,7 @@ default:
         action_download: Скачать
         action_edit: Редактировать
         statistics: Статистика
+        upload: Загрузить
       dashboard:
         action_add-user: Добавить участника
         action_go-to-org: Перейти в организацию
@@ -9113,6 +9145,8 @@ default:
         label_thumbnail: Обложка
       videos:
         action_create-video: Загрузить видео
+        action_generate-subtitles: Сгенерировать
+        action_subtitles_upload_again: Загрузить заново
         field_summarization: Суммаризация
         label_access_rights-public: Для всех пользователей
         label_access_rights-sign-url-access: По временной ссылке

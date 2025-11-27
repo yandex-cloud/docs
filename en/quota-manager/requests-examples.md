@@ -53,7 +53,7 @@ Below are examples of CLI and API requests and responses for quota management. T
 
   * `--quota-id`: Quota ID. The examples use the `iam.accessKeys.count` ID representing the number of static access keys per cloud, an [{{ iam-name }}](../iam/concepts/limits.md) quota.
   * `--resource-id`: Resource ID. The examples use a cloud ID. To run requests from the examples, specify your cloud [ID](../resource-manager/operations/cloud/get-id.md).
-  * `--resource-type`: Resource type. The example uses `resource-manager.cloud`, i.e. cloud.
+  * `--resource-type`: Resource type. The example uses `resource-manager.cloud`, i.e., cloud.
   * `--filter`: Filter expression. You can filter requests only by status.
   * `<request_ID>`: ID of your quota update request.
 
@@ -70,7 +70,7 @@ Below are examples of CLI and API requests and responses for quota management. T
 
 ## Viewing quota ID {#get-quota-id}
 
-To learn a particular quota's ID, see [{#T}](../overview/concepts/quotas-limits.md#quotas-limits-default) in the quota table of the relevant service.
+You can look up a specific quota's ID in [{#T}](all-quotas.md).
 
 ## Viewing quota value and usage info {#get-quota-info}
 
@@ -654,7 +654,7 @@ To view a list of operations for a quota update request:
 
 - gRPC API {#grpc-api}
 
-  Use the the [QuotaRequestService/ListOperations](api-ref/grpc/QuotaRequest/listOperations.md) gRPC API call. In your request, provide the ID of the quota update request whose operations list you want to view.
+  Use the [QuotaRequestService/ListOperations](api-ref/grpc/QuotaRequest/listOperations.md) gRPC API call. In your request, provide the ID of the quota update request whose operations list you want to view.
 
   **Request example**
 

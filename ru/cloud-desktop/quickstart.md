@@ -78,7 +78,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана группа рабочих столов.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vdi.button_empty-create-desktop-group }}**.
   1. Введите имя группы рабочих столов.
   1. Выберите **{{ ui-key.yacloud.vdi.section_type }}** — **{{ ui-key.yacloud.vdi.value_type-personal }}**. Рабочие столы назначаются пользователям при их первом подключении и остаются зарезервированными за ними.

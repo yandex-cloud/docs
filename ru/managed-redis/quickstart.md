@@ -51,7 +51,7 @@ description: В этой инструкции вы научитесь созда
 Чтобы создать кластер:
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер {{ VLK }}.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Укажите следующие параметры кластера:
 

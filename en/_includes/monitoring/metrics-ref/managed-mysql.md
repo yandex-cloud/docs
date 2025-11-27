@@ -11,7 +11,7 @@ host | Host FQDN
 node | Host type: `primary` or `replica`
 
 ## CPU metrics {#managed-mysql-cpu-metrics}
-These metrics show processor core workload.
+CPU core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -49,7 +49,7 @@ These metrics show processor core workload.
 | `disk.used_percent`<br/>`DGAUGE`, % | Percentage of used space |
 | `disk.used_percent_inodes`<br/>`DGAUGE`, % | Percentage of used inodes |
 
-## Disk I/O metrics {#managed-mysql-diskio-metrics}
+## Disk operation metrics {#managed-mysql-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
@@ -66,7 +66,7 @@ These metrics show processor core workload.
 | `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read rate | 
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second | 
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second | 
-| `io.utilization`<br/>`DGAUGE`, % | Disk utilization | 
+| `io.utilization`<br/>`DGAUGE`, % | Disk utilization disabled for network drives | 
 | `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
@@ -181,22 +181,22 @@ These metrics show processor core workload.
 | `mysql_Innodb_rows_read_rate`<br/>`DGAUGE`, rows per second | Rate of rows read from InnoDB tables | 
 | `mysql_Innodb_rows_updated_rate`<br/>`DGAUGE`, rows per second | Rate of rows updated in InnoDB | 
 | `mysql_Open_table_definitions`<br/>`DGAUGE`, count | Number of cached table definitions | 
-| `mysql_Open_tables`<br/>`DGAUGE`, count | Number of open tables  | 
+| `mysql_Open_tables`<br/>`DGAUGE`, count | Number of open tables | 
 | `mysql_Opened_table_definitions_rate`<br/>`DGAUGE`, tables per second | Number of table definitions cached per unit of time | 
 | `mysql_Opened_tables_rate`<br/>`DGAUGE`, tables per second | Number of tables opened per unit of time | 
 | `mysql_Prepared_stmt_count`<br/>`DGAUGE`, count | Number of prepared statements | 
 | `mysql_Queries_rate`<br/>`DGAUGE`, queries per second | Number of running queries, including user queries and stored procedures, per unit of time | 
-| `mysql_Questions_rate`<br/>`DGAUGE`, requests per second | Number of running user queries per unit of time | 
+| `mysql_Questions_rate`<br/>`DGAUGE`, queries per second | Number of running user queries per unit of time | 
 | `mysql_Rpl_semi_sync_master_clients`<br/>`DGAUGE`, count | Number of semi-sync replicas | 
 | `mysql_Rpl_semi_sync_master_tx_avg_wait_time`<br/>`DGAUGE`, microseconds | Average wait time for a transaction on the replication source | 
 | `mysql_Rpl_semi_sync_master_tx_wait_time_rate`<br/>`DGAUGE`, microseconds | Total wait time for a transaction on the replication source, per unit of time | 
 | `mysql_Rpl_semi_sync_master_wait_sessions`<br/>`DGAUGE`, count | Number of sessions waiting for a response from replicas | 
-| `mysql_Select_full_join_rate`<br/>`DGAUGE`, requests per second | Number of joins using table scans rather than indexes | 
-| `mysql_Select_full_range_join_rate`<br/>`DGAUGE`, requests per second | Number of joins searching by range in the reference table | 
-| `mysql_Slow_queries_rate`<br/>`DGAUGE`, requests per second | Number of slow queries taking longer than `long_query_time` seconds, per unit of time | 
-| `mysql_Sort_range_rate`<br/>`DGAUGE`, requests per second | Number of sorts by range per unit of time | 
-| `mysql_Sort_rows_rate`<br/>`DGAUGE`, requests per second | Number of rows sorted per unit of time | 
-| `mysql_Sort_scan_rate`<br/>`DGAUGE`, requests per second | Number of sorts using table scans per unit of time | 
+| `mysql_Select_full_join_rate`<br/>`DGAUGE`, queries per second | Number of joins using table scans rather than indexes | 
+| `mysql_Select_full_range_join_rate`<br/>`DGAUGE`, queries per second | Number of joins searching by range in the reference table | 
+| `mysql_Slow_queries_rate`<br/>`DGAUGE`, queries per second | Number of slow queries taking longer than `long_query_time` seconds, per unit of time | 
+| `mysql_Sort_range_rate`<br/>`DGAUGE`, queries per second | Number of sorts by range per unit of time | 
+| `mysql_Sort_rows_rate`<br/>`DGAUGE`, queries per second | Number of rows sorted per unit of time | 
+| `mysql_Sort_scan_rate`<br/>`DGAUGE`, queries per second | Number of sorts using table scans per unit of time | 
 | `mysql_Table_locks_immediate`<br/>`DGAUGE`, count | Number of immediate table locks | 
 | `mysql_Table_locks_waited`<br/>`DGAUGE`, count | Number of table locks that had to wait | 
 | `mysql_Table_open_cache_hits_rate`<br/>`DGAUGE`, operations per second | Number of hits for open table cache lookups per unit of time | 
@@ -211,7 +211,7 @@ These metrics show processor core workload.
 | `mysql_config_max_connections`<br/>`DGAUGE`, count | Maximum number of concurrent connections | 
 | `mysql_config_table_open_cache`<br/>`DGAUGE`, count | Number of open tables across all threads | 
 | `mysql_config_thread_cache_size`<br/>`DGAUGE`, count | Number of threads to cache for reuse | 
-| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is alive or `0` if it is not. | 
+| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
 | `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>It can be either `1` if a DB host is a master or `0` if it is not. | 
 | `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>It can be either `1` if a DB host is a replica or `0` if it is not. | 
 | `mysql_latency_query_0.5`<br/>`DGAUGE`, milliseconds | Query execution time, median value | 
@@ -238,7 +238,7 @@ These metrics show processor core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a service on the host is available for reads or `0` if it is not. |
-| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a service on the host is available for writes or `0` if it is not. |
+| `can_read`<br/>`DGAUGE`, 0/1 | Host read access indicator.<br/>`1` if the host service is available for reads, `0` if not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the host service is available for writes, `0` if not. |
 | `core_dump_count`<br/>`DGAUGE`, count | Number of core dumps |
 | `n_unique_users`<br/>`DGAUGE`, users | Number of unique users or accounts engaging with the system |

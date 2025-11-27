@@ -25,13 +25,13 @@ Potentially, you can increase your quotas up to the _limits_.
 
 You can use the following interfaces to manage quotas: the [management console]({{ link-console-quotas }}), [API](api-ref/authentication.md), and [CLI](cli-ref/index.md).
 
-To manage quotas via the CLI and API, you need the quota ID. For the list of IDs, see [{#T}](../overview/concepts/quotas-limits.md).
+To manage quotas via the CLI and API, you need the quota ID. For the list of IDs, see [{#T}](all-quotas.md).
 
 ## Getting started {#before-you-begin}
 
 To get started in {{ yandex-cloud }}:
 
-1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md).
 1. Depending on the interface you are going to use, follow these additional steps:
@@ -150,7 +150,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       ```
 
       Where:
-      * `--quota-id`: Quota ID. You can look up the ID in [{#T}](../overview/concepts/quotas-limits.md#quotas-limits-default).
+      * `--quota-id`: Quota ID. You can look up the ID in [{#T}](all-quotas.md).
       * `--resource-id`: ID of the resource (organization, cloud, or billing account).
       * `--resource-type`: Resource type, `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
 
@@ -253,7 +253,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       Where:
 
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
-      * `<quota_ID>`: Quota ID. You can look up the ID in [{#T}](../overview/concepts/quotas-limits.md#quotas-limits-default).
+      * `<quota_ID>`: Quota ID. You can look up the ID in [{#T}](all-quotas.md).
       * `<resource_ID>`: ID of the resource (organization, cloud, or billing account).
       * `<resource_type>`: Resource type, either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
 
@@ -360,7 +360,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
       * `<resource_ID>`: ID of the resource (organization, cloud, or billing account).
       * `<resource_type>`: Resource type, either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
-      * `<quota_ID>`: Quota ID. You can look up the ID in [{#T}](../overview/concepts/quotas-limits.md#quotas-limits-default).
+      * `<quota_ID>`: Quota ID. You can look up the ID in [{#T}](all-quotas.md).
 
       **Request example**
 
@@ -420,7 +420,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
   1. **Create a quota update request.**
 
-      [View the quota ID](../overview/concepts/quotas-limits.md#quotas-limits-default) and use the [Create](api-ref/QuotaRequest/create.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/index.md) resource:
+      [View the quota ID](all-quotas.md) and use the [Create](api-ref/QuotaRequest/create.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/index.md) resource:
 
       ```bash
       curl \
@@ -500,7 +500,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
   1. **Create a quota update request.**
 
-      [View the quota ID](../overview/concepts/quotas-limits.md#quotas-limits-default) and create a request using the [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md) gRPC API call:
+      [View the quota ID](all-quotas.md) and create a request using the [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md) gRPC API call:
 
       ```bash
       grpcurl \

@@ -201,6 +201,8 @@ items:
             href: tutorials/integrate-nextcloud/coi-based.md
           - name: Manually deploying Nextcloud on a VM or VM group
             href: tutorials/integrate-nextcloud/fault-tolerant.md
+          - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
+            href: tutorials/integrate-nextcloud/terraform.md
       - name: >-
           Deploying a web application on {{ baremetal-name }} servers with an L7
           load balancer and {{ sws-name }} protection
