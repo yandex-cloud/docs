@@ -67,7 +67,7 @@ sourcePath: ru/monitoring_includes/operations/prometheus/index.md
 Вид ограничения | Значение
 ----- | -----
 Максимальная скорость записи в формате [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | 1000 запросов/с и 80 МБ/с
-Количество метрик в одном запросе на запись | 10000
+Количество метрик в одном запросе на запись | 20000
 Количество запросов в секунду на чтение через [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api) | 200
 Количество запросов в секунду на чтение через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) | 200
 Количество уникальных метрик | 20 000 000
