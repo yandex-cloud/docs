@@ -6,4 +6,4 @@ Users with this role can:
 * View the history of workflow [executions](../../../serverless-integrations/concepts/workflows/execution.md).
 * View info on the Yandex Workflows [quotes](../../../serverless-integrations/concepts/limits.md#workflows).
 
-This role includes the `serverless.workflows.executor` permissions.
+This role includes the `serverless.workflows.viewer` and `serverless.workflows.executor` permissions.

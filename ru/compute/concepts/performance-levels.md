@@ -26,6 +26,8 @@ description: Из статьи вы узнаете об уровнях прои�
 
 {% include [vcpu-perfomance-disks](../../_includes/compute/vcpu-perfomance-disks.md) %}
 
+{% include [vcpu-note](../../_includes/compute/vcpu-note.md) %}
+
 {% endnote %}
 
 ## Минимальные и максимальные конфигурации {#minmax-configurations}

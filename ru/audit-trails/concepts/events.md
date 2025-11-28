@@ -270,6 +270,12 @@ description: В данном разделе приведены описания 
 
 {% include [mtr-events](../../_includes/audit-trails/events/managed-trino-events.md) %}
 
+## {{ msp-full-name }} {#managed-service-for-spark}
+
+Имя сервиса — `spark`.
+
+{% include [managed-spark-events](../../_includes/audit-trails/events/managed-spark-events.md) %}
+
 ## {{ mrd-full-name }} {#managed-service-for-redis}
 
 Имя сервиса — `mdb.redis`.

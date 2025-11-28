@@ -93,6 +93,10 @@ items:
             href: operations/playlists/delete.md
       - name: Adding a member
         href: operations/add-member.md
+  - name: Tutorials
+    items:
+      - name: Out-of-the-box video layout solutions in IFrame
+        href: tutorials/video-iframe.md
   - name: Concepts
     items:
       - name: Overview
@@ -117,6 +121,8 @@ items:
       - name: Protected content
         hidden: true
         href: troubleshooting-drm.md
+      - name: Browser autoplay policy
+        href: autoplay-policy.md
       - name: SDK
         items:
           - name: Overview

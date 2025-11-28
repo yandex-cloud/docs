@@ -4,5 +4,5 @@
 
 Where:
 
-* {% calc [currency=USD] 10000 / 120 %} — cost of registering a {{ cns-short-name }} sender name for 1 month.
-* 3 — number of months.
+* {% calc [currency=USD] 10000 / 120 %}: Cost of registering a {{ cns-short-name }} sender name for 1 month.
+* 3: Number of months.

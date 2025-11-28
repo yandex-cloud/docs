@@ -101,7 +101,7 @@ To mount a bucket on a server with a KUMA collector installed, create a [static 
 
       {% note alert %}
 
-      After you close this dialog, the key value will not be shown again.
+      After you close this dialog, the key value will no longer be available.
 
       {% endnote %}
 
@@ -481,7 +481,7 @@ Create a [trail](../../audit-trails/concepts/trail.md) to collect and deliver au
 As a server to install the KUMA collector on, you can use a {{ compute-name }} [VM](../../compute/concepts/vm.md) or your own hardware. In this tutorial, we are using a {{ compute-short-name }} VM residing in a {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network).
 
 
-### Create a network with a subnet {#create-network}
+### Create a network and a subnet {#create-network}
 
 {% list tabs group=instructions %}
 
@@ -612,7 +612,7 @@ As a server to install the KUMA collector on, you can use a {{ compute-name }} [
 
   * `--create-boot-disk`: Boot [disk](../../compute/concepts/disk.md) settings, where `image-id` is the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) public image ID.
 
-  * `--ssh-key`: Path to the public SSH key file and its name, e.g., `~/.ssh/id_ed25519.pub`. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection to a VM on your own.
+  * `--ssh-key`: Path to the public SSH key file and its name, e.g., `~/.ssh/id_ed25519.pub`. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection to the VM on your own.
 
       When the VM is created, a user named `yc-user` will be created in its operating system; use this username to connect to the VM over SSH.
 

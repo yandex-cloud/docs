@@ -202,7 +202,7 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
           - 0.0.0.0/0
   ```
 
-  Save the `id` as you will need need it to create a VM.
+  Save the security group `id` as you will need it to create the VM.
 
   For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
@@ -227,7 +227,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Select **Advanced setup**.
@@ -235,7 +235,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `webserver-subnet-{{ region-id }}-b`.
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earlier.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `webserver-sg`, which you created earlier.
 
@@ -507,7 +507,7 @@ To use templates in the app, you can use the [`render_template()`](https://flask
     In this code:
 
     * You import the `render_template()` helper function to render HTML templates.
-    * The `hello()` function is replaced with the `index()` function that returns the result of invoking the `render_template()` helper function with the `index.html​`​ argument. The function argument references a template file in the template directory that will be used for rendering.
+    * The `hello()` function is replaced with the `index()` function that returns the result of invoking the `render_template()` helper function with the `index.html​` argument. The function argument references a template file in the template directory that will be used for rendering.
 
     {% note info %}
 
@@ -625,7 +625,7 @@ To use templates in the app, you can use the [`render_template()`](https://flask
 
 1. Refresh the main page of your application, `http://<public_IP_address_of_VM>:5000/`.
 
-    You will see that the `Welcome to FlaskBlog`​​​ text changed its color to red and is now centered inside the frame.
+    You will see that the `Welcome to FlaskBlog` text changed its color to red and is now centered inside the frame.
 
 The [CSS language](https://en.wikipedia.org/wiki/CSS) enables you to create a consistent and unique design for your web application. If you are not familiar with CSS, use the [Bootstrap toolkit](https://getbootstrap.com/) that provides simple and easy-to-use UI components. In this tutorial, you will use Bootstrap.
 
@@ -762,7 +762,7 @@ Prepare the `schema.sql` file containing SQL commands to create a database consi
     * The `DROP TABLE IF EXISTS posts;` command deletes the `posts` table if it already exists. To prevent possible errors, we recommend performing this step each time you create a new table.
     * The `CREATE TABLE posts` command creates the `posts` table with the following columns:
         * `id`: Integer that is the `PRIMARY KEY` of the table. `AUTOINCREMENT` means that its value will be a unique number generated automatically when inserting a new record (blog post) into the table.
-        * `created`: New record timestamp. `NOT NULL` means that the value in the column cannot be empty. `DEFAULT CURRENT_TIMESTAMP`​​​ sets the default value as the time when a new record is added to the table. This means that you do not need to manually specify the time when a post is created; it will be added automatically.
+        * `created`: New record timestamp. `NOT NULL` means the column value cannot be empty, and `DEFAULT CURRENT_TIMESTAMP` sets the time of adding a new record to the table as the default value. This means that you do not need to manually specify the time when a post is created; it will be added automatically.
         * `title`: Post title.
         * `content`: Body text.
 
@@ -978,7 +978,7 @@ Create a new Flask route with a view function that will process a new HTML templ
 
     Additionally, this code does the following:
 
-    * Imports the [abort()](https://werkzeug.palletsprojects.com/en/latest/exceptions/#werkzeug.exceptions.abort) function from the [Werkzeug](https://werkzeug.palletsprojects.com/en/latest/) library. It allows you to generate a Flask response with the `404 Not Found​​`​ message if the blog post with the ID specified in the URL does not exist.
+    * Imports the [abort()](https://werkzeug.palletsprojects.com/en/latest/exceptions/#werkzeug.exceptions.abort) function from the [Werkzeug](https://werkzeug.palletsprojects.com/en/latest/) library. It allows you to generate a Flask response with the `404 Not Found​​` message if the blog post with the ID specified in the URL does not exist.
     * Creates the `get_post()` function that takes the `post_id` argument. This function:
         * Assigns the database connection object returned by `get_db_connection()` to `conn`.
         * Uses the `fetchone()` method to assign the `post` object the result of the SQL query which retrieves the blog post string and its ID matching the `post_id` value from the database.

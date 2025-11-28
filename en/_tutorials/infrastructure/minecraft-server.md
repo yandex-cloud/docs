@@ -49,21 +49,21 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** /
       **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
-      || Ingress
+      || Inbound
       | `Client access to`
       `Minecraft server`
       | `25565`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       | `0.0.0.0/0` ||
-      || Ingress
+      || Inbound
       | `Access to VM over`
       `SSH`
       | `22`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       | `0.0.0.0/0` ||
-      || Egress
+      || Outbound
       | `VM access to`
       `the internet`
       | `0-65535`
@@ -117,7 +117,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
               * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
               * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-                  * In the window that opens, specify the network name and select the folder to host the network.
+                  * In the window that opens, specify the network name and select the folder where it will be created.
                   * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
                   * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 

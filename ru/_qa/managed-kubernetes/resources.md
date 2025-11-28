@@ -9,3 +9,9 @@
 #### Кто будет следить за масштабированием кластера {{ k8s }}? {#scaling}
 
 В {{ managed-k8s-name }} можно включить [автоматическое масштабирование кластера](../../managed-kubernetes/concepts/autoscale.md#ca).
+
+#### Нужен ли узлам кластера {{ k8s }} доступ в интернет? {#internet-access}
+
+{% include [nodes-internet-access](../../_includes/managed-kubernetes/nodes-internet-access.md) %}
+
+{% include [nodes-internet-access-additional](../../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}

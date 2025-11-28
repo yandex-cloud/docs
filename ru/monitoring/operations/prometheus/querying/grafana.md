@@ -30,7 +30,7 @@ sourcePath: ru/monitoring_includes/operations/prometheus/querying/grafana.md
 | `401` | Сервисный аккаунт не найден. Убедитесь, что в конфигурации указан правильный [API-ключ](../../../../iam/concepts/authorization/api-key.md). | ```auth: cannot authenticate by either token or api-key, cause: UNAUTHENTICATED: The token is invalid``` |
 | `403` | Отсутствуют права на чтение. Убедитесь, что сервисный аккаунт имеет роль `{{ roles-monitoring-viewer }}` на выбранный каталог. | ```auth: PERMISSION_DENIED: Permission denied```|
 | `429` | Превышена квота [Количество запросов в секунду на чтение через HTTP API](../index.md#limits). | ```execution: too many requests: monb1piptmdo********``` |
-| `400` | Запрос вернул слишком много линий. Попробуйте уточнить запрос. | ```bad_data: Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 10000``` |
+| `400` | Запрос вернул слишком много линий. Попробуйте уточнить запрос. | ```bad_data: Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 20000``` |
 
 ## Текущие ограничения {#restrictions}
 

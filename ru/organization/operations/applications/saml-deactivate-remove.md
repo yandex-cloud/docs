@@ -53,6 +53,10 @@ description: Следуя данной инструкции, вы сможете
      updated_at: "2025-10-21T11:28:09.167252Z"
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Suspend](../../idp/application/saml/api-ref/Application/suspend.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Suspend](../../idp/application/saml/api-ref/grpc/Application/suspend.md).
+
 {% endlist %}
 
 В результате SAML-приложение будет деактивировано и перейдет в статус `Suspended`, а пользователи потеряют возможность аутентификации с его помощью в соответствующем внешнем приложении.
@@ -101,6 +105,10 @@ description: Следуя данной инструкции, вы сможете
      updated_at: "2025-10-21T11:28:09.167252Z"
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Reactivate](../../idp/application/saml/api-ref/Application/reactivate.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Reactivate](../../idp/application/saml/api-ref/grpc/Application/reactivate.md).
+
 {% endlist %}
 
 В результате SAML-приложение будет активировано и перейдет в статус `Active`, а пользователи, добавленные в приложение, вновь получат возможность аутентификации с его помощью во внешнем приложении.
@@ -135,6 +143,10 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc organization-manager idp application saml application delete <идентификатор_приложения>
      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Delete](../../idp/application/saml/api-ref/Application/delete.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Delete](../../idp/application/saml/api-ref/grpc/Application/delete.md).
 
 {% endlist %}
 

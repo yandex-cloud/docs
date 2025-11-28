@@ -34,7 +34,7 @@ By default, {{ cns-name }} has limits on sending notifications. For more informa
 
 ### Push notification sending events {#push}
 
-Push notifications are sent to both mobile platforms, such as Google Android and Apple iOS, and to browsers through WebPush. You are charged for every 1,000 notification sending events that were processed.
+Push notifications are sent to both mobile platforms, such as Google Android and Apple iOS, and to browsers through WebPush. You pay for every 1,000 of processed notification sending events.
 
 Mobile and browser push notification sending events are billed together.
 
@@ -78,7 +78,7 @@ Cost calculation of using a registered name:
 
 You can only send text messages across Russia. Each event (sent text message) is billable. A message over 140 B (160 Latin characters or 70 Cyrillic characters) is broken down into a few parts, each of which is billable.
 
-The cost of processing an event for sending a text message depends on such message’s type: whether it is a commercial, authentication, service, or transaction message. By default, all processed events (messages) are deemed commercial. If you want your messages billed as another type, you need to create a template first. Currently, to register a template, you need to sendexamples of your messages to [our support]({{ link-console-support }}). We will then determine whether creating a template and registering it is available for your case.
+The cost of processing an event for sending a text message depends on such message’s type: whether it is a commercial, authentication, service, or transaction message. By default, all processed events (messages) are deemed commercial. If you want your messages billed as another event type, you need to create a template first. Currently, to register a template, you need to sendexamples of your messages to [our support]({{ link-console-support }}). We will then determine whether creating a template and registering it is available for your case.
 
 Processing the events of sending of text messages to subscribers of certain mobile providers can be charged per package. The cost of such packages is calculated individually for each subscriber that gets a text message. See the [cost calculation example](#sms-example) below for more information.
 
@@ -148,7 +148,7 @@ The cost for sending text messages depends on the mobile network provider and me
 {% include [usd-sms-mts](../_pricing/notifications/usd-sms-mts.md) %}
 
 
-#### Т2 {#sms-tele2}
+#### T2 {#sms-tele2}
 
 
 

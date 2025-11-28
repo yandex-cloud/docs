@@ -82,7 +82,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, define the parameters of the resources you want to create:
+   1. In the configuration file, describe the properties of resources you want to create:
 
       ```hcl
       resource "yandex_resourcemanager_folder" "folder1" {
@@ -92,7 +92,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
       }
       ```
 
-      For more information about the `yandex_resourcemanager_folder` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/resourcemanager_folder).
+      For more information about the `yandex_resourcemanager_folder` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
    1. Make sure the configuration files are correct.
 
@@ -161,11 +161,11 @@ Repeat these steps to create a second folder named `site-b`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to.
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` for the VM to get a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you had reserved one.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router-d`.

@@ -74,6 +74,10 @@ description: Следуя данной инструкции, вы сможете
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Update](../../idp/application/saml/api-ref/Application/update.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Update](../../idp/application/saml/api-ref/grpc/Application/update.md).
+
 {% endlist %}
 
 ## Измените конфигурацию поставщика услуг {#update-sp}
@@ -137,6 +141,9 @@ description: Следуя данной инструкции, вы сможете
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Update](../../idp/application/saml/api-ref/Application/update.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Update](../../idp/application/saml/api-ref/grpc/Application/update.md).
 
 {% endlist %}
 
@@ -217,6 +224,10 @@ description: Следуя данной инструкции, вы сможете
      * `--active` — установите `true` для активации сертификата.
 
      {% include [saml-app-cert-update-warn](../../../_includes/organization/saml-app-cert-update-warn.md) %}
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [SignatureCertificate.Create](../../idp/application/saml/api-ref/SignatureCertificate/create.md) для ресурса [SignatureCertificate](../../idp/application/saml/api-ref/SignatureCertificate/index.md) или вызовом gRPC API [SignatureCertificateService/Create](../../idp/application/saml/api-ref/grpc/SignatureCertificate/create.md).
 
 {% endlist %}
 

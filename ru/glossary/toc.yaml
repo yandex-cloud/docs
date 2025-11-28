@@ -115,6 +115,8 @@ items:
         href: dhcp.md
       - name: SOAP
         href: soap.md
+      - name: Вебхук
+        href: webhook.md
   - name: Безопасность
     items:
       - name: Control Plane и Data Plane
