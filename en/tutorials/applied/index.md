@@ -22,6 +22,7 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 * [{#T}](../web/gatsby-static-website.md)
 * [{#T}](../web/migrate-to-yc-cdn.md)
 * [{#T}](../web/user-agent-statistics.md)
+* [{#T}](../web/video-iframe.md)
 
 ## 1C {#1c}
 

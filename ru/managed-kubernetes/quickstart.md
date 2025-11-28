@@ -88,6 +88,15 @@ description: В этой инструкции вы создадите класт
    * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения IP-адреса:
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить случайный IP-адрес из пула IP-адресов {{ yandex-cloud }}.
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичный IP-адрес.
+
+     {% note info %}
+     
+     {% include [nodes-internet-access](../_includes/managed-kubernetes/nodes-internet-access.md) %}
+     
+     {% include [nodes-internet-access-additional](../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}
+     
+     {% endnote %}
+
    * Выберите [группы безопасности](operations/connect/security-groups.md).
    * Выберите зону доступности и подсеть для размещения узлов группы {{ managed-k8s-name }}.
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** укажите данные для доступа к узлам группы {{ managed-k8s-name }} по [SSH](../glossary/ssh-keygen.md):

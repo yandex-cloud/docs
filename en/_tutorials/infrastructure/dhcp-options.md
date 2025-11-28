@@ -1,4 +1,4 @@
-# DHCP settings for working with a corporate DNS server
+# DHCP settings for interfacing with a corporate DNS server
 
 
 If you want your VMs to resolve names in a private corporate DNS zone, use the [DHCP options](../../vpc/concepts/dhcp-options.md) in the [subnet configuration](../../vpc/operations/subnet-create.md). For example, you can specify a DNS suffix and DNS server for subnet nodes.
@@ -34,7 +34,7 @@ To pass this scenario in full, deploy Active Directory. If you use your own DNS 
 
 The infrastructure support cost includes:
 
-* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for VM disk storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for {{ yandex-cloud }} outbound internet traffic (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
@@ -109,12 +109,12 @@ To check the configuration, create a VM and connect to it via RDP:
     
     - Management console {#console}
 
-      1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+      1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
       1. Select **Advanced setup**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the `{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}` tab and select the **Windows Server** image. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) to create your VM in.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and RAM size:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
           * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
           * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -227,7 +227,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 1. Check if there is a connection to the `yantoso.net` domain controller. 
 
-    To do this, run the following command:
+    To do this, run this command:
 
     ```
     ping ad-vm-a
@@ -252,7 +252,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. Delete the `vm-for-tests-in-subnet` VM.
 

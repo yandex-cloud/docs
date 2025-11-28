@@ -125,6 +125,8 @@ items:
         href: tutorials/sws-protection-ongoing-ddos.md
       - name: Centralized online publication and DDoS protection of applications
         href: tutorials/different-folders-services.md
+      - name: Creating a distributed infrastructure with secure access
+        href: tutorials/distributed-secured-infrastructure.md
       - name: >-
           Migrating services from an NLB to an L7 ALB to enable {{ sws-name }}
           protection

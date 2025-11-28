@@ -2,7 +2,7 @@
 
 You can embed a [video player](./concepts/player.md) with content from {{ video-name }} to an HTML page using the video player SDK for IFrame.
 
-Add an [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames) container to the page code:
+To the page code, add the [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames) embed code to display the player with the specified video:
 
 ```html
 <iframe
@@ -16,11 +16,13 @@ Add an [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames) container to 
 
 {% include [video-content-id-desc](../_includes/video/video-content-id-desc.md) %}
 
-The embed code contains an iframe container that shows the player with the specified video.
+## Configuring the video player options {#parameters}
 
-You can also set up [video size](#size) and the player [startup options](#parameters).
+You can set the [video size](#size) and player [startup options](#parameters).
 
-## Setting up video size {#size}
+{% include [parameters-note](../_includes/video/parameters-note.md) %}
+
+### Video size {#size}
 
 To specify video size, set the following parameters in the `iframe` tag: `height` for height and `width` for width. 
 
@@ -52,7 +54,7 @@ To adjust the video to the container width, change the embed code as follows:
 </div>
 ```
 
-## Setting up the player startup options {#parameters}
+### Player startup options {#parameters}
 
 Customize your player appearance and video playback using special parameters. 
 
@@ -261,26 +263,6 @@ The default value is `10`.
 ||
 |#
 
-### Example {#example}
+#### See also {#see-also}
 
-This example shows the video autoplay in muted mode:
-
-```html
-<iframe
-    frameborder="0"
-    scrolling="no"
-    allowfullscreen
-    allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&mute=true"
-></iframe>
-```
-
-<iframe
-    frameborder="0"
-    width="320"
-    height="180"
-    scrolling="no"
-    allowfullscreen
-    allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&mute=true"
-></iframe>
+[{#T}](./tutorials/video-iframe.md)

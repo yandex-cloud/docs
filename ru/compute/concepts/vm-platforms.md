@@ -31,6 +31,12 @@ AMD Zen 4</br>(`standard-v4a`) | AMD EPYC™ 9654 | 288 | 2.40
 
 {% include [amd-platform-preview](../../_includes/compute/amd-platform-preview.md) %}
 
+{% note warning %}
+
+{% include [vcpu-note](../../_includes/compute/vcpu-note.md) %}
+
+{% endnote %}
+
 ## Высокопроизводительные платформы {#compute-optimized-platforms}
 
 Платформа | Процессор | Макс. кол-во ядер (vCPU)</br> на виртуальной машине | Базовая тактовая</br> частота процессора, ГГц

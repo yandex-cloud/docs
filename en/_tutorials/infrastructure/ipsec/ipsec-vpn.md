@@ -19,7 +19,7 @@ The infrastructure deployment cost for this IPsec gateways-based solution includ
 
 ### Create an SSH keypair {#create-ssh-keys}
 
-To connect to a [VM](../../../compute/concepts/vm.md) over SSH, you will need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than password authentication.
+To connect to a [VM](../../../compute/concepts/vm.md) over SSH, you will need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than login and password authentication.
 
 {% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
@@ -114,7 +114,7 @@ At this stage, you will reserve two static IP addresses for IPsec gateways and c
 
 #### Create the main IPsec gateway VM {#create-cloud-gw}
 
-1. On the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. On the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 1. Select **Advanced setup**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `IPsec instance` and select a public [IPsec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../../overview/concepts/geo-scope.md) where the main IPsec gateway will reside.
@@ -268,7 +268,7 @@ To set up the gateway, use the IP addresses, username, and SSH key of the `cloud
     sudo journalctl -u strongswan -f
     ```
 
-1. Close the `cloud-gw` connection:
+1. Terminate the `cloud-gw` connection:
 
     ```bash
     exit
@@ -359,7 +359,7 @@ At this stage, you will create and set up an infrastructure for a remote site of
 
 Create a VM you will use as a remote IPsec gateway.
 
-1. On the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. On the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 1. Select **Advanced setup**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `IPsec instance` and select a public [IPsec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../../overview/concepts/geo-scope.md) where the remote IPsec gateway will reside.
@@ -653,7 +653,7 @@ To activate an IPsec connection between the gateways:
 
         If the connection status is `ESTABLISHED`, the IPsec connection is active.
 
-    1. Close the `cloud-gw` connection:
+    1. Terminate the `cloud-gw` connection:
 
         ```bash
         exit

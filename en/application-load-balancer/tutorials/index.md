@@ -1,6 +1,6 @@
 ---
 title: '{{ alb-full-name }} use cases'
-description: Various {{ alb-full-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ alb-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ alb-name }} tutorials

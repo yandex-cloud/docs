@@ -560,7 +560,7 @@
       "client_name": "Петр Иванов",
       "date": "2024-08-30T19:32:11Z",
       "direction_outgoing": "0",
-      "language": "RU",
+      "language": "ru-ru",
       "file_name": "my_audio.ogg"
     }
   ]
@@ -593,7 +593,7 @@
 
     * `direction_outgoing` — направление звонка. `0` — для исходящего звонка, `1` — для входящего.
 
-    * `language` — язык диалога. `RU` — для русского языка.
+    * `language` — язык диалога. `ru-ru` — для русского языка.
 
   * Дополнительные параметры для аналитики в {{ speechsense-name }}:
 

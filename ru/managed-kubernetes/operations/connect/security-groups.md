@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — CIDR кластера и CIDR сервисов. Например, `10.96.0.0/16` и `10.112.0.0/16`.
 
-1. Добавьте правило для исходящего трафика, которое разрешает узлам в группе узлов подключаться к внешним ресурсам, например, чтобы скачивать образы с Docker Hub или работать с [{{ objstorage-full-name }}](../../tutorials/kubernetes-backup.md):
+1. Добавьте правило для исходящего трафика, которое разрешает узлам в группе узлов подключаться к внешним ресурсам, например реестрам Docker-образов [{{ container-registry-name }}](../../../container-registry/concepts/index.md), [{{ cloud-registry-name }}](../../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/), а также бакетам [{{ objstorage-name }}](../../../storage/concepts/bucket.md):
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.

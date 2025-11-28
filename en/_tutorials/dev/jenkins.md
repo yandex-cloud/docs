@@ -93,7 +93,7 @@ To create a VM:
         * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
         * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-            * In the window that opens, specify the network name and select the folder to host the network.
+            * In the window that opens, specify the network name and select the folder where it will be created.
             * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
             * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 

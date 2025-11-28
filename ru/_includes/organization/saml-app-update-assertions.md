@@ -96,6 +96,10 @@
      yc organization-manager idp application saml attribute delete <идентификатор_атрибута>
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Update](../../organization/idp/application/saml/api-ref/Application/update.md) для ресурса [Application](../../organization/idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Update](../../organization/idp/application/saml/api-ref/grpc/Application/update.md).
+
 {% endlist %}
 
 Убедитесь, что добавленные атрибуты также добавлены в настройки интеграции SAML-приложения на стороне поставщика услуг и корректно обрабатываются им.

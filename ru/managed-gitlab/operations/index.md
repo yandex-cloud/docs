@@ -19,3 +19,4 @@ description: На странице представлен список поша�
 * [{#T}](approval-rules.md)
 * [{#T}](instance/monitoring.md)
 * [{#T}](omniauth.md)
+* [{#T}](objstorage-integration.md)

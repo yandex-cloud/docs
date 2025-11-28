@@ -36,7 +36,7 @@ The infrastructure support costs include:
 Create a VM where you will install a web server, your test application, and its components:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Select **Advanced setup**.
@@ -73,7 +73,7 @@ Once your VM is created, the system will assign it an [IP address and a host nam
 
 On the new VM, install a web server and test application components. You will use Python 2 to create your test application.
 1. In the [management console]({{ link-console-main }}), under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** on the VM page, find the VM public IP address.
-1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH. You can do it using `ssh` in Linux or macOS or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
+1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH. To do this, use `ssh` in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
    ```bash
    ssh <login>@<VM_public_IP_address>
@@ -285,7 +285,7 @@ Create a VM disk snapshot to transfer your web server configuration and test app
 You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pre-installed. {{ GL }} includes tools for managing Git repositories and configuring CI.
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Select **Advanced setup**.

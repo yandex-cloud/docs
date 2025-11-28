@@ -8,4 +8,6 @@
 * статусу ответа;
 * типу обращения.
 
+  ![image](../../_assets/support/problem-solution/cloud-center-filters.png)
+
 Если вы хотите очистить настройки фильтрации обращений, нажмите кнопку **{{ ui-key.support-center.tickets.filters.action_reset-filters }}**.

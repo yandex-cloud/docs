@@ -1,13 +1,15 @@
-# Centralized online publication and DDoS protection of applications hosted in different folders
+# Centralized online publication and DDoS protection of applications hosted in different folders 
 
 
 This tutorial describes a use case involving multiple independent teams managing {{ yandex-cloud }} resources. The services and apps developed by these teams are published on the internet. {{ yandex-cloud }} uses folders to separate resources, ensuring that each team can only access its designated folder. Moreover, the information security (IS) regulations prohibit teams from directly publishing their folder resources on the internet.
+
+For a special case scenario of this guide with infrastructure deployed from scratch, see the [Creating a distributed infrastructure with secure access](../../smartwebsecurity/tutorials/distributed-secured-infrastructure.md) section.
 
 To implement this approach, you can use such {{ yandex-cloud }} services as [{{ alb-full-name }}](../../application-load-balancer/) (ALB) and [{{ sws-full-name }}](../../smartwebsecurity/concepts/) (SWS).
 
 {{ alb-name }} enables you to create [OSI](https://en.wikipedia.org/wiki/OSI_model) L7 load balancers to evenly distribute traffic across your services and applications and publish them online.
 
-{{ sws-name }} protects your resources against L7 DDoS attacks and bots. You can additionally connect a [WAF](../../smartwebsecurity/concepts/waf.md) and limit the load on your resource using the [Advanced Rate Limiter](../../smartwebsecurity/concepts/arl.md) (ARL) module. Configure the settings for protecting your resources in the {{ sws-name }} profile. Connect your security profile to the L7 load balancer.
+{{ sws-name }} protects your resources against L7 DDoS attacks and bots. You can additionally connect a [WAF](../../smartwebsecurity/concepts/waf.md) and limit the load on your resource using the [advanced rate limiter](../../smartwebsecurity/concepts/arl.md) (ARL) module. Configure the settings for protecting your resources in the {{ sws-name }} profile. Connect your security profile to the L7 load balancer.
 
 To set up such a workflow, you need to do the following:
 
@@ -42,7 +44,7 @@ Therefore, consider the following:
 
 * For network connectivity between L7 load balancers and team targets, use a multi-folder VPC to extend the scope of your VPC network from a single to multiple folders.
 * Use [security groups](../../vpc/concepts/security-groups.md) to manage network access across resources pertaining to different teams:
-
+  
     * Target security groups should allow inbound traffic from L7 load balancer subnets.
     * L7 load balancer security groups should allow inbound traffic to target subnets.
 
@@ -51,7 +53,7 @@ Therefore, consider the following:
 ### L7 load balancers {#l7-balancer-requirements}
 
 * Place all L7 load balancers in a single folder accessible exclusively to IS employees.
-* Optionally, enable L3-L4 [DDoS protection](../../vpc/ddos-protection/). To do this:
+* Optionally, enable L3-L4 [DDoS protection](../../vpc/ddos-protection/). Proceed as follows:
     * [Reserve](../../vpc/operations/get-static-ip.md) a public static IP address with DDoS protection and use it for the L7 load balancer's listener.
     * [Configure a trigger threshold]({{ link-console-support }}) for the L3-L4 protection mechanisms, consistent with the amount of legitimate traffic to your services.
     * [Set the MTU](../../vpc/operations/adjust-mtu-ddos-protection.md) to `1450` on your targets.
@@ -163,7 +165,7 @@ The system will deploy your application backends on the [target group](../../app
   1. Specify the backend group name: `test-backend-group`.
   1. Leave `HTTP` as the group type.
   1. To ensure the same backend resource handles requests from a single user session, enable **{{ ui-key.yacloud.alb.label_session-affinity }}**. If your target is an internal NLB, you do not have to enable session affinity.
-
+   
   1. Under **{{ ui-key.yacloud_billing.alb.label_backends }}**:
 
      * Specify the backend name: `backend-1`.
@@ -172,7 +174,7 @@ The system will deploy your application backends on the [target group](../../app
      * Specify the TCP port of your service. It is usually `80` for HTTP and `443` for HTTPS.
      * If your target is a VM, make sure to set up a [health check](../../application-load-balancer/concepts/best-practices.md).
      * If your target is an internal NLB, disable the health check.
-
+  
   1. Click **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
 {% endlist %}
@@ -225,8 +227,8 @@ A [load balancer](../../application-load-balancer/concepts/application-load-bala
         * **Listener type**: `HTTP`.
         * **Protocol**: `HTTP` or `HTTPS`.
         * For HTTPS, select your service's TLS certificate you previously added in {{ certificate-manager-name }}.
-        * **HTTP router**: Leave the router you created earlier.
-
+        * **HTTP router**: Leave the router you created earlier. 
+  
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
   If your infrastructure already uses an L7 load balancer and a configured listener with a public IP address:
@@ -238,7 +240,7 @@ A [load balancer](../../application-load-balancer/concepts/application-load-bala
      * **Server names**: Your service's domain name. This field contains the SNI extension values that, when received from a client, will trigger the listener to establish a TLS connection.
 
         {% note tip %}
-
+        
         Some browsers reuse TLS connections with the same IP address if a connection certificate contains the necessary domain name. In this case, no new SNI match is set and traffic can potentially be routed to an inappropriate HTTP router. To avoid this, use different certificates for each SNI match and the main listener. To manage traffic across the domain names within a single certificate, set up virtual hosts in the HTTP router.
 
         {% endnote %}
@@ -259,12 +261,12 @@ For other ways to create an L7 load balancer and more configuration options, see
   1. In the [management console]({{ link-console-main }}), select the IS folder.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the L7 load balancer you created.
-  1. Select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left.
-
+  1. Select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. 
+   
      Make sure you get `HEALTHY` for all health checks of your backend group’s L7 load balancer.
 
   1. Select **{{ ui-key.yacloud.alb.label_map }}** on the left.
-
+   
      Check the configuration for each resourse in this order: **Listener** > **HTTP router** > **Backend group** > **Target group**.
 
 {% endlist %}

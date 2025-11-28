@@ -1645,6 +1645,11 @@ default:
   sku|KZT|foundation_models:
     image_generation:
       v1|string: ₸11.00
+    realtime_audio:
+      input:
+        v1|string: ₸0.13
+      output:
+        v1|string: ₸0.10
     text_classification:
       v1|string: ₸0.75
     text_embedding:
@@ -3922,6 +3927,11 @@ default:
   sku|RUB|foundation_models:
     image_generation:
       v1|string: ₽2.20
+    realtime_audio:
+      input:
+        v1|string: ₽0.0260
+      output:
+        v1|string: ₽0.02
     text_classification:
       v1|string: ₽0.15
     text_embedding:
@@ -6190,6 +6200,11 @@ default:
   sku|USD|foundation_models:
     image_generation:
       v1|string: $0.018333
+    realtime_audio:
+      input:
+        v1|string: $0.000217
+      output:
+        v1|string: $0.000167
     text_classification:
       v1|string: $0.001250
     text_embedding:
@@ -8597,6 +8612,7 @@ default:
           switch_overview: Account
           switch_proposals: Offers
         accounts:
+          dialog_button_create: Create an account
           listing_button_create: Create an account
       center-layout:
         Layout:
@@ -8830,6 +8846,19 @@ default:
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
+        billing:
+          ChangeLimitsBlock:
+            change_limit_action: Change limit
+          layout:
+            bind_account_action: Link account
+            change_account_action: Change account
+          LoggedUsersBlock:
+            title: Users logged into external applications
+          UpdateLimitDialog:
+            action: Go to payment
+            confirm_action: Pay
+            downgrade_action: Save
+            new_limit: New limit
         idp:
           PasswordDialog:
             action_save-password_gaB2s: Save password
@@ -8898,6 +8927,7 @@ default:
         apps: Apps
         federations: Federations
         groups: Groups
+        organization-billing: Billing management
         oslogin:
           title: Security settings
         securitySettings: Security settings
@@ -9026,6 +9056,7 @@ default:
       support:
         switch_tickets: Tickets
         tickets:
+          label_search-placeholder: Describe issue or ask a question
           table:
             label_column_ticket_type: Ticket type
       user:
@@ -10513,6 +10544,7 @@ default:
         label_service-account-select: Service account
       gitlab:
         action_create-backup: Create backup
+        button_configure-data-types: Configure data storage in Object Storage
         button_create-instance: Create instance
         button_finish-migration: Complete migration
         button_rollback-migration: Cancel migration
@@ -10538,6 +10570,7 @@ default:
         switch_instances: Instances
         title_backups: Backups
         title_migration: Migration
+        title_object-storage: Data in Object Storage
         title_omniauth: OmniAuth
         title_runners: Runners
       gpu-cluster:
@@ -11627,6 +11660,11 @@ default:
           title_maintenance: Technical maintenance
         shard-groups:
           button_add-group: Create shard group
+      metadata-hub:
+        data-catalog:
+          AssetProfiling:
+            ProfileHeader:
+              title_profile-parameters_26kSu: Profiling settings
       metastore:
         action_export: Export
         action_import: Import
@@ -12430,6 +12468,26 @@ default:
         task: Task
         train-model: Fine-tune model
         tunings: Fine-tuning models
+      ui:
+        metadata-hub:
+          data-catalog:
+            constants:
+              label_include-field-distinct-count_73gDL: Enable distinct value count
+              label_include-field-distinct-value-frequencies_tag9L: Enable distinct value frequency count
+              label_include-field-histogram_dsfNW: Enable field histogram
+              label_include-field-max-value_4D1zy: Enable field max value
+              label_include-field-mean-value_6qPHU: Enable field mean value
+              label_include-field-median-value_jPJbY: Enable field median value
+              label_include-field-min-value_24EaF: Enable field min value
+              label_include-field-null-count_sAR8k: Enable field null count
+              label_include-field-quantiles_14ojH: Enables field quintiles
+              label_include-field-sample-values_msWXw: Enable field sample values
+              label_include-field-stddev-value_p9Gbi: Enables field value stddev
+              label_limit_nTvrt: Limit
+              label_profile-table-level-only_7nYxP: Table level only
+              label_profile-table-row-limit_c8X7A: Table row limit
+              label_profile-table-size-limit_wgTaU: Table size limit
+              label_query-combiner-enabled_mUDtA: Enable query joining
       vdi:
         button_add-image: Add image
         button_desktop-create: Create desktop
