@@ -103,6 +103,7 @@ description: Пошаговые инструкции по работе с {{ met
   * [{#T}](data-catalog/markup-metadata.md)
   * [{#T}](data-catalog/search-metadata.md)
   * [{#T}](data-catalog/analysis-metadata.md)
+  * [{#T}](data-catalog/get-data-profile.md)
 
 
 {% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

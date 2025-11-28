@@ -193,6 +193,8 @@ items:
             href: operations/revoke-role.md
       - name: Синхронизировать пользователей и группы с {{ microsoft-idp.ad-short }}
         href: operations/sync-ad.md
+      - name: Управлять тарификацией {{ org-name }}
+        href: operations/manage-billing.md
   - name: Практические руководства
     items:
       - name: Все руководства

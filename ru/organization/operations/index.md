@@ -44,7 +44,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./delete-member-group.md)
 * [{#T}](./delete-group.md)
 
-## Управление федерациями {#manage-feds}
+## Управление федерациями удостоверений {#manage-feds}
 
 * [{#T}](./setup-federation.md)
 * [{#T}](./federation-group-mapping.md)
@@ -114,3 +114,11 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./org-list-bindings.md)
 * [{#T}](./revoke-role.md)
 * [{#T}](./view-subject-access-bindings.md)
+
+## Синхронизация пользователей и групп с внешними источниками {#sync-external}
+
+* [{#T}](./sync-ad.md)
+
+## Управление тарификацией {{ org-name }} {#sync-external}
+
+* [{#T}](./manage-billing.md)

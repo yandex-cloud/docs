@@ -89,6 +89,10 @@ description: Следуя данной инструкции, вы сможете
 
      При создании SAML-приложения автоматически создается сертификат для проверки подписи SAML-ответов.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Create](../../idp/application/saml/api-ref/Application/create.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Create](../../idp/application/saml/api-ref/grpc/Application/create.md).
+
 {% endlist %}
 
 ## Настройте приложение {#setup-application}
@@ -192,6 +196,10 @@ description: Следуя данной инструкции, вы сможете
      created_at: "2025-10-21T10:51:28.790866Z"
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Update](../../idp/application/saml/api-ref/Application/update.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Update](../../idp/application/saml/api-ref/grpc/Application/update.md).
 
 {% endlist %}
 

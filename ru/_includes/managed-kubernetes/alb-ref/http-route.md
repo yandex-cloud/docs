@@ -472,15 +472,23 @@ requestRedirect:
 
 * `requestRedirect` (`HTTPRequestRedirectFilter`)
 
+    {% include [gateway-filters-support-note](./gateway-filters-support-note.md) %}
+
   Настройки перенаправления запроса для фильтра типа `RequestRedirect`.
 
   * `scheme` (`string`)
-    
+
     Новая схема в URI запроса: `http` или `https`. По умолчанию схема остается без изменений.
 
+    Чтобы перенаправление работало, для Gateway должен быть настроен обработчик HTTPS-трафика.
+
+    Пример перенаправления запроса с изменением схемы [приведен ниже](#example-scheme-redirect).
+
   * `hostname` (`string`)
-    
+
     Новое доменное имя в URI запроса. По умолчанию доменное имя остается без изменений.
+
+    Пример перенаправления запроса с изменением доменного имени [приведен ниже](#example-hostname-redirect).
 
   * `path` (`HTTPPathModifier`)
   
@@ -508,3 +516,75 @@ requestRedirect:
   * `statusCode` (`int`)
   
     HTTP-код состояния, возвращаемый при перенаправлении.
+
+## Примеры манифестов для ресурсов HTTPRoute {#examples}
+
+{% include [gateway-filters-support-note](./gateway-filters-support-note.md) %}
+
+### Перенаправление запроса с изменением схемы {#example-scheme-redirect}
+
+В этом примере маршрутизируются запросы, которые поступают к обработчику `http`, настроенному для Gateway `sample-gateway`. Чтобы перенаправление работало, для Gateway должен быть настроен обработчик HTTPS-трафика.
+
+Все запросы к `http://demo.example.com/sample` будут перенаправлены на `https://demo.example.com/sample` с кодом HTTP [301 Moved Permanently](https://developer.mozilla.org/ru/docs/Web/HTTP/Status/301).
+
+{% cut "Манифест для HTTPRoute — перенаправление запроса с изменением схемы" %}
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: sample-scheme-redirect
+  namespace: sample-namespace
+spec:
+  parentRefs:
+  - name: sample-gateway
+    sectionName: http
+    namespace: gateways
+  hostnames:
+    - demo.example.com
+  rules:
+  - matches:
+    - path:
+        value: /sample
+    filters:
+    - type: RequestRedirect
+      requestRedirect:
+        scheme: https
+        statusCode: 301
+```
+
+{% endcut %}
+
+### Перенаправление запроса с изменением доменного имени {#example-hostname-redirect}
+
+В этом примере маршрутизируются запросы, которые поступают к обработчику `http`, настроенному для Gateway `sample-gateway`.
+
+Все запросы к `http://demo.example.com/sample` будут перенаправлены на `http://example.org/sample` с кодом HTTP [301 Moved Permanently](https://developer.mozilla.org/ru/docs/Web/HTTP/Status/301).
+
+{% cut "Манифест для HTTPRoute — перенаправление запроса с изменением доменного имени" %}
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: sample-hostname-redirect
+  namespace: sample-namespace
+spec:
+  parentRefs:
+  - name: sample-gateway
+    sectionName: http
+    namespace: gateways
+  hostnames:
+    - demo.example.com
+  rules:
+  - matches:
+    - path:
+        value: /sample
+    filters:
+    - type: RequestRedirect
+      requestRedirect:
+        hostname: example.org
+        statusCode: 301
+```
+
+{% endcut %}

@@ -22,6 +22,15 @@ description: Следуя данной инструкции, вы сможете
 * Масштабирование: для фиксированного типа — количество узлов {{ managed-k8s-name }}, для [автоматического](../../concepts/node-group/cluster-autoscaler.md) — минимальное, максимальное и начальное количество узлов {{ managed-k8s-name }}. Тип масштабирования нельзя изменить.
 * [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md).
 * Способ назначения [IP-адресов](../../../vpc/concepts/address.md) узлам группы: только внутренние адреса или также публичные.
+
+    {% note info %}
+
+    {% include [nodes-internet-access](../../../_includes/managed-kubernetes/nodes-internet-access.md) %}
+
+    {% include [nodes-internet-access-additional](../../../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}
+
+    {% endnote %}
+
 * Список [групп безопасности](../connect/security-groups.md).
 
   {% note alert %}

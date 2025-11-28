@@ -1,9 +1,5 @@
-
-
 | Услуга                            | Цена за единицу тарификации, <br>вкл. НДС     |
 |-----------------------------------|-----------------------------------------|
-| Входящее аудио, за 1 секунду | 0,026 ₽ ^1^ |
-| Исходящее аудио, за 1 секунду | 0,02 ₽ ^1^ |
-| Генерация текста, за 1000 токенов | {% calc [currency=RUB] 4 × {{ sku|RUB|foundation_models.text_generation.v1|number }} %} ^1^ |
-
-^1^ До 1 ноября 2025 года действует скидка 50%. Цена указана без учета скидки.
+| Входящее аудио, за 1 секунду | {{ sku|RUB|foundation_models.realtime_audio.input.v1|string }} |
+| Исходящее аудио, за 1 секунду | {{ sku|RUB|foundation_models.realtime_audio.output.v1|string }} |
+| Генерация текста, за 1000 токенов | {% calc [currency=RUB] 4 × {{ sku|RUB|foundation_models.text_generation.v1|number }} %} |

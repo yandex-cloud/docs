@@ -39,6 +39,7 @@
 * [{{ mos-full-name }}](../../audit-trails/concepts/events.md#managed-service-for-opensearch)
 * [{{ mpg-full-name }}](../../audit-trails/concepts/events.md#managed-service-for-postgresql)
 * [{{ mtr-full-name }}](../../audit-trails/concepts/events.md#managed-service-for-trino)
+* [{{ msp-full-name }}](../../audit-trails/concepts/events.md#managed-service-for-spark)
 * [{{ mrd-full-name }}](../../audit-trails/concepts/events.md#managed-service-for-redis)
 * [{{ ydb-full-name }}](../../audit-trails/concepts/events.md#ydb)
 * [{{ message-queue-full-name }}](../../audit-trails/concepts/events.md#ymq)
