@@ -215,7 +215,7 @@ Read-Only:
 
 Required:
 
-- `disk_size` (Number) Size of the disk in bytes.
+- `disk_size` (Number) Size of the disk in gigabytes.
 - `resource_preset_id` (String) ID of the resource preset that determines the number of CPU cores and memory size for the host.
 
 Optional:
@@ -237,7 +237,7 @@ Optional:
 
 Required:
 
-- `disk_size_limit` (Number) Limit of disk size after autoscaling in bytes.
+- `disk_size_limit` (Number) Limit of disk size after autoscaling in gigabytes.
 
 Optional:
 
