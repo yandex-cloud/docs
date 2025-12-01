@@ -16,7 +16,8 @@ Such errors can also occur if the pods that should use the `volume` are located 
 
 If you need to use `ReadWriteMany`, we recommend using CSI for our object storage because the volumes based on it support this access mode:
 
-Automatic installation via the marketplace or `Helm` chart is described [here](https://github.com/yandex-cloud/k8s-csi-s3/blob/master/README.md#helm-chart), and manual integration is described [here](https://github.com/yandex-cloud/k8s-csi-s3/blob/master/README.md#manual-installation).
+Automatic installation via the marketplace or `Helm` chart is described [here](../../docs/managed-kubernetes/operations/volumes/s3-csi-integration), and manual integration is described [here](../../../managed-kubernetes/operations/volumes/s3-csi-integration).
+
 
 
 ## If the issue persists {#if-issue-still-persists}
