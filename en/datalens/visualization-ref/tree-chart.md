@@ -1,4 +1,9 @@
-# Tree chart ![](../../_assets/datalens/treemap.svg)
+---
+title: Tree chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the tree chart visualization type in {{ datalens-full-name }}.
+---
+
+# Tree chart ![](../../_assets/datalens/treemap.svg) in {{ datalens-full-name }}
 
 A tree chart displays hierarchy data as a set of nested rectangles. Each hierarchy level corresponds to a dimension and is shown as a colored rectangle with nested rectangles. The size of each rectangle depends on the measure value: the higher the value, the larger the size. A chart does not take up much space on a dashboard, even if it contains a lot of data.
 
@@ -23,8 +28,8 @@ For example, you can use a tree chart to visualize sales by product category and
 
 Wizard<br/> section| Description
 ----- | ----
-Dimensions | Dimensions Determines the hierarchy tree of nested rectangles. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
-Disk | Measure. One measure that determines the area of a rectangle.
+Dimensions | Dimensions. Determines the hierarchy tree of nested rectangles. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Size | Measure. One measure that determines the area of a rectangle.
 Colors | Dimension or measure. Affects the shading of rectangles in a chart.
 Filters | Dimension or measure. Used as a filter.
 

@@ -43,25 +43,9 @@ description: Из статьи вы узнаете, что такое воркб
 
 ## Как включить воркбуки и коллекции {#enable-workbooks}
 
-{% note warning %}
+{% include [enable-workbooks](../../_includes/datalens/settings/enable-workbooks.md) %}
 
-* Включить воркбуки может пользователь с ролью `{{ roles-datalens-admin }}`. При этом экземпляр {{ datalens-short-name }} должен быть развернут на уровне [организации](../concepts/organizations.md).
-* В новых экземплярах {{ datalens-short-name }} доступны только воркбуки и коллекции.
-
-{% endnote %}
-
-Чтобы начать работать с воркбуками:
-
-1. Перейдите в [настройки сервиса]({{ link-datalens-settings }}).
-1. В разделе **Воркбуки** нажмите кнопку **Включить воркбуки**.
-
-   {% cut "Воркбуки включены" %}
-
-   ![image](../../_assets/datalens/workbooks-collections/enable-workbooks.png)
-
-   {% endcut %}
-
-Чтобы перенести любой объект из папки в воркбук, выполните [миграцию](./migrations.md). Если вы больше не планируете пользоваться навигацией по папкам, ее можно [отключить](../settings/disable-folder-navigation.md).
+Чтобы перенести любой объект из папки в воркбук, выполните [миграцию](./migrations.md). Если вы больше не планируете пользоваться навигацией по папкам, ее можно [отключить](../settings/navigation.md#disable-folder-navigation).
 
 
 ## Узнать больше {#learn-more}

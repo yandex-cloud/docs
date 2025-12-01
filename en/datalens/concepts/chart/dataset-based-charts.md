@@ -1,9 +1,9 @@
 ---
-title: Wizard charts
-description: In this tutorial, you will learn about the wizard and charts as well as get familiar with the wizard interface.
+title: '{{ datalens-full-name }} wizard charts'
+description: In this tutorial, you will learn about the wizard and charts in {{ datalens-full-name }} and familiarize yourself with the wizard interface.
 ---
 
-# Wizard charts
+# {{ datalens-full-name }} wizard charts
 
 
 The wizard is a constructor that allows you to create charts based on the data from one or more datasets (see [{#T}](./multidataset-chart.md)). You can create an unlimited number of charts based on a single dataset.

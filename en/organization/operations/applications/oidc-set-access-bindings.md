@@ -83,4 +83,8 @@ To grant access to an [OIDC app](../../concepts/applications.md#oidc), assign [r
         --access-binding role=<role3>,service-account-id=<service_account_ID>
       ```
 
+- API {#api}
+
+  Use the [Application.SetAccessBindings](../../idp/application/oauth/api-ref/Application/setAccessBindings.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/SetAccessBindings](../../idp/application/oauth/api-ref/grpc/Application/setAccessBindings.md) gRPC API call.
+
 {% endlist %}

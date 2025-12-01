@@ -5,10 +5,6 @@ description: Следуя данной инструкции, вы научите
 
 # Работа с отчетом
 
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 В этом разделе вы узнаете, как работать с отчетом:
 
 * [Создать отчет](#create-report)

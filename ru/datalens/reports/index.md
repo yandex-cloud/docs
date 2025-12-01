@@ -5,10 +5,6 @@ description: Из статьи вы узнаете, что такое отчет
 
 # Отчеты в {{ datalens-name }}
 
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 _Отчет_ — это многостраничный документ заданного формата, который можно использовать в качестве интерактивной презентации, а также экспортировать в PDF и распечатать. На страницы отчета можно добавлять [чарты](../concepts/chart/index.md), [текстовые блоки](../dashboard/widget.md#text), [заголовки](../dashboard/widget.md#title) и изображения.
 
 

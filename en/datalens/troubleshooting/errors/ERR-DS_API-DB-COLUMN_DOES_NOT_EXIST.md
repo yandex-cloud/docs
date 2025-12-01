@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST error
-description: This page describes the ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST'
+description: This page describes the Requested database column does not exist {{ datalens-full-name }} error.
 ---
 
-# Requested database column does not exist
+# [{{ datalens-full-name }}] Requested database column does not exist
 
 `ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST`
 

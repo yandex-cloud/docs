@@ -1,9 +1,9 @@
 ---
-title: ERR.US.BAD_REQUEST.ALREADY_EXISTS error
-description: This page describes the ERR.US.BAD_REQUEST.ALREADY_EXISTS error.
+title: '{{ datalens-full-name }} error ERR.US.BAD_REQUEST.ALREADY_EXISTS'
+description: This page describes the Failed to create <object_type> {{ datalens-full-name }} error.
 ---
 
-# Failed to create <object_type>
+# [{{ datalens-full-name }}] Failed to create <object_type>
 
 `ERR.US.BAD_REQUEST.ALREADY_EXISTS`
 

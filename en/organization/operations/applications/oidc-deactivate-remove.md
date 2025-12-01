@@ -54,8 +54,12 @@ If you need to temporarily disable authentication in an external app using the [
          - openid
      status: SUSPENDED
      created_at: "2025-10-21T10:51:28.790866Z"
-     updated_at: "2025-10-21T11:28:09.167252Z"     
+     updated_at: "2025-10-21T11:28:09.167252Z"
      ```
+
+- API {#api}
+
+  Use the [Application.Suspend](../../idp/application/oauth/api-ref/Application/suspend.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Suspend](../../idp/application/oauth/api-ref/grpc/Application/suspend.md) gRPC API call.
 
 {% endlist %}
 
@@ -106,8 +110,12 @@ If you need to restore the ability of your organization’s users to authenticat
          - openid
      status: ACTIVE
      created_at: "2025-10-21T10:51:28.790866Z"
-     updated_at: "2025-10-21T11:28:09.167252Z"     
+     updated_at: "2025-10-21T11:28:09.167252Z"
      ```
+
+- API {#api}
+
+  Use the [Application.Reactivate](../../idp/application/oauth/api-ref/Application/reactivate.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Reactivate](../../idp/application/oauth/api-ref/grpc/Application/reactivate.md) gRPC API call.
 
 {% endlist %}
 
@@ -143,6 +151,10 @@ To delete an OIDC application:
      ```bash
      yc organization-manager idp application oauth application delete <app_ID>
      ```
+
+- API {#api}
+
+  Use the [Application.Delete](../../idp/application/oauth/api-ref/Application/delete.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Delete](../../idp/application/oauth/api-ref/grpc/Application/delete.md) gRPC API call.
 
 {% endlist %}
 

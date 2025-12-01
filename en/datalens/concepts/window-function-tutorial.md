@@ -1,4 +1,9 @@
-# Window functions in {{ datalens-short-name }}
+---
+title: Window functions in {{ datalens-full-name }}
+description: This article describes the window functions in {{ datalens-full-name }}, which allow you to get additional information about the original selection.
+---
+
+# Window functions in {{ datalens-full-name }}
 
 [Window functions](../function-ref/window-functions.md) are similar to aggregate functions. They allow you to get additional information about the original sample. For example, you can calculate the cumulative total and the moving average or rank values.
 
@@ -31,7 +36,7 @@ In the chart based on the `Selling` table and grouped by `City` and `Category`, 
 * TotalSales: `SUM(SUM([Sales]) TOTAL)`
 * % Total: `SUM([Sales]) / [TotalSales]`
 
-For example, for the **Table** chart, the result will be as follows:
+For the **Table** chart, the result will look like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-1.png)
 

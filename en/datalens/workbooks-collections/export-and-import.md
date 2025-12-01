@@ -1,9 +1,9 @@
 ---
-title: Exporting and importing workbooks
-description: Follow this guide to export and import workbooks.
+title: Exporting and importing workbooks {{ datalens-full-name }}
+description: Follow this guide to export and import {{ datalens-full-name }} workbooks.
 ---
 
-# Exporting and importing workbooks
+# Exporting and importing workbooks {{ datalens-full-name }}
 
 In {{ datalens-short-name }}, you can move [workbooks](./index.md) between installations using export and import tools. For example, you can export a ready-made workbook with its settings and connections from the cloud {{ datalens-full-name }} to an [open source](https://datalens.tech) installation.
 

@@ -62,8 +62,11 @@ description: Follow this guide to create a user pool in {{ org-name }}.
      * `--default-subdomain`: Default [domain](../../concepts/domains.md). It will be used if no other domains are associated with the pool.
      * `--labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
-{% endlist %}
+- API {#api}
 
+  Use the [Userpool.Create](../../idp/api-ref/Userpool/create.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/Create](../../idp/api-ref/grpc/Userpool/create.md) gRPC API call.
+
+{% endlist %}
 #### See also {#see-also}
 
 * [{#T}](../add-account.md#add-local-user)

@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.REQUEST_TIMEOUT error
-description: This page describes the ERR.DS_API.REQUEST_TIMEOUT error.
+title: '{{ datalens-full-name }} error ERR.DS_API.REQUEST_TIMEOUT'
+description: This page describes the Backend app request timeout exceeded {{ datalens-full-name }} error.
 ---
 
-# Backend app request timeout exceeded
+# [{{ datalens-full-name }}] Backend app request timeout exceeded
 
 `ERR.DS_API.REQUEST_TIMEOUT`
 

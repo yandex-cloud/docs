@@ -1,9 +1,9 @@
 ---
 title: How to change the {{ datalens-full-name }} dashboard settings
-description: Follow this guide to change the dashboard settings.
+description: Follow this guide to change the {{ datalens-full-name }} dashboard settings.
 ---
 
-# Changing dashboard settings
+# Changing {{ datalens-full-name }} dashboard settings
 
 To change the [settings](../../dashboard/settings.md):
 

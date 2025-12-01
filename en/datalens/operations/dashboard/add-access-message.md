@@ -1,9 +1,9 @@
 ---
-title: How to add an access permission error message to a dashboard in {{ datalens-full-name }}
-description: Follow this guide to add a message to be displayed if a dashboard permission error occurs.
+title: How to add a dashboard access permission error message in {{ datalens-full-name }}
+description: Follow this guide to add a dashboard access permission error message in {{ datalens-full-name }}.
 ---
 
-# Adding an access error message
+# Adding an access error message in {{ datalens-full-name }}
 
 To add a dashboard [access error message](../../dashboard/settings.md#message-settings):
 

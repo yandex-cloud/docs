@@ -1,9 +1,9 @@
 ---
 title: How to add a chart to a dashboard in {{ datalens-full-name }}
-description: Follow this guide to add a chart to a dashboard.
+description: Follow this guide to add a chart to a dashboard in {{ datalens-full-name }}.
 ---
 
-# Adding a chart to a dashboard
+# Adding a chart to a dashboard in {{ datalens-full-name }}
 
 To add a chart to a dashboard:
 
@@ -40,5 +40,5 @@ To add a chart to a dashboard:
    * **Auto height**. Sets automatic height for the **Table** widget type. If this parameter is disabled, you can set the height of the widget on the page using the mouse.
    * **Filtering**. Enables cross-chart [filtering](../../dashboard/chart-chart-filtration.md) from this chart to other charts on the dashboard.
 
-1. (Optional) Under **Parameters**, list [chart parameters](../../dashboard/dashboard_parameters.md#params-chart) and set their default values. If the default values are not set, an error will be displayed on the dashboard.
+1. Optionally, under **Parameters**, list [chart parameters](../../dashboard/dashboard_parameters.md#params-chart) and set their default values. If the default values are not set, an error will be displayed on the dashboard.
 1. Click **Add**. The widget will be displayed on the dashboard.

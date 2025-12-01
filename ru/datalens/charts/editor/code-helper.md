@@ -11,10 +11,6 @@ description: Из статьи вы узнаете, что такое Нейро
 
 {% endnote %}
 
-
-{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 Нейроаналитик ускоряет и упрощает создание и редактирование визуализаций в Editor. Доступен для трех типов визуализаций: [Таблица](./widgets/table.md), [Markdown](./widgets/markdown.md) и [Advanced-чарт](./widgets/advanced.md). Нейроаналитик работает только с вкладкой **Prepare**.
 
 Чтобы включить Нейроаналитик, в Editor вверху нажмите кнопку **Помочь с кодом** — справа откроется вкладка **Нейроаналитик**.

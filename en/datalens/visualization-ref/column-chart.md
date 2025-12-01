@@ -1,4 +1,9 @@
-# Column chart ![](../../_assets/datalens/column.svg)
+---
+title: Column chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the column chart visualization type in {{ datalens-full-name }}.
+---
+
+# Column chart ![](../../_assets/datalens/column.svg) in {{ datalens-full-name }}
 
 This chart displays the values of one or more measures by period or category. The height of a column determines the measure value: the higher the column, the larger the value.
 Unlike line charts, this type of chart assumes that different periods are compared directly and an emphasis is made on a measure's individual value rather than its general trend.
@@ -98,7 +103,7 @@ To create a column chart:
 
 To display an X-axis grouped column chart:
 
-1. Open a bar chart or [create](#create-diagram) a new one.
+1. Open a column chart or [create](#create-diagram) a new one.
 1. Depending on the number of measures in the **Y** section, follow these steps:
 
    {% list tabs group=indicators_number %}

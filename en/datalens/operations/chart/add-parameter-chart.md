@@ -1,9 +1,9 @@
 ---
-title: How to add a parameter to a chart
-description: Follow this guide to add a parameter to a chart.
+title: How to add a parameter to a chart in {{ datalens-full-name }}
+description: Follow this guide to add a parameter to a chart in {{ datalens-full-name }}.
 ---
 
-# Adding parameters to a chart
+# Adding parameters to a chart in {{ datalens-full-name }}
 
 {% note info %}
 

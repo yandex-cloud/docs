@@ -37,4 +37,8 @@ description: Follow this guide to get a list of user pools in an {{ org-name }}.
 
       Where `--organization-id` is the [ID of the organization](../organization-get-id.md) you need the list of user pools for.
 
+- API {#api}
+
+  Use the [Userpool.List](../../idp/api-ref/Userpool/list.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/List](../../idp/api-ref/grpc/Userpool/list.md) gRPC API call.
+
 {% endlist %}

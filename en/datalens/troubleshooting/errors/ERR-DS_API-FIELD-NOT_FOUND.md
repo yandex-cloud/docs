@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.FIELD.NOT_FOUND error
-description: This page describes the ERR.DS_API.FIELD.NOT_FOUND error.
+title: '{{ datalens-full-name }} error ERR.DS_API.FIELD.NOT_FOUND'
+description: This page describes the Unknown field {{ datalens-full-name }} error.
 ---
 
-# Unknown field
+# [{{ datalens-full-name }}] Unknown field
 
 `ERR.DS_API.FIELD.NOT_FOUND`
 

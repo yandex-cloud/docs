@@ -1,9 +1,9 @@
 ---
-title: Dashboard settings
-description: In this tutorial, you will learn about dashboard settings.
+title: Dashboard settings in {{ datalens-full-name }}
+description: In this tutorial, you will learn about dashboard settings in {{ datalens-full-name }}.
 ---
 
-# Dashboard settings
+# Dashboard settings in {{ datalens-full-name }}
 
 Dashboard settings allow you to optimize it for a specific task or work with a specific data source. For example, you can set the dashboard update time, add informational messages, or customize widget loading priority.
 

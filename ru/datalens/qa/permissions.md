@@ -11,12 +11,7 @@ description: На странице представлены вопросы и о
 
 В {{ datalens-full-name }} можно [настроить аутентификацию](../security/add-new-user.md#federated-user) с помощью технологии Single Sign-On (SSO), если имеется [федерация удостоверений](../../organization/concepts/add-federation.md). При этом пользователи {{ datalens-short-name }} смогут аутентифицироваться с помощью своих корпоративных учетных записей.
 
-С января 2025 года аутентификация SSO в {{ datalens-full-name }} будет доступна только для [тарифного плана](../../datalens/pricing.md#service-plans) Business.
 
-
-Во избежание проблем с аутентификацией, пользователи тарифа Community, которые используют SSO, до 29 января 2025 года должны принять решение:
-* перейти на тариф Business и продолжить использовать SSO;
-* перейти на аутентификацию с помощью [аккаунтов на Яндексе](../../iam/concepts/users/accounts.md#passport), которые нужно добавить в [организацию](../concepts/organizations.md). Это можно сделать [в сервисе {{ datalens-short-name }}](../security/add-new-user.md#dl-user) или [в сервисе {{ org-full-name }}](../security/add-new-user.md#passport-user).
 
 ### Как добавить пользователя и отправить ему ссылку на дашборд? {#how-add-user-send-ref}
 
@@ -47,5 +42,6 @@ description: На странице представлены вопросы и о
 
 {% include [revoke-token.md](../../_qa/datalens/revoke-token.md) %}
 
+
 
 

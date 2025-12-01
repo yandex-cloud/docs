@@ -1,9 +1,9 @@
 ---
 title: How to create a Metrica connection in {{ datalens-full-name }}
-description: Follow this guide to create a Yandex Metrica connection.
+description: Follow this guide to create a Metrica connection in {{ datalens-full-name }}.
 ---
 
-# Creating a Metrica connection
+# Creating a Metrica connection in {{ datalens-full-name }}
 
 
 {% include [datalens-metrica-pro-note](../../../_includes/datalens/datalens-metrica-pro-note.md) %}

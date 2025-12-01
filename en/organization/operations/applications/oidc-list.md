@@ -44,4 +44,8 @@ description: Follow this guide to get a list of OIDC apps in {{ org-name }}.
      +----------------------+--------------------+----------------------+--------------------------------+--------+-----------------------------------------+----------------------------------+--------+---------------------+---------------------+
      ```
 
+- API {#api}
+
+  Use the [Application.List](../../idp/application/oauth/api-ref/Application/list.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/List](../../idp/application/oauth/api-ref/grpc/Application/list.md) gRPC API call.
+
 {% endlist %}

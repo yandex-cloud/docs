@@ -50,4 +50,8 @@
 
       Save the `value` as you will need it to [validate the domain](../../organization/operations/user-pools/validate-domain.md).
 
+- API {#api}
+
+  Use the [Userpool.AddDomain](../../organization/idp/api-ref/Userpool/addDomain.md) REST API method for the [Userpool](../../organization/idp/api-ref/Userpool/index.md) resource or the [UserpoolService/AddDomain](../../organization/idp/api-ref/grpc/Userpool/addDomain.md) gRPC API call.
+
 {% endlist %}

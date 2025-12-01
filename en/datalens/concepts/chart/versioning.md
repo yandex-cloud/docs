@@ -1,9 +1,9 @@
 ---
-title: Chart versioning
-description: Chart versioning means storing the history of chart configuration changes through versions. A list of versions is available to users with the lowest level of {{ permission-write }} access to the chart.
+title: Chart versioning in {{ datalens-full-name }}
+description: '{{ datalens-full-name }} chart versioning allows you to store the chart configuration revision history as versions. A list of versions is available to users with the lowest level of {{ permission-write }} access to the chart.'
 ---
 
-# Versioning
+# Versioning in {{ datalens-full-name }}
 
 Chart versioning means storing the history of chart configuration changes through versions. A list of versions is available to users with the lowest edit permission for the chart.
 
@@ -145,7 +145,7 @@ To edit a draft, select it in the version list. To save your draft edits, at the
 To edit an outdated version, select it from the list of versions. To save edits to an outdated version, at the top right, click:
 
 * **Save as draft**: Draft will be created from the edited version. The current draft will become an outdated version.
-* Click ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as copy** to create a new chart.
+* ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as copy** to create a new chart.
 * ![image](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** to create a new current version and make all other versions, including the draft, outdated.
 
 ## Limitations {#restrictions}

@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.DB.SOURCE_CONNECT_ERROR error
-description: This page describes the ERR.DS_API.DB.SOURCE_CONNECT_ERROR error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.SOURCE_CONNECT_ERROR'
+description: This page describes the Data source refused connection {{ datalens-full-name }} error.
 ---
 
-# Data source refused connection
+# [{{ datalens-full-name }}] Data source refused connection
 
 `ERR.DS_API.DB.SOURCE_CONNECT_ERROR`
 

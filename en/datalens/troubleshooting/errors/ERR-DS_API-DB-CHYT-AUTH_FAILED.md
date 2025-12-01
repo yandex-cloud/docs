@@ -1,15 +1,15 @@
 ---
-title: ERR.DS_API.DB.CHYT.AUTH_FAILED error
-description: This page describes the ERR.DS_API.DB.CHYT.AUTH_FAILED error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.CHYT.AUTH_FAILED'
+description: This page describes the Authentication failed {{ datalens-full-name }} error.
 ---
 
-# Authentication failed
+# [{{ datalens-full-name }}] Authentication failed
 
 `ERR.DS_API.DB.CHYT.AUTH_FAILED`
 
 The error arises when CHYT authentication has failed because of issues with the token.
 
-Possible causes:
+The possible causes might include the following:
 
 * The connection uses the token of an employee who was dismissed.
 * The connection uses the token of an inactive robot.

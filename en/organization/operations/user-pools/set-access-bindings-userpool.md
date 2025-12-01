@@ -85,4 +85,8 @@ To grant access to a [pool](../../concepts/user-pools.md), assign [roles](../../
         --access-binding role=<role3>,service-account-id=<service_account_ID>
       ```
 
+- API {#api}
+
+  Use the [Userpool.SetAccessBindings](../../idp/api-ref/Userpool/setAccessBindings.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/SetAccessBindings](../../idp/api-ref/grpc/Userpool/setAccessBindings.md) gRPC API call.
+
 {% endlist %}

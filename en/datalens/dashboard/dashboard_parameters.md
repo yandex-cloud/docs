@@ -1,9 +1,9 @@
 ---
-title: Dashboard parameters
-description: In this article, you will learn what dashboard parameters are, take a look at the dashboard, chart, and special parameters, learn about the limitations in place and how to apply parameters.
+title: Dashboard parameters in {{ datalens-full-name }}
+description: In this article, you will learn what dashboard parameters are, take a look at the dashboard, chart, and special parameters, learn about the limitations in place and how to apply parameters in {{ datalens-full-name }}.
 ---
 
-# Dashboard parameters
+# Dashboard parameters in {{ datalens-full-name }}
 
 A dashboard parameter is a variable used to filter widgets on the dashboard when you open it or use it in the calculated field formulas. Parameters allow you to use visualization features more flexibly and customize the same charts and widgets for different purposes. You may find parameters useful in situations like these:
 
@@ -91,7 +91,7 @@ For example, if the current time is `2020-03-24T23:30:39.874Z`, then:
 
 {% note info %}
 
-If casting is not specified, then for the units of day and longer, the time is cast to the start of the day, i.e., `00:00:00.000`; shorter units are cast to the current time.
+If castings are not specified, then for units of day and longer, the time is cast to the start of the day, i.e., `00:00:00.000`; for shorter units the current time is used.
 
 {% endnote %}
 

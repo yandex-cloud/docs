@@ -1,4 +1,9 @@
-# Pivot table ![](../../_assets/datalens/pivot-table.svg)
+---
+title: Pivot table in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the pivot table visualization type in {{ datalens-full-name }}.
+---
+
+# Pivot table ![](../../_assets/datalens/pivot-table.svg) in {{ datalens-full-name }}
 
 A table is a standard form of data representation with as many details as possible. Tables are most suitable for detailed analysis (a deep dive into figures) and problem detection. It is best to place tables at the end of a dashboard. Graphical representations are simpler for reading information, while tables take you deeper into the data and require more time to read.
 

@@ -1,9 +1,9 @@
 ---
-title: How to configure the display of null values
-description: "Follow this guide to\_configure the display of null values."
+title: How to configure the display of null values ​​in a {{ datalens-full-name }} chart
+description: "Follow this guide to\_configure the display of null values in a {{ datalens-full-name }} chart."
 ---
 
-# Configuring the display of null values
+# Configuring the display of null values in a {{ datalens-full-name }} chart
 
 {% note info %}
 

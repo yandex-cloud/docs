@@ -1,8 +1,13 @@
-# Aggregations in {{ datalens-short-name }}
+---
+title: Aggregations in {{ datalens-full-name }}
+description: This guide describes how data aggregation and grouping work in {{ datalens-full-name }} and how to write correct expressions with aggregations.
+---
 
-This section describes how data aggregation and grouping work in {{ datalens-short-name }}, how to correctly formulate expressions with aggregations, and also gives examples of SQL queries with aggregations for {{ CH }}.
+# Aggregations in {{ datalens-full-name }}
 
-{{ datalens-short-name }} accesses the source directly: it sends requests to select data using the SQL dialect of the source database. The request is formed based on the fields used in charts and the functions used in those fields. So, if you understand the basic principles of aggregation in SQL, it will be easier for you to deal with aggregate functions in {{ datalens-short-name }}.
+This section describes how data aggregation and grouping work in {{ datalens-short-name }}, how to write correct expressions with aggregations, and also gives examples of SQL queries with aggregations for {{ CH }}.
+
+{{ datalens-short-name }} accesses the source directly: it sends queries to select data using the SQL dialect of the source database. The query is formed based on the fields used in charts and the functions used in those fields. So, if you understand the basic principles of aggregation in SQL, it will be easier for you to deal with aggregate functions in {{ datalens-short-name }}.
 
 As source data, we will use the [Selling.csv](https://storage.yandexcloud.net/doc-files/Selling.csv) file with the data on sales in cities.
 
@@ -216,7 +221,7 @@ You can add a measure at the dataset level in the following ways:
 
       ![image](../../_assets/datalens/concepts/tutorial/aggregation-3.png)
 
-  * In the data creation interface, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). For more information, see [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can [substitute](#substituting-fields) other measures.
+  * In the data creation interface, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). Learn more in [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can [substitute](#substituting-fields) other measures.
 
       ![image](../../_assets/datalens/concepts/tutorial/aggregation-4.png)
 
@@ -230,7 +235,7 @@ You can add a measure at the chart level in the following ways:
 
       ![image](../../_assets/datalens/concepts/tutorial/aggregation-5.png)
   
-  * In the wizard, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). For more information, see [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can [substitute](#substituting-fields) other measures.
+  * In the wizard, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). Learn more in [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can [substitute](#substituting-fields) other measures.
 
 Measures can consist of more than one aggregate function and have more complex expressions. For example, in this chart, to calculate the average sales amount for the day, we use the `Sales per day` measure calculated using the `SUM([Sales])/COUNTD([Date])` formula.
 
@@ -245,7 +250,7 @@ Let's look at the [Selling](#what-is-aggregation) table, where we need to calcul
 * The `Portland` group will include rows 2, 3, and 6.
 * The `San Francisco` group will include rows 4, 7, and 8.
 
-For example, in the **Column chart**, the result will be as follows:
+For the **Column chart**, the result will look like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/aggregation-1.png)
 
@@ -278,7 +283,7 @@ You can prevent this error in different ways:
 
       ![image](../../_assets/datalens/concepts/tutorial/aggregation-11.png)
 
-  * Specify the aggregation type for the `Day's discount` field. In this case, this field will become a measure and the original formula will be correct.
+  * Specify the aggregation type for the `Day's discount` field. In which case this field will become a measure and the original formula will be correct.
 
       ![image](../../_assets/datalens/concepts/tutorial/aggregation-14.png)
 

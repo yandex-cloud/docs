@@ -1,9 +1,9 @@
 ---
-title: ERR.FILE.CANNOT_UPDATE_DATA error
-description: This page describes the ERR.FILE.CANNOT_UPDATE_DATA error.
+title: '{{ datalens-full-name }} error ERR.FILE.CANNOT_UPDATE_DATA'
+description: This page describes the Cannot update data {{ datalens-full-name }} error.
 ---
 
-# Cannot update data
+# [{{ datalens-full-name }}] Cannot update data
 
 `ERR.FILE.CANNOT_UPDATE_DATA`
 

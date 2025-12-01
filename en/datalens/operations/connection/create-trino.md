@@ -1,9 +1,9 @@
 ---
 title: How to create a {{ TR }} connection in {{ datalens-full-name }}
-description: In this tutorial, you will learn how to connect to {{ TR }} in {{ datalens-short-name }}.
+description: In this tutorial, you will learn how to connect to {{ TR }} in {{ datalens-full-name }}.
 ---
 
-# Creating a {{ TR }} connection
+# Creating a connection to {{ TR }} in {{ datalens-full-name }}
 
 To create a {{ TR }} connection:
 

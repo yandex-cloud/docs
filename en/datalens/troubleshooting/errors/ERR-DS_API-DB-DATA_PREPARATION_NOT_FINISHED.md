@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED error
-description: This page describes the ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED'
+description: This page describes the Data preparation not finished {{ datalens-full-name }} error.
 ---
 
-# Data preparation is not complete yet
+# [{{ datalens-full-name }}] Data preparation not finished
 
 `ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED`
 

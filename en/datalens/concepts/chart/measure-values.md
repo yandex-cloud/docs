@@ -1,9 +1,9 @@
 ---
-title: Technical fields Measure Names and Measure Values
-description: From this article, you will learn about the Measure Names and Measure Values​​ fields and how to use them in the wizard.
+title: Technical fields Measure Names and Measure Values in {{ datalens-full-name }}
+description: From this article, you will learn about the Measure Names and Measure Values​​ fields in {{ datalens-full-name }} and how to use them in the wizard.
 ---
 
-# Measure Names and Measure Values
+# Measure Names and Measure Values in {{ datalens-full-name }}
 
 When you add a measure to a chart section, two auxiliary fields are added to the list of dataset fields: `Measure Names` and `Measure Values`. They are missing in the original dataset field list, as {{ datalens-short-name }} creates them automatically. The `Measure Names` and `Measure Values` fields are used to create charts with multiple measures.
 
@@ -45,7 +45,7 @@ Add labels with measure values to each line. The chart uses two measures, but yo
 
 **Example 3**
 
-Compare the order count and average order value by region. Add the measures to the **Y** section to build a stacked bar chart. The `Measure Names` field will be added automatically to the **Colors** section for grouping by measure name.
+Compare the order count and average order value by region. Add the measures to the **Y** section to build a stacked column chart. The `Measure Names` field will be added automatically to the **Colors** section for grouping by measure name.
 
 ![image](../../../_assets/datalens/concepts/measure-names-4.png)
 

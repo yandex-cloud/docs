@@ -1,4 +1,9 @@
-# Bar chart ![](../../_assets/datalens/horizontal-bar.svg)
+---
+title: Bar chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the bar chart visualization type in {{ datalens-full-name }}.
+---
+
+# Bar chart ![](../../_assets/datalens/horizontal-bar.svg) in {{ datalens-full-name }}
 
 This chart displays the values of one or more measures by each category, using horizontal bars. The length of a bar determines the measure value: the longer the bar, the larger the value. For example, you can compare sales of products by their subcategory.
 
@@ -88,7 +93,7 @@ December 2019	| 100	| 650	| 400	| 550
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 Y | Dimensions. You can specify one or two dimensions.
 X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis.

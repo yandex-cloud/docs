@@ -24,6 +24,8 @@ description: Управление доступом в сервисе, предо
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [roles-datasphere](../../_mermaid/roles/datasphere.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### datasphere.community-projects.viewer {#datasphere-communityprojects-viewer}

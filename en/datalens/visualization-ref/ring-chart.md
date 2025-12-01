@@ -1,4 +1,9 @@
-# Donut chart ![](../../_assets/datalens/ring.svg)
+---
+title: Donut chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the donut chart visualization type in {{ datalens-full-name }}.
+---
+
+# Donut chart ![](../../_assets/datalens/ring.svg) in {{ datalens-full-name }}
 
 This chart shows the proportion of different categories using ring segments. The sum of all segments is 100%. The size of each segment matches the percentage of a category in the total amount. A number in the center of a ring depends on the selected measure and indicates the overall total. Donut charts are a good choice if you need to display a small number of segments.
 
@@ -86,7 +91,7 @@ To disable displaying a number in the center:
   1. Drag the new field to the **Color** section.
   1. Drag the `Sales` field to the **Measures** and **Signatures** sections.
 
-  The sales amount will be calculated separately for the `Beauty and health equipment`, `Kitchen`, and `Kitchenware` subcategories; for other subcategories, in the `Other` group.
+  The sales amount will be calculated separately for the `Beauty and health equipment`, `Kitchen`, and `Kitchenware` subcategories, while for other subcategories, in the `Other` group.
 
   ![ring-chart-join-segments](../../_assets/datalens/visualization-ref/ring-chart/ring-chart-join-segments.png)
 

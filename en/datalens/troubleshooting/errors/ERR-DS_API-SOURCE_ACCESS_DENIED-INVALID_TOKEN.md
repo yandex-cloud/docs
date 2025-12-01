@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN error
-description: This page describes the ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN error.
+title: '{{ datalens-full-name }} error ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN'
+description: This page describes the Invalid user token {{ datalens-full-name }} error.
 ---
 
-# Invalid user token
+# [{{ datalens-full-name }}] Invalid user token
 
 `ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN`
 

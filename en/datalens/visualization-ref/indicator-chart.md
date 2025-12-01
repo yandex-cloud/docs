@@ -1,9 +1,9 @@
 ---
 title: Indicator in {{ datalens-full-name }}
-description: In this tutorial, you will learn how to create and customize the _Indicator_ visualization type in {{ datalens-short-name }}.
+description: In this tutorial, you will learn how to create and customize the indicator visualization type in {{ datalens-full-name }}.
 ---
 
-# Indicator ![](../../_assets/datalens/indicator.svg)
+# Indicator ![](../../_assets/datalens/indicator.svg) in {{ datalens-full-name }}
 
 An indicator reflects the value of a single key measure. You can use several measures to build a more [complex](#markup-indicator) and meaningful indicator.
 
@@ -81,7 +81,7 @@ To customize header display:
 
 ### Creating a complex indicator {#markup-indicator}
 
-To create a complex indicator representing a number of measures, use the [markup functions](../function-ref/markup-functions.md). To do this:
+To create a complex indicator representing a number of measures, use the [markup functions](../function-ref/markup-functions.md). Proceed as follows:
 
 1. Create a [calculated field](../concepts/calculations/index.md) using the markup functions.
 1. Drag a field from **Measures** to the indicator's **Measure** section.

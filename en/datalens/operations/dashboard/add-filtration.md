@@ -1,9 +1,9 @@
 ---
 title: How to set up filtering of charts by other charts on the dashboard in {{ datalens-full-name }}
-description: Follow this guide to set up filtering of charts by other charts on the dashboard.
+description: Follow this guide to set up chart filtering by other charts on a dashboard in {{ datalens-full-name }}.
 ---
 
-# Setting up filtering by charts
+# Setting up filtering by charts in {{ datalens-full-name }}
 
 To set up [filtering of charts by other charts](../../dashboard/chart-chart-filtration.md) on the dashboard:
 

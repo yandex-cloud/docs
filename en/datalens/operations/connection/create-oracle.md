@@ -3,7 +3,7 @@ title: How to create an Oracle Database connection in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to connect to Oracle Database in {{ datalens-full-name }}.
 ---
 
-# Creating an Oracle Database connection
+# Creating an Oracle Database connection in {{ datalens-full-name }}
 
 
 {% note warning %}

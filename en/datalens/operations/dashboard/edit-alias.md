@@ -1,9 +1,9 @@
 ---
 title: How to delete an alias in {{ datalens-full-name }}
-description: Follow this guide to delete an alias in {{ datalens-name }}.
+description: Follow this guide to delete an alias in {{ datalens-full-name }}.
 ---
 
-# Deleting an alias
+# Deleting an alias in {{ datalens-full-name }}
 
 To delete an [alias](../../dashboard/link.md#alias):
 

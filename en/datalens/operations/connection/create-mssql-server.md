@@ -3,7 +3,7 @@ title: How to create a {{ MS }} connection in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to connect to {{ MS }} in {{ datalens-full-name }}.
 ---
 
-# Creating a {{ MS }} connection
+# Creating a connection to {{ MS }} in {{ datalens-full-name }}
 
 
 {% note warning %}

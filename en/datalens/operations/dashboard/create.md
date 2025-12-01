@@ -3,7 +3,7 @@ title: Creating a dashboard in {{ datalens-full-name }}
 description: To create a dashboard in {{ datalens-full-name }}, open the service homepage and click **Create dashboard**. In the window that opens, enter a name for the dashboard. The dashboard will appear in the list on the navigation page.
 ---
 
-# Creating a dashboard in {{ datalens-name }}
+# Creating a dashboard in {{ datalens-full-name }}
 
 To create a dashboard:
 

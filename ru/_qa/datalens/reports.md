@@ -1,18 +1,12 @@
 
 # Отчеты
 
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 ### Поддерживает ли {{ datalens-short-name }} селекторы в отчетах? {#selector-in-report}
 
 {{ datalens-short-name }} поддерживает селекторы в [отчетах](../../datalens/reports/index.md), что позволяет настраивать фильтрацию данных. Вы можете добавить в отчет обычный [селектор](../../datalens/dashboard/selector.md) и [селектор JS](../../datalens/charts/editor/widgets/controls.md). Перед добавлением селектора убедитесь, что у вас есть право доступа `{{ permission-write }}` или `{{ permission-admin }}` в отчете. Подробнее см. в разделе [{#T}](../../datalens/security/manage-access.md).
 
 
 ### Есть ли демоверсия отчета? {#demo-report}
-
-Отчеты доступны только в рамках [тарифного плана](../../datalens/pricing.md#service-plans) Business.
 
 Чтобы посмотреть пример отчета, разверните [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi) из {{ datalens-gallery }}:
 

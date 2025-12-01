@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как безопасно в
 
 # Встраивание непубличных объектов
 
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
 Вы можете безопасно встроить непубличные [чарты](../concepts/chart/index.md) и [дашборды](../concepts/dashboard.md) на сайт или в приложение с помощью специальных ссылок с [JWT-токеном](https://ru.wikipedia.org/wiki/JSON_Web_Token).
 
 Встраивание непубличных объектов работает только в новой объектной модели {{ datalens-short-name }} на уровне [воркбуков](../workbooks-collections/index.md) и доступно только [администратору](./roles.md#datalens-workbooks-admin) воркбука.

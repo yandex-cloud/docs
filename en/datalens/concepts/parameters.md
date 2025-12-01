@@ -1,3 +1,8 @@
+---
+title: Parameters in {{ datalens-full-name }}
+description: In {{ datalens-full-name }}, a parameter is a variable that can substitute constant values in calculated fields.
+---
+
 # Parameters in {{ datalens-full-name }}
 
 A parameter is a variable that can substitute constant values in calculated fields. You can create parameters both at the [dataset level](../dataset/create-dataset.md#add-parameters) and at the [chart level](../operations/chart/add-parameter-chart.md).

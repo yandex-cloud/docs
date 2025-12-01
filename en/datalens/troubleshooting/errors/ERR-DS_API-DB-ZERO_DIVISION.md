@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.DB.ZERO_DIVISION error
-description: This page describes the ERR.DS_API.DB.ZERO_DIVISION error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.ZERO_DIVISION'
+description: This page describes the Division by zero {{ datalens-full-name }} error.
 ---
 
-# Division by zero
+# [{{ datalens-full-name }}] Division by zero
 
 `ERR.DS_API.DB.ZERO_DIVISION`
 

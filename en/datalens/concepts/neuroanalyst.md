@@ -41,11 +41,26 @@ The number of AI queries is limited to 600 queries per user per month. We may co
 
 ## Ban on Neuroanalyst {#prohibit}
 
-{{ datalens-name }} users are able to use Neuroanalyst by default. However, the user with the `{{ roles-datalens-admin }}` role may disable this option at the {{ datalens-short-name }} instance level:
-  
-1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
-1. Disable **Neuroanalyst** (on by default). As soon as you do it, the AI assistants will disappear from the {{ datalens-name }} interface for the instance users.
+{{ datalens-name }} users are able to use Neuroanalyst by default. However, the user with the `{{ roles-datalens-admin }}` role may disable this option at the {{ datalens-short-name }} instance level or for individual dashboards or reports:
 
+{% list tabs %}
+
+
+- {{ datalens-short-name }} instance
+
+  1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
+  1. Disable **Neuroanalyst** (on by default). As soon as you do it, the AI assistants will disappear from the {{ datalens-name }} interface for the instance users.
+
+
+- Dashboard
+
+  {% include [datalens-dashboard-neuroanalyst-off](../../_includes/datalens/operations/datalens-dashboard-neuroanalyst-off.md) %}
+
+- Report
+
+  {% include [datalens-report-neuroanalyst-off](../../_includes/datalens/operations/datalens-report-neuroanalyst-off.md) %}
+
+{% endlist %}
 
 ## Setting up a custom prompt {#user-promt}
 

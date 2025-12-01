@@ -17,7 +17,7 @@ To create an MFA policy:
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.securitySettings }}**.
-  1. Go to the **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_mfa_policies_m8oE3 }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_mfa_policies_m8oE3 }}** tab.
   1. In the top-right corner, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.security-settings.mfa-policies-create-policy-action }}** and in the window that opens:
 
       1. In the **{{ ui-key.yacloud_org.forms.field.display-name }}** field, enter a name for the new policy. Follow these naming requirements:
@@ -29,6 +29,53 @@ To create an MFA policy:
       1. {% include [mfa-create-policy-step5](../../../_includes/organization/mfa-create-policy-step5.md) %}
       1. {% include [mfa-create-policy-step6](../../../_includes/organization/mfa-create-policy-step6.md) %}
       1. Click **{{ ui-key.yacloud_org.form.mfa-enforcement.create.action.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for creating an MFA policy:
+
+     ```bash
+     yc organization-manager mfa-enforcement create --help
+     ```
+
+  1. Create an MFA policy by running the command:
+
+      ```bash
+      yc organization-manager mfa-enforcement create \
+        --organization-id <organization_ID> \
+        --acr-id <authentication_factor_type> \
+        --ttl <lifetime> \
+        --status <policy_status> \
+        --apply-at <activation_time> \
+        --enroll-window <creation_deadline> \
+        --name <policy_name> \
+        --description <policy_description>
+      ```
+
+     Where:
+
+     * `--name`: Policy name. Follow these naming requirements:
+
+        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `--organization-id`: Organization ID.
+     * `--acr-id`: Authentication [factor](../../concepts/mfa.md#mfa-factors) type.
+     * `--ttl`: Credential validity period in days.
+     * `--status`: Policy status, active (`status-active`) or inactive (`status-inactive`).
+     * `--apply-at`: Time after which the policy will become active. This is an optional parameter.
+     * `--enroll-window`: Period in days after registration during which the user must add a second authentication factor.
+     * `--description`: Policy description. This is an optional parameter.
+
+  1. Optionally, run the following command to activate an inactive MFA policy:
+
+      ```bash
+      yc organization-manager mfa-enforcement activate \
+        --id <policy_ID>
+      ```
 
 {% endlist %}
 

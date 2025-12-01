@@ -1,9 +1,9 @@
 ---
-title: ERR.FILE.UNSUPPORTED_DOCUMENT error
-description: This page describes the ERR.FILE.UNSUPPORTED_DOCUMENT error.
+title: '{{ datalens-full-name }} error ERR.FILE.UNSUPPORTED_DOCUMENT'
+description: This page describes the File check failed {{ datalens-full-name }} error.
 ---
 
-# File check failed
+# [{{ datalens-full-name }}] File check failed
 
 `ERR.FILE.UNSUPPORTED_DOCUMENT`
 

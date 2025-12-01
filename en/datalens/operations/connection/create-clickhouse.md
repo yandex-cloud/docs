@@ -1,9 +1,9 @@
 ---
-title: How to create a {{ CH }} connection
-description: Follow this guide to create a connection to {{ CH }}.
+title: How to create a {{ CH }} connection in {{ datalens-full-name }}
+description: Follow this guide to create a connection to {{ CH }} in {{ datalens-full-name }}.
 ---
 
-# Creating a {{ CH }} connection
+# Creating a connection to {{ CH }} in {{ datalens-full-name }}
 
 {% note info %}
 

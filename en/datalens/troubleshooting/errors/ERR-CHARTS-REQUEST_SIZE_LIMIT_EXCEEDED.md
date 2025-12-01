@@ -1,9 +1,9 @@
 ---
-title: ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED error
-description: This page describes the ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED error.
+title: '{{ datalens-full-name }} error ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED'
+description: This page describes the Request size limit exceeded {{ datalens-full-name }} error.
 ---
 
-# Request size limit exceeded
+# [{{ datalens-full-name }}] Request size limit exceeded
 
 `ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED`
 

@@ -1,4 +1,9 @@
-# Combined chart ![](../../_assets/datalens/combined.svg)
+---
+title: Combined chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the combined chart visualization type in {{ datalens-full-name }}.
+---
+
+# Combined chart ![](../../_assets/datalens/combined.svg) in {{ datalens-full-name }}
 
 Combined chart is a separate type of visualization consisting of layers. Each layer is represented by a chart type of its own. You can combine [line charts](line-chart.md), [column charts](column-chart.md), and [area charts](area-chart.md).
 
@@ -42,7 +47,7 @@ A combined chart is often used for plan/actual comparison. You can show the plan
 
 {% endcut %}
 
-It's sometimes convenient to use a combined chart for same-type layers. For example, when one layer represents sales by category and another one shows the plan constant.
+It is sometimes convenient to use a combined chart for same-type layers. For example, when one layer represents sales by category and another one shows the plan constant.
 
 ![combo-constant](../../_assets/datalens/visualization-ref/combined-chart/combo-constant.png)
 
@@ -52,7 +57,7 @@ You can display additional lines calculated using [window functions](../../datal
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 X | Dimension. You can specify only one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). The **X** section is common for all layers.
 Layer section | Allows you to add, delete, reorder, and rename layers. You can select a chart type for a layer: [line chart](line-chart.md), [column chart](column-chart.md), or [area chart](area-chart.md). The list of other sections depends on the layer chart type you select.<br/><br/> You can manage data display in the chart layers using the legend. To do this, click individual legend elements or select multiple elements by pressing and holding `Ctrl`/`Cmd`. You can enable or disable the legend in the chart settings. For more information, see [{#T}](../concepts/chart/settings.md#common-settings).

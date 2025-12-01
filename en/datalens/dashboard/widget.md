@@ -1,9 +1,9 @@
 ---
-title: Widgets in {{ datalens-name }}
-description: Widgets are dashboard elements. You can create links between Selector and Chart widgets.
+title: Widgets in {{ datalens-full-name }}
+description: In {{ datalens-full-name }}, widgets are dashboard elements. You can create links between Selector and Chart widgets.
 ---
 
-# Widgets
+# Widgets in {{ datalens-full-name }}
 
 _Widgets_ are dashboard elements. You can create links between **Selector** and **Chart** widgets.
 
@@ -26,7 +26,7 @@ For more information about charts, see [{#T}](../concepts/chart/index.md).
 ## Selector {#selector}
 
 A filter that affects query results on its linked widgets. To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
-A selector can be linked to a chart or another selector. For more information, see [{#T}](./link.md).
+A selector can be linked to a chart or another selector. Learn more in [{#T}](./link.md).
 
 For more information about selectors, see [{#T}](./selector.md).
 
