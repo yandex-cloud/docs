@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Compute Cloud instance ID of the Backup.
+            The maximum string length in characters is 50.
           type: string
         backupId:
           description: |-
@@ -42,7 +43,9 @@ DELETE https://backup.{{ api-host }}/backup/v1/backups/{computeInstanceId}/{back
 ||Field | Description ||
 || computeInstanceId | **string**
 
-Required field. Compute Cloud instance ID of the Backup. ||
+Required field. Compute Cloud instance ID of the Backup.
+
+The maximum string length in characters is 50. ||
 || backupId | **string**
 
 Required field. Backup ID that should be deleted. ||

@@ -148,6 +148,19 @@ CVoS discount is only available for certain types of resources. If the relevant 
 
 
 
+### Computing resources of {{ CH }} Keeper hosts {#prices-keeper}
+
+{% include [note-compute-optimized-request](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
+
+
+
+
+{% include [usd-host-keeper.md](../_pricing/managed-clickhouse/usd-host-keeper.md) %}
+
+
 ### Computing resources of {{ ZK }} hosts {#prices-zookeeper}
 
 

@@ -29,13 +29,19 @@ Delete specific archive.
 Archive ID that should be deleted. ||
 || folder_id | **string**
 
-Folder ID of the archive to delete. ||
+Folder ID of the archive to delete.
+
+The maximum string length in characters is 50. ||
 || instance_id | **string**
 
-Instance ID of the Archive. ||
+Instance ID of the Archive.
+
+The maximum string length in characters is 50. ||
 || policy_id | **string**
 
-Policy ID of the Archive. ||
+Policy ID of the Archive.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

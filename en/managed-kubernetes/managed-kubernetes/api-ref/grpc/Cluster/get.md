@@ -195,7 +195,6 @@ Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 
 Status of the Kubernetes cluster.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.
 - `RUNNING`: Kubernetes cluster is running.
 - `RECONCILING`: Kubernetes cluster is being reconciled.
@@ -207,7 +206,6 @@ Status of the Kubernetes cluster.
 
 Health of the Kubernetes cluster.
 
-- `HEALTH_UNSPECIFIED`
 - `HEALTHY`: Kubernetes cluster is alive and well.
 - `UNHEALTHY`: Kubernetes cluster is inoperable. ||
 || network_id | **string**
@@ -223,6 +221,8 @@ Allocation policy for IP addresses of services and pods inside the Kubernetes cl
 
 Gateway IPv4 address.
 
+The maximum string length in characters is 15.
+
 Includes only one of the fields `gateway_ipv4_address`. ||
 || service_account_id | **string**
 
@@ -237,7 +237,6 @@ Channels differ in the set of available versions, the management of auto-updates
 You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel.
 For more details see [documentation](/docs/managed-kubernetes/concepts/release-channels-and-updates).
 
-- `RELEASE_CHANNEL_UNSPECIFIED`
 - `RAPID`: Minor updates with new functions and improvements are often added.
 You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
 - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
@@ -463,7 +462,9 @@ Window duration. ||
 ||Field | Description ||
 || days_of_week[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
 
-Days of the week and the maintenance window for these days when automatic updates are allowed. ||
+Days of the week and the maintenance window for these days when automatic updates are allowed.
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekMaintenanceWindow {#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow}
@@ -474,7 +475,8 @@ Days of the week and the maintenance window for these days when automatic update
 
 Days of the week when automatic updates are allowed.
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -501,12 +503,16 @@ Identifies whether Cloud Logging is enabled for master components. ||
 
 ID of the log group where logs of master components should be stored.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 The destination of master components' logs. ||
 || folder_id | **string**
 
 ID of the folder where logs should be stored (in default group).
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
@@ -609,7 +615,6 @@ IPv6 range for allocating Kubernetes service IP addresses ||
 ||Field | Description ||
 || provider | enum **Provider**
 
-- `PROVIDER_UNSPECIFIED`
 - `CALICO` ||
 |#
 
@@ -629,7 +634,6 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
 ||Field | Description ||
 || routing_mode | enum **RoutingMode**
 
-- `ROUTING_MODE_UNSPECIFIED`
 - `TUNNEL` ||
 |#
 

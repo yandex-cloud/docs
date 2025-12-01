@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the placement group to list disks for.
             To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - diskPlacementGroupId
@@ -25,6 +26,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListDiskPlacementGroupDisksResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -33,6 +35,7 @@ apiPlayground:
             Page token. To get the next page of results,
             set `pageToken` to the [ListDiskPlacementGroupDisksResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
             returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -57,7 +60,9 @@ GET https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacement
 || diskPlacementGroupId | **string**
 
 Required field. ID of the placement group to list disks for.
-To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request. ||
+To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksRequest}
@@ -69,12 +74,16 @@ To get the placement group ID, use [DiskPlacementGroupService.List](/docs/comput
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListDiskPlacementGroupDisksResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListDiskPlacementGroupDisksResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse}
@@ -198,7 +207,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the disk.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Disk is being created.
 - `READY`: Disk is ready to use.
 - `ERROR`: Disk encountered a problem and cannot operate.
@@ -264,7 +272,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#

@@ -138,6 +138,8 @@ items:
         items:
           - name: Overview
             href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
           - name: backup
             href: cli-ref/cluster/backup.md
           - name: create
@@ -148,12 +150,18 @@ items:
             href: cli-ref/cluster/get.md
           - name: list
             href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
           - name: list-backups
             href: cli-ref/cluster/list-backups.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
           - name: restart-opensearch
             href: cli-ref/cluster/restart-opensearch.md
           - name: restore
             href: cli-ref/cluster/restore.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
           - name: start
             href: cli-ref/cluster/start.md
           - name: stop

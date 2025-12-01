@@ -75,6 +75,19 @@ Aliases:
 	- [yc serverless function set-scaling-policy](function/set-scaling-policy.md) — Set scaling policy for specified function and tag
 	- [yc serverless function tag-history](function/tag-history.md) — Show history of the tag for the specified function
 	- [yc serverless function update](function/update.md) — Update the specified function
+- [yc serverless mcp-gateway](mcp-gateway/index.md) — Manage MCP Gateways
+	- [yc serverless mcp-gateway add-access-binding](mcp-gateway/add-access-binding.md) — Add access binding for the specified MCP Gateway
+	- [yc serverless mcp-gateway allow-unauthenticated-invoke](mcp-gateway/allow-unauthenticated-invoke.md) — Allow unauthenticated invoke for the specified MCP Gateway
+	- [yc serverless mcp-gateway create](mcp-gateway/create.md) — Create MCP Gateway
+	- [yc serverless mcp-gateway delete](mcp-gateway/delete.md) — Delete MCP Gateway
+	- [yc serverless mcp-gateway deny-unauthenticated-invoke](mcp-gateway/deny-unauthenticated-invoke.md) — Deny unauthenticated invoke for the specified MCP Gateway
+	- [yc serverless mcp-gateway get](mcp-gateway/get.md) — Get MCP Gateway
+	- [yc serverless mcp-gateway list](mcp-gateway/list.md) — List MCP Gateways
+	- [yc serverless mcp-gateway list-access-bindings](mcp-gateway/list-access-bindings.md) — List access bindings for the specified MCP Gateway
+	- [yc serverless mcp-gateway list-operations](mcp-gateway/list-operations.md) — List MCP Gateway operations
+	- [yc serverless mcp-gateway remove-access-binding](mcp-gateway/remove-access-binding.md) — Remove access binding for the specified MCP Gateway
+	- [yc serverless mcp-gateway set-access-bindings](mcp-gateway/set-access-bindings.md) — Set access bindings for the specified MCP Gateway and delete all existing access bindings if there were any
+	- [yc serverless mcp-gateway update](mcp-gateway/update.md) — Update MCP Gateway
 - [yc serverless mdbproxy](mdbproxy/index.md) — Manage proxies
 	- [yc serverless mdbproxy add-labels](mdbproxy/add-labels.md) — Add labels to specified proxy
 	- [yc serverless mdbproxy delete](mdbproxy/delete.md) — Delete the specified proxy
@@ -97,11 +110,17 @@ Aliases:
 	- [yc serverless trigger remove-labels](trigger/remove-labels.md) — Remove labels from specified trigger
 	- [yc serverless trigger resume](trigger/resume.md) — Resume the specified trigger
 - [yc serverless workflow](workflow/index.md) — Manage workflows
+	- [yc serverless workflow add-access-binding](workflow/add-access-binding.md) — Add access binding for the specified Workflow
+	- [yc serverless workflow allow-unauthenticated-execution](workflow/allow-unauthenticated-execution.md) — Allow unauthenticated execution for the specified Workflow
 	- [yc serverless workflow create](workflow/create.md) — Create Workflow
 	- [yc serverless workflow delete](workflow/delete.md) — Delete Workflow
+	- [yc serverless workflow deny-unauthenticated-execution](workflow/deny-unauthenticated-execution.md) — Deny unauthenticated execution for the specified Workflow
 	- [yc serverless workflow get](workflow/get.md) — Get Workflow
 	- [yc serverless workflow list](workflow/list.md) — List Workflows
+	- [yc serverless workflow list-access-bindings](workflow/list-access-bindings.md) — List access bindings for the specified Workflow
 	- [yc serverless workflow list-operations](workflow/list-operations.md) — List Workflow operations
+	- [yc serverless workflow remove-access-binding](workflow/remove-access-binding.md) — Remove access binding for the specified Workflow
+	- [yc serverless workflow set-access-bindings](workflow/set-access-bindings.md) — Set access bindings for the specified Workflow and delete all existing access bindings if there were any
 	- [yc serverless workflow update](workflow/update.md) — Update Workflow
 
 #### Global Flags

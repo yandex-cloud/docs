@@ -17,8 +17,8 @@ Lease your first physical server and connect to it. All the leased server's reso
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to lease a server.
-  1. In the list of services, select **{{ baremetal-name }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder that will contain your leased server.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ baremetal-name }}**.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
   1. Select the `{{ region-id }}-m` [availability zone](../overview/concepts/geo-scope.md).
   1. Select the `{{ region-id }}-m3` pool.
@@ -56,8 +56,8 @@ Lease your first physical server and connect to it. All the leased server's reso
 - KVM console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your server.
-  1. In the list of services, select **{{ baremetal-name }}**.
-  1. In the row with the server you need, click ![image](../_assets/console-icons/ellipsis.svg) and select **KVM console**.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ baremetal-name }}**.
+  1. Find the server you need in the list, click ![image](../_assets/console-icons/ellipsis.svg) in its row, and select **KVM console**.
 
 - Linux/macOS {#linux-macos}
 
@@ -111,7 +111,7 @@ Lease your first physical server and connect to it. All the leased server's reso
   1. Run Pageant.
      1. Right-click the Pageant icon in the task bar.
      1. In the context menu, select **Add key**.
-     1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if any.
+     1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if it is set.
   1. Run PuTTY.
      1. In the **Host Name (or IP address)** field, enter the public IP address of the server you want to connect to. Set the port to `22` and the connection type to **SSH**.
 

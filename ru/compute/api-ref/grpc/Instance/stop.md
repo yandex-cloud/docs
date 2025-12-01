@@ -26,7 +26,9 @@ You can start the instance later using the [InstanceService.Start](/docs/compute
 || instance_id | **string**
 
 Required field. ID of the instance to stop.
-To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/grpc/Instance/list#List) request. ||
+To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/grpc/Instance/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

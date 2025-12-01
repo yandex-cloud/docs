@@ -121,7 +121,6 @@ Compute Cloud instance ID. ||
 || enabled | **boolean** ||
 || status | **enum** (Status)
 
-- `STATUS_UNSPECIFIED`
 - `OK`: Application is applied and everything is OK.
 - `RUNNING`: Application is currently running.
 - `DISABLED`: Application is disabled. ||

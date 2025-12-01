@@ -21,7 +21,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Symmetric key name.|
 |`--version-id`|<b>`string`</b><br/>Symmetric key version id to encrypt data key. Otherwise primary version of symmetric key will be used.|
 |`--aad-context-file`|<b>`string`</b><br/>Additional authenticated data file. Otherwise encrypt data key without aad context.|
-|`--data-key-spec`|<b>`string`</b><br/>Required. Encryption algorithm and key length for the generated data key. Values: 'aes-128', 'aes-192', 'aes-256', 'aes-256-hsm'|
+|`--data-key-spec`|<b>`string`</b><br/>Required. Encryption algorithm and key length for the generated data key. Values: 'aes-128', 'aes-192', 'aes-256', 'aes-256-hsm', 'gost-r-3412-2015-k'|
 |`--skip-plaintext`|Won't write generated data key as plaintext.|
 |`--data-key-plaintext-file`|<b>`string`</b><br/>File to write generated data key as plaintext.|
 |`--data-key-ciphertext-file`|<b>`string`</b><br/>Required. File to write encrypted data key.|

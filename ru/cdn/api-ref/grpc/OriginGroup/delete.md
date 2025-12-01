@@ -24,10 +24,14 @@ Deletes origin group with specified origin group id.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the origin group belongs to. ||
+Required field. ID of the folder that the origin group belongs to.
+
+The maximum string length in characters is 50. ||
 || origin_group_id | **int64**
 
-ID of the origin group. ||
+ID of the origin group.
+
+Value must be greater than 0. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -111,5 +115,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || origin_group_id | **int64**
 
-ID of the origin group. ||
+ID of the origin group.
+
+Value must be greater than 0. ||
 |#

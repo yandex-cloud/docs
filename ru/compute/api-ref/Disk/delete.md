@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the disk to delete.
             To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - diskId
@@ -43,7 +44,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/disks/{diskId}
 || diskId | **string**
 
 Required field. ID of the disk to delete.
-To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request. ||
+To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

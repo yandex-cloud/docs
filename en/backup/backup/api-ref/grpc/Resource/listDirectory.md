@@ -26,7 +26,9 @@ by the id.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. Folder ID. ||
+Required field. Folder ID.
+
+The maximum string length in characters is 50. ||
 || compute_instance_id | **string**
 
 Required field. Compute Cloud instance ID. ||
@@ -66,7 +68,6 @@ Item name. ||
 
 Might be Volume, Directory of File.
 
-- `TYPE_UNSPECIFIED`
 - `VOLUME`
 - `DIRECTORY`
 - `FILE` ||
@@ -74,7 +75,6 @@ Might be Volume, Directory of File.
 
 Might be Directory or File.
 
-- `TYPE_UNSPECIFIED`
 - `VOLUME`
 - `DIRECTORY`
 - `FILE` ||

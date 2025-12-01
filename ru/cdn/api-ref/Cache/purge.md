@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the resource to perform purge operation on.
+            The maximum string length in characters is 50.
           type: string
       required:
         - resourceId
@@ -51,7 +52,9 @@ POST https://cdn.{{ api-host }}/cdn/v1/cache/{resourceId}:purge
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of the resource to perform purge operation on. ||
+Required field. ID of the resource to perform purge operation on.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.cdn.v1.PurgeCacheRequest}
@@ -163,7 +166,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

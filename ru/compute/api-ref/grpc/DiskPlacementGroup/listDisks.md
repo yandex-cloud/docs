@@ -26,18 +26,24 @@ Lists disks for the specified placement group.
 || disk_placement_group_id | **string**
 
 Required field. ID of the placement group to list disks for.
-To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/grpc/DiskPlacementGroup/list#List) request. ||
+To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/grpc/DiskPlacementGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListDiskPlacementGroupDisksResponse.next_page_token](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results,
 set `page_token` to the [ListDiskPlacementGroupDisksResponse.next_page_token](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListDiskPlacementGroupDisksResponse {#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse}
@@ -152,7 +158,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the disk.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Disk is being created.
 - `READY`: Disk is ready to use.
 - `ERROR`: Disk encountered a problem and cannot operate.
@@ -218,7 +223,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pci_topology | enum **PCITopology**
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#

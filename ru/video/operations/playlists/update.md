@@ -32,6 +32,7 @@ description: Следуя данной инструкции, вы сможете
           В плейлистах будут доступны к просмотру только видео с [постоянными ссылками](../../concepts/videos.md#permanent-link).
 
        1. Нажмите **{{ ui-key.yacloud_video.common.action_add }}**.
+  1. В списке **{{ ui-key.yacloud_video.presets.label_style-preset }}** выберите [шаблон](../../concepts/presets.md) оформления плеера из доступных в канале или создайте новый.
   1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 {% endlist %}

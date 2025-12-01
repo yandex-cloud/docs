@@ -21,7 +21,9 @@ sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Instance/simulateMaintenanc
 ||Field | Description ||
 || instance_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -11,6 +11,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder that the activate provider belongs to.
+            The maximum string length in characters is 50.
           type: string
       required:
         - folderId
@@ -36,7 +37,9 @@ GET https://cdn.{{ api-host }}/cdn/v1/providers
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the activate provider belongs to. ||
+Required field. ID of the folder that the activate provider belongs to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cdn.v1.ListActivatedProvidersResponse}

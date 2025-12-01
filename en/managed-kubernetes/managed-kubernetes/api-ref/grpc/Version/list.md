@@ -52,7 +52,6 @@ Versions available in the specified release channel. ||
 
 Release channel: `RAPID`, `REGULAR` or `STABLE`. For more details see [documentation](/docs/managed-kubernetes/concepts/release-channels-and-updates).
 
-- `RELEASE_CHANNEL_UNSPECIFIED`
 - `RAPID`: Minor updates with new functions and improvements are often added.
 You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
 - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.

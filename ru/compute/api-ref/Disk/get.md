@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Disk resource to return.
             To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - diskId
@@ -40,7 +41,9 @@ GET https://compute.{{ api-host }}/compute/v1/disks/{diskId}
 || diskId | **string**
 
 Required field. ID of the Disk resource to return.
-To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request. ||
+To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.Disk}
@@ -142,7 +145,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the disk.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Disk is being created.
 - `READY`: Disk is ready to use.
 - `ERROR`: Disk encountered a problem and cannot operate.
@@ -208,7 +210,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#

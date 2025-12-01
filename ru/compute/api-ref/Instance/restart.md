@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the instance to restart.
             To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - instanceId
@@ -38,7 +39,9 @@ POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:restart
 || instanceId | **string**
 
 Required field. ID of the instance to restart.
-To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request. ||
+To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

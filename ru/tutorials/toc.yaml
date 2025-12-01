@@ -1700,10 +1700,12 @@ items:
           - name: >-
               Реализация AI-ассистента с поиском по PDF-файлам со сложным
               форматированием
+            hidden: true
             href: ml-ai/pdf-searchindex-ai-assistant.md
           - name: >-
               Интеграция генеративных моделей в Visual Studio Code в качестве
               ассистента для написания кода
             href: ml-ai/ai-model-ide-integration.md
           - name: Создание интеллектуального ассистента для Telegram
+            hidden: true
             href: ml-ai/tg-bot-assistant.md

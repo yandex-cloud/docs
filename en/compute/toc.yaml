@@ -1054,6 +1054,10 @@ items:
             href: cli-ref/instance-group/delete.md
           - name: delete-instances
             href: cli-ref/instance-group/delete-instances.md
+          - name: disable-zones
+            href: cli-ref/instance-group/disable-zones.md
+          - name: enable-zones
+            href: cli-ref/instance-group/enable-zones.md
           - name: get
             href: cli-ref/instance-group/get.md
           - name: list
@@ -1644,6 +1648,10 @@ items:
                       instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses.md
                   - name: PauseProcesses
                     href: instancegroup/api-ref/grpc/InstanceGroup/pauseProcesses.md
+                  - name: DisableZones
+                    href: instancegroup/api-ref/grpc/InstanceGroup/disableZones.md
+                  - name: EnableZones
+                    href: instancegroup/api-ref/grpc/InstanceGroup/enableZones.md
               - name: Operation
                 items:
                   - name: Overview

@@ -55,7 +55,7 @@ To set up a link aggregation group:
   1. Find out which of the interfaces belong to the public network, and which to the private one:
 
         1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the server belongs to.
-        1. In the list of services, go **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** and, in the list of servers that opens, select the one you need.
+        1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** and select the server in the list of servers.
 
             On the page that opens, in the `{{ ui-key.yacloud.baremetal.field_mac-address }}` field under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** and **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, you can see the MAC addresses of interfaces connected to the public and private networks, respectively.
 

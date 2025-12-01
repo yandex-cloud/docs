@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Instance resource to update.
             To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - instanceId
@@ -35,18 +36,21 @@ apiPlayground:
           description: |-
             **string**
             Name of the instance.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the instance.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -116,7 +120,6 @@ apiPlayground:
           description: |-
             **enum** (MaintenancePolicy)
             Behaviour on maintenance events
-            - `MAINTENANCE_POLICY_UNSPECIFIED`
             - `RESTART`: Restart instance to move it to another host during maintenance
             - `MIGRATE`: Use live migration to move instance to another host during maintenance
           type: string
@@ -142,6 +145,7 @@ apiPlayground:
             Attaching/detaching running instance will increase/decrease the size of the reserved instance pool.
             Attaching/detaching stopped instance will leave the size of the reserved instance pool unchanged. Starting such attached instance will use resources from the reserved instance pool.
             Reserved instance pool resource configuration must match the resource configuration of the instance.
+            The maximum string length in characters is 50.
           type: string
         application:
           description: |-
@@ -157,6 +161,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Required field. The amount of memory available to the instance, specified in bytes.
+              The maximum value is 274877906944.
             type: string
             format: int64
           cores:
@@ -190,7 +195,6 @@ apiPlayground:
             description: |-
               **enum** (MetadataOption)
               Enabled access to GCE flavored metadata
-              - `METADATA_OPTION_UNSPECIFIED`
               - `ENABLED`: Option is enabled
               - `DISABLED`: Option is disabled
             type: string
@@ -202,7 +206,6 @@ apiPlayground:
             description: |-
               **enum** (MetadataOption)
               Enabled access to AWS flavored metadata (IMDSv1)
-              - `METADATA_OPTION_UNSPECIFIED`
               - `ENABLED`: Option is enabled
               - `DISABLED`: Option is disabled
             type: string
@@ -214,7 +217,6 @@ apiPlayground:
             description: |-
               **enum** (MetadataOption)
               Enabled access to IAM credentials with GCE flavored metadata
-              - `METADATA_OPTION_UNSPECIFIED`
               - `ENABLED`: Option is enabled
               - `DISABLED`: Option is disabled
             type: string
@@ -226,7 +228,6 @@ apiPlayground:
             description: |-
               **enum** (MetadataOption)
               Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
-              - `METADATA_OPTION_UNSPECIFIED`
               - `ENABLED`: Option is enabled
               - `DISABLED`: Option is disabled
             type: string
@@ -241,7 +242,6 @@ apiPlayground:
             description: |-
               **enum** (Type)
               Network Type
-              - `TYPE_UNSPECIFIED`
               - `STANDARD`: Standard network.
               - `SOFTWARE_ACCELERATED`: Software accelerated network.
               - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).
@@ -263,7 +263,6 @@ apiPlayground:
             description: |-
               **enum** (Operator)
               Include or exclude action
-              - `OPERATOR_UNSPECIFIED`
               - `IN`
               - `NOT_IN`
             type: string
@@ -314,7 +313,6 @@ apiPlayground:
             description: |-
               **enum** (SSHAuthorization)
               Authentication and authorization in serial console when using SSH protocol
-              - `SSH_AUTHORIZATION_UNSPECIFIED`
               - `INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata
               - `OS_LOGIN`: Authentication and authorization using Oslogin service
             type: string
@@ -329,16 +327,19 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the secret.
+              The maximum string length in characters is 50.
             type: string
           key:
             description: |-
               **string**
               Required field. Name of the key.
+              The maximum string length in characters is 256.
             type: string
           versionId:
             description: |-
               **string**
               Version of the secret.
+              The maximum string length in characters is 50.
             type: string
         required:
           - id
@@ -350,11 +351,13 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the product.
+              The maximum string length in characters is 50.
             type: string
           secrets:
             description: |-
               **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret)**>)
               A list of the secrets.
+              No more than 100 per resource. The maximum string length in characters for each key is 100.
             type: object
             additionalProperties:
               $ref: '#/definitions/Secret'
@@ -363,6 +366,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               A list of the environmets.
+              No more than 100 per resource. The maximum string length in characters for each key is 100. The maximum string length in characters for each value is 10000.
             type: object
             additionalProperties:
               type: string
@@ -382,6 +386,7 @@ apiPlayground:
             description: |-
               **string**
               A list of policy IDs to apply after resource registration.
+              The maximum number of elements is 50. The string length in characters for each value must be 1-50.
             type: array
             items:
               type: string
@@ -394,11 +399,13 @@ apiPlayground:
             description: |-
               **string**
               ID of the backup to recover from.
+              The maximum string length in characters is 100.
             type: string
           instanceRegistrationId:
             description: |-
               **string**
               ID of the instance registration for cloud backup agent installation.
+              The maximum string length in characters is 100.
             type: string
       Application:
         type: object
@@ -437,7 +444,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/instances/{instanceId}
 || instanceId | **string**
 
 Required field. ID of the Instance resource to update.
-To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request. ||
+To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateInstanceRequest}
@@ -523,15 +532,21 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the instance. ||
+Name of the instance.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the instance. ||
+Description of the instance.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-Existing set of `labels` is completely replaced by the provided set. ||
+Existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || platformId | **string**
 
 ID of the hardware platform configuration for the instance.
@@ -576,7 +591,6 @@ Scheduling policy configuration. ||
 
 Behaviour on maintenance events
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || maintenanceGracePeriod | **string** (duration)
@@ -590,7 +604,9 @@ Serial port settings ||
 ID of the reserved instance pool that the instance should belong to.
 Attaching/detaching running instance will increase/decrease the size of the reserved instance pool.
 Attaching/detaching stopped instance will leave the size of the reserved instance pool unchanged. Starting such attached instance will use resources from the reserved instance pool.
-Reserved instance pool resource configuration must match the resource configuration of the instance. ||
+Reserved instance pool resource configuration must match the resource configuration of the instance.
+
+The maximum string length in characters is 50. ||
 || application | **[Application](#yandex.cloud.compute.v1.Application)**
 
 Instance application settings. ||
@@ -602,7 +618,9 @@ Instance application settings. ||
 ||Field | Description ||
 || memory | **string** (int64)
 
-Required field. The amount of memory available to the instance, specified in bytes. ||
+Required field. The amount of memory available to the instance, specified in bytes.
+
+The maximum value is 274877906944. ||
 || cores | **string** (int64)
 
 Required field. The number of cores available to the instance. ||
@@ -626,28 +644,24 @@ The number of GPUs available to the instance. ||
 
 Enabled access to GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || awsV1HttpEndpoint | **enum** (MetadataOption)
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || gceHttpToken | **enum** (MetadataOption)
 
 Enabled access to IAM credentials with GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || awsV1HttpToken | **enum** (MetadataOption)
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 |#
@@ -660,7 +674,6 @@ Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
 Network Type
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
@@ -694,7 +707,6 @@ Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
 
 Include or exclude action
 
-- `OPERATOR_UNSPECIFIED`
 - `IN`
 - `NOT_IN` ||
 || values[] | **string**
@@ -719,7 +731,6 @@ True for short-lived compute instances. For more information, see [Preemptible V
 
 Authentication and authorization in serial console when using SSH protocol
 
-- `SSH_AUTHORIZATION_UNSPECIFIED`
 - `INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata
 - `OS_LOGIN`: Authentication and authorization using Oslogin service ||
 |#
@@ -744,13 +755,19 @@ Backup settings. ||
 ||Field | Description ||
 || productId | **string**
 
-Required field. ID of the product. ||
+Required field. ID of the product.
+
+The maximum string length in characters is 50. ||
 || secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret)**>)
 
-A list of the secrets. ||
+A list of the secrets.
+
+No more than 100 per resource. The maximum string length in characters for each key is 100. ||
 || environment | **object** (map<**string**, **string**>)
 
-A list of the environmets. ||
+A list of the environmets.
+
+No more than 100 per resource. The maximum string length in characters for each key is 100. The maximum string length in characters for each value is 10000. ||
 |#
 
 ## Secret {#yandex.cloud.compute.v1.Secret}
@@ -759,13 +776,19 @@ A list of the environmets. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the secret. ||
+Required field. ID of the secret.
+
+The maximum string length in characters is 50. ||
 || key | **string**
 
-Required field. Name of the key. ||
+Required field. Name of the key.
+
+The maximum string length in characters is 256. ||
 || versionId | **string**
 
-Version of the secret. ||
+Version of the secret.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## BackupSpec {#yandex.cloud.compute.v1.BackupSpec}
@@ -777,16 +800,22 @@ Version of the secret. ||
 If true, backup is enabled. ||
 || initialPolicyIds[] | **string**
 
-A list of policy IDs to apply after resource registration. ||
+A list of policy IDs to apply after resource registration.
+
+The maximum number of elements is 50. The string length in characters for each value must be 1-50. ||
 || recoveryFromBackup | **boolean**
 
 If true, recovery from backup starts on instance. ||
 || backupId | **string**
 
-ID of the backup to recover from. ||
+ID of the backup to recover from.
+
+The maximum string length in characters is 100. ||
 || instanceRegistrationId | **string**
 
-ID of the instance registration for cloud backup agent installation. ||
+ID of the instance registration for cloud backup agent installation.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -1118,7 +1147,6 @@ Computing resources of the instance such as the amount of memory and number of c
 
 Status of the instance.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Instance is waiting for resources to be allocated.
 - `RUNNING`: Instance is running normally.
 - `STOPPING`: Instance is being stopped.
@@ -1187,7 +1215,6 @@ ID of the dedicated host that the instance belongs to. ||
 
 Behaviour on maintenance events
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || maintenanceGracePeriod | **string** (duration)
@@ -1231,28 +1258,24 @@ The number of GPUs available to the instance. ||
 
 Enabled access to GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || awsV1HttpEndpoint | **enum** (MetadataOption)
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || gceHttpToken | **enum** (MetadataOption)
 
 Enabled access to IAM credentials with GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || awsV1HttpToken | **enum** (MetadataOption)
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 |#
@@ -1265,7 +1288,6 @@ Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
 Access mode to the Disk resource.
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. ||
 || deviceName | **string**
@@ -1305,7 +1327,6 @@ This value can be used to reference the device for mounting, resizing, and so on
 
 Access mode to the filesystem.
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. ||
 || deviceName | **string**
@@ -1369,7 +1390,6 @@ An external IP address associated with this instance. ||
 
 IP version for the external IP address.
 
-- `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address, for example 192.0.2.235.
 - `IPV6`: IPv6 address. Not available yet. ||
 || dnsRecords[] | **[DnsRecord](#yandex.cloud.compute.v1.DnsRecord)**
@@ -1404,7 +1424,6 @@ When true, indicates there is a corresponding auto-created PTR DNS record. ||
 
 Authentication and authorization in serial console when using SSH protocol
 
-- `SSH_AUTHORIZATION_UNSPECIFIED`
 - `INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata
 - `OS_LOGIN`: Authentication and authorization using Oslogin service ||
 |#
@@ -1435,7 +1454,6 @@ True for short-lived compute instances. For more information, see [Preemptible V
 
 Network Type
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
@@ -1469,7 +1487,6 @@ Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
 
 Include or exclude action
 
-- `OPERATOR_UNSPECIFIED`
 - `IN`
 - `NOT_IN` ||
 || values[] | **string**
@@ -1503,7 +1520,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#
@@ -1528,13 +1544,19 @@ Backup settings. ||
 ||Field | Description ||
 || productId | **string**
 
-Required field. ID of the product. ||
+Required field. ID of the product.
+
+The maximum string length in characters is 50. ||
 || secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret2)**>)
 
-A list of the secrets. ||
+A list of the secrets.
+
+No more than 100 per resource. The maximum string length in characters for each key is 100. ||
 || environment | **object** (map<**string**, **string**>)
 
-A list of the environmets. ||
+A list of the environmets.
+
+No more than 100 per resource. The maximum string length in characters for each key is 100. The maximum string length in characters for each value is 10000. ||
 |#
 
 ## Secret {#yandex.cloud.compute.v1.Secret2}
@@ -1543,13 +1565,19 @@ A list of the environmets. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the secret. ||
+Required field. ID of the secret.
+
+The maximum string length in characters is 50. ||
 || key | **string**
 
-Required field. Name of the key. ||
+Required field. Name of the key.
+
+The maximum string length in characters is 256. ||
 || versionId | **string**
 
-Version of the secret. ||
+Version of the secret.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## BackupSpec {#yandex.cloud.compute.v1.BackupSpec2}
@@ -1561,14 +1589,20 @@ Version of the secret. ||
 If true, backup is enabled. ||
 || initialPolicyIds[] | **string**
 
-A list of policy IDs to apply after resource registration. ||
+A list of policy IDs to apply after resource registration.
+
+The maximum number of elements is 50. The string length in characters for each value must be 1-50. ||
 || recoveryFromBackup | **boolean**
 
 If true, recovery from backup starts on instance. ||
 || backupId | **string**
 
-ID of the backup to recover from. ||
+ID of the backup to recover from.
+
+The maximum string length in characters is 100. ||
 || instanceRegistrationId | **string**
 
-ID of the instance registration for cloud backup agent installation. ||
+ID of the instance registration for cloud backup agent installation.
+
+The maximum string length in characters is 100. ||
 |#

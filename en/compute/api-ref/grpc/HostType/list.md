@@ -27,12 +27,16 @@ List avaliable host types.
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListHostTypesResponse.next_page_token](#yandex.cloud.compute.v1.ListHostTypesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results,
 set `page_token` to the [ListHostTypesResponse.next_page_token](#yandex.cloud.compute.v1.ListHostTypesResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListHostTypesResponse {#yandex.cloud.compute.v1.ListHostTypesResponse}

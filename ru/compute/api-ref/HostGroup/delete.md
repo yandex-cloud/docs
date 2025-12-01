@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the host group to delete.
             To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - hostGroupId
@@ -38,7 +39,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
 || hostGroupId | **string**
 
 Required field. ID of the host group to delete.
-To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request. ||
+To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

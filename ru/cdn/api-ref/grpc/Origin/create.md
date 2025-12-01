@@ -44,14 +44,20 @@ Creates origin inside origin group.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
+Required field. ID of the folder that the origin belongs to.
+
+The maximum string length in characters is 50. ||
 || origin_group_id | **int64**
 
-`origin_group_id` group ID to request origins from. ||
+`origin_group_id` group ID to request origins from.
+
+Value must be greater than 0. ||
 || source | **string**
 
 Required field. IP address or Domain name of your origin and the port (if custom).
-Used if `meta` variant is `common`. ||
+Used if `meta` variant is `common`.
+
+The maximum string length in characters is 50. ||
 || enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 The setting allows to enable or disable an Origin source in the Origins group.
@@ -246,10 +252,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || origin_id | **int64**
 
-ID of the origin. ||
+ID of the origin.
+
+Value must be greater than 0. ||
 || origin_group_id | **int64**
 
-ID pf the parent origins group. ||
+ID pf the parent origins group.
+
+Value must be greater than 0. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}

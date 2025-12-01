@@ -21,7 +21,9 @@ sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/RawLogs/deactivate.md
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of CDN resource to deactivate Raw Logs for. ||
+Required field. ID of CDN resource to deactivate Raw Logs for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

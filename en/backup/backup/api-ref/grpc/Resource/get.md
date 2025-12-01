@@ -24,7 +24,9 @@ Get specific Compute Cloud instance.
 ||Field | Description ||
 || compute_instance_id | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
 || include_tenant_info | **bool**
 
 If flag is set tenant informantion would be added to the response. ||
@@ -88,7 +90,6 @@ If this field is true, it means that instance is online. ||
 If this field is true, it means that backup is enabled to instance. ||
 || status | enum **Status**
 
-- `STATUS_UNSPECIFIED`
 - `IDLE`: Compute Cloud instance is doing nothing right now.
 - `BACKUPING`: Compute Cloud instance is currently backing up itself.
 - `RECOVERING`: Compute Cloud instance is currently recovering itself.
@@ -118,7 +119,6 @@ Cloud Backup resource. ||
 
 Status of resource initialization in cloud backup service.
 
-- `INIT_STATUS_UNSPECIFIED`
 - `REGISTERING`: Registration of instance in cloud backups have started.
 - `REGISTRED`: Instance is registered in cloud backups.
 - `FAILED_REGISTRATION`: Instance registration failed.
@@ -131,7 +131,6 @@ if status is FAILED_REGISTRATION or REGISTERING ||
 
 Type of resource. Could be compute VM or baremetal server.
 
-- `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
 - `BMS`: Resource is baremetal server
 - `EXTERNAL_VM`: Resource is VM

@@ -254,7 +254,6 @@ Snapshot schedule labels as `key:value` pairs. ||
 
 Status of the snapshot schedule.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The snapshot schedule is being created.
 - `ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted
 (if [SnapshotSchedule.retention_policy](/docs/compute/api-ref/grpc/Disk/listSnapshotSchedules#yandex.cloud.compute.v1.SnapshotSchedule.retention_policy) is specified).

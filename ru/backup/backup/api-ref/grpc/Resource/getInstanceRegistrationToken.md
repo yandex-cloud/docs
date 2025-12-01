@@ -24,12 +24,13 @@ Get instance registration token to install backup agent withot SA attached to in
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. Folder ID. ||
+Required field. Folder ID.
+
+The maximum string length in characters is 50. ||
 || type | enum **ResourceType**
 
 Type of resource. Could be compute VM or baremetal server.
 
-- `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
 - `BMS`: Resource is baremetal server
 - `EXTERNAL_VM`: Resource is VM

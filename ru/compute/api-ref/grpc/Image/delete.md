@@ -26,7 +26,9 @@ Deleting an image removes its data permanently and is irreversible.
 || image_id | **string**
 
 Required field. ID of the image to delete.
-To get the image ID, use a [ImageService.List](/docs/compute/api-ref/grpc/Image/list#List) request. ||
+To get the image ID, use a [ImageService.List](/docs/compute/api-ref/grpc/Image/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

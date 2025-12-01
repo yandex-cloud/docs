@@ -30,19 +30,23 @@ Aliases:
 	- [yc managed-postgresql backup-retention-policy delete](backup-retention-policy/delete.md) — Delete specific backup retention policy
 	- [yc managed-postgresql backup-retention-policy list](backup-retention-policy/list.md) — List available backup retention policies
 - [yc managed-postgresql cluster](cluster/index.md) — Manage PostgreSQL clusters
+	- [yc managed-postgresql cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster add-labels](cluster/add-labels.md) — Add labels to PostgreSQL cluster
 	- [yc managed-postgresql cluster backup](cluster/backup.md) — Create a backup for the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster create](cluster/create.md) — Create PostgreSQL cluster
 	- [yc managed-postgresql cluster delete](cluster/delete.md) — Delete the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster get](cluster/get.md) — Show information about the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster list](cluster/list.md) — List PostgreSQL clusters
+	- [yc managed-postgresql cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster list-backups](cluster/list-backups.md) — List available backups for the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster list-logs](cluster/list-logs.md) — Retrieves logs for the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster list-operations](cluster/list-operations.md) — List operations for the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster move](cluster/move.md) — Move the specified PostgreSQL cluster into the folder
+	- [yc managed-postgresql cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster remove-labels](cluster/remove-labels.md) — Remove labels from PostgreSQL cluster
 	- [yc managed-postgresql cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 	- [yc managed-postgresql cluster restore](cluster/restore.md) — Restore PostgreSQL cluster
+	- [yc managed-postgresql cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified PostgreSQL cluster and delete all existing access bindings if there were any
 	- [yc managed-postgresql cluster start](cluster/start.md) — Start the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster start-failover](cluster/start-failover.md) — Start manual failover for the specified PostgreSQL cluster
 	- [yc managed-postgresql cluster stop](cluster/stop.md) — Stop the specified PostgreSQL cluster

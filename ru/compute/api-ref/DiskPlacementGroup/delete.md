@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the placement group to delete.
             To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - diskPlacementGroupId
@@ -38,7 +39,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacem
 || diskPlacementGroupId | **string**
 
 Required field. ID of the placement group to delete.
-To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request. ||
+To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

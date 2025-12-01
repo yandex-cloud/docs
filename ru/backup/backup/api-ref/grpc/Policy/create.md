@@ -167,13 +167,17 @@ For detailed information, please see [Creating a backup policy](/docs/backup/ope
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. Folder ID. ||
+Required field. Folder ID.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Policy name. ||
+Required field. Policy name.
+
+The maximum string length in characters is 50. ||
 || settings | **[PolicySettings](#yandex.cloud.backup.v1.PolicySettings)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## PolicySettings {#yandex.cloud.backup.v1.PolicySettings}
@@ -186,7 +190,6 @@ Set of policy settings
 
 Required field. Archive compression level.
 
-- `COMPRESSION_UNSPECIFIED`
 - `NORMAL`
 - `HIGH`
 - `MAX`
@@ -195,7 +198,6 @@ Required field. Archive compression level.
 
 Required field. Format of the Acronis backup archive.
 
-- `FORMAT_UNSPECIFIED`
 - `VERSION_11`: A legacy backup format used in older versions. It's not recommended to use.
 - `VERSION_12`: A new format recommended in most cases for fast backup and recovery.
 - `AUTO`: Automatic version selection. Will be used version 12 unless the protection
@@ -239,7 +241,6 @@ Required field. Configuration of the backup schedule. ||
 
 Required field. A configuration of Changed Block Tracking (CBT).
 
-- `CHANGED_BLOCK_TRACKING_UNSPECIFIED`
 - `USE_IF_ENABLED`
 - `ENABLE_AND_USE`
 - `DO_NOT_USE` ||
@@ -288,7 +289,9 @@ Required field. An interval between retry attempts. ||
 || max_attempts | **int64**
 
 Max number of retry attempts. Operation will be considered as failed
-when max number of retry attempts is reached. ||
+when max number of retry attempts is reached.
+
+Value must be greater than 0. ||
 |#
 
 ## Interval {#yandex.cloud.backup.v1.PolicySettings.Interval}
@@ -299,7 +302,6 @@ when max number of retry attempts is reached. ||
 
 Required field. A type of the interval.
 
-- `TYPE_UNSPECIFIED`
 - `SECONDS`
 - `MINUTES`
 - `HOURS`
@@ -308,7 +310,9 @@ Required field. A type of the interval.
 - `MONTHS` ||
 || count | **int64**
 
-The amount of value specified in `Interval.Type`. ||
+The amount of value specified in `Interval.Type`.
+
+Value must be greater than 0. ||
 |#
 
 ## Splitting {#yandex.cloud.backup.v1.PolicySettings.Splitting}
@@ -335,7 +339,6 @@ If true, the VSS will be enabled. ||
 
 Required field. A type of VSS provider to use in backup.
 
-- `VSS_PROVIDER_UNSPECIFIED`
 - `NATIVE`
 - `TARGET_SYSTEM_DEFINED` ||
 |#
@@ -379,7 +382,6 @@ If true, retention rules will be applied before backup is finished. ||
 
 A list of backup sets where rules are effective.
 
-- `REPEATE_PERIOD_UNSPECIFIED`
 - `HOURLY`
 - `DAILY`
 - `WEEKLY`
@@ -398,7 +400,9 @@ Includes only one of the fields `max_age`, `max_count`. ||
 ||Field | Description ||
 || backup_sets[] | **[BackupSet](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet)**
 
-A list of schedules with backup sets that compose the whole scheme. ||
+A list of schedules with backup sets that compose the whole scheme.
+
+The number of elements must be greater than 0. ||
 || enabled | **bool**
 
 If true, the backup schedule will be enabled. ||
@@ -412,7 +416,6 @@ Required field. Configuration of the random delay between the execution of paral
 
 Required field. A backup scheme. Available values: `simple`, `always_full`, `always_incremental`, `weekly_incremental`, `weekly_full_daily_incremental`, `custom`, `cdp`.
 
-- `SCHEME_UNSPECIFIED`
 - `SIMPLE`
 - `ALWAYS_FULL`
 - `ALWAYS_INCREMENTAL`
@@ -425,7 +428,6 @@ and incremental backups additionally.
 
 Required field. A day of week to start weekly backups.
 
-- `DAY_UNSPECIFIED`
 - `MONDAY`
 - `TUESDAY`
 - `WEDNESDAY`
@@ -453,7 +455,6 @@ Includes only one of the fields `time`, `since_last_exec_time`. ||
 BackupSet type -- one of incr, full, differential or auto.
 if custom scheme is used the BackupSet type should be specified
 
-- `TYPE_UNSPECIFIED`
 - `TYPE_AUTO`
 - `TYPE_FULL`
 - `TYPE_INCREMENTAL`
@@ -468,7 +469,6 @@ if custom scheme is used the BackupSet type should be specified
 
 Days in a week to perform a backup.
 
-- `DAY_UNSPECIFIED`
 - `MONDAY`
 - `TUESDAY`
 - `WEDNESDAY`
@@ -503,7 +503,6 @@ Set of values. Allowed values form 1 to 12. ||
 
 Required field. Possible types: `REPEATE_PERIOD_UNSPECIFIED`, `HOURLY`, `DAILY`, `WEEKLY`, `MONTHLY`.
 
-- `REPEATE_PERIOD_UNSPECIFIED`
 - `HOURLY`
 - `DAILY`
 - `WEEKLY`
@@ -566,7 +565,6 @@ Stop backup execution on error ||
 
 Type of command: pre or post
 
-- `COMMAND_TYPE_UNSPECIFIED`
 - `PRE_COMMAND`: Launch command before backup execution
 - `POST_COMMAND`: Launch command after backup execution
 - `PRE_DATA_COMMAND`: Launch command before data capture (snapshot execution)
@@ -808,7 +806,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || policy_id | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Policy {#yandex.cloud.backup.v1.Policy}
@@ -817,10 +817,14 @@ Required field. Policy ID. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Policy name. ||
+Required field. Policy name.
+
+The maximum string length in characters is 50. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || enabled | **bool**
@@ -844,7 +848,6 @@ Set of policy settings
 
 Required field. Archive compression level.
 
-- `COMPRESSION_UNSPECIFIED`
 - `NORMAL`
 - `HIGH`
 - `MAX`
@@ -853,7 +856,6 @@ Required field. Archive compression level.
 
 Required field. Format of the Acronis backup archive.
 
-- `FORMAT_UNSPECIFIED`
 - `VERSION_11`: A legacy backup format used in older versions. It's not recommended to use.
 - `VERSION_12`: A new format recommended in most cases for fast backup and recovery.
 - `AUTO`: Automatic version selection. Will be used version 12 unless the protection
@@ -897,7 +899,6 @@ Required field. Configuration of the backup schedule. ||
 
 Required field. A configuration of Changed Block Tracking (CBT).
 
-- `CHANGED_BLOCK_TRACKING_UNSPECIFIED`
 - `USE_IF_ENABLED`
 - `ENABLE_AND_USE`
 - `DO_NOT_USE` ||
@@ -946,7 +947,9 @@ Required field. An interval between retry attempts. ||
 || max_attempts | **int64**
 
 Max number of retry attempts. Operation will be considered as failed
-when max number of retry attempts is reached. ||
+when max number of retry attempts is reached.
+
+Value must be greater than 0. ||
 |#
 
 ## Interval {#yandex.cloud.backup.v1.PolicySettings.Interval2}
@@ -957,7 +960,6 @@ when max number of retry attempts is reached. ||
 
 Required field. A type of the interval.
 
-- `TYPE_UNSPECIFIED`
 - `SECONDS`
 - `MINUTES`
 - `HOURS`
@@ -966,7 +968,9 @@ Required field. A type of the interval.
 - `MONTHS` ||
 || count | **int64**
 
-The amount of value specified in `Interval.Type`. ||
+The amount of value specified in `Interval.Type`.
+
+Value must be greater than 0. ||
 |#
 
 ## Splitting {#yandex.cloud.backup.v1.PolicySettings.Splitting2}
@@ -993,7 +997,6 @@ If true, the VSS will be enabled. ||
 
 Required field. A type of VSS provider to use in backup.
 
-- `VSS_PROVIDER_UNSPECIFIED`
 - `NATIVE`
 - `TARGET_SYSTEM_DEFINED` ||
 |#
@@ -1037,7 +1040,6 @@ If true, retention rules will be applied before backup is finished. ||
 
 A list of backup sets where rules are effective.
 
-- `REPEATE_PERIOD_UNSPECIFIED`
 - `HOURLY`
 - `DAILY`
 - `WEEKLY`
@@ -1056,7 +1058,9 @@ Includes only one of the fields `max_age`, `max_count`. ||
 ||Field | Description ||
 || backup_sets[] | **[BackupSet](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet2)**
 
-A list of schedules with backup sets that compose the whole scheme. ||
+A list of schedules with backup sets that compose the whole scheme.
+
+The number of elements must be greater than 0. ||
 || enabled | **bool**
 
 If true, the backup schedule will be enabled. ||
@@ -1070,7 +1074,6 @@ Required field. Configuration of the random delay between the execution of paral
 
 Required field. A backup scheme. Available values: `simple`, `always_full`, `always_incremental`, `weekly_incremental`, `weekly_full_daily_incremental`, `custom`, `cdp`.
 
-- `SCHEME_UNSPECIFIED`
 - `SIMPLE`
 - `ALWAYS_FULL`
 - `ALWAYS_INCREMENTAL`
@@ -1083,7 +1086,6 @@ and incremental backups additionally.
 
 Required field. A day of week to start weekly backups.
 
-- `DAY_UNSPECIFIED`
 - `MONDAY`
 - `TUESDAY`
 - `WEDNESDAY`
@@ -1111,7 +1113,6 @@ Includes only one of the fields `time`, `since_last_exec_time`. ||
 BackupSet type -- one of incr, full, differential or auto.
 if custom scheme is used the BackupSet type should be specified
 
-- `TYPE_UNSPECIFIED`
 - `TYPE_AUTO`
 - `TYPE_FULL`
 - `TYPE_INCREMENTAL`
@@ -1126,7 +1127,6 @@ if custom scheme is used the BackupSet type should be specified
 
 Days in a week to perform a backup.
 
-- `DAY_UNSPECIFIED`
 - `MONDAY`
 - `TUESDAY`
 - `WEDNESDAY`
@@ -1161,7 +1161,6 @@ Set of values. Allowed values form 1 to 12. ||
 
 Required field. Possible types: `REPEATE_PERIOD_UNSPECIFIED`, `HOURLY`, `DAILY`, `WEEKLY`, `MONTHLY`.
 
-- `REPEATE_PERIOD_UNSPECIFIED`
 - `HOURLY`
 - `DAILY`
 - `WEEKLY`
@@ -1224,7 +1223,6 @@ Stop backup execution on error ||
 
 Type of command: pre or post
 
-- `COMMAND_TYPE_UNSPECIFIED`
 - `PRE_COMMAND`: Launch command before backup execution
 - `POST_COMMAND`: Launch command after backup execution
 - `PRE_DATA_COMMAND`: Launch command before data capture (snapshot execution)

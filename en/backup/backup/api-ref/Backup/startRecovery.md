@@ -22,6 +22,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Destination Compute Cloud instance ID to which backup should be applied.
+            The maximum string length in characters is 50.
           type: string
       required:
         - computeInstanceId
@@ -63,7 +64,9 @@ Required field. Backup ID that will be applied to destination Compute Cloud inst
 ||Field | Description ||
 || computeInstanceId | **string**
 
-Required field. Destination Compute Cloud instance ID to which backup should be applied. ||
+Required field. Destination Compute Cloud instance ID to which backup should be applied.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

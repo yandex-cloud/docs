@@ -27,7 +27,9 @@ To get the list of available filesystems, make a [List](/docs/compute/api-ref/gr
 
 Required field. ID of the filesystem to return.
 
-To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/grpc/Filesystem/list#List) request. ||
+To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/grpc/Filesystem/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Filesystem {#yandex.cloud.compute.v1.Filesystem}
@@ -92,7 +94,6 @@ Block size used for the filesystem, specified in bytes. ||
 
 Current status of the filesystem.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The filesystem is being created.
 - `READY`: The filesystem is ready to use.
 - `ERROR`: The filesystem encountered a problem and cannot operate.

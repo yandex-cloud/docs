@@ -27,6 +27,7 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Custom labels for the instance as `` key:value `` pairs. For example, "env": "prod".
+            No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -134,7 +135,9 @@ Name of the instance (must be unique within the folder). ||
 Description of the instance. ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels for the instance as `` key:value `` pairs. For example, "env": "prod". ||
+Custom labels for the instance as `` key:value `` pairs. For example, "env": "prod".
+
+No more than 64 per resource. ||
 || resourcePresetId | **string**
 
 ID of the resource preset for computational resources. ||
@@ -369,7 +372,6 @@ Disk size in bytes. ||
 
 Current instance status.
 
-- `STATUS_UNSPECIFIED`: Default state.
 - `CREATING`: Instance is being created.
 - `RUNNING`: Instance is running normally.
 - `UPDATING`: Instance is being updated.
@@ -421,7 +423,9 @@ GitLab version of the instance. ||
 ||Field | Description ||
 || info | **string**
 
-The description of the operation. ||
+The description of the operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Delay time for the maintenance operation.

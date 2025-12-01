@@ -26,6 +26,8 @@ Aliases:
 - [yc compute instance-group create](create.md) — Create an instance group
 - [yc compute instance-group delete](delete.md) — Delete the specified instance group
 - [yc compute instance-group delete-instances](delete-instances.md) — Delete instances of the specified instance group
+- [yc compute instance-group disable-zones](disable-zones.md) — Disable zones for the specified instance group
+- [yc compute instance-group enable-zones](enable-zones.md) — Enable zones for the specified instance group
 - [yc compute instance-group get](get.md) — Show information about the specified instance group
 - [yc compute instance-group list](list.md) — List instance groups
 - [yc compute instance-group list-access-bindings](list-access-bindings.md) — List access bindings for the specified instance group

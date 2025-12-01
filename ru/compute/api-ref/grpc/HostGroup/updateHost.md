@@ -26,10 +26,14 @@ Update host
 ||Field | Description ||
 || host_group_id | **string**
 
-Required field. ID of the host group to update. ||
+Required field. ID of the host group to update.
+
+The maximum string length in characters is 50. ||
 || host_id | **string**
 
-Required field. ID of the host to update. ||
+Required field. ID of the host to update.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Host are going to be updated. ||
@@ -148,7 +152,6 @@ ID of the host. ||
 
 Current status of the host. New instances are unable to start on host in DOWN status.
 
-- `STATUS_UNSPECIFIED`
 - `UP`
 - `DOWN` ||
 || server_id | **string**

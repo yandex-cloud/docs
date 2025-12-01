@@ -26,7 +26,9 @@ To get the list of available Image resources, make a [List](/docs/compute/api-re
 || image_id | **string**
 
 Required field. ID of the Image resource to return.
-To get the image ID, use a [ImageService.List](/docs/compute/api-ref/grpc/Image/list#List) request. ||
+To get the image ID, use a [ImageService.List](/docs/compute/api-ref/grpc/Image/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Image {#yandex.cloud.compute.v1.Image}
@@ -112,7 +114,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `READY`: Image is ready to use.
 - `ERROR`: Image encountered a problem and cannot operate.
@@ -142,7 +143,6 @@ Operating system type. The default is `LINUX`.
 
 This field is used to correctly emulate a vCPU and calculate the cost of using an instance.
 
-- `TYPE_UNSPECIFIED`
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
 |#
@@ -173,7 +173,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pci_topology | enum **PCITopology**
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#

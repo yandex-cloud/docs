@@ -22,7 +22,7 @@ To reinstall a {{ baremetal-name }} server OS:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your server.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Find the server you need in the list, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) in its row, and select ![ArrowsRotateLeft](../../../_assets/console-icons/arrows-rotate-left.svg) **{{ ui-key.yacloud.baremetal.action_reinstall-server-os-menu }}**.
   1. In the window that opens:
 

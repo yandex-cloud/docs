@@ -94,17 +94,20 @@ Supported logic operators:
 
 Type of resource. Could be compute VM or baremetal server.
 
-- `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
 - `BMS`: Resource is baremetal server
 - `EXTERNAL_VM`: Resource is VM
 - `EXTERNAL_SERVER`: Resource is server ||
 || page_size | **int64**
 
-Number of results per page. ||
+Number of results per page.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
-Token for the results page. Not allowed to use if listing is performed by specific policy ID. ||
+Token for the results page. Not allowed to use if listing is performed by specific policy ID.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ArchiveParameters {#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters}
@@ -137,10 +140,10 @@ Policy ID. ||
 ||Field | Description ||
 || backup_id | **string**
 
-Required field.  ||
+Required field. ||
 || folder_id | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## ListBackupsResponse {#yandex.cloud.backup.v1.ListBackupsResponse}
@@ -232,7 +235,6 @@ Compute Cloud instance ID. ||
 || disks[] | **[Disk](#yandex.cloud.backup.v1.Disk)** ||
 || type | enum **Type**
 
-- `TYPE_UNSPECIFIED`
 - `FULL`
 - `INCREMENTAL` ||
 || deleted | **bool**

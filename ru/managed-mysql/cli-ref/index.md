@@ -11,7 +11,7 @@ Manage MySQL clusters, hosts, databases, backups and users.
 
 Syntax: 
 
-`yc managed-mysql <group>`
+`yc managed-mysql <group|command>`
 
 Aliases: 
 
@@ -19,23 +19,28 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-mysql connect](connect.md) — Connect to MySQL cluster with iam-auth
 - [yc managed-mysql backup](backup/index.md) — Manage MySQL backups
 	- [yc managed-mysql backup get](backup/get.md) — Show information about the specified MySQL backup
 	- [yc managed-mysql backup list](backup/list.md) — List available backups
 - [yc managed-mysql cluster](cluster/index.md) — Manage MySQL clusters
+	- [yc managed-mysql cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified MySQL cluster
 	- [yc managed-mysql cluster add-labels](cluster/add-labels.md) — Add labels to MySQL cluster
 	- [yc managed-mysql cluster backup](cluster/backup.md) — Create a backup for the specified MySQL cluster
 	- [yc managed-mysql cluster create](cluster/create.md) — Create MySQL cluster
 	- [yc managed-mysql cluster delete](cluster/delete.md) — Delete the specified MySQL cluster
 	- [yc managed-mysql cluster get](cluster/get.md) — Show information about the specified MySQL cluster
 	- [yc managed-mysql cluster list](cluster/list.md) — List MySQL clusters
+	- [yc managed-mysql cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified MySQL cluster
 	- [yc managed-mysql cluster list-backups](cluster/list-backups.md) — List available backups for the specified MySQL cluster
 	- [yc managed-mysql cluster list-logs](cluster/list-logs.md) — Retrieves logs for the specified MySQL cluster
 	- [yc managed-mysql cluster list-operations](cluster/list-operations.md) — List operations for the specified MySQL cluster
 	- [yc managed-mysql cluster move](cluster/move.md) — Move the specified MySQL cluster into the folder
+	- [yc managed-mysql cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified MySQL cluster
 	- [yc managed-mysql cluster remove-labels](cluster/remove-labels.md) — Remove labels from MySQL cluster
 	- [yc managed-mysql cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 	- [yc managed-mysql cluster restore](cluster/restore.md) — Restore MySQL cluster
+	- [yc managed-mysql cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified MySQL cluster and delete all existing access bindings if there were any
 	- [yc managed-mysql cluster start](cluster/start.md) — Start the specified MySQL cluster
 	- [yc managed-mysql cluster start-failover](cluster/start-failover.md) — Start manual failover for the specified MySQL cluster
 	- [yc managed-mysql cluster stop](cluster/stop.md) — Stop the specified MySQL cluster

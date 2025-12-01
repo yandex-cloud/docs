@@ -22,6 +22,7 @@ Aliases:
 
 - [yc cic public-connection get](get.md) — Get information about an publicConnection.
 - [yc cic public-connection list](list.md) — List publicConnections in a folder.
+- [yc cic public-connection move](move.md) — Move the specified public connection into the folder
 
 #### Global Flags
 

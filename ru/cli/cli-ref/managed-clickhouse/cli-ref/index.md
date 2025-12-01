@@ -24,6 +24,7 @@ Aliases:
 	- [yc managed-clickhouse backup get](backup/get.md) — Get information about a ClickHouse backup.
 	- [yc managed-clickhouse backup list](backup/list.md) — List ClickHouse backups available in a folder.
 - [yc managed-clickhouse cluster](cluster/index.md) — Manage ClickHouse clusters.
+	- [yc managed-clickhouse cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified ClickHouse cluster
 	- [yc managed-clickhouse cluster add-extension](cluster/add-extension.md) — Add an extension to a ClickHouse cluster.
 	- [yc managed-clickhouse cluster add-external-dictionary](cluster/add-external-dictionary.md) — Add an external dictionary to a ClickHouse cluster.
 	- [yc managed-clickhouse cluster add-graphite-rollup](cluster/add-graphite-rollup.md) — Apply graphite configuration to a ClickHouse cluster.
@@ -37,18 +38,21 @@ Aliases:
 	- [yc managed-clickhouse cluster get](cluster/get.md) — Get information about a ClickHouse cluster.
 	- [yc managed-clickhouse cluster get-extension](cluster/get-extension.md) — Get information about a ClickHouse cluster extension.
 	- [yc managed-clickhouse cluster list](cluster/list.md) — List ClickHouse clusters in a folder.
+	- [yc managed-clickhouse cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified ClickHouse cluster
 	- [yc managed-clickhouse cluster list-backups](cluster/list-backups.md) — List available backups for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster list-extensions](cluster/list-extensions.md) — List extensions in a ClickHouse cluster.
 	- [yc managed-clickhouse cluster list-external-dictionaries](cluster/list-external-dictionaries.md) — Retrieve a list of external dictionaries that belong to ClickHouse cluster.
 	- [yc managed-clickhouse cluster list-logs](cluster/list-logs.md) — Retrieve logs for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster list-operations](cluster/list-operations.md) — List operations for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster move](cluster/move.md) — Move the specified ClickHouse cluster into the folder
+	- [yc managed-clickhouse cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified ClickHouse cluster
 	- [yc managed-clickhouse cluster remove-extension](cluster/remove-extension.md) — Remove an extension from a ClickHouse cluster.
 	- [yc managed-clickhouse cluster remove-external-dictionary](cluster/remove-external-dictionary.md) — Remove an external dictionary from a ClickHouse cluster.
 	- [yc managed-clickhouse cluster remove-graphite-rollup](cluster/remove-graphite-rollup.md) — Remove graphite rollup configuration from a ClickHouse cluster.
 	- [yc managed-clickhouse cluster remove-labels](cluster/remove-labels.md) — Remove labels from a ClickHouse cluster.
 	- [yc managed-clickhouse cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 	- [yc managed-clickhouse cluster restore](cluster/restore.md) — Restore a ClickHouse cluster from a backup.
+	- [yc managed-clickhouse cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified ClickHouse cluster and delete all existing access bindings if there were any
 	- [yc managed-clickhouse cluster set-compression](cluster/set-compression.md) — Set compression settings for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster set-query-masking-rules](cluster/set-query-masking-rules.md) — Set query masking rules settings for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster start](cluster/start.md) — Start the specified ClickHouse cluster

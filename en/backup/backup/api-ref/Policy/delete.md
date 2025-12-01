@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Policy ID.
+            The maximum string length in characters is 50.
           type: string
       required:
         - policyId
@@ -36,7 +37,9 @@ DELETE https://backup.{{ api-host }}/backup/v1/policies/{policyId}
 ||Field | Description ||
 || policyId | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -126,7 +129,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || policyId | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

@@ -1,5 +1,6 @@
 # Создать OIDC-приложение в {{ org-full-name }} для интеграции с Grafana Cloud
 
+
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
 [Grafana Cloud](https://grafana.com/products/cloud/) — это управляемая облачная платформа для мониторинга и наблюдаемости (observability), которая включает в себя Grafana, Prometheus, Loki и другие инструменты визуализации и анализа данных. Grafana Cloud поддерживает OpenID Connect (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.

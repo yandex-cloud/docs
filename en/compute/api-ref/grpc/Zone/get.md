@@ -25,7 +25,9 @@ To get the list of availability zones, make a [List](/docs/compute/api-ref/grpc/
 ||Field | Description ||
 || zone_id | **string**
 
-Required field. ID of the availability zone to return information about. ||
+Required field. ID of the availability zone to return information about.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Zone {#yandex.cloud.compute.v1.Zone}
@@ -52,7 +54,6 @@ ID of the region. ||
 
 Status of the zone.
 
-- `STATUS_UNSPECIFIED`
 - `UP`: Zone is available. You can access the resources allocated in this zone.
 - `DOWN`: Zone is not available. ||
 |#

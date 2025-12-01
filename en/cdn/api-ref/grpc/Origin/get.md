@@ -24,10 +24,14 @@ Get origin in origin group.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
+Required field. ID of the folder that the origin belongs to.
+
+The maximum string length in characters is 50. ||
 || origin_id | **int64**
 
-`origin_id` group ID to request origin from. ||
+`origin_id` group ID to request origin from.
+
+Value must be greater than 0. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}

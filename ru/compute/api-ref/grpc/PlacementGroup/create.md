@@ -72,7 +72,9 @@ specify the required placement strategy.
 
 #|
 ||Field | Description ||
-|| partitions | **int64** ||
+|| partitions | **int64**
+
+Acceptable values are 2 to 5, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -226,5 +228,7 @@ specify the required placement strategy.
 
 #|
 ||Field | Description ||
-|| partitions | **int64** ||
+|| partitions | **int64**
+
+Acceptable values are 2 to 5, inclusive. ||
 |#

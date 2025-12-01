@@ -24,10 +24,14 @@ Lists origins of origin group.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
+Required field. ID of the folder that the origin belongs to.
+
+The maximum string length in characters is 50. ||
 || origin_group_id | **int64**
 
-ID of the group to request origins from. ||
+ID of the group to request origins from.
+
+Value must be greater than 0. ||
 |#
 
 ## ListOriginsResponse {#yandex.cloud.cdn.v1.ListOriginsResponse}

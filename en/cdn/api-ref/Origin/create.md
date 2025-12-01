@@ -12,11 +12,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder that the origin belongs to.
+            The maximum string length in characters is 50.
           type: string
         originGroupId:
           description: |-
             **string** (int64)
             `originGroupId` group ID to request origins from.
+            Value must be greater than 0.
           type: string
           format: int64
         source:
@@ -24,6 +26,7 @@ apiPlayground:
             **string**
             Required field. IP address or Domain name of your origin and the port (if custom).
             Used if `meta` variant is `common`.
+            The maximum string length in characters is 50.
           type: string
         enabled:
           description: |-
@@ -165,14 +168,20 @@ POST https://cdn.{{ api-host }}/cdn/v1/origins
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
+Required field. ID of the folder that the origin belongs to.
+
+The maximum string length in characters is 50. ||
 || originGroupId | **string** (int64)
 
-`originGroupId` group ID to request origins from. ||
+`originGroupId` group ID to request origins from.
+
+Value must be greater than 0. ||
 || source | **string**
 
 Required field. IP address or Domain name of your origin and the port (if custom).
-Used if `meta` variant is `common`. ||
+Used if `meta` variant is `common`.
+
+The maximum string length in characters is 50. ||
 || enabled | **boolean**
 
 The setting allows to enable or disable an Origin source in the Origins group.
@@ -389,10 +398,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || originId | **string** (int64)
 
-ID of the origin. ||
+ID of the origin.
+
+Value must be greater than 0. ||
 || originGroupId | **string** (int64)
 
-ID pf the parent origins group. ||
+ID pf the parent origins group.
+
+Value must be greater than 0. ||
 |#
 
 ## Status {#google.rpc.Status}

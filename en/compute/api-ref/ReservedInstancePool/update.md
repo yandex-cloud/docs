@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the reserved instance pool to update.
             To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - reservedInstancePoolId
@@ -35,18 +36,21 @@ apiPlayground:
           description: |-
             **string**
             New name for the reserved instance pool.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the reserved instance pool.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -62,6 +66,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             Desired size of the pool.
+            Acceptable values are 0 to 1048576, inclusive.
           type: string
           format: int64
         allowOversubscription:
@@ -100,7 +105,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reservedI
 || reservedInstancePoolId | **string**
 
 Required field. ID of the reserved instance pool to update.
-To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request. ||
+To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateReservedInstancePoolRequest}
@@ -131,18 +138,26 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-New name for the reserved instance pool. ||
+New name for the reserved instance pool.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the reserved instance pool. ||
+Description of the reserved instance pool.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-Existing set of `labels` is completely replaced by the provided set. ||
+Existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || size | **string** (int64)
 
-Desired size of the pool. ||
+Desired size of the pool.
+
+Acceptable values are 0 to 1048576, inclusive. ||
 || allowOversubscription | **boolean**
 
 Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).
@@ -392,7 +407,9 @@ Stats for instances of the pool ||
 ||Field | Description ||
 || memory | **string** (int64)
 
-Required field. The amount of memory available to the instance, specified in bytes. ||
+Required field. The amount of memory available to the instance, specified in bytes.
+
+The maximum value is 274877906944. ||
 || cores | **string** (int64)
 
 Required field. The number of cores available to the instance. ||
@@ -425,7 +442,6 @@ Attach instance to specified GPU cluster. ||
 
 Network Type
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||

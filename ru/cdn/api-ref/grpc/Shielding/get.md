@@ -25,7 +25,9 @@ Request to retrieve shielding details for a specific resource.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource for which to get shielding details. ||
+Required field. ID of the resource for which to get shielding details.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ShieldingDetails {#yandex.cloud.cdn.v1.ShieldingDetails}

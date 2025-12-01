@@ -49,7 +49,9 @@ Creates origin group.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the origin group belongs to. ||
+Required field. ID of the folder that the origin group belongs to.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the origin group. ||
@@ -285,7 +287,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || origin_group_id | **int64**
 
-ID of created origin group. ||
+ID of created origin group.
+
+Value must be greater than 0. ||
 |#
 
 ## OriginGroup {#yandex.cloud.cdn.v1.OriginGroup}
