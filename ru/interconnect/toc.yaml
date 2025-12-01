@@ -150,6 +150,8 @@ items:
             href: cli-ref/private-connection/list.md
           - name: list-operations
             href: cli-ref/private-connection/list-operations.md
+          - name: move
+            href: cli-ref/private-connection/move.md
           - name: remove-labels
             href: cli-ref/private-connection/remove-labels.md
           - name: remove-static-routes
@@ -166,6 +168,8 @@ items:
             href: cli-ref/public-connection/get.md
           - name: list
             href: cli-ref/public-connection/list.md
+          - name: move
+            href: cli-ref/public-connection/move.md
       - name: trunk-connection
         items:
           - name: Overview
@@ -182,6 +186,8 @@ items:
             href: cli-ref/trunk-connection/list.md
           - name: list-operations
             href: cli-ref/trunk-connection/list-operations.md
+          - name: move
+            href: cli-ref/trunk-connection/move.md
           - name: remove-labels
             href: cli-ref/trunk-connection/remove-labels.md
           - name: update

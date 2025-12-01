@@ -13,22 +13,26 @@ apiPlayground:
             **string**
             Required field. ID of the folder to create a placement group in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Name of the placement group.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the placement group.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -45,6 +49,7 @@ apiPlayground:
             **string**
             Required field. ID of the availability zone where the placement group resides.
             To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         spreadPlacementStrategy:
           description: |-
@@ -116,20 +121,30 @@ POST https://compute.{{ api-host }}/compute/v1/diskPlacementGroups
 || folderId | **string**
 
 Required field. ID of the folder to create a placement group in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the placement group. ||
+Name of the placement group.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the placement group. ||
+Description of the placement group.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || zoneId | **string**
 
 Required field. ID of the availability zone where the placement group resides.
-To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
+To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || spreadPlacementStrategy | **object**
 
 Distribute disks over distinct failure domains.
@@ -328,7 +343,6 @@ ID of the availability zone where the placement group resides. ||
 
 Current status of the placement group
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `DELETING` ||

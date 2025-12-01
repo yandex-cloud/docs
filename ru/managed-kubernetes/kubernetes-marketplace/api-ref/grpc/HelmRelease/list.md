@@ -28,10 +28,14 @@ Retrieves the list of Helm releases in the specified Kubernetes Cluster.
 Required field. The ID of the Kubernetes cluster to list Helm releases from. ||
 || page_size | **int64**
 
-The maximum number of results per page that should be returned. ||
+The maximum number of results per page that should be returned.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
-Token for pagination to retrieve the next page of results. ||
+Token for pagination to retrieve the next page of results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListHelmReleasesResponse {#yandex.cloud.k8s.marketplace.v1.ListHelmReleasesResponse}
@@ -96,7 +100,6 @@ Kubernetes marketplace product version. ||
 
 Status of a helm release.
 
-- `STATUS_UNSPECIFIED`
 - `UNKNOWN`: Helm release status is unknown
 - `DEPLOYED`: Helm release deployed.
 - `UNINSTALLED`: Helm release uninstalled.

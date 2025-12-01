@@ -43,8 +43,10 @@ Required field. Destination instance ID. ||
 Required field. Backup ID. ||
 || opts | **[FilesRecoveryOptions](#yandex.cloud.backup.v1.FilesRecoveryOptions)**
 
-Required field.  ||
-|| source_ids[] | **string** ||
+Required field. ||
+|| source_ids[] | **string**
+
+The number of elements must be greater than 0. ||
 |#
 
 ## FilesRecoveryOptions {#yandex.cloud.backup.v1.FilesRecoveryOptions}
@@ -55,7 +57,6 @@ Required field.  ||
 
 Overwrite options declares the behavior for files that already exists on the file system.
 
-- `OVERWRITE_UNSPECIFIED`: Unspecified value treated as Overwrite all
 - `OVERWRITE_ALL`: All overwrites all existing files by recovered ones.
 - `OVERWRITE_OLDER`: Older overwrites older files only.
 - `OVERWRITE_NONE`: None does not overwrites files at all. ||
@@ -185,5 +186,7 @@ Required field. Destination instance ID. ||
 || backup_id | **string**
 
 Required field. Backup ID. ||
-|| source_ids[] | **string** ||
+|| source_ids[] | **string**
+
+The number of elements must be greater than 0. ||
 |#

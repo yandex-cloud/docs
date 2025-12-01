@@ -95,11 +95,7 @@
 
 {#hosts-table}
 
-Тип шардирования | MONGOD | MONGOINFRA | MONGOS | MONGOCFG
---- | --- | --- | --- | ---
-Без шардирования | ⩾ 1 | — | — | —
-Стандартный | ⩾ 1 | ⩾ 3 | — | —
-Расширенный | ⩾ 1 | — | ⩾ 2 | ⩾ 3
+{% include [sharding-and-host-roles-table](../../_includes/mdb/mmg/sharding-and-host-roles-table.md) %}
 
 {% list tabs group=instructions %}
 

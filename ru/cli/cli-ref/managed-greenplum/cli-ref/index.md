@@ -26,6 +26,7 @@ Aliases:
 	- [yc managed-greenplum backup get](backup/get.md) — Show information about the specified Greenplum backup
 	- [yc managed-greenplum backup list](backup/list.md) — List available backups
 - [yc managed-greenplum cluster](cluster/index.md) — Manage Greenplum clusters
+	- [yc managed-greenplum cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Greenplum cluster
 	- [yc managed-greenplum cluster add-labels](cluster/add-labels.md) — Add labels to Greenplum cluster
 	- [yc managed-greenplum cluster backup](cluster/backup.md) — Create a backup for the specified Greenplum cluster
 	- [yc managed-greenplum cluster create](cluster/create.md) — Create Greenplum cluster
@@ -33,13 +34,16 @@ Aliases:
 	- [yc managed-greenplum cluster expand](cluster/expand.md) — Expands the specified Greenplum cluster
 	- [yc managed-greenplum cluster get](cluster/get.md) — Show information about the specified Greenplum cluster
 	- [yc managed-greenplum cluster list](cluster/list.md) — List Greenplum clusters
+	- [yc managed-greenplum cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified Greenplum cluster
 	- [yc managed-greenplum cluster list-backups](cluster/list-backups.md) — List available backups for the specified Greenplum cluster
 	- [yc managed-greenplum cluster list-logs](cluster/list-logs.md) — Retrieves logs for the specified Greenplum cluster
 	- [yc managed-greenplum cluster list-operations](cluster/list-operations.md) — List operations for the specified Greenplum cluster
 	- [yc managed-greenplum cluster move](cluster/move.md) — Move the specified Greenplum cluster into the folder
+	- [yc managed-greenplum cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified Greenplum cluster
 	- [yc managed-greenplum cluster remove-labels](cluster/remove-labels.md) — Remove labels from Greenplum cluster
 	- [yc managed-greenplum cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule maintenance for the specified Greenplum cluster
 	- [yc managed-greenplum cluster restore](cluster/restore.md) — Restore Greenplum cluster
+	- [yc managed-greenplum cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified Greenplum cluster and delete all existing access bindings if there were any
 	- [yc managed-greenplum cluster start](cluster/start.md) — Start the specified Greenplum cluster
 	- [yc managed-greenplum cluster stop](cluster/stop.md) — Stop the specified Greenplum cluster
 	- [yc managed-greenplum cluster update](cluster/update.md) — Update the specified Greenplum cluster

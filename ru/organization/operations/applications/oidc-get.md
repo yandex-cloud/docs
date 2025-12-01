@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы получит
 
 # Получить информацию об OIDC-приложении в {{ org-full-name }}
 
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}

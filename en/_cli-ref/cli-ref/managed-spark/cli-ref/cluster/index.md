@@ -18,11 +18,15 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-spark cluster add-access-binding](add-access-binding.md) — Add access binding for the specified Spark cluster
 - [yc managed-spark cluster create](create.md) — Create Spark cluster
 - [yc managed-spark cluster delete](delete.md) — Delete the specified Spark cluster
 - [yc managed-spark cluster get](get.md) — Show information about the specified Spark cluster
 - [yc managed-spark cluster list](list.md) — List Spark clusters
+- [yc managed-spark cluster list-access-bindings](list-access-bindings.md) — List access bindings for the specified Spark cluster
 - [yc managed-spark cluster list-operations](list-operations.md) — List operations for the specified Spark cluster
+- [yc managed-spark cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified Spark cluster
+- [yc managed-spark cluster set-access-bindings](set-access-bindings.md) — Set access bindings for the specified Spark cluster and delete all existing access bindings if there were any
 - [yc managed-spark cluster start](start.md) — Start the specified Spark cluster
 - [yc managed-spark cluster stop](stop.md) — Stop the specified Spark cluster
 - [yc managed-spark cluster update](update.md) — Update the specified Spark cluster

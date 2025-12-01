@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Snapshot resource to update.
             To get the snapshot ID use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - snapshotId
@@ -35,18 +36,21 @@ apiPlayground:
           description: |-
             **string**
             Name of the snapshot.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the snapshot.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -82,7 +86,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}
 || snapshotId | **string**
 
 Required field. ID of the Snapshot resource to update.
-To get the snapshot ID use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request. ||
+To get the snapshot ID use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateSnapshotRequest}
@@ -110,15 +116,21 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the snapshot. ||
+Name of the snapshot.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the snapshot. ||
+Description of the snapshot.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-Existing set of `labels` is completely replaced by the provided set. ||
+Existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -319,7 +331,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the snapshot.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Snapshot is being created.
 - `READY`: Snapshot is ready to use.
 - `ERROR`: Snapshot encountered a problem and cannot operate.
@@ -362,7 +373,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#

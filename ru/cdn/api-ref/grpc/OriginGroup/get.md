@@ -24,12 +24,16 @@ Gets origin group with specified origin group id.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the origin group belongs to. ||
+Required field. ID of the folder that the origin group belongs to.
+
+The maximum string length in characters is 50. ||
 || origin_group_id | **int64**
 
 ID of the origin group to return.
 
-To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/grpc/OriginGroup/list#List) request. ||
+To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/grpc/OriginGroup/list#List) request.
+
+Value must be greater than 0. ||
 |#
 
 ## OriginGroup {#yandex.cloud.cdn.v1.OriginGroup}

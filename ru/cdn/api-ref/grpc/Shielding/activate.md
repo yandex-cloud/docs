@@ -26,10 +26,14 @@ Request to activate shielding for a specific resource.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource to activate shielding for. ||
+Required field. ID of the resource to activate shielding for.
+
+The maximum string length in characters is 50. ||
 || location_id | **int64**
 
-ID of the location to activate shielding in, allowing selection of a suitable geographical location. ||
+ID of the location to activate shielding in, allowing selection of a suitable geographical location.
+
+Value must be greater than 0. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -120,7 +124,9 @@ Metadata for shielding activation, detailing the operations performed.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource for which shielding is being activated. ||
+Required field. ID of the resource for which shielding is being activated.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ShieldingDetails {#yandex.cloud.cdn.v1.ShieldingDetails}

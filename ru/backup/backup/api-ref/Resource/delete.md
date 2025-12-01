@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Compute Cloud instance ID.
+            The maximum string length in characters is 50.
           type: string
       required:
         - computeInstanceId
@@ -47,7 +48,9 @@ DELETE https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}
 ||Field | Description ||
 || computeInstanceId | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.backup.v1.DeleteResourceRequest}

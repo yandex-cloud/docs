@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the snapshot to delete.
             To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - snapshotId
@@ -40,7 +41,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}
 || snapshotId | **string**
 
 Required field. ID of the snapshot to delete.
-To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request. ||
+To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

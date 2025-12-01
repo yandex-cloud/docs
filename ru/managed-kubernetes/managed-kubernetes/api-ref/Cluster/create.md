@@ -19,17 +19,20 @@ apiPlayground:
             **string**
             Name of the Kubernetes cluster.
             The name must be unique within the folder.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the Kubernetes cluster.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -78,7 +81,6 @@ apiPlayground:
           description: |-
             **enum** (ReleaseChannel)
             Release channel for the master.
-            - `RELEASE_CHANNEL_UNSPECIFIED`
             - `RAPID`: Minor updates with new functions and improvements are often added.
             You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
             - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
@@ -263,7 +265,7 @@ apiPlayground:
             description: |-
               **enum** (DayOfWeek)
               Days of the week when automatic updates are allowed.
-              - `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+              The number of elements must be in the range 1-7.
               - `MONDAY`: The day-of-week of Monday.
               - `TUESDAY`: The day-of-week of Tuesday.
               - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -303,6 +305,7 @@ apiPlayground:
             description: |-
               **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
               Days of the week and the maintenance window for these days when automatic updates are allowed.
+              The number of elements must be in the range 1-7.
             type: array
             items:
               $ref: '#/definitions/DaysOfWeekMaintenanceWindow'
@@ -364,6 +367,7 @@ apiPlayground:
             description: |-
               **string**
               ID of the log group where logs of master components should be stored.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `logGroupId`, `folderId`.
               The destination of master components' logs.
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
@@ -372,6 +376,7 @@ apiPlayground:
             description: |-
               **string**
               ID of the folder where logs should be stored (in default group).
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `logGroupId`, `folderId`.
               The destination of master components' logs.
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
@@ -538,7 +543,6 @@ apiPlayground:
           provider:
             description: |-
               **enum** (Provider)
-              - `PROVIDER_UNSPECIFIED`
               - `CALICO`
             type: string
             enum:
@@ -559,7 +563,6 @@ apiPlayground:
           routingMode:
             description: |-
               **enum** (RoutingMode)
-              - `ROUTING_MODE_UNSPECIFIED`
               - `TUNNEL`
             type: string
             enum:
@@ -732,13 +735,19 @@ To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](
 || name | **string**
 
 Name of the Kubernetes cluster.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the Kubernetes cluster. ||
+Description of the Kubernetes cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || networkId | **string**
 
 Required field. ID of the network. ||
@@ -765,7 +774,6 @@ Required field. Service account to be used by the worker nodes of the Kubernetes
 
 Release channel for the master.
 
-- `RELEASE_CHANNEL_UNSPECIFIED`
 - `RAPID`: Minor updates with new functions and improvements are often added.
 You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
 - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
@@ -990,7 +998,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 ||Field | Description ||
 || daysOfWeek[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
 
-Days of the week and the maintenance window for these days when automatic updates are allowed. ||
+Days of the week and the maintenance window for these days when automatic updates are allowed.
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekMaintenanceWindow {#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow}
@@ -1001,7 +1011,8 @@ Days of the week and the maintenance window for these days when automatic update
 
 Days of the week when automatic updates are allowed.
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -1028,12 +1039,16 @@ Identifies whether Cloud Logging is enabled for master components. ||
 
 ID of the log group where logs of master components should be stored.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 The destination of master components' logs. ||
 || folderId | **string**
 
 ID of the folder where logs should be stored (in default group).
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -1106,7 +1121,6 @@ IPv6 range for allocating Kubernetes service IP addresses ||
 ||Field | Description ||
 || provider | **enum** (Provider)
 
-- `PROVIDER_UNSPECIFIED`
 - `CALICO` ||
 |#
 
@@ -1126,7 +1140,6 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
 ||Field | Description ||
 || routingMode | **enum** (RoutingMode)
 
-- `ROUTING_MODE_UNSPECIFIED`
 - `TUNNEL` ||
 |#
 
@@ -1442,7 +1455,6 @@ Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 
 Status of the Kubernetes cluster.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.
 - `RUNNING`: Kubernetes cluster is running.
 - `RECONCILING`: Kubernetes cluster is being reconciled.
@@ -1454,7 +1466,6 @@ Status of the Kubernetes cluster.
 
 Health of the Kubernetes cluster.
 
-- `HEALTH_UNSPECIFIED`
 - `HEALTHY`: Kubernetes cluster is alive and well.
 - `UNHEALTHY`: Kubernetes cluster is inoperable. ||
 || networkId | **string**
@@ -1470,6 +1481,8 @@ Allocation policy for IP addresses of services and pods inside the Kubernetes cl
 
 Gateway IPv4 address.
 
+The maximum string length in characters is 15.
+
 Includes only one of the fields `gatewayIpv4Address`. ||
 || serviceAccountId | **string**
 
@@ -1484,7 +1497,6 @@ Channels differ in the set of available versions, the management of auto-updates
 You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel.
 For more details see [documentation](/docs/managed-kubernetes/concepts/release-channels-and-updates).
 
-- `RELEASE_CHANNEL_UNSPECIFIED`
 - `RAPID`: Minor updates with new functions and improvements are often added.
 You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
 - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
@@ -1727,7 +1739,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 ||Field | Description ||
 || daysOfWeek[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow2)**
 
-Days of the week and the maintenance window for these days when automatic updates are allowed. ||
+Days of the week and the maintenance window for these days when automatic updates are allowed.
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekMaintenanceWindow {#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow2}
@@ -1738,7 +1752,8 @@ Days of the week and the maintenance window for these days when automatic update
 
 Days of the week when automatic updates are allowed.
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -1765,12 +1780,16 @@ Identifies whether Cloud Logging is enabled for master components. ||
 
 ID of the log group where logs of master components should be stored.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 The destination of master components' logs. ||
 || folderId | **string**
 
 ID of the folder where logs should be stored (in default group).
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -1873,7 +1892,6 @@ IPv6 range for allocating Kubernetes service IP addresses ||
 ||Field | Description ||
 || provider | **enum** (Provider)
 
-- `PROVIDER_UNSPECIFIED`
 - `CALICO` ||
 |#
 
@@ -1893,7 +1911,6 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
 ||Field | Description ||
 || routingMode | **enum** (RoutingMode)
 
-- `ROUTING_MODE_UNSPECIFIED`
 - `TUNNEL` ||
 |#
 

@@ -37,27 +37,38 @@ Creates a host group in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to create a host group in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the group. ||
+Name of the group.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the group. ||
+Description of the group.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || zone_id | **string**
 
-Required field. Availability zone where all dedicated hosts will be allocated. ||
+Required field. Availability zone where all dedicated hosts will be allocated.
+
+The maximum string length in characters is 50. ||
 || type_id | **string**
 
-Required field. ID of host type. Resources provided by each host of the group. ||
+Required field. ID of host type. Resources provided by each host of the group.
+
+The maximum string length in characters is 50. ||
 || maintenance_policy | enum **MaintenancePolicy**
 
 Behaviour on maintenance events.
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scale_policy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
@@ -214,7 +225,6 @@ Availability zone where all dedicated hosts are allocated. ||
 
 Status of the group.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `UPDATING`
@@ -226,7 +236,6 @@ ID of host type. Resources provided by each host of the group. ||
 
 Behaviour on maintenance events.
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scale_policy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy2)**

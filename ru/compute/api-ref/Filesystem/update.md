@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the filesystem to update.
             To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - filesystemId
@@ -35,12 +36,14 @@ apiPlayground:
           description: |-
             **string**
             New name of the filesystem. The name must be unique within the folder.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             New description of the filesystem.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
@@ -52,6 +55,7 @@ apiPlayground:
             1. Get the current set of labels with a [FilesystemService.Get](/docs/compute/api-ref/Filesystem/get#Get) request.
             2. Add or remove a label in this set.
             3. Send the new set in this field.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -92,7 +96,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
 
 Required field. ID of the filesystem to update.
 
-To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request. ||
+To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateFilesystemRequest}
@@ -121,10 +127,14 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-New name of the filesystem. The name must be unique within the folder. ||
+New name of the filesystem. The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-New description of the filesystem. ||
+New description of the filesystem.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 New filesystem labels as `key:value` pairs.
@@ -134,7 +144,9 @@ Existing set of labels is completely replaced by the provided set, so if you jus
 to add or remove a label:
 1. Get the current set of labels with a [FilesystemService.Get](/docs/compute/api-ref/Filesystem/get#Get) request.
 2. Add or remove a label in this set.
-3. Send the new set in this field. ||
+3. Send the new set in this field.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || size | **string** (int64)
 
 Size of the filesystem, specified in bytes. ||
@@ -328,7 +340,6 @@ Block size used for the filesystem, specified in bytes. ||
 
 Current status of the filesystem.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The filesystem is being created.
 - `READY`: The filesystem is ready to use.
 - `ERROR`: The filesystem encountered a problem and cannot operate.

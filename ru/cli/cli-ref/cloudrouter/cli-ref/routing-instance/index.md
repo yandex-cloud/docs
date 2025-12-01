@@ -30,6 +30,7 @@ Aliases:
 - [yc cloudrouter routing-instance get-by-vpc-network-id](get-by-vpc-network-id.md) — Get information about a routingInstance by a vpc network id.
 - [yc cloudrouter routing-instance list](list.md) — List routingInstances in a folder.
 - [yc cloudrouter routing-instance list-operations](list-operations.md) — List operations for a routingInstance.
+- [yc cloudrouter routing-instance move](move.md) — Move the specified routing instance into the folder
 - [yc cloudrouter routing-instance move-prefix](move-prefix.md) — Move VPC network prefixes within the routingInstance.
 - [yc cloudrouter routing-instance remove-labels](remove-labels.md) — Remove labels from a routingInstance.
 - [yc cloudrouter routing-instance remove-prefixes](remove-prefixes.md) — Remove announced VPC network prefixes from the routingInstance.

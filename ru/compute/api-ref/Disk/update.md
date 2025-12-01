@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Disk resource to update.
             To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - diskId
@@ -35,18 +36,21 @@ apiPlayground:
           description: |-
             **string**
             Name of the disk.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the disk.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -62,6 +66,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             Size of the disk, specified in bytes.
+            Acceptable values are 4194304 to 4398046511104, inclusive.
           type: string
           format: int64
         diskPlacementPolicy:
@@ -103,7 +108,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/disks/{diskId}
 || diskId | **string**
 
 Required field. ID of the Disk resource to update.
-To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request. ||
+To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateDiskRequest}
@@ -136,18 +143,26 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the disk. ||
+Name of the disk.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the disk. ||
+Description of the disk.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-Existing set of `labels` is completely replaced by the provided set. ||
+Existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || size | **string** (int64)
 
-Size of the disk, specified in bytes. ||
+Size of the disk, specified in bytes.
+
+Acceptable values are 4194304 to 4398046511104, inclusive. ||
 || diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
 
 Placement policy configuration. ||
@@ -379,7 +394,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the disk.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Disk is being created.
 - `READY`: Disk is ready to use.
 - `ERROR`: Disk encountered a problem and cannot operate.
@@ -445,7 +459,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#

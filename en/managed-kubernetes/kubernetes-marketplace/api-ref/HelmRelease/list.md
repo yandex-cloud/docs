@@ -16,12 +16,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page that should be returned.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Token for pagination to retrieve the next page of results.
+            The maximum string length in characters is 100.
           type: string
       required:
         - clusterId
@@ -50,10 +52,14 @@ GET https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases
 Required field. The ID of the Kubernetes cluster to list Helm releases from. ||
 || pageSize | **string** (int64)
 
-The maximum number of results per page that should be returned. ||
+The maximum number of results per page that should be returned.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
-Token for pagination to retrieve the next page of results. ||
+Token for pagination to retrieve the next page of results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.k8s.marketplace.v1.ListHelmReleasesResponse}
@@ -120,7 +126,6 @@ Kubernetes marketplace product version. ||
 
 Status of a helm release.
 
-- `STATUS_UNSPECIFIED`
 - `UNKNOWN`: Helm release status is unknown
 - `DEPLOYED`: Helm release deployed.
 - `UNINSTALLED`: Helm release uninstalled.

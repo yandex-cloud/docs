@@ -74,7 +74,6 @@ GPU cluster labels as `key:value` pairs. ||
 
 Status of the GPU cluster.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: GPU cluster is being created.
 - `READY`: GPU cluster is ready to use.
 - `ERROR`: GPU cluster encountered a problem and cannot operate.
@@ -86,6 +85,5 @@ ID of the availability zone where the GPU cluster resides. ||
 
 Type of interconnect used for this GPU cluster.
 
-- `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
 - `INFINIBAND`: InfiniBand interconnect. ||
 |#

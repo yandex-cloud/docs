@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Синхронизировать пользователей и группы с {{ microsoft-idp.ad-full }}
 
+
 {% include [note-preview](../../_includes/note-preview.md) %}
 
 Если для управления пользователями ваша компания использует [{{ microsoft-idp.ad-full }}](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/active-directory-domain-services) и вы хотите организовать для ваших пользователей доступ к {{ yandex-cloud }}, вам не нужно вручную создавать в {{ yandex-cloud }} учетные записи для ваших пользователей. Вместо этого вы можете настроить [синхронизацию](../concepts/ad-sync.md) с {{ org-full-name }} пользователей и групп, созданных в вашем каталоге {{ microsoft-idp.ad-short }}.

@@ -23,7 +23,9 @@ Deprecated: Provider-specific CNAME is now available in the `provider_cname` fie
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. Folder ID to get provider's CNAME. ||
+Required field. Folder ID to get provider's CNAME.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetProviderCNameResponse {#yandex.cloud.cdn.v1.GetProviderCNameResponse}

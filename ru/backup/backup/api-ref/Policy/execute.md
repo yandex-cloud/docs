@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Policy ID.
+            The maximum string length in characters is 50.
           type: string
       required:
         - policyId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Compute Cloud instance ID.
+            The maximum string length in characters is 50.
           type: string
       required:
         - computeInstanceId
@@ -48,7 +50,9 @@ POST https://backup.{{ api-host }}/backup/v1/policies/{policyId}:execute
 ||Field | Description ||
 || policyId | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.backup.v1.ExecuteRequest}
@@ -63,7 +67,9 @@ Required field. Policy ID. ||
 ||Field | Description ||
 || computeInstanceId | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

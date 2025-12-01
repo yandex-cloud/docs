@@ -68,7 +68,6 @@ apiPlayground:
           description: |-
             **enum** (ResourceType)
             Type of resource. Could be compute VM or baremetal server.
-            - `RESOURCE_TYPE_UNSPECIFIED`
             - `COMPUTE`: Resource is Compute Cloud VM
             - `BMS`: Resource is baremetal server
             - `EXTERNAL_VM`: Resource is VM
@@ -84,12 +83,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             Number of results per page.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Token for the results page. Not allowed to use if listing is performed by specific policy ID.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
       oneOf:
@@ -144,12 +145,12 @@ apiPlayground:
           backupId:
             description: |-
               **string**
-              Required field. 
+              Required field.
             type: string
           folderId:
             description: |-
               **string**
-              Required field. 
+              Required field.
             type: string
         required:
           - backupId
@@ -222,17 +223,20 @@ Supported logic operators:
 
 Type of resource. Could be compute VM or baremetal server.
 
-- `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
 - `BMS`: Resource is baremetal server
 - `EXTERNAL_VM`: Resource is VM
 - `EXTERNAL_SERVER`: Resource is server ||
 || pageSize | **string** (int64)
 
-Number of results per page. ||
+Number of results per page.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
-Token for the results page. Not allowed to use if listing is performed by specific policy ID. ||
+Token for the results page. Not allowed to use if listing is performed by specific policy ID.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ArchiveParameters {#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters}
@@ -265,10 +269,10 @@ Policy ID. ||
 ||Field | Description ||
 || backupId | **string**
 
-Required field.  ||
+Required field. ||
 || folderId | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## Response {#yandex.cloud.backup.v1.ListBackupsResponse}
@@ -376,7 +380,6 @@ Compute Cloud instance ID. ||
 || disks[] | **[Disk](#yandex.cloud.backup.v1.Disk)** ||
 || type | **enum** (Type)
 
-- `TYPE_UNSPECIFIED`
 - `FULL`
 - `INCREMENTAL` ||
 || deleted | **boolean**

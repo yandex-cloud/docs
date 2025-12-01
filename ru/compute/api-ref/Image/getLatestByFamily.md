@@ -12,11 +12,13 @@ apiPlayground:
             **string**
             Required field. ID of the folder to get the image from.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         family:
           description: |-
             **string**
             Name of the image family to search for.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
           pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
       required:
@@ -44,10 +46,14 @@ GET https://compute.{{ api-host }}/compute/v1/images:latestByFamily
 || folderId | **string**
 
 Required field. ID of the folder to get the image from.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || family | **string**
 
-Name of the image family to search for. ||
+Name of the image family to search for.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.Image}
@@ -142,7 +148,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `READY`: Image is ready to use.
 - `ERROR`: Image encountered a problem and cannot operate.
@@ -172,7 +177,6 @@ Operating system type. The default is `LINUX`.
 
 This field is used to correctly emulate a vCPU and calculate the cost of using an instance.
 
-- `TYPE_UNSPECIFIED`
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
 |#
@@ -203,7 +207,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#

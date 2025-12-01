@@ -27,6 +27,7 @@ Aliases:
 - [yc cic trunk-connection get](get.md) — Get information about a trunk connection.
 - [yc cic trunk-connection list](list.md) — List trunk connections in a folder.
 - [yc cic trunk-connection list-operations](list-operations.md) — List operations for a trunk connection.
+- [yc cic trunk-connection move](move.md) — Move the specified trunk connection into the folder
 - [yc cic trunk-connection remove-labels](remove-labels.md) — Remove labels from a trunk connection.
 - [yc cic trunk-connection update](update.md) — Modify configuration or attributes of a trunk connection.
 

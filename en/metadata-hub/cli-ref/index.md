@@ -20,13 +20,17 @@ Aliases:
 #### Command Tree
 
 - [yc managed-metastore cluster](cluster/index.md) — Manage Metastore clusters
+	- [yc managed-metastore cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Metastore cluster
 	- [yc managed-metastore cluster create](cluster/create.md) — Create Metastore cluster
 	- [yc managed-metastore cluster delete](cluster/delete.md) — Delete the specified Metastore cluster
 	- [yc managed-metastore cluster export-data](cluster/export-data.md) — Export data from the specified Metastore cluster
 	- [yc managed-metastore cluster get](cluster/get.md) — Show information about the specified Metastore cluster
 	- [yc managed-metastore cluster import-data](cluster/import-data.md) — Import data to the specified Metastore cluster
 	- [yc managed-metastore cluster list](cluster/list.md) — List Metastore clusters
+	- [yc managed-metastore cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified Metastore cluster
 	- [yc managed-metastore cluster list-operations](cluster/list-operations.md) — List operations for the specified Metastore cluster
+	- [yc managed-metastore cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified Metastore cluster
+	- [yc managed-metastore cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified Metastore cluster and delete all existing access bindings if there were any
 	- [yc managed-metastore cluster start](cluster/start.md) — Start the specified Metastore cluster
 	- [yc managed-metastore cluster stop](cluster/stop.md) — Stop the specified Metastore cluster
 	- [yc managed-metastore cluster update](cluster/update.md) — Update the specified Metastore cluster

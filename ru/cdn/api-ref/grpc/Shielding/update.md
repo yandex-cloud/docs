@@ -28,10 +28,14 @@ Request to update shielding parameters, including location adjustments.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource for which shielding parameters are being updated. ||
+Required field. ID of the resource for which shielding parameters are being updated.
+
+The maximum string length in characters is 50. ||
 || location_id | **int64**
 
-ID of the location for updating shielding parameters, allowing for geographical adjustments. ||
+ID of the location for updating shielding parameters, allowing for geographical adjustments.
+
+Value must be greater than 0. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -122,7 +126,9 @@ Metadata for shielding updates, detailing the operations performed.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource for which shielding parameters are being updated. ||
+Required field. ID of the resource for which shielding parameters are being updated.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ShieldingDetails {#yandex.cloud.cdn.v1.ShieldingDetails}

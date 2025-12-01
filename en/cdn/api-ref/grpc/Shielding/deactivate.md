@@ -25,7 +25,9 @@ Request to deactivate shielding for a specific resource.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource to deactivate shielding for. ||
+Required field. ID of the resource to deactivate shielding for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -111,5 +113,7 @@ Metadata for shielding deactivation, detailing the operations performed.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource for which shielding is being deactivated. ||
+Required field. ID of the resource for which shielding is being deactivated.
+
+The maximum string length in characters is 50. ||
 |#

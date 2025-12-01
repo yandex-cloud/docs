@@ -20,6 +20,8 @@
 `video.episodes.count` | 500 ||
 || Общее количество [обложек](../video/operations/video/add-thumbnail.md) к видео во всех каналах
 `video.thumbnails.count` | 20 000 ||
+|| Количество [шаблонов плеера](../video/concepts/presets.md) во всех каналах
+`video.stylePresets.count` | 100 ||
 |#
 
 #### Лимиты {#limits}

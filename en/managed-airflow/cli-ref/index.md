@@ -20,11 +20,15 @@ Aliases:
 #### Command Tree
 
 - [yc managed-airflow cluster](cluster/index.md) — Manage Airflow clusters.
+	- [yc managed-airflow cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Airflow cluster
 	- [yc managed-airflow cluster create](cluster/create.md) — Create Airflow cluster
 	- [yc managed-airflow cluster delete](cluster/delete.md) — Delete the specified Airflow cluster
 	- [yc managed-airflow cluster get](cluster/get.md) — Show information about the specified Airflow cluster
 	- [yc managed-airflow cluster list](cluster/list.md) — List Airflow clusters
+	- [yc managed-airflow cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified Airflow cluster
 	- [yc managed-airflow cluster list-operations](cluster/list-operations.md) — List operations for the specified Airflow cluster
+	- [yc managed-airflow cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified Airflow cluster
+	- [yc managed-airflow cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified Airflow cluster and delete all existing access bindings if there were any
 	- [yc managed-airflow cluster start](cluster/start.md) — Start the specified Airflow cluster
 	- [yc managed-airflow cluster stop](cluster/stop.md) — Stop the specified Airflow cluster
 	- [yc managed-airflow cluster update](cluster/update.md) — Update the specified Airflow cluster

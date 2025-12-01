@@ -7,6 +7,22 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.178.0 (01.12.25) {#version0.178.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ mkf-name }}
+
+* Добавлен параметр `--disk-encryption-key-id` для указания ключа шифрования дисков кластера: `yc managed-kafka cluster create`
+
+##### {{ ig-name }}
+
+* Добавлены команды для управления режимом отключения зоны доступности (zonal shift) в {{ ig-name }}:
+  * `yc compute instance-group disable-zones`
+  * `yc compute instance-group enable-zones`
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.177.0 (27.11.25) {#version0.177.0}
 
 ####  Изменения в сервисах {{ yandex-cloud }}
@@ -74,8 +90,6 @@ description: На странице представлены релизы CLI, а
   * `yc managed-trino cluster set-access-bindings`
   * `yc managed-trino cluster add-access-bindings`
   * `yc managed-trino cluster remove-access-bindings`
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.176.0 (20.11.25) {#version0.176.0}
 

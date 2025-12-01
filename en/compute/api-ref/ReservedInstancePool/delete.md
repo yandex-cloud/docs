@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the reserved instance pool to delete.
             To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - reservedInstancePoolId
@@ -38,7 +39,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reserved
 || reservedInstancePoolId | **string**
 
 Required field. ID of the reserved instance pool to delete.
-To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request. ||
+To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

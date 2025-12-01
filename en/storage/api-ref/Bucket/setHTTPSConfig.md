@@ -49,11 +49,13 @@ apiPlayground:
             description: |-
               **string**
               [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate.
+              The maximum string length in characters is 3145728.
             type: string
           privateKeyPem:
             description: |-
               **string**
               [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate.
+              The maximum string length in characters is 3145728.
             type: string
       CertificateManagerHTTPSConfigParams:
         type: object
@@ -134,10 +136,14 @@ HTTPS configuration parameters. ||
 ||Field | Description ||
 || certificatePem | **string**
 
-[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate. ||
+[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate.
+
+The maximum string length in characters is 3145728. ||
 || privateKeyPem | **string**
 
-[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate. ||
+[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate.
+
+The maximum string length in characters is 3145728. ||
 |#
 
 ## CertificateManagerHTTPSConfigParams {#yandex.cloud.storage.v1.CertificateManagerHTTPSConfigParams}
@@ -301,7 +307,6 @@ Name of the bucket. ||
 
 Type of TLS certificate source.
 
-- `SOURCE_TYPE_UNSPECIFIED`: Source type unspecified.
 - `SOURCE_TYPE_SELF_MANAGED`: Your certificate, uploaded directly.
 - `SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER`: Certificate managed by Certificate Manager. ||
 || issuer | **string**

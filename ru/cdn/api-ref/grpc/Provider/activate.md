@@ -24,12 +24,16 @@ Deprecated: This functionality is no longer supported - provider activation happ
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the activate provider belongs to. ||
+Required field. ID of the folder that the activate provider belongs to.
+
+The maximum string length in characters is 50. ||
 || provider_type | **string**
 
 Required field. Specify provider brand/type.
 
-Possible values: `gcore`. ||
+Possible values: `gcore`.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -113,5 +117,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the activate provider belongs to. ||
+Required field. ID of the folder that the activate provider belongs to.
+
+The maximum string length in characters is 50. ||
 |#

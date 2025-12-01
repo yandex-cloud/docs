@@ -62,10 +62,14 @@ HTTPS configuration parameters. ||
 ||Field | Description ||
 || certificate_pem | **string**
 
-[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate. ||
+[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate.
+
+The maximum string length in characters is 3145728. ||
 || private_key_pem | **string**
 
-[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate. ||
+[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate.
+
+The maximum string length in characters is 3145728. ||
 |#
 
 ## CertificateManagerHTTPSConfigParams {#yandex.cloud.storage.v1.CertificateManagerHTTPSConfigParams}
@@ -190,7 +194,6 @@ Name of the bucket. ||
 
 Type of TLS certificate source.
 
-- `SOURCE_TYPE_UNSPECIFIED`: Source type unspecified.
 - `SOURCE_TYPE_SELF_MANAGED`: Your certificate, uploaded directly.
 - `SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER`: Certificate managed by Certificate Manager. ||
 || issuer | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**

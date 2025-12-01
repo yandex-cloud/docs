@@ -19,19 +19,23 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-mysql cluster add-access-binding](add-access-binding.md) — Add access binding for the specified MySQL cluster
 - [yc managed-mysql cluster add-labels](add-labels.md) — Add labels to MySQL cluster
 - [yc managed-mysql cluster backup](backup.md) — Create a backup for the specified MySQL cluster
 - [yc managed-mysql cluster create](create.md) — Create MySQL cluster
 - [yc managed-mysql cluster delete](delete.md) — Delete the specified MySQL cluster
 - [yc managed-mysql cluster get](get.md) — Show information about the specified MySQL cluster
 - [yc managed-mysql cluster list](list.md) — List MySQL clusters
+- [yc managed-mysql cluster list-access-bindings](list-access-bindings.md) — List access bindings for the specified MySQL cluster
 - [yc managed-mysql cluster list-backups](list-backups.md) — List available backups for the specified MySQL cluster
 - [yc managed-mysql cluster list-logs](list-logs.md) — Retrieves logs for the specified MySQL cluster
 - [yc managed-mysql cluster list-operations](list-operations.md) — List operations for the specified MySQL cluster
 - [yc managed-mysql cluster move](move.md) — Move the specified MySQL cluster into the folder
+- [yc managed-mysql cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified MySQL cluster
 - [yc managed-mysql cluster remove-labels](remove-labels.md) — Remove labels from MySQL cluster
 - [yc managed-mysql cluster reschedule-maintenance](reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 - [yc managed-mysql cluster restore](restore.md) — Restore MySQL cluster
+- [yc managed-mysql cluster set-access-bindings](set-access-bindings.md) — Set access bindings for the specified MySQL cluster and delete all existing access bindings if there were any
 - [yc managed-mysql cluster start](start.md) — Start the specified MySQL cluster
 - [yc managed-mysql cluster start-failover](start-failover.md) — Start manual failover for the specified MySQL cluster
 - [yc managed-mysql cluster stop](stop.md) — Stop the specified MySQL cluster

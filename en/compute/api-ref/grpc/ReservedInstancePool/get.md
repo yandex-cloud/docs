@@ -26,7 +26,9 @@ To get the list of available reserved instance pool resources, make a [List](/do
 || reserved_instance_pool_id | **string**
 
 Required field. ID of the reserved instance pool resource to return.
-To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/grpc/ReservedInstancePool/list#List) request. ||
+To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/grpc/ReservedInstancePool/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ReservedInstancePool {#yandex.cloud.compute.v1.ReservedInstancePool}
@@ -140,7 +142,9 @@ Stats for instances of the pool ||
 ||Field | Description ||
 || memory | **int64**
 
-Required field. The amount of memory available to the instance, specified in bytes. ||
+Required field. The amount of memory available to the instance, specified in bytes.
+
+The maximum value is 274877906944. ||
 || cores | **int64**
 
 Required field. The number of cores available to the instance. ||
@@ -173,7 +177,6 @@ Attach instance to specified GPU cluster. ||
 
 Network Type
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||

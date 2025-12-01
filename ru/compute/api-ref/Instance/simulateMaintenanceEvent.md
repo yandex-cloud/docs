@@ -9,7 +9,8 @@ apiPlayground:
         instanceId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
       required:
         - instanceId
@@ -34,7 +35,9 @@ POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:simulateMa
 ||Field | Description ||
 || instanceId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

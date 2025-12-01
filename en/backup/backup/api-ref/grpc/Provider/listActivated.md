@@ -24,7 +24,9 @@ List activated providers for specified client.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to find out the backup provider. ||
+Required field. ID of the folder to find out the backup provider.
+
+The maximum string length in characters is 50. ||
 || instance_registration_id | **string**
 
 instance registration token for authorization ||

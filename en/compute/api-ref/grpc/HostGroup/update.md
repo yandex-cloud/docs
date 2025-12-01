@@ -36,26 +36,33 @@ Updates the specified host group.
 || host_group_id | **string**
 
 Required field. ID of the host group to update.
-To get the host group ID, use an [HostGroupService.List](/docs/compute/api-ref/grpc/HostGroup/list#List) request. ||
+To get the host group ID, use an [HostGroupService.List](/docs/compute/api-ref/grpc/HostGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the HostGroup resource are going to be updated. ||
 || name | **string**
 
-Name of the group. ||
+Name of the group.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the group. ||
+Description of the group.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-The existing set of `labels` is completely replaced by the provided set. ||
+The existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || maintenance_policy | enum **MaintenancePolicy**
 
 Behaviour on maintenance events
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scale_policy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
@@ -212,7 +219,6 @@ Availability zone where all dedicated hosts are allocated. ||
 
 Status of the group.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `UPDATING`
@@ -224,7 +230,6 @@ ID of host type. Resources provided by each host of the group. ||
 
 Behaviour on maintenance events.
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scale_policy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy2)**

@@ -25,7 +25,9 @@ GetMaintenanceRequest allows getting Maintenance by ID.
 ||Field | Description ||
 || maintenance_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## yandex.cloud.maintenance.v2.Maintenance {#yandex.cloud.maintenance.v2.Maintenance}
@@ -83,7 +85,6 @@ Service-specific details. ||
 
 Status of the maintenance.
 
-- `STATUS_UNSPECIFIED`: Not set.
 - `SCHEDULED`: Maintenance is scheduled for a future time.
 - `RUNNING`: Maintenance is currently running.
 - `SUCCEEDED`: Maintenance completed successfully.

@@ -23,7 +23,9 @@ List activated providers for specified client.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the activate provider belongs to. ||
+Required field. ID of the folder that the activate provider belongs to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListActivatedProvidersResponse {#yandex.cloud.cdn.v1.ListActivatedProvidersResponse}

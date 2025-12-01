@@ -55,6 +55,15 @@ description: Пошаговые инструкции по работе с сер
 
 * [{#T}](player-control.md)
 
+## Шаблоны плеера {#style-presets}
+
+* [{#T}](style-presets/create.md)
+* [{#T}](style-presets/update.md)
+* [{#T}](style-presets/get.md)
+* [{#T}](style-presets/set-default.md)
+* [{#T}](style-presets/assign-to-video.md)
+* [{#T}](style-presets/delete.md)
+
 ## Участники {#members}
 
 * [{#T}](add-member.md)

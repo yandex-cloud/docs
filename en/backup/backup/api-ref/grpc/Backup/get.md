@@ -104,7 +104,6 @@ Compute Cloud instance ID. ||
 || disks[] | **[Disk](#yandex.cloud.backup.v1.Disk)** ||
 || type | enum **Type**
 
-- `TYPE_UNSPECIFIED`
 - `FULL`
 - `INCREMENTAL` ||
 || deleted | **bool**

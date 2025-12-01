@@ -24,7 +24,9 @@ Returns the serial port output of the specified Instance resource.
 ||Field | Description ||
 || instance_id | **string**
 
-Required field. ID of the instance to return the serial port output for. ||
+Required field. ID of the instance to return the serial port output for.
+
+The maximum string length in characters is 50. ||
 || port | **int64**
 
 Serial port to retrieve data from. The default is 1. ||

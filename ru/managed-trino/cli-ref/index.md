@@ -24,13 +24,17 @@ Aliases:
 	- [yc managed-trino catalog get](catalog/get.md) — Show information about the specified Trino catalog
 	- [yc managed-trino catalog list](catalog/list.md) — List Trino catalogs
 - [yc managed-trino cluster](cluster/index.md) — Manage Trino clusters
+	- [yc managed-trino cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Trino cluster
 	- [yc managed-trino cluster create](cluster/create.md) — Create Trino cluster
 	- [yc managed-trino cluster delete](cluster/delete.md) — Delete the specified Trino cluster
 	- [yc managed-trino cluster get](cluster/get.md) — Show information about the specified Trino cluster
 	- [yc managed-trino cluster get-access-control](cluster/get-access-control.md) — Get Trino cluster access control configuration
 	- [yc managed-trino cluster list](cluster/list.md) — List Trino clusters
+	- [yc managed-trino cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified Trino cluster
 	- [yc managed-trino cluster list-operations](cluster/list-operations.md) — List operations for the specified Trino cluster
+	- [yc managed-trino cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified Trino cluster
 	- [yc managed-trino cluster remove-access-control](cluster/remove-access-control.md) — Remove access control from Trino cluster configuration
+	- [yc managed-trino cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified Trino cluster and delete all existing access bindings if there were any
 	- [yc managed-trino cluster set-access-control](cluster/set-access-control.md) — Set Trino cluster access control configuration
 	- [yc managed-trino cluster start](cluster/start.md) — Start the specified Trino cluster
 	- [yc managed-trino cluster stop](cluster/stop.md) — Stop the specified Trino cluster

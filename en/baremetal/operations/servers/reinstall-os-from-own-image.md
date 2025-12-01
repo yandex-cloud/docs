@@ -11,7 +11,7 @@ When installing or reinstalling an OS from your [custom ISO image](../../concept
 
 Creating fault-tolerant disk configurations requires experience and understanding of [RAID](https://en.wikipedia.org/wiki/RAID) and/or [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) technologies. We recommend using {{ marketplace-short-name }} public OS images instead, resorting to this installation method only if you need customizations beyond {{ marketplace-short-name }} options.
 
-For example, you might need to install from your own ISO image if the required OS is not available in {{ marketplace-short-name }}, or you need a custom disk partitioning layout, [UEFI](https://en.wikipedia.org/wiki/UEFI)/SecureBoot mode, root encryption, or other options unavailable through {{ marketplace-short-name }} image deployment.
+For example, you might need to install from your own ISO image if the required OS is not available in {{ marketplace-short-name }}, or you need a custom disk partitioning layout, [UEFI](../../concepts/server-advanced-settings.md#install-os-uefi)/SecureBoot mode, root encryption, or other options unavailable through {{ marketplace-short-name }} image deployment.
 
 {% note warning %}
 
@@ -34,7 +34,7 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create your image.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
       1. In the left-hand panel, select ![icon](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
       1. Click **Upload image**.
       1. Specify the image name. The naming requirements are as follows:
@@ -72,7 +72,7 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
 
     {% endnote %}
 
-1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
+1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens, do the following:
 
     1. In the **CD/DVD Media1** section, click **Browse** and select the [previously uploaded](../image-upload.md) ISO OS image in the `user-iso` directory.
     1. Click **Connect CD/DVD**.

@@ -193,6 +193,47 @@ editable: false
 
 
 
+### Вычислительные ресурсы хостов {{ CH }} Keeper {#prices-keeper}
+
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
+#### Цены в час {#prices-keeper-hour}
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-host-keeper-hour.md](../_pricing/managed-clickhouse/rub-host-keeper-hour.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-host-keeper-hour.md](../_pricing/managed-clickhouse/kzt-host-keeper-hour.md) %}
+
+{% endlist %}
+
+
+
+
+#### Цены в месяц {#prices-keeper-month}
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-host-keeper-month.md](../_pricing/managed-clickhouse/rub-host-keeper-month.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-host-keeper-month.md](../_pricing/managed-clickhouse/kzt-host-keeper-month.md) %}
+
+{% endlist %}
+
+
+
+
+
 ### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
 
 

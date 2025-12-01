@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the host group to update.
             To get the host group ID, use an [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - hostGroupId
@@ -35,18 +36,21 @@ apiPlayground:
           description: |-
             **string**
             Name of the group.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the group.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             The existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -62,7 +66,6 @@ apiPlayground:
           description: |-
             **enum** (MaintenancePolicy)
             Behaviour on maintenance events
-            - `MAINTENANCE_POLICY_UNSPECIFIED`
             - `RESTART`: Restart instance to move it to another host during maintenance
             - `MIGRATE`: Use live migration to move instance to another host during maintenance
           type: string
@@ -115,7 +118,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
 || hostGroupId | **string**
 
 Required field. ID of the host group to update.
-To get the host group ID, use an [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request. ||
+To get the host group ID, use an [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateHostGroupRequest}
@@ -151,20 +156,25 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the group. ||
+Name of the group.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the group. ||
+Description of the group.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-The existing set of `labels` is completely replaced by the provided set. ||
+The existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || maintenancePolicy | **enum** (MaintenancePolicy)
 
 Behaviour on maintenance events
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
@@ -367,7 +377,6 @@ Availability zone where all dedicated hosts are allocated. ||
 
 Status of the group.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `UPDATING`
@@ -379,7 +388,6 @@ ID of host type. Resources provided by each host of the group. ||
 
 Behaviour on maintenance events.
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy2)**

@@ -24,6 +24,7 @@ Aliases:
 	- [yc managed-redis backup get](backup/get.md) — Show information about the specified Redis backup
 	- [yc managed-redis backup list](backup/list.md) — List available backups
 - [yc managed-redis cluster](cluster/index.md) — Manage Redis clusters
+	- [yc managed-redis cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Redis cluster
 	- [yc managed-redis cluster add-labels](cluster/add-labels.md) — Add labels to Redis cluster
 	- [yc managed-redis cluster backup](cluster/backup.md) — Create a backup for the specified Redis cluster
 	- [yc managed-redis cluster create](cluster/create.md) — Create Redis cluster
@@ -31,14 +32,17 @@ Aliases:
 	- [yc managed-redis cluster enable-sharding](cluster/enable-sharding.md) — Enable sharding on specified Redis cluster
 	- [yc managed-redis cluster get](cluster/get.md) — Show information about the specified Redis cluster
 	- [yc managed-redis cluster list](cluster/list.md) — List Redis clusters
+	- [yc managed-redis cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified Redis cluster
 	- [yc managed-redis cluster list-backups](cluster/list-backups.md) — List available backups for the specified Redis cluster
 	- [yc managed-redis cluster list-logs](cluster/list-logs.md) — Retrieves logs for the specified Redis cluster
 	- [yc managed-redis cluster list-operations](cluster/list-operations.md) — List operations for the specified Redis cluster
 	- [yc managed-redis cluster move](cluster/move.md) — Move the specified Redis cluster into the folder
 	- [yc managed-redis cluster rebalance](cluster/rebalance.md) — Rebalance the specified Redis cluster
+	- [yc managed-redis cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified Redis cluster
 	- [yc managed-redis cluster remove-labels](cluster/remove-labels.md) — Remove labels from Redis cluster
 	- [yc managed-redis cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 	- [yc managed-redis cluster restore](cluster/restore.md) — Restore Redis cluster
+	- [yc managed-redis cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified Redis cluster and delete all existing access bindings if there were any
 	- [yc managed-redis cluster start](cluster/start.md) — Start the specified Redis cluster
 	- [yc managed-redis cluster start-failover](cluster/start-failover.md) — Start manual failover for the specified Redis cluster
 	- [yc managed-redis cluster stop](cluster/stop.md) — Stop the specified Redis cluster

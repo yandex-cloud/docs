@@ -144,7 +144,6 @@ Original data size. ||
 Logical size. ||
 || format | **enum** (Format)
 
-- `FORMAT_UNSPECIFIED`
 - `VERSION_11`: A legacy backup format used in older versions. It's not recommended to use.
 - `VERSION_12`: A new format recommended in most cases for fast backup and recovery.
 - `AUTO`: Automatic version selection. Will be used version 12 unless the protection
@@ -188,14 +187,12 @@ If this field is true, it means that any of encryption algorithm
 has been chosen. ||
 || encryptionAlgorithm | **enum** (EncryptionAlgorithm)
 
-- `ENCRYPTION_ALGORITHM_UNSPECIFIED`
 - `NONE`
 - `AES128`
 - `AES192`
 - `AES256` ||
 || actions[] | **enum** (Action)
 
-- `ACTION_UNSPECIFIED`
 - `REFRESH`
 - `DELETE_BY_AGENT` ||
 || backupPlanId | **string**

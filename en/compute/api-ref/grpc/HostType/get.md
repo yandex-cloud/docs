@@ -25,7 +25,9 @@ Returns information about specified host type.
 
 Required field. ID of the host type to return.
 
-To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/grpc/HostType/list#List) request. ||
+To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/grpc/HostType/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## HostType {#yandex.cloud.compute.v1.HostType}

@@ -29,7 +29,9 @@ It is not possible to delete a disk that is attached to an instance.
 || disk_id | **string**
 
 Required field. ID of the disk to delete.
-To get the disk ID use a [DiskService.List](/docs/compute/api-ref/grpc/Disk/list#List) request. ||
+To get the disk ID use a [DiskService.List](/docs/compute/api-ref/grpc/Disk/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

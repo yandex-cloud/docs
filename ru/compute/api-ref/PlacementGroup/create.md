@@ -58,7 +58,9 @@ apiPlayground:
         type: object
         properties:
           partitions:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 2 to 5, inclusive.
             type: string
             format: int64
 sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/create.md
@@ -125,7 +127,9 @@ Placement strategy. ||
 
 #|
 ||Field | Description ||
-|| partitions | **string** (int64) ||
+|| partitions | **string** (int64)
+
+Acceptable values are 2 to 5, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -315,5 +319,7 @@ field containing approriate structure. ||
 
 #|
 ||Field | Description ||
-|| partitions | **string** (int64) ||
+|| partitions | **string** (int64)
+
+Acceptable values are 2 to 5, inclusive. ||
 |#

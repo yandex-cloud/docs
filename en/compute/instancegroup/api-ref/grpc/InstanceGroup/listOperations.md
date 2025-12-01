@@ -27,20 +27,28 @@ Lists operations for the specified instance group.
 || instance_group_id | **string**
 
 Required field. ID of the InstanceGroup resource to list operations for.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/grpc/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/grpc/InstanceGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is more than `page_size`, the service returns a [ListInstanceGroupOperationsResponse.next_page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListInstanceGroupOperationsResponse.next_page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse) returned by a previous list request. ||
+[ListInstanceGroupOperationsResponse.next_page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 1000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/instancegroup/api-ref/grpc/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field. ||
+Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/instancegroup/api-ref/grpc/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListInstanceGroupOperationsResponse {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse}

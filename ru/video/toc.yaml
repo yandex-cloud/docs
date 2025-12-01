@@ -107,6 +107,8 @@ items:
         href: concepts/streams.md
       - name: Плейлисты
         href: concepts/playlists.md
+      - name: Шаблоны плеера
+        href: concepts/presets.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Видеоплеер
@@ -116,13 +118,20 @@ items:
         href: concepts/player.md
       - name: Управление
         href: operations/player-control.md
-      - name: Решение проблем
-        href: troubleshooting.md
-      - name: Защищенный контент
-        hidden: true
-        href: troubleshooting-drm.md
-      - name: Политика автозапуска браузеров
-        href: autoplay-policy.md
+      - name: Шаблоны плеера
+        items:
+          - name: Создать шаблон
+            href: operations/style-presets/create.md
+          - name: Изменить или дублировать шаблон
+            href: operations/style-presets/update.md
+          - name: Получить информацию о шаблоне
+            href: operations/style-presets/get.md
+          - name: Назначить шаблон по умолчанию
+            href: operations/style-presets/set-default.md
+          - name: Выбрать шаблон
+            href: operations/style-presets/assign-to-video.md
+          - name: Удалить шаблон
+            href: operations/style-presets/delete.md
       - name: SDK
         items:
           - name: Обзор
@@ -166,6 +175,13 @@ items:
                         href: api-ref/javascript/interfaces/PlayerSdkSourceParams.md
                       - name: PlayerSdkState
                         href: api-ref/javascript/interfaces/PlayerSdkState.md
+      - name: Решение проблем
+        href: troubleshooting.md
+      - name: Защищенный контент
+        hidden: true
+        href: troubleshooting-drm.md
+      - name: Политика автозапуска браузеров
+        href: autoplay-policy.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

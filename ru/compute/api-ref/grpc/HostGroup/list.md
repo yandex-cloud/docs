@@ -28,18 +28,24 @@ Retrieves the list of host groups in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to list host groups in.
-To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListHostGroupsResponse.next_page_token](#yandex.cloud.compute.v1.ListHostGroupsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results,
 set `page_token` to the [ListHostGroupsResponse.next_page_token](#yandex.cloud.compute.v1.ListHostGroupsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -49,12 +55,16 @@ Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
 2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
 3. `<value>` represents a value.
-String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). ||
+String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
+
+The maximum string length in characters is 1000. ||
 || order_by | **string**
 
 By which column the listing should be ordered and in which direction,
 format is "createdAt desc". "id asc" if omitted.
-The default sorting order is ascending ||
+The default sorting order is ascending
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListHostGroupsResponse {#yandex.cloud.compute.v1.ListHostGroupsResponse}
@@ -132,7 +142,6 @@ Availability zone where all dedicated hosts are allocated. ||
 
 Status of the group.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `UPDATING`
@@ -144,7 +153,6 @@ ID of host type. Resources provided by each host of the group. ||
 
 Behaviour on maintenance events.
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scale_policy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**

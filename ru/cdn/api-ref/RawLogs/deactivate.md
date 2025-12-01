@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of CDN resource to deactivate Raw Logs for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - resourceId
@@ -34,7 +35,9 @@ POST https://cdn.{{ api-host }}/cdn/v1/rawLogs/{resourceId}
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of CDN resource to deactivate Raw Logs for. ||
+Required field. ID of CDN resource to deactivate Raw Logs for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

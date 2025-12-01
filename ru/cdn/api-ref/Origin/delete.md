@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             ID of the origin.
+            Value must be greater than 0.
           type: string
           format: int64
       additionalProperties: false
@@ -20,6 +21,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder that the origin belongs to.
+            The maximum string length in characters is 50.
           type: string
       required:
         - folderId
@@ -45,7 +47,9 @@ DELETE https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
 ||Field | Description ||
 || originId | **string** (int64)
 
-Required field. ID of the origin. ||
+Required field. ID of the origin.
+
+Value must be greater than 0. ||
 |#
 
 ## Query parameters {#yandex.cloud.cdn.v1.DeleteOriginRequest}
@@ -54,7 +58,9 @@ Required field. ID of the origin. ||
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
+Required field. ID of the folder that the origin belongs to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -144,7 +150,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || originId | **string** (int64)
 
-ID of the origin. ||
+ID of the origin.
+
+Value must be greater than 0. ||
 |#
 
 ## Status {#google.rpc.Status}

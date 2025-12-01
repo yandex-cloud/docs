@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the availability zone to return information about.
+            The maximum string length in characters is 50.
           type: string
       required:
         - zoneId
@@ -38,7 +39,9 @@ GET https://compute.{{ api-host }}/compute/v1/zones/{zoneId}
 ||Field | Description ||
 || zoneId | **string**
 
-Required field. ID of the availability zone to return information about. ||
+Required field. ID of the availability zone to return information about.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.Zone}
@@ -67,7 +70,6 @@ ID of the region. ||
 
 Status of the zone.
 
-- `STATUS_UNSPECIFIED`
 - `UP`: Zone is available. You can access the resources allocated in this zone.
 - `DOWN`: Zone is not available. ||
 |#

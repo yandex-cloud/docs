@@ -10,11 +10,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the host group to update.
+            The maximum string length in characters is 50.
           type: string
         hostId:
           description: |-
             **string**
             Required field. ID of the host to update.
+            The maximum string length in characters is 50.
           type: string
       required:
         - hostGroupId
@@ -69,10 +71,14 @@ PATCH https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}/hosts/{
 ||Field | Description ||
 || hostGroupId | **string**
 
-Required field. ID of the host group to update. ||
+Required field. ID of the host group to update.
+
+The maximum string length in characters is 50. ||
 || hostId | **string**
 
-Required field. ID of the host to update. ||
+Required field. ID of the host to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateHostGroupHostRequest}
@@ -257,7 +263,6 @@ ID of the host. ||
 
 Current status of the host. New instances are unable to start on host in DOWN status.
 
-- `STATUS_UNSPECIFIED`
 - `UP`
 - `DOWN` ||
 || serverId | **string**

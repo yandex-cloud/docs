@@ -12,6 +12,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder that the origin group belongs to.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
@@ -187,7 +188,9 @@ POST https://cdn.{{ api-host }}/cdn/v1/originGroups
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the origin group belongs to. ||
+Required field. ID of the folder that the origin group belongs to.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the origin group. ||
@@ -445,7 +448,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || originGroupId | **string** (int64)
 
-ID of created origin group. ||
+ID of created origin group.
+
+Value must be greater than 0. ||
 |#
 
 ## Status {#google.rpc.Status}

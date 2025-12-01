@@ -11,6 +11,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder to request listing for.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -19,6 +20,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListResourcesResponse.nextPageToken](#yandex.cloud.cdn.v1.ListResourcesResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -27,6 +29,7 @@ apiPlayground:
             Page token. To get the next page of results,
             set `pageToken` to the [ListResourcesResponse.nextPageToken](#yandex.cloud.cdn.v1.ListResourcesResponse)
             returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       required:
         - folderId
@@ -52,18 +55,24 @@ GET https://cdn.{{ api-host }}/cdn/v1/resources
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to request listing for. ||
+Required field. ID of the folder to request listing for.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListResourcesResponse.nextPageToken](#yandex.cloud.cdn.v1.ListResourcesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListResourcesResponse.nextPageToken](#yandex.cloud.cdn.v1.ListResourcesResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.cdn.v1.ListResourcesResponse}
@@ -327,7 +336,6 @@ Name of the origin group. ||
 
 Specify the protocol schema to be used in communication with origin.
 
-- `ORIGIN_PROTOCOL_UNSPECIFIED`
 - `HTTP`: CDN servers will connect to your origin via HTTP.
 - `HTTPS`: CDN servers will connect to your origin via HTTPS.
 - `MATCH`: Connection protocol will be chosen automatically (content on the
@@ -674,7 +682,6 @@ The value must have the following format: `<source path> <destination path>`, wh
 Break flag is applied to the option by default.
 It is not shown in the field.
 
-- `REWRITE_FLAG_UNSPECIFIED`
 - `LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and
 starts a search for a new location matching changed URI.
 - `BREAK`: Stops processing of the current set of the Rewrite option.
@@ -698,7 +705,6 @@ The key for the URL signing. ||
 
 The type of the URL signing. The URL could be available for all IP addresses or for the only one IP.
 
-- `SECURE_KEY_URL_TYPE_UNSPECIFIED`
 - `ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.
 - `DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses. ||
 |#
@@ -715,7 +721,6 @@ False - the option is disabled and its default value of the [flag](#yandex.cloud
 
 The policy type. One of allow or deny value.
 
-- `POLICY_TYPE_UNSPECIFIED`
 - `POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.
 - `POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field. ||
 || exceptedValues[] | **string**
@@ -733,7 +738,6 @@ A SSL certificate parameters.
 
 Type of the certificate.
 
-- `SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.
 - `DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.
 - `LETS_ENCRYPT_GCORE`: The option is deprecated. Works only if you have already pointed your domain name to the protected IP address in your DNS.
 - `CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key. ||
@@ -741,7 +745,6 @@ Type of the certificate.
 
 Active status.
 
-- `SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.
 - `READY`: SSL certificate is ready to use.
 - `CREATING`: The option is deprecated. SSL certificate is creating. ||
 || data | **[SSLCertificateData](#yandex.cloud.cdn.v1.SSLCertificateData)**

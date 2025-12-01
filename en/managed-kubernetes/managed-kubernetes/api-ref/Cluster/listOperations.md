@@ -24,6 +24,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.k8s.v1.ListClusterOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -32,12 +33,14 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.k8s.v1.ListClusterOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.Cluster) field.
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -73,15 +76,21 @@ Required field. ID of the Kubernetes cluster to list operations for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.k8s.v1.ListClusterOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListClusterOperationsResponse.nextPageToken](#yandex.cloud.k8s.v1.ListClusterOperationsResponse) returned by a previous list request. ||
+[ListClusterOperationsResponse.nextPageToken](#yandex.cloud.k8s.v1.ListClusterOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.Cluster) field. ||
+Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.Cluster) field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.k8s.v1.ListClusterOperationsResponse}

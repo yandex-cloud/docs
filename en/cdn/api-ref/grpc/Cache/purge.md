@@ -28,7 +28,9 @@ Purging may take up to 15 minutes.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource to perform purge operation on. ||
+Required field. ID of the resource to perform purge operation on.
+
+The maximum string length in characters is 50. ||
 || paths[] | **string**
 
 Set of paths:
@@ -120,5 +122,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 |#

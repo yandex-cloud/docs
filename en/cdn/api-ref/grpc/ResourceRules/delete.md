@@ -24,10 +24,14 @@ Delete specified by id resource rule.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of resource. ||
+Required field. ID of resource.
+
+The maximum string length in characters is 50. ||
 || rule_id | **int64**
 
-ID of deleted resource rule. ||
+ID of deleted resource rule.
+
+Value must be greater than 0. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -112,8 +116,12 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of resource. ||
+Required field. ID of resource.
+
+The maximum string length in characters is 50. ||
 || rule_id | **int64**
 
-ID of deleted resource rule. ||
+ID of deleted resource rule.
+
+Value must be greater than 0. ||
 |#

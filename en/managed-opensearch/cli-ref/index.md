@@ -26,14 +26,18 @@ Aliases:
 	- [yc managed-opensearch backup get](backup/get.md) — Get information about an OpenSearch cluster backup.
 	- [yc managed-opensearch backup list](backup/list.md) — List available OpenSearch backups in a folder.
 - [yc managed-opensearch cluster](cluster/index.md) — Managed OpenSearch clusters.
+	- [yc managed-opensearch cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified OpenSearch cluster
 	- [yc managed-opensearch cluster backup](cluster/backup.md) — Create a backup for a managed OpenSearch cluster.
 	- [yc managed-opensearch cluster create](cluster/create.md) — Create an OpenSearch cluster
 	- [yc managed-opensearch cluster delete](cluster/delete.md) — Delete Opensearch clusters.
 	- [yc managed-opensearch cluster get](cluster/get.md) — Get information about an OpenSearch cluster.
 	- [yc managed-opensearch cluster list](cluster/list.md) — List OpenSearch clusters in a folder
+	- [yc managed-opensearch cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified OpenSearch cluster
 	- [yc managed-opensearch cluster list-backups](cluster/list-backups.md) — List available backups for an OpenSearch cluster.
+	- [yc managed-opensearch cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified OpenSearch cluster
 	- [yc managed-opensearch cluster restart-opensearch](cluster/restart-opensearch.md) — Restart OpenSearch on host.
 	- [yc managed-opensearch cluster restore](cluster/restore.md) — Restore a managed OpenSearch cluster from a backup.
+	- [yc managed-opensearch cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified OpenSearch cluster and delete all existing access bindings if there were any
 	- [yc managed-opensearch cluster start](cluster/start.md) — Start a managed OpenSearch cluster.
 	- [yc managed-opensearch cluster stop](cluster/stop.md) — Stop a managed OpenSearch cluster.
 	- [yc managed-opensearch cluster switch-master](cluster/switch-master.md) — Switch current master or ensure that it is not on specified hosts.

@@ -26,7 +26,9 @@ Uploads specified files from origins to cache of the specified resource. For def
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource to perform prefetch operation on. ||
+Required field. ID of the resource to perform prefetch operation on.
+
+The maximum string length in characters is 50. ||
 || paths[] | **string**
 
 Set of paths to prefetch. ||
@@ -113,5 +115,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 |#

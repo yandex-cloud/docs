@@ -30,16 +30,22 @@ Updates the specified filesystem.
 
 Required field. ID of the filesystem to update.
 
-To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/grpc/Filesystem/list#List) request. ||
+To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/grpc/Filesystem/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the filesystem should be updated. ||
 || name | **string**
 
-New name of the filesystem. The name must be unique within the folder. ||
+New name of the filesystem. The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-New description of the filesystem. ||
+New description of the filesystem.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 New filesystem labels as `key:value` pairs.
@@ -49,7 +55,9 @@ Existing set of labels is completely replaced by the provided set, so if you jus
 to add or remove a label:
 1. Get the current set of labels with a [FilesystemService.Get](/docs/compute/api-ref/grpc/Filesystem/get#Get) request.
 2. Add or remove a label in this set.
-3. Send the new set in this field. ||
+3. Send the new set in this field.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || size | **int64**
 
 Size of the filesystem, specified in bytes. ||
@@ -197,7 +205,6 @@ Block size used for the filesystem, specified in bytes. ||
 
 Current status of the filesystem.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The filesystem is being created.
 - `READY`: The filesystem is ready to use.
 - `ERROR`: The filesystem encountered a problem and cannot operate.

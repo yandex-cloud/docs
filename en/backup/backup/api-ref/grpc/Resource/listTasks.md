@@ -25,13 +25,19 @@ List tasks of resources.
 ||Field | Description ||
 || compute_instance_id | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
-Number of results per page. ||
+Number of results per page.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
-Token for the results page. ||
+Token for the results page.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListTasksResponse {#yandex.cloud.backup.v1.ListTasksResponse}
@@ -90,7 +96,6 @@ Policy ID. ||
 
 Type of the task.
 
-- `TYPE_UNSPECIFIED`
 - `BACKUP`
 - `RETENTION`
 - `RECOVERY`
@@ -103,7 +108,6 @@ Task progress. ||
 
 Task status.
 
-- `STATUS_UNSPECIFIED`
 - `ENQUEUED`
 - `ASSIGNED`
 - `STARTED`
@@ -120,7 +124,6 @@ Compute Cloud instance ID. ||
 
 Task result code.
 
-- `CODE_UNSPECIFIED`
 - `OK`
 - `ERROR`
 - `WARNING`

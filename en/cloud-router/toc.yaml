@@ -116,6 +116,8 @@ items:
             href: cli-ref/routing-instance/list.md
           - name: list-operations
             href: cli-ref/routing-instance/list-operations.md
+          - name: move
+            href: cli-ref/routing-instance/move.md
           - name: move-prefix
             href: cli-ref/routing-instance/move-prefix.md
           - name: remove-labels

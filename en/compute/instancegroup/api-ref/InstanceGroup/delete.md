@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the instance group to delete.
             To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - instanceGroupId
@@ -38,7 +39,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId
 || instanceGroupId | **string**
 
 Required field. ID of the instance group to delete.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

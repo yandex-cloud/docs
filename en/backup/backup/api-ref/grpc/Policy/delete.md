@@ -23,7 +23,9 @@ Delete specific policy.
 ||Field | Description ||
 || policy_id | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -107,5 +109,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || policy_id | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 |#
