@@ -77,7 +77,6 @@ Might be empty if this is root directory. ||
 
 Required field. Type of the item.
 
-- `TYPE_UNSPECIFIED`
 - `TYPE_DIR`
 - `TYPE_FILE` ||
 || full_path | **string**
@@ -94,7 +93,7 @@ Size in bytes of the item. ||
 Required field. Actions that might be done on the object. ||
 || modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## Actions {#yandex.cloud.backup.v1.BackupFile.Actions}

@@ -33,11 +33,15 @@ The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListNodeGroupsResponse.next_page_token](/docs/managed-kubernetes/managed-kubernetes/api-ref/grpc/NodeGroup/list#yandex.cloud.k8s.v1.ListNodeGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListNodeGroupNodesResponse.next_page_token](#yandex.cloud.k8s.v1.ListNodeGroupNodesResponse) returned by a previous list request. ||
+[ListNodeGroupNodesResponse.next_page_token](#yandex.cloud.k8s.v1.ListNodeGroupNodesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListNodeGroupNodesResponse {#yandex.cloud.k8s.v1.ListNodeGroupNodesResponse}
@@ -118,7 +122,6 @@ in the next list request. Each subsequent list request will have its own
 
 Computed node status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Node instance is not yet created (e.g. in progress).
 - `NOT_CONNECTED`: Node instance is created but not registered
 (e.g. is still initializing).
@@ -162,17 +165,25 @@ Node group specified disk. ||
 ||Field | Description ||
 || memory | **int64**
 
-Amount of memory available to the node, specified in bytes. ||
+Amount of memory available to the node, specified in bytes.
+
+The minimum value is 0. ||
 || cores | **int64**
 
-Number of cores available to the node. ||
+Number of cores available to the node.
+
+The minimum value is 0. ||
 || core_fraction | **int64**
 
 Baseline level of CPU performance with the possibility to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+
+Acceptable values are 0 to 100, inclusive. ||
 || gpus | **int64**
 
-Number of GPUs available to the node. ||
+Number of GPUs available to the node.
+
+The minimum value is 0. ||
 |#
 
 ## DiskSpec {#yandex.cloud.k8s.v1.DiskSpec}
@@ -181,10 +192,14 @@ Number of GPUs available to the node. ||
 ||Field | Description ||
 || disk_type_id | **string**
 
-ID of the disk type. ||
+ID of the disk type.
+
+Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated\|network-ssd-io-m3 `. ||
 || disk_size | **int64**
 
-Size of the disk, specified in bytes. ||
+Size of the disk, specified in bytes.
+
+Acceptable values are 0 to 4398046511104, inclusive. ||
 |#
 
 ## CloudStatus {#yandex.cloud.k8s.v1.Node.CloudStatus}
@@ -260,7 +275,6 @@ The taint value corresponding to the taint key. ||
 
 The effect of the taint on pods that do not tolerate the taint.
 
-- `EFFECT_UNSPECIFIED`
 - `NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint,
 but allow all pods submitted to Kubelet without going through the scheduler
 to start, and allow all already-running pods to continue running.

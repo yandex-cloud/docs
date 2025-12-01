@@ -32,15 +32,21 @@ Required field. ID of the Kubernetes cluster to list operations for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#yandex.cloud.k8s.v1.ListClusterOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListClusterOperationsResponse.next_page_token](#yandex.cloud.k8s.v1.ListClusterOperationsResponse) returned by a previous list request. ||
+[ListClusterOperationsResponse.next_page_token](#yandex.cloud.k8s.v1.ListClusterOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/managed-kubernetes/api-ref/grpc/Cluster/get#yandex.cloud.k8s.v1.Cluster) field. ||
+Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/managed-kubernetes/api-ref/grpc/Cluster/get#yandex.cloud.k8s.v1.Cluster) field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListClusterOperationsResponse {#yandex.cloud.k8s.v1.ListClusterOperationsResponse}

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the host type to return.
             To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/HostType/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - hostTypeId
@@ -39,7 +40,9 @@ GET https://compute.{{ api-host }}/compute/v1/hostTypes/{hostTypeId}
 
 Required field. ID of the host type to return.
 
-To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/HostType/list#List) request. ||
+To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/HostType/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.HostType}

@@ -80,7 +80,8 @@ spec:
     groupOrder: 100  # processing order within group
     
     # Load balancer configuration
-    externalIPv4Address: "5.4.3.2"  # external IPv4 address
+    externalIPv4Address: "auto"  # external IPv4 address (use "auto" to allocate automatically)
+    internalIPv4Address: "subnet-id-1/10.1.1.1"  # internal IPv4 address inside VPC subnet
     externalIPv6Address: "2001:db8::1"  # external IPv6 address
     subnets: ["subnet-id-1", "subnet-id-2"]  # where to place balancer
     securityGroups: ["sg-id-1", "sg-id-2"]  # network access control
@@ -292,7 +293,8 @@ Ingress policy configuration that applies to ingress group, load balancer, and r
 |-------|-------------|
 | groupName | **string** <br> Name of the ingress group to group multiple ingresses together. <br> Example: `my-ingress-group` |
 | groupOrder | **int** <br> Processing order within the ingress group. <br> Example: `100` |
-| externalIPv4Address | **string** <br> External IPv4 address for the load balancer. <br> Example: `5.4.3.2` |
+| externalIPv4Address | **string** <br> External IPv4 address for the load balancer. Use `auto` to automatically allocate a new address. <br> Example: `5.4.3.2`, `auto` |
+| internalIPv4Address | **string** <br> Internal IPv4 address for the load balancer inside VPC subnet. Format: `subnet-id/ip-address` or `subnet-id/auto` to automatically allocate an address. <br> Example: `subnet-id-1/10.1.1.1`, `subnet-id-1/auto` |
 | externalIPv6Address | **string** <br> External IPv6 address for the load balancer. <br> Example: `2001:db8::1` |
 | subnets | **[]string** <br> Subnets of the zones where load balancer will be instantiated. <br> Example: `["subnet-id-1", "subnet-id-2"]` |
 | securityGroups | **[]string** <br> Security groups of load balancer. <br> Example: `["sg-id-1", "sg-id-2"]` |
@@ -305,42 +307,6 @@ Ingress policy configuration that applies to ingress group, load balancer, and r
 | hosts | **[VirtualHost](#virtualhost)** <br> Virtual host configuration |
 | redirect | **map[string][RedirectAction](#redirectaction)** <br> Redirect actions that can be referenced by Ingress path backends. |
 | directResponse | **map[string][DirectResponseAction](#directresponseaction)** <br> Direct response actions that return responses without forwarding to backends. |
-
-### IngressGroup
-
-Ingress group configuration for grouping multiple ingresses.
-
-*Appears in*: [Ingress](#ingress)
-
-| Field | Description |
-|-------|-------------|
-| groupName | **string** <br> Name of the ingress group to group multiple ingresses together. <br> Example: `my-ingress-group` |
-| externalIPv4Address | **string** <br> External IPv4 address for the load balancer. <br> Example: `5.4.3.2` |
-| externalIPv6Address | **string** <br> External IPv6 address for the load balancer. <br> Example: `2001:db8::1` |
-| subnets | **[]string** <br> Subnets of the zones where load balancer will be instantiated. <br> Example: `["subnet-id-1", "subnet-id-2"]` |
-| securityGroups | **[]string** <br> Security groups of load balancer. <br> Example: `["sg-id-1", "sg-id-2"]` |
-| logs | **[LogOptions](./gatewaypolicy.md#logoptions)** <br> Cloud logging settings of the application load balancer. |
-| autoScale | **[AutoScalePolicy](./gatewaypolicy.md#autoscalepolicy)** <br> Scaling settings of the application load balancer. |
-| zone | **map[string][BalancerZone](./gatewaypolicy.md#balancerzone)** <br> Zone-specific traffic control settings. |
-| allowZonalShift | **bool** <br> Specifies whether application load balancer is available to zonal shift. <br> Example: `true` |
-| listeners | **[GatewayListener](./gatewaypolicy.md#gatewaylistener)** <br> Listener configuration settings. |
-
-### IngressBalancer
-
-Load balancer configuration specific to ingress resources.
-
-*Appears in*: [IngressGroup](#ingressgroup)
-
-| Field | Description |
-|-------|-------------|
-| externalIPv4Address | **string** <br> External IPv4 address for the load balancer. <br> Example: `5.4.3.2` |
-| externalIPv6Address | **string** <br> External IPv6 address for the load balancer. <br> Example: `2001:db8::1` |
-| subnets | **[]string** <br> Subnets of the zones where load balancer will be instantiated. <br> Example: `["subnet-id-1", "subnet-id-2"]` |
-| securityGroups | **[]string** <br> Security groups of load balancer. <br> Example: `["sg-id-1", "sg-id-2"]` |
-| logs | **[LogOptions](./gatewaypolicy.md#logoptions)** <br> Cloud logging settings of the application load balancer. |
-| autoScale | **[AutoScalePolicy](./gatewaypolicy.md#autoscalepolicy)** <br> Scaling settings of the application load balancer. |
-| zone | **map[string][BalancerZone](./gatewaypolicy.md#balancerzone)** <br> Zone-specific traffic control settings. |
-| allowZonalShift | **bool** <br> Specifies whether application load balancer is available to zonal shift. <br> Example: `true` |
 
 ### IngressRule
 

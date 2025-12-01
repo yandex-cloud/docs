@@ -44,6 +44,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Kafka cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups to place VMs of cluster on.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
+|`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the key to encrypt cluster disks.|
 |`--compression-type`|<b>`string`</b><br/>Allows to set Kafka cluster configuration property "compression.type". Possible values are: gzip, snappy, lz4, zstd, producer, uncompressed.|
 |`--log-flush-interval-messages`|<b>`int`</b><br/>Allows to set Kafka cluster configuration property "log.flush.interval.messages". The number of messages accumulated on a log partition before messages are flushed to disk.|
 |`--log-flush-interval-ms`|<b>`int`</b><br/>Allows to set Kafka cluster configuration property "log.flush.interval.ms". The maximum time in ms that a message in any topic is kept in memory before flushed to disk.|

@@ -25,7 +25,9 @@ CreateDirectory creates new directory by requested path.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. Folder ID. ||
+Required field. Folder ID.
+
+The maximum string length in characters is 50. ||
 || compute_instance_id | **string**
 
 Required field. Compute Cloud instance ID. ||

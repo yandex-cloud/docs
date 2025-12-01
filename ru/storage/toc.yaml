@@ -770,6 +770,14 @@ items:
                     href: api-ref/grpc/Bucket/updateAccessBindings.md
                   - name: ListAccessBindings
                     href: api-ref/grpc/Bucket/listAccessBindings.md
+                  - name: CreateInventoryConfiguration
+                    href: api-ref/grpc/Bucket/createInventoryConfiguration.md
+                  - name: GetInventoryConfiguration
+                    href: api-ref/grpc/Bucket/getInventoryConfiguration.md
+                  - name: DeleteInventoryConfiguration
+                    href: api-ref/grpc/Bucket/deleteInventoryConfiguration.md
+                  - name: ListInventoryConfigurations
+                    href: api-ref/grpc/Bucket/listInventoryConfigurations.md
               - name: Operation
                 items:
                   - name: Overview
@@ -816,6 +824,14 @@ items:
                     href: api-ref/Bucket/updateAccessBindings.md
                   - name: ListAccessBindings
                     href: api-ref/Bucket/listAccessBindings.md
+                  - name: CreateInventoryConfiguration
+                    href: api-ref/Bucket/createInventoryConfiguration.md
+                  - name: GetInventoryConfiguration
+                    href: api-ref/Bucket/getInventoryConfiguration.md
+                  - name: DeleteInventoryConfiguration
+                    href: api-ref/Bucket/deleteInventoryConfiguration.md
+                  - name: ListInventoryConfigurations
+                    href: api-ref/Bucket/listInventoryConfigurations.md
               - name: Operation
                 items:
                   - name: Overview

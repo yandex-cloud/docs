@@ -26,7 +26,9 @@ Activate provider for specified client.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. Activate provider for Folder iD. ||
+Required field. Activate provider for Folder iD.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Activate specific provider by name.
@@ -121,5 +123,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. Activate provider for folder specified by ID. ||
+Required field. Activate provider for folder specified by ID.
+
+The maximum string length in characters is 50. ||
 |#

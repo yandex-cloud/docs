@@ -24,10 +24,14 @@ Apply policy to [Compute Cloud instance](/docs/backup/concepts/vm-connection#os)
 ||Field | Description ||
 || policy_id | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 || compute_instance_id | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

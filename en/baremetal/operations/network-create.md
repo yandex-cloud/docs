@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to create a virtual routing an
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [VRF](../concepts/network.md#vrf-segment).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}**.
   1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, specify your VRF name. The naming requirements are as follows:
@@ -43,7 +43,7 @@ description: In this tutorial, you will learn how to create a virtual routing an
      ```
 
      Where:
-     * `--name`: VRF name. The naming requirements are as follows:
+     * `--name`: VRF name. Follow these naming requirements:
        
        {% include [name-format](../../_includes/name-format.md) %}
 

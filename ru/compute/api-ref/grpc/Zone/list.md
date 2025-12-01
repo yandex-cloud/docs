@@ -27,11 +27,15 @@ Retrieves the list of availability zones.
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListZonesResponse.next_page_token](#yandex.cloud.compute.v1.ListZonesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListZonesResponse.next_page_token](#yandex.cloud.compute.v1.ListZonesResponse) returned by a previous list request. ||
+[ListZonesResponse.next_page_token](#yandex.cloud.compute.v1.ListZonesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListZonesResponse {#yandex.cloud.compute.v1.ListZonesResponse}
@@ -80,7 +84,6 @@ ID of the region. ||
 
 Status of the zone.
 
-- `STATUS_UNSPECIFIED`
 - `UP`: Zone is available. You can access the resources allocated in this zone.
 - `DOWN`: Zone is not available. ||
 |#

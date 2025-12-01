@@ -29,16 +29,22 @@ Retrieves the list of snapshot schedules in the specified folder.
 
 Required field. ID of the folder to list snapshot schedules in.
 
-To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListSnapshotSchedulesResponse.next_page_token](#yandex.cloud.compute.v1.ListSnapshotSchedulesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSnapshotSchedulesResponse.next_page_token](#yandex.cloud.compute.v1.ListSnapshotSchedulesResponse) returned by a previous list request. ||
+[ListSnapshotSchedulesResponse.next_page_token](#yandex.cloud.compute.v1.ListSnapshotSchedulesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters snapshot schedules listed in the response.
@@ -47,7 +53,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [SnapshotSchedule.name](#yandex.cloud.compute.v1.SnapshotSchedule) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-schedule`. ||
+Example of a filter: `name=my-schedule`.
+
+The maximum string length in characters is 1000. ||
 || order_by | **string**
 
 A sorting expression that sorts snapshot schedules listed in the response.
@@ -55,7 +63,9 @@ A sorting expression that sorts snapshot schedules listed in the response.
 The expression must specify the field name from [SnapshotSchedule](#yandex.cloud.compute.v1.SnapshotSchedule) and `asc`ending or `desc`ending order,
 e.g. `createdAt desc`.
 
-Default value: `id asc`. ||
+Default value: `id asc`.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListSnapshotSchedulesResponse {#yandex.cloud.compute.v1.ListSnapshotSchedulesResponse}
@@ -133,7 +143,6 @@ Snapshot schedule labels as `key:value` pairs. ||
 
 Status of the snapshot schedule.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The snapshot schedule is being created.
 - `ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted
 (if [SnapshotSchedule.retention_policy](/docs/compute/api-ref/grpc/Disk/listSnapshotSchedules#yandex.cloud.compute.v1.SnapshotSchedule.retention_policy) is specified).

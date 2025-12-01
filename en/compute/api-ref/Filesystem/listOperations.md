@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the filesystem to list operations for.
             To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - filesystemId
@@ -24,6 +25,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `page_size`, the service returns a [ListFilesystemOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListFilesystemOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -31,6 +33,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListFilesystemOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListFilesystemOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -56,7 +59,9 @@ GET https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}/operati
 
 Required field. ID of the filesystem to list operations for.
 
-To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request. ||
+To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.ListFilesystemOperationsRequest}
@@ -67,11 +72,15 @@ To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListFilesystemOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListFilesystemOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListFilesystemOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListFilesystemOperationsResponse) returned by a previous list request. ||
+[ListFilesystemOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListFilesystemOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListFilesystemOperationsResponse}

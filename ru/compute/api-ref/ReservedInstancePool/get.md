@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the reserved instance pool resource to return.
             To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - reservedInstancePoolId
@@ -40,7 +41,9 @@ GET https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reservedIns
 || reservedInstancePoolId | **string**
 
 Required field. ID of the reserved instance pool resource to return.
-To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request. ||
+To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ReservedInstancePool}
@@ -163,7 +166,9 @@ Stats for instances of the pool ||
 ||Field | Description ||
 || memory | **string** (int64)
 
-Required field. The amount of memory available to the instance, specified in bytes. ||
+Required field. The amount of memory available to the instance, specified in bytes.
+
+The maximum value is 274877906944. ||
 || cores | **string** (int64)
 
 Required field. The number of cores available to the instance. ||
@@ -196,7 +201,6 @@ Attach instance to specified GPU cluster. ||
 
 Network Type
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||

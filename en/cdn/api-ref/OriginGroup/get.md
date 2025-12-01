@@ -11,6 +11,7 @@ apiPlayground:
             **string** (int64)
             ID of the origin group to return.
             To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/OriginGroup/list#List) request.
+            Value must be greater than 0.
           type: string
           format: int64
       additionalProperties: false
@@ -21,6 +22,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder that the origin group belongs to.
+            The maximum string length in characters is 50.
           type: string
       required:
         - folderId
@@ -48,7 +50,9 @@ GET https://cdn.{{ api-host }}/cdn/v1/originGroups/{originGroupId}
 
 Required field. ID of the origin group to return.
 
-To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/OriginGroup/list#List) request. ||
+To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/OriginGroup/list#List) request.
+
+Value must be greater than 0. ||
 |#
 
 ## Query parameters {#yandex.cloud.cdn.v1.GetOriginGroupRequest}
@@ -57,7 +61,9 @@ To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/Ori
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the origin group belongs to. ||
+Required field. ID of the folder that the origin group belongs to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cdn.v1.OriginGroup}

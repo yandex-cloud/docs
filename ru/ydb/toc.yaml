@@ -145,9 +145,9 @@ items:
     items:
       - name: Обзор
         href: pricing/index.md
-      - name: Бессерверный режим
+      - name: Режим Serverless
         items:
-          - name: Правила тарификации для бессерверного режима
+          - name: Правила тарификации для режима Serverless
             href: pricing/serverless.md
           - name: Стоимость запроса для YQL
             href: pricing/ru-yql.md
@@ -157,8 +157,10 @@ items:
             href: pricing/ru-special.md
           - name: Стоимость операций с топиками
             href: pricing/ru-topics.md
-      - name: Режим с выделенными инстансами
-        href: pricing/dedicated.md
+      - name: Режим Dedicated
+        items:
+          - name: Правила тарификации для режима Dedicated
+            href: pricing/dedicated.md
   - name: Справочник CLI (англ.)
     items:
       - name: Overview

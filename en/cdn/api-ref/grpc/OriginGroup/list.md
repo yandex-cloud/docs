@@ -25,18 +25,24 @@ Lists origins of origin group.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the origin group belongs to.. ||
+Required field. ID of the folder that the origin group belongs to..
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListOriginGroupsResponse.next_page_token](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results,
 set `page_token` to the [ListOriginGroupsResponse.next_page_token](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListOriginGroupsResponse {#yandex.cloud.cdn.v1.ListOriginGroupsResponse}

@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to list host groups in.
             To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -20,6 +21,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListHostGroupsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -28,6 +30,7 @@ apiPlayground:
             Page token. To get the next page of results,
             set `pageToken` to the [ListHostGroupsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -39,6 +42,7 @@ apiPlayground:
             2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
             3. `<value>` represents a value.
             String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
+            The maximum string length in characters is 1000.
           type: string
         orderBy:
           description: |-
@@ -46,6 +50,7 @@ apiPlayground:
             By which column the listing should be ordered and in which direction,
             format is "createdAt desc". "id asc" if omitted.
             The default sorting order is ascending
+            The maximum string length in characters is 100.
           type: string
       required:
         - folderId
@@ -72,18 +77,24 @@ GET https://compute.{{ api-host }}/compute/v1/hostGroups
 || folderId | **string**
 
 Required field. ID of the folder to list host groups in.
-To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListHostGroupsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListHostGroupsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -93,12 +104,16 @@ Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
 2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
 3. `<value>` represents a value.
-String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). ||
+String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
+
+The maximum string length in characters is 1000. ||
 || orderBy | **string**
 
 By which column the listing should be ordered and in which direction,
 format is "createdAt desc". "id asc" if omitted.
-The default sorting order is ascending ||
+The default sorting order is ascending
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListHostGroupsResponse}
@@ -185,7 +200,6 @@ Availability zone where all dedicated hosts are allocated. ||
 
 Status of the group.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `UPDATING`
@@ -197,7 +211,6 @@ ID of host type. Resources provided by each host of the group. ||
 
 Behaviour on maintenance events.
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**

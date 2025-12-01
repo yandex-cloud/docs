@@ -18,11 +18,17 @@ Aliases:
 
 #### Command Tree
 
+- [yc serverless workflow add-access-binding](add-access-binding.md) — Add access binding for the specified Workflow
+- [yc serverless workflow allow-unauthenticated-execution](allow-unauthenticated-execution.md) — Allow unauthenticated execution for the specified Workflow
 - [yc serverless workflow create](create.md) — Create Workflow
 - [yc serverless workflow delete](delete.md) — Delete Workflow
+- [yc serverless workflow deny-unauthenticated-execution](deny-unauthenticated-execution.md) — Deny unauthenticated execution for the specified Workflow
 - [yc serverless workflow get](get.md) — Get Workflow
 - [yc serverless workflow list](list.md) — List Workflows
+- [yc serverless workflow list-access-bindings](list-access-bindings.md) — List access bindings for the specified Workflow
 - [yc serverless workflow list-operations](list-operations.md) — List Workflow operations
+- [yc serverless workflow remove-access-binding](remove-access-binding.md) — Remove access binding for the specified Workflow
+- [yc serverless workflow set-access-bindings](set-access-bindings.md) — Set access bindings for the specified Workflow and delete all existing access bindings if there were any
 - [yc serverless workflow update](update.md) — Update Workflow
 - [yc serverless workflow execution](execution/index.md) — Manage execution
 	- [yc serverless workflow execution get](execution/get.md) — Get Execution

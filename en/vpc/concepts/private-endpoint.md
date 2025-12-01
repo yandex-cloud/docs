@@ -9,6 +9,7 @@ keywords:
 
 # Service connections in {{ vpc-full-name }}
 
+
 {% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
 
 A **service connection** (Private Endpoint) provides direct IP connectivity between resources within {{ vpc-short-name }} and {{ yandex-cloud }} services that are hosted outside {{ vpc-short-name }}. 
@@ -33,7 +34,7 @@ When creating a service connection in {{ vpc-short-name }}, the following object
 
 1. **Internal IP address** to which the created connection is bound.
 1. **A type DNS record** with a special FQDN for the new service connection, e.g., `storage.pe.yandexcloud.net`, which will specify the internal IP address allocated for the service connection.
-1. Optionally, If required, an additional A type DNS record can be created for the public FQDN service. It will also include the internal IP address allocated for the service connection.
+1. Optionally, if required, an additional A type DNS record can be created for the public FQDN service. It will also include the internal IP address allocated for the service connection.
 
 Once you create a service connection, all cloud resources that will be added to subnets on the network with this connection will be linked to it through the internal IP address (1). To use the services, you can use either a fully qualified domain name (FQDN) (2) or its part (3). (2) and (3) A type DNS records will be created in the [internal service zone](../../dns/concepts/dns-zone.md#service-zones).
 

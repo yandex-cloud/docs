@@ -11,6 +11,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder to find out the backup provider.
+            The maximum string length in characters is 50.
           type: string
         instanceRegistrationId:
           description: |-
@@ -41,7 +42,9 @@ GET https://backup.{{ api-host }}/backup/v1/providers
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to find out the backup provider. ||
+Required field. ID of the folder to find out the backup provider.
+
+The maximum string length in characters is 50. ||
 || instanceRegistrationId | **string**
 
 instance registration token for authorization ||

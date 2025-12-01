@@ -2354,6 +2354,63 @@ default:
       ui:
         cluster:
           v1|string: ₸21000.00
+    keeper:
+      clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: ₸10692.00
+            c100|string: ₸14.85
+          ram|month|string: ₸2099.52
+          ram|string: ₸2.9160
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₸12993.84
+            c100|string: ₸18.0470
+          ram|month|string: ₸2551.68
+          ram|string: ₸3.5440
+        v1:
+          cpu:
+            c100|month|string: ₸8454.24
+            c100|string: ₸11.7420
+            c50|month|string: ₸2521.44
+            c50|string: ₸3.5020
+          ram|month|string: ₸1928.16
+          ram|string: ₸2.6780
+          software_accelerated_network:
+            cpu|month|string: ₸7935.12
+            cpu|string: ₸11.0210
+        v2:
+          cpu:
+            c100|month|string: ₸7464.96
+            c100|string: ₸10.3680
+            c50|month|string: ₸2643.84
+            c50|string: ₸3.6720
+          ram|month|string: ₸2021.76
+          ram|string: ₸2.8080
+          software_accelerated_network:
+            cpu|month|string: ₸8320.32
+            cpu|string: ₸11.5560
+        v3:
+          cpu:
+            c100|month|string: ₸6687.36
+            c100|string: ₸9.2880
+            c50|month|string: ₸2371.68
+            c50|string: ₸3.2940
+          software_accelerated_network:
+            cpu|month|string: ₸8320.32
+            cpu|string: ₸11.5560
+        v4a:
+          cpu:
+            c100|month|string: ₸6687.36
+            c100|string: ₸9.2880
+          ram|month|string: ₸1827.36
+          ram|string: ₸2.5380
+    software_accelerated_network:
+      keeper:
+        clickhouse:
+          highfreq-v4a:
+            cores|month|string: Free
+            cores|string: Free
     zk:
       clickhouse:
         highfreq-v3:
@@ -2808,12 +2865,21 @@ default:
                   v3|string: ₸1.3608
           mdb:
             ch:
+              ch:
+                keeper:
+                  ram:
+                    v3|string: ₸2.1573
               cpu:
                 c100:
                   v2|month|string: ₸6345.2160
                   v2|string: ₸8.8128
                   v3|month|string: ₸5684.2560
                   v3|string: ₸7.8948
+              keeper:
+                cpu:
+                  c100:
+                    v3|month|string: ₸5684.2560
+                    v3|string: ₸7.8948
               ram:
                 v2|month|string: ₸1718.4960
                 v2|string: ₸2.3868
@@ -3072,6 +3138,26 @@ default:
             ram:
               v2|month|string: ₸1546.6464
               v2|string: ₸2.1481
+      special-offer:
+        y1:
+          mdb:
+            ch:
+              keeper:
+                cpu:
+                  c100:
+                    v2|month|string: ₸5822.6688
+                    v2|string: ₸8.0870
+                    v3|month|string: ₸5216.1408
+                    v3|string: ₸7.2446
+                    v4a|month|string: ₸5216.04
+                    v4a|string: ₸7.2445
+                ram:
+                  v2|month|string: ₸1576.9728
+                  v2|string: ₸2.1902
+                  v3|month|string: ₸1425.3408
+                  v3|string: ₸1.9796
+                  v4a|month|string: ₸1425.24
+                  v4a|string: ₸1.9795
   sku|KZT|video:
     cdn:
       traffic:
@@ -4638,6 +4724,63 @@ default:
       ui:
         cluster:
           v1|string: ₽4200.00
+    keeper:
+      clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: ₽2138.40
+            c100|string: ₽2.97
+          ram|month|string: ₽419.9040
+          ram|string: ₽0.5832
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₽2598.7680
+            c100|string: ₽3.6094
+          ram|month|string: ₽510.3360
+          ram|string: ₽0.7088
+        v1:
+          cpu:
+            c100|month|string: ₽1690.8480
+            c100|string: ₽2.3484
+            c50|month|string: ₽504.2880
+            c50|string: ₽0.7004
+          ram|month|string: ₽385.6320
+          ram|string: ₽0.5356
+          software_accelerated_network:
+            cpu|month|string: ₽1587.0240
+            cpu|string: ₽2.2042
+        v2:
+          cpu:
+            c100|month|string: ₽1492.9920
+            c100|string: ₽2.0736
+            c50|month|string: ₽528.7680
+            c50|string: ₽0.7344
+          ram|month|string: ₽404.3520
+          ram|string: ₽0.5616
+          software_accelerated_network:
+            cpu|month|string: ₽1664.0640
+            cpu|string: ₽2.3112
+        v3:
+          cpu:
+            c100|month|string: ₽1337.4720
+            c100|string: ₽1.8576
+            c50|month|string: ₽474.3360
+            c50|string: ₽0.6588
+          software_accelerated_network:
+            cpu|month|string: ₽1664.0640
+            cpu|string: ₽2.3112
+        v4a:
+          cpu:
+            c100|month|string: ₽1337.4720
+            c100|string: ₽1.8576
+          ram|month|string: ₽365.4720
+          ram|string: ₽0.5076
+    software_accelerated_network:
+      keeper:
+        clickhouse:
+          highfreq-v4a:
+            cores|month|string: Free
+            cores|string: Free
     zk:
       clickhouse:
         highfreq-v3:
@@ -5092,12 +5235,21 @@ default:
                   v3|string: ₽0.2722
           mdb:
             ch:
+              ch:
+                keeper:
+                  ram:
+                    v3|string: ₽0.4315
               cpu:
                 c100:
                   v2|month|string: ₽1269.0432
                   v2|string: ₽1.7626
                   v3|month|string: ₽1136.8512
                   v3|string: ₽1.5790
+              keeper:
+                cpu:
+                  c100:
+                    v3|month|string: ₽1136.8512
+                    v3|string: ₽1.5790
               ram:
                 v2|month|string: ₽343.6992
                 v2|string: ₽0.4774
@@ -5356,6 +5508,26 @@ default:
             ram:
               v2|month|string: ₽309.3293
               v2|string: ₽0.4296
+      special-offer:
+        y1:
+          mdb:
+            ch:
+              keeper:
+                cpu:
+                  c100:
+                    v2|month|string: ₽1164.5338
+                    v2|string: ₽1.6174
+                    v3|month|string: ₽1043.2282
+                    v3|string: ₽1.4489
+                    v4a|month|string: ₽1043.2080
+                    v4a|string: ₽1.4489
+                ram:
+                  v2|month|string: ₽315.3946
+                  v2|string: ₽0.4380
+                  v3|month|string: ₽285.0682
+                  v3|string: ₽0.3959
+                  v4a|month|string: ₽285.0480
+                  v4a|string: ₽0.3959
   sku|RUB|video:
     cdn:
       traffic:
@@ -6905,6 +7077,63 @@ default:
       ui:
         cluster:
           v1|string: $34.999986
+    keeper:
+      clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: $17.819993
+            c100|string: $0.024750
+          ram|month|string: $3.499199
+          ram|string: $0.004860
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $21.656391
+            c100|string: $0.030078
+          ram|month|string: $4.252798
+          ram|string: $0.005907
+        v1:
+          cpu:
+            c100|month|string: $14.090394
+            c100|string: $0.019570
+            c50|month|string: $4.202398
+            c50|string: $0.005837
+          ram|month|string: $3.213599
+          ram|string: $0.004463
+          software_accelerated_network:
+            cpu|month|string: $13.225195
+            cpu|string: $0.018368
+        v2:
+          cpu:
+            c100|month|string: $12.441595
+            c100|string: $0.017280
+            c50|month|string: $4.406399
+            c50|string: $0.006120
+          ram|month|string: $3.369599
+          ram|string: $0.004680
+          software_accelerated_network:
+            cpu|month|string: $13.867194
+            cpu|string: $0.019260
+        v3:
+          cpu:
+            c100|month|string: $11.145596
+            c100|string: $0.015480
+            c50|month|string: $3.952799
+            c50|string: $0.005490
+          software_accelerated_network:
+            cpu|month|string: $13.867194
+            cpu|string: $0.019260
+        v4a:
+          cpu:
+            c100|month|string: $11.145596
+            c100|string: $0.015480
+          ram|month|string: $3.045599
+          ram|string: $0.004230
+    software_accelerated_network:
+      keeper:
+        clickhouse:
+          highfreq-v4a:
+            cores|month|string: Free
+            cores|string: Free
     zk:
       clickhouse:
         highfreq-v3:
@@ -7353,12 +7582,21 @@ default:
                   v3|string: $0.002268
           mdb:
             ch:
+              ch:
+                keeper:
+                  ram:
+                    v3|string: $0.003595
               cpu:
                 c100:
                   v2|month|string: $10.575356
                   v2|string: $0.014688
                   v3|month|string: $9.473756
                   v3|string: $0.013158
+              keeper:
+                cpu:
+                  c100:
+                    v3|month|string: $9.473756
+                    v3|string: $0.013158
               ram:
                 v2|month|string: $2.864159
                 v2|string: $0.003978
@@ -7613,6 +7851,26 @@ default:
             ram:
               v2|month|string: $2.577743
               v2|string: $0.003580
+      special-offer:
+        y1:
+          mdb:
+            ch:
+              keeper:
+                cpu:
+                  c100:
+                    v2|month|string: $9.704444
+                    v2|string: $0.013478
+                    v3|month|string: $8.693564
+                    v3|string: $0.012074
+                    v4a|month|string: $8.693397
+                    v4a|string: $0.012074
+                ram:
+                  v2|month|string: $2.628287
+                  v2|string: $0.003650
+                  v3|month|string: $2.375567
+                  v3|string: $0.003299
+                  v4a|month|string: $2.375399
+                  v4a|string: $0.003299
   sku|USD|video:
     cdn:
       traffic:
@@ -7881,6 +8139,9 @@ default:
             switch_dashboards: Dashboards
             switch_datasets: Datasets
             switch_root: All objects
+        plugin-with-menu:
+          view:
+            button_duplicate: Duplicate
       connection:
         connections-list:
           modify:
@@ -9138,6 +9399,20 @@ default:
       dashboard:
         action_add-user: Add a participant
         action_go-to-org: Go to organization
+      playlists:
+        action_add-playlist-video: Add video
+        action_create-playlist: Create playlist
+        title_playlists: Playlists
+        title_playlists-video-list: Play order
+      presets:
+        action_create-preset: Create template
+        action_set-as-default: Select as default template
+        button_open-preset-template-dialog: View template in a separate window
+        label_style-preset: Player preset
+        label_title: Template name
+        section_styles-settings: Style setup
+        section_wigets-settings: Widget settings
+        title_presets: Player template
       stream-lines:
         action_create-line: Create a line
         label_input-stream-protocol: Stream input protocol
@@ -14745,7 +15020,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.4
+        tag: v1.20.5
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

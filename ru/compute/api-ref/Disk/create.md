@@ -13,22 +13,26 @@ apiPlayground:
             **string**
             Required field. ID of the folder to create a disk in.
             To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Name of the disk.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the disk.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -45,12 +49,14 @@ apiPlayground:
             **string**
             ID of the disk type.
             To get a list of available disk types use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         zoneId:
           description: |-
             **string**
             Required field. ID of the availability zone where the disk resides.
             To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         size:
           description: |-
@@ -58,18 +64,21 @@ apiPlayground:
             Required field. Size of the disk, specified in bytes.
             If the disk was created from a image, this value should be more than the
             [yandex.cloud.compute.v1.Image.minDiskSize](/docs/compute/api-ref/Image/get#yandex.cloud.compute.v1.Image) value.
+            Acceptable values are 4194304 to 28587302322176, inclusive.
           type: string
           format: int64
         imageId:
           description: |-
             **string**
             ID of the image to create the disk from.
+            The maximum string length in characters is 50.
             Includes only one of the fields `imageId`, `snapshotId`.
           type: string
         snapshotId:
           description: |-
             **string**
             ID of the snapshot to restore the disk from.
+            The maximum string length in characters is 50.
             Includes only one of the fields `imageId`, `snapshotId`.
           type: string
         blockSize:
@@ -100,6 +109,7 @@ apiPlayground:
           description: |-
             **string**
             ID of KMS key for disk encryption.
+            The maximum string length in characters is 50.
           type: string
       required:
         - folderId
@@ -130,7 +140,6 @@ apiPlayground:
           pciTopology:
             description: |-
               **enum** (PCITopology)
-              - `PCI_TOPOLOGY_UNSPECIFIED`
               - `PCI_TOPOLOGY_V1`
               - `PCI_TOPOLOGY_V2`
             type: string
@@ -215,37 +224,55 @@ POST https://compute.{{ api-host }}/compute/v1/disks
 || folderId | **string**
 
 Required field. ID of the folder to create a disk in.
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the disk. ||
+Name of the disk.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the disk. ||
+Description of the disk.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || typeId | **string**
 
 ID of the disk type.
-To get a list of available disk types use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request. ||
+To get a list of available disk types use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
+
+The maximum string length in characters is 50. ||
 || zoneId | **string**
 
 Required field. ID of the availability zone where the disk resides.
-To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
+To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || size | **string** (int64)
 
 Required field. Size of the disk, specified in bytes.
 If the disk was created from a image, this value should be more than the
-[yandex.cloud.compute.v1.Image.minDiskSize](/docs/compute/api-ref/Image/get#yandex.cloud.compute.v1.Image) value. ||
+[yandex.cloud.compute.v1.Image.minDiskSize](/docs/compute/api-ref/Image/get#yandex.cloud.compute.v1.Image) value.
+
+Acceptable values are 4194304 to 28587302322176, inclusive. ||
 || imageId | **string**
 
 ID of the image to create the disk from.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `imageId`, `snapshotId`. ||
 || snapshotId | **string**
 
 ID of the snapshot to restore the disk from.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `imageId`, `snapshotId`. ||
 || blockSize | **string** (int64)
@@ -263,7 +290,9 @@ Specify the overrides to hardware_generation of a source disk, image or snapshot
 or to the default values if the source does not define it. ||
 || kmsKeyId | **string**
 
-ID of KMS key for disk encryption. ||
+ID of KMS key for disk encryption.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}
@@ -302,7 +331,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#
@@ -523,7 +551,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the disk.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Disk is being created.
 - `READY`: Disk is ready to use.
 - `ERROR`: Disk encountered a problem and cannot operate.
@@ -589,7 +616,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#

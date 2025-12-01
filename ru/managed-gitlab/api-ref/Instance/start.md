@@ -241,7 +241,6 @@ Disk size in bytes. ||
 
 Current instance status.
 
-- `STATUS_UNSPECIFIED`: Default state.
 - `CREATING`: Instance is being created.
 - `RUNNING`: Instance is running normally.
 - `UPDATING`: Instance is being updated.
@@ -293,7 +292,9 @@ GitLab version of the instance. ||
 ||Field | Description ||
 || info | **string**
 
-The description of the operation. ||
+The description of the operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Delay time for the maintenance operation.

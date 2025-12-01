@@ -19,15 +19,19 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-kafka cluster add-access-binding](add-access-binding.md) — Add access binding for the specified Kafka cluster
 - [yc managed-kafka cluster create](create.md) — Create Kafka cluster
 - [yc managed-kafka cluster delete](delete.md) — Delete the specified Kafka cluster
 - [yc managed-kafka cluster get](get.md) — Show information about the specified Kafka cluster
 - [yc managed-kafka cluster list](list.md) — List Kafka clusters
+- [yc managed-kafka cluster list-access-bindings](list-access-bindings.md) — List access bindings for the specified Kafka cluster
 - [yc managed-kafka cluster list-hosts](list-hosts.md) — List hosts for a cluster.
 - [yc managed-kafka cluster list-logs](list-logs.md) — Retrieve logs for a Kafka cluster.
 - [yc managed-kafka cluster list-operations](list-operations.md) — List operations for the specified Kafka cluster
 - [yc managed-kafka cluster move](move.md) — Move the specified Kafka cluster into the folder
+- [yc managed-kafka cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified Kafka cluster
 - [yc managed-kafka cluster reschedule-maintenance](reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
+- [yc managed-kafka cluster set-access-bindings](set-access-bindings.md) — Set access bindings for the specified Kafka cluster and delete all existing access bindings if there were any
 - [yc managed-kafka cluster start](start.md) — Start the specified Kafka cluster
 - [yc managed-kafka cluster stop](stop.md) — Stop the specified Kafka cluster
 - [yc managed-kafka cluster update](update.md) — Modify configuration or attributes of a Kafka cluster.

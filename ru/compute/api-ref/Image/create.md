@@ -13,22 +13,26 @@ apiPlayground:
             **string**
             Required field. ID of the folder to create an image in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Name of the image.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the image.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -45,6 +49,7 @@ apiPlayground:
             **string**
             The name of the image family to which this image belongs. For more information, see [Image family](/docs/compute/concepts/image#family).
             To get an information about the most recent image from a family, use a [ImageService.GetLatestByFamily](/docs/compute/api-ref/Image/getLatestByFamily#GetLatestByFamily) request.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
           pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
         minDiskSize:
@@ -52,6 +57,7 @@ apiPlayground:
             **string** (int64)
             Minimum size of the disk that will be created from this image.
             Specified in bytes. Should be more than the volume of source data.
+            Acceptable values are 4194304 to 4398046511104, inclusive.
           type: string
           format: int64
         productIds:
@@ -63,6 +69,7 @@ apiPlayground:
             If you know the license IDs, specify them when you create the image.
             For example, if you create a disk image using a third-party utility and load it into Object Storage, the license IDs will be lost.
             You can specify them in this request.
+            The maximum string length in characters for each value is 50.
           type: array
           items:
             type: string
@@ -70,18 +77,21 @@ apiPlayground:
           description: |-
             **string**
             ID of the source image to create the new image from.
+            The maximum string length in characters is 50.
             Includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`.
           type: string
         diskId:
           description: |-
             **string**
             ID of the disk to create the image from.
+            The maximum string length in characters is 50.
             Includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`.
           type: string
         snapshotId:
           description: |-
             **string**
             ID of the snapshot to create the image from.
+            The maximum string length in characters is 50.
             Includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`.
           type: string
         uri:
@@ -131,7 +141,6 @@ apiPlayground:
               **enum** (Type)
               Operating system type. The default is `LINUX`.
               This field is used to correctly emulate a vCPU and calculate the cost of using an instance.
-              - `TYPE_UNSPECIFIED`
               - `STANDARD`: Standard network.
               - `SOFTWARE_ACCELERATED`: Software accelerated network.
               - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).
@@ -147,7 +156,6 @@ apiPlayground:
           pciTopology:
             description: |-
               **enum** (PCITopology)
-              - `PCI_TOPOLOGY_UNSPECIFIED`
               - `PCI_TOPOLOGY_V1`
               - `PCI_TOPOLOGY_V2`
             type: string
@@ -231,25 +239,37 @@ POST https://compute.{{ api-host }}/compute/v1/images
 || folderId | **string**
 
 Required field. ID of the folder to create an image in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the image. ||
+Name of the image.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the image. ||
+Description of the image.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || family | **string**
 
 The name of the image family to which this image belongs. For more information, see [Image family](/docs/compute/concepts/image#family).
 
-To get an information about the most recent image from a family, use a [ImageService.GetLatestByFamily](/docs/compute/api-ref/Image/getLatestByFamily#GetLatestByFamily) request. ||
+To get an information about the most recent image from a family, use a [ImageService.GetLatestByFamily](/docs/compute/api-ref/Image/getLatestByFamily#GetLatestByFamily) request.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || minDiskSize | **string** (int64)
 
 Minimum size of the disk that will be created from this image.
-Specified in bytes. Should be more than the volume of source data. ||
+Specified in bytes. Should be more than the volume of source data.
+
+Acceptable values are 4194304 to 4398046511104, inclusive. ||
 || productIds[] | **string**
 
 License IDs that indicate which licenses are attached to this resource.
@@ -259,20 +279,28 @@ The correct license ID is generated by the platform. IDs are inherited by new re
 
 If you know the license IDs, specify them when you create the image.
 For example, if you create a disk image using a third-party utility and load it into Object Storage, the license IDs will be lost.
-You can specify them in this request. ||
+You can specify them in this request.
+
+The maximum string length in characters for each value is 50. ||
 || imageId | **string**
 
 ID of the source image to create the new image from.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`. ||
 || diskId | **string**
 
 ID of the disk to create the image from.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`. ||
 || snapshotId | **string**
 
 ID of the snapshot to create the image from.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`. ||
 || uri | **string**
@@ -307,7 +335,6 @@ Operating system type. The default is `LINUX`.
 
 This field is used to correctly emulate a vCPU and calculate the cost of using an instance.
 
-- `TYPE_UNSPECIFIED`
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
 |#
@@ -338,7 +365,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#
@@ -552,7 +578,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](#Creat
 
 Current status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `READY`: Image is ready to use.
 - `ERROR`: Image encountered a problem and cannot operate.
@@ -582,7 +607,6 @@ Operating system type. The default is `LINUX`.
 
 This field is used to correctly emulate a vCPU and calculate the cost of using an instance.
 
-- `TYPE_UNSPECIFIED`
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
 |#
@@ -613,7 +637,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#

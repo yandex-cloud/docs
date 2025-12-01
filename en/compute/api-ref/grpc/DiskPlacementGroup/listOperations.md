@@ -26,16 +26,22 @@ Lists operations for the specified placement group.
 || disk_placement_group_id | **string**
 
 Required field. ID of the placement group to list operations for.
-To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/grpc/DiskPlacementGroup/list#List) request. ||
+To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/grpc/DiskPlacementGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListDiskPlacementGroupOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListDiskPlacementGroupOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDiskPlacementGroupOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListDiskPlacementGroupOperationsResponse) returned by a previous list request. ||
+[ListDiskPlacementGroupOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListDiskPlacementGroupOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListDiskPlacementGroupOperationsResponse {#yandex.cloud.compute.v1.ListDiskPlacementGroupOperationsResponse}

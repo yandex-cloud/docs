@@ -24,7 +24,9 @@ Returns the specified placement group.
 || disk_placement_group_id | **string**
 
 Required field. ID of the placement group to return.
-To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/grpc/DiskPlacementGroup/list#List) request. ||
+To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/grpc/DiskPlacementGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## DiskPlacementGroup {#yandex.cloud.compute.v1.DiskPlacementGroup}
@@ -76,7 +78,6 @@ ID of the availability zone where the placement group resides. ||
 
 Current status of the placement group
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `DELETING` ||

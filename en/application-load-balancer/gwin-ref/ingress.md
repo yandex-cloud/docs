@@ -43,7 +43,17 @@ kind: Ingress
 metadata:
   name: example-ingress
   namespace: example-ns
-  annotations: ...  # see annotations example below
+  annotations: 
+    # `groupName` is required.
+    gwin.yandex.cloud/groupName: "my-ingress-group"  # group multiple ingresses to single Balancer
+    
+    # Either `externalIPv4Address` or `internalIPv4Address` is required.
+    gwin.yandex.cloud/externalIPv4Address: "auto"  # external IPv4 address
+    gwin.yandex.cloud/internalIPv4Address: "subnet-id-1/10.1.1.1" # IPv4 address inside VPC subnet
+
+    # Alternatively, you can use IngressPolicy to configure required parameters
+
+    ...  # see annotations reference below
 spec:
   ingressClassName: gwin  # use Gwin ingress class
   defaultBackend:  # default backend for unmatched requests
@@ -123,11 +133,16 @@ kind: Ingress
 metadata:
   annotations:
     # Ingress group configuration
+    # `groupName` is required.
     gwin.yandex.cloud/groupName: "my-ingress-group"  # group multiple ingresses to single Balancer
     gwin.yandex.cloud/groupOrder: "100"  # processing order within group
     
-    # Load balancer configuration
+    # Either `externalIPv4Address` or `internalIPv4Address` is required.
     gwin.yandex.cloud/externalIPv4Address: "5.4.3.2"  # external IPv4 address
+    gwin.yandex.cloud/internalIPv4Address: "subnet-id-1/auto" # IPv4 address inside VPC subnet
+
+    # Alternatively, you can use IngressPolicy to configure required parameters
+
     gwin.yandex.cloud/subnets: "subnet-id-1,subnet-id-2"  # where to place balancer
     gwin.yandex.cloud/securityGroups: "sg-id-1,sg-id-2"  # network access control
     gwin.yandex.cloud/allowZonalShift: "true"  # enable failover between zones
@@ -242,7 +257,8 @@ metadata:
 
 | Annotation and description |
 |------------|
-| `gwin.yandex.cloud/externalIPv4Address` <br> _(string)_ <br> External IPv4 address for the load balancer. <br> Example: `5.4.3.2` |
+| `gwin.yandex.cloud/externalIPv4Address` <br> _(string)_ <br> External IPv4 address for the load balancer. Use `auto` to automatically allocate a new address. <br> Example: `5.4.3.2`, `auto` |
+| `gwin.yandex.cloud/internalIPv4Address` <br> _(string)_ <br> Internal IPv4 address for the load balancer inside VPC subnet. Format: `subnet-id/ip-address` or `subnet-id/auto` to automatically allocate an address. <br> Example: `subnet-id-1/10.1.1.1`, `subnet-id-1/auto` |
 | `gwin.yandex.cloud/subnets` <br> _(comma separated strings)_ <br> [Subnets](https://yandex.cloud/en/docs/vpc/concepts/network#subnet) of the zones where load balancer will be instantiated. <br> Example: `subnet-id-1,subnet-id-2` |
 | `gwin.yandex.cloud/securityGroups` <br> _(comma separated strings)_ <br> [Security groups](https://yandex.cloud/en/docs/vpc/concepts/security-groups) of load balancer. <br> Example: `sg-id-1,sg-id-2` |
 | `gwin.yandex.cloud/allowZonalShift` <br> _(boolean)_ <br> Specifies whether application load balancer is available to zonal shift. <br> Example: `true` |

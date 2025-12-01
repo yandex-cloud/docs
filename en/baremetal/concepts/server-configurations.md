@@ -2,8 +2,8 @@
 
 If there is free capacity in the pools of interest, you can lease servers of the following configurations:
 
-| Configuration    | CPU                                                                           | Cores | RAM, GB | Disks                                                                                                   | NIC, Gbps |
-|-----------------|-------------------------------------------------------------------------------|------|--------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| Configuration    | CPU                                                                           | Cores | RAM, GB | Disks                                                                                                             | NIC, Gbps |
+|-----------------|-------------------------------------------------------------------------------|------|--------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------|
 | BA-i100-H       | 2 × Intel® Xeon®<br/>E5-2660</br>(2.2 GHz)                                    | 16   | 128          | HDD: 2&nbsp;×&nbsp;2&nbsp;TB                                                                                      | 1                             |
 | BA-i101-H       | 2 × Intel® Xeon®<br/>E5-2660</br>(2.2 GHz)                                    | 16   | 128          | HDD: 4&nbsp;×&nbsp;2&nbsp;TB                                                                                      | 1                             |
 | BA-i102-S       | 2 × Intel® Xeon®<br/>E5-2660</br>(2.2 GHz)                                    | 16   | 128          | SSD: 2&nbsp;×&nbsp;900&nbsp;GB                                                                                    | 1                             |
@@ -45,6 +45,6 @@ If there is free capacity in the pools of interest, you can lease servers of the
 | HA-a701-6N-4H-2X25G ^*^                  | 2 × AMD EPYC<br/>9374F<br/>(3.85 GHz)                | 64   | 2304         | HDD: 2&nbsp;×&nbsp;20&nbsp;TB + 2&nbsp;×&nbsp;4&nbsp;TB<br/>NVMe: 6&nbsp;×&nbsp;6.4&nbsp;TB                       | 25                            |
 | HA-a703-4N-2X25G ^*^                     | 2 × AMD EPYC<br/>9374F<br/>(3.85 GHz)                | 64   | 768          | NVMe: 2&nbsp;×&nbsp;3.2&nbsp;TB + 2&nbsp;×&nbsp;900&nbsp;GB                                                       | 25                            |
 
-\* `2X25G`: Configuration includes two network cards with two 25 Gbps ports.
+\* `2X25G`: Configuration includes two network cards with two 25 Gbps ports and a network connection reserved using [MC-LAG](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group).
 
 You can view the configurations available for lease in each pool when ordering a server in the management console.

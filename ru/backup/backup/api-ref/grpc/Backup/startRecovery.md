@@ -26,7 +26,9 @@ For details, see [Restoring a VM from a backup](/docs/backup/operations/backup-v
 ||Field | Description ||
 || compute_instance_id | **string**
 
-Required field. Destination Compute Cloud instance ID to which backup should be applied. ||
+Required field. Destination Compute Cloud instance ID to which backup should be applied.
+
+The maximum string length in characters is 50. ||
 || backup_id | **string**
 
 Required field. Backup ID that will be applied to destination Compute Cloud instance. ||

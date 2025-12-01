@@ -9,6 +9,7 @@ default:
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
   ai-playground: AI Playground
+  ai-search-name: AI Search
   ai-studio-full-name: Yandex AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
@@ -2359,6 +2360,63 @@ default:
       ui:
         cluster:
           v1|string: "21\_000,00\_₸"
+    keeper:
+      clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "10\_692,00\_₸"
+            c100|string: "14,85\_₸"
+          ram|month|string: "2\_099,52\_₸"
+          ram|string: "2,9160\_₸"
+        highfreq-v4a:
+          cpu:
+            c100|month|string: "12\_993,84\_₸"
+            c100|string: "18,0470\_₸"
+          ram|month|string: "2\_551,68\_₸"
+          ram|string: "3,5440\_₸"
+        v1:
+          cpu:
+            c100|month|string: "8\_454,24\_₸"
+            c100|string: "11,7420\_₸"
+            c50|month|string: "2\_521,44\_₸"
+            c50|string: "3,5020\_₸"
+          ram|month|string: "1\_928,16\_₸"
+          ram|string: "2,6780\_₸"
+          software_accelerated_network:
+            cpu|month|string: "7\_935,12\_₸"
+            cpu|string: "11,0210\_₸"
+        v2:
+          cpu:
+            c100|month|string: "7\_464,96\_₸"
+            c100|string: "10,3680\_₸"
+            c50|month|string: "2\_643,84\_₸"
+            c50|string: "3,6720\_₸"
+          ram|month|string: "2\_021,76\_₸"
+          ram|string: "2,8080\_₸"
+          software_accelerated_network:
+            cpu|month|string: "8\_320,32\_₸"
+            cpu|string: "11,5560\_₸"
+        v3:
+          cpu:
+            c100|month|string: "6\_687,36\_₸"
+            c100|string: "9,2880\_₸"
+            c50|month|string: "2\_371,68\_₸"
+            c50|string: "3,2940\_₸"
+          software_accelerated_network:
+            cpu|month|string: "8\_320,32\_₸"
+            cpu|string: "11,5560\_₸"
+        v4a:
+          cpu:
+            c100|month|string: "6\_687,36\_₸"
+            c100|string: "9,2880\_₸"
+          ram|month|string: "1\_827,36\_₸"
+          ram|string: "2,5380\_₸"
+    software_accelerated_network:
+      keeper:
+        clickhouse:
+          highfreq-v4a:
+            cores|month|string: Не тарифицируется
+            cores|string: Не тарифицируется
     zk:
       clickhouse:
         highfreq-v3:
@@ -2813,12 +2871,21 @@ default:
                   v3|string: "1,3608\_₸"
           mdb:
             ch:
+              ch:
+                keeper:
+                  ram:
+                    v3|string: "2,1573\_₸"
               cpu:
                 c100:
                   v2|month|string: "6\_345,2160\_₸"
                   v2|string: "8,8128\_₸"
                   v3|month|string: "5\_684,2560\_₸"
                   v3|string: "7,8948\_₸"
+              keeper:
+                cpu:
+                  c100:
+                    v3|month|string: "5\_684,2560\_₸"
+                    v3|string: "7,8948\_₸"
               ram:
                 v2|month|string: "1\_718,4960\_₸"
                 v2|string: "2,3868\_₸"
@@ -3077,6 +3144,26 @@ default:
             ram:
               v2|month|string: "1\_546,6464\_₸"
               v2|string: "2,1481\_₸"
+      special-offer:
+        y1:
+          mdb:
+            ch:
+              keeper:
+                cpu:
+                  c100:
+                    v2|month|string: "5\_822,6688\_₸"
+                    v2|string: "8,0870\_₸"
+                    v3|month|string: "5\_216,1408\_₸"
+                    v3|string: "7,2446\_₸"
+                    v4a|month|string: "5\_216,04\_₸"
+                    v4a|string: "7,2445\_₸"
+                ram:
+                  v2|month|string: "1\_576,9728\_₸"
+                  v2|string: "2,1902\_₸"
+                  v3|month|string: "1\_425,3408\_₸"
+                  v3|string: "1,9796\_₸"
+                  v4a|month|string: "1\_425,24\_₸"
+                  v4a|string: "1,9795\_₸"
   sku|KZT|video:
     cdn:
       traffic:
@@ -4643,6 +4730,63 @@ default:
       ui:
         cluster:
           v1|string: "4\_200,00\_₽"
+    keeper:
+      clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "2\_138,40\_₽"
+            c100|string: "2,97\_₽"
+          ram|month|string: "419,9040\_₽"
+          ram|string: "0,5832\_₽"
+        highfreq-v4a:
+          cpu:
+            c100|month|string: "2\_598,7680\_₽"
+            c100|string: "3,6094\_₽"
+          ram|month|string: "510,3360\_₽"
+          ram|string: "0,7088\_₽"
+        v1:
+          cpu:
+            c100|month|string: "1\_690,8480\_₽"
+            c100|string: "2,3484\_₽"
+            c50|month|string: "504,2880\_₽"
+            c50|string: "0,7004\_₽"
+          ram|month|string: "385,6320\_₽"
+          ram|string: "0,5356\_₽"
+          software_accelerated_network:
+            cpu|month|string: "1\_587,0240\_₽"
+            cpu|string: "2,2042\_₽"
+        v2:
+          cpu:
+            c100|month|string: "1\_492,9920\_₽"
+            c100|string: "2,0736\_₽"
+            c50|month|string: "528,7680\_₽"
+            c50|string: "0,7344\_₽"
+          ram|month|string: "404,3520\_₽"
+          ram|string: "0,5616\_₽"
+          software_accelerated_network:
+            cpu|month|string: "1\_664,0640\_₽"
+            cpu|string: "2,3112\_₽"
+        v3:
+          cpu:
+            c100|month|string: "1\_337,4720\_₽"
+            c100|string: "1,8576\_₽"
+            c50|month|string: "474,3360\_₽"
+            c50|string: "0,6588\_₽"
+          software_accelerated_network:
+            cpu|month|string: "1\_664,0640\_₽"
+            cpu|string: "2,3112\_₽"
+        v4a:
+          cpu:
+            c100|month|string: "1\_337,4720\_₽"
+            c100|string: "1,8576\_₽"
+          ram|month|string: "365,4720\_₽"
+          ram|string: "0,5076\_₽"
+    software_accelerated_network:
+      keeper:
+        clickhouse:
+          highfreq-v4a:
+            cores|month|string: Не тарифицируется
+            cores|string: Не тарифицируется
     zk:
       clickhouse:
         highfreq-v3:
@@ -5097,12 +5241,21 @@ default:
                   v3|string: "0,2722\_₽"
           mdb:
             ch:
+              ch:
+                keeper:
+                  ram:
+                    v3|string: "0,4315\_₽"
               cpu:
                 c100:
                   v2|month|string: "1\_269,0432\_₽"
                   v2|string: "1,7626\_₽"
                   v3|month|string: "1\_136,8512\_₽"
                   v3|string: "1,5790\_₽"
+              keeper:
+                cpu:
+                  c100:
+                    v3|month|string: "1\_136,8512\_₽"
+                    v3|string: "1,5790\_₽"
               ram:
                 v2|month|string: "343,6992\_₽"
                 v2|string: "0,4774\_₽"
@@ -5361,6 +5514,26 @@ default:
             ram:
               v2|month|string: "309,3293\_₽"
               v2|string: "0,4296\_₽"
+      special-offer:
+        y1:
+          mdb:
+            ch:
+              keeper:
+                cpu:
+                  c100:
+                    v2|month|string: "1\_164,5338\_₽"
+                    v2|string: "1,6174\_₽"
+                    v3|month|string: "1\_043,2282\_₽"
+                    v3|string: "1,4489\_₽"
+                    v4a|month|string: "1\_043,2080\_₽"
+                    v4a|string: "1,4489\_₽"
+                ram:
+                  v2|month|string: "315,3946\_₽"
+                  v2|string: "0,4380\_₽"
+                  v3|month|string: "285,0682\_₽"
+                  v3|string: "0,3959\_₽"
+                  v4a|month|string: "285,0480\_₽"
+                  v4a|string: "0,3959\_₽"
   sku|RUB|video:
     cdn:
       traffic:
@@ -6910,6 +7083,63 @@ default:
       ui:
         cluster:
           v1|string: "34,999986\_$"
+    keeper:
+      clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "17,819993\_$"
+            c100|string: "0,024750\_$"
+          ram|month|string: "3,499199\_$"
+          ram|string: "0,004860\_$"
+        highfreq-v4a:
+          cpu:
+            c100|month|string: "21,656391\_$"
+            c100|string: "0,030078\_$"
+          ram|month|string: "4,252798\_$"
+          ram|string: "0,005907\_$"
+        v1:
+          cpu:
+            c100|month|string: "14,090394\_$"
+            c100|string: "0,019570\_$"
+            c50|month|string: "4,202398\_$"
+            c50|string: "0,005837\_$"
+          ram|month|string: "3,213599\_$"
+          ram|string: "0,004463\_$"
+          software_accelerated_network:
+            cpu|month|string: "13,225195\_$"
+            cpu|string: "0,018368\_$"
+        v2:
+          cpu:
+            c100|month|string: "12,441595\_$"
+            c100|string: "0,017280\_$"
+            c50|month|string: "4,406399\_$"
+            c50|string: "0,006120\_$"
+          ram|month|string: "3,369599\_$"
+          ram|string: "0,004680\_$"
+          software_accelerated_network:
+            cpu|month|string: "13,867194\_$"
+            cpu|string: "0,019260\_$"
+        v3:
+          cpu:
+            c100|month|string: "11,145596\_$"
+            c100|string: "0,015480\_$"
+            c50|month|string: "3,952799\_$"
+            c50|string: "0,005490\_$"
+          software_accelerated_network:
+            cpu|month|string: "13,867194\_$"
+            cpu|string: "0,019260\_$"
+        v4a:
+          cpu:
+            c100|month|string: "11,145596\_$"
+            c100|string: "0,015480\_$"
+          ram|month|string: "3,045599\_$"
+          ram|string: "0,004230\_$"
+    software_accelerated_network:
+      keeper:
+        clickhouse:
+          highfreq-v4a:
+            cores|month|string: Не тарифицируется
+            cores|string: Не тарифицируется
     zk:
       clickhouse:
         highfreq-v3:
@@ -7358,12 +7588,21 @@ default:
                   v3|string: "0,002268\_$"
           mdb:
             ch:
+              ch:
+                keeper:
+                  ram:
+                    v3|string: "0,003595\_$"
               cpu:
                 c100:
                   v2|month|string: "10,575356\_$"
                   v2|string: "0,014688\_$"
                   v3|month|string: "9,473756\_$"
                   v3|string: "0,013158\_$"
+              keeper:
+                cpu:
+                  c100:
+                    v3|month|string: "9,473756\_$"
+                    v3|string: "0,013158\_$"
               ram:
                 v2|month|string: "2,864159\_$"
                 v2|string: "0,003978\_$"
@@ -7618,6 +7857,26 @@ default:
             ram:
               v2|month|string: "2,577743\_$"
               v2|string: "0,003580\_$"
+      special-offer:
+        y1:
+          mdb:
+            ch:
+              keeper:
+                cpu:
+                  c100:
+                    v2|month|string: "9,704444\_$"
+                    v2|string: "0,013478\_$"
+                    v3|month|string: "8,693564\_$"
+                    v3|string: "0,012074\_$"
+                    v4a|month|string: "8,693397\_$"
+                    v4a|string: "0,012074\_$"
+                ram:
+                  v2|month|string: "2,628287\_$"
+                  v2|string: "0,003650\_$"
+                  v3|month|string: "2,375567\_$"
+                  v3|string: "0,003299\_$"
+                  v4a|month|string: "2,375399\_$"
+                  v4a|string: "0,003299\_$"
   sku|USD|video:
     cdn:
       traffic:
@@ -7886,6 +8145,9 @@ default:
             switch_dashboards: Дашборды
             switch_datasets: Датасеты
             switch_root: Все объекты
+        plugin-with-menu:
+          view:
+            button_duplicate: Дублировать
       connection:
         connections-list:
           modify:
@@ -9143,6 +9405,20 @@ default:
       dashboard:
         action_add-user: Добавить участника
         action_go-to-org: Перейти в организацию
+      playlists:
+        action_add-playlist-video: Добавить видео
+        action_create-playlist: Создать плейлист
+        title_playlists: Плейлисты
+        title_playlists-video-list: Порядок воспроизведения
+      presets:
+        action_create-preset: Создать шаблон
+        action_set-as-default: Выбрать шаблоном по умолчанию
+        button_open-preset-template-dialog: Посмотреть шаблон в отдельном окне
+        label_style-preset: Шаблон плеера
+        label_title: Имя шаблона
+        section_styles-settings: Настройка стилей
+        section_wigets-settings: Настройки виджетов
+        title_presets: Шаблоны плеера
       stream-lines:
         action_create-line: Создать линию
         label_input-stream-protocol: Протокол входного потока
@@ -14756,7 +15032,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.4
+        tag: v1.20.5
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

@@ -11,11 +11,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder that the origin belongs to.
+            The maximum string length in characters is 50.
           type: string
         originGroupId:
           description: |-
             **string** (int64)
             ID of the group to request origins from.
+            Value must be greater than 0.
           type: string
           format: int64
       required:
@@ -42,10 +44,14 @@ GET https://cdn.{{ api-host }}/cdn/v1/origins
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
+Required field. ID of the folder that the origin belongs to.
+
+The maximum string length in characters is 50. ||
 || originGroupId | **string** (int64)
 
-ID of the group to request origins from. ||
+ID of the group to request origins from.
+
+Value must be greater than 0. ||
 |#
 
 ## Response {#yandex.cloud.cdn.v1.ListOriginsResponse}

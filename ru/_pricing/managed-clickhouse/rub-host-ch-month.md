@@ -24,5 +24,5 @@
 | RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.clickhouse.v4a.ram|month|string }} | - | {{ sku|RUB|v1.commitment.selfcheckout.y1.mdb.ch.ram.v4a|month|string }} (-22%) |
 | **AMD Zen 4 HighFreq** |
 | 100% vCPU | {{ sku|RUB|mdb.cluster.clickhouse.highfreq-v4a.cpu.c100|month|string }} | − | − |
-| RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.clickhouse.highfreq-v4a.ram|month|string }} | − | − |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.clickhouse.highfreq-v4a.ram|month|string }} | − | − |
 
