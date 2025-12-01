@@ -5,6 +5,20 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2025
 
+## October {#october-2025}
+
+### Improvements {#improvements-october-2025}
+
+1. Added support for [lazy loading](https://en.wikipedia.org/wiki/Lazy_loading) of data structure for {{ PG }} and {{ GP }} connections.
+1. Improved detailed view of column value in JSON format.
+1. Added display of value types in {{ MG }}/{{ SD }} query results.
+1. Added display of notifications from the {{ PG }} server when receiving query results.
+
+### Fixed issues {#fixes-october-2025}
+
+1. Fixed an error that caused the display of results with identical columns.
+1. Fixed duplication of indexes in editor tooltips for {{ PG }}.
+
 ## September {#september-2025}
 
 ### New features {#new-features-september-2025}
@@ -34,7 +48,7 @@ description: This section contains {{ websql-name }} release notes.
 1. Fixed the incorrect behavior of the `sha256_password` authentication plugin in {{ MY }}.
 
 
-1. Fixed the error where catalog data did not load when opening {{ websql-name }} from the management console.
+1. Fixed the error when catalog data did not load when entering {{ websql-name }} from the management console.
 
 
 ## August {#august-2025}

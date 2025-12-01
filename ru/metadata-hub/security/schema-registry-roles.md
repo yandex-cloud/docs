@@ -17,6 +17,8 @@ description: Управление доступом в {{ schema-registry-name }}
 
 С помощью сервисных ролей {{ schema-registry-name }} вы сможете просматривать пространства имен, субъекты и схемы в реестре схем, а также создавать, редактировать и удалять пространства имен и схемы.
 
+{% include [roles-schema-registry](../../_mermaid/roles/schema-registry.md) %}
+
 ### schema-registry.auditor {#schema-registry-auditor}
 
 {% include [schema-registry.auditor](../../_roles/schema-registry/auditor.md) %}

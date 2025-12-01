@@ -1,6 +1,6 @@
 ---
 title: '{{ datalens-full-name }} data types'
-description: '{{ datalens-name }} uses multiple data sources whose fields may take different data types. To streamline data operations, {{ datalens-name }} converts source field data types into types of its own. This optimizes data operations. You can change the field data type both in the dataset interface and in the wizard.'
+description: '{{ datalens-full-name }} uses multiple data sources whose fields may take different data types. To streamline data operations, {{ datalens-name }} converts source field data types into types of its own. This optimizes data operations. You can change the field data type both in the dataset interface and in the wizard.'
 ---
 
 # {{ datalens-full-name }} data types
@@ -8,7 +8,7 @@ description: '{{ datalens-name }} uses multiple data sources whose fields may ta
 {{ datalens-short-name }} uses multiple data sources whose fields may take different data types.
 
 To streamline the data operations, {{ datalens-short-name }} converts the source data types to its native ones.
-This optimizes data operations. For more information, see [{#T}](../dataset/types-lookup-table.md).
+This optimizes data operations. Learn more in [{#T}](../dataset/types-lookup-table.md).
 
 You can change the field data type both in the dataset interface and in the wizard.
 
@@ -118,7 +118,7 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
 * October 12, 2022:
 
   * In all datasets, the fields of the `Date and time (deprecated)` type will be replaced with fields of the `Date and time` type.
-  * If `#` is used, constant values will will no longer be converted to UTC.
+  * Using `#` will no longer convert constant values to UTC.
   * The [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions will no longer convert expressions to UTC.
 
 

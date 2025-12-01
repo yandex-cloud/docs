@@ -77,7 +77,7 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
          
          {% endnote %}
 
-     * `--group-distribution-type`: If you provided the `groups` attribute when creating or updating the OAuth client, update the user groups you want to go to the service provider. The possible values are:
+     * `--group-distribution-type`: If you specified the `groups` attribute when creating or updating the OAuth client, update the user groups you want to send to your service provider. The possible values are:
        * `all-groups`: Service provider will get all groups the user belongs to.
 
           The maximum number of groups to change hands is 1,000. If the user belongs to more groups than this, only the first thousand will go to the service provider.
@@ -101,6 +101,10 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
      created_at: "2025-10-21T10:51:28.790866Z"
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
+
+- API {#api}
+
+  Use the [Application.Update](../../idp/application/oauth/api-ref/Application/update.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Update](../../idp/application/oauth/api-ref/grpc/Application/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -173,7 +177,9 @@ To update the service provider configuration in an OIDC app:
      status: ACTIVE
      ```
 
-  1. If you updated the user attributes that will be available to the service provider (`--scopes`), specify them. 
+- API {#api}
+
+  Use the [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -220,6 +226,10 @@ There is no way you can view or update an app’s [secret](../../concepts/applic
      ```
 
      Remember to provide the new secret in the settings on the service provider side. If you need help, refer to your service provider's documentation or support team.
+
+- API {#api}
+
+  Use the [OAuthClientSecret.Create](../../../iam/api-ref/OAuthClientSecret/create.md) REST API method for the [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) resource or the [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md) gRPC API call.
 
 {% endlist %}
 

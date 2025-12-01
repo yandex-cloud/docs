@@ -1,9 +1,9 @@
 ---
 title: How to configure a navigator in {{ datalens-full-name }}
-description: Follow this guide to configure a navigator.
+description: Follow this guide to configure a navigator in {{ datalens-full-name }}.
 ---
 
-# Configuring a navigator
+# Configuring a navigator in {{ datalens-full-name }}
 
 {% note info %}
 

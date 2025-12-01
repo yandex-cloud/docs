@@ -1,9 +1,9 @@
 ---
-title: How to create a {{ ydb-name }} connection
-description: Follow this guide to create a connection to {{ ydb-name }}.
+title: How to create a {{ ydb-name }} connection in {{ datalens-full-name }}
+description: Follow this guide to create a connection to {{ ydb-name }} in {{ datalens-full-name }}.
 ---
 
-# Creating a {{ ydb-short-name }} connection
+# Creating a connection to {{ ydb-short-name }} from {{ datalens-full-name }}
 
 {% note info %}
 
@@ -60,7 +60,7 @@ If the {{ ydb-name }} [quotas and limits](../../../ydb/concepts/limits.md) are e
 * Reduce the query rate. To achieve this, you can use filters or specify only the required chart fields to limit the amount of data you get.
 * Follow the recommendations for [query optimization](../../concepts/optimization_recommendations.md).
 * Use the {{ datalens-short-name }} [chart inspector](../../concepts/chart/inspector.md) to assess the data amount and upload time.
-* Refer to the {{ ydb-name }} monitoring charts to see of the quotas and limits are exceeded. If you need to, you may slightly [increase](../../../ydb/operations/manage-databases.md#update-db-serverless) the [request unit](../../../ydb/concepts/serverless-and-dedicated.md#capacity) (RU) limit under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**.
+* Check the {{ ydb-name }} monitoring charts for exceeded quotas and limits. If you need to, you may slightly [increase](../../../ydb/operations/manage-databases.md#update-db-serverless) the [request unit](../../../ydb/concepts/serverless-and-dedicated.md#capacity) (RU) limit under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**.
 
 {% note info %}
 

@@ -39,4 +39,8 @@ To view which [groups](../../organization/concepts/groups.md) a specific [user](
 
      Where `--subject_id` is the user ID you got in the previous step.
 
+- API {#api}
+
+  Use the [Group.ListEffective](../../organization/api-ref/Group/listEffective.md) REST API method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/ListEffective](../../organization/api-ref/grpc/Group/listEffective.md) gRPC API call.
+
 {% endlist %}

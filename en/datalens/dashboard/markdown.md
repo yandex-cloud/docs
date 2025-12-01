@@ -1,4 +1,9 @@
-# Markdown
+---
+title: Markdown in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to use Markdown in {{ datalens-full-name }}.
+---
+
+# Markdown in {{ datalens-full-name }}
 
 {{ datalens-short-name }} lets you use the Markdown markup language in the [{#T}](./widget.md#text) widget on the dashboard.
 You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
@@ -208,7 +213,7 @@ will be displayed as:
 
 A table consists of a single row with headers, a separator row, and rows with data.
 
-Each table row consists of cells that are separated from each other by `.|`.
+Each table row consists of cells that are separated from each other by `|`.
 
 In the separator row cells, only `-` and `:` can be used. The colon (`:`) is used at the beginning, end, or on both sides of the separator row cell content to indicate left, right, or center alignment of text in the column, respectively.
 

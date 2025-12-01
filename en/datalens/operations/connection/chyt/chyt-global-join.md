@@ -1,9 +1,9 @@
 ---
-title: Specifics of JOIN
-description: In this article, you will learn how to use the JOIN operator and discover various JOIN query types in {{ CH }}.
+title: JOIN in {{ datalens-full-name }}
+description: This article covers some aspects of using the JOIN operator in {{ datalens-full-name }} and gives introductory info on JOIN query types in {{ CH }}.
 ---
 
-# Specifics of JOIN
+# JOIN in {{ datalens-full-name }}
 
 You can [join data](../../../dataset/create-dataset.md#links) through the dataset creation interface by dragging tables to the workspace and configuring links between them using the `JOIN` operator. For {{ ytsaurus-name }} tables, a join like this causes an error. It is due to the table storage structure and default query logic in {{ ytsaurus-name }}. To avoid the error, use an [SQL query to the source](../../../dataset/create-dataset.md#add-data).
 
@@ -49,7 +49,7 @@ Same as a simple query, a SELECT query that uses the `JOIN` operator is sent to 
 
   {% endnote %}
 
-* **GLOBAL JOIN** is executed if you use the `GLOBAL` keyword next to `JOIN`. The right-hand argument, `rhs`, is fully executed and materialized on the query coordinator. Next, its serialized representation is sent along with the query across the instances. They use this representation to retrieve the right-hand side in their memory. For more information, see the [documentation](https://clickhouse.com/docs/en/sql-reference/operators/in#distributed-subqueries).
+* **GLOBAL JOIN** is executed if you use the `GLOBAL` keyword next to `JOIN`. The right-hand argument, `rhs`, is fully executed and materialized on the query coordinator. Next, its serialized representation is sent along with the query across the instances. They use this representation to retrieve the right-hand side in their memory. For more information, see [this guide](https://clickhouse.com/docs/en/sql-reference/operators/in#distributed-subqueries).
 
   {% note info %}
 

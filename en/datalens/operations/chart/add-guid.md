@@ -1,9 +1,9 @@
 ---
 title: How to add an ID as a parameter in {{ datalens-full-name }}
-description: Follow this guide to add an ID as a parameter.
+description: Follow this guide to add an ID as a parameter in {{ datalens-full-name }}.
 ---
 
-# Adding an ID as a parameter
+# Adding an ID as a parameter in {{ datalens-full-name }}
 
 To transmit a filter to a chart as a parameter:
 

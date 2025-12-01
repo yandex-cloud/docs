@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.FILTER.MEASURE_UNSUPPORTED error
-description: This page describes the ERR.DS_API.FILTER.MEASURE_UNSUPPORTED error.
+title: '{{ datalens-full-name }} error ERR.DS_API.FILTER.MEASURE_UNSUPPORTED'
+description: This page describes the Measure filter is unsupported for this type of query {{ datalens-full-name }} error.
 ---
 
-# Measure filter is unsupported for this type of query
+# [{{ datalens-full-name }}] Measure filter is unsupported for this type of query
 
 `ERR.DS_API.FILTER.MEASURE_UNSUPPORTED`
 

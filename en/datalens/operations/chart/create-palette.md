@@ -1,9 +1,9 @@
 ---
-title: Creating a color palette
-description: Follow this guide to create a color palette.
+title: Creating a color palette in {{ datalens-full-name }}
+description: Follow this guide to create a color palette in {{ datalens-full-name }}.
 ---
 
-# Creating a color palette
+# Creating a color palette in {{ datalens-full-name }}
 
 
 {% note warning %}

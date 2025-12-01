@@ -50,12 +50,8 @@
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![sliders](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
-
-   ![screen05](../../_assets/datalens/concepts/datalens-public/screen05.png)
-
+1. Выберите вкладку **Безопасность**.
 1. В разделе **Возможность публикации** нажмите кнопку **Посмотреть опубликованное**.
-
-   ![screen06](../../_assets/datalens/concepts/datalens-public/screen06.png)
 
 ## Поделиться чартом на основе данных Метрики или AppMetrica {#metrica-share}
 
@@ -66,8 +62,6 @@
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
 
 ## Отключить возможность публикации {#publication-disable}
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
 
 По умолчанию пользователи могут публиковать чарты и дашборды, на которые у них есть права администратора. Эту возможность можно отключить на уровне экземпляра {{ datalens-short-name }}. После запрета публикации:
 
@@ -80,15 +74,11 @@
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![sliders](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
-
-   ![screen05](../../_assets/datalens/concepts/datalens-public/screen05.png)
-
+1. Выберите вкладку **Безопасность**.
 1. В разделе **Возможность публикации**:
 
    1. Посмотрите список опубликованных объектов, которые пропадут из публичного доступа. Для этого нажмите кнопку **Посмотреть опубликованное**.
    1. Отключите опцию **Возможность публикации**.
-
-   ![screen07](../../_assets/datalens/concepts/datalens-public/screen07.png)
 
 #### См. также: {#see-also}
 

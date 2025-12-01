@@ -1,9 +1,9 @@
 ---
-title: Creating a QL chart
-description: Follow this guide to create a QL chart.
+title: Creating a QL chart in {{ datalens-full-name }}
+description: Follow this guide to create a QL chart in {{ datalens-full-name }}.
 ---
 
-# Creating a QL chart
+# Creating a QL chart in {{ datalens-full-name }}
 
 
 

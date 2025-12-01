@@ -27,6 +27,8 @@ To enable Neuroanalyst, click ![icon](../../_assets/console-icons/ellipsis.svg) 
 
 All your queries to Neuroanalyst are private: logs are neither stored nor used for further fine-tuning or research.
 
+You can [ban](./report-operations.md#report-neuroanalyst-off) the use of Neuroanalyst for a report.
+
 ## Limitations {#restrictions}
 
 * So far the tool can only analyze data from a particular chart.

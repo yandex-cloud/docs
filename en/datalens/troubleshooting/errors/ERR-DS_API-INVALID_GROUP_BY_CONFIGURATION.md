@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION error
-description: This page describes the ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION error.
+title: '{{ datalens-full-name }} error ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION'
+description: This page describes the Invalid grouping configuration {{ datalens-full-name }} error.
 ---
 
-# Invalid grouping configuration
+# [{{ datalens-full-name }}] Invalid grouping configuration
 
 `ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION`
 

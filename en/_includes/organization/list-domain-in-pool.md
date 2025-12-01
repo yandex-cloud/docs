@@ -25,4 +25,8 @@
       yc organization-manager idp userpool domain list <pool_ID>
       ```
 
+- API {#api}
+
+  Use the [Userpool.ListDomains](../../organization/idp/api-ref/Userpool/listDomains.md) REST API method for the [Userpool](../../organization/idp/api-ref/Userpool/index.md) resource or the [UserpoolService/ListDomains](../../organization/idp/api-ref/grpc/Userpool/listDomains.md) gRPC API call.
+
 {% endlist %}

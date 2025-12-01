@@ -639,7 +639,7 @@ items:
             href: concepts/aggregation-tutorial.md
           - name: Window functions
             href: concepts/window-function-tutorial.md
-          - name: LOD expressions and filtering in aggregation functions
+          - name: LOD expressions and filtering management in aggregation functions
             href: concepts/lod-aggregation.md
           - name: Functions for time series
             href: concepts/time-series-functions.md
@@ -783,6 +783,8 @@ items:
             href: operations/chart/add-parameter-chart.md
       - name: Adding chart info
         href: operations/chart/add-description.md
+      - name: Opening a chart as a table
+        href: operations/chart/open-as-table.md
       - name: Versioning
         href: concepts/chart/versioning.md
       - name: Exporting data from charts
@@ -847,6 +849,8 @@ items:
             href: operations/dashboard/auto-update.md
           - name: Changing dashboard settings
             href: operations/dashboard/dash-settings.md
+          - name: Disabling Neuroanalyst on your dashboard
+            href: operations/dashboard/dashboard-neuroanalyst-off.md
           - name: Widget display order on a mobile device
             href: operations/dashboard/display-modes.md
           - name: Adding a JS selector to a dashboard
@@ -917,8 +921,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: September 2025
+      - name: October 2025
         href: release-notes/index.md
+      - name: September 2025
+        href: release-notes/2509.md
       - name: August 2025
         href: release-notes/2508.md
       - name: July 2025
@@ -927,10 +933,10 @@ items:
         href: release-notes/2506.md
       - name: May 2025
         href: release-notes/2505.md
-      - name: April 2025
-        href: release-notes/2504.md
       - name: Archive
         items:
+          - name: April 2025
+            href: release-notes/2504.md
           - name: March 2025
             href: release-notes/2503.md
           - name: February 2025

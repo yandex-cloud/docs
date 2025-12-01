@@ -1,14 +1,14 @@
 ---
 title: Getting started with {{ datalens-full-name }}
-description: In this tutorial, you will connect to a data source, create your first dataset, build multiple charts for data visualization, and place them on a dashboard.
+description: 'In this tutorial, you will get going with {{ datalens-full-name }}: connect to a data source, create your first dataset, build several data visualization charts, and put them on a dashboard.'
 ---
 
-# Getting started with {{ datalens-short-name }}
+# Getting started with {{ datalens-full-name }}
 
 
 
 
-This section outlines how to connect to a data source, create your first [dataset](dataset/index.md), build multiple [charts](concepts/chart/index.md) for data visualization, and place them on a [dashboard](concepts/dashboard.md).
+This section outlines how you can connect to a data source, create your first [dataset](dataset/index.md), build several data visualization [charts](concepts/chart/index.md), and put them on a [dashboard](concepts/dashboard.md).
 
 
 
@@ -98,7 +98,7 @@ To create a dataset based on the `Sample ClickHouse` connection:
 
 ## Create a column chart {#create-column-chart}
 
-[Charts](./concepts/chart/index.md) visualize the data from a dataset as tables, diagrams, or maps.
+A [chart](./concepts/chart/index.md) is a dataset visualization in the form of a table, diagram, or map.
 
 To create a chart based on `Sales Dataset`:
 

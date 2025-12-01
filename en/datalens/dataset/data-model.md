@@ -3,11 +3,11 @@ title: Data model in {{ datalens-full-name }}
 description: This article describes the data model used in {{ datalens-full-name }}. One or more tables are used as the data source. If multiple tables are available in the data source, you can merge them using the JOIN operator. When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table.
 ---
 
-# Data model in {{ datalens-name }}
+# Data model in {{ datalens-full-name }}
 
 Data in a dataset is represented as fields.
 
-## {#source} data source
+## Data source {#source}
 
 One or more tables are used as the data source.
 
@@ -73,7 +73,7 @@ Function | Description | Supported types
 ----- | ----- | -----
 No | Without aggregation | All types
 Average | Arithmetic mean value | `Fractional number`<br/>`Integer`
-Amount | Number of records| `String`<br/>`Date`<br/>`Date and time`<br/>`Fractional number`<br/>`Integer`
+Quantity | Number of records| `String`<br/>`Date`<br/>`Date and time`<br/>`Fractional number`<br/>`Integer`
 Number of unique | Number of unique records | `String`<br/>`Date`<br/>`Date and time`<br/>`Fractional number`<br/>`Integer`
 Maximum | Maximum value | `Date`<br/>`Date and time`<br/>`Fractional number`<br/>`Integer`
 Minimum | Minimum value | `Date`<br/>`Date and time`<br/>`Fractional number`<br/>`Integer`

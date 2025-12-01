@@ -1,4 +1,9 @@
-# Dataset settings
+---
+title: '{{ datalens-full-name }} dataset settings'
+description: In {{ datalens-full-name }}, dataset settings decide how the dataset will use the source data.
+---
+
+# {{ datalens-full-name }} dataset settings
 
 A dataset works with sources in direct access mode: {{ datalens-short-name }} runs all data queries on the source side. Dataset settings determine how the dataset uses the source data.
 

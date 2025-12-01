@@ -1,4 +1,9 @@
-# Area chart ![](../../_assets/datalens/area.svg)
+---
+title: Area chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the area chart visualization type in {{ datalens-full-name }}.
+---
+
+# Area chart ![](../../_assets/datalens/area.svg) in {{ datalens-full-name }}
 
 This chart shows how a measure changed over time. The area between the axis and the line is filled with colors, which shows the volume. Multiple data categories can be stacked one on top of the other or overlap, depending on the [setup](#stacking).
 
@@ -27,7 +32,7 @@ Be careful selecting the measures when building your chart. For example, do not 
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 X | Dimension. You can specify only one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings).
 Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md).

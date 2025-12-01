@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS error
-description: This page describes the ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS error.
+title: '{{ datalens-full-name }} error ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS'
+description: This page describes the Invalid top-level LOD dimension found in expression {{ datalens-full-name }} error.
 ---
 
-# Invalid top-level LOD dimension found in expression
+# [{{ datalens-full-name }}] Invalid top-level LOD dimension found in expression
 
 `ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS`
 
@@ -25,7 +25,7 @@ AVG(AVG([Sales] INCLUDE [City]))
 
 The top-level aggregation will thus be calculated grouped by the chart's `[Region]` and `[Category]` dimensions, and the nested aggregation will use grouping by the `[Region]`, `[Category]`, and `[City]` dimensions (grouping by `[City]` is added to the nested function using `INCLUDE`).
 
-The dimension to group by is specified inside the [aggregation function](../../../datalens/function-ref/aggregation-functions.md#syntax) using keywords, for example:
+The dimension to group by is specified inside the [aggregation function](../../../datalens/function-ref/aggregation-functions.md#syntax) using keywords, for example: 
 
 * `AVG(SUM([orders]) INCLUDE [date])`, where grouping by `[date]` is added to the top-level aggregation (the `INCLUDE` keyword applies to the `AVG` function).
 * `AVG(SUM([orders] INCLUDE [date]))`, where grouping by `[date]` is added to the nested aggregation (the `INCLUDE` keyword applies to the `SUM` function).

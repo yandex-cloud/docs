@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS error
-description: This page describes the ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS error.
+title: '{{ datalens-full-name }} error ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS'
+description: This page describes the Incompatible dimensions {{ datalens-full-name }} error.
 ---
 
-# Incompatible dimensions
+# [{{ datalens-full-name }}] Incompatible dimensions
 
 `ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS`
 

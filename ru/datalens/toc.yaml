@@ -676,7 +676,7 @@ items:
                 href: operations/chart/config-chart-navigator.md
               - name: Настройка отображения пустых (null) значений
                 href: operations/chart/chart-null-settings.md
-              - name: Создание цветовой палитры
+              - name: Настройка цветовой палитры
                 href: operations/chart/create-palette.md
       - name: QL-чарты
         items:
@@ -874,8 +874,6 @@ items:
     items:
       - name: Обзор
         href: security/index.md
-      - name: Добавление пользователей
-        href: security/add-new-user.md
       - name: Роли в {{ datalens-short-name }}
         href: security/roles.md
       - name: Организации в {{ datalens-name }}
@@ -906,10 +904,20 @@ items:
             href: security/private-embedded-objects.md
   - name: Настройки сервиса
     items:
-      - name: Стилизация интерфейса
-        href: settings/ui-customization.md
-      - name: Отключение навигации по папкам
-        href: settings/disable-folder-navigation.md
+      - name: Обзор
+        href: settings/index.md
+      - name: Рабочие места
+        href: settings/seats.md
+      - name: Пользователи
+        href: security/add-new-user.md
+      - name: Тарифы и оплата
+        href: settings/service-plan.md
+      - name: Оформление
+        href: settings/appearance.md
+      - name: Безопасность
+        href: settings/restrictions.md
+      - name: Навигация
+        href: settings/navigation.md
   - name: DataLens Gallery
     href: concepts/gallery.md
   - name: Правила тарификации
@@ -918,10 +926,12 @@ items:
         href: pricing.md
       - name: Изменения в правилах тарификации 1 декабря
         href: pricing-changes.md
-      - name: Тарифные планы
-        href: concepts/service-plans-comparison.md
-      - name: Настройка тарифного плана
-        href: settings/service-plan.md
+      - name: Архив
+        items:
+          - name: Правила тарификации до 1 декабря 2025
+            href: pricing-old.md
+          - name: Тарифные планы до 1 декабря 2025
+            href: concepts/service-plans-comparison.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

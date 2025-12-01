@@ -10,7 +10,7 @@ editable: false
 
 {% note info %}
 
-С 1 декабря в {{ datalens-name }} изменятся правила тарификации. Подробности изменений описаны в [статье](../pricing-changes.md).
+1 декабря 2025 года в {{ datalens-name }} изменились правила тарификации. Подробности изменений описаны в [статье](../pricing-changes.md), актуальные правила тарификации доступны по [ссылке](../pricing.md).
 
 {% endnote %}
 
@@ -19,9 +19,9 @@ editable: false
 * **Community** — подходит для небольших команд и некоммерческих проектов;
 * **Business** — подходит для корпоративных внедрений и решения бизнес-задач.
 
-Выбранный тарифный план распространяется на организацию и может быть [изменен](../settings/service-plan.md#change-service-plan) только владельцем или администратором организации. Оплата производится за всех [активных пользователей](../pricing.md#active-users). Подробнее о тарифах читайте в [блоге](https://yandex.cloud/ru/blog/posts/2024/03/datalens-tariffs).
+Выбранный тарифный план распространяется на организацию и может быть [изменен](../settings/service-plan.md#change-service-plan) только владельцем или администратором организации. Оплата производится за всех [активных пользователей](../pricing-old.md#active-users). Подробнее о тарифах читайте в [блоге](https://yandex.cloud/ru/blog/posts/2024/03/datalens-tariffs).
 
-Тарифные планы различаются своими возможностями и [стоимостью обслуживания](../pricing.md#prices).
+Тарифные планы различаются своими возможностями и [стоимостью обслуживания](../pricing-old.md#prices).
 
 **Тарифный план**  | **Community** | **Business**
 ------------------ |---------------|---------------
@@ -36,7 +36,7 @@ JavaScript-кастомизации в [Editor](../charts/editor/index.md) | ![i
 [Отчеты для экспорта и презентаций](../reports/index.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 [Возможность запретить экспорт воркбуков](../workbooks-collections/export-and-import.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 [Фоновый экспорт данных из чартов](../concepts/chart/data-export.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
-[Стилизация интерфейса {{ datalens-name }}](../settings/ui-customization.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
+[Стилизация интерфейса {{ datalens-name }}](../settings/appearance.md#ui-customization) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
 [Безопасное встраивание чартов и дашбордов](../security/private-embedded-objects.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
 [Контроль публикаций](./datalens-public.md#publication-disable) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Статистика использования сервиса {{ datalens-name }} | Общая ([Light](./datalens-usage-analytics.md#light-dash)) | Расширенная ([Detailed](./datalens-usage-analytics.md#detailed-dash)) 

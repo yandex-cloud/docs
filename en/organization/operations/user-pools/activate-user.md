@@ -68,6 +68,10 @@ To activate a federated user account:
      * `--subject-ids`: List of user IDs to activate.
      * `--organization-id`: ID of the organization the federation belongs to.
 
+- API {#api}
+
+  Use the [Federation.Reactivate](../../saml/api-ref/Federation/reactivateUserAccounts.md) REST API method for the [Federation](../../saml/api-ref/Federation/index.md) resource or the [FederationService/Reactivate](../../saml/api-ref/grpc/Federation/reactivateUserAccounts.md) gRPC API call.
+
 {% endlist %}
 
 
@@ -102,6 +106,10 @@ To activate a local user account:
      ```bash
      yc organization-manager idp user reactivate <user_ID>
      ```
+
+- API {#api}
+
+  Use the [User.Reactivate](../../idp/api-ref/User/reactivate.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/Reactivate](../../idp/api-ref/grpc/User/reactivate.md) gRPC API call.
 
 {% endlist %}
 

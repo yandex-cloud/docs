@@ -1,13 +1,25 @@
 ---
-title: Стилизация интерфейса в {{ datalens-full-name }}
-description: Стилизация интерфейса в {{ datalens-full-name }} позволяет настроить внешний вид интерфейса сервиса.
+title: Настройки оформления в {{ datalens-full-name }}
+description: Настройки оформления в {{ datalens-full-name }} позволяют изменить внешний вид интерфейса.
 ---
 
-# Стилизация интерфейса в {{ datalens-full-name }}
+# Настройки оформления в {{ datalens-full-name }}
 
+Настройки оформления позволяют изменить настройки внешнего вида интерфейса для всей организации:
 
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+* Настроить [стилизацию интерфейса](#ui-customization).
+* Добавить, изменить или удалить [цветовые палитры](#palette-settings) чартов.
 
+Изменить настройки может [администратор](../security/roles.md#datalens-admin) экземпляра {{ datalens-short-name }} (роль `{{ roles-datalens-admin }}`).
+
+Чтобы перейти к настройкам оформления:
+
+1. На панели слева выберите ![image](../../_assets/console-icons/sliders.svg) **Настройки сервиса**. Если на панели не отображается ![image](../../_assets/console-icons/sliders.svg), сначала выберите ![image](../../_assets/console-icons/ellipsis.svg) **Ещё**, а затем — ![image](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
+1. Выберите вкладку **Оформление**.
+
+   ![image](../../_assets/datalens/settings/customization.png)
+
+## Стилизация интерфейса {#ui-customization}
 
 Стилизация интерфейса в {{ datalens-short-name }} позволяет настроить внешний вид интерфейса вашей инсталляции сервиса: цвета, логотип и оформление отдельных элементов.
 
@@ -16,14 +28,15 @@ description: Стилизация интерфейса в {{ datalens-full-name 
 Чтобы настроить внешний вид интерфейса:
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-
-
-1. На панели слева выберите ![image](../../_assets/console-icons/sliders.svg) **Настройки сервиса**. Для администратора на тарифе Community возможности, доступные в [тарифном плане](../concepts/service-plans-comparison.md) Business, выделены подсветкой.
-
-   ![image](../../_assets/datalens/release-notes/business-setting.png =552x167)
-
-
+1. На панели слева выберите ![image](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
+1. Выберите вкладку **Оформление**.
 1. В разделе **Стилизация интерфейса** нажмите кнопку ![image](../../_assets/console-icons/palette.svg) **Настроить**.
+
+   {% cut "Настроить стилизацию" %}
+
+   ![image](../../_assets/datalens/settings/ui-customization.png)
+
+   {% endcut %}
 
 1. Настройте оформление:
 
@@ -66,14 +79,25 @@ description: Стилизация интерфейса в {{ datalens-full-name 
     {% endnote %}
 
 1. Вверху справа нажмите кнопку **Сохранить**.
-1. Чтобы применить настроенную стилизацию, вверху экрана выберите вариант **Включено**.
+1. Чтобы применить настроенную стилизацию, включите опцию в разделе **Стилизация интерфейса**.
+
+## Управление цветовой палитрой чартов {#palette-settings}
+
+В {{ datalens-full-name }} вы можете [создать](#create-palette), [изменить](#edit-palette), [удалить](#delete-palette) цветовую палитру и [настроить цветовую палитру по умолчанию](#default-palette).
+
+### Создать цветовую палитру {#create-palette}
+
+{% include [create-palette](../../_includes/datalens/settings/create-palette.md) %}
+
+### Изменить цветовую палитру {#edit-palette}
+
+{% include [edit-palette](../../_includes/datalens/settings/edit-palette.md) %}
+
+### Удалить цветовую палитру {#delete-palette}
+
+{% include [delete-palette](../../_includes/datalens/settings/delete-palette.md) %}
 
 
-   {% note info %}
+### Настроить цветовую палитру по умолчанию {#default-palette}
 
-   В тарифе Community применить настройки стилизации к интерфейсу нельзя, но можно изучить, как работает стилизация интерфейса: cгенерировать палитры и сохранить получившиеся настройки.
-   
-   Протестировать настройки стилизации может [администратор](../security/roles.md#datalens-admin) экземпляра {{ datalens-short-name }} (роль `{{ roles-datalens-admin }}`).
-
-   {% endnote %}
-
+{% include [default-palette](../../_includes/datalens/settings/default-palette.md) %}

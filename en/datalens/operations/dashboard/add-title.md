@@ -1,9 +1,9 @@
 ---
-title: How to add a title to a dashboard
-description: Follow this guide to add a title to a dashboard.
+title: How to add a title to a dashboard in {{ datalens-full-name }}
+description: Follow this guide to add a title to a dashboard in {{ datalens-full-name }}.
 ---
 
-# Adding a title to a dashboard
+# Adding a title to a dashboard in {{ datalens-full-name }}
 
 To add a [title](../../dashboard/widget.md#title) to a dashboard:
 

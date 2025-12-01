@@ -3893,7 +3893,6 @@ default:
         v1|string: Free
   sku|RUB|datalens:
     users:
-      v1|number: 990
       v1|string: ₽990.00
   sku|RUB|datasphere:
     filestores|number: 0.0013

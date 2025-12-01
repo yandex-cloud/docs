@@ -1,9 +1,9 @@
 ---
-title: Errors and warnings during export and import
-description: This page lists errors and warnings during export and import and their descriptions.
+title: Errors and warnings during export and import in {{ datalens-full-name }}
+description: This page lists and describes errors and warnings during export and import in {{ datalens-full-name }}.
 ---
 
-# Errors and warnings during export and import
+# Errors and warnings during export and import in {{ datalens-full-name }}
 
 During [export and import of workbooks](./export-and-import.md), you may get operation-specific warnings and error messages.
 

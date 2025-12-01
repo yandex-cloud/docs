@@ -17,7 +17,7 @@
 `DeleteEntry`                    | Удаление объекта
 `DeleteWorkbooks`              | Удаление одного или нескольких воркбуков
 `DisableBillingInstanceService` | Получение сигнала от {{ billing-name }} о неактивности привязанного к {{ datalens-name }} платежного аккаунта
-`DisableFolders`                | [Отключение](../../../datalens/settings/disable-folder-navigation.md) навигации по папкам
+`DisableFolders`                | [Отключение](../../../datalens/settings/navigation.md#disable-folder-navigation) навигации по папкам
 `DisableTenantBilling`          | Планирование отключения тарифа Business пользователем в начале следующего месяца ^1^
 `EnableBillingInstanceService`  | Получение сигнала от {{ billing-name }} об активности привязанного к {{ datalens-name }} [платежного аккаунта](../../../billing/concepts/billing-account.md)
 `EnableTenantBilling`           | Включение пользователем тарифа Business ^1^

@@ -1,4 +1,3 @@
-Тарифный план | Стоимость за одного активного пользователя <br>в месяц, вкл. НДС
+Продукт | Стоимость в месяц, вкл. НДС
 ----- | -----
-| Community | Не тарифицируется |
-| Business | {{ sku|RUB|datalens.users.v1|string }} |
+| Рабочее место в {{ datalens-name }} | {{ sku|RUB|datalens.users.v1|string }} |

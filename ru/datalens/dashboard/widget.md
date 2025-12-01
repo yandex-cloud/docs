@@ -33,8 +33,6 @@ _Виджет_ – это элемент дашборда. Между видже
 
 ## Селектор (JS) {#js-selector}
 
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
 Гибкий фильтр, созданный с помощью [Editor](../charts/editor/index.md), который влияет на результаты запросов на связанных с ним виджетах через параметры на дашборде. Чтобы добавить JS-селектор на дашборд, перейдите в раздел [{#T}](../charts/editor/add-js-selector.md).
 
 Подробнее о JS-селекторах в разделе [{#T}](../charts/editor/widgets/controls.md).

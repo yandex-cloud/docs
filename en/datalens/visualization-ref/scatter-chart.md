@@ -1,4 +1,9 @@
-# Scatter chart ![](../../_assets/datalens/scatter-chart.svg)
+---
+title: Scatter chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the scatter chart visualization type in {{ datalens-full-name }}.
+---
+
+# Scatter chart ![](../../_assets/datalens/scatter-chart.svg) in {{ datalens-full-name }}
 
 A scatter chart shows the relationship between two values (dimensions or measures). Their values are represented as points. A scatter chart always has two axes: the values of one dimension or measure are plotted along the X-axis and those of the other along the Y-axis. A data point that links these two values is displayed at the intersection of the X and Y coordinates. These data points can be distributed along the X-axis evenly or unevenly, depending on specific data.
 
@@ -28,7 +33,7 @@ You can use a gradient in a chart by adding a measure to the **Color** section. 
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 X | Dimension or measure. Sets the X-axis value. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Y | Dimension or measure. Sets the Y-axis value. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.

@@ -1,9 +1,9 @@
 ---
-title: ERR.CHARTS.RUNTIME_TIMEOUT error
-description: This page describes the ERR.CHARTS.RUNTIME_TIMEOUT error.
+title: '{{ datalens-full-name }} error ERR.CHARTS.RUNTIME_TIMEOUT'
+description: This page describes the Response processing timeout {{ datalens-full-name }} error.
 ---
 
-# Response processing timeout
+# [{{ datalens-full-name }}] Response processing timeout
 
 `ERR.CHARTS.RUNTIME_TIMEOUT`
 

@@ -1,4 +1,9 @@
-# Selectors
+---
+title: Selectors in {{ datalens-full-name }}
+description: In {{ datalens-full-name }}, selectors are filters that affect the results of queries in the linked widgets.
+---
+
+# Selectors in {{ datalens-full-name }}
 
 Selectors are filters that affect the results of queries in the linked [widgets](./widget.md).
 
@@ -6,7 +11,7 @@ Selectors are filters that affect the results of queries in the linked [widgets]
 {% include [datalens-db-query-note](../../_includes/datalens/datalens-db-query-note.md) %}
 
 
-A selector can be linked to a chart or another selector. For more information, see [{#T}](./link.md).
+A selector can be linked to a chart or another selector. Learn more in [{#T}](./link.md).
 
 In a single widget, you can [group](../operations/dashboard/add-selector.md) multiple selectors. Each of them will work within one dashboard tab. When working with a selector group:
 * You can add **Apply** and **Reset** buttons to a widget with a selector group.

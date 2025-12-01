@@ -1,6 +1,11 @@
-# Link
+---
+title: Link in {{ datalens-full-name }}
+description: In {{ datalens-full-name }}, a link decides how a selector influences one or more charts or other selectors.
+---
 
-A link determines how a selector influences one or more charts or other selectors. By default, there is a link between selectors and charts built from a single dataset. Selectors and charts based on different datasets can be linked manually using [aliases](#alias).
+# Link in {{ datalens-full-name }}
+
+A link decides how a selector influences one or more charts or other selectors. By default, there is a link between selectors and charts built from a single dataset. Selectors and charts based on different datasets can be linked manually using [aliases](#alias).
 
 You can choose an existing dataset field as a link or create your own field and manually set the selector values there. The fields used to establish a link are set in the alias configuration window.
 
@@ -93,5 +98,5 @@ If the links window already shows a link between the widgets, adding an alias fo
 
 For more information about how to create aliases, see [{#T}](../operations/dashboard/create-alias.md).
 
-You can delete links from an alias where more than two fields are linked. Delete a field from the alias if its associated link between datasets or widgets is not required on a dashboard tab. For more information, see [{#T}](../operations/dashboard/edit-alias.md).
+You can delete links from an alias where more than two fields are linked. Delete a field from the alias if its associated link between datasets or widgets is not required on a dashboard tab. Learn more in [{#T}](../operations/dashboard/edit-alias.md).
 

@@ -1,9 +1,9 @@
 ---
 title: '{{ datalens-full-name }} optimization best practices'
-description: This article describes how you can optimize operations with data in {{ datalens-name }} to speed up queries and rendering of the data you get.
+description: This article describes how you can optimize operations with data in {{ datalens-full-name }} to speed up queries and rendering of the data you get.
 ---
 
-# Optimization best practices
+# {{ datalens-full-name }} optimization best practices
 
 To render charts and selectors, {{ datalens-short-name }} does not store data on its side; instead, it runs queries to the source database. These queries and any computations (formulas in calculated fields) are run on the data source side. Therefore, to speed up queries and rendering of the obtained data, you need to optimize the source data.
 

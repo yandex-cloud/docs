@@ -3,7 +3,7 @@ title: How to add aliases in {{ datalens-full-name }}
 description: Follow this guide to add an alias for widgets in {{ datalens-full-name }}.
 ---
 
-# Creating an alias
+# Creating an alias in {{ datalens-full-name }}
 
 
 To add an [alias](../../dashboard/link.md#alias) for a pair of widgets:

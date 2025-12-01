@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED error
-description: This page describes the ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED'
+description: This page describes the Access to table was denied {{ datalens-full-name }} error.
 ---
 
-# Access to table was denied
+# [{{ datalens-full-name }}] Access to table was denied
 
 `ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED`
 

@@ -44,4 +44,8 @@
         --domain my-domain.ru
       ```
 
+- API {#api}
+
+  Use the [Userpool.ValidateDomain](../../organization/idp/api-ref/Userpool/validateDomain.md) REST API method for the [Userpool](../../organization/idp/api-ref/Userpool/index.md) resource or the [UserpoolService/ValidateDomain](../../organization/idp/api-ref/grpc/Userpool/validateDomain.md) gRPC API call.
+
 {% endlist %}

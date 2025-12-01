@@ -1,6 +1,11 @@
-# Chart
+---
+title: '{{ datalens-full-name }} chart'
+description: A {{ datalens-full-name }} chart is a dataset visualization in the form of a table, diagram, or map."
+---
 
-_Charts_ visualize the data from a dataset as tables, diagrams, or maps.
+# {{ datalens-full-name }} chart
+
+A _chart_ is a dataset visualization in the form of a table, diagram, or map.
 
 There are several types of charts in {{ datalens-short-name }}:
 

@@ -5,10 +5,6 @@ description: Из статьи вы узнаете, какие есть исто
 
 # Источники данных
 
-
-{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 ## Виды источников {#source-types}
 
 Данные можно запросить, используя:

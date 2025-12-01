@@ -3,7 +3,7 @@ title: How to create a workbook or collection in {{ datalens-full-name }}
 description: Follow this guide to create a workbook or collection in {{ datalens-full-name }}.
 ---
 
-# Creating a workbook or collection {{ datalens-short-name }}
+# Creating a workbook or collection {{ datalens-full-name }}
 
 To create a workbook or collection:
 

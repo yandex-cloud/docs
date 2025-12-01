@@ -1,9 +1,9 @@
 ---
 title: Managing access to {{ datalens-full-name }}
-description: In this tutorial, you will learn about {{ datalens-short-name }} access management.
+description: In this tutorial, you will learn about {{ datalens-full-name }} access management.
 ---
 
-# Managing access to {{ datalens-short-name }}
+# Managing access to {{ datalens-full-name }}
 
 
 

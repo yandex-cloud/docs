@@ -1,9 +1,9 @@
 ---
 title: Errors in {{ datalens-full-name }}
-description: This page presents error codes and their descriptions.
+description: This page presents {{ datalens-full-name }} error codes and their descriptions.
 ---
 
-# All errors
+# All {{ datalens-full-name }} errors
 
 This page presents error codes and their descriptions. To view detailed error information, follow the link by clicking the error code:
 
@@ -13,7 +13,7 @@ Error code | Description |
 [ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED](ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md) | Request size limit exceeded |
 [ERR.CK.TOO_MANY_LINES](ERR-CK_TOO_MANY_LINES.md) | Too many series on the chart |
 [ERR.DS_API](ERR-DS_API.md) | Internal server error |
-[ERR.DS_API.CONNECTION_CONFIG.DASHSQL_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md) | Use of QL charts is prohibited at connection level |
+[ERR.DS_API.CONNECTION_CONFIG.DASHSQL_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md) | Using QL charts is prohibited at the connection level |
 [ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md) | Subquery source is disallowed in the connection settings |
 [ERR.DS_API.DATABASE_UNAVAILABLE](ERR-DS_API-DATABASE_UNAVAILABLE.md) | Data source is unavailable |
 [ERR.DS_API.DB](ERR-DS_API-DB.md) | Error executing a query in the data source |
@@ -31,11 +31,11 @@ Error code | Description |
 [ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED](ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md) | Access to table was denied |
 [ERR.DS_API.DB.CHYT.TABLE_HAS_NO_SCHEMA](ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md) | YT table has no schema. Only schematized tables are supported |
 [ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST](ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md) | Requested database column does not exist |
-[ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED](ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md) | Data preparation is not complete yet |
+[ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED](ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md) | Data preparation not finished |
 [ERR.DS_API.DB.DB_OPERATIONAL_ERROR](ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md) | Database-side error |
 [ERR.DS_API.DB.INVALID_FUNCTION.PG_DOUBLE_PRECISION_ROUND](ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md) | ROUND with precision parameter is not supported for double precision data type in PostgreSQL |
 [ERR.DS_API.DB.JOIN_COLUMN_TYPE_MISMATCH](ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md) | Columns in JOIN have different types |
-[ERR.DS_API.DB.MATERIALIZATION_NOT_FINISHED](ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md) | Data preparation is not complete yet |
+[ERR.DS_API.DB.MATERIALIZATION_NOT_FINISHED](ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md) | Data preparation not finished |
 [ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED](ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md) | Memory limit has been exceeded during query execution |
 [ERR.DS_API.DB.SOURCE_CONNECT_ERROR](ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md) | Data source refused connection |
 [ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST](ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md) | Data source (table) does not exist |

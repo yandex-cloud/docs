@@ -48,4 +48,8 @@ description: Follow this guide to get information about an OIDC app in {{ org-na
      updated_at: "2025-10-22T11:53:21.689383Z"
      ```
 
+- API {#api}
+
+  Use the [Application.Get](../../idp/application/oauth/api-ref/Application/get.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Get](../../idp/application/oauth/api-ref/grpc/Application/get.md) gRPC API call.
+
 {% endlist %}

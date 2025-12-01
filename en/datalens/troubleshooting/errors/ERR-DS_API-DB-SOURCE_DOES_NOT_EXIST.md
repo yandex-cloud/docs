@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST error
-description: This page describes the ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST'
+description: This page describes the Data source (table) timed does not exist {{ datalens-full-name }} error.
 ---
 
-# Data source (table) does not exist
+# [{{ datalens-full-name }}] Data source (table) does not exist
 
 `ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST`
 

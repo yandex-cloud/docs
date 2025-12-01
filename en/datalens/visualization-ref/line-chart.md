@@ -1,4 +1,9 @@
-# Line chart ![](../../_assets/datalens/line.svg)
+---
+title: Line chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the line chart visualization type in {{ datalens-full-name }}.
+---
+
+# Line chart ![](../../_assets/datalens/line.svg) in {{ datalens-full-name }}
 
 This chart displays a change to one or more measures over a time interval. It indicates trends, seasonality, dynamics, and a ratio of multiple measures in a single point in time. A chart is built using points with (X, Y) coordinates that are then connected by a line. 
 

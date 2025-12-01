@@ -61,4 +61,8 @@ To update local user data:
      * `--email`: New user email address.
      * `--phone-number`: New user phone number.
 
+- API {#api}
+
+  Use the [User.Update](../../idp/api-ref/User/update.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/Update](../../idp/api-ref/grpc/User/update.md) gRPC API call.
+
 {% endlist %}

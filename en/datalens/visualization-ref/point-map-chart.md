@@ -1,4 +1,9 @@
-# Point map ![](../../_assets/datalens/heatmap.svg)
+---
+title: Point map in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the point map visualization type in {{ datalens-full-name }}.
+---
+
+# Point map ![](../../_assets/datalens/heatmap.svg) in {{ datalens-full-name }}
 
 Each point is plotted by its geographic coordinates.
 
