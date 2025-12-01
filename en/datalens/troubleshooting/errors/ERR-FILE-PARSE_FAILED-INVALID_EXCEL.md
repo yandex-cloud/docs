@@ -1,9 +1,9 @@
 ---
-title: ERR.FILE.PARSE_FAILED.INVALID_EXCEL error
-description: This page describes the ERR.FILE.PARSE_FAILED.INVALID_EXCEL error.
+title: '{{ datalens-full-name }} error ERR.FILE.PARSE_FAILED.INVALID_EXCEL'
+description: This page describes the Invalid file format {{ datalens-full-name }} error.
 ---
 
-# Invalid file format
+# [{{ datalens-full-name }}] Invalid file format
 
 `ERR.FILE.PARSE_FAILED.INVALID_EXCEL`
 

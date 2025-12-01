@@ -1,4 +1,9 @@
-# Filtering charts by other charts
+---
+title: Filtering charts by other charts in {{ datalens-full-name }}
+description: This article describes how to set up chart filtering by other charts in {{ datalens-full-name }}.
+---
+
+# Filtering charts by other charts in {{ datalens-full-name }}
 
 {{ datalens-short-name }} allows you to set up [filtering of charts by other charts](../operations/dashboard/add-filtration.md) on the dashboard. A chart with filtering configured can thus be used as a selector for other charts.
 

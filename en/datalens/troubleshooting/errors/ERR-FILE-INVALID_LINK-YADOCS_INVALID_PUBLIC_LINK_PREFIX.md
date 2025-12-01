@@ -1,9 +1,9 @@
 ---
-title: ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX error
-description: This page describes the ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX error.
+title: '{{ datalens-full-name }} error ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX'
+description: This page describes the Incorrect Yandex Documents link format {{ datalens-full-name }} error.
 ---
 
-# Incorrect Yandex Documents link format
+# [{{ datalens-full-name }}] Incorrect Yandex Documents link format
 
 `ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX`
 

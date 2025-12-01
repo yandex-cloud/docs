@@ -1,9 +1,9 @@
 ---
-title: Chart inspector
-description: In this tutorial, you will learn about the chart inspector and explore its interface.
+title: Chart inspector in {{ datalens-full-name }}
+description: In this tutorial, you will learn about the chart inspector in {{ datalens-full-name }} and explore its interface.
 ---
 
-# Chart inspector
+# Chart inspector in {{ datalens-full-name }}
 
 Multiple charts that are slow to load and process data may slow down the dashboard as a whole. You can analyze chart performance using the inspector.
 

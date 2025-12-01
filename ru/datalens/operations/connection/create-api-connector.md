@@ -6,10 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Создание подключения API Connector
 
 
-
-{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 API Connector в {{ datalens-full-name }} позволяет отправлять HTTP-запросы к произвольному API в интернете. Подключение можно использовать только в [Editor](../../charts/editor/index.md), оно не поддерживается в [QL-чартах](../../concepts/chart/ql-charts.md), а также в [чартах на основе датасета](../../concepts/chart/dataset-based-charts.md).
 
 Чтобы создать подключение API Connector:

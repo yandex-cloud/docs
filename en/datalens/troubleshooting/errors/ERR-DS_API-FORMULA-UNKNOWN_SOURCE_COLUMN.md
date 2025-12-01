@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN error
-description: This page describes the ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN error.
+title: '{{ datalens-full-name }} error ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN'
+description: This page describes the Unknown referenced source column {{ datalens-full-name }} error.
 ---
 
-# Unknown referenced source column
+# [{{ datalens-full-name }}] Unknown referenced source column
 
 `ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN`
 

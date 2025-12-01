@@ -1,4 +1,9 @@
-# Normalized column chart ![](../../_assets/datalens/normalized-column.svg)
+---
+title: Normalized column chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the normalized column chart visualization type in {{ datalens-full-name }}.
+---
+
+# Normalized column chart ![](../../_assets/datalens/normalized-column.svg) in {{ datalens-full-name }}
 
 A normalized column chart shows the contribution of each measure or category to the total amount. Unlike a [stacked column chart](column-chart.md#stacked), the proportion of segment ratios and not the total column length is important for this type of chart. Segments are highlighted in different colors and located one above the other. The height of a segment indicates its ratio to the total amount represented as 100%. For example, the percentage of sales for different product categories.
 
@@ -48,7 +53,7 @@ December 2019	| 100	| 650	| 400	| 550
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 X | Dimensions. You can specify one or two dimensions.
 Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). [Measure Names](../concepts/chart/measure-values.md) can be moved to the X-axis.

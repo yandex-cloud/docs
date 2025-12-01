@@ -52,7 +52,7 @@ To deactivate a federated user account:
 
      * `<federation_ID>`: ID of the federation you need the list of users for.
      * `--organization-id`: ID of the organization the federation belongs to.
-     * `--filter active=false`: Only active users filter.
+     * `--filter active=true`: Filter to get only active users.
 
   1. To deactivate users, provide their IDs in this command:
 
@@ -69,6 +69,10 @@ To deactivate a federated user account:
      * `--subject-ids`: List of user IDs for deactivation.
      * `--organization-id`: ID of the organization the federation belongs to.
      * `--reason`: Reason for deactivation. This is an optional parameter.
+
+- API {#api}
+
+  Use the [Federation.Suspend](../../saml/api-ref/Federation/suspendUserAccounts.md) REST API method for the [Federation](../../saml/api-ref/Federation/index.md) resource or the [FederationService/Suspend](../../saml/api-ref/grpc/Federation/suspendUserAccounts.md) gRPC API call.
 
 {% endlist %}
 
@@ -106,6 +110,10 @@ To deactivate a local user account:
      ```
 
      Where `--reason` is the reason for deactivation. This is an optional parameter.
+
+- API {#api}
+
+  Use the [User.Suspend](../../idp/api-ref/User/suspend.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/Suspend](../../idp/api-ref/grpc/User/suspend.md) gRPC API call.
 
 {% endlist %}
 

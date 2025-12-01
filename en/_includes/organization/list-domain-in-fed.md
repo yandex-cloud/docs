@@ -18,4 +18,8 @@
       yc organization-manager federation saml list-domains <federation_name_or_ID>
       ```
       
+- API {#api}
+
+  Use the [Federation.ListDomains](../../organization/saml/api-ref/Federation/listDomains.md) REST API method for the [Federation](../../organization/saml/api-ref/Federation/index.md) resource or the [FederationService/ListDomains](../../organization/saml/api-ref/grpc/Federation/listDomains.md) gRPC API call.
+
 {% endlist %}

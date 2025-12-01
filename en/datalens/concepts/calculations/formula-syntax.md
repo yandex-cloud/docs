@@ -1,9 +1,9 @@
 ---
 title: Formula syntax in {{ datalens-full-name }}
-description: This article describes the syntax of formulas for calculated expressions in {{ datalens-name }}.
+description: This article describes the syntax of formulas for calculated expressions in {{ datalens-full-name }}.
 ---
 
-# Formula syntax
+# Formula syntax in {{ datalens-full-name }}
 
 The syntax of calculated expressions in {{ datalens-full-name }} is similar to SQL.
 For simple expressions, you can use ordinary arithmetic operations:

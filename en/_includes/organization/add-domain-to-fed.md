@@ -43,4 +43,8 @@
 
       Save the `value` as you will need it to [validate the domain](../../organization/operations/user-pools/validate-domain.md).
 
+- API {#api}
+
+  Use the [Federation.AddDomain](../../organization/saml/api-ref/Federation/addDomain.md) REST API method for the [Federation](../../organization/saml/api-ref/Federation/index.md) resource or the [FederationService/AddDomain](../../organization/saml/api-ref/grpc/Federation/addDomain.md) gRPC API call.
+
 {% endlist %}

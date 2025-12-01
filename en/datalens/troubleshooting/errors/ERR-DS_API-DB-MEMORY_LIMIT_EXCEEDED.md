@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED error
-description: This page describes the ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED'
+description: This page describes the Memory limit has been exceeded during query execution {{ datalens-full-name }} error.
 ---
 
-# Memory limit has been exceeded during query execution
+# [{{ datalens-full-name }}] Memory limit has been exceeded during query execution
 
 `ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED`
 

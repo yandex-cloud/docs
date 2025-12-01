@@ -54,4 +54,8 @@
      * `--phone-number`: User phone number. This is an optional parameter.
      * `--password`: Password. This is an optional parameter. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
 
+- API {#api}
+
+  Use the [User.Create](../../organization/idp/api-ref/User/create.md) REST API method for the [User](../../organization/idp/api-ref/User/index.md) resource or the [UserService/Create](../../organization/idp/api-ref/grpc/User/create.md) gRPC API call.
+
 {% endlist %}

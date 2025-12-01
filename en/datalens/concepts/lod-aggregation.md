@@ -1,9 +1,9 @@
 ---
 title: LOD expressions in {{ datalens-full-name }}
-description: This article describes how {{ datalens-name }} LOD expressions allow you to add or remove dimensions to/from a group and use nested aggregations.
+description: This article describes how {{ datalens-full-name }} LOD expressions allow you to add or remove dimensions to/from a group and use nested aggregations.
 ---
 
-# LOD expressions and filtering in aggregation functions
+# LOD expressions and filtering management in aggregation functions in {{ datalens-full-name }}
 
 By default, in {{ datalens-short-name }}, [aggregate functions](../function-ref/aggregation-functions.md) are calculated with grouping by the dimensions involved in the chart building (i.e., located in one of the chart sections). You can change the grouping for an aggregate function if you specify the [level of detail](../function-ref/aggregation-functions.md#syntax-lod). By managing it, you can add or exclude dimensions from grouping and use nested aggregations. For more information about how data aggregation and groupings work in {{ datalens-short-name }}, see [{#T}](aggregation-tutorial.md).
 

@@ -128,6 +128,8 @@ You can open the history window for background data export in one of the followi
 * Open the [chart export](#how-to-background-export) window and click **Export history**.
 * After your export completes, follow the **Export page** link in the **Chart export complete** notification.
 
+Export data is loading up as you scroll the page.
+
 ![image](../../../_assets/datalens/chart/data-export-history.png)
 
 The page displays a list of export operations and their details:
@@ -153,7 +155,7 @@ Users with the `{{ roles-datalens-admin }}` role in the organization can also se
 
 ## Disabling data export {#data-export-disable}
 
-By default, users can export data from charts. You can disable this option at the {{ datalens-short-name }} instance level or  connection or dataset level.
+By default, users can export data from charts. You can disable this option at the {{ datalens-short-name }} instance level or connection or dataset level.
 
 {% list tabs %}
 

@@ -1,4 +1,9 @@
-# Heat map ![](../../_assets/datalens/heatmap.svg)
+---
+title: Heat map in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the heat map visualization type in {{ datalens-full-name }}.
+---
+
+# Heat map ![](../../_assets/datalens/heatmap.svg) in {{ datalens-full-name }}
 
 A heat map shows the density of point distribution. Map areas are colored with a gradient ranging from green to red: the more points are grouped in an area, the closer its color is to red. Heat maps are used to display concentrations of a large number of points.
 

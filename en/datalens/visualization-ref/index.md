@@ -1,9 +1,9 @@
 ---
 title: Visualization reference in {{ datalens-full-name }}
-description: In this article, you will learn about chart types available in {{ datalens-short-name }}.
+description: In this article, you will learn about chart types available in {{ datalens-full-name }}.
 ---
 
-# Visualization reference
+# Visualization reference in {{ datalens-full-name }}
 
 
 

@@ -1,9 +1,10 @@
 ---
-description: In this tutorial, you will learn how to optimize operations with {{ CH }} connections in {{ datalens-name }}.
+title: Tips for creating a CHYT connection in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to streamline operations with CHYT connections in {{ datalens-full-name }}.
 ---
 
 
-# Recommendations for creating a CHYT connection
+# Tips for creating a CHYT connection in {{ datalens-full-name }}
 
 
 ## Distributing datasets across connections {#separation-by-connections}
@@ -13,12 +14,12 @@ description: In this tutorial, you will learn how to optimize operations with {{
 
 ## Creating quick dashboards {#creating-quick-dashboards}
 
-* Try to pre-aggregate the data as much as possible. For example, if the data is in milliseconds and you need to build analytics by days, pre-aggregate the data to days.
+* Try to pre-aggregate data as much as possible. For example, if the data is in milliseconds and you need to build analytics by days, pre-aggregate the data to days.
 * Cut down your on-the-fly calculations. For example, you can calculate the date by the `datetime` field, but filtering by this field will be slower.
 * Try to avoid JOIN. This operator slows down queries.
 * Move the data processing to an SSD disk, if [CHYT recommendations](#Recommendations-from-chyt) did not work. Tables on an SSD are processed faster.
 
-## Caching parameters and the number of charts on the dashboard page{#caching-and-graphics-options}
+## Caching parameters and the number of charts on the dashboard page {#caching-and-graphics-options}
 
 * Once you open the dashboard, individual queries are sent across all selectors and charts. Multiple queries are sent one by one. The current page and one more page (web page) are sent. All charts are not loaded at the end of the dashboard. So, to accelerate the loading, optimize the clique's data and resources.
 * We do not recommend creating multiple cliques.

@@ -1,4 +1,9 @@
-# Dataset in {{ datalens-name }}
+---
+title: Dataset in {{ datalens-full-name }}
+description: A dataset in {{ datalens-full-name }} describes a set of data and its structure. Data in a dataset is represented as fields.
+---
+
+# Dataset in {{ datalens-full-name }}
 
 A _dataset_ describes a set of data and its structure. Data in a dataset is represented as fields.
 

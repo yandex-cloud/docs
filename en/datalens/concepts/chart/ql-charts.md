@@ -1,9 +1,9 @@
 ---
-title: 'QL charts: Overview'
-description: In this tutorial, you will learn about QL charts and their features.
+title: QL charts in {{ datalens-full-name }}. Overview
+description: In this tutorial, you will learn about QL charts in {{ datalens-full-name }} and their features.
 ---
 
-# QL charts: Overview
+# QL charts in {{ datalens-full-name }}. Overview
 
 
 _QL charts_ are charts created from a connection if the connection source is a database, {{ prometheus-name }}, or {{ monitoring-short-name }}. To create such charts, one uses direct queries to the source. Depending on the chart type, the query can be run in the source database's SQL dialect, as well as the {{ prometheus-name }} or {{ monitoring-short-name }} query languages. This helps you to expand visualization capabilities by using language-specific transactions.
@@ -17,7 +17,7 @@ Unlike [dataset-based charts](dataset-based-charts.md), the logic of a visualiza
 
 {% note alert %}
 
-If users are granted [permission to view](../../security/manage-access#permission-read) your QL chart, they will be able to make any queries to any source data of this QL chart.
+If users are granted [permission to view](../../security/manage-access.md#permission-read) your QL chart, they will be able to make any queries to any source data of this QL chart.
 
 When using QL charts, configure access restrictions on the data source side.
 

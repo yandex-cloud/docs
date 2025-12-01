@@ -3898,7 +3898,6 @@ default:
         v1|string: Не тарифицируется
   sku|RUB|datalens:
     users:
-      v1|number: 990
       v1|string: "990,00\_₽"
   sku|RUB|datasphere:
     filestores|number: 0.0013

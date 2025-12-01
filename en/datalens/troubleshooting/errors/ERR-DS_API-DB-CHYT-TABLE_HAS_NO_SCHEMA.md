@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.DB.CHYT.TABLE_HAS_NO_SCHEMA error
-description: This page describes the ERR.DS_API.DB.CHYT.TABLE_HAS_NO_SCHEMA error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.CHYT.TABLE_HAS_NO_SCHEMA'
+description: This page describes the YT table has no schema. Only schematized tables are supported {{ datalens-full-name }} error.
 ---
 
-# YT table has no schema. Only schematized tables are supported
+# [{{ datalens-full-name }}] YT table has no schema. Only schematized tables are supported
 
 `ERR.DS_API.DB.CHYT.TABLE_HAS_NO_SCHEMA`
 

@@ -5,8 +5,6 @@ description: Follow this guide to create data sources from {{ objstorage-full-na
 
 # Creating a {{ dspm-name }} data source
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 A [data source](../../concepts/dspm.md#data-source) contains information about the {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) to scan as well as additional settings.
 
 Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#configure-sd) the default folder to store {{ sd-name }} data.
