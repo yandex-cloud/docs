@@ -43,6 +43,7 @@ Price per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} Ã
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### API gateway requests {#request}
@@ -53,7 +54,7 @@ Price per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} Ã
 
 You pay for the actual number of calls.
 
-> For example, 10,000 calls in excess of the free amount will cost {% calc [currency=USD] {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|number }} / 100 %}, if one million calls costs {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }}.
+> For example, 10,000 calls in excess of the free amount will cost {% calc [currency=USD] {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|number }} / 100 %}, if 1,000,000 calls cost {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }}.
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

@@ -6,4 +6,5 @@
 | Датасет | {% calc [currency=KZT] round((0.003829269547325 × 2592000 × {{ sku|KZT|ai.datasphere.datasets.v1|number }}) × 100) / 100 %} |
 | Файловое хранилище | {% calc [currency=KZT] round((0.004403452932099 × 2592000 × {{ sku|KZT|datasphere.filestores|number }}) × 100) / 100 %} |
 | Модель | {% calc [currency=KZT] round((0.003829269547325 × 2592000 × {{ sku|KZT|ai.datasphere.models.v1|number }}) × 100) / 100 %} |
+| Docker-образ | 64,52 ₸ |
 | Данные {{ ds-jobs }} | {% calc [currency=KZT] round((0.003829269547325 × 2592000 × {{ sku|KZT|ai.datasphere.jobs|number }}) × 100) / 100 %} |

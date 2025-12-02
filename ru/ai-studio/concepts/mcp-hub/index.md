@@ -76,7 +76,7 @@ MCP-серверы позволяют подключать к [большим я
 
 MCP-серверы в {{ mcp-hub-name }} могут быть приватными или публичными.
 
-К созданному в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) приватному MCP-серверу без аутентификации могут обращаться только AI-агенты, которые вызваны пользователем или сервисным аккаунтом с назначенной [ролью](../../security/index.md#serverless-mcpGateways-invoker), разрешающей обращаться к MCP-серверам в этом каталоге. Другим агентам для обращения к приватному MCP-серверу требуется аутентификация — [IAM-токен](../../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта.
+К созданному в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) приватному MCP-серверу без аутентификации могут обращаться только AI-агенты, которые вызваны пользователем или сервисным аккаунтом с назначенной [ролью](../../security/index.md#serverless-mcpGateways-invoker), разрешающей обращаться к MCP-серверам в этом каталоге. Другим агентам для обращения к приватному MCP-серверу требуется аутентификация — [IAM-токен](../../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта с заданной [областью действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.serverless.mcpGateways.invoke`.
 
 К публичным MСP-серверам могут обращаться любые агенты без аутентификации.
 

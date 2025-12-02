@@ -9,8 +9,8 @@ description: In this tutorial, you will learn how to delete a trigger in {{ api-
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Select the trigger you want to delete.
     1. In the top-right corner of the page, click **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.

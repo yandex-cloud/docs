@@ -251,3 +251,26 @@ For more information on setting up dynamic notification routing, see [this Prome
    If the request is successful, you will get the `204` HTTP code, if not, the error text. A file without a single match with current notification channels in the folder will not be accepted.
 
 {% endlist %}
+
+## Viewing alerts {#view-alerts}
+
+You can monitor the status of alerts in the [management console]({{ link-console-main }}). The **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.rules }}** tab only displays alert rules. The **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}** tab displays all alerts and their statuses.
+
+To view alerts:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. On the [{{ monitoring-name }}]({{ link-monitoring }}) page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. Select or [create a workspace](index.md#access).
+   1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}** tab and view the list of alert rules.
+   1. Optionally, set up alert filtering by name and status.
+
+   List of alert statuses:
+     * `OK`: Alert condition not met.
+     * `PENDING`: Alert condition met, but the `for` timeout not expired.
+     * `FIRING`: Alert condition met, and the `for` timeout expired. Sending notifications.
+     * `ERROR`: Error calculating the alert rule.
+
+{% endlist %}

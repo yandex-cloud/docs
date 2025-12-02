@@ -9985,6 +9985,8 @@ default:
         RequstCertificateDialog:
           createCertificate_b5eZg: Создать сертификат
       clickhouse:
+        AddCoordinatorHost:
+          title_main-settings_68Grp: Основные настройки
         button_create-cluster: Создать кластер ClickHouse
         cluster:
           databases:
@@ -10002,6 +10004,9 @@ default:
             field_ml-model-type: Тип
             field_ml-model-uri: URL
             label_add-ml-model: Создать
+          section_clickhouse-keeper-disk: Размер хранилища ClickHouse Keeper
+          section_clickhouse-keeper-hosts: Хосты ClickHouse Keeper
+          section_clickhouse-keeper-resource: Ресурсы ClickHouse Keeper
           switch_backups: Резервные копии
           switch_databases: Базы данных
           switch_datalens: DataLens
@@ -10015,6 +10020,9 @@ default:
           switch_shard-groups: Группы шардов
           switch_shards: Шарды
           switch_users: Пользователи
+          value_coordination-service-embedded-clickhouse-keeper: ClickHouse Keeper (встроенный)
+          value_coordination-service-separated-clickhouse-keeper: ClickHouse Keeper (на отдельных хостах)
+          value_coordination-service-zookeeper: ZooKeeper (на отдельных хостах)
         field_convert_tables_to_replicated: Преобразовать нереплицируемые таблицы
         hosts:
           dialog:
@@ -10027,6 +10035,7 @@ default:
         switch_list: Кластеры
         switch_operations: Операции
         title_clickhouse: ClickHouse
+        title_keeper: Keeper
         title_zookeeper: ZooKeeper
       cloud-registry:
         action_registry-create: Создать реестр
@@ -10454,6 +10463,7 @@ default:
           popup-confirm_button_stop: Остановить
         hardware-gen1-v1-title_oK6qE: Gen 1.1 (MBR, BIOS)
         hardware-gen1-v2-title_eSmBa: Gen 1.2 (MBR, BIOS)
+        hardware-gen2-title_a2Gfq: Gen 2 (GPT, UEFI)
         hardware-generation_1iEpT: Поколение оборудования
         host-group:
           hosts:
@@ -11722,6 +11732,7 @@ default:
             action_add-host: Создать хост
             action_delete-host: Удалить
             action_restart-host: Перезагрузить
+            button_add-clickhouse-keeper: Создать хост ClickHouse Keeper
             button_add-zookeeper: Создать хост ZooKeeper
             button_create-coordinator: Настроить сервис координации
             button_manual-failover: Переключить мастер
@@ -11890,6 +11901,7 @@ default:
           label_compute-subcluster: Compute
           label_data-subcluster: Data
           label_deletion-protection: Защита от удаления
+          label_disk-encryption: Шифрование дисков
           label_disk-size: Размер
           label_diskTypeId: Тип диска
           label_greenplum_pool_client-idle-timeout: Тайм-аут ожидания клиента
@@ -11924,6 +11936,7 @@ default:
           section_subclusters: Подкластеры
           section_user: Пользователь
           section_zookeeper-disk: Размер хранилища ZooKeeper
+          section_zookeeper-hosts: Хосты ZooKeeper
           section_zookeeper-resource: Класс хоста ZooKeeper
           title_deb-packages: Deb-пакеты
           title_pip-packages: Pip-пакеты
@@ -14464,8 +14477,13 @@ default:
       docker:
         build-path: Точка монтирования хранилища проекта
         credentials-switcher-label: Данные для аутентификации
+        disk-size:
+          label: Размер диска, ГБ
         docker-template: Шаблон Docker-образа
         dockerfile: Файл Docker
+        location:
+          datasphere:
+            title: DataSphere
         repository: Имя образа
         tag: Тег
       edit-project-page:

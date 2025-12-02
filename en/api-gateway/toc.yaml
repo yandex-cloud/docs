@@ -107,6 +107,8 @@ items:
             href: operations/spec-constructor/yagpt.md
           - name: '{{ sw-full-name }}'
             href: operations/spec-constructor/workflows.md
+          - name: Swagger UI
+            href: operations/spec-constructor/swagger.md
       - name: Viewing operations with service resources
         href: operations/operation-logs.md
   - name: Tutorials
@@ -185,6 +187,8 @@ items:
                 href: concepts/extensions/ymq.md
               - name: '{{ ydb-name }}'
                 href: concepts/extensions/ydb.md
+              - name: Swagger UI
+                href: concepts/extensions/swagger.md
           - name: Greedy parameters
             href: concepts/extensions/greedy-parameters.md
           - name: Generic HTTP method

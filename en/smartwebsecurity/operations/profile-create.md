@@ -19,11 +19,11 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Select one of these creation options:
-      * **{{ ui-key.yacloud.smart-web-security.title_default-template }}**: This is a recommended option. A preset profile includes:
+      * **{{ ui-key.yacloud.smart-web-security.title_default-template }}**: This is a recommended option.
 
-        * [Basic default rule](../concepts/rules.md#base-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` [action type](../concepts/rules.md#rule-action).
-        * [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` action type.
-      * **{{ ui-key.yacloud.smart-web-security.title_no-template }}**: This profile includes only the basic default rule enabled for all traffic.
+        {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
+        
+      * **{{ ui-key.yacloud.smart-web-security.title_no-template }}**. This profile includes only the basic default rule enabled for all traffic.
 
   1. Name the profile.
   1. Optionally, provide a description.
@@ -58,7 +58,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
   1. Add all relevant rules to the profile one by one.
 
       The rules you created will appear in the table under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**.
-  1. Optionally, enable or disable the use of HTTP request information to tune machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
+  1. Optionally, enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -87,10 +87,10 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
      Where:
 
-     * `--name`: Security profile name. This is a required parameter. If you specify only the profile name with no other properties, the security profile will include a single [basic rule](../concepts/rules.md#base-rules).
-     * `--description`: Text description of the security profile. This is an optional parameter.
+     * `--name`: Security profile name. This is a required setting. If you specify only the profile name with no other properties, the security profile will include a single [basic rule](../concepts/rules.md#base-rules).
+     * `--description`: Text description of the security profile. This is an optional setting.
      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. For example, `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional setting. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
       * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional setting. Here is an example:
 

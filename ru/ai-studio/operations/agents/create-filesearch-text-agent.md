@@ -10,11 +10,23 @@
 
 - Python {#python}
 
-  {% include [ai-before-beginning](../../../_includes/ai-studio/yandexgpt/ai-before-beginning.md) %}
+  1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему [роли](../../security/index.md#service-roles) `ai.assistants.editor` и `ai.languageModels.user`.
+  1. [Получите](../get-api-key.md#run-client) и сохраните [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта, указав для него [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.ai.foundationModels.execute`.
+
+      {% include [sdk-windows-wsl-notice](../../../_includes/ai-studio/sdk-windows-wsl-notice.md) %}
+
+  1. {% include [sdk-before-begin-step3](../../../_includes/ai-studio/sdk-before-begin-step3.md) %}
+  1. {% include [sdk-before-begin-step4](../../../_includes/ai-studio/sdk-before-begin-step4.md) %}
+  1. {% include [sdk-before-begin-step5](../../../_includes/ai-studio/sdk-before-begin-step5.md) %}
+  1. Установите [библиотеку](https://github.com/openai/openai-python) OpenAI для Python:
+
+      ```bash
+      pip install openai
+      ```
 
 {% endlist %}
 
-## Создайте {#create-agent}
+## Создайте агента {#create-agent}
 
 {% list tabs group=programming_language %}
 
@@ -207,3 +219,7 @@
       {% endcut %}
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](./create-prechunked-search-agent.md)

@@ -186,6 +186,8 @@ items:
             href: operations/agents/create-websearch-text-agent.md
           - name: Создать текстового агента с поиском по файлам
             href: operations/agents/create-filesearch-text-agent.md
+          - name: Создать агента с поиском по заданным текстовым фрагментам
+            href: operations/agents/create-prechunked-search-agent.md
           - name: Работа с поисковым индексом {{ vector-store-name }}
             href: operations/agents/manage-searchindex.md
       - name: '{{ mcp-hub-name }}'

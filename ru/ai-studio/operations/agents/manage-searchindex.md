@@ -16,13 +16,9 @@ description: Следуя этой инструкции, с помощью {{ ve
 - Python {#python}
 
   1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему [роли](../../security/index.md#service-roles) `ai.assistants.editor` и `ai.languageModels.user`.
-  1. [Получите](../get-api-key.md#run-client) и сохраните [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта.
+  1. [Получите](../get-api-key.md#run-client) и сохраните [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта, указав для него [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.ai.foundationModels.execute`.
   
-        {% note info %}
-        
-        Если вы используете ОС [Windows](https://ru.wikipedia.org/wiki/Windows), рекомендуем предварительно [установить](https://learn.microsoft.com/ru-ru/windows/wsl/install) оболочку [WSL](https://ru.wikipedia.org/wiki/Windows_Subsystem_for_Linux) и выполнять дальнейшие действия в этой оболочке.
-        
-        {% endnote %}
+      {% include [sdk-windows-wsl-notice](../../../_includes/ai-studio/sdk-windows-wsl-notice.md) %}
 
   1. {% include [sdk-before-begin-step3](../../../_includes/ai-studio/sdk-before-begin-step3.md) %}
   1. {% include [sdk-before-begin-step4](../../../_includes/ai-studio/sdk-before-begin-step4.md) %}

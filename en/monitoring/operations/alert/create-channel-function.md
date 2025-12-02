@@ -15,11 +15,11 @@ To set up notifications with {{ sf-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the resources you monitor in {{ monitoring-name }}.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. [Create a function](../../../functions/operations/function/function-create.md) and a [function version](../../../functions/operations/function/version-manage.md).
   1. In the settings, enable [asynchronous invocation](../../../functions/operations/function/function-invoke-async.md).
   1. [Create a service account](../../../iam/operations/sa/create.md) with the `{{ roles-functions-invoker }}` and `{{ roles-functions-viewer }}` roles. You will need it to invoke your function.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
   1. Enter a name for your notification channel.
   1. From the **{{ ui-key.yacloud_monitoring.channel.field_method }}** list, select **{{ sf-name }}**.

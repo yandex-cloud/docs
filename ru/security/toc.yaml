@@ -99,6 +99,22 @@ items:
             href: tutorials/authentication/entra-id.md
           - name: Сопоставление групп пользователей в {{ keycloak }}
             href: tutorials/authentication/keycloak.md
+      - name: Безопасность и стандарты
+        items:
+          - name: Настройка единого входа в Grafana Cloud по стандарту OIDC
+            href: tutorials/single-sign-on/oidc-grafana.md
+          - name: Настройка единого входа в Grafana Cloud по стандарту SAML
+            href: tutorials/single-sign-on/saml-grafana.md
+          - name: Настройка единого входа в {{ mgl-name }} по стандарту SAML
+            href: tutorials/single-sign-on/saml-managed-gitlab.md
+          - name: Настройка единого входа в Zabbix по стандарту SAML
+            href: tutorials/single-sign-on/saml-zabbix.md
+          - name: Настройка единого входа в {{ mos-name }} по стандарту SAML
+            href: tutorials/single-sign-on/saml-opensearch.md
+          - name: Настройка единого входа в SonarQube по стандарту SAML
+            href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: Настройка единого входа в {{ yandex-360 }} по стандарту SAML
+            href: tutorials/single-sign-on/saml-yandex-360.md
       - name: Сетевая безопасность
         items:
           - name: Организация виртуального хостинга

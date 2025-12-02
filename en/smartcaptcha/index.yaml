@@ -1,8 +1,6 @@
 title: Yandex SmartCaptcha
 description:
-  - >-
-    Yandex SmartCaptcha lets you determine who the system user is: an individual
-    or a computer.
+  - Yandex SmartCaptcha can tell human system users from computers.
 links:
   - title: Getting started
     description: Set up the first widget and check the user
@@ -33,9 +31,7 @@ links:
     href: https://{{ captcha-domain }}/demo
 meta:
   title: Yandex SmartCaptcha
-  description: >-
-    Yandex SmartCaptcha lets you determine who the system user is: an individual
-    or a computer.
+  description: Yandex SmartCaptcha can tell human system users from computers.
   keywords:
     - captcha
     - captcha {{ captcha-name }}

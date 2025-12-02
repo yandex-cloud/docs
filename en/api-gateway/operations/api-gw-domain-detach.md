@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to remove a domain from an API
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click the API gateway name.
   1. Go to ![image](../../_assets/api-gateway/domain-icon.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
   1. Click ![image](../../_assets/options.svg) in the domain row and select **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_acton-delete }}**.
@@ -19,7 +19,7 @@ description: In this tutorial, you will learn how to remove a domain from an API
       
       * If your domain is delegated to {{ dns-name }}:
 
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
         1. Select the zone hosting the domain.
         1. Click ![image](../../_assets/options.svg) in the record row with the ![image](../../_assets/api-gateway/service-icon.svg) icon and select **{{ ui-key.yacloud.common.delete }}**.
         1. Confirm the deletion.
