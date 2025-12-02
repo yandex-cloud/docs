@@ -24,17 +24,16 @@ description: Следуя данной инструкции, вы сможете
 
 * Количество хостов, которые можно создать вместе с кластером {{ CH }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
 
-* При использовании [{{ CK }}](../concepts/replication.md#ck) кластер должен состоять из трех или более хостов — отдельные хосты для запуска {{ CK }} не требуются. Создать такой кластер можно только с помощью [CLI {{ yandex-cloud }}](../../cli) и [API](../../glossary/rest-api.md).
+* При использовании [{{ CK }}](../concepts/replication.md#ck) конфигурация кластера зависит от выбранного режима:
+
+  * **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-embedded-clickhouse-keeper }}** — {{ CK }} размещается на хостах {{ CH }}. Кластер должен состоять из трех или более хостов {{ CH }}.
+  * **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** — {{ CK }} размещается на отдельных хостах. Кластер должен состоять из двух и более хостов {{ CH }}. Еще 3 хоста {{ CK }} будут добавлены в кластер автоматически. 
 
 * При использовании [{{ ZK }}](../concepts/replication.md#zk) кластер может состоять из двух и более хостов. Еще 3 хоста {{ ZK }} будут добавлены в кластер автоматически.
 
   Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Репликация](../concepts/replication.md#zk).
 
-  {% note warning %}
-
-  Хосты {{ ZK }} учитываются в расчете использованной [квоты ресурсов]({{ link-console-quotas }}) в облаке и в [расчете стоимости](../pricing.md#prices-zookeeper) кластера.
-
-  {% endnote %}
+{% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
 
 
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
@@ -62,10 +61,6 @@ description: Следуя данной инструкции, вы сможете
       * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
   1. Выберите версию {{ CH }}, которую будет использовать кластер {{ mch-name }}, из выпадающего списка **{{ ui-key.yacloud.mdb.forms.base_field_version }}**. Для большинства кластеров рекомендуется выбрать самую новую LTS-версию.
 
-  
-  1. Если вы планируете использовать данные из бакета {{ objstorage-name }} с [ограниченным доступом](../../storage/concepts/bucket#bucket-access), то выберите сервисный аккаунт из выпадающего списка или создайте новый. Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
-
-
   1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
       * Выберите платформу, тип виртуальной машины и класс хостов — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных экземпляров.
@@ -80,28 +75,60 @@ description: Следуя данной инструкции, вы сможете
 
       * Выберите размер диска, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).
 
-      * (Опционально) Задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) для подкластера {{ CH }}:
+      * (Опционально) Задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ CH }}:
 
         {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
 
-        Настройки автоматического увеличения размера хранилища, заданные для подкластера {{ CH }}, применяются ко всем существующим шардам внутри подкластера. При добавлении нового шарда значения настройки берутся с самого старого шарда.
+        Настройки автоматического увеличения размера хранилища, заданные для {{ CH }}, применяются ко всем существующим шардам. При добавлении нового шарда значения настройки берутся с самого старого шарда.
 
-      
-      * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
-
-        * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
-
-        * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
-
-        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
-
-
-
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**:
   
-      * (Опционально) Задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) для подкластера {{ ZK }}:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
-        {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
+      
+      * Укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
+
+        * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
+
+        
+        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — разрешите [доступ](connect/index.md) к хосту из интернета.
+
+
+        * Если для кластера включено [шардирование](../concepts/sharding.md) и хостов больше, чем шардов, выберите шард.
+
+        Чтобы добавить хосты в кластер, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+
+      * (Опционально) Выберите [сервис координации](../concepts/replication.md), который будет распределять запросы между хостами:
+
+        * {{ CK }} на хостах {{ CH }} (встроенный);
+        * {{ CK }} на отдельных хостах;
+        * {{ ZK }} на отдельных хостах.
+
+  1. В зависимости от выбранного сервиса координации задайте следующие настройки:
+
+      * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**:
+
+        * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md).
+        * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ CK }}.
+        * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-hosts }}** при необходимости измените настройки автоматически добавленных хостов {{ CK }}.
+        
+          Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
+          
+          * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+          * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
+
+      * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}**:
+
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md).
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ ZK }}.
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}** при необходимости измените настройки автоматически добавленных хостов {{ ZK }}.
+        
+          Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
+          
+          * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+          * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
   
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -152,23 +179,6 @@ description: Следуя данной инструкции, вы сможете
       * При необходимости задайте [настройки СУБД](../concepts/settings-list.md#server-level-settings). Их также можно задать позднее.
 
         Через интерфейсы {{ yandex-cloud }} можно управлять ограниченным набором настроек. С помощью SQL-запросов можно [установить настройки {{ CH }} на уровне запроса](change-query-level-settings.md).
-
-  
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
-
-
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
-
-      * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
-      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
-
-      
-      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — разрешите [доступ](connect/index.md) к хосту из интернета.
-
-        {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
-
-
-      Чтобы добавить хосты в кластер, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
   1. При необходимости задайте сервисные настройки кластера:
 
@@ -346,7 +356,7 @@ description: Следуя данной инструкции, вы сможете
          * `--cloud-storage-data-cache` — хранение файлов в кластерном хранилище: `true` или `false`.
          * `--cloud-storage-prefer-not-to-merge` — отключает слияние кусков данных в кластерном и объектном хранилищах: `true` или `false`.
 
-      1. Чтобы задать автоматическое увеличение размера хранилища для подкластеров {{ CH }} и {{ ZK }}, используйте флаг `--disk-size-autoscaling`:
+      1. Чтобы задать автоматическое увеличение размера хранилища для {{ CH }} и {{ ZK }}, используйте флаг `--disk-size-autoscaling`:
         
          ```bash
          {{ yc-mdb-ch }} cluster create \
@@ -360,7 +370,7 @@ description: Следуя данной инструкции, вы сможете
            ...
          ```
 
-         Где `--disk-size-autoscaling` — настройки автоматического увеличения размера хранилища:
+         Где `--disk-size-autoscaling` — настройки автоматического увеличения размера хранилищ:
          
          {% include [disk-size-autoscaling-cli](../../_includes/mdb/mch/disk-size-autoscaling-cli.md) %}
       
@@ -720,7 +730,7 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.diskSize` — размер диска в байтах.
                     * `resources.diskTypeId` — [тип диска](../concepts/storage.md).
 
-                    * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ CH }}:
+                    * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища {{ CH }}:
                       
                       {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
 
@@ -736,7 +746,7 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.diskSize` — размер диска в байтах.
                     * `resources.diskTypeId` — тип диска.
 
-                    * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ ZK }}:
+                    * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища {{ ZK }}:
                       
                       {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
 
@@ -959,7 +969,7 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.disk_size` — размер диска в байтах.
                     * `resources.disk_type_id` — [тип диска](../concepts/storage.md).
 
-                    * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ CH }}:
+                    * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища {{ CH }}:
                       
                         {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
 
@@ -975,7 +985,7 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.disk_size` — размер диска в байтах.
                     * `resources.disk_type_id` — тип диска.
 
-                    * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ ZK }}:
+                    * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища {{ ZK }}:
                       
                         {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 

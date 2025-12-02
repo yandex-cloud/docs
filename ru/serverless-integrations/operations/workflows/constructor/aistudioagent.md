@@ -22,6 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
           Чтобы добавить несколько переменных, нажмите **Добавить переменную** необходимое количество раз.
 
+      1. (Опционально) В поле **Сообщение** введите входящее сообщение, которое будет передано агенту вместе с промтом.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

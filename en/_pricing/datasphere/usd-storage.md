@@ -6,4 +6,5 @@ Node instance disk | {% calc [currency=USD] 0.003829269547325 × 2592000 × 0.00
 Dataset |  {% calc [currency=USD] 0.003829269547325 × 2592000 × 0.0000108 %}
 File storage | {% calc [currency=USD] 0.004403452932099 × 2592000 × 0.0000108 %}
 Model |  {% calc [currency=USD] 0.003829269547325 × 2592000 × 0.0000108 %}
+Docker image | $0.107195 
 {{ ds-jobs }} data |  {% calc [currency=USD] 0.003829269547325 × 2592000 × 0.0000108 %}

@@ -479,8 +479,6 @@ description: Из статьи вы узнаете, как изменить на
     * `--yandexquery-access` — разрешает доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
 
 
-    * `--autofailover` – управляет настройкой автоматической смены мастера. Подробнее см. в разделе [Репликация](../concepts/replication.md#replication-auto). Значение по умолчанию — `true`.
-
     * `--connection-pooling-mode` — указывает [режим работы менеджера подключений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
     * `--deletion-protection` — защита от удаления кластера, его баз данных и пользователей.

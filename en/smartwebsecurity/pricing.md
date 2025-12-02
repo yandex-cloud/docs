@@ -36,6 +36,7 @@ When using [domains](concepts/domain-protect.md), in addition to the cost of pro
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Subscription billing {#subscription}
@@ -64,7 +65,7 @@ If the plan you select is not enough, you can switch to another with pro-rata re
 
 
 
-To calculate the cost of using the service, use our [calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+To calculate the cost of using the service, use our [calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}

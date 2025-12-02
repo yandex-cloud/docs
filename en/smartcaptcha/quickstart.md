@@ -49,7 +49,7 @@ To get started:
        1. Select the `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}` [level](./concepts/tasks.md#task-difficulty).
 
     1. You can add [challenge options](concepts/captcha-variants.md) and configure incoming traffic rules to display different CAPTCHAs to different users. In this example, you will configure a single default CAPTCHA for all users.
-    1. Optionally, enable or disable the use of HTTP request information to improve machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
+    1. Optionally, enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
        ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)

@@ -8,6 +8,18 @@
 
    {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
+
+* **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — аккаунт, от имени которого пользовательские программы могут управлять кластером. Подробнее см. в документации [{#T}](../../../managed-clickhouse/security.md).
+
+* **{{ ui-key.yacloud.mdb.forms.label_disk-encryption }}** — опция включает шифрование диска [пользовательским ключом KMS](../../../kms/concepts/key.md). Задайте ключ одним из способов:
+
+   * Чтобы [создать](../../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+   * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
+
+   Подробнее о шифровании дисков см. в разделе [Хранилище](../../../managed-clickhouse/concepts/storage.md#disk-encryption).
+
+
 * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
 

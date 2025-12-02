@@ -91,7 +91,7 @@ To create an infrastructure using {{ TF }}:
    Learn more about the properties of {{ TF }} resources in the relevant provider guides:
    * [TLS certificate](../../certificate-manager/concepts/managed-certificate.md): [yandex_cm_certificate]({{ tf-provider-datasources-link }}/cm_certificate) data source.
    * [Bucket](../../storage/concepts/bucket.md): [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
-   * [Configuring](../../storage/operations/buckets/edit-acl.md) access permissions for a bucket using [ACL Object Storage](../../storage/concepts/acl.md): [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/yandex_storage_bucket_grant).
+   * [Configuring](../../storage/operations/buckets/edit-acl.md) access permissions for a bucket using [ACL Object Storage](../../storage/concepts/acl.md): [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant).
    * [Object](../../storage/concepts/object.md): [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object).
    * [DNS zone](../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
    * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).

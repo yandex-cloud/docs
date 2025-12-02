@@ -1,4 +1,4 @@
-Вместо {{ mcp-hub-name }} для обращения к внешнему MCP-серверу из AI-агента вы можете использовать {{ responses-api }}. Для этого достаточно просто указать URL-адрес сервера и [API-ключ](../../../iam/concepts/authorization/api-key.md).
+Вместо {{ mcp-hub-name }} для обращения к внешнему MCP-серверу из AI-агента вы можете использовать {{ responses-api }}. Для этого достаточно просто указать URL-адрес сервера и [API-ключ](../../../iam/concepts/authorization/api-key.md) с заданной [областью действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.serverless.mcpGateways.invoke`.
 
 {% cut "Пример подключения MCP-сервера через {{ responses-api }}:" %}
 

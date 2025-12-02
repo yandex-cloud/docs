@@ -32,7 +32,7 @@ The trigger must be in the same cloud as the registry or device from the topic o
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -83,7 +83,7 @@ The trigger must be in the same cloud as the registry or device from the topic o
     * `--name`: Trigger name.
     * `--registry-id`: [Registry ID](../../../iot-core/operations/registry/registry-list.md).
     * `--device-id`: [Device ID](../../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
-    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger will fire for all registry or device topics.
+    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional setting. If this parameter is skipped, the trigger will fire for all registry or device topics.
 
     {% include [batch-settings-messages](../../../_includes/api-gateway/batch-settings-messages.md) %}
 

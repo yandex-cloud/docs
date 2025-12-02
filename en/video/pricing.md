@@ -25,6 +25,7 @@ The video content is stored in {{ objstorage-name }}. The data amount is measure
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Video storage and conversion {#video}

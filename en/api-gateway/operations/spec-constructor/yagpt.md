@@ -10,7 +10,7 @@ description: Follow this guide to add the {{ foundation-models-full-name }} exte
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in which you created or want to create an [API gateway](../../concepts/index.md).
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select an API gateway or click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}** to create a new one.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, click ![image](../../../_assets/api-gateway/spec-constructor/cloud-yagpt.svg).
     1. In the field, specify the following:
@@ -26,13 +26,13 @@ description: Follow this guide to add the {{ foundation-models-full-name }} exte
 
     1. Under **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}**, select a prompt source and specify the following:
 
-        * For the `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_query_option }}` source: Name of the query parameter where you will provide the prompt for the text generation API request.
-        * For the `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_body_option }}` source: Name of the request body field you will use to provide the prompt for the text generation API request.
+        * For the `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_query_option }}` source: Name of the query parameter in which to provide the prompt for the text generation API request.
+        * For the `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_body_option }}` source: Name of the request body field in which to provide the prompt for the text generation API request.
     1. Under **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_title }}**, select the model use case and set the relevant parameters:
 
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_hint }}`:
 
-            * **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_temp_title }}**: Determines the variability of the model's response. This is an optional setting. Specify a value between `0` and `1`. With a higher temperature, you get a more creative and randomized response from the model. The default value is `0.3`.
+            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_temp_title }}**: Determines the variability of the model's response. Specify a value from `0` to `1`. With a higher temperature, you get a more creative and randomized response from the model. The default value is `0.3`.
             * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_max_tokens_title }}**: Maximum number of generation [tokens](../../../ai-studio/concepts/generation/tokens.md). The default is `5`. This allows you to limit the size of the model response, if required.
 
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_hint }}`:
@@ -53,10 +53,10 @@ description: Follow this guide to add the {{ foundation-models-full-name }} exte
 
 ## Requirements to the structure of an incoming request {#requirements}
 
-For the API gateway to correctly process incoming requests, set `Content-Type: application/json`. Plus, consider the following:
+For the API gateway to correctly process incoming requests, set the `Content-Type: application/json` header. Plus, consider the following:
 * If `Query parameter` is selected as a method to deliver the prompt, the request must include the query parameter from the **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}** section and its value.
 
     Here is an API gateway call path example: `<path_to_integration>?<specified_query_parameter>=<prompt_contents>`.
 * If `Request body` is selected as a method to deliver the prompt, the request body must include the field from the **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}** section and its value.
             
-    Request body example: `{"<request_body_field_name_>": "<prompt_contents>"}`.
+    Here is a request body example: `{"<request_body_field_name>": "<prompt_contents>"}`.

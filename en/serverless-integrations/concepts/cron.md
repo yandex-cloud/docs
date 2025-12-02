@@ -37,7 +37,7 @@ You can use the following special characters in cron expressions:
 
 * `*`: Selects all values in the field.
 
-    > `*` in `Minutes`: The timer starts every minute.
+    > The `*` character in the `Minutes` field: The timer starts every minute.
 
 * `?`: Selects any field value. You cannot specify `Day of month` and `Day of week` at the same time. If you have entered a value in one of these fields, put `?` in the other one. {{ sw-name }} does not support `?` in the `Day of week` field.
 
@@ -45,15 +45,15 @@ You can use the following special characters in cron expressions:
 
 * `-` : Selects a range of values.
 
-    > `10-12` in `Hours`: The timer starts at 10 a.m., 11 a.m., and 12 p.m.
+    > The `10-12` range in `Hours`: The timer starts at 10 a.m., 11 a.m., and 12 p.m.
 
 * `,`: Selects multiple values.
 
-    > `MON,WED,FRI` in `Day of week`: The timer starts on Monday, Wednesday, and Friday.
+    > `MON,WED,FRI` in the `Day of week` field: The timer starts on Monday, Wednesday, and Friday.
 
 * `/`: Increment the value.
 
-    > `0/15` in `Minutes`: The timer starts at 0, 15, 30, and 45 minutes past each hour.
+    > `0/15` in the `Minutes` field: The timer starts at 0, 15, 30, and 45 minutes past each hour.
 
 * `L`: This character functions differently in the two fields it is valid for:
 
@@ -62,27 +62,27 @@ You can use the following special characters in cron expressions:
  
     It is only supported for {{ er-name }}.
 
-    > `L` in `Day of month`: The timer starts on January 31, February 28, and so on.
+    > `L` in the `Day of month` field: The timer starts on January 31, February 28, and so on.
 
 * `W`: Selects the weekday nearest to the specified date. It is only supported for {{ er-name }}.
 
-    > `15W` in `Day of month`: The timer starts on the weekday nearest to the 15th day of the month. If the 15th day is a Saturday, the timer starts on Friday the 14th.
+    > `15W` in the `Day of month` field: The timer starts on the weekday nearest to the 15th day of the month. If the 15th day is a Saturday, the timer starts on Friday the 14th.
 
     {% note info %}
 
-    `L` and `W` in the `Day of month` field can also merge into the `LW` combination, starting the timer on the last weekday of the month.
+    The `L` and `W` characters in the `Day of month` field also merge into the `LW` combination: The timer starts on the last weekday of the month.
 
     {% endnote %}
 
 * `#`: Selects the Nth day of the month. It is only supported for {{ er-name }}.
 
-    > `6#3` in `Day of week`: The timer starts on the third Friday of the month (6 for Friday; 3 for the third Friday of the month).
+    > `6#3` in the `Day of week` field: The timer starts on the third Friday of the month (6 for Friday; 3 for third Friday of the month).
 
 
 ## Examples of cron expressions {#examples}
 
-Cron expression | Description
---- | ---
-`0 * * * * ?` | The timer starts every minute.
-`0 0 * ? * *`| The timer starts every hour.
-`0 15 10 ? * *` | The timer starts every day at 10:15.
+{{ er-name }} | {{ sw-name }} | Description
+--- | --- | ---
+`0 * * * * ?` | `0 * * * * *` | The timer starts every minute.
+`0 0 * ? * *`| `0 0 * * * *` | The timer starts every hour.
+`0 15 10 ? * *` | `0 15 10 * * *` | The timer starts every day at 10:15.

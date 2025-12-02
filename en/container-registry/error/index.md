@@ -50,7 +50,14 @@ See below for a list of common issues and their fixes:
   **Why you got this error**:
   * You are trying to pull or push a Docker image to {{ container-registry-name }}, but you are not authenticated. To perform operations with images in {{ container-registry-name }}, you need to get authenticated first.
   * Docker cannot invoke the [docker-credential-yc](../operations/authentication.md#cred-helper) utility, e.g., because the path to the executable is missing from the `PATH` environment variable.
-
+  
   **How to fix it**:
   * [Get authenticated](../operations/authentication.md) in {{ container-registry-name }}.
   * Make sure that the `yc` file path has been added to the `PATH` environment variable.
+
+* `Permission denied`
+
+  **Why you got this error**: Not enough permissions to perform the operation.
+
+  **How to fix it**: Make sure that the [service account](../../iam/concepts/users/service-accounts.md) or [user](../../iam/concepts/users/accounts.md) performing the operation has the required [roles](../security/index.md).
+  

@@ -9975,6 +9975,8 @@ default:
         RequstCertificateDialog:
           createCertificate_b5eZg: Create certificate
       clickhouse:
+        AddCoordinatorHost:
+          title_main-settings_68Grp: Main settings
         button_create-cluster: Create ClickHouse cluster
         cluster:
           databases:
@@ -9992,6 +9994,9 @@ default:
             field_ml-model-type: Type
             field_ml-model-uri: URL
             label_add-ml-model: Create
+          section_clickhouse-keeper-disk: ClickHouse Keeper storage size
+          section_clickhouse-keeper-hosts: Clickhouse Keeper hosts
+          section_clickhouse-keeper-resource: Clickhouse Keeper host class
           switch_backups: Backups
           switch_databases: Databases
           switch_datalens: DataLens
@@ -10005,6 +10010,9 @@ default:
           switch_shard-groups: Shard groups
           switch_shards: Shards
           switch_users: Users
+          value_coordination-service-embedded-clickhouse-keeper: Embedded ClickHouse Keeper
+          value_coordination-service-separated-clickhouse-keeper: ClickHouse Keeper (on separate hosts)
+          value_coordination-service-zookeeper: ZooKeeper (on separate hosts)
         field_convert_tables_to_replicated: Convert non-replicated tables
         hosts:
           dialog:
@@ -10017,6 +10025,7 @@ default:
         switch_list: Clusters
         switch_operations: Operations
         title_clickhouse: ClickHouse
+        title_keeper: Keeper
         title_zookeeper: ZooKeeper
       cloud-registry:
         action_registry-create: Create registry
@@ -10444,6 +10453,7 @@ default:
           popup-confirm_button_stop: Stop
         hardware-gen1-v1-title_oK6qE: Gen 1.1 (MBR, BIOS)
         hardware-gen1-v2-title_eSmBa: Gen 1.2 (MBR, BIOS)
+        hardware-gen2-title_a2Gfq: Gen 2 (GPT, UEFI)
         hardware-generation_1iEpT: Hardware generation
         host-group:
           hosts:
@@ -11710,6 +11720,7 @@ default:
             action_add-host: Create host
             action_delete-host: Delete
             action_restart-host: Restart
+            button_add-clickhouse-keeper: Create ClickHouse Keeper host
             button_add-zookeeper: Create ZooKeeper host
             button_create-coordinator: Set up coordinator service
             button_manual-failover: Switch master
@@ -11878,6 +11889,7 @@ default:
           label_compute-subcluster: Compute
           label_data-subcluster: Data
           label_deletion-protection: Deletion protection
+          label_disk-encryption: Disk encryption
           label_disk-size: Size
           label_diskTypeId: Disk type
           label_greenplum_pool_client-idle-timeout: Client Idle Timeout
@@ -11912,6 +11924,7 @@ default:
           section_subclusters: Subclusters
           section_user: User
           section_zookeeper-disk: ZooKeeper storage size
+          section_zookeeper-hosts: ZooKeeper hosts
           section_zookeeper-resource: ZooKeeper host class
           title_deb-packages: Deb packages
           title_pip-packages: Pip packages
@@ -14452,8 +14465,13 @@ default:
       docker:
         build-path: Project storage mounting point
         credentials-switcher-label: Authentication data
+        disk-size:
+          label: Disk size, GB
         docker-template: Docker template
         dockerfile: Docker file
+        location:
+          datasphere:
+            title: DataSphere
         repository: Docker name
         tag: Tag
       edit-project-page:

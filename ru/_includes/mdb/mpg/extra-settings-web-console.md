@@ -27,16 +27,6 @@
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — опция разрешает использовать в кластере инструмент [Диагностика производительности](../../../managed-postgresql/operations/performance-diagnostics.md). Если опция включена, настройте также **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}** при помощи ползунков. Единицы измерения обеих настроек — секунды.
 
 
-- **Автоматическое переключение мастера** — если эта опция включена, при смене мастера источник репликации для всех хостов-реплик автоматически переключится на новый хост-мастер. Подробнее см. в разделе [Репликация](../../../managed-postgresql/concepts/replication.md).
-
-    При [удалении](../../../managed-postgresql/operations/hosts.md#remove) хоста-мастера новый мастер будет выбран автоматически независимо от значения этой опции.
-
-    {% note alert %}
-
-    Если опция **Автоматическое переключение мастера** выключена, при выходе хоста-мастера из строя запустить выборы нового мастера или назначить эту роль одной из реплик придется [вручную](../../../managed-postgresql/operations/update.md#start-manual-failover).
-
-    {% endnote %}
-
 
 - **{{ ui-key.yacloud.postgresql.cluster.additional-field-pooling_mode }}** — выберите один из [режимов работы менеджера подключений](../../../managed-postgresql/concepts/pooling.md).
 

@@ -1,10 +1,10 @@
 ---
-title: How to get started with {{ marketplace-full-name }}
+title: Getting started with {{ marketplace-full-name }}
 description: Follow this guide to learn how to use out-of-the-box solutions from {{ yandex-cloud }} and partners featured on {{ marketplace-name }}.
 ---
 
 
-# How to get started with {{ marketplace-full-name }}
+# Getting started with {{ marketplace-full-name }}
 
 {{ marketplace-name }} offers out-of-the-box solutions for development, data analysis, security, business apps, and more. {{ marketplace-name }} products are available to all {{ yandex-cloud }} users.
 
@@ -13,7 +13,7 @@ description: Follow this guide to learn how to use out-of-the-box solutions from
 
 Sign up for {{ yandex-cloud }} and create a [billing account](../../../billing/concepts/billing-account.md):
 
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register a new account.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create a new account.
 1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, check that you have a linked billing account with the `ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md) and [link](../../../billing/operations/pin-cloud.md) a cloud to it.
 1. On the [cloud page]({{ link-console-cloud }}), [create](../../../resource-manager/operations/folder/create.md) or select a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) your {{ marketplace-name }} solution will operate in.
 
@@ -24,7 +24,7 @@ Sign up for {{ yandex-cloud }} and create a [billing account](../../../billing/c
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+  1. In the [management console]({{ link-console-main }}), select the folder you need.
   1. Click the **{{ ui-key.yacloud.marketplace-v2.label_service-short-description }} panel at the top of the screen.
   1. In the **{{ ui-key.yacloud.marketplace-v2.label_product-filter-search-placeholder }}** field, enter the name of the product you want to install or use search filters by category, [product type](../../concepts/users/products-types.md), or billing type. You can also use sorting.
   1. Click the selected {{ marketplace-name }} product's card and study its description, use cases, and other information.
@@ -51,3 +51,10 @@ To create a VM from a [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-2404-lt
 
 {% endlist %}
 
+## {{ marketplace-short-name }} product support {#support}
+
+{{ marketplace-short-name }} products are supported by the developer. If you have any issues, contact the developer’s support team and refer to their information resources.
+
+The support terms and options vary by product. For details, see **Technical support** on the product page.
+
+{{ yandex-cloud }} does not provide technical support for third-party products published on {{ marketplace-short-name }}. Paid support pricing does not include the cost of {{ marketplace-short-name }} products. See [this example of cost calculation](../../../support/pricing.md#business-example-one-ba-cvos).

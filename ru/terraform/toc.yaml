@@ -264,6 +264,14 @@ items:
                   - name: organizationmanager_group
                     href: data-sources/organizationmanager_group.md
                     title: ''
+                  - name: organizationmanager_idp_application_oauth_application
+                    href: >-
+                      data-sources/organizationmanager_idp_application_oauth_application.md
+                    title: ''
+                  - name: organizationmanager_idp_application_saml_application
+                    href: >-
+                      data-sources/organizationmanager_idp_application_saml_application.md
+                    title: ''
                   - name: organizationmanager_idp_user
                     href: data-sources/organizationmanager_idp_user.md
                     title: ''
@@ -300,6 +308,14 @@ items:
                     title: ''
                   - name: organizationmanager_group_membership
                     href: resources/organizationmanager_group_membership.md
+                    title: ''
+                  - name: organizationmanager_idp_application_oauth_application
+                    href: >-
+                      resources/organizationmanager_idp_application_oauth_application.md
+                    title: ''
+                  - name: organizationmanager_idp_application_saml_application
+                    href: >-
+                      resources/organizationmanager_idp_application_saml_application.md
                     title: ''
                   - name: organizationmanager_idp_user
                     href: resources/organizationmanager_idp_user.md

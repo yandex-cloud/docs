@@ -26,9 +26,9 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 `maxTokens` | `integer` | Yes | `5.0` | No | Maximum number of tokens to generate. Allows limiting the model's response if needed.
 `json` | `string` | No | `""` | Yes | Context for the model, as a JSON string. For more information, see the `messages` field description in the [{{ foundation-models-name }}](../../../../../ai-studio/operations/generation/create-prompt.md#request) documentation.
 `messages` | [FoundationModelsGenerate.Messages[]](#FoundationModelsGenerateMessages) | No | `""` | No | Context for the model, as a list of input messages.
-`reasoningOptions` | [FoundationModelsGenerate.ReasoningOptions](#FoundationModelsGenerateReasoningOptions) | No | No  | No | Reasoning mode. For more information, see [this {{ foundation-models-name }}](../../../../../ai-studio/concepts/generation/chain-of-thought.md) article.
+`reasoningOptions` | [FoundationModelsGenerate.ReasoningOptions](#FoundationModelsGenerateReasoningOptions) | No | No  | No | Reasoning mode. For more information, see [this {{ foundation-models-name }} guide](../../../../../ai-studio/concepts/generation/chain-of-thought.md).
 `jsonSchema` | `string` | No | No | Yes | Model's JSON-formatted response
-`jsonObject` | `boolean` | No | No | No | If `true`, the model returns a response as a JSON object. Otherwise, the response is formatted using Markdown. For more information, see [this {{ foundation-models-name }}](../../../../../ai-studio/concepts/generation/structured-output.md) article.
+`jsonObject` | `boolean` | No | No | No | If `true`, the model returns a response as a JSON object. Otherwise, the response is formatted using Markdown. For more information, see [this {{ foundation-models-name }} guide](../../../../../ai-studio/concepts/generation/structured-output.md).
 
 ## FoundationModelsGenerate.Messages object {#FoundationModelsGenerateMessages}
 
@@ -40,7 +40,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`role` | `string` | Yes | No | No | Message sender ID. Values to choose from: `system`, `assistant`, and `user`. For more information, see [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md).
+`role` | `string` | Yes | No | No | Message sender ID. The available values are `system`, `assistant`, and `user`. For more information, see [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md).
 `text` | `string` | Yes | No | Yes | Message text. For more information, see [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md).
 
 ## FoundationModelsGenerate.ReasoningOptions object {#FoundationModelsGenerateReasoningOptions}

@@ -50,7 +50,7 @@ paths:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an [API gateway](../concepts/index.md).
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Enter a name for the API gateway in the **{{ ui-key.yacloud.common.name }}** field.
   1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, enter a description for the API gateway.
@@ -88,7 +88,7 @@ paths:
      * `--name`: API gateway name:
 
          {% include [name-format](../../_includes/name-format.md) %}
-     * `--execution-timeout`: Request execution timeout. The value is specified in seconds and must not exceed the specified [limit](../concepts/limits.md#api-gw-limits). This is an optional parameter. The default value is `300` seconds.
+     * `--execution-timeout`: Request execution timeout, The value is specified in seconds and must not exceed the specified [limit](../concepts/limits.md#api-gw-limits). This is an optional setting. The default value is `300` seconds.
      * `--spec`: Path to the specification file you created earlier.
 
 - {{ TF }} {#tf}
