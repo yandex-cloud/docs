@@ -261,7 +261,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 
-  1. Чтобы управлять вашими БД из командной строки, [установите](https://{{ ydb.docs }}/reference/ydb-cli/install) {{ ydb-short-name }} CLI.
+  1. Чтобы управлять вашими БД из командной строки, [установите]({{ ydb.docs }}/reference/ydb-cli/install) {{ ydb-short-name }} CLI.
   1. Для аутентификации {{ ydb-short-name }} CLI в {{ yandex-cloud }} получите [IAM-токен](../iam/concepts/authorization/iam-token.md) и экспортируйте его в переменную окружения:
 
      ```bash
