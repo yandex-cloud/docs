@@ -9,22 +9,34 @@ description: Из статьи вы узнаете об особенностях
 
 Для каждого поколения установлен свой [набор характеристик](#configurations), определяющий следующие особенности ВМ:
 
-
+* Режим работы [загрузчика](https://ru.wikipedia.org/wiki/Загрузчик_операционной_системы) операционной системы.
+* Поддерживаемые типы структуры [разделов дисков](https://ru.wikipedia.org/wiki/Раздел_диска).
 * Топология шины [PCI](https://ru.wikipedia.org/wiki/PCI).
 * Максимально возможное количество подключаемых [дисковых устройств](./storage-overview.md) и [сетевых интерфейсов](./network.md).
 
 ## Характеристики поколений оборудования {#configurations}
 
 #|
-|| Поколение | Загрузчик | Структура разделов | Топология | Лимит на число
-дисков | Лимит на число
-сетевых интерфейсов ||
-|| Gen 1.1 | [BIOS](https://ru.wikipedia.org/wiki/BIOS) | [MBR](https://ru.wikipedia.org/wiki/Главная_загрузочная_запись) | `PCI_TOPOLOGY_V1` | 16^1^ | 8^1^ ||
-|| Gen 1.2 | BIOS | MBR | `PCI_TOPOLOGY_V2` |
-* Для ВМ с 2 и 4 vCPU: 62.
-* Для ВМ с 6 и более vCPU: 80. |
-* Для ВМ с 2 и 4 vCPU: 20.
-* Для ВМ с 6 и более vCPU: 32. ||
+|| **Поколение** | **Загрузчик** | **Загрузочный раздел** | **Топология** | **Лимит на число
+дисков** | **Лимит на число**
+**сетевых интерфейсов** ||
+|| Gen 1.1 | [BIOS](https://ru.wikipedia.org/wiki/BIOS) | [BIOS Boot Partition](https://ru.wikipedia.org/wiki/BIOS_boot_partition)
+UUID `21686148-6449-`
+`6E6F-744E-`
+`656564454649` | `PCI_TOPOLOGY_V1` | 16^1^ | 8^1^ ||
+|| Gen 1.2 | ^ | ^ | `PCI_TOPOLOGY_V2` |
+Для ВМ с 2 и 4 vCPU: 62.
+Для ВМ с 6 и более vCPU: 80. |
+Для ВМ с 2 и 4 vCPU: 20.
+Для ВМ с 6 и более vCPU: 32. ||
+|| Gen 2 | [UEFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface) | [EFI System Partition](https://en.wikipedia.org/wiki/EFI_system_partition)
+UUID `C12A7328-F81F-`
+`11D2-BA4B-`
+`00A0C93EC93B` | `PCI_TOPOLOGY_V2` |
+Для ВМ с 2 и 4 vCPU: 62.
+Для ВМ с 6 и более vCPU: 80. |
+Для ВМ с 2 и 4 vCPU: 20.
+Для ВМ с 6 и более vCPU: 32. ||
 |#
 
 ^1^ Для ВМ без [GPU](./gpus.md), размещенных на двух [NUMA](https://ru.wikipedia.org/wiki/Неоднородный_доступ_к_памяти)-узлах физического сервера.
@@ -41,6 +53,7 @@ description: Из статьи вы узнаете об особенностях
 
 {% include [pinned-hardware-generations-warning](../../_includes/compute/pinned-hardware-generations-warning.md) %}
 
+Некоторые возможности ВМ в {{ compute-name }} доступны только при использовании конфигурации поколения `Gen 2`. Например, для использования [конфигурации ВМ с GPU](./gpus.md#config) `gpu-standard-v3i` необходим [UEFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface)-загрузчик, который доступен только в `Gen 2`. Поэтому за [образом](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2), рекомендованным к использованию с этой конфигурацией ВМ, закреплено поколение оборудования `Gen 2`.
 
 Изменить поколение оборудования, закрепленное за диском, образом или снимком, можно при их пересоздании из имеющихся диска, образа или снимка. Если при создании диска, образа или снимка не задать поколение оборудования, за ними будет закреплено то же поколение, что и за исходным диском, образом или снимком. Подробнее в инструкциях:
 * [{#T}](../operations/index.md#disk-create)

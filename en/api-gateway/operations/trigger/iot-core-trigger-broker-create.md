@@ -29,7 +29,7 @@ The trigger must be in the same cloud as the broker from topic of which it reads
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -81,7 +81,7 @@ The trigger must be in the same cloud as the broker from topic of which it reads
 
     * `--name`: Trigger name.
     * `--broker-id`: [Broker ID](../../../iot-core/operations/broker/broker-list.md).
-    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger will fire for all broker topics.
+    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional setting. If this parameter is skipped, the trigger will fire for all broker topics.
 
     {% include [batch-settings-messages](../../../_includes/api-gateway/batch-settings-messages.md) %}
 

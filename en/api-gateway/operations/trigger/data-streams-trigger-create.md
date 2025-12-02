@@ -29,7 +29,7 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -84,9 +84,9 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
     * `--stream`: Stream name.
 
-    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
+    * `--batch-size`: Message batch size. This is an optional setting. The values may range from 1 B to 64 KB. The default value is 1 B.
 
-    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
+    * `--batch-cutoff`: Maximum wait time. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
 
     * `--stream-service-account-id`: ID of the service account with write and read permissions to the stream.
 

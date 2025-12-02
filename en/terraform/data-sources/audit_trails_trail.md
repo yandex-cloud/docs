@@ -47,6 +47,8 @@ data "yandex_audit_trails_trail" "basic-trail" {
 
 Read-Only:
 
+- `codec` (String) Codec for compressing events. Allowed values: RAW, GZIP, ZSTD. Default: RAW
+
 - `database_id` (String) ID of the [YDB](https://yandex.cloud/docs/ydb/concepts/resources) hosting the destination data stream.
 
 - `stream_name` (String) Name of the [YDS stream](https://yandex.cloud/docs/data-streams/concepts/glossary#stream-concepts) belonging to the specified YDB.

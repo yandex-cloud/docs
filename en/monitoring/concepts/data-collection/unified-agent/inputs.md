@@ -147,7 +147,7 @@ Parameter descriptions:
 
     # Directory where sysfs is mounted and counters will be taken from.
     # If the agent is running in a Docker container, provide the host's /sys into the container using the -v parameter in order to monitor the host.
-    sys_directory: "/sys"  # optional, the default value is “/sys"
+    sys_directory: "/sys"  # optional, the default value is "/sys"
 
     # List of resources to collect statistics from.
     # Key: One out of the following: `cpu`, `memory`, `network`, `storage`, `io`, `kernel`.
@@ -194,7 +194,7 @@ Rules for working with files:
 
 * You can name a specific file or mask with the `multi_file` parameter as the data source.
   
-  The `filename` key (file name without path) is added to the session metadata. To write the full path to the file into the metadata, use the `multi_add_full_path_to_meta` parameter.
+  The `file` key (file name without path) is added to the session metadata. To write the full path to the file into the metadata, use the `multi_add_full_path_to_meta` parameter.
 
 * With the file for data writing, you can perform the operations of creating a file, writing new data to the end of the file, and rotation.
 * Rotation implies moving a file; the file's location in the structure (inode) remains the same.

@@ -18,7 +18,7 @@ Create an [email trigger](../../concepts/trigger/mail-trigger.md) to send messag
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -70,9 +70,9 @@ Create an [email trigger](../../concepts/trigger/mail-trigger.md) to send messag
 
     {% include [batch-settings-messages](../../../_includes/api-gateway/batch-settings-messages.md) %}
 
-    * `--attachements-bucket`: Name of the bucket to save email attachments to. This is an optional parameter.
+    * `--attachements-bucket`: Name of the bucket to save email attachments to. This is an optional setting.
     
-    * `--attachements-service-account-id`: ID of the service account authorized to upload objects to an Object Storage bucket. This is an optional parameter.
+    * `--attachements-service-account-id`: ID of the service account authorized to upload objects to an Object Storage bucket. This is an optional setting.
 
     {% include [trigger-cli-param](../../../_includes/api-gateway/trigger-cli-param.md) %}
 

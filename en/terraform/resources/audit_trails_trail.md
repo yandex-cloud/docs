@@ -91,6 +91,7 @@ resource "yandex_audit_trails_trail" "basic_trail" {
   data_stream_destination {
     database_id = "some-database"
     stream_name = "some-stream"
+    codec       = "ZSTD"
   }
 
   filtering_policy {
@@ -217,6 +218,10 @@ Required:
 
 - `database_id` (String) ID of the [YDB](https://yandex.cloud/docs/ydb/concepts/resources) hosting the destination data stream.
 - `stream_name` (String) Name of the [YDS stream](https://yandex.cloud/docs/data-streams/concepts/glossary#stream-concepts) belonging to the specified YDB.
+
+Optional:
+
+- `codec` (String) Codec for compressing events. Allowed values: RAW, GZIP, ZSTD. Default: RAW
 
 
 <a id="nestedblock--filter"></a>

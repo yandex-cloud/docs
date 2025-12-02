@@ -6,4 +6,5 @@
 | Датасет | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.datasets.v1|number }}) × 100) / 100 %} |
 | Файловое хранилище | {% calc [currency=RUB] round((0.004403452932099 × 2592000 × {{ sku|RUB|datasphere.filestores|number }}) × 100) / 100 %} |
 | Модель | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.models.v1|number }}) × 100) / 100 %} |
+| Docker-образ | 12,90 ₽ |
 | Данные {{ ds-jobs }} | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.jobs|number }}) × 100) / 100 %} |

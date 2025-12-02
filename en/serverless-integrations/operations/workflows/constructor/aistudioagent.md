@@ -18,7 +18,7 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} agen
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
       1. In the **Agent ID** field, specify the [{{ ai-studio-name }} agent](../../../../ai-studio/concepts/agents/index.md) ID.
-      1. In the **Prompt variables** field, click **Add variable** to add the names and values ​​of the variables you will use in the prompt. [Templating](../../../concepts/workflows/templating.md) is supported for variable values.
+      1. Under **Prompt variables**, click **Add variable** to add the names and values of the variables you will use in your prompt. [Templating](../../../concepts/workflows/templating.md) is supported for variable values.
 
           To add multiple variables, click **Add variable** as many times as required.
 

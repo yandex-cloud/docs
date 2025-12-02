@@ -5,12 +5,13 @@ _Security profile_ is the main {{ sws-name }} component. A security profile cons
 {% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
 
 You can create security profiles in different ways:
-  * _{{ ui-key.yacloud.smart-web-security.title_default-template }}_. A preset profile includes:
-    * [Basic default rule](rules.md#base-rules), enabled for all traffic.
-    * [Smart protection rule](rules.md#smart-protection-rules) enabled for all traffic with the _{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}_ action type.
+  * _{{ ui-key.yacloud.smart-web-security.title_default-template }}_.
+
+    {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
+    
   * _{{ ui-key.yacloud.smart-web-security.title_no-template }}_. This profile includes only the basic default rule enabled for all traffic.
 
-{% include [setting-by-expert](../../_includes/smartwebsecurity/setting-by-expert.md) %}
+    {% include [setting-by-expert](../../_includes/smartwebsecurity/setting-by-expert.md) %}
 
 [Connect a security profile](../operations/host-connect.md) to your resource to enable {{ sws-name }} protection.
 

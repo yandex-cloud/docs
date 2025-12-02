@@ -26,6 +26,7 @@ There is no charge for using secrets created with {{ connection-manager-name }}.
 
 
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Secret storage price {#secrets}
@@ -35,7 +36,7 @@ Billing occurs on an hourly basis. The price per month is provided for reference
 
 
 
-Billing occurs on an hourly basis. The price per month is provided for reference only based on 720 hours (30 days) per month. The value is rounded.
+Billing is hourly. The cost per month is provided for reference only, assuming a 720-hour (30-day) month. The value is rounded.
 
 {% include [usd.md](../_pricing/lockbox/usd-secrets.md) %}
 

@@ -52,7 +52,20 @@ Actions for basic rules:
 
 Actions for Smart Protection and Web Application Firewall rules:
 * _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Redirect suspicious requests to {{ captcha-name }}.
-* _API Protection_: For API endpoints that receive automated calls and for mobile apps. Traffic is checked by ML models and behavioral analysis algorithms. Requests are not sent to {{ captcha-name }}, which allows making legitimate API calls to the protected resources. Dedicated DDoS protection policies block only explicit attack attempts. If, in full protection mode, a request was redirected to a CAPTCHA challenge, the API protection mode may let it through to the protected resource.
+
+     {% note alert %}
+
+     To ensure your application works correctly, apply _API protection_ to HTTP requests with dynamic content loading.
+
+     {% endnote %}
+
+* Use _API protection_ for endpoints that:
+     
+     * Belong to mobile apps.
+     * Receive automated calls.
+     * Process requests with dynamic content loading, such as `ajax`, `xhr`, `iframe`, etc.
+          
+  Traffic is checked by ML models and behavioral analysis algorithms. Requests are not sent to {{ captcha-name }}, which allows making legitimate API calls to the protected resources. Special DDoS protection policies block only overt attack attempts. If, in full protection mode, a request was redirected to a CAPTCHA challenge, the API protection mode may let it through to the protected resource.
 
 Action for Advanced Rate Limiter rules: _Block requests when exceeding the limit_. Requests above the specified limit over a period of time will be blocked. The requesting client will get error `429`.
 

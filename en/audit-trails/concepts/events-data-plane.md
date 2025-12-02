@@ -47,11 +47,11 @@ Service name: `compute`.
 
 {% include [compute-events-dp](../../_includes/audit-trails/events/compute-events-dp.md) %}
 
-## {{ foundation-models-full-name }} {#foundation-models}
+## {{ ai-studio-full-name }} {#ai-studio}
 
-Service name: `ai.foundationmodels`.
+Service name: `ai`.
 
-{% include [foundation-models-dp](../../_includes/audit-trails/events/foundation-models-dp.md) %}
+{% include [ai-studio-events-dp](../../_includes/audit-trails/events/ai-studio-events-dp.md) %}
 
 ## {{ org-full-name }} {#organization}
 

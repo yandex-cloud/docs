@@ -1506,5 +1506,7 @@ items:
     href: at-ref.md
   - name: История изменений
     href: release-notes.md
+  - name: История изменений {{ org-full-name }} Sync Agent
+    href: sync-agent-release-notes.md
   - name: Обучающие курсы
     href: training.md

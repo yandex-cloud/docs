@@ -11,7 +11,8 @@ The execution log uses [UTC time](https://en.wikipedia.org/wiki/Coordinated_Univ
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select the API gateway for which you want to view the execution log.
     1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_logs }}** and specify the time period. The default time period is one hour.
 

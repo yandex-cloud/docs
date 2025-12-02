@@ -46,7 +46,7 @@ By default, variables take the values specified in the `default` field of the [O
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, list all the variables declared in the specification and their values.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
@@ -122,7 +122,7 @@ By default, variables take the values specified in the `default` field of the [O
      terraform plan
      ```
 
-     The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
   1. Apply the changes:
 
      ```bash

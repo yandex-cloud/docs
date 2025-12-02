@@ -1,6 +1,7 @@
 Сервис поддерживает загрузку файлов следующих [MIME-типов](https://ru.wikipedia.org/wiki/Список_MIME-типов): 
 
 * `application/json`
+* `application/jsonlines`
 * `application/msword`
 * `application/pdf`
 * `application/vnd.ms-excel`

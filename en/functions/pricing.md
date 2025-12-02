@@ -34,7 +34,7 @@ You are only charged for the [function calls](concepts/function-invoke.md) that 
 
 
 
-Cost per month = {{ sku|USD|serverless.functions.compute.v1|pricingRate.10|string }} × Memory (GB) × Call processing time (hours) + {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|string }} × Call count (in millions)
+Price per month = {{ sku|USD|serverless.functions.compute.v1|pricingRate.10|string }} × Memory (GB) × Call processing time (hours) + {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|string }} × Call count (in millions)
 
 {% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
 
@@ -52,16 +52,17 @@ Cost per month = {{ sku|USD|serverless.functions.compute.v1|pricingRate.10|strin
 ## Alice skills
 
 {{ sf-name }} functions used for Alice skills are not billable and do not consume your [free amount of services](../billing/concepts/serverless-free-tier.md#sf), in case:
-* The function is invoked by [Yandex Dialogs](https://yandex.ru/dev/dialogs/).
+* The function is called by [Yandex Dialogs](https://yandex.ru/dev/dialogs/).
 * The skill was created as per [this guide](https://yandex.ru/dev/dialogs/alice/doc/deploy-ycloud-function.html#deploy-ycloud-function__register).
 
 However, if the function uses other {{ yandex-cloud }} resources, those are billed. For example, if the function makes requests to {{ message-queue-name }}, the requests are billed according to the [relevant pricing](../message-queue/pricing.md#requests-to-queues).
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Invoking a function {#invoke}
+### Calling a function {#invoke}
 
 
 

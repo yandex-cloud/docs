@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using {{ captcha-name }}, use [our calculator](https://yandex.cloud/en/prices?state=064c7fd1932b#calculator) on the {{ yandex-cloud }} website or see the pricing info below.
+To calculate the cost of using {{ captcha-name }}, use [our calculator](https://yandex.cloud/en/prices?state=064c7fd1932b#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -44,13 +44,14 @@ Examples of {{ captcha-name }} cost calculation:
 
 1. The user has sent an empty or incorrect `token` resulting in an incorrect `/validate` request. No fee will be charged.
 
-1. A backend developer has made a mistake and sent an incorrect `secret` or `token` in a response `/validate` request. The API will return an error in the `message` field. No fee will be charged.
+1. A backend developer has made a mistake and sent an incorrect `secret` or `token` in the response `/validate` request. The API will return an error in the `message` field. No fee will be charged.
 
 1. An intruder has passed the CAPTCHA test, got a `token`, and sent it 10 times during the first minute. The API will return the `ok` status only to the first request, and you will be charged for the first request only.
 
 1. An intruder has passed the CAPTCHA test, got a `token`, and sent it 10 times after 10 minutes. The API will return the `failed` status to all requests. You will not be charged for any of these.
 
 ## Prices for the Russia region {#prices}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

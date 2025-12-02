@@ -29,6 +29,12 @@ Service name: `apploadbalancer`.
 
 {% include [alb-events](../../_includes/audit-trails/events/alb-events.md) %}
 
+## {{ ai-studio-full-name }} {#ai-studio}
+
+Service name: `ai`.
+
+{% include [ai-studio-events](../../_includes/audit-trails/events/ai-studio-events.md) %}
+
 ## {{ at-full-name }} {#audit-trails}
 
 Service name: `audittrails`.

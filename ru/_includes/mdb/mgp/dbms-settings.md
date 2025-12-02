@@ -1,4 +1,4 @@
-* **Gp add column inherits table setting**{#setting-gp-add-column-inherits-table-setting} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **gp_add_column_inherits_table_setting**{#setting-gp-add-column-inherits-table-setting} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Определяет, применяются ли параметры сжатия данных (`compresstype`, `compresslevel` и `blocksize`), указанные для [AOCO-таблицы](../../../managed-greenplum/concepts/tables.md), при добавлении столбца.
 
@@ -6,7 +6,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting).
 
-* **Gp enable global deadlock detector**{#setting-gp-enable-global-deadlock-detector} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **gp_enable_global_deadlock_detector**{#setting-gp-enable-global-deadlock-detector} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Определяет, будет ли работать глобальный детектор взаимоблокировок. Он отслеживает наличие блокировок при параллельном выполнении операций `UPDATE` и `DELETE` с heap-таблицами.
     
@@ -14,7 +14,13 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_enable_global_deadlock_detector).
 
-* **Gp global deadlock detector period**{#setting-gp-global-deadlock-detector-period} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **gp_enable_zstd_memory_accounting**{#setting-gp-enable-zstd-memory-accounting} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+
+    Включает учет памяти {{ GP }} для временных файлов (workfiles), сжатых алгоритмом Zstandard (zstd). Если параметр включен, {{ GP }} использует собственный аллокатор памяти для zstd вместо встроенного аллокатора библиотеки zstd и позволяет выявлять выход за пределы доступной памяти штатными средствами без падения сервера.
+    
+    По умолчанию настройка включена (используется собственный аллокатор {{ GP }}).
+
+* **gp_global_deadlock_detector_period**{#setting-gp-global-deadlock-detector-period} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Задает периодичность (в секундах), с которой срабатывает глобальный детектор взаимоблокировок.
 
@@ -22,7 +28,15 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period).
 
-* **Gp workfile compression**{#setting-gp-workfile-compression} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **gp_max_slices**{#setting-gp-max-slices} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+
+    Задает максимальное количество срезов (частей плана запроса, выполняемых на экземплярах сегмента), которые могут быть созданы SQL-запросом. Если запрос генерирует больше срезов, чем задано в этом параметре, {{ GP }} возвращает ошибку и не выполняет SQL-запрос. Значение по умолчанию - `0`, максимального ограничения нет.
+    
+    Выполнение SQL-запроса, генерирующего большое количество срезов, снижает скорость работы системы. Например, SQL-запрос, содержащий операторы `UNION` или `UNION ALL` для нескольких сложных представлений, может генерировать большое количество срезов. Можно запустить команду `EXPLAIN`, чтобы просмотреть статистику срезов для SQL-запроса.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_slices).
+
+* **gp_workfile_compression**{#setting-gp-workfile-compression} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Определяет, будут ли сжаты временные файлы, созданные на диске в процессе хеш-соединения или агрегации хеша.
 
@@ -32,7 +46,7 @@
 
     {% include [requires-restart](../note-requires-restart.md) %}
 
-* **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **gp_workfile_limit_per_query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальный объем дискового пространства (в байтах), который могут занимать временные файлы активного запроса в каждом сегменте.
 
@@ -40,7 +54,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
 
-* **Gp workfile limit files per query**{#setting-gp-workfile-limit-files} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **gp_workfile_limit_files_per_query**{#setting-gp-workfile-limit-files} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальное количество временных файлов, которые сервис создает в сегменте для обработки одного запроса. Если этот предел превышен, запрос будет отменен.
 
@@ -48,7 +62,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
 
-* **Gp workfile limit per segment**{#setting-gp-workfile-limit-per-segment} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **gp_workfile_limit_per_segment**{#setting-gp-workfile-limit-per-segment} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальный объем дискового пространства (в байтах), который могут занимать временные файлы всех активных запросов в каждом сегменте.
 
@@ -60,7 +74,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
 
-* **Log connections**{#setting-log-connections} {{ tag-con }}
+* **log_connections**{#setting-log-connections} {{ tag-con }}
 
     Определяет, выводить ли в лог строку с подробным описанием каждого успешного подключения к серверу {{ GP }}.
 
@@ -68,7 +82,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_connections).
 
-* **Log disconnections**{#setting-log-disconnections} {{ tag-con }}
+* **log_disconnections**{#setting-log-disconnections} {{ tag-con }}
 
     Определяет, логировать ли завершение сессий. Если настройка включена, то при завершении клиентской сессии в лог выводится строка, в которой указывается продолжительность сессии.
 
@@ -76,7 +90,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_disconnections).
 
-* **Log error verbosity**{#setting-log-error-verbosity} {{ tag-con }}
+* **log_error_verbosity**{#setting-log-error-verbosity} {{ tag-con }}
 
     Задает уровень детализации информации в логе {{ GP }} для каждого сообщения. Уровни детализации лога в порядке увеличения информативности:
 
@@ -86,7 +100,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_error_verbosity).
 
-* **Log hostname**{#setting-log-hostname} {{ tag-con }}
+* **log_hostname**{#setting-log-hostname} {{ tag-con }}
 
     Определяет, выводить ли в лог подключений имя хоста главного сервера базы данных {{ GP }}. Если настройка включена, то в лог выводятся IP-адрес и имя хоста. Если настройка выключена, то в лог выводится только IP-адрес.
 
@@ -94,7 +108,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_hostname).
 
-* **Log min duration statement**{#setting-log-min-duration-statement} {{ tag-con }}
+* **log_min_duration_statement**{#setting-log-min-duration-statement} {{ tag-con }}
 
     Задает минимальное время работы команды (в миллисекундах), при котором команда будет записана в лог.
 
@@ -104,7 +118,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_min_duration_statement).
 
-* **Log min messages**{#setting-log-min-messages} {{ tag-con }}
+* **log_min_messages**{#setting-log-min-messages} {{ tag-con }}
 
     Определяет уровень логирования {{ GP }}. Записываются все сообщения выбранного уровня важности и выше. Возможные значения (по возрастанию важности): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL` и `PANIC`.
 
@@ -114,7 +128,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages).
 
-* **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **log_statement**{#setting-log-statement} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Фильтр команд SQL, которые будут записаны в лог {{ GP }}:
 
@@ -129,7 +143,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_statement).
 
-* **Log statement stats**{#setting-log-statement-stat} {{ tag-con }}
+* **log_statement_stats**{#setting-log-statement-stat} {{ tag-con }}
 
     Определяет, выводить ли статистику по запросам (разбор, планирование, выполнение) в лог.
 
@@ -137,7 +151,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_statement_stats).
 
-* **Master shared buffers**{#setting-master-shared-buffers} {{ tag-con }}
+* **master_shared_buffers**{#setting-master-shared-buffers} {{ tag-con }}
 
     Объем памяти, который хост-мастер {{ GP }} использует для буферов общей памяти (в байтах).
 
@@ -153,7 +167,7 @@
 
     {% include [requires-restart](../note-requires-restart.md) %}
 
-* **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **max_connections**{#setting-max-connections} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальное количество одновременных подключений к хосту-мастеру.
 
@@ -165,7 +179,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
 
-* **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **max_prepared_transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальное количество транзакций, которые могут одновременно находиться в [подготовленном состоянии]({{ pg.docs.org }}/current/sql-prepare-transaction.html).
 
@@ -175,7 +189,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_prepared_transactions).
 
-* **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **max_slot_wal_keep_size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальный размер (в байтах) файлов лога [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log) при репликации.
 
@@ -187,7 +201,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
 
-* **Max statement mem**{#setting-max-statement-mem} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+* **max_statement_mem**{#setting-max-statement-mem} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальный объем памяти (в байтах), выделяемый для обработки запроса.
 
@@ -195,7 +209,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_statement_mem).
 
-* **Segment shared buffers**{#setting-segment-shared-buffers} {{ tag-con }}
+* **segment_shared_buffers**{#setting-segment-shared-buffers} {{ tag-con }}
 
     Объем памяти, который хосты-сегменты {{ GP }} используют для буферов общей памяти (в байтах).
 

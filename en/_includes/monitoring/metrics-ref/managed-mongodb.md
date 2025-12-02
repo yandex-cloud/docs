@@ -9,17 +9,16 @@ resource_type | Resource type: `cluster`
 resource_id | Cluster ID
 host | Host FQDN
 node | Host type: `primary`, `secondary`, or `unknown`
-shard | Shard ID
-shard_name | Shard name
+shard | Shard name
 subcluster_name | Subcluster name
 dc | [Availability zone](../../../overview/concepts/geo-scope.md)
 
 
 ## CPU metrics {#managed-mongodb-cpu-metrics}
 
-CPU core workload.
+These metrics show CPU core workload.
 
-Common label: `systag`, resource type.
+The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -55,6 +54,8 @@ Common label: `systag`, resource type.
 | `load.avg_15min`<br/>`DGAUGE`, % | Average load over 15 minutes | 
 | `load.avg_1min`<br/>`DGAUGE`, % | Average load over one minute | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Average load over five minutes |
+| `vd*`<br/>`DGAUGE`, bytes | Virtual disk size |
+| `vd**`<br/>`DGAUGE`, bytes | Virtual disk partition size |
 
 
 ## Disk operation metrics {#managed-mongodb-diskio-metrics}
@@ -91,6 +92,8 @@ Common label: `systag`, resource type.
 
 
 ## RAM metrics {#managed-mongodb-ram-metrics}
+
+The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -153,6 +156,8 @@ Common label: `systag`, resource type.
 | ----- | ----- |
 | `db_stats_*_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in a given database. `admin`: Service database. | 
 | `db_stats_*_indexSize`<br/>`DGAUGE`, bytes | Space used by indexes from a given database. `admin`: Service database. | 
+| `db_stats_admin_dataSize`<br/>`DGAUGE`, bytes | Total size of data in the database excluding indexes |
+| `db_stats_admin_indexSize`<br/>`DGAUGE`, bytes | Total index size in the database |
 | `db_stats_config_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in a configuration DB |
 | `db_stats_config_indexSize`<br/>`DGAUGE`, bytes | Space used by configuration DB indexes |
 | `db_stats_local_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in a local DB |
@@ -169,17 +174,24 @@ Common label: `systag`, resource type.
 | `available`<br/>`DGAUGE`, count | RAM usage, `available` usage type |
 | `available_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `available` usage type |
 | `buffered`<br/>`DGAUGE`, bytes | RAM usage, `buffered` usage type |
+| `bytes_recv`<br/>`DGAUGE`, bytes | Size of data received |
+| `bytes_sent`<br/>`DGAUGE`, bytes | Size of data sent |
 | `cached`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
 | `commit_limit`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type |
 | `committed_as`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
 | `count`<br/>`DGAUGE`, objects | Number of objects per collection |
 | `dirty`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
+| `drop_in`<br/>`DGAUGE`, count | Dropped receive packets | 
+| `drop_out`<br/>`DGAUGE`, count | Dropped transmit packets | 
+| `err_in`<br/>`DGAUGE`, count | Receive error count | 
+| `err_out`<br/>`DGAUGE`, count | Transmit error count | 
 | `free`<br/>`DGAUGE`, bytes | RAM usage, `free` usage type | 
 | `high_free`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type | 
 | `high_total`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type | 
 | `hosts.ha`<br/>`DGAUGE`, hosts | Number of hosts per high-availability cluster |
 | `hosts.subcluster.mongocfg.total`<br/>`DGAUGE`, count | Number of _mongocfg_ instances per subcluster |
 | `hosts.subcluster.mongod.total`<br/>`DGAUGE`, count | Number of _mongod_ instances per subcluster |
+| `hosts.subcluster.mongoinfra.total`<br/>`DGAUGE`, count | Number of _mongoinfra_ instances per subcluster |
 | `hosts.subcluster.mongos.total`<br/>`DGAUGE`, count | Number of _mongos_ instances per subcluster |
 | `hosts.total`<br/>`DGAUGE`, hosts | Total hosts used by the service |
 | `huge_page_size`<br/>`DGAUGE`, bytes | RAM usage, `huge_page_size` usage type | 
@@ -207,14 +219,15 @@ Common label: `systag`, resource type.
 | `icmp_outerrors`<br/>`DGAUGE`, count | Number of ICMP messages not sent due to ICMP errors, such as buffer shortages | 
 | `icmp_outmsgs`<br/>`DGAUGE`, count | Total ICMP messages the object in question attempted to send. This includes all messages counted by `icmp_outerrors`. |
 | `icmp_outparmprobs`<br/>`DGAUGE`, count | Number of ICMP parameter problem messages sent | 
-| `net.icmp_outratelimitglobal`<br/>`DGAUGE`, count | Number of ICMP messages throttled by global rate limits |
-| `net.icmp_outratelimithost`<br/>`DGAUGE`, count | Number of ICMP messages throttled by host-specific rate limits |
+| `icmp_outratelimitglobal`<br/>`DGAUGE`, count | Number of ICMP messages throttled by global rate limits |
+| `icmp_outratelimithost`<br/>`DGAUGE`, count | Number of ICMP messages throttled by host-specific rate limits |
 | `icmp_outredirects`<br/>`DGAUGE`, count | Number of ICMP redirect messages sent  | 
 | `icmp_outsrcquenchs`<br/>`DGAUGE`, count | Number of ICMP source quench messages sent |
 | `icmp_outtimeexcds`<br/>`DGAUGE`, count | Number of ICMP time exceeded messages sent | 
 | `icmp_outtimestampreps`<br/>`DGAUGE`, count | Number of ICMP timestamp reply messages sent | 
 | `icmp_outtimestamps`<br/>`DGAUGE`, count | Number of ICMP timestamp (request) messages sent  | 
-| `icmpmsg_outtype3`<br/>`DGAUGE`, count | Number of ICMP type 3 (destination unreachable) messages sent  | 
+| `icmpmsg_intype3`<br/>`DGAUGE`, count | Number of ICMP type 3 (destination unreachable) messages received |
+| `icmpmsg_outtype3`<br/>`DGAUGE`, count | Number of ICMP type 3 (destination unreachable) messages sent |
 | `inactive`<br/>`DGAUGE`, bytes | RAM usage, `inactive` usage type | 
 | `inodes_free`<br/>`DGAUGE`, count | Free inodes | 
 | `inodes_total`<br/>`DGAUGE`, count | Available inodes | 
@@ -242,6 +255,14 @@ Common label: `systag`, resource type.
 | `ip_reasmoks`<br/>`DGAUGE`, count | Number of IP packets successfully reassembled | 
 | `ip_reasmreqds`<br/>`DGAUGE`, count | Number of received IP fragments requiring reassembly in the object in question | 
 | `ip_reasmtimeout`<br/>`DGAUGE`, seconds | Maximum time, in seconds, received fragments are kept while awaiting reassembly in the object in question. | 
+| `latency_commands`<br/>`DGAUGE`, milliseconds | Average execution time of database commands |
+| `latency_commands_count`<br/>`DGAUGE`, count | Number of executed database commands |
+| `latency_reads`<br/>`DGAUGE`, milliseconds | Average time per read operation |
+| `latency_reads_count`<br/>`DGAUGE`, count | Number of read operations |
+| `latency_transactions`<br/>`DGAUGE`, milliseconds | Average transaction execution time |
+| `latency_transactions_count`<br/>`DGAUGE`, count | Number of completed transactions |
+| `latency_writes`<br/>`DGAUGE`, milliseconds | Average time per write operation |
+| `latency_writes_count`<br/>`DGAUGE`, count | Number of write operations |
 | `low_free`<br/>`DGAUGE`, bytes | RAM usage, `low_free` usage type | 
 | `low_total`<br/>`DGAUGE`, bytes | RAM usage, `low_total` usage type | 
 | `mapped`<br/>`DGAUGE`, bytes | RAM usage, `mapped` usage type | 
@@ -259,6 +280,8 @@ Common label: `systag`, resource type.
 | `n_unique_users`<br/>`DGAUGE`, count | Number of unique users or accounts engaging with the system |
 | `n_users`<br/>`DGAUGE`, count | Limit on the number of users | 
 | `oom_count`<br/>`DGAUGE`, count | Number of out-of-memory events |
+| `packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate | 
+| `packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate | 
 | `page_tables`<br/>`DGAUGE`, bytes | RAM usage, `page_tables` usage type | 
 | `read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk
@@ -271,6 +294,7 @@ Common label: `systag`, resource type.
 | `read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
 | `shared`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type | 
 | `slab`<br/>`DGAUGE`, bytes | RAM usage, `slab` usage type | 
+| `speed`<br/>`DGAUGE`, bits per second | Maximum network data transfer rate for this interface |
 | `sreclaimable`<br/>`DGAUGE`, bytes | RAM usage, `sreclaimable` usage type | 
 | `sunreclaim`<br/>`DGAUGE`, bytes | RAM usage, `sunreclaim` usage type | 
 | `swap_cached`<br/>`DGAUGE`, bytes | RAM usage, `swap_cached` usage type | 
@@ -349,7 +373,7 @@ Common label: `systag`, resource type.
 | `server_status_admin_asserts.user_rate`<br/>`DGAUGE`, count | Custom assert trigger increment, per second | 
 | `server_status_admin_connections.available`<br/>`DGAUGE`, count | Number of available connections | 
 | `server_status_admin_connections.current`<br/>`DGAUGE`, count | Number of incoming DB connections | 
-| `server_status_admin_extra_info.page_faults_rate`<br/>`DGAUGE`, count | Number of [page faults](https://ru.wikipedia.org/wiki/Отказ_страницы) | 
+| `server_status_admin_extra_info.page_faults_rate`<br/>`DGAUGE`, count | Number of [page faults](https://en.wikipedia.org/wiki/Page_fault) | 
 | `server_status_admin_globalLock.currentQueue.readers`<br/>`DGAUGE`, count | Number of operations in the current queue waiting for read lock release | 
 | `server_status_admin_globalLock.currentQueue.writers`<br/>`DGAUGE`, count | Number of operations in the current queue waiting for write lock release | 
 | `server_status_admin_metrics.cursor.open.noTimeout`<br/>`DGAUGE`, count | Number of open cursors with `DBQuery.Option.noTimeout` to prevent inactivity timeout | 
@@ -397,6 +421,7 @@ Common label: `systag`, resource type.
 | `server_status_admin_wiredTiger.concurrentTransactions.write.out`<br/>`DGAUGE`, count | Number of tickets used for concurrent write transactions | 
 | `server_status_admin_wiredTiger.concurrentTransactions.write.totalTickets`<br/>`DGAUGE`, count | Number of tickets available for concurrent write transactions | 
 | `server_status_admin_wiredTiger.transaction.transaction_begins`<br/>`DGAUGE`, count | Number of running transactions | 
+| `server_status_admin_wiredTiger.transaction.transaction_begins_rate`<br/>`DGAUGE`, units per second | Transaction start speed |
 | `server_status_admin_wiredTiger.transaction.transaction_checkpoint_max_time_msecs`<br/>`DGAUGE`, milliseconds | Maximum checkpoint creation time | 
 | `server_status_admin_wiredTiger.transaction.transaction_checkpoint_min_time_msecs`<br/>`DGAUGE`, milliseconds | Minimum checkpoint creation time |  
 | `server_status_admin_wiredTiger.transaction.transaction_checkpoint_most_recent_time_msecs`<br/>`DGAUGE`, milliseconds | Most recent checkpoint creation time | 
@@ -410,8 +435,9 @@ Common label: `systag`, resource type.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if the service on the host is available for reads, `0` if not. |
-| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if the service on the host is available for writes, `0` if not. |
+| `can_read`<br/>`DGAUGE`, 0/1 | Host read access indicator.<br/>`1` if the host service is available for reads, `0` if not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Host write access status.<br/>This metric is set to `1` if the host service is available for write operations, and to `0` otherwise. |
+| `latest_backup_sec`<br/>`DGAUGE`, seconds | Time since the most recent successful backup |
 | `oplog-diff`<br/>`DGAUGE`, milliseconds | Operation log size | 
 | `oplog-maxSize`<br/>`DGAUGE`, bytes | Maximum size of the operation log | 
 | `replset_status-replicationLag`<br/>`DGAUGE`, seconds | Replication lag |

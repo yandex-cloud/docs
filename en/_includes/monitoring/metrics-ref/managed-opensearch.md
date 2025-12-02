@@ -1,36 +1,51 @@
-The metric name goes into the `name` label.
+The `name` label contains the metric name.
 
 Labels shared by all {{ mos-name }} metrics: 
 
 Label | Value
 ----|----
-service | Service ID: `managed-opensearch`
-resource_type | Resource type: `cluster`
-resource_id | Cluster ID
+dc | [Availability zone](../../../overview/concepts/geo-scope.md)
 host | Host FQDN
+node | Type of host
+resource_id | Cluster ID
+resource_type | Resource type: `cluster`
+sensor | Additional label, matches the metric name
+service | Service ID: `managed-opensearch`
+shard | Shard ID
+shard_name | Shard name
+subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-opensearch-cpu-metrics}
-These metrics show processor core workload.
+
+These metrics show CPU core workload.
+
+The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance | 
 | `cpu.guarantee`<br/>`DGAUGE`, count | Guaranteed number of cores | 
-| `cpu.limit`<br/>`DGAUGE`, count | Maximum number of cores in use | 
-| `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type | 
 | `cpu.guest_nice`<br/>`DGAUGE`, % | CPU core usage, `guest_nice` usage type | 
+| `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type | 
 | `cpu.idle`<br/>`DGAUGE`, % | CPU core usage, `idle` usage type | 
 | `cpu.iowait`<br/>`DGAUGE`, % | CPU core usage, `iowait` usage type | 
 | `cpu.irq`<br/>`DGAUGE`, % | CPU core usage, `irq` usage type | 
+| `cpu.limit`<br/>`DGAUGE`, count | Maximum number of cores in use | 
 | `cpu.nice`<br/>`DGAUGE`, % | CPU core usage, `nice` usage type | 
 | `cpu.softirq`<br/>`DGAUGE`, % | CPU core usage, `softirq` usage type | 
 | `cpu.steal`<br/>`DGAUGE`, % | CPU core usage, `steal` usage type | 
 | `cpu.system`<br/>`DGAUGE`, % | CPU core usage, `system` usage type | 
 | `cpu.user`<br/>`DGAUGE`, % | CPU core usage, `user` usage type |
-| `cpu_utilization_by_db_15`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database over 15 seconds (%). It ranges from 0% to the [vCPU performance level](../../../compute/concepts/performance-levels.md). | 
+| `cpu_time_iowait_counter`<br/>`DGAUGE`, seconds | Total I/O wait time |
+| `cpu_time_iowait`<br/>`DGAUGE`, seconds | I/O wait time |
+| `cpu_time_system_counter`<br/>`DGAUGE`, seconds | Total time in system mode |
+| `cpu_time_system`<br/>`DGAUGE`, seconds | Time in system mode |
+| `cpu_time_user_counter`<br/>`DGAUGE`, seconds | Total time in user mode |
+| `cpu_time_user`<br/>`DGAUGE`, seconds | Time in user mode |
 | `cpu_utilization_by_db_15_limit`<br/>`DGAUGE`, % | Maximum VM processor core (vCPU) utilization by a database over 15 seconds (%) | 
-| `cpu_utilization_by_db_60`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database over 60 seconds (%) | 
+| `cpu_utilization_by_db_15`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database over 15 seconds (%). It ranges from 0% to the [vCPU performance level](../../../compute/concepts/performance-levels.md). | 
 | `cpu_utilization_by_db_60_limit`<br/>`DGAUGE`, % | Maximum VM processor core (vCPU) utilization by a database over 60 seconds (%) |
+| `cpu_utilization_by_db_60`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database over 60 seconds (%) | 
 | `load.avg_15min`<br/>`DGAUGE`, % | Average load over 15 minutes | 
 | `load.avg_1min`<br/>`DGAUGE`, % | Average load over one minute | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Average load over five minutes |
@@ -45,22 +60,37 @@ These metrics show processor core workload.
 | `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space | 
 | `disk.used_inodes`<br/>`DGAUGE`, count | Used inodes |
 
-## Disk I/O metrics {#managed-opensearch-diskio-metrics}
+## Disk operation metrics {#managed-opensearch-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
+| `io.avg.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations currently in progress |
+| `io.avg.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read speed |
+| `io.avg.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
+| `io.avg.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
+| `io.avg.read_time`<br/>`DGAUGE`, milliseconds | Average read time for all disks |
+| `io.avg.weighted_io_time`<br/>`DGAUGE`, milliseconds | Total (weighted) time spent on I/O operations |
+| `io.avg.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
+| `io.avg.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second |
+| `io.avg.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
+| `io.avg.write_time`<br/>`DGAUGE`, milliseconds | Total time spent writing to disk |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
 | `io.disk*.merged_reads`<br/>`DGAUGE`, count | Number of merged read operations for a given disk | 
 | `io.disk*.merged_writes`<br/>`DGAUGE`, count | Number of merged writes for a given disk | 
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
+| `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk |
 | `io.disk*.read_time`<br/>`DGAUGE`, milliseconds | Average read time for a given disk | 
 | `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a given disk; disabled for network drives. | 
 | `io.disk*.weighted_io_time`<br/>`DGAUGE`, milliseconds | I/O wait time for a given disk | 
 | `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a given disk | 
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk | 
+| `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
 | `io.disk*.write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk | 
 
 ## RAM metrics {#managed-opensearch-ram-metrics}
+
+The consumption type goes into the `systag` label.
+
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, bytes | Active resident memory (frequently accessed and released when absolutely necessary) | 
@@ -72,12 +102,14 @@ These metrics show processor core workload.
 | `mem.committed_as_bytes`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type | 
 | `mem.dirty_bytes`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
 | `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes` |
+| `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory allocation |
 | `mem.high_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type | 
 | `mem.high_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type | 
 | `mem.huge_page_size_bytes`<br/>`DGAUGE`, bytes | RAM usage, `huge_page_size` usage type | 
 | `mem.huge_pages_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_free` usage type | 
 | `mem.huge_pages_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_total` usage type | 
 | `mem.inactive_bytes`<br/>`DGAUGE`, bytes | RAM usage, `inactive` usage type | 
+| `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit | 
 | `mem.low_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `low_free` usage type | 
 | `mem.low_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `low_total` usage type | 
 | `mem.mapped_bytes`<br/>`DGAUGE`, bytes | RAM usage, `mapped` usage type | 
@@ -113,6 +145,7 @@ These metrics show processor core workload.
 | `net.errout`<br/>`DGAUGE`, count | Transmit error count | 
 | `net.packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate | 
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate | 
+| `net.speed`<br/>`DGAUGE`, bits per second | Maximum network data transfer rate for this interface |
 
 ## Service metrics {#managed-opensearch-metrics}
 | Name<br/>Type, units | Description |
@@ -126,6 +159,7 @@ These metrics show processor core workload.
 | `cached`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
 | `commit_limit`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type |
 | `committed_as`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
+| `count`<br/>`DGAUGE`, objects | Number of objects |
 | `dirty`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
 | `drop_in`<br/>`DGAUGE`, count | Dropped receive packets | 
 | `drop_out`<br/>`DGAUGE`, count | Dropped transmit packets | 
@@ -134,6 +168,10 @@ These metrics show processor core workload.
 | `free`<br/>`DGAUGE`, bytes | RAM usage, `free` usage type | 
 | `high_free`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type | 
 | `high_total`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type | 
+| `hosts.ha`<br/>`DGAUGE`, count | Number of nodes with enabled fault tolerance |
+| `hosts.subcluster.dashboards.total`<br/>`DGAUGE`, count | Number of Dashboards subcluster nodes |
+| `hosts.subcluster.opensearch.total`<br/>`DGAUGE`, count | Number of {{ OS }} subcluster nodes |
+| `hosts.total`<br/>`DGAUGE`, count | Number of cluster nodes |
 | `huge_page_size`<br/>`DGAUGE`, bytes | RAM usage, `huge_page_size` usage type | 
 | `huge_pages_free`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_free` usage type | 
 | `huge_pages_total`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_total` usage type | 
@@ -159,6 +197,8 @@ These metrics show processor core workload.
 | `icmp_outerrors`<br/>`DGAUGE`, count | Number of ICMP messages not sent due to ICMP errors, such as buffer shortages | 
 | `icmp_outmsgs`<br/>`DGAUGE`, count | Total ICMP messages the object in question attempted to send. This includes all messages counted by `icmp_outerrors`. |
 | `icmp_outparmprobs`<br/>`DGAUGE`, count | Number of ICMP parameter problem messages sent | 
+| `icmp_outratelimitglobal`<br/>`DGAUGE`, count | ICMP packets discarded due to rate limiting |
+| `icmp_outratelimithost`<br/>`DGAUGE`, count | ICMP packets discarded due to exceeding the host rate limit |
 | `icmp_outredirects`<br/>`DGAUGE`, count | Number of ICMP redirect messages sent  | 
 | `icmp_outsrcquenchs`<br/>`DGAUGE`, count | Number of ICMP source quench messages sent |
 | `icmp_outtimeexcds`<br/>`DGAUGE`, count | Number of ICMP time exceeded messages sent | 
@@ -169,13 +209,15 @@ These metrics show processor core workload.
 | `icmpmsg_outtype0`<br/>`DGAUGE`, count | Number of ICMP type 0 (echo reply) messages sent  | 
 | `icmpmsg_outtype3`<br/>`DGAUGE`, count | Number of ICMP type 3 (destination unreachable) messages sent  | 
 | `icmpmsg_outtype8`<br/>`DGAUGE`, count | Total number of ICMP type 8 (echo request) messages sent  | 
+| `icmpmsg_outtype11`<br/>`DGAUGE`, count | Total number of ICMP type 11 (time exceeded) messages sent |
 | `inactive`<br/>`DGAUGE`, bytes | RAM usage, `inactive` usage type | 
-| `index_docs_count`<br/>`DGAUGE`, count | Number of documents in the index. Displays 10 indexes with the largest number of documents. Only applies to indexes larger than 1 MB. |
-| `index_primary_store_size`<br/>`DGAUGE`, bytes | Index size. Displays 10 largest indexes. Only applies to indexes larger than 1 MB. |
+| `index_docs_count`<br/>`DGAUGE`, count | Number of documents in the index. Displays 10 indexes with the largest number of documents. Only applies to indexes larger than 1 MB.<br/>The `index` special label is the index name. |
+| `index_primary_store_size`<br/>`DGAUGE`, bytes | Index size. Displays 10 largest indexes. Only applies to indexes larger than 1 MB.<br/>The `index` special label is the index name. |
 | `inodes_free`<br/>`DGAUGE`, count | Free inodes | 
 | `inodes_total`<br/>`DGAUGE`, count | Available inodes | 
 | `inodes_used`<br/>`DGAUGE`, count | Used inodes |
-| `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Indicator of host failure due to user fault. |
+| `inodes_used_percent`<br/>`DGAUGE`, % | Percentage of used inodes |
+| `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Indicator of host failure due to user fault |
 | `iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
 | `ip_defaultttl`<br/>`DGAUGE`, string | Default TTL value inserted into the IP header for IP packets generated in this object when the transport layer protocol does not provide a TTL. | 
 | `ip_forwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled.  | 
@@ -192,23 +234,28 @@ These metrics show processor core workload.
 | `ip_outdiscards`<br/>`DGAUGE`, count | Number of outgoing IP packets encountering no issues preventing their transmission to the destination but still dropped, e.g., due to lack of buffer space. Note that the counter would include packets counted in `ip_forwdatagrams` if they met this (discretionary) drop criterion. | 
 | `ip_outnoroutes`<br/>`DGAUGE`, count | Number of IP packets dropped because no route to their destination was found. This metric tracks all packets counted in `ip_forwdatagrams` that meet this no-route criterion. This includes any packets a host cannot redirect because all its default gateways are down. | 
 | `ip_outrequests`<br/>`DGAUGE`, count | Total IP packets provided by local IP user-level protocols (including ICMP) to IP in requests for transmission. This metric does not include the packets counted in `ip_forwdatagrams`. | 
+| `ip_outtransmits`<br/>`DGAUGE`, count | Number of successfully sent IP packets |
 | `ip_reasmfails`<br/>`DGAUGE`, count | Number of failures detected by the IP reassembly algorithm due to reasons, such as timeouts, errors, etc. This is not necessarily a count of dropped IP fragments, since certain algorithms, like the one in RFC 815, may lose count of fragments while reassembling them as they are received. | 
 | `ip_reasmoks`<br/>`DGAUGE`, count | Number of IP packets successfully reassembled | 
 | `ip_reasmreqds`<br/>`DGAUGE`, count | Number of received IP fragments requiring reassembly in the object in question | 
 | `ip_reasmtimeout`<br/>`DGAUGE`, seconds | Maximum time, in seconds, received fragments are kept while awaiting reassembly in the object in question. | 
 | `low_free`<br/>`DGAUGE`, bytes | RAM usage, `low_free` usage type | 
 | `low_total`<br/>`DGAUGE`, bytes | RAM usage, `low_total` usage type | 
+| `memory_pss`<br/>`DGAUGE`, byte | Proportional memory size used by the process (Proportional Set Size), including shared memory pages |
 | `mapped`<br/>`DGAUGE`, bytes | RAM usage, `mapped` usage type | 
 | `merged_reads`<br/>`DGAUGE`, count | Number of merged disk reads | 
 | `merged_writes`<br/>`DGAUGE`, count | Number of merged disk writes | 
 | `n_cpus`<br/>`DGAUGE`, count | Maximum number of cores in use | 
+| `n_unique_users`<br/>`DGAUGE`, count | Number of unique users or accounts engaging with the system |
 | `n_users`<br/>`DGAUGE`, count | Limit on the number of users | 
 | `packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate | 
 | `packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate | 
 | `page_tables`<br/>`DGAUGE`, bytes | RAM usage, `page_tables` usage type | 
 | `read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
+| `read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
 | `read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
+| `running`<br/>`DGAUGE`, 0/1 | It can be either `1` if the service is running or `0` if it is not. |
 | `shared`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type | 
 | `slab`<br/>`DGAUGE`, bytes | RAM usage, `slab` usage type | 
 | `sreclaimable`<br/>`DGAUGE`, bytes | RAM usage, `sreclaimable` usage type | 
@@ -236,6 +283,7 @@ These metrics show processor core workload.
 | `udp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP packet contains an invalid kernel code checksum. | 
 | `udp_indatagrams`<br/>`DGAUGE`, count | Total UDP packets received  | 
 | `udp_inerrors`<br/>`DGAUGE`, count | Number of bad UDP packets received, excluding those with checksum errors  | 
+| `udp_memerrors`<br/>`DGAUGE`, errors | Number of UDP out-of-memory errors |
 | `udp_noports`<br/>`DGAUGE`, count | Total UDP packets received with no application on the destination port | 
 | `udp_outdatagrams`<br/>`DGAUGE`, count | Total UDP packets sent from the object in question | 
 | `udp_rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP receive buffer errors  | 
@@ -244,6 +292,7 @@ These metrics show processor core workload.
 | `udplite_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP-Lite packet contains an invalid kernel code checksum. | 
 | `udplite_indatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets received  | 
 | `udplite_inerrors`<br/>`DGAUGE`, count | Total UDP-Lite packet receive errors  | 
+| `udplite_memerrors`<br/>`DGAUGE`, errors | Number of UDP-Lite out-of-memory errors |
 | `udplite_noports`<br/>`DGAUGE`, count | Total UDP-Lite packets received without a listener on the destination port. Irregularities in this counter may occur when reinitializing the management system and at other times, as indicated by the `udplite_statsdiscontinuitytime` value. | 
 | `udplite_outdatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets sent  | 
 | `udplite_rcvbuferrors`<br/>`DGAUGE`, count | This value increases when no memory can be allocated to process an inbound UDP-Lite packet. | 
@@ -270,19 +319,28 @@ These metrics show processor core workload.
 | `write_back_tmp`<br/>`DGAUGE`, bytes | RAM usage, `write_back_tmp` usage type |
 | `write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
 | `write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
+| `write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk | 
 | `write_time`<br/>`DGAUGE`, milliseconds | Average disk write time | 
 
 #### {{ OS }} native metrics {#managed-opensearch-system-metrics}
 
 | Name<br/>Type, units | 
 | ----- | 
+| `opensearch_above_critical_watermark`<br/>`DGAUGE`, 0/1 | 
+| `opensearch_above_flood_stage_watermark`<br/>`DGAUGE`, 0/1 | 
+| `opensearch_above_high_watermark`<br/>`DGAUGE`, 0/1 | 
+| `opensearch_above_low_watermark`<br/>`DGAUGE`, 0/1 | 
 | `opensearch_discovered_cluster_manager`<br/>`DGAUGE`, 0/1 | 
 | `opensearch_discovered_master`<br/>`DGAUGE`, 0/1 | 
+| `opensearch_fs_io_stats_total_io_time_in_millis`<br/>`DGAUGE`, milliseconds | 
 | `opensearch_fs_io_stats_total_operations`<br/>`DGAUGE`, count | 
+| `opensearch_fs_io_stats_total_queue_size`<br/>`DGAUGE`, count | 
 | `opensearch_fs_io_stats_total_read_kilobytes`<br/>`DGAUGE`, kilobytes | 
 | `opensearch_fs_io_stats_total_read_operations`<br/>`DGAUGE`, count | 
+| `opensearch_fs_io_stats_total_read_time`<br/>`DGAUGE`, milliseconds | 
 | `opensearch_fs_io_stats_total_write_kilobytes`<br/>`DGAUGE`, kilobytes | 
 | `opensearch_fs_io_stats_total_write_operations`<br/>`DGAUGE`, count | 
+| `opensearch_fs_io_stats_total_write_time`<br/>`DGAUGE`, milliseconds | 
 | `opensearch_fs_total_available_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_fs_total_cache_reserved_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_fs_total_free_in_bytes`<br/>`DGAUGE`, bytes | 
@@ -297,8 +355,8 @@ These metrics show processor core workload.
 | `opensearch_indices_fielddata_evictions`<br/>`DGAUGE`, count | 
 | `opensearch_indices_fielddata_memory_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_flush_periodic`<br/>`DGAUGE`, count | 
-| `opensearch_indices_flush_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_flush_total_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_flush_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_get_current`<br/>`DGAUGE`, count | 
 | `opensearch_indices_get_exists_time_in_millis`<br/>`DGAUGE`, milliseconds | 
 | `opensearch_indices_get_exists_total`<br/>`DGAUGE`, count | 
@@ -309,22 +367,25 @@ These metrics show processor core workload.
 | `opensearch_indices_indexing_delete_current`<br/>`DGAUGE`, count |
 | `opensearch_indices_indexing_delete_time_in_millis`<br/>`DGAUGE`, milliseconds | 
 | `opensearch_indices_indexing_delete_total`<br/>`DGAUGE`, count | 
+| `opensearch_indices_indexing_doc_status_2xx`<br/>`DGAUGE`, count | 
+| `opensearch_indices_indexing_doc_status_4xx`<br/>`DGAUGE`, count | 
 | `opensearch_indices_indexing_index_current`<br/>`DGAUGE`, count | 
 | `opensearch_indices_indexing_index_failed`<br/>`DGAUGE`, count | 
-| `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, milliseconds  | 
+| `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, milliseconds | 
 | `opensearch_indices_indexing_index_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_indexing_noop_update_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_indexing_throttle_time_in_millis`<br/>`DGAUGE`, milliseconds | 
-| `opensearch_indices_merges_current`<br/>`DGAUGE`, count | 
 | `opensearch_indices_merges_current_docs`<br/>`DGAUGE`, count | 
 | `opensearch_indices_merges_current_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_merges_total`<br/>`DGAUGE`, count | 
+| `opensearch_indices_merges_current`<br/>`DGAUGE`, count | 
 | `opensearch_indices_merges_total_auto_throttle_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_merges_total_docs`<br/>`DGAUGE`, count | 
 | `opensearch_indices_merges_total_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_merges_total_stopped_time_in_millis`<br/>`DGAUGE`, milliseconds | 
 | `opensearch_indices_merges_total_throttled_time_in_millis`<br/>`DGAUGE`, milliseconds | 
 | `opensearch_indices_merges_total_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_merges_total`<br/>`DGAUGE`, count | 
+| `opensearch_indices_merges_unreferenced_file_cleanups_performed`<br/>`DGAUGE`, count | 
 | `opensearch_indices_query_cache_cache_count`<br/>`DGAUGE`, count | 
 | `opensearch_indices_query_cache_cache_size`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_query_cache_evictions`<br/>`DGAUGE`, count | 
@@ -335,15 +396,19 @@ These metrics show processor core workload.
 | `opensearch_indices_recovery_current_as_source`<br/>`DGAUGE`, count | 
 | `opensearch_indices_recovery_current_as_target`<br/>`DGAUGE`, count | 
 | `opensearch_indices_recovery_throttle_time_in_millis`<br/>`DGAUGE`, milliseconds | 
-| `opensearch_indices_refresh_external_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_refresh_external_total_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_refresh_external_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_refresh_listeners`<br/>`DGAUGE`, count | 
-| `opensearch_indices_refresh_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_refresh_total_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_refresh_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_request_cache_evictions`<br/>`DGAUGE`, count | 
 | `opensearch_indices_request_cache_hit_count`<br/>`DGAUGE`, count | 
 | `opensearch_indices_request_cache_memory_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_request_cache_miss_count`<br/>`DGAUGE`, count | 
+| `opensearch_indices_search_concurrent_avg_slice_count`<br/>`DGAUGE`, count |
+| `opensearch_indices_search_concurrent_query_current`<br/>`DGAUGE`, count | 
+| `opensearch_indices_search_concurrent_query_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_search_concurrent_query_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_fetch_current`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_fetch_time_in_millis`<br/>`DGAUGE`, milliseconds |
 | `opensearch_indices_search_fetch_total`<br/>`DGAUGE`, count | 
@@ -354,6 +419,24 @@ These metrics show processor core workload.
 | `opensearch_indices_search_query_current`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_query_time_in_millis`<br/>`DGAUGE`, milliseconds | 
 | `opensearch_indices_search_query_total`<br/>`DGAUGE`, count | 
+| `opensearch_indices_search_request_can_match_current`<br/>`DGAUGE`, count | 
+| `opensearch_indices_search_request_can_match_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_search_request_can_match_total`<br/>`DGAUGE`, count | 
+| `opensearch_indices_search_request_dfs_pre_query_current`<br/>`DGAUGE`, count | 
+| `opensearch_indices_search_request_dfs_pre_query_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_search_request_dfs_pre_query_total`<br/>`DGAUGE`, count | 
+| `opensearch_indices_search_request_dfs_query_current`<br/>`DGAUGE`, count | 
+| `opensearch_indices_search_request_dfs_query_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_search_request_dfs_query_total`<br/>`DGAUGE`, count | 
+| `opensearch_indices_search_request_expand_current`<br/>`DGAUGE`, count |
+| `opensearch_indices_search_request_expand_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_search_request_expand_total`<br/>`DGAUGE`, count |
+| `opensearch_indices_search_request_fetch_current`<br/>`DGAUGE`, count |
+| `opensearch_indices_search_request_fetch_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_search_request_fetch_total`<br/>`DGAUGE`, count |
+| `opensearch_indices_search_request_query_current`<br/>`DGAUGE`, count |
+| `opensearch_indices_search_request_query_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_search_request_query_total`<br/>`DGAUGE`, count |
 | `opensearch_indices_search_scroll_current`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_scroll_time_in_millis`<br/>`DGAUGE`, milliseconds |
 | `opensearch_indices_search_scroll_total`<br/>`DGAUGE`, count | 
@@ -368,6 +451,21 @@ These metrics show processor core workload.
 | `opensearch_indices_segments_memory_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_segments_norms_memory_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_segments_points_memory_in_bytes`<br/>`DGAUGE`, bytes | 
+| `opensearch_indices_segments_remote_store_download_total_download_size_failed_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_segments_remote_store_download_total_download_size_started_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_segments_remote_store_download_total_download_size_succeeded_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_segments_remote_store_download_total_time_spent_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_segments_remote_store_upload_max_refresh_time_lag_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_segments_remote_store_upload_pressure_total_rejections`<br/>`DGAUGE`, count |
+| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_max_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_total_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_segments_remote_store_upload_total_time_spent_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_segments_segment_replication_max_bytes_behind`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_segments_segment_replication_max_replication_lag`<br/>`DGAUGE`, count |
+| `opensearch_indices_segments_segment_replication_total_bytes_behind`<br/>`DGAUGE`, bytes |
 | `opensearch_indices_segments_stored_fields_memory_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_segments_term_vectors_memory_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_segments_terms_memory_in_bytes`<br/>`DGAUGE`, bytes | 
@@ -376,12 +474,19 @@ These metrics show processor core workload.
 | `opensearch_indices_store_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_translog_earliest_last_modified_age`<br/>`DGAUGE`, count | 
 | `opensearch_indices_translog_operations`<br/>`DGAUGE`, count |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, bytes |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_failed`<br/>`DGAUGE`, count |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_started`<br/>`DGAUGE`, count |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_succeeded`<br/>`DGAUGE`, count |
 | `opensearch_indices_translog_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, count |  | 
 | `opensearch_indices_translog_uncommitted_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_warmer_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_warmer_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_warmer_total_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_warmer_total`<br/>`DGAUGE`, count | 
+| `opensearch_is_master`<br/>`DGAUGE`, 0/1 |
 | `opensearch_jvm_gc_collectors_old_collection_count`<br/>`DGAUGE`, count | 
 | `opensearch_jvm_gc_collectors_young_collection_count`<br/>`DGAUGE`, count | 
 | `opensearch_jvm_mem_heap_committed_in_bytes`<br/>`DGAUGE`, bytes | 
@@ -410,6 +515,7 @@ These metrics show processor core workload.
 | `opensearch_thread_pool_<thread_pool_name>_queue`<br/>`DGAUGE`, count | 
 | `opensearch_thread_pool_<thread_pool_name>_rejected`<br/>`DGAUGE`, count | 
 | `opensearch_thread_pool_<thread_pool_name>_threads`<br/>`DGAUGE`, count | 
+| `opensearch_thread_pool_<thread_pool_name>_total_wait_time_in_nanos`<br/>`DGAUGE`, nanoseconds |
 | `opensearch_transport_rx_count`<br/>`DGAUGE`, count | 
 | `opensearch_transport_rx_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_transport_server_open`<br/>`DGAUGE`, count | 
@@ -420,17 +526,34 @@ These metrics show processor core workload.
 #### Other metrics {#managed-opensearch-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `opensearch_active_primary_shards`<br/>`DGAUGE`, count | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total active shards in the cluster | 
-| `opensearch_active_shards`<br/>`DGAUGE`, count | Number of active shards | 
-| `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, count | Percentage of active shards | 
-| `opensearch_backup_incremental_size`<br/>`DGAUGE`, bytes | Size of files created during the incremental backup |
-| `opensearch_backup_total_size`<br/>`DGAUGE`, bytes | Size of files referenced by the backup |
-| `opensearch_backup_free_space_required`<br/>`DGAUGE`, bytes | Storage size required to restore a cluster from a backup. |
-| `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, count | Number of shards pending assignment |
-| `opensearch_initializing_shards`<br/>`DGAUGE`, count | Number of shards being initialized | 
-| `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
-| `opensearch_relocating_shards`<br/>`DGAUGE`, count | Number of shards being relocated | 
-| `opensearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition:<br/>`0` (red): Cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster is responding to requests, search results in the responses may be incomplete.<br/>`1` (yellow): Cluster is healthy. One or more shard replicas are inaccessible. The search results in the cluster responses are complete, but if more shards become unavailable, the cluster performance will be disrupted.<br/>`2` (green): Cluster is completely healthy. All cluster shards are available. |
-| `opensearch_unassigned_shards`<br/>`DGAUGE`, count | Number of inactive shards with no host assigned |
 | `dashboards_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
 | `dashboards_metrics_requests_total`<br/>`DGAUGE`, count | Total cluster requests | 
+| `opensearch_active_primary_shards`<br/>`DGAUGE`, count | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total active shards in the cluster | 
+| `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, count | Percentage of active shards | 
+| `opensearch_active_shards`<br/>`DGAUGE`, count | Number of active shards | 
+| `opensearch_backup_age`<br/>`DGAUGE`, seconds | Most recent backup age |
+| `opensearch_backup_free_space_required`<br/>`DGAUGE`, bytes | Storage size required to restore a cluster from a backup |
+| `opensearch_backup_incremental_size`<br/>`DGAUGE`, bytes | Size of files created during the incremental backup |
+| `opensearch_backup_total_size`<br/>`DGAUGE`, bytes | Size of files referenced by the backup |
+| `opensearch_critical_watermark_bytes`<br/>`DGAUGE`, bytes | Critical disk space usage threshold |
+| `opensearch_critical_watermark_percentage`<br/>`DGAUGE`, % | Critical disk fill threshold |
+| `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, count | Number of delayed unassigned shards |
+| `opensearch_flood_stage_watermark_bytes`<br/>`DGAUGE`, bytes | Flood stage threshold for used disk space |
+| `opensearch_flood_stage_watermark_percentage`<br/>`DGAUGE`, % | Flood stage disk fill threshold |
+| `opensearch_high_watermark_bytes`<br/>`DGAUGE`, bytes | Upper threshold for used disk space |
+| `opensearch_high_watermark_percentage`<br/>`DGAUGE`, percentage | Disk fill upper threshold |
+| `opensearch_initializing_shards`<br/>`DGAUGE`, count | Number of shards currently initializing | 
+| `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if the database host is healthy or `0` if it is not. | 
+| `opensearch_low_watermark_bytes`<br/>`DGAUGE`, bytes | Lower threshold for used disk space |
+| `opensearch_low_watermark_percentage`<br/>`DGAUGE`, percentage | Disk fill lower threshold |
+| `opensearch_primary_shards_count`<br/>`DGAUGE`, count | Number of primary shards per cluster |
+| `opensearch_relocating_shards`<br/>`DGAUGE`, count | Number of shards being relocated | 
+| `opensearch_shards_count`<br/>`DGAUGE`, count | Total number of shards per cluster |
+| `opensearch_status_green`<br/>`DGAUGE`, 0/1 | Green (healthy) cluster status indicator |
+| `opensearch_status_red`<br/>`DGAUGE`, 0/1 | Red (unhealthy) cluster status indicator |
+| `opensearch_status_yellow`<br/>`DGAUGE`, 0/1 | Yellow (partially healthy) cluster status indicator |
+| `opensearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition:<br/>`0` (red): Cluster is unhealthy or partially functional. At least one of the primary shards is not available. If the cluster is responding to queries, search results in the responses will be incomplete.<br/>`1` (yellow): Cluster is functional. One or more shard replicas are inaccessible. Search results in the cluster responses are complete, but if more shards become unavailable, the cluster performance will be disrupted.<br/>`2` (green): Cluster is healthy. All cluster shards are available. |
+| `opensearch_unassigned_shards`<br/>`DGAUGE`, count | Number of inactive shards with no host assigned |
+| `opensearch_unassigned_user_shards_count`<br/>`DGAUGE`, count | Number of unassigned custom shards |
+| `opensearch_user_shards_without_primary_count`<br/>`DGAUGE`, count | Number of custom shards without primary backups |
+| `opensearch_user_shards_without_replica_count`<br/>`DGAUGE`, count | Number of custom shards without replicas |

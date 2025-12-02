@@ -18,7 +18,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -74,8 +74,8 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
     * `--name`: Trigger name.
     * `--bucket-id`: Bucket ID.
-    * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
-    * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+    * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
+    * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
     * `--events`: [Events](../../concepts/trigger/os-trigger.md#event) for which the trigger fires.
 
     {% include [batch-settings-events](../../../_includes/api-gateway/batch-settings-events.md) %}

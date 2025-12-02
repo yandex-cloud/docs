@@ -21,12 +21,12 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, specify `numbers`.
-  1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, enter a description.
-  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_execution-timeout }}** field, specify the execution timeout. The value must not exceed the set [limit](../concepts/limits.md#api-gw-limits).
-  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter `numbers`.
+  1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, provide a description.
+  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_execution-timeout }}** field, specify the execution timeout. The value must not exceed the specified [limit](../concepts/limits.md#api-gw-limits).
+  1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
 
       ```yaml
       openapi: "3.0.0"
@@ -77,7 +77,7 @@ To get started in {{ yandex-cloud }}:
 ## Access the API gateway {#api-gw-test}
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and click the name of the API gateway you created.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and click the API gateway you created.
 1. Save the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field.
 1. Install [curl](https://curl.haxx.se).
 1. Access the API gateway using curl with one of the commands:
@@ -166,7 +166,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
         ```
 
      1. Add `index.js` to the `hello-js.zip` archive.
-  1. Describe `yandex_function` properties in the configuration file:
+  1. Describe the `yandex_function` properties in the configuration file:
 
      ```hcl
      resource "yandex_function" "test-function" {
@@ -200,14 +200,14 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
 
      For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -362,14 +362,14 @@ Add function information to the API gateway specification.
 
      For more information about resource properties in {{ TF }}, see the [relevant {{ TF }} documentation]({{ tf-provider-resources-link }}/api_gateway).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -379,7 +379,7 @@ Add function information to the API gateway specification.
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        After that, your resources will appear in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these CLI commands:
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these CLI commands:
 
         ```bash
         yc serverless api-gateway get <API_gateway_name>
@@ -403,7 +403,7 @@ curl <service_domain>/numbers
 
 Where `<service_domain>` is the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field you saved [earlier](#api-gw-test).
 
-For example:
+Here is an example:
 
 ```bash
 curl https://{{ api-host-apigw }}/numbers
@@ -417,5 +417,5 @@ Result:
 
 #### See also {#see-also}
 
-* [Service usage concepts](../concepts/index.md).
-* [Step-by-step guides on managing API gateways](../operations/index.md).
+* [Service usage concepts](../concepts/index.md)
+* [Step-by-step guides on managing API gateways](../operations/index.md)

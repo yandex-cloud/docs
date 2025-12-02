@@ -14,13 +14,13 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-## What goes into the cost of {{ monitoring-short-name }} {#rules}
+## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 
 Currently, you are charged for writing custom metrics via the [{{ monitoring-short-name }} API](api-ref/index.md) and writing any metrics via the [{{ prometheus-name }} Remote API](operations/prometheus/index.md), as well as reading any metrics via the [{{ monitoring-short-name }} API](api-ref/index.md).
 
 Reading metrics via the {{ prometheus-name }} Remote API is not yet billable.
 
-Other points to consider:
+Pricing features:
 * After writing or reading the first 50,000,000 metric values via the {{ monitoring-short-name }} API, the writing fee is reduced. See  for details.
 * There is no charge for writing {{ yandex-cloud }} resource metrics collected automatically.
 * There is no charge for reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }} console.
@@ -38,6 +38,7 @@ Other points to consider:
 
 
 ## Prices for the Russia region {#prices}
+
 
 
 

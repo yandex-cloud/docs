@@ -56,6 +56,105 @@
             1. Нажмите **Enter**.
         1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для создания OIDC-приложения:
+
+     ```bash
+     yc organization-manager idp application oauth application create --help
+     ```
+
+  1. Создайте OAuth-клиент:
+
+     ```bash
+     yc iam oauth-client create \
+       --name grafana-cloud-oauth-client \
+       --scopes openid,email,profile
+     ```
+
+     Где:
+
+     * `--name` — имя OAuth-клиента.
+     * `--scopes` — набор атрибутов пользователей, которые будут доступны Grafana Cloud. Указаны атрибуты:
+       * `openid` — идентификатор пользователя. Обязательный атрибут.
+       * `email` — адрес электронной почты пользователя.
+       * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
+
+     Результат:
+
+     ```text
+     id: ajeqqip130i1********
+     name: grafana-cloud-oauth-client
+     folder_id: b1g500m2195v********
+     status: ACTIVE
+     ```
+
+     Сохраните значение поля `id`, оно понадобится для создания и настройки приложения.
+
+  1. Создайте секрет для OAuth-клиента:
+
+     ```bash
+     yc iam oauth-client-secret create \
+       --oauth-client-id <идентификатор_OAuth-клиента>
+     ```
+
+     Результат:
+
+     ```text
+     oauth_client_secret:
+       id: ajeq9jfrmc5t********
+       oauth_client_id: ajeqqip130i1********
+       masked_secret: yccs__939233b8ac****
+       created_at: "2025-10-21T10:14:17.861652377Z"
+     secret_value: yccs__939233b8ac********
+     ```
+
+     Сохраните значение поля `secret_value`, оно понадобится для настройки Grafana Cloud.
+  
+  1. Создайте OIDC-приложение:
+
+     ```bash
+     yc organization-manager idp application oauth application create \
+       --organization-id <идентификатор_организации> \
+       --name grafana-cloud-oidc-app \
+       --description "OIDC-приложение для интеграции с Grafana Cloud" \
+       --client-id <идентификатор_OAuth-клиента> \
+       --authorized-scopes openid,email,profile \
+       --group-distribution-type none
+     ```
+
+     Где:
+
+     * `--organization-id` — [идентификатор организации](../../../organization/operations/organization-get-id.md), в которой нужно создать OIDC-приложение. Обязательный параметр.
+     * `--name` — имя OIDC-приложения. Обязательный параметр.
+     * `--description` — описание OIDC-приложения. Необязательный параметр.
+     * `--client-id` — идентификатор OAuth-клиента, полученный на втором шаге. Обязательный параметр.
+     * `--authorized-scopes` — укажите те же атрибуты, которые были указаны при создании OAuth-клиента.
+     * `--group-distribution-type` — укажите `none`, так как группы пользователей не передаются в Grafana Cloud.
+
+     Результат:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: grafana-cloud-oidc-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: NONE
+     client_grant:
+       client_id: ajeqqip130i1********
+       authorized_scopes:
+         - openid
+         - email
+         - profile
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
 {% endlist %}
 
 ## Настройте интеграцию {#setup-integration}
@@ -79,6 +178,60 @@
 
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Получите информацию о созданном OIDC-приложении:
+
+     ```bash
+     yc organization-manager idp application oauth application get <идентификатор_приложения>
+     ```
+
+     Где `<идентификатор_приложения>` — это ID OIDC-приложения, полученный при создании.
+
+     В результате вы получите информацию о приложении, включая:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: grafana-cloud-oidc-app
+     organization_id: bpf2c65rqcl8********
+     client_grant:
+       client_id: ajeqqip130i1********
+       authorized_scopes:
+         - openid
+         - email
+         - profile
+     ```
+
+     Сохраните значение `client_id` — это Client ID для настройки Grafana Cloud.
+
+  1. Получите URL с конфигурацией OpenID Connect Discovery:
+
+     ```bash
+     yc organization-manager idp application oauth application get <идентификатор_приложения> \
+       --format json | jq -r '.client_grant.issuer_uri'
+     ```
+
+     Результат будет выглядеть так:
+
+     ```text
+     https://{{ auth-main-host }}/oauth/<идентификатор_OAuth-клиента>
+     ```
+
+     Сохраните этот URL — это OpenID Connect Discovery URL для настройки Grafana Cloud.
+
+  1. Используйте секрет OAuth-клиента, который был сохранен при создании приложения на предыдущем шаге. Если вы не сохранили секрет, создайте новый:
+
+     ```bash
+     yc iam oauth-client-secret create \
+       --oauth-client-id <идентификатор_OAuth-клиента>
+     ```
+
+     Сохраните значение `secret_value` из результата команды — это Client Secret для настройки Grafana Cloud.
+
 {% endlist %}
 
 #### Настройте Redirect URI {#setup-redirect}
@@ -92,13 +245,41 @@
   1. Справа сверху нажмите  ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
       1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите эндпоинт аутентификации для вашего экземпляра Grafana Cloud в форме:
 
-        ```
+        ```text
         <URL_экземпляра_Grafana_Cloud>/login/generic_oauth
         ```
 
         Например: `https://your-org.grafana.net/login/generic_oauth`.
 
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Обновите OIDC-приложение, указав Redirect URI:
+
+     ```bash
+     yc organization-manager idp application oauth application update <идентификатор_приложения> \
+       --redirect-uris "<URL_экземпляра_Grafana_Cloud>/login/generic_oauth"
+     ```
+
+     Где:
+     
+     * `<идентификатор_приложения>` — ID OIDC-приложения, полученный при создании.
+     * `--redirect-uris` — эндпоинт аутентификации для вашего экземпляра Grafana Cloud. Например: `https://your-org.grafana.net/login/generic_oauth`.
+
+     Результат:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: grafana-cloud-oidc-app
+     organization_id: bpf2c65rqcl8********
+     redirect_uris:
+       - https://your-org.grafana.net/login/generic_oauth
+     ```
 
 {% endlist %}
 
@@ -138,6 +319,44 @@
     1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
     1. В открывшемся окне выберите нужного пользователя или группу пользователей.
     1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Получите [идентификатор пользователя](../../../organization/operations/users-get.md) или [группы пользователей](../../../organization/operations/group-get-id.md).
+
+  1. Чтобы добавить в приложение пользователя или группу пользователей:
+   
+     1. Посмотрите описание команды CLI для добавления пользователей в приложение:
+   
+        ```bash
+        yc organization-manager idp application oauth application add-assignments --help
+        ```
+   
+     1. Выполните команду:
+   
+        ```bash
+        yc organization-manager idp application oauth application add-assignments \
+          --id <идентификатор_приложения> \
+          --subject-id <идентификатор_пользователя_или_группы>
+        ```
+   
+        Где:
+   
+        * `--id` — идентификатор OIDC-приложения.
+        * `--subject-id` — идентификатор нужного пользователя или группы пользователей.
+   
+        Результат:
+   
+        ```text
+        assignment_deltas:
+          - action: ADD
+            assignment:
+              subject_id: ajetvnq2mil8********
+        ```
 
 {% endlist %}
 
