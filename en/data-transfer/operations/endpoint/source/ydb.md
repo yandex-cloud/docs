@@ -146,6 +146,7 @@ Configure one of the supported data targets:
 * [{{ KF }}](../target/kafka.md)
 * [{{ DS }}](../target/data-streams.md)
 * [{{ ytsaurus-name }}](../source/yt.md)
+* [{{ PG }}](../target/postgresql.md)
 * [{{ ydb-full-name }}](../target/yandex-database.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

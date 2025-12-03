@@ -2,14 +2,14 @@
 title: How to get information about a disk snapshot in {{ compute-full-name }}
 ---
 
-# Getting information about a disk snapshot
+# Getting disk snapshot info
 
 {% list tabs %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [disk snapshot](../../concepts/snapshot.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Select the disk snapshot.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the disk snapshot details.

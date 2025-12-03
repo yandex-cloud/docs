@@ -41,6 +41,8 @@ items:
             href: operations/resources/setup-http-rewrite.md
           - name: Setting up access via a secure token
             href: operations/resources/enable-secure-token.md
+          - name: Setting up location rules
+            href: operations/resources/location-rules.md
           - name: Managing additional resource settings
             href: operations/resources/configure-additions.md
           - name: Disabling a resource
@@ -133,6 +135,8 @@ items:
         href: concepts/secure-tokens.md
       - name: IP-based access policy
         href: concepts/ip-address-acl.md
+      - name: Location rules
+        href: concepts/location-rules.md
       - name: Log export
         href: concepts/logs.md
       - name: Labels

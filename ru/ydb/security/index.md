@@ -6,7 +6,7 @@ sourcePath: overlay/security/start_auth.md
 
 # Управление доступом в {{ ydb-name }}
 
-Пользователь {{ yandex-cloud }} может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями. Пока у пользователя нет никаких ролей, почти все операции ему запрещены.
+{% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
 Чтобы разрешить доступ к ресурсам сервиса {{ ydb-short-name }} (базы данных и их пользователи), назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md) нужные роли из приведенного ниже списка. Роль может быть назначена на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
 
@@ -38,31 +38,33 @@ sourcePath: overlay/security/start_auth.md
 
 - Консоль управления {#console}
 
-  Через [консоль управления]({{ link-console-main }}) вы можете назначить роли на [СУБД YDB](../concepts/index.md#ydb).
+  Через [консоль управления]({{ link-console-main }}) вы можете назначить роли на базу данных YDB.
 
 - CLI {#cli}
 
   Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/ydb/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
 
-  * [СУБД YDB](../concepts/index.md#ydb)
-  * Резервная копия СУБД YDB
+  * база данных YDB;
+  * резервная копия базы данных YDB.
 
 - {{ TF }} {#tf}
 
-  Через [{{ TF }}]({{ tf-provider-resources-link }}/ydb_database_iam_binding) вы можете назначить роли на [СУБД YDB](../concepts/index.md#ydb).
+  Через [{{ TF }}]({{ tf-provider-resources-link }}/ydb_database_iam_binding) вы можете назначить роли на базу данных YDB.
 
 - API {#api}
 
   Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
 
-  * [СУБД YDB](../concepts/index.md#ydb)
-  * Резервная копия СУБД YDB
+  * база данных YDB;
+  * резервная копия базы данных YDB.
 
 {% endlist %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ ydb-name }}.
+
+{% include [ydb](../../_mermaid/roles/ydb.md) %}
 
 ### Сервисные роли {#service-roles}
 

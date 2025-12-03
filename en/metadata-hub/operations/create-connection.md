@@ -108,7 +108,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -166,7 +166,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -174,7 +174,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -263,7 +263,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -321,7 +321,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -329,7 +329,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -418,7 +418,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -476,7 +476,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -484,7 +484,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -571,7 +571,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -629,7 +629,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -637,7 +637,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -723,7 +723,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -772,7 +772,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -780,7 +780,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -869,7 +869,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -927,7 +927,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -935,7 +935,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1038,7 +1038,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1084,7 +1084,7 @@ You can create connections of the following types:
 
         * `managed_cluster_id`: Cluster ID.
 
-          You can get the cluster ID with the list of clusters in the folder.
+          You can get the cluster ID from the [folder’s cluster list](../../managed-kafka/operations/cluster-list.md#list-clusters).
 
         * `auth`: Authentication parameters. Select one of the sections:
 
@@ -1101,7 +1101,7 @@ You can create connections of the following types:
           
           * `disabled`: Disables authentication.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1109,7 +1109,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1201,7 +1201,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1259,7 +1259,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1267,7 +1267,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1353,7 +1353,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1436,7 +1436,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1444,7 +1444,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1545,7 +1545,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1634,7 +1634,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1642,7 +1642,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1726,7 +1726,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1809,7 +1809,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1817,7 +1817,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1912,7 +1912,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1998,7 +1998,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2006,7 +2006,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -2086,7 +2086,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -2169,7 +2169,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2177,7 +2177,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -2268,7 +2268,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -2331,7 +2331,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2339,7 +2339,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -2432,7 +2432,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -2506,7 +2506,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2514,12 +2514,12 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
 
-  To create a connection to an {{ OS }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+  To create a connection to a {{ OS }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) reference.
 
@@ -2594,7 +2594,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -2677,7 +2677,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2685,7 +2685,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -2798,7 +2798,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating:
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -2886,7 +2886,7 @@ You can create connections of the following types:
           
           * `disabled`: Disables authentication.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2894,7 +2894,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -2979,7 +2979,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -3062,7 +3062,7 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: Password.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -3070,7 +3070,7 @@ You can create connections of the following types:
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}

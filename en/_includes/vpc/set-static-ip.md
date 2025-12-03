@@ -11,7 +11,7 @@ Make sure to check out our [pricing policy](../../vpc/pricing.md#prices-public-i
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the address.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ vpc-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the IP address and select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.

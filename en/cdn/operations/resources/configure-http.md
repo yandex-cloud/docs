@@ -13,7 +13,7 @@ To configure the allowed HTTP client requests methods for a resource:
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -131,13 +131,13 @@ To configure the allowed HTTP client requests methods for a resource:
 
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: Flag indicating content availability to end users. `True`: CDN content will be available to clients. This is an optional parameter. The default value is `true`.
-      * `origin_protocol`: Protocol for origins. This is an optional parameter. The default value is `http`.
-      * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * `cname`: Primary domain name used for content distribution. This is a required setting.
+      * `active`: Flag indicating content availability to end users. `True`: CDN content will be available to clients. This is an optional setting. The default value is `true`.
+      * `origin_protocol`: Protocol for origins. This is an optional setting. The default value is `http`.
+      * `secondary_hostnames`: Additional domain names. This is an optional setting.
+      * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required setting. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
-         * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, they will get the `405` _Method Not Allowed_ response. For methods that are not supported, the user will get `501` (_Not Implemented_). This is an optional parameter. Its default values are `GET`, `HEAD`, `POST`, and `OPTIONS`.
+         * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, they will get the `405` _Method Not Allowed_ response. For methods that are not supported, the user will get `501` (_Not Implemented_). This is an optional setting. Its default values are `GET`, `HEAD`, `POST`, and `OPTIONS`.
 
       For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
@@ -159,7 +159,7 @@ To configure the allowed HTTP client requests methods for a resource:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
      ```

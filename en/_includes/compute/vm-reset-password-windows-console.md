@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select your VM folder.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
 1. Select the VM.
 1. At the top right, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.compute.instances.button_action-password-reset }}**.
 

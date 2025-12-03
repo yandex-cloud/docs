@@ -6,14 +6,14 @@ Agents comprise four key components:
 
 * _LLM_: Actual language model with fixed setting.
 * _Prompt_: Describes the agent's behavior and role.
-* _Tools_: Allow the agent to leverage external capabilities, such as APIs, functions, or internet search.
+* _Tools_: Allow the agent to leverage external capabilities, such as APIs, functions, or web search.
 * _Memory_: Stores context and interaction history.
 
 Such architecture enables the creation of text and voice agents that behave more naturally and autonomously than classic chatbots.
 
 ## Developing agents in {{ ai-studio-name }} {#agent-development}
 
-{{ ai-studio-name }} has everything you need to create AI agents: models that support [function calling](../generation/function-call.md) and [response formatting](../generation/structured-output.md), ready-made customizable RAG and internet search [tools](#tools), as well as {{ mcp-hub-name }} that allows connecting external APIs via MCP servers.
+{{ ai-studio-name }} has everything you need to create AI agents: models that support [function calling](../generation/function-call.md) and [response formatting](../generation/structured-output.md), ready-made customizable RAG and web search [tools](#tools), as well as {{ mcp-hub-name }} that allows connecting external APIs via MCP servers.
 
 {{ ai-studio-name }} allows you to create agents in various ways:
 
@@ -25,9 +25,8 @@ Such architecture enables the creation of text and voice agents that behave more
 ### Tools {#tools}
 
 Agents can automatically invoke tools to get additional info for generation or perform the necessary actions. {{ ai-studio-name }} comes with these bundled tools:
-* _{{ retrieval-tool-name }} Tool_ implements the RAG scenario and allows the AI agent to search through your files (knowledge base) for the information for its response. You can upload your knowledge base documents in the management console, via the {{ vector-store-name }} API, or via the [Files API](../assistant/files.md) and create a search index. [Search indexes](../search/vectorstore.md) store information from your documents in vector form and allow agents to use it to respond.
+* _File Search Tool_ implements the RAG scenario and allows the AI agent to search through your files (knowledge base) for the information for its response. You can upload your knowledge base documents in the management console, via the {{ vector-store-name }} API, or via the [Files API](./tools/filesearch.md) and create a search index. [Search indexes](../search/vectorstore.md) store information from your documents in vector form and allow agents to use it to respond.
 * _Web Search Tool_ allows the agent to search for information on the internet via the Yandex search base to enrich its responses with up-to-date relevant information. Learn more about using the [Web Search Tool](./tools/websearch.md).
-* _File Search Tool_ allows the agent to search for information in user files. Learn more about using the [File Search Tool](./tools/filesearch.md).
 * _MCP Tool_ is responsible for connections to MCP servers to engage third-party APIs.
   In the {{ mcp-hub-name }} section, you can create and set up connections to new and existing MCP servers and monitor their status.
  

@@ -5,9 +5,18 @@ description: Управление доступом в сервисе для бе
 
 # Управление доступом в {{ cloud-registry-full-name }}
 
-Пользователь {{ yandex-cloud }} может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями. Пока у пользователя нет никаких ролей все операции ему запрещены.
+Для управления правами доступа в {{ cloud-registry-name }} используются [роли](../../iam/concepts/access-control/roles.md).
 
-Чтобы разрешить доступ к ресурсам сервиса {{ cloud-registry-name }}, назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md) нужные роли из приведенного ниже списка.
+В этом разделе вы узнаете:
+
+* [на какие ресурсы можно назначить роль](#resources);
+* [какие роли действуют в сервисе](#roles-list).
+
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
+
+Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `cloud-registry.admin` или одна из следующих ролей:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 ## На какие ресурсы можно назначить роль {#resources}
 

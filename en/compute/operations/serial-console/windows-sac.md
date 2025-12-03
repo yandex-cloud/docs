@@ -7,17 +7,17 @@ description: Follow this guide to start a command prompt in the Windows SAC in {
 
 To connect to the serial console and start the command shell:
 
-1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the [management console]({{ link-console-main }}), select your VM folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
 1. Select the VM.
 1. Go to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
-1. Under **{{ ui-key.yacloud.compute.instance.switch_console }}**, select `COM2` and click **{{ ui-key.yacloud.compute.instance.console.connect }}**. The command line will prompt you to enter commands:
+1. Under **{{ ui-key.yacloud.compute.instance.switch_console }}**, select `COM2` and click **{{ ui-key.yacloud.compute.instance.console.connect }}**. You will see the command line prompt:
 
     ```bash
     SAC>
     ```
 
-1. View a list of open channels:
+1. Show the list of open channels:
 
     ```bash
     SAC>ch

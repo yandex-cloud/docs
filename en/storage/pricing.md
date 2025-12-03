@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using {{ objstorage-name }}, use [our calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -59,6 +59,7 @@ You pay for data operations according to the following policy:
 
 
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
@@ -72,7 +73,7 @@ The price per GB per month is fixed and does not depend on the number of days in
 {% include [usd.md](../_pricing/storage/usd-used_space.md) %}
 
 
-^1^ The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it is lower.
+^1^ The daily cost of data storage service is calculated as `Price_per_GB_per_month / number_of_days_in_month`. For shorter months, the price per day is higher. For longer months, it is lower.
 
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using this formula:
 

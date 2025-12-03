@@ -21,7 +21,7 @@ To enable [compression](../../concepts/compression.md) of [resource](../../conce
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -137,11 +137,11 @@ To enable [compression](../../concepts/compression.md) of [resource](../../conce
 
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: Flag indicating content availability to end users. `True`: CDN content will be available to clients. This is an optional parameter. The default value is `true`.
-      * `origin_protocol`: Protocol for origins. This is an optional parameter.
-      * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * `cname`: Primary domain name used for content distribution. This is a required setting.
+      * `active`: Flag indicating content availability to end users. `True`: CDN content will be available to clients. This is an optional setting. The default value is `true`.
+      * `origin_protocol`: Protocol for origins. This is an optional setting.
+      * `secondary_hostnames`: Additional domain names. This is an optional setting.
+      * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required setting. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `gzip_on`: Flag indicating whether compression will be used.
 

@@ -85,13 +85,13 @@ Set up the infrastructure:
         * `output-bucket`: Output data bucket name.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -103,7 +103,7 @@ Set up the infrastructure:
 
 ## Connect {{ dataproc-name }} to {{ metastore-name }} {#connect}
 
-1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) in `dataproc-network`.
+1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) version {{ metastore.integration-version }} in `dataproc-network`.
 
 1. [Add](../../../data-proc/operations/cluster-update.md) the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value to the {{ dataproc-name }} cluster settings.
 
@@ -150,7 +150,7 @@ In the `dataproc-source` cluster, create a test table named `countries` and uplo
 
         1. In the script, specify the name of the output bucket where the file with the `countries` table will be saved.
 
-        1. Create a folder named `scripts` in the input bucket and [upload](../../../storage/operations/objects/upload.md#simple) the `create-table.py` file to it.
+        1. In the input bucket, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `create-table.py` file to it.
 
     1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/create-table.py`.
 

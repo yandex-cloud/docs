@@ -17,6 +17,8 @@ items:
             href: operations/internal-lb-create.md
           - name: Остановить и запустить сетевой балансировщик
             href: operations/load-balancer-start-and-stop.md
+          - name: Настроить защиту от удаления
+            href: operations/deletion-protection.md
           - name: Изменить настройки балансировщика
             href: operations/load-balancer-update.md
           - name: Переместить ВМ в целевую группу в новой зоне доступности

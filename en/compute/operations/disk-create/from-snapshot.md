@@ -18,7 +18,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
@@ -92,16 +92,16 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
       * `--source-snapshot-name`: Source snapshot name. Instead of a name, you can provide the source snapshot ID in the `--source-snapshot-id` parameter.
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
-      * `--description`: Text description of the new disk. This is an optional parameter.
-      * `--hardware-generation-id`: Hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional parameter. Possible values:
+      * `--description`: Text description of the new disk. This is an optional setting.
+      * `--hardware-generation-id`: Hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional setting. The possible values are:
 
           {% include [generation-types-cli](../../../_includes/compute/generation-types-cli.md) %}
 
           If not specified, the disk will get the same hardware generation assigned as the source snapshot.
-      * `--hardware-features`: Additional settings for `Gen 1`. This is an optional parameter. Possible values:
+      * `--hardware-features`: Additional settings for `Gen 1`. This is an optional setting. The possible values are:
 
           * `pci_topology=v1`: `PCI_TOPOLOGY_V1` topology.
-          * `pci_topology=v2`: `PCI_TOPOLOGY_V2` topology.
+          * `pci_topology=v2`: Adopts the `PCI_TOPOLOGY_V2` topology.
 
 
           If the source snapshot has `Gen 1` assigned, by default the new disk will get the same `--hardware-features` value as the source snapshot.
@@ -187,7 +187,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
   1. Define the parameters of the `yandex_compute_disk` resource in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
      
       ```hcl
       resource "yandex_compute_disk" "my-disk" {
@@ -209,7 +209,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
       * `snapshot_id`: ID of the snapshot you are creating the disk based on.
-      * `hardware_generation`: Settings describing the virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional parameter. It includes the following blocks of settings:
+      * `hardware_generation`: Settings describing the virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional setting. It includes the following blocks of settings:
 
           {% include [generation-types-tf](../../../_includes/compute/generation-types-tf.md) %}
 

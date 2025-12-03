@@ -20,29 +20,35 @@
 
 {{ cdn-name }} uses the following concepts:
 
-| Concept | Description |
-| --- | --- |
-| [Resource](./resource.md) | The main entity in the service that allows you to configure and control content distribution from origins over the CDN. |
-| [Origins and origin groups](./origins.md) | The servers that are origins of content. CDN servers access them to load files. |
-| [Providers](./providers.md) | CDN providers. |
-| [Exchanging data between clients and the CDN](./clients-to-servers.md) | Receiving client requests by the CDN load balancer and sending response data from CDN servers. |
-| [TLS certificates](./clients-to-servers-tls.md) | Certificates used for HTTPS connections between clients and the CDN load balancer. |
-| [CORS](./cors.md) | Cross-domain client requests to the CDN (cross-origin resource sharing). |
-| [Content compression](./compression.md) | Sending GZIP files to clients. |
-| [Exchanging data between the CDN and origins](./servers-to-origins.md) | CDN server requests for files from origins and responses to them. |
-| [`Host` header](./servers-to-origins-host.md) | `Host` HTTP header in CDN server requests to origins. |
-| [Content segmentation](./slicing.md) | Storing large files on CDN servers in parts. |
-| [Origin shielding](./origins-shielding.md) | Using a shield server between CDN servers and origins to reduce origin load. |
-| [Redirecting requests](./http-rewrite.md) | Redirecting requests from a CDN resource to an origin using the rewrite rule. |
-| [Content caching](./caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or on the client side. |
-| [Secure tokens](./secure-tokens.md) | Setting up access to files on CDN servers based on time and IP using secure tokens. |
-| [IP-based access policy](./ip-address-acl.md) | Configuring access to CDN resources using an allow or block policy. |
-| [Log export](./logs.md) | Exporting CDN and shielding server request logs to object storage. |
-| [Labels](./labels.md) | CDN resource [labels](../../resource-manager/concepts/labels.md) in `<label_name>: <label_value>` format. |
-| [Quotas and limits](./limits.md) | Service use restrictions. |
+#|
+|| **Concept** | **Description** ||
+|| [Resource](./resource.md) | The main entity in the service that allows you to configure and control content distribution from origins over the CDN. ||
+|| [Origins and origin groups](./origins.md) | The servers that are origins of content. CDN servers access them to load files. ||
+|| [Providers](./providers.md) | CDN providers. ||
+|| [Exchanging data between clients and the CDN](./clients-to-servers.md) | Receiving client requests by the CDN load balancer and sending response data from CDN servers. ||
+|| [TLS certificates](./clients-to-servers-tls.md) | Certificates used for HTTPS connections between clients and the CDN load balancer. ||
+|| [CORS](./cors.md) | Cross-domain client requests to the CDN (cross-origin resource sharing). ||
+|| [Content compression](./compression.md) | Sending GZIP files to clients. ||
+|| [Exchanging data between the CDN and origins](./servers-to-origins.md) | CDN server requests for files from origins and responses to them. ||
+|| [`Host` header](./servers-to-origins-host.md) | `Host` HTTP header in CDN server requests to origins. ||
+|| [Content segmentation](./slicing.md) | Storing large files on CDN servers in parts. ||
+|| [Origin shielding](./origins-shielding.md) | Using a shield server between CDN servers and origins to reduce origin load. ||
+|| [Redirecting requests](./http-rewrite.md) | Redirecting requests from a CDN resource to an origin using the rewrite rule. ||
+|| [Content caching](./caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or on the client side. ||
+|| [Secure tokens](./secure-tokens.md) | Setting up access to files on CDN servers based on time and IP using secure tokens. ||
+|| [IP-based access policy](./ip-address-acl.md) | Configuring access to CDN resources using an allow or block policy. ||
+|| [Location rules](./location-rules.md) | It is a mechanism used to selectively redefine CDN resource settings for requests whose paths match specific templates.
+
+{% include [location-rules-disclaimer](../../_includes/cdn/location-rules-disclaimer.md) %}
+
+||
+|| [Log export](./logs.md) | Exporting CDN and shielding server request logs to object storage. ||
+|| [Labels](./labels.md) | CDN resource [labels](../../resource-manager/concepts/labels.md) in `<label_name>: <label_value>` format. ||
+|| [Quotas and limits](./limits.md) | Service use restrictions. ||
+|#
 
 See also the {{ yandex-cloud }} [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md).
 
 #### See also {#see-also}
 
-* [Yandex SWS and CDN: Website protection and acceleration for businesses of any size](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)
+* [Yandex SWS and CDN: website protection and acceleration for companies of any size](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)

@@ -2,7 +2,7 @@
 title: How to get information about a file storage in {{ compute-full-name }}
 ---
 
-# Getting information about a file storage
+# Getting file storage info
 
 You can get the file storage size, availability zone, and other file storage information.
 
@@ -11,7 +11,7 @@ You can get the file storage size, availability zone, and other file storage inf
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [file storage](../../concepts/filesystem.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
   1. Select the file storage.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the file storage details.

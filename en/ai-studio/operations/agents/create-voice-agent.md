@@ -22,6 +22,14 @@ In the example below, the user interacts with the agent as follows:
 
     However, if the user starts pronouncing a new request, the response playback is interrupted, and a brand new user request processing iteration starts.
 
+{% note tip %}
+
+When testing and debugging voice agents, use headphones for audio playback. This will help you avoid situations where your agent tries to recognize its own voice and interrupts itself, thus causing misrecognized phrases and incomplete responses.
+
+If problems persist even when using headphones, reduce playback volume: your microphone may be sensitive enough to interpret the sound from your headphones as real speech.
+
+{% endnote %}
+
 ## Getting started {#before-begin}
 
 To use an example:

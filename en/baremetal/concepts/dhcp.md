@@ -29,23 +29,23 @@ Depending on the {{ baremetal-name }} server's selected network settings, the pu
 
 ### DHCP in an ephemeral public subnet {#dhcp-ephemeral-public-subnet}
 
-If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`, its public subnet is [ephemeral](./network.md#ephemeral-public-subnet) and its network interface connected to that subnet will get an IPv4 address from the range of {{ baremetal-full-name }} public IP addresses.
+If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`, its public subnet is [ephemeral](./network.md#ephemeral-public-subnet), and its network interface connected to that subnet will get an IPv4 address from the range of {{ baremetal-full-name }} public IP addresses.
 
-In an ephemeral public subnet, a DHCP server is enabled by default and provides {{ baremetal-name }} servers with IPv4 addresses prefixed with `/31`. You cannot disable the DHCP server on an ephemeral public subnet.
+To activate DHCP in an ephemeral public subnet, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}** when leasing a {{ baremetal-name }} server. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to update the DHCP server settings in such a subnet later on.
 
-If DHCP is disabled on a {{ baremetal-name }} server's network interface connected to an ephemeral public subnet, consider the following when configuring that interface:
+If DHCP is disabled in an ephemeral public subnet or on the server's [network interface](./servers.md#network-interfaces) connected to such a subnet, and obtaining an address via DHCP is disabled, consider the following when configuring that interface:
 
-* The subnet housing the server's public IP address has a subnet prefix length of `31` bits and consists of two addresses: the default gateway's IP address and the host IP address.
-* The host IP address is specified in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field on the page with server information.
-* Less than the host IP address by one, the gateway IP address is specified in the **{{ ui-key.yacloud.baremetal.field_gateway }}** field on the page with server information.
+* The subnet the server's public IP address is in has a subnet prefix length of `31` bits and consists of these two addresses: the default gateway IP address and the host IP address.
+* The gateway IP address is specified under **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** in the **{{ ui-key.yacloud.baremetal.title_section-server-public-network_p7Zhj }}** section on the server information page.
+* The host IP address is greater than the gateway IP address by one.
 
 Here is an example:
 
-* Server public IP address: `198.51.100.111`.
 * Subnet CIDR: `198.51.100.110/31`.
 * Default gateway IP address: `198.51.100.110`.
+* Server public IP address: `198.51.100.111`.
 
-### DHCP on a dedicated public subnet {#dhcp-public-subnet}
+### DHCP in a dedicated public subnet {#dhcp-public-subnet}
 
 If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}`, its public subnet is [dedicated](./network.md#public-subnet) and its network interface connected to that subnet can get an IPv4 address from the range of addresses associated with the selected dedicated subnet.
 

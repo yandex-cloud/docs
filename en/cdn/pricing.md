@@ -22,9 +22,10 @@ The cost of using {{ cdn-name }} is based on:
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Outbound traffic {#traffic}
+### Outgoing traffic {#traffic}
 
 
 

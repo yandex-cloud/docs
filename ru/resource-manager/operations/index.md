@@ -26,6 +26,7 @@ description: Пошаговые инструкции по управлению �
 * [{#T}](folder/update.md)
 * [{#T}](folder/delete.md)
 * [{#T}](folder/set-access-bindings.md)
+* [{#T}](folder/switch.md)
 * [{#T}](folder/get-id.md)
 * [{#T}](folder/notify.md)
 

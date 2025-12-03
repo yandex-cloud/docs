@@ -7,6 +7,8 @@ description: В данном разделе вы узнаете, как можн
 
 {% include [note-preview-kspm](../../../_includes/security-deck/note-preview-kspm.md) %}
 
+Для просмотра правил контроля Kubernetes необходима роль `security-deck.viewer` или выше на каталог, в котором находятся ресурсы модуля KSPM.
+
 Чтобы посмотреть задействованные правила контроля {{ k8s }}:
 
 {% list tabs group=instructions %}

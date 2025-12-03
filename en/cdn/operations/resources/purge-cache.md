@@ -13,7 +13,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -105,7 +105,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
           {% include [the-vary-headers-purge-warning](../../../_includes/cdn/the-vary-headers-purge-warning.md) %}
 
-          If you omit the `--path` setting with paths to files, the cache of all resource files will be purged. Learn more in [{#T}](../../concepts/caching.md#purge).
+          If you omit the `--path` setting with paths to files, the cache of all resource files will be purged. For more information, see [{#T}](../../concepts/caching.md#purge).
 
       For more information about the `yc cdn cache purge` command, see this [CLI reference](../../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
 

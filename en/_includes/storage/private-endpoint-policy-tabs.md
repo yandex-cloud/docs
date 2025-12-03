@@ -11,7 +11,7 @@ In addition, a bucket configured this way still supports [server-side copy](../.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you configured the {{ vpc-short-name }} service connection.
-  1. Select **{{ objstorage-name }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ objstorage-name }}**.
   1. Select the bucket from the list.
   1. In the left-hand menu, go to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab.
   1. At the top of the screen, navigate to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.

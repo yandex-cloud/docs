@@ -66,7 +66,7 @@ To authenticate in {{ ml-sdk-full-name }}, you need to provide the `YCloudML` ob
           * [YandexCloudCLIAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.YandexCloudCLIAuth): Allows you to explicitly set authentication as a [user](../../iam/concepts/users/accounts.md) or service account [specified](../../cli/operations/index.md#auth) in the [{{ yandex-cloud }} CLI](../../cli/index.yaml) profile on the user's computer.
              For example: `auth = YandexCloudCLIAuth()`.
 
-          You can get these classes by importing them from the ML SDK library. For example:
+          You can get these classes by importing them from the ML SDK library. Here is an example:
 
           ```python
           from yandex_cloud_ml_sdk.auth import APIKeyAuth
@@ -97,7 +97,7 @@ To authenticate in {{ ml-sdk-full-name }}, you need to provide the `YCloudML` ob
 
 As input data for the request, {{ ml-sdk-name }} can accept the following types:
 
-* String, e.g., `What is heaven?`
+* String. Here is an example: `What is heaven?`
 * Dictionary, a data structure similar to [JSON](https://en.wikipedia.org/wiki/JSON), e.g., `{"role": "role", "text": "text"}`.
 * {{ ml-sdk-name }} `TextMessage` [class](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/src/yandex_cloud_ml_sdk/_models/completions/message.py) object, e.g., `result[0]`.
 

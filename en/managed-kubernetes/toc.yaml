@@ -83,6 +83,8 @@ items:
             href: operations/applications/keda.md
           - name: Installing Kruise
             href: operations/applications/kruise.md
+          - name: Installing Kubernetes Node Remediation
+            href: operations/applications/kubernetes-node-remediation.md
           - name: Installing Kyverno & Kyverno Policies
             href: operations/applications/kyverno.md
           - name: Installing Loki

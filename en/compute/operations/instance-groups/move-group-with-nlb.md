@@ -29,9 +29,9 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [net
 
         - Management console {#console}
 
-          1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the load balancer.
-          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-          1. Click the name of the load balancer in question.
+          1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with your load balancer.
+          1. [Go](../../../console/operations/select-service.md#select-service) to **{{ network-load-balancer-name }}**.
+          1. Click your load balancer's name.
           1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}**, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.
           1. At the top right, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_add-listener }}** and [create](../../../network-load-balancer/operations/listener-add.md) a new listener.
 
@@ -164,7 +164,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [net
 
              Where:
              * `name`: Listener name.
-             * `port`: Port the load balancer will listen to incoming traffic on.
+             * `port`: Port on which the load balancer will listen to incoming traffic.
              * `target_port`: Target port the load balancer will route traffic to. 
              * `subnet_id`: ID of the subnet in the availability zone you want to move your instance group to.
 
@@ -177,7 +177,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [net
 
         - API {#api}
 
-          1. To remove a network load balancer's listener, use the [removeListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/removeListener.md) gRPC API call, and provide the following in your request:
+          1. To remove a network load balancer listener, use the [removeListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../../../network-load-balancer/api-ref/grpc/NetworkLoadBalancer/removeListener.md) gRPC API call, providing the following in your request:
              * Load balancer ID in the `networkLoadBalancerId` parameter.
              * Name of the listener in the `listenerName` parameter.
 
@@ -199,7 +199,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [net
 
              Where:
              * `name`: Listener name.
-             * `port`: Port the load balancer will listen to incoming traffic on.
+             * `port`: Port on which the load balancer will listen to incoming traffic.
              * `targetPort`: Target port the load balancer will route traffic to.
              * `subnetId`: ID of the subnet in the availability zone you want to move your load balancer to.
 

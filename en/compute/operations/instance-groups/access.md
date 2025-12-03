@@ -14,7 +14,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the instance group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -58,7 +58,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--user-account-id`: [User ID](../../../organization/operations/users-get.md).
-       * `--role`: [Role](../../security/index.md#roles-list) to assign.
+       * `--role`: [Role](../../security/index.md#roles-list).
 
      * To a service account:
 
@@ -86,7 +86,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the instance group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -154,7 +154,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the instance group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.

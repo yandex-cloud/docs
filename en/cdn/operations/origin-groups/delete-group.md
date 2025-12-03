@@ -14,7 +14,7 @@ To delete an [origin group](../../concepts/origins.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, go to ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and select the group to delete.
   1. Click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -64,7 +64,7 @@ To delete an [origin group](../../concepts/origins.md):
   If you created an origin group using {{ TF }}, you can delete it:
   1. In the command line, go to the directory with the {{ TF }} configuration file.
   1. Delete the group description from the configuration file.
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -87,7 +87,7 @@ To delete multiple origin groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to delete multiple resource groups from.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, navigate to ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and select the groups to delete.
 
      To delete all the groups, select the relevant option in the table header next to the **{{ ui-key.yacloud.cdn.column_name }}** field.

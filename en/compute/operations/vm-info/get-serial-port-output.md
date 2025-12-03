@@ -9,7 +9,7 @@ To access the output data, you need the `compute.operator` or `{{ roles-viewer }
 - Management console {#console}
 
   1. Select the folder the VM belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. Click the line with the VM in question.
   1. Go to the **{{ ui-key.yacloud.compute.instance.switch_service-console }}** tab.
   1. To use the **CTRL** + **F** shortcut to search, enable **{{ ui-key.yacloud.compute.instance.service-console.raw-mode }}** in the top-right corner.

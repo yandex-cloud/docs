@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to delete a backup policy in {
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to delete a [backup policy](../../../backup/concepts/policy.md) from.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the backup policy you want to delete and select **{{ ui-key.yacloud.common.delete }}**. 
   1. Confirm the backup policy deletion.
@@ -37,7 +37,7 @@ description: In this tutorial, you will learn how to delete a backup policy in {
      yc backup policy delete <backup_policy_ID>
      ```
 
-     For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/delete.md).
+     For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/delete.md).
 
 - {{ TF }} {#tf}
 
@@ -114,7 +114,7 @@ description: In this tutorial, you will learn how to delete a backup policy in {
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+     You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc backup policy list

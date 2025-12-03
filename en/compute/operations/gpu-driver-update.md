@@ -10,7 +10,7 @@ description: Follow this guide to update NVIDIA and CUDA drivers.
 
 This guide covers the `gpu-standard-v3` ({{ a100-epyc }}) and `gpu-standard-v3i` platforms.
 
-For `gpu-standard-v3i`, you can only use an image with the [NVIDIA 535 driver and secure boot support](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2). The video driver cannot be updated on this platform; you can only update the CUDA library.
+For `gpu-standard-v3i`, you can only use an image with the [NVIDIA 535 driver and secure-boot support](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2). The video driver cannot be updated on this platform; you can only update the CUDA library.
 
 {% endnote %}
 

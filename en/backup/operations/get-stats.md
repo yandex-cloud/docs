@@ -15,7 +15,7 @@ To view the statistics:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the backup [policy](../concepts/policy.md) was created in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Select the dashboard: **{{ backup-name }}**.
   1. In the **Resource name** field, select the VM or {{ baremetal-name }} server you want to view the statistics for.
 

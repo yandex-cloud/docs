@@ -12,16 +12,16 @@ To create an image from another custom image:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an image.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. In the line with the image, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.images.button_action-image }}**.
-  1. Enter a name for the new image. The naming requirements are as follows:
+  1. Enter a name for the new image. Follow these naming requirements:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Provide a text description for the image, if required.
   1. Expand the **{{ ui-key.yacloud.compute.section_additional_7yvYG }}** section:
-  1. Optionally, in the **{{ ui-key.yacloud.compute.hardware-generation_1iEpT }}** field, select the virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) you want to assign to the new image:
+  1. Optionally, in the **{{ ui-key.yacloud.compute.hardware-generation_1iEpT }}** field, select the desired [generation](../../concepts/hardware-generations.md#configurations) of virtualized hardware to be assigned to the created image:
 
       {% include [generation-types-console](../../../_includes/compute/generation-types-console.md) %}
 
@@ -57,12 +57,12 @@ To create an image from another custom image:
       ```
 
       Where:
-      * `--name`: Image name. The naming requirements are as follows:
+      * `--name`: Image name. Follow these naming requirements:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `--source-image-name`: Source image name. Instead of a name, you can provide the source image ID in the `--source-image-id` parameter.
-      * `--pooled`: Parameter you can use to create an [optimized image](../../concepts/image.md#images-optimized-for-deployment). This is an optional setting.
+      * `--source-image-name`: Source image name. Instead of name, you can provide the source image ID in the `--source-image-id` parameter.
+      * `--pooled`: This parameter allows creating an [optimized image](../../concepts/image.md#images-optimized-for-deployment). This is an optional setting.
       * `--hardware-generation-id`: Virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the image. This is an optional setting. The possible values are:
 
           {% include [generation-types-cli](../../../_includes/compute/generation-types-cli.md) %}
@@ -71,7 +71,7 @@ To create an image from another custom image:
       * `--hardware-features`: Additional settings for `Gen 1`. This is an optional setting. The possible values are:
 
           * `pci_topology=v1`: `PCI_TOPOLOGY_V1` topology.
-          * `pci_topology=v2`: `PCI_TOPOLOGY_V2` topology.
+          * `pci_topology=v2`: Adopts the `PCI_TOPOLOGY_V2` topology.
 
 
           If the source image has `Gen 1` assigned, by default the new image will get the same `--hardware-features` value as the source image.
@@ -117,7 +117,7 @@ To create an image from another custom image:
      ```
 
       Where:
-      * `name`: Image name. The naming requirements are as follows:
+      * `name`: Image name. Follow these naming requirements:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 

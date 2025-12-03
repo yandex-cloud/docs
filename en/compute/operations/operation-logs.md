@@ -14,12 +14,12 @@ The system logs all actions with {{ compute-name }} resources as a list of opera
 
 - Management console {#console}
 
-  To view operations with all the resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** in the left-hand panel. In the list that opens, you will also see operations with the resources that were deleted.
+  To view operations with all the resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
   
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a VM. The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder with the VM.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM.
   1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** panel for the selected VM.
@@ -57,7 +57,7 @@ The system logs all actions with {{ compute-name }} resources as a list of opera
   +----------------------+---------------------+----------------------+---------------------+--------+-----------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc compute instance list-operations epdplu8jn7sr******** --format yaml
@@ -115,7 +115,7 @@ The system logs all actions with {{ compute-name }} resources as a list of opera
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get operation details:
+1. Get the operation details:
 
    {% list tabs group=instructions %}
 

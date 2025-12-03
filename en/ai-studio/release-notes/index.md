@@ -177,6 +177,6 @@ Updated the {{ yagpt-name }} and {{ gpt-lite }} [models](../concepts/generation/
 
 ## Release as of 02/08/23 {#020823}
 
-1. [Increased](../concepts/limits.md) the total number of prompt and response tokens.
+1. [Increased](../concepts/limits.md) the total number of tokens in the prompt and response.
 1. Added a new mode called Chat.
 1. Added a method for counting the number of tokens in a request.

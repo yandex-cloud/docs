@@ -85,7 +85,7 @@ Once created, the job will run automatically.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -151,11 +151,11 @@ Once created, the job will run automatically.
             * `repositories`: List of URLs of additional repositories for package search.
             * `exclude_packages`: List of Maven coordinates of the packages to exclude, in `groupId:artifactId` format.
 
-    1. View the [server response](../api-ref/grpc/Job/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Job/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-For running SparkConnect jobs, there is an endpoint available you can use to connect via PySpark. You can get the endpoint with the [job information](#get-info). Its value is specified in the `connect_url` field.
+For running SparkConnect jobs, there is an endpoint available you can use to [connect via PySpark](connect.md). You can get the endpoint with the [job information](#get-info). Its value is specified in the `connect_url` field in the CLI or API or in the **{{ ui-key.yacloud.spark.label_connect-url }}** field in the management console.
 
 > For example: `sc://connect-api-c9q9veov4uql********-c9q8ml85r1oh********.spark.yandexcloud.net:443`.
 

@@ -2,9 +2,9 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the line with the VM, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Next to the VM you want to delete, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}**.
 
      To delete multiple VMs, select them from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
 
@@ -26,7 +26,7 @@
 
      {% include [compute-instance-list](../../compute/_includes_service/compute-instance-list.md) %}
 
-  1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Delete the VM:
 
      ```bash
@@ -38,7 +38,7 @@
   {% include [terraform-install](../terraform-install.md) %}
 
   To delete a VM created using {{ TF }}, follow these steps:
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
   1. Delete the resources using this command:
 
      ```bash

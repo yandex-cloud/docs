@@ -1,0 +1,44 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/baremetal/cli-ref-beta/configuration/list.md
+---
+
+# yc beta baremetal configuration list
+
+Retrieves the list of Configuration resources.
+
+#### Command Usage
+
+Syntax: 
+
+`yc beta baremetal configuration list <FOLDER-ID>`
+
+#### Flags
+
+| Flag | Description |
+|----|----|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>The expression consists of one or more conditions united by 'AND' operator: '\<condition1\> [AND \<condition2\> [<...> AND \<conditionN\>]]'.<br/><br/>Each condition has the form '\<field\> \<operator\> \<value\>', where:<br/>1. '\<field\>' is the field name. Currently you can use filtering only on the limited number of fields.<br/>2. '\<operator\>' is a logical operator, one of '=' (equal), ':' (substring).<br/>3. '\<value\>' represents a value.<br/>String values should be written in double ('"') or single (''') quotes. C-style escape sequences are supported ('\"' turns to '"', '\'' to ''', '\\' to backslash).<br/>Example: "key1='value' AND key2='value'"<br/>Supported operators: ["AND"].<br/>Supported fields: ["id", "name"].<br/>Both snake_case and camelCase are supported for fields.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to return a Configuration resource for.<br/><br/>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--order-by`|<b>`string`</b><br/>By which column the listing should be ordered and in which direction,<br/>format is "createdAt desc". "id asc" if omitted.<br/>Supported fields: ["id", "name"].<br/>Both snake_case and camelCase are supported for fields.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is greater than 'page_size',<br/>the service returns a [ListConfigurationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value is 20.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListConfigurationsResponse.next_page_token] returned by a previous list request.|
+
+#### Global Flags
+
+| Flag | Description |
+|----|----|
+|`--profile`|<b>`string`</b><br/>Set the custom profile.|
+|`--region`|<b>`string`</b><br/>Set the region.|
+|`--debug`|Debug logging.|
+|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
+|`--no-user-output`|Disable printing user intended output to stderr.|
+|`--pager`|<b>`string`</b><br/>Set the custom pager.|
+|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
+|`--timeout`|<b>`string`</b><br/>Set the timeout.|
+|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
+|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
+|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
+|`-h`,`--help`|Display help for the command.|

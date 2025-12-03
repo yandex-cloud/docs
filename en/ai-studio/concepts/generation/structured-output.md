@@ -37,7 +37,7 @@ Result:
       {
         "message": {
           "role": "assistant",
-          "text": "{\n    \"meat\": [\"beef\", \"pork\", \"mutton\"],\n    \"dairy products\": [\"milk\", \"curd\", \"sour cream\"],\n    \"fruits\": [\"apples\", \"bananas\", \"oranges\"]\n}"
+          "text": "{\n    \"meat\": [\"beef\", \"pork\", \"mutton\"],\n    \"dairy products\": [\"milk\", \"curd\", \"sour cream\"],\n    \"fruit\": [\"apples\", \"bananas\", \"oranges\"]\n}"
         },
         "status": "ALTERNATIVE_STATUS_FINAL"
       }
@@ -58,7 +58,7 @@ If you do not get the result you expect using the prompt, try [fine-tuning](../t
 
 ### API parameters for saving the response structure {#structured-output}
 
-Some text generation models support additional control over the response format not only via prompt, but also via query parameters. This way you can use the response formatting options to specify that you want the response in JSON format. There are two options to choose from:
+For some text generation models, you can set the response format not only via a prompt but also using request parameters. For example, you can use the response formatting options to request a response in JSON format. There are two options to choose from:
 
 1. JSON with any structure:
 
@@ -127,7 +127,7 @@ Some text generation models support additional control over the response format 
 
    {% note tip %}
 
-   If you want the response to be a JSON with any structure, be sure to additionally specify this in words in your prompt. Otherwise, the model may add extra brackets, spaces, indents and generate excessive tokens.
+   If you want to get a JSON with an arbitrary structure, explicitly mention this in your prompt. Otherwise, the model may add extra brackets, spaces, indents and generate excessive tokens.
 
    {% endnote %}
 

@@ -150,7 +150,7 @@ Where:
 * `REPLACEMENT HOST ID`: ID of the new (replacement) host.
 * `REPLACEMENT DEADLINE`: Automatic host release date and time (UTC).
 
-A host undergoing maintenance is not charged, not included in the host group size, and not used for deploying new VMs.
+A host released from load is not charged, not not counted towards the host group size, and not used to host new VMs.
 
 The auto release date and time are scheduled for the seventh day after dedicating the replacement host. {{ compute-name }} will start automatically releasing the host in the period from `REPLACEMENT DEADLINE` to `REPLACEMENT DEADLINE + 1 hour`. Depending on the type of your VMs:
 
@@ -168,6 +168,12 @@ yc compute host-group update-host <host_group_ID> \
 
 Where `--replacement-deadline` is the date and time in UTC format (`YYYY-MM-DDTHH:MM:SSZ`).
 
+{% note info %}
+
+To start releasing a host from a VM immediately, do not specify `--replacement-deadline`.
+
+{% endnote %}
+
 VMs are automatically moved based on the VM host affinity rules. A VM will be moved to any host in a host group that has sufficient resources, including the replacement host. If there are no resources, the VMs will be stopped.
 
 You can move your VMs from the old host yourself before the specified date:
@@ -182,8 +188,39 @@ You can move your VMs from the old host yourself before the specified date:
     ```bash
     yc compute instance start <VM_name>
     ```
-
 * By [deleting](../operations/vm-control/vm-delete.md) and [recreating](../operations/vm-create/create-linux-vm.md) your VMs (for VMs with local disks).
+
+{% note info %}
+
+You can move a VM with secondary disks to a new host. Data on network disks will be saved, whereas data on local disks will be lost due to being associated with a physical server. To avoid losing information stored on local disks, [configure](../../backup/operations/backup-vm/create.md) backups in {{ backup-name }}.
+
+{% cut "Example of commands to move a VM from one host to another" %}
+
+   1. [To stop the VM](../operations/vm-control/vm-stop-and-start):
+
+      ```bash
+      yc compute instance stop \
+        --id <VM_ID>
+      ```
+
+   1. To link the VM to a different host:
+
+      ```bash
+      yc compute instance update \
+        --id <VM_ID> \
+        --host-id <new_host_ID>
+      ```
+
+   1. To run the VM:
+
+      ```bash
+      yc compute instance start \
+        --id <VM_ID>
+      ```
+
+{% endcut %}
+
+{% endnote %}
 
 Use the command below to learn which dedicated host the VM is actually running on:
 
@@ -222,6 +259,7 @@ To uniquely map a VM and a physical server, you can create a VM that is linked:
 Linking a VM ensures that it will run on the same physical server or group of servers even after scheduled maintenance.
 
 To move a VM from one dedicated host to another:
+
 1. [Stop the VM](../operations/vm-control/vm-stop-and-start).
 1. Link the VM to a different host in the group.
 1. Restart the VM.
@@ -242,7 +280,7 @@ done (33s)
 id: abcdefghigkl********
 folder_id: a1b23cd45efg********
 ...
-placement_policy:               # VM host affinity rules
+placement_policy:                             # VM host affinity rules
   host_affinity_rules:
     - key: yc.hostGroupId
       op: IN
@@ -284,5 +322,6 @@ For information about pricing for dedicated hosts, see [{#T}](../pricing.md#pric
 * [{#T}](../operations/dedicated-host/running-host-group-vms.md)
 * [{#T}](../operations/dedicated-host/running-host-vms.md)
 * [{#T}](../operations/dedicated-host/access.md)
+
 
 _Intel and Xeon are trademarks of Intel Corporation or its subsidiaries._

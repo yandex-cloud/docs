@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using {{ managed-k8s-name }}, use [our calculator](https://yandex.cloud/en/prices?state=f05a4ab8c08f#calculator) on the {{ yandex-cloud }} website or check the pricing info below.
+For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=f05a4ab8c08f#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -31,6 +31,7 @@ Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compu
 
 
 ## Prices for the Russia region {#prices}
+
 
 
 

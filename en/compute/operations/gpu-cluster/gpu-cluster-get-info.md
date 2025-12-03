@@ -3,7 +3,7 @@ title: How to get information about a GPU cluster in {{ compute-full-name }}
 description: Follow this guide to get information about a GPU cluster.
 ---
 
-# Getting information about a GPU cluster
+# Getting GPU cluster info
 
 
 {% list tabs group=instructions %}
@@ -11,9 +11,9 @@ description: Follow this guide to get information about a GPU cluster.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [GPU cluster](../../concepts/gpus.md#gpu-clusters).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
-  1. Select the cluster.
+  1. Select your cluster.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the GPU cluster details.
 
 - CLI {#cli}
@@ -71,7 +71,7 @@ description: Follow this guide to get information about a GPU cluster.
       * `data "yandex_compute_gpu_cluster"`: Description of the GPU cluster as a data source:
         * `gpu_cluster_id`: GPU cluster ID.
       * `output "gpu_cluster"`: Output variable that contains information about the GPU cluster availability zone:
-        * `value`: Returned value.
+        * `value`: Return value.
 
      You can replace `zone` with any other parameter to get the information you need. For more information about the `yandex_compute_gpu_cluster` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_gpu_cluster).
 

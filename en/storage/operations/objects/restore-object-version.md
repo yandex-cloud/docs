@@ -23,7 +23,9 @@ To restore object versions, the bucket must be [versioned](../../concepts/versio
 
   To restore an object version:
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket in question.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket from the list.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
   1. Select the object whose version you want to restore, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.bucket.menu_version-history }}**.
   1. In the list of versions, click ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud.storage.file.action_file-restore }}** in the row with the version you need. This will restore the selected version and make it the current one.

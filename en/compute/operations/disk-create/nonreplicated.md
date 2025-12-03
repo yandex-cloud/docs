@@ -17,7 +17,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a disk.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
@@ -59,7 +59,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
        * `--name`: Disk name.
        * `--type`: Disk type.
        * `--size`: Disk size.
-       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
+       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional setting.
 
          {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
          
@@ -113,7 +113,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
      * `block_size`: Block size in bytes (minimum storage unit on the disk). The maximum disk size depends on the specified block size. By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
      * `type`: Disk type. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
-     * `kms_key_id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an [encrypted](../../concepts/encryption.md) disk. This is an optional parameter.
+     * `kms_key_id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an [encrypted](../../concepts/encryption.md) disk. This is an optional setting.
 
         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
 
@@ -161,7 +161,7 @@ You can only create a disk in an existing disk placement group.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
@@ -211,7 +211,7 @@ You can only create a disk in an existing disk placement group.
        * `--type`: Disk type.
        * `--size`: Disk size.
        * `--disk-placement-group-name`: Placement group name.
-       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
+       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional setting.
 
          {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
          
@@ -254,7 +254,7 @@ You can only create a disk in an existing disk placement group.
        * `--size`: Disk size.
        * `--disk-placement-group-name`: Placement group name.
        * `--disk-placement-group-partition`: Partition number in the placement group.
-       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
+       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional setting.
 
          {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
          

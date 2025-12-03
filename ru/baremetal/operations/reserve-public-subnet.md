@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets }}**.
   1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}**.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_server-zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет доступна подсеть.
+  1. В поле **{{ ui-key.yacloud.baremetal.field_zone-id }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет доступна подсеть.
   1. {% include [reserve-priv-subnet-step-1](../../_includes/baremetal/instruction-steps/reserve-priv-subnet-step-1.md) %}
   1. Выберите размер заказываемой подсети.
   

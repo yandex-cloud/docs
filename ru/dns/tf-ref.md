@@ -15,6 +15,7 @@ description: На этой странице приведен справочни�
 | --- | --- |
 | [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) | [Ресурсная запись](./concepts/resource-record.md) |
 | [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) | [Зона DNS](./concepts/dns-zone.md) |
+| [yandex_dns_zone_iam_binding]({{ tf-provider-resources-link }}/dns_zone_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к зоне DNS |
 
 ## Источники данных {#data-sources}
 

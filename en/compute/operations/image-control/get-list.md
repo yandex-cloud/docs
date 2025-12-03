@@ -12,7 +12,7 @@ To get a list of disk images:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your disk images.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
 
 - CLI {#cli}

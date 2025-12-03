@@ -1,0 +1,3 @@
+_Location rules_ are a mechanism used to selectively redefine [CDN resource](../../cdn/concepts/resource.md) settings for requests whose paths match a specific template.
+
+> Let’s assume that [content caching](../../cdn/concepts/caching.md) is enabled in the CDN resource settings, while cache lifetime is set to four days. This is enough for most types of content, but for some specific files you have to reduce cache lifetime to a few seconds. Location rules will help you with such cases.

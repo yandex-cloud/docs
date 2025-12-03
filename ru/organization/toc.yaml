@@ -632,6 +632,8 @@ items:
             href: cli-ref/organization/add-access-binding.md
           - name: add-labels
             href: cli-ref/organization/add-labels.md
+          - name: bind-access-policy
+            href: cli-ref/organization/bind-access-policy.md
           - name: get
             href: cli-ref/organization/get.md
           - name: leave
@@ -640,6 +642,8 @@ items:
             href: cli-ref/organization/list.md
           - name: list-access-bindings
             href: cli-ref/organization/list-access-bindings.md
+          - name: list-access-policy-bindings
+            href: cli-ref/organization/list-access-policy-bindings.md
           - name: list-operations
             href: cli-ref/organization/list-operations.md
           - name: remove-access-binding
@@ -648,6 +652,8 @@ items:
             href: cli-ref/organization/remove-labels.md
           - name: set-access-bindings
             href: cli-ref/organization/set-access-bindings.md
+          - name: unbind-access-policy
+            href: cli-ref/organization/unbind-access-policy.md
           - name: update
             href: cli-ref/organization/update.md
       - name: oslogin

@@ -80,7 +80,7 @@ The example below estimates the size of a prompt to a {{ yagpt-name }} model.
      ```json
      {
        "modelUri": "gpt://<folder_ID>/yandexgpt",
-       "text": "Generative models are managed using prompts. A good prompt should contain the context of your request to the model (instruction) and the actual task the model should complete based on the provided context. The more specific is the prompt, the more accurate the model's output is going to be."
+       "text": "Generative models are managed using prompts. A good prompt should contain the context of your request to the model (instruction) and the actual task the model should complete based on the provided context. The more specific your prompt is, the more accurate the model's output is going to be."
      }
      ```
   

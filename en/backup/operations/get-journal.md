@@ -1,15 +1,16 @@
 ---
-title: Viewing backup log
+title: Viewing the backup log
 description: Follow this guide to find detailed VM backup information in the backup log.
 ---
 
-# Viewing backup log
+# Viewing the backup log
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud_billing.backup.label_instances }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select `{{ ui-key.yacloud.backup.label_navigate-to-journal-action }}`.
 

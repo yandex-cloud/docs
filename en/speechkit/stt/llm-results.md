@@ -15,7 +15,7 @@ To use generative models in audio recognition, fill in the `summarization` secti
       "modelUri": "gpt://<folder_ID>/<model_name>",
       "properties": [
         {
-          "instruction": "Prompt for the model"
+          "instruction": "Model prompt"
         }
       ]
     }
@@ -32,7 +32,7 @@ To use generative models in audio recognition, fill in the `summarization` secti
       "modelUri": "gpt://<folder_ID>/<model_name>",
       "properties": [
         {
-          "instruction": "Prompt for the model with a request for a specific response structure"
+          "instruction": "Model prompt requiring a structured output"
           "jsonObject": true
         }
       ]
@@ -50,7 +50,7 @@ To use generative models in audio recognition, fill in the `summarization` secti
       "modelUri": "gpt://<folder_ID>/<model_name>",
       "properties": [
         {
-          "instruction": "Prompt for the model with a request for a specific response structure"
+          "instruction": "Model prompt requiring a structured output"
           "jsonSchema": {
             // Specified output schema 
             "schema": "<json_schema>"
@@ -66,7 +66,7 @@ To use generative models in audio recognition, fill in the `summarization` secti
 
 Where: 
 * `modelUri`: [Model](../../ai-studio/concepts/generation/models.md) available _in synchronous mode_.
-* `instruction`: Prompt for the model (e.g., _Highlight the main points_ or _Translate into English_).
+* `instruction`: Model prompt (_Highlight the main points_, _Translate into English_).
 * `jsonObject`: If `true`, the model will return JSON output in arbitrary formatting.
 * `jsonSchema`: Schema for strictly formatted JSON output.
 

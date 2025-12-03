@@ -12,7 +12,7 @@ description: Follow this guide to copy a configuration from one resource to anot
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a resource.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. In the **Copy configuration** field, select an existing CDN resource whose settings you want to copy to a new one.
   1. If required, adjust the settings.

@@ -23,3 +23,4 @@ description: На этой странице приведен справочни�
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
 | [yandex_mdb_redis_cluster]({{ tf-provider-datasources-link }}/mdb_redis_cluster) | Информация о [кластере](./concepts/index.md) |
+| [yandex_mdb_redis_user]({{ tf-provider-datasources-link }}/mdb_redis_user) | Информация о пользователе {{ VLK }} |

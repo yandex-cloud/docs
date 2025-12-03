@@ -15,7 +15,9 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket from the list.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Click the name of the object you need.
   1. Click **Add label**.
@@ -67,7 +69,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
       Where:
       * `--bucket`: Bucket name.
       * `--key`: Bucket object [key](../../concepts/object.md#key).
-      * `--version-id`: Object [version](../../concepts/versioning.md). This is an optional parameter.
+      * `--version-id`: Object [version](../../concepts/versioning.md). This is an optional setting.
       * `--tagging`: Array of object labels, where:
         * `Key`: Label key, the `string` type.
         * `Value`: Label value, the `string` type.
@@ -123,7 +125,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
       ```
 
       Where `tags` is the array of object labels in `<key> = "<value>"` format.
-
+      
       For more information about the `yandex_storage_object` resource in Terraform, see [this TF provider article]({{ tf-provider-resources-link }}/storage_object).
 
   1. Apply the changes:
@@ -146,7 +148,9 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
   You can see the labels in the list of bucket objects and on the individual object's page.
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket in question.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket from the list.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Click the name of the object you need.
 
@@ -191,7 +195,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
       Where:
       * `--bucket`: Bucket name.
       * `--key`: Bucket object [key](../../concepts/object.md#key).
-      * `--version-id`: Object [version](../../concepts/versioning.md). This is an optional parameter.
+      * `--version-id`: Object [version](../../concepts/versioning.md). This is an optional setting.
 
       Result:
 
@@ -251,7 +255,9 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket from the list.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Click the name of the object you need.
   1. Click the cross next to the label you want to delete.
@@ -296,7 +302,7 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
       Where:
       * `--bucket`: Bucket name.
       * `--key`: Bucket object [key](../../concepts/object.md#key).
-      * `--version-id`: Object [version](../../concepts/versioning.md). This is an optional parameter.
+      * `--version-id`: Object [version](../../concepts/versioning.md). This is an optional setting.
 
       Result:
 

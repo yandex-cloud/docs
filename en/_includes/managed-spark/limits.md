@@ -1,10 +1,14 @@
 #### Quotas {#quotas}
 
-| Type of limit                                                                                | Value |
-|:-----------------------------------------------------------------------------------------------|:---------|
-| Number of clusters per cloud                                                            | 2        |
-| Total number of processor cores for all hosts for drivers and executors per cloud | 128      |
-| Total virtual memory for all hosts for drivers and executors per cloud   | 256 GB   |
+#|
+|| Type of limit | Value ||
+|| Number of clusters per cloud
+`managed-spark.clusters.count` | 2 ||
+|| Total number of processor cores for all hosts for drivers and executors per cloud 
+`managed-spark.cpu.count` | 128 ||
+|| Total virtual memory for all hosts for drivers and executors per cloud
+`managed-spark.memory.size` | 256 GB ||
+|#
 
 #### Limits {#limits}
 

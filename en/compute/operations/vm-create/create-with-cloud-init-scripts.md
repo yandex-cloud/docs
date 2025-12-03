@@ -26,7 +26,7 @@ To create a VM with a custom configuration script:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. [Set](create-linux-vm.md) the required VM parameters.
@@ -71,7 +71,7 @@ To create a VM with a custom configuration script:
   * `--create-boot-disk`: VM boot disk settings:
 
       * `image-family`: [Image family](../../concepts/image.md#family), e.g., `ubuntu-2204-lts`. This option allows you to install the latest version of the OS from the specified family.
-      * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted boot disk. This is an optional parameter.
+      * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted boot disk. This is an optional setting.
 
         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
         
@@ -109,7 +109,7 @@ To create a VM with a custom configuration script:
 
 - API {#api}
 
-  To create a VM, use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource and provide the object with the `cloud-config` YAML configuration under `metadata` in the request body. For a multiline configuration, use `\n` as a separator. For example:
+  To create a VM, use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource and provide the object with the `cloud-config` YAML configuration under `metadata` in the request body. For a multiline configuration, use `\n` as a separator. Here is an example:
 
   ```json
   {

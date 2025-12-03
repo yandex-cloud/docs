@@ -15,12 +15,12 @@ To update basic settings of a [disk snapshot](../../concepts/snapshot.md) [sched
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the schedule.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Next to the schedule you want to update, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit [disk](../../concepts/disk.md) snapshot schedule parameters as needed:
-     * **{{ ui-key.yacloud.common.name }}**. Follow these naming requirements:
+     * **{{ ui-key.yacloud.common.name }}**. The naming requirements are as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -92,7 +92,7 @@ To update basic settings of a [disk snapshot](../../concepts/snapshot.md) [sched
      * `--start-at`: Start date and time. You can also specify a period relative to the current time point, e.g., `"2022-12-31T16:39:00+05:00"` or `"2h"`.
      * `--labels`: List of labels in `key=value` format.
 
-     For more information about the `yc compute snapshot-schedule update` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/update.md).
+     For more information about the `yc compute snapshot-schedule update` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/update.md).
 
      Result:
 
@@ -166,7 +166,7 @@ To edit a list of disks for which snapshots are scheduled:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the schedule.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. On the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, select the schedule for which you want to update a disk list.
   1. Update the disk list:

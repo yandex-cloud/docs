@@ -20,7 +20,7 @@ description: Управление доступом в сервисе для по
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [пользовательский сертификат](../concepts/imported-certificate.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/add-access-binding.md) или [API](../api-ref/authentication.md).
+На [сертификат от Let's Encrypt](../concepts/managed-certificate.md) и [пользовательский сертификат](../concepts/imported-certificate.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/add-access-binding.md), [{{ TF }}]({{ tf-provider-resources-link }}/cm_certificate_iam_binding) или [API](../api-ref/authentication.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

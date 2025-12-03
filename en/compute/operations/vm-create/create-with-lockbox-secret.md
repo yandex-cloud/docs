@@ -14,7 +14,7 @@ Just like other user data, {{ lockbox-name }} secrets are provided in the `user-
 To provide a {{ lockbox-name }} secret to a VM via metadata:
 
 1. [Create](../../../lockbox/operations/secret-create.md) a {{ lockbox-name }} secret.
-1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `lockbox.payloadViewer` role to it.
+1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) it the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer).
 1. Create a file named `metadata.yaml` and paste into it the following metadata configuration for the new VM:
 
     **metadata.yaml**
@@ -58,7 +58,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder containing your secret and service account.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-2404-lts-oslogin) image.
@@ -100,7 +100,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
 
       Where:
       * `--name`: Name of the new VM, e.g., `my-vm`.
-      * `--hostname`: Host name for the new VM. This is an optional parameter. If omitted, the VM ID will be used as the host name.
+      * `--hostname`: Host name for the new VM. This is an optional setting. If omitted, the VM ID will be used as the host name.
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the new VM will reside in.
       * `--network-interface`: [Network interface](../../concepts/network.md) settings for the new VM:
 
@@ -162,7 +162,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      1. In the configuration file, describe the resources you want to create:
+      1. In the configuration file, describe the properties of resources you want to create:
 
           ```hcl
           # Creating a boot disk for the VM
@@ -174,7 +174,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
             image_id = "fd8bpal18cm4kprpjc2m"
           }
 
-          # Creating a VM instance
+          # Creating a VM
 
           resource "yandex_compute_instance" "my-vm" {
             name               = "<VM_name>"

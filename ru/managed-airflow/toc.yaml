@@ -61,6 +61,8 @@ items:
             href: operations/cluster-logs.md
           - name: Передача логов {{ AF }} в {{ cloud-logging-name }}
             href: operations/af-logging.md
+          - name: Получение логов выполнения DAG
+            href: operations/export-dag-logs.md
   - name: Практические руководства
     items:
       - name: Все руководства
