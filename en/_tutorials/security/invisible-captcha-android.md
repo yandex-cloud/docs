@@ -63,7 +63,7 @@ To embed [invisible {{ captcha-name }}](../../smartcaptcha/concepts/invisible-ca
 
 ## Process the event that triggered a CAPTCHA challenge to the user {#user-task}
 
-1. Specify the **WebView** display logic using the `onChallengeVisible()` method. It is called when the CAPTCHA displays a challenge to the user.
+1. Specify the **WebView** display logic using the `onChallengeVisible()` method. It is called when the CAPTCHA displays a challenge to the user. 
 
    >Here is an example involving `visibility` switching (while the CAPTCHA was handling an action, the **WebView** status was `View.GONE`):
    >
@@ -90,7 +90,7 @@ To embed [invisible {{ captcha-name }}](../../smartcaptcha/concepts/invisible-ca
 
    {% note info %}
 
-   This logic must be implemented on the backend. Make sure the `secret` key does not end up in the Android app itself.
+   This logic must be implemented on the backend. Make sure the `secret` secret key does not end up in the Android app itself.
 
    {% endnote %}
 
@@ -102,7 +102,7 @@ To embed [invisible {{ captcha-name }}](../../smartcaptcha/concepts/invisible-ca
 
 1. Get a [server response](../../smartcaptcha/concepts/validation.md). It contains a JSON object with the `status` and `message` fields.
 
-   >Here is an example:
+   >For example:
    >* It is a human:
    >
    >  ```json
@@ -121,7 +121,7 @@ To embed [invisible {{ captcha-name }}](../../smartcaptcha/concepts/invisible-ca
    >  }
    >  ```
 
-## Things to consider {#specifics}
+## Features {#specifics}
 
 Invisible CAPTCHA requires less memory than normal CAPTCHA because it does not load the code that renders the **I’m not a robot** button.
 

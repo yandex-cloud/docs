@@ -128,14 +128,15 @@ The example below illustrates two scenarios. Select the one you find most releva
   1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
      * **Service account**: `metastore-agent`
+     * **Version**: `{{ metastore.integration-version }}`
      * **Network**: `datalake-network`
      * **Subnet**: `datalake-network-{{ region-id }}-a`
      * **Security group**: `metastore-sg`
 
      {% note info %}
-   
+
      Wait for the operation to complete.
-   
+
      {% endnote %}
 
   1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:

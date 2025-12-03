@@ -7,9 +7,9 @@ description: This article describes the specifics and benefits of using MC-LAG t
 
 For critical tasks that require high fault tolerance of physical network infrastructure, {{ baremetal-full-name }} provides a solution for reserving a network connection using [MC-LAG](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group).
 
-MC-LAG (multi-chassis link aggregation group) is a type of link aggregation groups that reserve a connection to [network switches](https://en.wikipedia.org/wiki/Network_switch). MC-LAG is supported in {{ baremetal-name }} server [configurations](./server-configurations.md) with two network interfaces connected to each of the networks, a [public](./network.md#public-network) and a [private](./network.md#private-network) one.
+MC-LAG (multi-chassis link aggregation group) is a type of link aggregation groups that reserve a connection to [network switches](https://en.wikipedia.org/wiki/Network_switch). The MC-LAG technology is supported by {{ baremetal-name }} server [configurations](./server-configurations.md) with two [network interfaces](./servers.md#network-interfaces) hooked up to each of the networks ([public](./network.md#public-network) and [private](./network.md#private-network)).
 
-In each network, servers supporting MC-LAG use two independent network adapter ports to simultaneously connect to two different switches, which make up an MC-LAG pair. If one of the network adapters or switches fails, the second active connection ensures network connectivity of the server and provides fault tolerance.
+In each network, the MC-LAG servers use two independent network ports of two different network adapters to connect to two different switches forming an MC-LAG pair at the same time. If one of the network adapters or switches fails, the second active connection ensures network connectivity of the server and provides fault tolerance.
 
 ## Configuring aggregation groups and network interfaces {#additional-setup}
 

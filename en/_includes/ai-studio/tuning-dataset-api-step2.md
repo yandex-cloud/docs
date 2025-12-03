@@ -18,7 +18,7 @@ Result:
 ```text
 {
   "datasetId": "fdso08c1u1cq********",
-  "uploadUrl": "https://storage.yandexcloud.net/ai-fomo-drafts-prod/b1gt6g8ht345********/fdso08c1u1cq********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250120T105352Z&X-Amz-SignedHeaders=content-length%3Bhost&X-Amz-Expires=86400&X-Amz-Credential=YCAJE_WuJJ9D1r6huCoc8I3yO%2F20250120%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=611d7951994ae939acf4d32cc0c154c738d02adb2a04707a704f34ca********"
+  "uploadUrl": "https://storage.yandexcloud.net/ai-fomo-drafts-prod/b1gt6g8ht345********/fdso08c1u1cq********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250120T105352Z&X-Amz-SignedHeaders=content-length%3Bhost&X-Amz-Expires=86400&X-Amz-Credential=YCAJE_WuJJ9D1r6huCoc8I3yO%2F20250120%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Signature=611d7951994ae939acf4d32cc0c154c738d02adb2a04707a704f34ca********"
 }
 ```
 

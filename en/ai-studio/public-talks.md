@@ -49,7 +49,7 @@ description: Videos of conferences and webinars on {{ foundation-models-name }}.
 
 ### 2024 {#2024-articles}
 
-* How to create prompts for a neural network: an example of a Golden Apple gift card service. Read [our article](https://vc.ru/ai/1699310-kak-sostavlyat-promty-dlya-neiroseti-primer-servisa-dlya-sozdaniya-sertifikatov-zolotogo-yabloka).
+* How to create neural network prompts: Golden Apple gift card service use case. Read [our article](https://vc.ru/ai/1699310-kak-sostavlyat-promty-dlya-neiroseti-primer-servisa-dlya-sozdaniya-sertifikatov-zolotogo-yabloka).
 
 * How to use {{ yagpt-name }} to automatically answer 60% of questions and product reviews: Ralf Ringer's experience. Read [our article](https://vc.ru/services/1659960-kak-s-pomoshyu-yandexgpt-avtomaticheski-otvechat-na-60-voprosov-i-otzyvov-opyt-ralf-ringer).
 

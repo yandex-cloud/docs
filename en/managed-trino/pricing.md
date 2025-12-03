@@ -8,7 +8,7 @@ editable: false
 
 
 
-In this section, you can find the {{ mtr-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
+In this section, you can find the {{ mtr-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
 
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -29,7 +29,7 @@ The prices apply differently depending on the cluster status:
 When using {{ mtr-name }}, you pay for:
 
 * Computing resources of cluster components.
-* Egress traffic from {{ yandex-cloud }}.
+* Outgoing traffic from {{ yandex-cloud }}.
 
 Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
 
@@ -48,6 +48,7 @@ This is an example of calculating the cost of using a cluster with the following
 
 
 ## Prices for the Russia region {#prices}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

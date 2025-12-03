@@ -33,6 +33,10 @@ description: На странице представлены вопросы и о
 
 Публичный IP-адрес можно [сделать статическим](../operations/set-static-ip.md) во вкладке **{{ ui-key.yacloud.vpc.switch_addresses }}** сервиса {{ vpc-short-name }} в [консоли управления]({{ link-console-main }}).
 
+#### Могу ли я защитить публичный IP-адрес от случайного удаления? {#deletion-protection}
+
+Да, публичный IP-адрес можно [защитить от случайного удаления](../operations/deletion-protection.md).
+
 #### Какие ограничения существуют при создании подсетей? {#create-subnet-limits}
 
 В подсетях можно использовать только частные IP адреса из IPv4-диапазонов, определенных в [RFC 1918](https://tools.ietf.org/html/rfc1918).

@@ -7,6 +7,43 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.179.0 (02.12.25) {#version0.179.0}
+
+#### Изменения в CLI {#cli}
+
+* Добавлено новое поддерево команд `yc beta` с экспериментальными командами, использующими обновленный интерфейс.
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ org-name }}
+
+* Добавлены команды для управления политиками авторизации на уровне организации:
+  * `yc organization-manager organization list-access-policy-bindings`;
+  * `yc organization-manager organization bind-access-policy`;
+  * `yc organization-manager organization unbind-access-policy`.
+
+##### {{ resmgr-name }}
+
+* Добавлены команды для управления политиками авторизации на уровне облака:
+  * `yc resource-manager cloud list-access-policy-bindings`;
+  * `yc resource-manager cloud bind-access-policy`;
+  * `yc resource-manager cloud unbind-access-policy`.
+
+##### {{ resmgr-name }}
+
+* Добавлены команды для управления политиками авторизации на уровне каталога:
+  * `yc resource-manager folder list-access-policy-bindings`;
+  * `yc resource-manager folder bind-access-policy`;
+  * `yc resource-manager folder unbind-access-policy`.
+
+##### {{ at-name }}
+
+* Добавлен флаг `--destination-yds-codec` для выбора метода сжатия событий при настройке трейлов {{ yds-name }}:
+  * `yc audit-trails trail create`;
+  * `y`c audit-trails trail update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.178.0 (01.12.25) {#version0.178.0}
 
 ####  Изменения в сервисах {{ yandex-cloud }}
@@ -20,8 +57,6 @@ description: На странице представлены релизы CLI, а
 * Добавлены команды для управления режимом отключения зоны доступности (zonal shift) в {{ ig-name }}:
   * `yc compute instance-group disable-zones`
   * `yc compute instance-group enable-zones`
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.177.0 (27.11.25) {#version0.177.0}
 

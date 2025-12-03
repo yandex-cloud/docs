@@ -25,7 +25,9 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to upload your object to.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket to upload the object into.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. If you want to upload an object to the bucket for the first time, click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
   1. If you want to upload the object to a specific folder, navigate to that folder by clicking its name. If you need to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}**.
@@ -126,14 +128,14 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
      Where:
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
-     * `bucket`: Name of the bucket to add the object to. This is a required parameter.
-     * `key`: Name of the object in the bucket. This is a required parameter. Follow these naming requirements:
+     * `bucket`: Name of the bucket to add the object to. This is a required setting.
+     * `key`: Name of the object in the bucket. This is a required setting. Follow these naming requirements:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
      * `source`: Relative or absolute path to the file you need to upload to the bucket.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-resources-link }}/storage_object).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_object).
 
 1. Create the resources:
 
@@ -155,7 +157,9 @@ For a bucket with enabled [versioning](../buckets/versioning.md) and [object loc
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to upload your object to.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket to upload the object into.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. If you want to upload an object to the bucket for the first time, click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
   1. If you want to upload the object to a specific folder, navigate to that folder by clicking its name. If you want to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}** on the top panel.
@@ -202,13 +206,13 @@ For a bucket with enabled [versioning](../buckets/versioning.md) and [object loc
 
      * `--body`: Path to the file you need to upload to the bucket.
      * `--bucket`: Name of your bucket.
-     * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
+     * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
      * `--object-lock-mode`: [Type](../../concepts/object-lock.md#types) of retention:
 
        * `GOVERNANCE`: Governance-mode retention.
        * `COMPLIANCE`: Compliance-mode retention.
   
-     * `--object-lock-retain-until-date`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `2025-01-02T15:04:05Z`. You can only specify it together with the `--object-lock-mode` parameter.
+     * `--object-lock-retain-until-date`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), such as `2025-01-02T15:04:05Z`. You can only specify it together with the `--object-lock-mode` parameter.
   
      * `--object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
   
@@ -247,7 +251,7 @@ For a bucket with enabled [versioning](../buckets/versioning.md) and [object loc
      * `s3api put-object`: Command to upload an object version. To upload object versions with an object lock, specify the following parameters:
        * `--body`: Path to the file you need to upload to the bucket.
        * `--bucket`: Name of your bucket.
-       * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
+       * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
        * `--object-lock-mode`: [Type](../../concepts/object-lock.md#types) of retention:
    
          * `GOVERNANCE`: Governance-mode retention.
@@ -306,7 +310,7 @@ If your bucket already has [default retention periods](../../concepts/object-loc
 
      * `--body`: Path to the file you need to upload to the bucket.
      * `--bucket`: Name of your bucket.
-     * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
+     * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
      * `--content-md5`: Object's encoded MD5 hash.
 
      You can also add the following parameters to the command:
@@ -343,7 +347,7 @@ If your bucket already has [default retention periods](../../concepts/object-loc
      * `s3api put-object`: Command to upload an object version. To upload object versions, specify the following parameters:
        * `--body`: Path to the file you need to upload to the bucket.
        * `--bucket`: Name of your bucket.
-       * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
+       * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
        * `--content-md5`: Object's encoded MD5 hash.
      
      You can also add the following parameters to the command:
@@ -387,9 +391,9 @@ You can use [conditions](../../concepts/object.md#conditional-writes) when uploa
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `--body`: Path to the file you need to upload to the bucket. For example: `./my-folder/my-file.txt`.
+      * `--body`: Path to the file you need to upload to the bucket, e.g., `./my-folder/my-file.txt`.
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket. For example: `my-folder/my-file.txt`.
+      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket, e.g., `my-folder/my-file.txt`.
       * `--if-match`: Current object `ETag`, e.g., `\"d41d8cd98f00b204e9800998********\"`. The write will only be performed if an object already exists for the specified key and its current `ETag` matches.
 
 - API {#api}
@@ -421,9 +425,9 @@ You can use [conditions](../../concepts/object.md#conditional-writes) when uploa
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `--body`: Path to the file you need to upload to the bucket. For example: `./my-folder/my-file.txt`.
+      * `--body`: Path to the file you need to upload to the bucket, e.g., `./my-folder/my-file.txt`.
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket. For example: `my-folder/my-file.txt`.
+      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket, e.g., `my-folder/my-file.txt`.
       * `--if-none-match`: Type `"*"` to perform the write only if there is no object with the specified key yet.
 
 - API {#api}

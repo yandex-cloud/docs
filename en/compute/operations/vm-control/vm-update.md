@@ -10,7 +10,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
   To update a VM:
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click the name of the VM.
   1. Click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Change the VM parameters, e.g., rename the VM by editing the **{{ ui-key.yacloud.common.name }}** field.
@@ -54,9 +54,9 @@ Changing the VM name does not change the host name or FQDN. For more information
 
 ## Examples {#examples}
 
-### Viewing a list of configurable parameters {#viewing-a-list-of-configurable-parameters}
+### Viewing a list of parameters to update {#viewing-a-list-of-configurable-parameters}
 
-To view a list of configurable parameters, run this command:
+To view a list of parameters to update, run this command:
 
 {% list tabs group=instructions %}
 
@@ -105,7 +105,7 @@ Do not rename a VM if it belongs to a {{ managed-k8s-name }} cluster [node group
 
 {% endnote %}
 
-### Changing metadata {#changing-metadata}
+### Updating metadata {#changing-metadata}
 
 {% include [update-metadata-part1](../../../_includes/compute/metadata/update-metadata-part1.md) %}
 

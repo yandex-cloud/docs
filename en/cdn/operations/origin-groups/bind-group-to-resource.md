@@ -10,7 +10,7 @@ To add an [origin group](../../concepts/origins.md#groups) to a [resource](../..
   
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 
@@ -159,9 +159,9 @@ To add an [origin group](../../concepts/origins.md#groups) to a [resource](../..
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_origin_group).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_origin_group).
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -183,7 +183,7 @@ To add an [origin group](../../concepts/origins.md#groups) to a [resource](../..
   
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 

@@ -2,9 +2,12 @@
 
 #|
 || Type of limit | Value ||
-|| Number of clusters per cloud | 10 ||
-|| Total number of processor cores for all cluster components per cloud | 120 ||
-|| Total virtual memory for all cluster components per cloud | 480 GB ||
+|| Number of clusters per cloud
+`managed-trino.clusters.count` | 10 ||
+|| Total number of processor cores for all cluster components per cloud
+`managed-trino.cpu.count` | 120 ||
+|| Total virtual memory for all cluster components per cloud
+`managed-trino.memory.size` | 480 GB ||
 |#
 
 #### Limits {#limits}

@@ -14,7 +14,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the schedule belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Select the schedule from the list.
@@ -59,7 +59,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--user-account-id`: [User ID](../../../organization/operations/users-get.md).
-       * `--role`: [Role](../../security/index.md#roles-list) to assign.
+       * `--role`: [Role](../../security/index.md#roles-list).
 
      * To a service account:
 
@@ -95,7 +95,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `snapshot_schedule_id`: Schedule ID.
-      * `role`: [Role](../../security/index.md#roles-list) being assigned.
+      * `role`: [Role](../../security/index.md#roles-list).
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_snapshot_schedule_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_schedule_iam_binding).
@@ -123,7 +123,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the schedule belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Select the schedule from the list.
@@ -204,7 +204,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `snapshot_schedule_id`: Schedule ID.
-      * `role`: [Role](../../security/index.md#roles-list) being assigned.
+      * `role`: [Role](../../security/index.md#roles-list).
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_snapshot_schedule_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_schedule_iam_binding).
@@ -232,7 +232,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the schedule belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Select the schedule from the list.

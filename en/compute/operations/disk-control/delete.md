@@ -1,6 +1,6 @@
 ---
 title: How to delete a disk
-description: You can only delete a disk that is not attached to a virtual machine. Deleting a disk is permanent and cannot be undone, so you cannot recover a deleted disk. If you delete a disk, its snapshots remain unaffected. Snapshots need to be deleted separately. To delete a disk using the management console, go to the folder the disk belongs to, select {{ compute-name }}, and go to the **Disks** tab on the **Virtual machines** page. In the line with the disk in question, click the select icon and then **Delete**.
+description: You can only delete a disk that is not attached to a virtual machine. Deleting a disk is permanent and cannot be undone, so you cannot recover a deleted disk. If you delete a disk, its snapshots remain unaffected. Snapshots need to be deleted separately. To delete a disk using the management console, select to the folder the disk belongs to, navigate to {{ compute-name }}, and go to the **Disks** tab on the **Virtual machines** page. In the line with the disk in question, click the select icon and then **Delete**.
 ---
 
 # Deleting a disk
@@ -20,7 +20,7 @@ To delete a disk:
 - Management console {#console}
 
   1. In the management console, select the folder the disk belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. In the line with the disk, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

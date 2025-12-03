@@ -126,7 +126,7 @@ As an example, let's ask Qwen to generate a script to access an AI model via the
     {% cut "{{ ca-full-name }}" %}
 
     1. In the left-hand panel, click **{{ ca-full-name }}**.
-    1. At the bottom of the screen in the assistant chat window, enter your prompt and click ![arrow-up](../../_assets/console-icons/arrow-up.svg) **Send Message**:
+    1. At the bottom of the assistant chat window, enter your prompt and click ![arrow-up](../../_assets/console-icons/arrow-up.svg) **Send message**:
 
         ```text
         Write a script named `test.py` to make a streaming call to generate a poem about Yandex Cloud via the Python {{ openai }} SDK. Use model token and ID as parameters. Use `https://{{ api-host-llm }}/v1` as the endpoint

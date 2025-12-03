@@ -13,7 +13,7 @@ To make a public IP address assigned to a VM [network interface](../../concepts/
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. Select the VM.
   1. Get the VM public IP address. You can find it in the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field of the relevant interface section under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** on the VM page.
   1. Make the public IP address static. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md) in the {{ vpc-name }} documentation.

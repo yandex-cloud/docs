@@ -7,7 +7,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. Select **{{ objstorage-name }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
 
@@ -174,7 +174,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
       ```
 
       Where:
-      * `bucket`: Bucket name. This is a required parameter.
+      * `bucket`: Bucket name. This is a required setting.
 
         
         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
@@ -270,7 +270,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
       Where:
       * `yandex_iam_service_account`: Description of the [service account](../../iam/concepts/users/service-accounts.md) to create and use the [bucket](../../storage/concepts/bucket.md):
 
-        * `name`: Service account name. This is a required parameter.
+        * `name`: Service account name. This is a required setting.
         * `bucket`: Bucket name.
 
           
@@ -278,7 +278,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
 
         * `max_size`: Maximum bucket size, in bytes. The default value is `0`, unlimited. 
-        * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). The possible values are:
+        * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). Possible values:
 
           * `standard`: Standard storage. This is a default value.
           * `cold`: Cold storage.

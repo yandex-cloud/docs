@@ -22,7 +22,8 @@ The monthly prices are based on 720 hours per month.
 
 ## Prices for the Russia region {#prices}
 
-The cost depends on the [rent period](../baremetal/concepts/servers.md#server-lease). 
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 The funds are debited **monthly**, irrespective of the rent period.
 

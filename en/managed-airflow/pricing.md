@@ -55,6 +55,7 @@ Let’s calculate the cost of using a cluster with the following properties for 
 ## Prices for the Russia region {#prices}
 
 
+
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Cluster computing resources {#prices-computing-resources}

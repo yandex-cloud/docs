@@ -1,0 +1,52 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/load-balancer/cli-ref-beta/network-load-balancer/index.md
+---
+
+# yc beta load-balancer network-load-balancer
+
+A set of methods for managing NetworkLoadBalancer resources.
+
+#### Command Usage
+
+Syntax: 
+
+`yc beta load-balancer network-load-balancer <command>`
+
+#### Command Tree
+
+- [yc beta load-balancer network-load-balancer add-listener](add-listener.md) — Adds a listener to the specified network load balancer.
+- [yc beta load-balancer network-load-balancer attach-target-group](attach-target-group.md) — Attaches a target group to the specified network load balancer.
+- [yc beta load-balancer network-load-balancer create](create.md) — Creates a network load balancer in the specified folder using the data specified in the request.
+- [yc beta load-balancer network-load-balancer delete](delete.md) — Deletes the specified network load balancer.
+- [yc beta load-balancer network-load-balancer detach-target-group](detach-target-group.md) — Detaches the target group from the specified network load balancer.
+- [yc beta load-balancer network-load-balancer disable-zones](disable-zones.md) — Disable zones for the specified network load balancer.
+- [yc beta load-balancer network-load-balancer enable-zones](enable-zones.md) — Enable zones for the specified network load balancer.
+- [yc beta load-balancer network-load-balancer get](get.md) — Returns the specified NetworkLoadBalancer resource.
+- [yc beta load-balancer network-load-balancer get-target-states](get-target-states.md) — Gets states of target resources in the attached target group.
+- [yc beta load-balancer network-load-balancer list](list.md) — Retrieves the list of NetworkLoadBalancer resources in the specified folder.
+- [yc beta load-balancer network-load-balancer list-operations](list-operations.md) — Lists operations for the specified network load balancer.
+- [yc beta load-balancer network-load-balancer remove-listener](remove-listener.md) — Removes the listener from the specified network load balancer.
+- [yc beta load-balancer network-load-balancer start](start.md) — Starts load balancing and health checking with the specified network load balancer with specified settings.
+- [yc beta load-balancer network-load-balancer stop](stop.md) — Stops load balancing and health checking with the specified network load balancer.
+- [yc beta load-balancer network-load-balancer update](update.md) — Updates the specified network load balancer.
+
+#### Global Flags
+
+| Flag | Description |
+|----|----|
+|`--profile`|<b>`string`</b><br/>Set the custom profile.|
+|`--region`|<b>`string`</b><br/>Set the region.|
+|`--debug`|Debug logging.|
+|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
+|`--no-user-output`|Disable printing user intended output to stderr.|
+|`--pager`|<b>`string`</b><br/>Set the custom pager.|
+|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
+|`--timeout`|<b>`string`</b><br/>Set the timeout.|
+|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
+|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
+|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
+|`-h`,`--help`|Display help for the command.|

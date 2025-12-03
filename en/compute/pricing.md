@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using {{ compute-name }}, use [our calculator](https://yandex.cloud/en/prices?state=577e4326f11d#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=577e4326f11d#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -78,7 +78,7 @@ _{{ price-per-hour-count-per-second }}_
 
 #### Example of calculating the cost of computing resources {#instance-resources-example}
 
-Here is a comparison of the cost of running VMs on the Intel Ice Lake [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
+Let's compare the cost of [Intel Ice Lake](concepts/vm-platforms.md) VMs of different [vCPU performance levels](concepts/performance-levels.md).
 
 Let’s assume you created two Linux VMs:
 * 2 x 20% vCPUs and 2 GB of RAM.
@@ -169,7 +169,7 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 
 
-## Discount for committed volumes of services (CVoS) {#cvos}
+## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
@@ -185,6 +185,7 @@ _{{ price-per-hour-count-per-second }}_
 
 
 ## Prices for the Russia region {#prices}
+
 
 
 

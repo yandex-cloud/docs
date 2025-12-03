@@ -17,7 +17,8 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the bucket row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
       Alternatively, you can click the bucket name, then, on the page that opens, click ![image](../../../_assets/console-icons/ellipsis.svg) at the top right and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
@@ -100,7 +101,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
       ```
 
       Where:
-      * `grant-type`: Permission grantee type. The possible values are as follows:
+      * `grant-type`: Permission grantee type. The possible values are:
         * `grant-type-account`: User, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
         * `grant-type-all-authenticated-users`: [Public group](../../concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
         * `grant-type-all-users`: Public group that includes all internet users.
@@ -387,8 +388,8 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
-     * `bucket`: Bucket name. This is a required parameter.
-     * `grant`: [ACL](../../concepts/acl.md) settings. This is an optional parameter. To manage it, the service account with static access keys must have the `storage.admin` [role](../../security/index.md#roles-list) for the bucket or folder.
+     * `bucket`: Bucket name. This is a required setting.
+     * `grant`: [ACL](../../concepts/acl.md) settings. This is an optional setting. To manage it, the service account with static access keys must have the `storage.admin` [role](../../security/index.md#roles-list) for the bucket or folder.
        * `type`: Permission grantee type. The possible values are:
          * `CanonicalUser`: For a user, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
          * `Group`: For a [public group](../../concepts/acl.md#public-groups).

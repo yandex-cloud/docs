@@ -21,15 +21,18 @@ Aliases:
 
 - [yc resource-manager cloud add-access-binding](add-access-binding.md) — Add access binding for the specified cloud
 - [yc resource-manager cloud add-labels](add-labels.md) — Add labels to specified cloud
+- [yc resource-manager cloud bind-access-policy](bind-access-policy.md) — Bind access policy to the specified cloud
 - [yc resource-manager cloud create](create.md) — Create a cloud
 - [yc resource-manager cloud delete](delete.md) — Delete the specified cloud
 - [yc resource-manager cloud get](get.md) — Show information about the specified cloud
 - [yc resource-manager cloud list](list.md) — List clouds
 - [yc resource-manager cloud list-access-bindings](list-access-bindings.md) — List access bindings for the specified cloud
+- [yc resource-manager cloud list-access-policy-bindings](list-access-policy-bindings.md) — List access policy bindings for the specified cloud
 - [yc resource-manager cloud list-operations](list-operations.md) — List operations for the specified cloud
 - [yc resource-manager cloud remove-access-binding](remove-access-binding.md) — Remove access binding for the specified cloud
 - [yc resource-manager cloud remove-labels](remove-labels.md) — Remove labels from specified cloud
 - [yc resource-manager cloud set-access-bindings](set-access-bindings.md) — Set access bindings for the specified cloud and delete all existing access bindings if there were any
+- [yc resource-manager cloud unbind-access-policy](unbind-access-policy.md) — Unbind access policy from the specified cloud
 - [yc resource-manager cloud update](update.md) — Update the specified cloud
 
 #### Global Flags

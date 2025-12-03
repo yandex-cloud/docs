@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 
       * (Опционально) В поле **{{ ui-key.yacloud.baremetal.field_description_f2tds }}** добавьте или измените описание сервера.
       * (Опционально) В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** добавьте или измените [метки](../../../resource-manager/concepts/labels.md) сервера.
-      * (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions_sQGNJ }}** измените продолжительность периода аренды сервера.
+      * (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** измените продолжительность периода аренды сервера.
 
           {% note info %}
 

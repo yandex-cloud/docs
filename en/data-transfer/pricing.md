@@ -43,6 +43,9 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 ## Prices for the Russia region {#prices}
 
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 ### Number of transferred rows {#data}
 
 
@@ -59,7 +62,7 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 {% include [usd.md](../_pricing/data-transfer/usd-ram.md) %}
 
 
-## Examples of cost calculation {#price-example}
+## Cost calculation examples {#price-example}
 
 When calculating the cost, keep in mind that one [worker](concepts/index.md#worker) can use the following computing resources:
 

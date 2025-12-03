@@ -28,6 +28,7 @@ Each successful request for image recognition performed using any [recognition m
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

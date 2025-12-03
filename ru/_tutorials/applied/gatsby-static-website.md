@@ -545,7 +545,7 @@
           resolve: 'gatsby-plugin-s3',
           options: {
             bucketName: '<имя_бакета>',
-            region: 'us-east-1',
+            region: '{{ region-id }}',
             customAwsEndpointHostname: '{{ s3-storage-host }}'
           }
         },
@@ -557,7 +557,7 @@
 
     {% note info %}
 
-    Не меняйте значение региона, это может привести к ошибке.
+    В случае возникновения ошибки, замените значение `region` на основной регион AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
 
     {% endnote %}
 
