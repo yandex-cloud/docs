@@ -22,7 +22,7 @@ To create a {{ maf-name }} cluster, your {{ yandex-cloud }} account needs the fo
 
 Make sure to grant the `managed-airflow.integrationProvider` role to the cluster service account. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
-For more information about assigning roles, see the [{{ iam-full-name }} documentation](../../iam/operations/roles/grant.md).
+For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
 
 ## Creating a cluster {#create-cluster}
 
@@ -152,13 +152,13 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
     To create a {{ maf-name }} cluster:
 
-    1. View the description of the CLI command to create a cluster:
+    1. View the description of the CLI command for creating a cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster create --help
         ```
 
-    1. Specify cluster parameters in that command (our example does not use all available parameters):
+    1. Specify the cluster properties in this command (the example does not show all that are available):
 
         ```bash
         {{ yc-mdb-af }} cluster create \
@@ -227,7 +227,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters-part-2.md) %}
 
-    1. Make sure the settings are correct.
+    1. Check if the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -241,7 +241,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -420,7 +420,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
             {% endnote %}
 
-    1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -434,7 +434,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -630,6 +630,188 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+## Examples {#examples}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    Create a {{ maf-name }} cluster with the following test specifications:
+
+    * Name: `myaf`.
+    * {{ AF }} version: `3.0`.
+    * Admin password: `Password*1`.
+    * Service account ID: `aje8r2rp7fkl********`.
+    * Subnet IDs:
+      
+      * `e9bhbia2scnk********`
+      * `e2lfqbm5nt9r********`
+      * `fl8beqmjckv8********`
+
+    * One web server to host the {{ AF }} instance with the `c1-m2` host class.
+    * One scheduler with the `c1-m2` host class.
+    * Jobs are performed by `c1-m2` host class workers; from `1` to `4` in number.
+    * One DAG processor with the `c1-m2` host class.
+    * Bucket of any name for DAG files.
+
+    Run this command:
+
+    ```bash
+    {{ yc-mdb-af }} cluster create \
+      --name myaf \
+      --airflow-version 3.0 \
+      --admin-password Password*1 \
+      --service-account-id aje8r2rp7fkl******** \
+      --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
+      --security-group-ids enp68jq81uun******** \
+      --webserver count=1,resource-preset-id=c1-m2 \
+      --scheduler count=1,resource-preset-id=c1-m2 \
+      --worker min-count=1,max-count=4,resource-preset-id=c1-m2 \
+      --dag-processor count=1,resource-preset-id=c1-m2 \
+      --dags-bucket <bucket_name>
+    ```
+
+- {{ TF }} {#tf}
+
+    Create a {{ maf-name }} cluster with the following test specifications:
+
+    * Folder ID: `b1g4unjqq856********`.
+    * Name: `myaf`.
+    * {{ AF }} version: `3.0`.
+    * Admin password: `Password*1`.
+    * New service account, `af-sa`, with the following roles:
+      
+      * `managed-airflow.integrationProvider`
+      * `storage.editor`
+      * `monitoring.editor`
+    
+    * New network named `af-net` with the following subnets:
+      
+      * `af-subnet-a` in the `ru-central1-a` availability zone, with the `10.1.0.0/24` address range.
+      * `af-subnet-b` in the `ru-central1-b` availability zone, with the `10.2.0.0/24` address range.
+      * `af-subnet-d` in the `ru-central1-d` availability zone, with the `10.3.0.0/24` address range.
+    
+    * New security group, `af-sg`, allowing all incoming and outgoing traffic.
+    
+    * One web server to host the {{ AF }} instance with the `c1-m2` host class.
+    * One scheduler with the `c1-m2` host class.
+    * Jobs are performed by `c1-m2` host class workers; from `1` to `4` in number.
+    * One DAG processor with the `c1-m2` host class.
+    * New bucket of any name for DAG files.
+
+    The configuration file for this cluster looks like this:
+
+    ```hcl
+    locals {
+      folder_id = "b1g4unjqq856********"
+    }
+    
+    resource "yandex_airflow_cluster" "myaf" {
+      name               = "myaf"
+      airflow_version    = "3.0"
+      admin_password     = "Password*1"
+      service_account_id = yandex_iam_service_account.af-sa.id
+      subnet_ids         = [yandex_vpc_subnet.af-subnet-a.id,yandex_vpc_subnet.af-subnet-b.id,yandex_vpc_subnet.af-subnet-d.id]
+      security_group_ids = [yandex_vpc_security_group.af-sg.id]
+
+      webserver = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      scheduler = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      worker = {
+        min_count          = 1
+        max_count          = 4
+        resource_preset_id = "c1-m2"
+      }
+
+      dag_processor = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      code_sync = {
+        s3 = {
+          bucket = yandex_storage_bucket.af-bucket.bucket
+        }
+      }
+    }
+
+    resource "yandex_vpc_network" "af-net" {
+      name = "af-net"
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-a" {
+      name           = "af-subnet-a"
+      zone           = "ru-central1-a"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.1.0.0/24"]
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-b" {
+      name           = "af-subnet-b"
+      zone           = "ru-central1-b"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.2.0.0/24"]
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-d" {
+      name           = "af-subnet-d"
+      zone           = "ru-central1-d"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.3.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "af-sg" {
+      name       = "af-sg"
+      network_id = yandex_vpc_network.af-net.id
+  
+      ingress {
+        protocol       = "ANY"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+
+      egress {
+        protocol       = "ANY"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+    }
+
+    resource "yandex_iam_service_account" "af-sa" {
+      name = "af-sa"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-af" {
+      folder_id = local.folder_id
+      role      = "managed-airflow.integrationProvider"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-storage" {
+      folder_id = local.folder_id
+      role      = "storage.editor"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-monitoring" {
+      folder_id = local.folder_id
+      role      = "monitoring.editor"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+
+    resource "yandex_storage_bucket" "af-bucket" {
+      bucket    = "<bucket_name>"
+      folder_id = local.folder_id
+    }
+    ```
 
 {% endlist %}

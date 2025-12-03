@@ -5,9 +5,9 @@ You can connect an {{ metastore-name }} cluster to an {{ SPRK }} cluster. In thi
 
 Below, we walk you through an example of using a PySpark job to create a database and a table within it and then load the data from the new database into a {{ objstorage-full-name }} bucket. Database metadata is stored in an {{ metastore-name }} cluster connected to an {{ SPRK }} cluster.
 
-To implement the above example:
+To implement the above example, do the following:
 
-1. [Set up your infrastructure](#infra).
+1. [Set up the infrastructure](#infra).
 1. [Prepare and run a PySpark job](#prepare-job).
 1. [Check the result](#check-result).
 
@@ -77,10 +77,10 @@ The support cost for this solution includes:
     1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `metastore-agent`.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `{{ metastore.integration-version }}`.
         * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `integration-network`.
         * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `integration-network-{{ region-id }}-a`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `metastore-sg`.
-
 
     1. [Create a {{ msp-name }} cluster](../../../managed-spark/operations/cluster-create.md) with the following parameters:
 

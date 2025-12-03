@@ -1,6 +1,6 @@
 # Getting started with the {{ model-gallery-name }} models
 
-In this section, you will learn how to use the {{ yagpt-name }} neural network to generate texts in [synchronous mode](../concepts/generation/index.md#working-mode). For other examples, see [Guides on how to use {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
+In this section, you will learn how to use {{ model-gallery-name }} models to generate text in [synchronous mode](../concepts/generation/index.md#working-mode). For other examples, see [Guides on how to use {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
 
 For information about the {{ foundation-models-full-name }} pricing, see [{#T}](../pricing.md).
 
@@ -36,14 +36,14 @@ To get started in {{ yandex-cloud }}:
 
   1. In the [management console]({{ link-console-main }}), select a folder for which your account has the `ai.playground.user` role or higher.
   1. Click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** on the left-hand panel and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}** or find it using the search bar on the dashboard.
-  1. In the panel that opens, click ![image](../../_assets/console-icons/flask.svg) **{{ ui-key.yacloud.yagpt.playground }}**.
+  1. On the panel that opens, click ![image](../../_assets/console-icons/flask.svg) **{{ ui-key.yacloud.yagpt.playground }}**.
 
      ![screen01](../../_assets/ai-studio/quickstart/yandexgpt/screen01.png)
 
   1. Select the generation type:
 
-      * **{{ ui-key.yacloud.yagpt.YaGPT.CreateExperiment.foundation-models_playground_text-generation-with-context_title_uYBhM }}**: Model will generate responses based on the dialog history. This will allow you to refine the result during the interaction.
-      * **{{ ui-key.yacloud.yagpt.YaGPT.CreateExperiment.foundation-models_playground_text-generation_title_xpmcC }}**: Model will generate responses based only on your last message and instructions.
+      * **{{ ui-key.yacloud.yagpt.YaGPT.CreateExperiment.foundation-models_playground_text-generation-with-context_title_uYBhM }}**: The model will generate responses based on the dialog history. This will allow you to refine the result during the interaction.
+      * **{{ ui-key.yacloud.yagpt.YaGPT.CreateExperiment.foundation-models_playground_text-generation_title_xpmcC }}**: The model will generate responses based only on your last message and instructions.
 
   1. Type your query in the input field below and click ![image](../../_assets/console-icons/arrow-up.svg) or press **Enter**. You can also use the query examples provided above.
 

@@ -10,7 +10,7 @@ description: Follow this guide to delete a resource.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click the resource name.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** and then click **{{ ui-key.yacloud.common.delete }}** in the window that opens.
 
@@ -84,7 +84,7 @@ description: Follow this guide to delete a resource.
 
      {% endcut %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
   1. Check the configuration using this command:
 
      ```bash
@@ -103,7 +103,7 @@ description: Follow this guide to delete a resource.
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
   1. Apply the changes:
 
      ```bash

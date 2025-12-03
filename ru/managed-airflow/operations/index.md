@@ -45,3 +45,4 @@ description: Из статьи вы узнаете, как работать с {
 * [Мониторинг состояния кластера](monitoring.md)
 * [Просмотр логов кластера](cluster-logs.md)
 * [Передача логов кластера в {{ cloud-logging-full-name }}](af-logging.md)
+* [Получение логов выполнения DAG](export-dag-logs.md)

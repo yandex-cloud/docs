@@ -19,7 +19,9 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure public access for.
+  1. In the [management console]({{ link-console-main }}), open a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket to configure public access for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. Enable public access for the operation types you need.
@@ -55,7 +57,7 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
       * `--public-list`: Flag to enable public view access to the list of bucket objects.
       * `--public-config-read`: Flag to enable public read access to the bucket configuration.
 
-      `name`: This is a required parameter. Other parameters are optional. By default, public access to the bucket is disabled.
+      `name`: This is a required setting. Other parameters are optional. By default, public access to the bucket is disabled.
 
       Result:
 
@@ -156,7 +158,9 @@ You will not be able to open public access if a restrictive [access policy](../.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to disable public access for.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket to disable public access for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. Enable restricted access for the operation types you need.
@@ -192,7 +196,7 @@ You will not be able to open public access if a restrictive [access policy](../.
       * `--public-list`: Flag to manage public view access to the list of bucket objects. To disable public access, set it to `false`.
       * `--public-config-read`: Flag to manage public read access to the bucket configuration. To disable public access, set it to `false`.
 
-      `name`: This is a required parameter. Other parameters are optional. By default, public access to the bucket is disabled.
+      `name`: This is a required setting. Other parameters are optional. By default, public access to the bucket is disabled.
 
       Result:
 

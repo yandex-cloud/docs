@@ -12,7 +12,7 @@ To get a list of instance groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the instance group in question.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
 
 - CLI {#cli}

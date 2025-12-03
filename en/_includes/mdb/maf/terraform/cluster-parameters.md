@@ -1,4 +1,4 @@
-Here is an example of the configuration file structure:
+Here is the configuration file example:
 
 ```hcl
 resource "yandex_airflow_cluster" "<cluster_name>" {
@@ -29,6 +29,10 @@ resource "yandex_airflow_cluster" "<cluster_name>" {
   }
 
   triggerer = {
+    count              = <number_of_instances>
+    resource_preset_id = "<resource_ID>"
+  }
+  dag_processor = {
     count              = <number_of_instances>
     resource_preset_id = "<resource_ID>"
   }

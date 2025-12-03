@@ -18,7 +18,7 @@ To create a disk from an [image](../../concepts/image.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk.
@@ -92,20 +92,20 @@ To create a disk from an [image](../../concepts/image.md):
 
       * `--source-image-name`: Source image name. Instead of a name, you can provide the source image ID in the `--source-image-id` parameter.
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
-      * `--description`: Text description of the new disk. This is an optional parameter.
-      * `--hardware-generation-id`: Virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional parameter. Possible values:
+      * `--description`: Text description of the new disk. This is an optional setting.
+      * `--hardware-generation-id`: Virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional setting. The possible values are:
 
           {% include [generation-types-cli](../../../_includes/compute/generation-types-cli.md) %}
 
           If not specified, the disk will get the same hardware generation assigned as the source image.
-      * `--hardware-features`: Additional settings for `Gen 1`. This is an optional parameter. Possible values:
+      * `--hardware-features`: Additional settings for `Gen 1`. This is an optional setting. The possible values are:
 
           * `pci_topology=v1`: `PCI_TOPOLOGY_V1` topology.
-          * `pci_topology=v2`: `PCI_TOPOLOGY_V2` topology.
+          * `pci_topology=v2`: Adopts the `PCI_TOPOLOGY_V2` topology.
 
 
           If the source image has `Gen 1` assigned, by default the new disk will get the same `--hardware-features` value as the source image.
-      * `--kms-key-id`: ID of the {{ kms-full-name }} [symmetric encryption key](../../../kms/concepts/key.md) for creating an encrypted disk. This is an optional parameter.
+      * `--kms-key-id`: ID of the {{ kms-full-name }} [symmetric encryption key](../../../kms/concepts/key.md) for creating an encrypted disk. This is an optional setting.
 
           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
         
@@ -193,7 +193,7 @@ To create a disk from an [image](../../concepts/image.md):
 
   1. Define the parameters of the `yandex_compute_disk` resource in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
      
       ```hcl
       resource "yandex_compute_disk" "my-disk" {
@@ -215,7 +215,7 @@ To create a disk from an [image](../../concepts/image.md):
 
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
       * `image_id`: ID of the image you are creating the disk based on.
-      * `hardware_generation`: Block of settings describing the virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional parameter. It includes the following blocks of settings:
+      * `hardware_generation`: Block of settings describing the virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional setting. It includes the following blocks of settings:
 
           {% include [generation-types-tf](../../../_includes/compute/generation-types-tf.md) %}
 

@@ -15,7 +15,7 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [disk](../../concepts/disk.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, click **{{ ui-key.yacloud.common.create }}**.
   1. Configure schedule parameters:
@@ -76,7 +76,7 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
      * `--start-at "2022-12-31T16:39:00+05:00"`: Schedule starts at 16:39 UTC+5 on December 31, 2022.
      * `--start-at "2h"`: Schedule starts two hours before the current time point.
 
-     For more information about the `yc compute snapshot-schedule create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/create.md).
+     For more information about the `yc compute snapshot-schedule create` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/create.md).
   1. To add disks to your schedule, get [disk](../../concepts/disk.md) IDs:
 
      ```bash
@@ -142,15 +142,15 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
      ```
 
      Where:
-     * `name`: Schedule name. This is a required parameter.
-     * `schedule_policy`: Section with schedule parameters. It contains the `expression` field with a [cron expression](../../concepts/snapshot-schedule.md#cron). This is a required parameter.
-     * `snapshot_count`: Maximum number of snapshots per [disk](../../concepts/disk.md). This is an optional parameter.
-     * `snapshot_spec`: Section with additional snapshot parameters. This is an optional parameter. It may contain the following fields:
+     * `name`: Schedule name. This is a required setting.
+     * `schedule_policy`: Section with schedule parameters. It contains the `expression` field with a [cron expression](../../concepts/snapshot-schedule.md#cron). This is a required setting.
+     * `snapshot_count`: Maximum number of snapshots per [disk](../../concepts/disk.md). This is an optional setting.
+     * `snapshot_spec`: Section with additional snapshot parameters. This is an optional setting. It may contain the following fields:
        * `description`: Snapshot description.
        * `labels`: Snapshot [label](../../../overview/concepts/services.md#labels) in `<key> = "<value>"` format.
-     * `disk_ids`: IDs of disks to create snapshots for. This is a required parameter.
+     * `disk_ids`: IDs of disks to create snapshots for. This is a required setting.
 
-     For more information about `yandex_compute_snapshot_schedule` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
+     For more information about the `yandex_compute_snapshot_schedule` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -7,9 +7,45 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
-### Version 0.175.0 (10/11/25) {#version0.175.0}
+### Version 0.176.0 (20/11/25) {#version0.176.0}
 
 #### Changes in {{ yandex-cloud }} services
+
+##### {{ sw-name }}
+
+Added commands to manage access permissions:
+* `serverless workflow list-access-bindings`
+* `serverless workflow set-access-bindings`
+* `serverless workflow add-access-binding`
+* `serverless workflow remove-access-binding`
+* `serverless workflow allow-unauthenticated-execution`
+* `serverless workflow deny-unauthenticated-execution`
+
+##### {{ mmy-name }}
+
+Added the `yc managed-mysql connect` command.
+
+##### {{ ai-studio-name }}
+
+Added commands for {{ mcp-hub-name }}:
+* `serverless mcp-gateway get`
+* `serverless mcp-gateway list`
+* `serverless mcp-gateway create`
+* `serverless mcp-gateway update`
+* `serverless mcp-gateway delete`
+* `serverless mcp-gateway list-operations`
+* `serverless mcp-gateway list-access-bindings`
+* `serverless mcp-gateway set-access-bindings`
+* `serverless mcp-gateway add-access-binding`
+* `serverless mcp-gateway remove-access-binding`
+* `serverless mcp-gateway allow-unauthenticated-invoke`
+* `serverless mcp-gateway deny-unauthenticated-invoke`
+
+## Previous releases {#previous-release}
+
+### Version 0.175.0 (10/11/25) {#version0.175.0}
+
+####  Changes in {{ yandex-cloud }} services
 
 ##### {{ org-name }}
 
@@ -17,8 +53,6 @@ Added missing fields to SAML application management commands:
 
 * `organization-manager idp application saml application create`
 * `organization-manager idp application saml application update`
-
-## Previous releases {#previous-release}
 
 ### Version 0.174.0 (06/11/25) {#version0.174.0}
 
@@ -768,7 +802,7 @@ The `postgresql database` command no longer includes the deprecated `version` ar
 * Added commands to work with {{ mtr-full-name }} catalogs:
   * `yc managed-trino catalog create`
   * `yc managed-trino catalog delete`
-  * `yc managed-trino catalog get`
+  * `yc managed-trino catalog get`  
   * `yc managed-trino catalog list`
   * `yc managed-trino catalog update`
 
@@ -1146,7 +1180,7 @@ Added commands to link instances to reserved instance pools.
 ##### {{ objstorage-name }}
 
 * Added a parameter to the `yc storage bucket update` command to specify a {{ vpc-full-name }} [service connection](../vpc/concepts/private-endpoint.md) to access the bucket from:
-  * `--private-endpoint`, example: `--enable-private-endpoints true --private-endpoints cba,abc`.
+  * `--private-endpoint`, e.g.,`--enable-private-endpoints true --private-endpoints cba,abc`.
 
 ### Version 0.142.0 (30/01/25) {#version0.142.0}
 
@@ -2780,8 +2814,8 @@ Added the following parameters to the `yc serverless container revision deploy` 
   * `--host`
   * `--user`
 
-  If these parameters are not specified, they are taken from the original cluster.
-  **{{ CH }}** and **{{ ZK }}** hosts will be restored with the same configuration as in the source cluster.
+  If these parameters are not specified, they will be taken from the original cluster.
+  **{{ CH }}** and **{{ ZK }}** hosts will be restored with the same configuration as in the original cluster.
   **{{ CH }}** hosts will only be restored for the shards whose backups are specified for restoration.
 
 **{{ mpg-name }}**

@@ -18,13 +18,14 @@ editable: false
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### {{ model-gallery-name }} {#rules-generating}
 
 The cost of using {{ model-gallery-name }} models depends on:
 * [Model's operating mode](concepts/generation/index.md#working-mode).
-* Number of incoming and outgoing [tokens](concepts/generation/tokens.md). The [token](concepts/generation/tokens.md) count of the same text may vary from one model to the next.
+* Number of input and output [tokens](concepts/generation/tokens.md). The [token](concepts/generation/tokens.md) count of the same text may vary from one model to the next.
 
 [{{ billing-name }} represents](../billing/operations/check-charges.md) the use of {{ model-gallery-name }} models in _billing units_. The total number of billing units is rounded up to an integer.
 
@@ -100,7 +101,7 @@ The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenize
 
 #### Text vectorization {#rules-embedding}
 
-The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization. [{{ billing-name }} represents](../billing/operations/check-charges.md) the creation of embeddings in _vectorization units_. 
+The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization. [{{ billing-name }} breaks down](../billing/operations/check-charges.md) the creation of embeddings in _vectorization units_. 
 
 
 
@@ -171,10 +172,7 @@ The cost of using voice agents consists of your fees for speech recognition (inp
 > * Number of generated tokens: 2,000
 
 
-
 {% include [usd-voice-assistant-pro](../_pricing_examples/ai-studio/usd-voice-assistant-pro.md) %}
-
-
 
 {% endcut %}
 
@@ -185,12 +183,6 @@ The {{ assistant-api }} tools are free of charge.
 The File Search tool in text and voice agents is free of charge.
 
 The Web Search tool in text and voice agents is free of charge until November 17, 2025. 
-
-{% note info %}
-
-The prices will apply starting November 20, 2025.
-
-{% endnote %}
 
 
 

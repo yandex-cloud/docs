@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. In the line with the disk, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
   1. Enter a name for the snapshot. The naming requirements are as follows:
@@ -41,7 +41,7 @@
       ```
 
       Where:
-      * `--name`: Snapshot name. The naming requirements are as follows:
+      * `--name`: Snapshot name. Follow these naming requirements:
 
           {% include [name-format](../name-format.md) %}
 
@@ -55,7 +55,7 @@
       * `--hardware-features`: Additional settings for `Gen 1`. This is an optional setting. The possible values are:
 
           * `pci_topology=v1`: `PCI_TOPOLOGY_V1` topology.
-          * `pci_topology=v2`: `PCI_TOPOLOGY_V2` topology.
+          * `pci_topology=v2`: Adopts the `PCI_TOPOLOGY_V2` topology.
 
 
           If the source disk has `Gen 1` assigned, by default, the new snapshot will get the same `--hardware-features` value as the source disk.
@@ -101,7 +101,7 @@
      ```
 
       Where:
-      * `name`: Snapshot name. The naming requirements are as follows:
+      * `name`: Snapshot name. Follow these naming requirements:
 
           {% include [name-format](../name-format.md) %}
 

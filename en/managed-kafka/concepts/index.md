@@ -1,6 +1,6 @@
 ---
 title: Resource relationships in {{ mkf-full-name }}
-description: '{{ KF }} is a distributed cross-application communication system that uses the _publication-subscription_ principle. With {{ mkf-full-name }}, you can deploy and maintain {{ KF }} {{ versions.console.str }} server clusters in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts, where topics and topic partitions are located.'
+description: '{{ KF }} is a distributed cross-application communication system that uses the _publication-subscription_ principle. With {{ mkf-full-name }}, you can deploy and maintain {{ KF }} {{ versions.console.str }} server clusters in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts that host topics and their partitions.'
 ---
 
 # Resource relationships in {{ mkf-name }}
@@ -10,7 +10,7 @@ description: '{{ KF }} is a distributed cross-application communication system t
 {{ mkf-full-name }} helps you deploy and maintain clusters of {{ versions.console.str }} {{ KF }} servers in the {{ yandex-cloud }} infrastructure.
 
 
-Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md), where [topics](topics.md) and topic partitions are located. Cluster hosts may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
+Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md) that host [topics](topics.md) and their partitions. Cluster hosts may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
 
 If all broker hosts are created in the same availability zone, you cannot change their number.
 

@@ -4753,6 +4753,9 @@ items:
               - name: add-labels
                 href: >-
                   cli-ref/organization-manager/cli-ref/organization/add-labels.md
+              - name: bind-access-policy
+                href: >-
+                  cli-ref/organization-manager/cli-ref/organization/bind-access-policy.md
               - name: get
                 href: cli-ref/organization-manager/cli-ref/organization/get.md
               - name: leave
@@ -4762,6 +4765,9 @@ items:
               - name: list-access-bindings
                 href: >-
                   cli-ref/organization-manager/cli-ref/organization/list-access-bindings.md
+              - name: list-access-policy-bindings
+                href: >-
+                  cli-ref/organization-manager/cli-ref/organization/list-access-policy-bindings.md
               - name: list-operations
                 href: >-
                   cli-ref/organization-manager/cli-ref/organization/list-operations.md
@@ -4774,6 +4780,9 @@ items:
               - name: set-access-bindings
                 href: >-
                   cli-ref/organization-manager/cli-ref/organization/set-access-bindings.md
+              - name: unbind-access-policy
+                href: >-
+                  cli-ref/organization-manager/cli-ref/organization/unbind-access-policy.md
               - name: update
                 href: cli-ref/organization-manager/cli-ref/organization/update.md
           - name: oslogin
@@ -4876,6 +4885,8 @@ items:
                 href: cli-ref/resource-manager/cli-ref/cloud/add-access-binding.md
               - name: add-labels
                 href: cli-ref/resource-manager/cli-ref/cloud/add-labels.md
+              - name: bind-access-policy
+                href: cli-ref/resource-manager/cli-ref/cloud/bind-access-policy.md
               - name: create
                 href: cli-ref/resource-manager/cli-ref/cloud/create.md
               - name: delete
@@ -4886,6 +4897,9 @@ items:
                 href: cli-ref/resource-manager/cli-ref/cloud/list.md
               - name: list-access-bindings
                 href: cli-ref/resource-manager/cli-ref/cloud/list-access-bindings.md
+              - name: list-access-policy-bindings
+                href: >-
+                  cli-ref/resource-manager/cli-ref/cloud/list-access-policy-bindings.md
               - name: list-operations
                 href: cli-ref/resource-manager/cli-ref/cloud/list-operations.md
               - name: remove-access-binding
@@ -4895,6 +4909,8 @@ items:
                 href: cli-ref/resource-manager/cli-ref/cloud/remove-labels.md
               - name: set-access-bindings
                 href: cli-ref/resource-manager/cli-ref/cloud/set-access-bindings.md
+              - name: unbind-access-policy
+                href: cli-ref/resource-manager/cli-ref/cloud/unbind-access-policy.md
               - name: update
                 href: cli-ref/resource-manager/cli-ref/cloud/update.md
           - name: folder
@@ -4905,6 +4921,8 @@ items:
                 href: cli-ref/resource-manager/cli-ref/folder/add-access-binding.md
               - name: add-labels
                 href: cli-ref/resource-manager/cli-ref/folder/add-labels.md
+              - name: bind-access-policy
+                href: cli-ref/resource-manager/cli-ref/folder/bind-access-policy.md
               - name: create
                 href: cli-ref/resource-manager/cli-ref/folder/create.md
               - name: delete
@@ -4916,6 +4934,9 @@ items:
               - name: list-access-bindings
                 href: >-
                   cli-ref/resource-manager/cli-ref/folder/list-access-bindings.md
+              - name: list-access-policy-bindings
+                href: >-
+                  cli-ref/resource-manager/cli-ref/folder/list-access-policy-bindings.md
               - name: list-operations
                 href: cli-ref/resource-manager/cli-ref/folder/list-operations.md
               - name: remove-access-binding
@@ -4925,6 +4946,9 @@ items:
                 href: cli-ref/resource-manager/cli-ref/folder/remove-labels.md
               - name: set-access-bindings
                 href: cli-ref/resource-manager/cli-ref/folder/set-access-bindings.md
+              - name: unbind-access-policy
+                href: >-
+                  cli-ref/resource-manager/cli-ref/folder/unbind-access-policy.md
               - name: update
                 href: cli-ref/resource-manager/cli-ref/folder/update.md
       - name: serverless

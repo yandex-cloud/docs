@@ -4,7 +4,7 @@
 
 #### How do I write effective instructions for an AI assistant? {#assistant-instruction}
 
-When creating an AI assistant, provide a detailed plain-language description of what your assistant should do in the `instruction` field. For example:
+When creating an AI assistant, provide a detailed plain-language description of what your assistant should do in the `instruction` field. Here is an example:
 
 ```
 You are a support specialist. Your task is to answer questions on the topic. 
@@ -58,7 +58,7 @@ Just like with generative models, you pay for both request and model response [t
 
 #### How can I estimate the number of tokens in text files beforehand? {#pre-estimate-number-of-tokens}
 
-To estimate the text size in tokens, use a tokenizer. Learn more in [{#T}](../../ai-studio/operations/generation/evaluate-request.md).
+To estimate the text size in tokens, use a tokenizer. For more information, see [{#T}](../../ai-studio/operations/generation/evaluate-request.md).
 
 #### Do I get charged for the model's response to a request that triggered the ethics filter? {#is-triggered-response-charged}
 
@@ -86,7 +86,7 @@ To set up a knowledge base for your AI assistant:
 
 Upload your documents to the assistant's [search index](../../ai-studio/concepts/assistant/search-index.md). The assistant will then return answers that include both links to the source documents and exact text chunks the model used to generate the response.
 
-Learn more in [{#T}](../../ai-studio/operations/assistant/create-with-searchindex.md).
+For more information, see [{#T}](../../ai-studio/operations/assistant/create-with-searchindex.md).
 
 #### How do I add, update, or delete documents from the index? {#add-update-delete-operations}
 

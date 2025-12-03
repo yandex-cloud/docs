@@ -15,7 +15,7 @@ The disk size must be a multiple of 93 GB.
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
@@ -58,7 +58,7 @@ The disk size must be a multiple of 93 GB.
       * `--zone`: Availability zone.
       * `--type`: Disk type.
       * `--size`: Disk size.
-      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
+      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional setting.
 
         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
         
@@ -115,8 +115,8 @@ The disk size must be a multiple of 93 GB.
      * `type`: Disk type, `ssd-io-m3`.
      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). The availability zone for your disk must match the zone of the placement group where you want to create it. We recommend creating disks in the `{{ region-id }}-a` or `{{ region-id }}-b` availability zone.
      * `size`: Disk size in GB. This must be a multiple of 93 GB. The maximum disk size depends on the specified block size.
-     * `block_size`: Block size in bytes (minimum storage unit on the disk). By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB. Learn more in [{#T}](empty-disk-blocksize.md).
-     * `kms_key_id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an [encrypted](../../concepts/encryption.md) disk. This is an optional parameter.
+     * `block_size`: Block size in bytes (minimum storage unit on the disk). By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB. For more information, see [{#T}](empty-disk-blocksize.md).
+     * `kms_key_id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an [encrypted](../../concepts/encryption.md) disk. This is an optional setting.
 
          {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
 

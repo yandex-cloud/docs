@@ -22,7 +22,7 @@ These prices apply starting September 22, 2025.
 
 {% endnote %}
 
-When using {{ metastore-full-name }}, you pay for the computing resources of your cluster. Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 1.5 hours.
+When using {{ metastore-full-name }}, you pay for the computing resources of your cluster. Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
 
 A `Stopped` cluster is not charged.
 
@@ -30,6 +30,7 @@ A `Stopped` cluster is not charged.
 
 
 ### Prices for the Russia region {#metastore-prices}
+
 
 
 

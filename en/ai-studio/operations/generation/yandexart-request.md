@@ -32,7 +32,7 @@ To use the examples:
 
 {% note info %}
 
-{{ yandexart-name }} logs user prompts to generate better responses. Do not use sensitive information and personal data in your prompts.
+{{ yandexart-name }} logs user prompts to keep improving its responses. Do not use sensitive information and personal data in your prompts.
 
 {% endnote %}
 
@@ -49,7 +49,7 @@ To use the examples:
   1. Select the generation type: **{{ ui-key.yacloud.yagpt.YaGPT.CreateExperiment.foundation-models_playground_image-generation_title_rZxwV }}**.  
   1. Under **{{ ui-key.yacloud.yagpt.settings }}**, specify the following generation settings:
 
-     * **{{ ui-key.yacloud.yagpt.label_seed }}**: Number used to generate the image. You can specify the number yourself or set a random value. Using the same prompt and seed will return identical generation results.
+     * **{{ ui-key.yacloud.yagpt.label_seed }}**: Number used to generate the image. You can specify the number yourself or set a random value. The same prompt and seed will produce the same generation results.
      * **{{ ui-key.yacloud.yagpt.aspect-ratio-key-value }}**: Select the required image aspect ratio.
 
   1. Type your query in the input field below and click ![image](../../../_assets/console-icons/arrow-up.svg) or press **Enter**. You can also use the query examples provided above. You should use vivid and detailed descriptions, specify styles if you want your image styled in a certain way.
@@ -63,10 +63,10 @@ To use the examples:
 - SDK {#sdk}
 
   This code includes four independent examples illustrating different uses of the SDK interface:
-  * Example 1: A simple request of one text description.
+  * Example 1: A simple request consisting of one text description.
   * Example 2: A request of two text descriptions with the result saved to a file named `./image.jpeg`.
   * Example 3: A request of two text descriptions with weight specified.
-  * Example 4: A combination of a request to a [{{ gpt-pro }} model](../../concepts/generation/models.md) (to generate an extended prompt) and a request to a {{ yandexart-name }} model (to generate an image based on that prompt).
+  * Example 4: A combination of a request to [{{ gpt-pro }}](../../concepts/generation/models.md) (to generate an extended prompt) and a request to {{ yandexart-name }} (to generate an image based on that prompt).
 
   The code in the example does not return an [operation object](../../../api-design-guide/concepts/operation.md) but waits for the models to execute their requests and stores the result in the `result` variable.
 

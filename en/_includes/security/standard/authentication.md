@@ -30,7 +30,7 @@ When using {{ yandex-cloud }} together with {{ yandex-360 }}, follow the {{ yand
 
 [{{ org-full-name }}](../../../organization/) is a single service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources.
 
-For the purpose of centralized account management, use [SAML-compatible identity federations](../../../organization/concepts/add-federation.md). By using identity federations, a company can set up Single Sign-On, which is authentication in {{ yandex-cloud }} via their IdP server. With this approach, employees can use their corporate accounts that are subject to the company's security policies, such as:
+For centralized identity management, use [SAML-compatible identity federations](../../../organization/concepts/add-federation.md). By using identity federations, a company can set up Single Sign-On, which is authentication in {{ yandex-cloud }} via their IdP server. With this approach, employees can use their corporate accounts that are subject to the company's security policies, such as:
 
 * Revoking and blocking accounts.
 * Password policies.
@@ -1949,7 +1949,7 @@ To get notifications of security-related events, such as vulnerability detection
 
 {% include [key-has-last-used-data](../../iam/key-has-last-used-data.md) %}
 
-Learn more in [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
+For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -2028,7 +2028,7 @@ To ensure data and cloud infrastructure security, you need to regularly audit th
 
 [Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) or {{ ciem-name }} is a tool that provides a centralized view of the full list of access permissions for the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md), granted to [subjects](../../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke excessive access permissions from subjects.
 
-Learn more in [{#T}](../../../security-deck/concepts/ciem.md).
+For more information, see [{#T}](../../../security-deck/concepts/ciem.md).
 
 | Requirement ID | Severity |
 | --- | --- |

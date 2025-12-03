@@ -1,0 +1,49 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-clickhouse/cli-ref-beta/cluster/add-zookeeper.md
+---
+
+# yc beta managed-clickhouse cluster add-zookeeper
+
+Adds a ZooKeeper subcluster to the specified ClickHouse cluster.
+
+#### Command Usage
+
+Syntax: 
+
+`yc beta managed-clickhouse cluster add-zookeeper <CLUSTER-ID>`
+
+#### Flags
+
+| Flag | Description |
+|----|----|
+|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
+|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster to modify.|
+|`--convert-tables-to-replicated`|Enable automatic convertation of non-replicated MergeTree tables to replicated ones.|
+|`--host-specs`|<b>`shorthand/json`</b><br/>Configuration of ZooKeeper hosts.<br/><br/>Example:|
+|`--host-specs`|<b>`[{assign-public-ip=true,`</b><br/>shard-name=value, subnet-id=value, type=CLICKHOUSE, zone-id=value}]<br/><br/>Shorthand Syntax:<br/>[{assign-public-ip=bool, shard-name=str, subnet-id=str, type=CLICKHOUSE\|ZOOKEEPER\|KEEPER, zone-id=str},...]<br/>Fields:<br/>assign-public-ip  bool                                         — Whether the host should get a public IP address on creation.<br/><br/>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign<br/>a public IP to a host without one, recreate the host with [assign_public_ip] set as needed.<br/><br/>Possible values:<br/>* false - don't assign a public IP to the host.<br/>* true - the host should have a public IP address.<br/>shard-name        string                                       — Name of the shard that the host is assigned to.<br/>subnet-id         string                                       — ID of the subnet that the host should belong to. This subnet should be a part<br/>of the network that the cluster belongs to.<br/>The ID of the network is set in the [Cluster.network_id] field.<br/>type              enum<CLICKHOUSE\|KEEPER\|ZOOKEEPER>  required  — Type of the host to be deployed.<br/>zone-id           string                                       — ID of the availability zone where the host resides.<br/>To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.<br/>|
+|`--resources`|<b>`shorthand/json`</b><br/>Resources allocated to Zookeeper hosts.<br/><br/>Example:|
+|`--resources`|<b>`disk-size=1,`</b><br/>disk-type-id=value, resource-preset-id=value<br/><br/>Shorthand Syntax:<br/>{disk-size=int, disk-type-id=str, resource-preset-id=str}<br/>Fields:<br/>disk-size           int     — Volume of the storage available to a host, in bytes.<br/>disk-type-id        string  — Type of the storage environment for the host.<br/>Possible values:<br/>* network-hdd - network HDD drive,<br/>* network-ssd - network SSD drive,<br/>* local-ssd - local SSD storage.<br/>resource-preset-id  string  — ID of the preset for computational resources available to a host (CPU, memory etc.).<br/>All available presets are listed in the [documentation](https://yandex.cloud/ru/docs/managed-clickhouse/concepts/instance-types)<br/>|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+
+#### Global Flags
+
+| Flag | Description |
+|----|----|
+|`--profile`|<b>`string`</b><br/>Set the custom profile.|
+|`--region`|<b>`string`</b><br/>Set the region.|
+|`--debug`|Debug logging.|
+|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
+|`--no-user-output`|Disable printing user intended output to stderr.|
+|`--pager`|<b>`string`</b><br/>Set the custom pager.|
+|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
+|`--timeout`|<b>`string`</b><br/>Set the timeout.|
+|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
+|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
+|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
+|`-h`,`--help`|Display help for the command.|

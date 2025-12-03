@@ -14,7 +14,7 @@ To update an [origin group](../../concepts/origins.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Select the group to edit.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -79,6 +79,26 @@ To update an [origin group](../../concepts/origins.md):
 
      For more information about the `yc cdn origin-group update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/origin-group/update.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and edit the `yandex_cdn_origin_group` description:
+
+     {% include [create-origin-group-tf](../../../_includes/cdn/create-origin-group-tf.md) %}
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the updates in the [management console]({{ link-console-main }}) or using this CLI command:
+
+     ```bash
+     yc cdn origin-group get <origin_group_ID>
+     ```
+
 - API {#api}
 
   To update an origin group, use the [update](../../api-ref/OriginGroup/update.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Update](../../api-ref/grpc/OriginGroup/update.md) gRPC API call.
@@ -100,7 +120,7 @@ To delete an origin from an origin group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group to delete an origin from.
   1. Select the appropriate origin and click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -126,7 +146,7 @@ To delete multiple origins from a group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group to delete origins from.
   1. Select the appropriate origins and click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

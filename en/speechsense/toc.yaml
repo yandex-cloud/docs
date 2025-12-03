@@ -15,7 +15,7 @@ items:
                 href: operations/data/upload-audio-console.md
               - name: Uploading audio data via the gRPC API
                 href: operations/data/upload-data.md
-              - name: Uploading audio data with splitting via the gRPC API
+              - name: Uploading long audio files with splitting via the gRPC API
                 href: operations/data/upload-data-split.md
               - name: Uploading chat conversations
                 href: operations/data/upload-chat-text.md
@@ -105,7 +105,7 @@ items:
             href: operations/dictionary/change.md
           - name: Adding a dictionary to a tag
             href: operations/dictionary/add.md
-          - name: Removing a dictionary
+          - name: Delete dictionary
             href: operations/dictionary/delete.md
       - name: External integrations
         items:

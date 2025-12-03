@@ -28,6 +28,13 @@ description: Следуя данной инструкции, вы сможете
 
   1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}** выберите `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`. 
   1. (Опционально) В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** включите защиту балансировщика от удаления.
+
+      {% note warning %}
+
+      Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика. 
+
+      {% endnote %}
+
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** добавьте [обработчик](../concepts/listener.md):
       1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
       1. В открывшемся окне задайте параметры обработчика:
@@ -37,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 
               * `{{ ui-key.yacloud.common.label_auto }}` — чтобы обработчику был автоматически назначен свободный IP-адрес из диапазона выбранной подсети.
               * `{{ ui-key.yacloud.common.label_list }}` — чтобы вручную зарезервировать в выбранной подсети нужный IP-адрес для обработчика.
-              
+
                   В появившемся поле **{{ ui-key.yacloud.component.internal-v4-address-field.label_internal-address-title }}** выберите зарезервированный ранее IP-адрес или нажмите кнопку **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**, чтобы зарезервировать новый. В открывшемся окне задайте параметры резервируемого IP-адреса:
 
                   * **{{ ui-key.yacloud.common.name }}**.
@@ -65,7 +72,7 @@ description: Следуя данной инструкции, вы сможете
       1. (Опционально) Под блоком **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. В открывшемся окне задайте параметры [проверки состояния ресурсов](../concepts/health-check.md):
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**.
           * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** выберите один из вариантов:
-          
+
               * `{{ ui-key.yacloud.common.label_http }}`. Дополнительно в поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите путь, по которому будут выполняться проверки.
               * `{{ ui-key.yacloud.common.label_tcp }}`.
               * `{{ ui-key.yacloud.common.label_http2 }}`. Дополнительно в полях **{{ ui-key.yacloud.compute.group.overview.label_host }}** и **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите адрес хоста и путь, по которому будут выполняться проверки.
@@ -98,6 +105,7 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc load-balancer network-load-balancer create <имя_балансировщика> \
         --type=internal \
+        --deletion-protection \
         --listener name=<имя_обработчика>,`
                    `port=<порт>,`
                    `target-port=<целевой_порт>,`
@@ -119,6 +127,14 @@ description: Следуя данной инструкции, вы сможете
      Где:
 
      * `--type` — тип балансировщика.
+     * `--deletion-protection` — защита сетевого балансировщика от удаления. Пока опция включена, удалить балансировщик невозможно.
+
+         {% note warning %}
+
+         Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика. 
+
+         {% endnote %}
+
      * `--listener` — параметры обработчика:
          * `name` — имя обработчика.
          * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик. Возможные значения: от `1` до `32767`.
@@ -150,7 +166,7 @@ description: Следуя данной инструкции, вы сможете
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "<имя_балансировщика>"
        type = "internal"
-       deletion_protection = "<защита_от_удаления>"
+       deletion_protection = <защитить_балансировщик_от_удаления>
        listener {
          name = "<имя_обработчика>"
          port = <номер_порта>
@@ -177,7 +193,14 @@ description: Следуя данной инструкции, вы сможете
 
      * `name` — имя сетевого балансировщика.
      * `type` — тип сетевого балансировщика. Используйте `internal`, чтобы создать внутренний балансировщик.
-     * `deletion_protection` — защита внутреннего сетевого балансировщика от удаления. Пока опция включена, удалить балансировщик невозможно. Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика. Значение по умолчанию `false`.
+     * `deletion_protection` — защита внутреннего сетевого балансировщика от удаления. Пока опция включена, удалить балансировщик невозможно. Значение по умолчанию `false`.
+
+       {% note warning %}
+
+       Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика. 
+
+       {% endnote %}
+
      * `listener` — параметры обработчика:
        * `name` — имя обработчика.
        * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик, из диапазона от `1` до `32767`.

@@ -29,6 +29,7 @@ After deleting or stopping resources, you will continue paying for the reserved 
 
 
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### {{ vpc-short-name }} {#vpc-prices}
@@ -72,7 +73,7 @@ Outgoing traffic via a NAT gateway exceeding 100 GB per month is billable.
 
 Please note that the traffic transmitted via a NAT gateway is charged separately from other [outgoing traffic](#prices-traffic) but according to the same pricing policy.
 
-> For example:
+> Here is an example:
 >
 > If you transmit 110 GB of outgoing traffic via a NAT gateway and 5 GB of outgoing traffic using other ways, per month, you pay for 10 GB of the outgoing traffic sent via the NAT gateway.
 >
@@ -81,9 +82,9 @@ Please note that the traffic transmitted via a NAT gateway is charged separately
 
 
 
-The first 100 GB of outgoing traffic via a NAT gateway per month is free of charge.
+The first 100 GB of outgoing traffic via NAT gateway are provided free of charge every month.
 
-The minimum billing unit is 1 MB.
+The minimum charging unit is 1 MB.
 
 {% include notitle [usd-egress-nat-traffic.md](../_pricing/vpc/usd-egress-nat-traffic.md) %}
 

@@ -44,9 +44,7 @@ To create a security profile:
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
-      A preset profile includes:
-      * [Basic default rule](../../../smartwebsecurity/concepts/rules.md#base-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` [action type](../../../smartwebsecurity/concepts/rules.md#rule-action).
-      * [Smart protection rule](../../../smartwebsecurity/concepts/rules.md#smart-protection-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` action type.
+      {% include [pre-configured-profile](../../../_includes/smartwebsecurity/pre-configured-profile.md) %}
 
       {% include [smart-protection-tip](../../../_includes/smartwebsecurity/smart-protection-tip.md) %}
 
@@ -83,9 +81,9 @@ To create a security profile:
   1. Select the `test-sp1` profile.
   1. Click ![plug](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
   1. In the window that opens, select:
-      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}** `test-load-balancer`
-      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}** `test-http-router`
-      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}** `test-virtual-host` 
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}** `test-load-balancer`.
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}** `test-http-router`.
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}** `test-virtual-host`. 
   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
       You will see the associated virtual host under **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.

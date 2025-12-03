@@ -15,7 +15,7 @@ To get the URL and other details of an origin:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your origin.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Select the origin group containing your origin.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the origin details.
@@ -65,7 +65,7 @@ To get the name, list of origins, and other details of an origin group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your origin group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Select an origin group.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the origin group details.

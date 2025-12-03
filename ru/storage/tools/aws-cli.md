@@ -55,7 +55,7 @@ description: Из статьи вы узнаете, что такое AWS Comman
 {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 
-### Настройка дополнительного профиля
+### Настройка дополнительного профиля {#additional-profile}
 
 Вы можете создать несколько профилей для AWS CLI с помощью команды:
 
@@ -88,7 +88,7 @@ description: Из статьи вы узнаете, что такое AWS Comman
   region = {{ region-id }}
   ...
   [profile <имя_профиля_n>]
-  region = us-east-1
+  region = {{ region-id }}
   ```
 
   Где `default` — профиль по умолчанию.

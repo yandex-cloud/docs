@@ -142,8 +142,12 @@ items:
             href: tutorials/metastore-import.md
           - name: Working with an {{ objstorage-name }} table from a PySpark job
             href: tutorials/spark-simple-rw-job.md
-          - name: Integrating {{ msp-full-name }} with {{ metastore-full-name }}
+          - name: Integrating {{ msp-full-name }} with {{ metastore-name }}
             href: tutorials/metastore-and-spark.md
+          - name: Automating operations using {{ maf-full-name }}
+            href: tutorials/airflow-automation.md
+          - name: Collaborative table management using {{ metastore-name }}
+            href: tutorials/data-processing-to-data-processing.md
       - name: Concepts
         items:
           - name: '{{ metastore-name }} clusters'

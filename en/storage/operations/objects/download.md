@@ -19,7 +19,9 @@ To download an object group with a specified prefix (a [folder](../../concepts/o
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to download an object from.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket from which you want to download an object.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
   1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.button_download }}** or open the object and click ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.bucket.button_download }}** in the top panel.
 
@@ -113,7 +115,7 @@ To download an object group with a specified prefix (a [folder](../../concepts/o
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--bucket`: Name of the bucket you want to download the objects from.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
-      * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
+      * `<local_path>`: Path to the directory to save the downloaded objects to, such as `~/downloads/`.
 
       Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the bucket named `sample-bucket` to the `~/downloads/` local directory:
 

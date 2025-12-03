@@ -14,7 +14,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder hosting your placement group.
-  1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab, click the name of the group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -73,7 +73,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: [Role](../../security/index.md#roles-list) being assigned.
+       * `--role`: [Role](../../security/index.md#roles-list).
 
 
 - {{ TF }} {#tf}
@@ -97,7 +97,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `placement_group_id`: VM placement group ID.
-      * `role`: [Role](../../security/index.md#roles-list) being assigned.
+      * `role`: [Role](../../security/index.md#roles-list).
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_placement_group_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_placement_group_iam_binding).
@@ -126,7 +126,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder hosting your placement group.
-  1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab, click the name of the group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -210,7 +210,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `placement_group_id`: VM placement group ID.
-      * `role`: [Role](../../security/index.md#roles-list) being assigned.
+      * `role`: [Role](../../security/index.md#roles-list).
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_placement_group_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_placement_group_iam_binding).
@@ -244,7 +244,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder hosting your placement group.
-  1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab, click the name of the group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.

@@ -13,11 +13,11 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     
     {% include [billing.accounts.account](../../_includes/billing/accountant-role.md) %}
     
-    ## Companies and individual entrepreneurs of Russia {#legal-entities-russia}
+    ## Companies and individual entrepreneurs of Russia and Belarus {#legal-entities-russia}
 
     Companies and individual entrepreneurs can download [reports](../concepts/act.md) and [invoices](../concepts/invoice.md), as well as request [reconciliation reports](../concepts/act.md#reconciliation-report).
 
-    Downloading reporting documents is not available for [subaccounts](../../partner/terms.md#sub-account).
+    For [subaccounts](../../partner/terms.md#sub-account), downloading reporting documents is not available.
 
     ### Downloading closing documents {#download-closing-docs}
 
@@ -44,7 +44,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     * By post: Sadovnicheskaya St. 82, bldg. 2, Moscow, Russia, 115035.
           Put "For the Project Transaction Support Group" on the envelope without giving any names.
    
-    * By courier: Sadovnicheskaya St. 82, bldg. 2, Moscow, Russia, 115035.
+    * By courier: Ul. Sadovnicheskaya, 82, bldg. 2, Moscow, Russia, 115035.
           Enter the building from Sadovnicheskaya Street, between entrances 5 and 6 of the Aurora Business Center.
           The delivery reception desk is open from 9 am to 6 pm, GMT+3, Monday to Friday.
           To call the office phone number, dial +7 495 739-70-00, then press 1; once the voice menu is on, dial 7704.
@@ -93,13 +93,6 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     
     To exchange original documents, download the unsigned report, print two copies, sign them, and send them to: 11/1 Al-Farabi Avenue, Bostandyq District, Almaty, Republic of Kazakhstan, 050059, reception. As soon as the documents are signed, your copy will be sent to you.
 
-    ## Companies and individual entrepreneurs of Belarus {#legal-entities-belarus}
-
-    Companies and individual entrepreneurs can download [reports](../concepts/act.md) and [invoices](../concepts/invoice.md).
-
-    ### Downloading closing documents {#download-closing-docs}
-
-    {% include [download-closing-docs](../_includes/download-closing-docs.md) %}
 
 - Individuals {#individuals}
 

@@ -46,9 +46,7 @@ To create a security profile:
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
-      A preset profile includes:
-      * [Basic default rule](../../../smartwebsecurity/concepts/rules.md#base-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` [action type](../../../smartwebsecurity/concepts/rules.md#rule-action).
-      * [Smart protection rule](../../../smartwebsecurity/concepts/rules.md#smart-protection-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` action type.
+      {% include [pre-configured-profile](../../../_includes/smartwebsecurity/pre-configured-profile.md) %}
 
       {% include [smart-protection-tip](../../../_includes/smartwebsecurity/smart-protection-tip.md) %}
 
@@ -65,7 +63,7 @@ To create a security profile:
       1. Select the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}` action.
 
           The rule will describe conditions under which requests will be routed to the test application backend.
-      1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field, select `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
+      1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field, select {{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}.
       1. In the **IP conditions** field that appears, select `Matches or belongs to range` and set the public IP address of the device from which you are going to send requests to the L7 load balancer, e.g., `158.160.100.200`.
       1. Click **{{ ui-key.yacloud.common.add }}**.
         

@@ -60,6 +60,7 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}

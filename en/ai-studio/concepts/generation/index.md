@@ -8,13 +8,13 @@
 * Large selection of [text](./models.md#text-batch) and [multimodal](./models.md#multimodels-batch) open-source models to batch-process large volumes of data with a [prepaid minimum amount of tokens](../../pricing.md#rules-generating).
 * Dedicated model instances, if you are looking to process large volumes of data with guaranteed response time.
 
-There are two interfaces to work with models: {{ ai-playground }} in the management console and various APIs used to [create agents](../agents/index.md) and access models directly.
+There are two interfaces you can use to work with models: {{ ai-playground }} in the management console and various APIs where you can [create agents](../agents/index.md) and access models directly.
 
 ## {{ foundation-models-name }} working modes {#working-mode}
 
-You can use {{ foundation-models-name }} models in three modes: _synchronous_, _asynchronous_, and _batch_. The modes have different response times and operating logic.
+In {{ foundation-models-name }}, you can use models in three modes: _synchronous_, _asynchronous_, or _batch_ mode. The modes have different response times and operating logic.
 
-In synchronous mode, the model gets your request and returns the result immediately after processing. You get your response with minimum delay, however, not instantly: processing is going to take time, which depends on the model and the system workload. With the `stream` option enabled, the model sends intermediate generation results during the process. You may opt for synchronous mode if you need to maintain a chatbot dialog. In synchronous mode, models are available in {{ ai-playground }}, {{ ml-sdk-name }}, via text generation APIs, and {{ openai }}-compatible APIs.
+In synchronous mode, the model gets your request and returns the result immediately after processing. The response delay in synchronous mode is minimal but not instant: the model still needs some time, which depends on the model and system workload. With the `stream` option enabled, the model sends intermediate generation results during the process. You may opt for synchronous mode if you need to maintain a chatbot dialog. In synchronous mode, models are available in {{ ai-playground }}, {{ ml-sdk-name }}, via text generation APIs, and {{ openai }}-compatible APIs.
 
 In asynchronous mode, the model responds to a request by sending an [Operation object](../../../api-design-guide/concepts/operation.md) containing the ID of the operation it is performing. You can use the ID to learn the status of the request and later get the result of it by submitting a request to a special output endpoint (its value depends on the model). Intermediate generation results are not available in asynchronous mode. In asynchronous mode, generation usually takes longer (from a couple of minutes to several hours) than in synchronous mode but is cheaper. Use asynchronous mode if you do not need an urgent response. In asynchronous mode, some models are available in {{ ml-sdk-name }}, via text generation APIs, and image generation APIs.
 
@@ -26,7 +26,7 @@ In {{ model-gallery-name }}, you can find Yandex-built models you can use in bus
 
 The {{ gpt-pro }} and {{ gpt-lite }} models understand prompts in more than 20 languages, including English and Japanese; however, Russian texts are their first priority.
 
-{{ yandexart-name }} is a generative neural network that creates images based on a text request. {{ yandexart-name }} uses the cascaded diffusion method to iteratively refine images from noise.You can specify the format of the final image in the `mime_type` parameter. Currently, the supported value is `image/jpeg`. By default, {{ yandexart-name }} generates an image of 1024 x 1024 pixels. This size may increase or decrease based on the specified aspect ratio, but by no more than 10%.
+{{ yandexart-name }} is a generative neural network that creates images based on a text request. {{ yandexart-name }} uses the cascaded diffusion method to iteratively refine images from noise. You can specify the format of the final image in the `mime_type` parameter. Currently, the supported value is `image/jpeg`. By default, {{ yandexart-name }} generates an image of 1024 x 1024 pixels. This size may increase or decrease based on the specified aspect ratio, but by no more than 10%.
 
 The {{ yagpt-name }} and {{ yandexart-name }} models have APIs of their own, so you could integrate them into your applications:
 * Text generation APIs: [REST](../../text-generation/api-ref/index.md) and [gRPC](../../text-generation/api-ref/grpc/index.md).

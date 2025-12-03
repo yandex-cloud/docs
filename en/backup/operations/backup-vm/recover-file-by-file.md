@@ -13,7 +13,7 @@ You can restore individual files and directories from a backup to any VM or {{ b
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
   1. Depending on the resource you want to recover files and directories for, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
   1. Select the backup to restore individual files or directories from.

@@ -15,9 +15,9 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder containing the load balancer.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the line with the load balancer, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
+      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ alb-name }}**.
+      1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the load balancer you need, then select **{{ ui-key.yacloud.common.edit }}**.
       1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone you want to move your instance group to.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -99,8 +99,8 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
                  "<new_availability_zone>"
                ]
                subnet_id = [
-                 "<ID_of_subnet_in_previous_availability_zone>",
-                 "<subnet_ID_in_new_availability_zone>"
+                 "<subnet_ID_in_previous_availability_zone>",
+                 "<ID_of_subnet_in_new_availability_zone>"
                ]
              }
            }
@@ -112,7 +112,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
          * `zone_id`: Availability zones where the L7 load balancer will accept traffic.
          * `subnet_id`: IDs of the subnets in the availability zones.
 
-         For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+         For more information about resource properties in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
 
       1. Apply the changes:
 

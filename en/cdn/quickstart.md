@@ -30,7 +30,7 @@ Use an {{ objstorage-name }} bucket to demonstrate how to set up content deliver
       
 ## Create a CDN resource {#create-cdn-resource}
 
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 1. In the ![image](../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 1. Configure the basic CDN resource settings:
    * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:

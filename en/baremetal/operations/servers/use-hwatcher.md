@@ -25,7 +25,7 @@ To generate a system status report using `HW Watcher`:
 1. Download `HW Watcher`:
 
     ```bash
-    wget https://{{ s3-storage-host }}/baremetal/support/hwcheck
+    wget https://{{ s3-storage-host }}/baremetal-support-tools/support/hwcheck
     ```
 1. Add the root user permissions to run the downloaded executable file:
 

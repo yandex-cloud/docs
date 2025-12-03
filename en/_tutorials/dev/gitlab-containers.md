@@ -15,7 +15,7 @@ To set up the infrastructure required to store the source code, build the Docker
 
    1. [Review the list of paid resources available](#paid-resources).
 
-1. [Set up your infrastructure](#deploy-infrastructure).
+1. [Set up the infrastructure](#deploy-infrastructure).
 1. [Create a {{ GL }} instance](#create-gitlab).
 1. [Configure {{ GL }}](#configure-gitlab).
 1. [Create a test application](#app-create).
@@ -218,7 +218,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
                 --destination "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
 
           deploy:
-            image: bitnami/kubectl:latest
+            image: bitnamilegacy/kubectl:latest
             stage: deploy
             script:
               - kubectl config use-context ${CI_PROJECT_PATH}:<GitLab_agent_name>
@@ -264,7 +264,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
           deploy:
             image:
-              name: bitnami/kubectl:latest
+              name: bitnamilegacy/kubectl:latest
               entrypoint: [""]
             stage: deploy
             script:
@@ -304,7 +304,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. [Delete the created Docker images](../../container-registry/operations/docker-image/docker-image-delete.md).
-1. Delete the {{ managed-k8s-name }} cluster and {{ container-registry-name }} registry:
+1. Delete the {{ managed-k8s-name }} cluster and {{ container-registry-name }}:
 
    {% list tabs group=instructions %}
 
@@ -313,7 +313,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
      1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
      1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
      1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
-     1. [Delete service accounts you created](../../iam/operations/sa/delete.md).
+     1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
 
    - {{ TF }} {#tf}
 

@@ -131,6 +131,7 @@ Set up the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** for the {{ dataproc-name }} subclusters: `dataproc-subnet`.
         * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** for the master host: Enabled.
 
+
 - {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -156,19 +157,20 @@ Set up the infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+
 
 {% endlist %}
 
@@ -249,6 +251,7 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-s3-sa`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `{{ metastore.integration-version }}`.
     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`.
     * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`.
     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
@@ -313,9 +316,11 @@ Some resources are not free of charge. Delete the resources you no longer need t
         1. [Network](../../../vpc/operations/network-delete.md).
         1. [Service account](../../../iam/operations/sa/delete.md).
 
+    
     - {{ TF }} {#tf}
 
         {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
 
     {% endlist %}
 

@@ -35,7 +35,9 @@ To apply or update a bucket policy:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket whose policy you need to configure.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket to configure an access policy in.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
   1. Click **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
   1. Enter a bucket policy ID.
@@ -109,10 +111,10 @@ To apply or update a bucket policy:
 
      Where:
 
-     * `Version`: Version of the bucket policy description. This is an optional parameter.
+     * `Version`: Version of the bucket policy description. This is an optional setting.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: ID of the subject requesting the permission. You can request permissions for a [user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: ID of the subject requesting the permission. You can request permissions for a [user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional setting.
 
          You can get the IDs in the following ways:
 
@@ -120,7 +122,7 @@ To apply or update a bucket policy:
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
-       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
+       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional setting.
 
          {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
@@ -187,10 +189,10 @@ To apply or update a bucket policy:
 
      Where:
 
-     * `Version`: Version of the bucket policy description. This is an optional parameter.
+     * `Version`: Version of the bucket policy description. This is an optional setting.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: ID of the subject requesting the permission. You can request permissions for a [user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: ID of the subject requesting the permission. You can request permissions for a [user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional setting.
 
          You can get the IDs in the following ways:
 
@@ -198,7 +200,7 @@ To apply or update a bucket policy:
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
-       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
+       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional setting.
 
          {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
@@ -334,7 +336,8 @@ To view the bucket policy applied to a bucket:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
 
@@ -374,7 +377,8 @@ To delete a bucket policy:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
   1. Click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
@@ -402,7 +406,7 @@ To delete a bucket policy:
       * If you applied a bucket policy using the `yandex_storage_bucket` resource:
 
         {% cut "yandex_storage_bucket" %}
- 
+
         1. Find the parameters of the previously created bucket policy to delete in the configuration file:
 
             ```hcl

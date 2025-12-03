@@ -9,7 +9,9 @@ description: Follow this guide to get a list of bucket object in {{ objstorage-n
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket from the list.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**. You will see a list of objects and folders.
 
       To view the list of objects in the folder, click it.
@@ -38,7 +40,7 @@ description: Follow this guide to get a list of bucket object in {{ objstorage-n
       Where:
 
       * `--bucket`: Bucket name.
-      * `--prefix`: [Folder](../../concepts/object.md#folder) within the bucket. This is an optional parameter.
+      * `--prefix`: [Folder](../../concepts/object.md#folder) within the bucket. This is an optional setting.
 
       Result:
 
@@ -90,7 +92,7 @@ description: Follow this guide to get a list of bucket object in {{ objstorage-n
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--bucket`: Bucket name.
-      * `--prefix`: [Folder](../../concepts/object.md#folder) within the bucket. This is an optional parameter.
+      * `--prefix`: [Folder](../../concepts/object.md#folder) within the bucket. This is an optional setting.
 
       Result:
 

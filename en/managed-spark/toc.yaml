@@ -13,6 +13,8 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
+          - name: Connecting to a cluster
+            href: operations/connect.md
           - name: Updating a cluster
             href: operations/cluster-update.md
           - name: Stopping and starting a cluster

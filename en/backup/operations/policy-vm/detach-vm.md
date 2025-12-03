@@ -13,7 +13,7 @@ To unlink a VM or {{ baremetal-name }} server from a backup policy:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder where you want to unlink a VM or {{ baremetal-name }} server from a backup policy.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}** tab.
   1. Select the backup policy to unlink a VM or {{ baremetal-name }} server from.
   1. Depending on the resource you want to unlink from the backup policy, under **{{ ui-key.yacloud.backup.title_linked-recourses }}**, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.

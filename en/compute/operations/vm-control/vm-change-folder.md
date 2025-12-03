@@ -65,7 +65,7 @@ When moving a VM, keep in mind the following limitations:
       yc compute instance move --help
       ```
 
-  1. Move the VM to a different folder with the following parameters: 
+  1. Move the VM to a different folder by specifying the following values: 
       
       * In `id`, enter the VM ID, e.g., `fhm0b28lgfp4********`.
       * In `destination-folder-id`, specify the destination folder ID, e.g., `b1gd129pp9ha********`.
@@ -76,7 +76,7 @@ When moving a VM, keep in mind the following limitations:
         --destination-folder-id b1gd129pp9ha********
       ```
 
-      For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
+      For more information about the `yc compute instance move` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
 
 - {{ TF }} {#tf}
 
@@ -195,7 +195,7 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you moved the VM to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. Click the VM name.
   1. Click **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
@@ -355,7 +355,7 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
       Where:
 
       * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
-      * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
+      * `allow_stopping_for_update`: Parameter to allow your VM to stop for updates.
 
       For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
 

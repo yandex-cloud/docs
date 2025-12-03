@@ -13,7 +13,7 @@ To create a [file storage](../../concepts/filesystem.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a file storage.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
   1. Click **{{ ui-key.yacloud.compute.nfs.button_create-filesystem }}**.
   1. Enter a name for the file storage.
@@ -63,11 +63,11 @@ To create a [file storage](../../concepts/filesystem.md):
 
       * `--type`: [File storage type](../../concepts/filesystem.md#types). The possible values are `network-hdd` or `network-ssd`.
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
-      * `--size`: File storage size. This is an optional parameter. The default value is 150 GB.
+      * `--size`: File storage size. This is an optional setting. The default value is 150 GB.
 
         By default, the value is specified in bytes. To specify the size in megabytes or gigabytes, use the `M` and `G` suffixes, e.g., `2048M` or `2G`.
 
-      * `--labels`: File storage [labels](../../../resource-manager/concepts/labels.md) in `<key>=<value>` format. This is an optional parameter.
+      * `--labels`: File storage [labels](../../../resource-manager/concepts/labels.md) in `<key>=<value>` format. This is an optional setting.
 
         To specify multiple labels, list them separated by commas: `<key_1>=<value_1>,<key_2>=<value_2>,...,<key_n>=<value_n>`.
 
@@ -93,7 +93,7 @@ To create a [file storage](../../concepts/filesystem.md):
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -113,13 +113,13 @@ To create a [file storage](../../concepts/filesystem.md):
      ```
 
      Where:
-     * `name`: File storage name. This is a required parameter.
-     * `type`: [File storage type](../../concepts/filesystem.md#types). The possible values are `network-hdd` or `network-ssd`. The default file storage type is `network-hdd`. This is an optional parameter.
-     * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). This is an optional parameter.
-     * `size`: File storage size in GB. This is an optional parameter. The default value is 150 GB.
-     * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. This is an optional parameter.
+     * `name`: File storage name. This is a required setting.
+     * `type`: [File storage type](../../concepts/filesystem.md#types). The possible values are `network-hdd` or `network-ssd`. The default file storage type is `network-hdd`. This is an optional setting.
+     * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). This is an optional setting.
+     * `size`: File storage size in GB. This is an optional setting. The default value is 150 GB.
+     * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. This is an optional setting.
 
-      For more information about `yandex_compute_filesystem` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/compute_filesystem).
+      For more information about the `yandex_compute_filesystem` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/compute_filesystem).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

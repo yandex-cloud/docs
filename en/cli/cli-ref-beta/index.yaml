@@ -1,0 +1,10 @@
+title: Command line interface beta version
+description:
+  - >-
+    The beta version of Yandex Cloud CLI is integrated into <a
+    href="/docs/cli/">the main version of the utility</a>.
+  - >-
+    To try out the beta version commands, use the prefix <code>yc beta</code>
+    before the command, for example:
+  - <pre><code> yc beta compute instance list </code></pre>
+links: []

@@ -60,23 +60,23 @@ If not using `{{ captcha-mobile-site }}`, follow these steps:
    }
    ```
 
-1. Once you get the token from the `captchaDidFinish` method, send a POST request to the server to validate `https://{{ captcha-domain }}/validate` providing parameters in the `x-www-form-urlencoded` format:
+1. Once you get the token from the `captchaDidFinish` method, send a POST request to the server to validate `https://{{ captcha-domain }}/validate`, providing parameters in the `x-www-form-urlencoded` format:
 
    {% include [query-parameters](../../_includes/smartcaptcha/query-parameters.md) %}
 
 ### challengeDidAppear method for invisible CAPTCHA {#challengeDidAppear-method}
 
-CAPTCHA [will not be shown in the HTML code of the page](../../smartcaptcha/concepts/invisible-captcha.md) if called with the `invisible` parameter. Make sure **WKWebView** is loaded but not available to the user until the `challengeDidAppear` method is called. Here is one of the ways to ensure this:
+CAPTCHA [will not be shown in the HTML code of the page](../../smartcaptcha/concepts/invisible-captcha.md) if called with the `invisible` parameter. Make sure **WKWebView** is loaded but is not available to the user until the `challengeDidAppear` method is called. Here is one of the ways to ensure this:
 
 ```swift
 UIApplication.shared.windows.first?.addSubview(webControllerView)
 ```
 
-If the validation results in `captchaDidFinish`, remove `webControllerView` from the hierarchy. If the result does not contain `captchaDidFinish`, move `webControllerView` to the hierarchy for displaying to the user.
+If the validation results in `captchaDidFinish`, remove `webControllerView` from the hierarchy. If the result does not contain `captchaDidFinish`, move `webControllerView` into the hierarchy for presenting to the user.
 
 ### challengeDidDisappear method for invisible CAPTCHA {#challengeDidDisappear-method}
 
-If CAPTCHA is swiped off the screen, it cannot be recovered by the user unassisted. In this case, call the **WKWebView** content reload on the `challengeDidDisappear` event:
+If CAPTCHA is swiped off the screen, it cannot be recovered by the user unassisted. Call the **WKWebView** content reload upon the `challengeDidDisappear` event:
 
 ```swift
 webControllerView.reload()

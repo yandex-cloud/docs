@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% include [outgoing-rules](../../_includes/backup/outgoing-rules.md) %}
 
-1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `backup.editor` [role](../security/index.md#backup-editor) to it.
+1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `backup.editor` [role](../security/index.md#backup-editor).
 
 ## Activate {{ backup-name }} {#activate-provider}
 
@@ -42,7 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a VM connected to {{ backup-name }}.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Select **Advanced setup**.

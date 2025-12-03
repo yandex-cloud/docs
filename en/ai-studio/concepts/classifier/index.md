@@ -10,14 +10,14 @@ There are three types of classification available in {{ foundation-models-name }
 Classification models are only available in [synchronous mode](../generation/index.md#working-mode).
 
 {{ foundation-models-name }} provides two types of classifiers: 
-* [Prompt-based](#readymade) classifier built on {{ gpt-lite }} and {{ gpt-pro }}: Binary and multi-class classifications are available.
-* [Fine-tunable](#trainable) classifiers based on {{ gpt-lite }}: All supported classification types are available.
+* [Prompt-based](#readymade) classifiers based on {{ gpt-lite }} and {{ gpt-pro }}: Binary and multi-class classification.
+* [Fine-tunable](#trainable) classifiers based on {{ gpt-lite }}: All supported classification types.
 
 To use the {{ foundation-models-full-name }} classifier models, you need the `ai.languageModels.user` [role](../../security/index.md#languageModels-user) or higher for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 ## Prompt-based classifiers {#readymade}
 
-{{ foundation-models-name }} prompt-based classifiers support binary and multi-class classification, require no model tuning, and are prompt-controlled. The [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API method enables [using](../../operations/classifier/readymade.md) these two prompt-based classifiers: _Zero-shot_ and _few-shot_. You can provide between 2 and 20 classes to the `fewShotClassify` method.
+{{ foundation-models-name }} prompt-based classifiers support binary and multi-class classification, require no model tuning, and are prompt-controlled. The [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API method allows [using](../../operations/classifier/readymade.md) these two prompt-based classifiers: _Zero-shot_ and _few-shot_. You can provide between 2 and 20 classes to the `fewShotClassify` method.
 
 {% note tip %}
 

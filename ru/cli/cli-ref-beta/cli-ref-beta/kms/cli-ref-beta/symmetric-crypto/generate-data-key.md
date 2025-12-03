@@ -1,0 +1,47 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/kms/cli-ref-beta/symmetric-crypto/generate-data-key.md
+---
+
+# yc beta kms symmetric-crypto generate-data-key
+
+Generates a new symmetric data encryption key (not a KMS key) and returns  the generated key as plaintext and as ciphertext encrypted with the specified symmetric KMS key.
+
+#### Command Usage
+
+Syntax: 
+
+`yc beta kms symmetric-crypto generate-data-key <KEY-ID>`
+
+#### Flags
+
+| Flag | Description |
+|----|----|
+|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
+|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--aad-context`|<b>`uints`</b><br/>Additional authenticated data (AAD context), optional.<br/>If specified, this data will be required for decryption with the [SymmetricDecryptRequest].<br/>Should be encoded with base64.|
+|`--data-key-spec`|<b>`enum`</b><br/>Encryption algorithm and key length for the generated data key. Possible Values: 'aes-128', 'aes-192', 'aes-256', 'aes-256-hsm', 'gost-r-3412-2015-k'|
+|`--key-id`|<b>`string`</b><br/>ID of the symmetric KMS key that the generated data key should be encrypted with.|
+|`--skip-plaintext`|If 'true', the method won't return the data key as plaintext.<br/>Default value is 'false'.|
+|`--version-id`|<b>`string`</b><br/>ID of the key version to encrypt the generated data key with.<br/>Defaults to the primary version if not specified.|
+
+#### Global Flags
+
+| Flag | Description |
+|----|----|
+|`--profile`|<b>`string`</b><br/>Set the custom profile.|
+|`--region`|<b>`string`</b><br/>Set the region.|
+|`--debug`|Debug logging.|
+|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
+|`--no-user-output`|Disable printing user intended output to stderr.|
+|`--pager`|<b>`string`</b><br/>Set the custom pager.|
+|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
+|`--timeout`|<b>`string`</b><br/>Set the timeout.|
+|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
+|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
+|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
+|`-h`,`--help`|Display help for the command.|

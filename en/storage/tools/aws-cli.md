@@ -55,7 +55,7 @@ The `aws configure` command saves the static key and the region.
 {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 
-### Setting up an additional profile
+### Setting up an additional profile {#additional-profile}
 
 You can create multiple AWS CLI profiles with the following command:
 
@@ -88,7 +88,7 @@ The profile data will be saved to the `.aws/credentials` and `.aws/config` files
   region = {{ region-id }}
   ...
   [profile <name_of_profile_n>]
-  region = us-east-1
+  region = {{ region-id }}
   ```
 
   Where `default` is the default profile.

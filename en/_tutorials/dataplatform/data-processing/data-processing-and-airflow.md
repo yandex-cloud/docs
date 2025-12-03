@@ -141,6 +141,7 @@ The example below illustrates two scenarios. Select the one you find most releva
    1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
       * **Service account**: `metastore-agent`
+      * **Version**: `{{ metastore.integration-version }}`
       * **Network**: `data-processing-network`
       * **Subnet**: `data-processing-network-{{ region-id }}-a`
       * **Security group**: `metastore-sg`
@@ -175,6 +176,7 @@ The example below illustrates two scenarios. Select the one you find most releva
    1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
       * **Service account**: `my-editor`
+      * **Version**: `{{ metastore.integration-version }}`
       * **Network**: `data-processing-network`
       * **Subnet**: `data-processing-network-{{ region-id }}-a`
       * **Security group**: Default group in `data-processing-network`

@@ -1,3 +1,4 @@
+
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select a database connection option:
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}**: Allows you to specify connection settings manually.
@@ -28,7 +29,7 @@
 
     {% include [connection-manager-access](../../notes/connection-manager-access.md) %}
 
-
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.security_groups.title }}**: Select the cloud network to host the endpoint and security groups for network traffic. This will allow you to apply the specified security group rules to the VMs and clusters in the selected network without changing their settings. For more information, see [{#T}](../../../../data-transfer/concepts/network.md).
 
   Make sure the selected security groups are [configured](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
+

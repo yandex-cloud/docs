@@ -1,4 +1,4 @@
-# Alert settings in {{ monitoring-full-name }}
+# Configuring dashboards and alerts in {{ monitoring-full-name }}
 
 In this tutorial, you will learn how to track [trail](../../audit-trails/concepts/trail.md) status using [dashboards](../../monitoring/concepts/visualization/dashboard.md) and [{{ monitoring-full-name }}](../../monitoring/) [alerts](../../monitoring/concepts/alerting.md#alert).
 
@@ -6,7 +6,7 @@ This guide assumes that you already have deployed your infrastructure:
 
 * Created {{ yandex-cloud }} resources to collect security events for.
 * Created a [trail](../../audit-trails/concepts/trail.md) in {{ at-name }} to collect events.
-* Configured the [target](../../audit-trails/concepts/trail.md#target) to store and manage events: a [bucket](../../storage/concepts/bucket.md), [datastream](../../data-streams/concepts/glossary.md#stream-concepts),  or [log group](../../logging/concepts/log-group.md).
+* Configured the [target](../../audit-trails/concepts/trail.md#target) to store and manage events: a [bucket](../../storage/concepts/bucket.md), [datastream](../../data-streams/concepts/glossary.md#stream-concepts), or [log group](../../logging/concepts/log-group.md).
 
 To start tracking the status of trails:
 

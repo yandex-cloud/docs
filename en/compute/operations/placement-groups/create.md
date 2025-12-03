@@ -9,7 +9,7 @@ Create a [placement group](../../concepts/placement-groups.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your placement group in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** and select **{{ ui-key.yacloud.compute.placement-groups.button_menu-create-instance-placement-group }}**.
@@ -66,12 +66,12 @@ Create a [placement group](../../concepts/placement-groups.md).
      * `folder_id`: ID of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create a placement group in.
      * `description`: Placement group description.
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```hcl
      resource "yandex_compute_placement_group" "group1" {
        name        = "<placement_group_name>"
-       folder_id   = "<catalog_ID>"
+       folder_id   = "<folder_ID>"
        description = "<placement_group_description>"
      }
      ```

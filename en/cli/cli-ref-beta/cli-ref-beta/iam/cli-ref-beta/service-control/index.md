@@ -1,0 +1,42 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/iam/cli-ref-beta/service-control/index.md
+---
+
+# yc beta iam service-control
+
+A set of methods for managing Service resources.
+
+#### Command Usage
+
+Syntax: 
+
+`yc beta iam service-control <command>`
+
+#### Command Tree
+
+- [yc beta iam service-control disable](disable.md) — Disable a service in the specified resource container.
+- [yc beta iam service-control enable](enable.md) — Enable a service in the specified resource container.
+- [yc beta iam service-control get](get.md) — Returns the Service information in the specified resource container.
+- [yc beta iam service-control list](list.md) — Retrieves the list of Service in the specified resource container.
+- [yc beta iam service-control resolve-agent](resolve-agent.md) — Resolve agent service account for the service in the specified resource container.
+
+#### Global Flags
+
+| Flag | Description |
+|----|----|
+|`--profile`|<b>`string`</b><br/>Set the custom profile.|
+|`--region`|<b>`string`</b><br/>Set the region.|
+|`--debug`|Debug logging.|
+|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
+|`--no-user-output`|Disable printing user intended output to stderr.|
+|`--pager`|<b>`string`</b><br/>Set the custom pager.|
+|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
+|`--timeout`|<b>`string`</b><br/>Set the timeout.|
+|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
+|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
+|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
+|`-h`,`--help`|Display help for the command.|

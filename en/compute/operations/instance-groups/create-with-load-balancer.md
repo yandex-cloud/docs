@@ -23,7 +23,7 @@ To create an instance group with an L7 load balancer:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your instance group.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
@@ -121,7 +121,7 @@ To create an instance group with an L7 load balancer:
        ```
 
        Where:
-       * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
+       * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
        * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
 
          To create, update, and delete VM instances in the group, as well as integrate the group with an {{ alb-name }} L7 load balancer, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) roles to a service account. By default, all operations you perform with an instance group are run under a service account.
@@ -209,7 +209,7 @@ To create an instance group with an L7 load balancer:
 
        Where:
        * `target_group_spec`: Specification of the {{ alb-name }} target group linked to the instance group.
-       * `name`: Name for the {{ alb-name }} target group. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
+       * `name`: Name for the {{ alb-name }} target group. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
 
        For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
 
@@ -276,7 +276,7 @@ To create an instance group with an L7 load balancer:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      resource "yandex_iam_service_account" "ig-sa" {
@@ -398,7 +398,7 @@ To create an instance group with an L7 load balancer:
 
      {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

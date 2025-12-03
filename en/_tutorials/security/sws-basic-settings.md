@@ -92,7 +92,7 @@ This guide assumes that you already have a configured web resource. If your reso
 
   - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select your folder.
+    1. In the [management console]({{ link-console-main }}), select a folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
     1. In the left-hand panel, select ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
     1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
@@ -165,10 +165,7 @@ This guide uses a ready-made security profile template.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
-      A preset profile includes:
-
-      * [Basic default rule](../../smartwebsecurity/concepts/rules.md#base-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` [action type](../../smartwebsecurity/concepts/rules.md#rule-action).
-      * [Smart Protection rule](../../smartwebsecurity/concepts/rules.md#smart-protection-rules), `sp-rule-1`, enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` action type.
+      {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
    
   1. Enter a name for the profile, e.g., `site-protection`.
 
@@ -202,7 +199,7 @@ This guide uses a ready-made security profile template.
         * **Request path**: Relative path for requests to the API. Let’s assume your primary domain is `example.com`, and requests to the API are received at `example.com/api`. In this case, select `Starts with` as a condition and specify this path: `/api`.
      1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   
-  1. Under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**, consent to the use of HTTP request information to tune machine learning models. Otherwise, {{ sws-name }} will not get data for investigating security incidents.
+  1. Under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**, do not withdraw your consent to the use of HTTP request info to improve your machine learning models. Otherwise, {{ sws-name }} will not be getting the data it needs to investigate security incidents.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -231,7 +228,7 @@ This guide uses a ready-made security profile template.
      1. In the left-hand panel, select **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and select the `site-protection` profile.
      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
      1. Enter a name for the rule, e.g., `block-by-list`.
-     1. Set a higher **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** than that of the Smart Protection rules, e.g., `9100`.
+     1. Set a higher **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** than that of the Smart Protection rules, such as `9100`.
      1. Enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
      1. Specify the rule settings:
         * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
@@ -248,7 +245,7 @@ This guide uses a ready-made security profile template.
   1. Set up an allowing rule to allow all requests from white IP addresses.
      1. In the `site-protection` profile, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
      1. Enter a name for the rule, e.g., `allow-by-list`.
-     1. Set a higher **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** than that of the blocking rule for black lists, e.g., `9000`.
+     1. Set a higher **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** than that of the blocking rule for black lists, such as `9000`.
      1. Enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
      1. Specify the rule settings:
         * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
@@ -272,7 +269,7 @@ If your service does not expect traffic from certain countries, you can set up p
   1. In the `site-protection` profile, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Enter a name for the rule, e.g., `block-by-geo`.
   1. Enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
-  1. Set a higher **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** than that of the Smart Protection rules, but lower than that of the rules for IP address lists, e.g., `9200`.
+  1. Set a higher **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** than that of the Smart Protection rules, but lower than that of the rules for IP address lists, such as `9200`.
   1. Specify the rule settings:
       * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
       * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-captcha }}`.
@@ -603,7 +600,7 @@ You may need to disable certain rules to prevent false positives and create excl
   1. Open the `site-protection` security profile.
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Enter a name for the rule, e.g., `waf-rule-1`.
-  1. Set a higher priority for the rule than that of the Smart Protection rules, e.g., `1111`.
+  1. Set a higher priority for the rule than that of the Smart Protection rules, such as `1111`.
   1. Enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
   1. Select **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
   1. In the list of WAF profiles, select `waf-site-protection`.

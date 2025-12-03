@@ -219,8 +219,8 @@ default:
     '0': 84.201.155.117
     '1': 84.252.131.221
   folder-id-example: b1g86q4m5vej********
-  forms-full-name: Yandex Forms
-  forms-name: Forms
+  forms-full-name: Яндекс Формы
+  forms-name: Формы
   foundation-models-full-name: Yandex AI Studio
   foundation-models-name: AI Studio
   GL: GitLab
@@ -351,6 +351,7 @@ default:
   link-tracker-cloudless: https://yandex.ru/support/tracker/ru/
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.ru/
+  link-wiki-cloudless: https://yandex.ru/support/wiki/ru
   link-yadisk-doc: https://yandex.ru/dev/disk-api/doc/ru/
   link-yandex: https://yandex.ru
   links:
@@ -875,8 +876,8 @@ default:
   TR: Trino
   tr:
     docs: https://trino.io/docs/current
-  tracker-full-name: Yandex Tracker
-  tracker-name: Tracker
+  tracker-full-name: Яндекс Трекер
+  tracker-name: Трекер
   tracker-short-name: Tracker
   translate-full-name: Yandex Translate
   translate-name: Translate
@@ -902,8 +903,8 @@ default:
   websql-full-name: Yandex WebSQL
   websql-link: https://websql.yandex.cloud
   websql-name: WebSQL
-  wiki-full-name: Yandex Wiki
-  wiki-name: Wiki
+  wiki-full-name: Яндекс Вики
+  wiki-name: Вики
   ya-360: Яндекс 360 для бизнеса
   ya-oauth-url: https://oauth.yandex.ru
   yagpt-full-name: YandexGPT API
@@ -1227,6 +1228,18 @@ default:
         12_month|string: "1\_286\_900,00\_₸"
         3_month|string: "1\_438\_300,00\_₸"
         6_month|string: "1\_408\_020,00\_₸"
+      ba-a401-2n2h-25g:
+        1_day|string: "617\_500,00\_₸"
+        1_month|string: "598\_975,00\_₸"
+        12_month|string: "524\_875,00\_₸"
+        3_month|string: "586\_625,00\_₸"
+        6_month|string: "574\_275,00\_₸"
+      ba-a402-2n2h-25g:
+        1_day|string: "640\_500,00\_₸"
+        1_month|string: "621\_285,00\_₸"
+        12_month|string: "544\_425,00\_₸"
+        3_month|string: "608\_475,00\_₸"
+        6_month|string: "595\_665,00\_₸"
       ba-a612-n-25g-p1:
         1_day|string: "733\_700,00\_₸"
         1_month|string: "711\_689,00\_₸"
@@ -3594,6 +3607,18 @@ default:
         12_month|string: "257\_380,00\_₽"
         3_month|string: "287\_660,00\_₽"
         6_month|string: "281\_604,00\_₽"
+      ba-a401-2n2h-25g:
+        1_day|string: "123\_500,00\_₽"
+        1_month|string: "119\_795,00\_₽"
+        12_month|string: "104\_975,00\_₽"
+        3_month|string: "117\_325,00\_₽"
+        6_month|string: "114\_855,00\_₽"
+      ba-a402-2n2h-25g:
+        1_day|string: "128\_100,00\_₽"
+        1_month|string: "124\_257,00\_₽"
+        12_month|string: "108\_885,00\_₽"
+        3_month|string: "121\_695,00\_₽"
+        6_month|string: "119\_133,00\_₽"
       ba-a612-n-25g-p1:
         1_day|string: "146\_740,00\_₽"
         1_month|string: "142\_337,80\_₽"
@@ -5955,6 +5980,18 @@ default:
         12_month|string: "2\_144,832475\_$"
         3_month|string: "2\_397,165708\_$"
         6_month|string: "2\_346,699061\_$"
+      ba-a401-2n2h-25g:
+        1_day|string: "1\_029,166255\_$"
+        1_month|string: "998,291267\_$"
+        12_month|string: "874,791317\_$"
+        3_month|string: "977,707942\_$"
+        6_month|string: "957,124617\_$"
+      ba-a402-2n2h-25g:
+        1_day|string: "1\_067,499573\_$"
+        1_month|string: "1\_035,474586\_$"
+        12_month|string: "907,374637\_$"
+        3_month|string: "1\_014,124594\_$"
+        6_month|string: "992,774603\_$"
       ba-a612-n-25g-p1:
         1_day|string: "1\_222,832844\_$"
         1_month|string: "1\_186,147859\_$"
@@ -8172,7 +8209,7 @@ default:
       ui_modules_orgCommon:
         link_your-craftspace: Ваша мастерская
       ui_modules_repo:
-        action_cicd: Автоматизации
+        action_cicd: CI/CD
         action_commit: Сохранить изменения
         button_commit: Сохранить изменения
         button_use-template: Использовать шаблон
@@ -9759,6 +9796,7 @@ default:
         field_dhcp-settings: Назначение IP-адресов по DHCP
         field_gateway: Шлюз по умолчанию
         field_gateway_t7LLk: Шлюз по умолчанию
+        field_hardware-pool-id: Пул
         field_interconnect-direct-id: Указать идентификатор
         field_interconnect-from-folder: Выбрать из каталога
         field_mac-address: MAC-адрес
@@ -9770,13 +9808,12 @@ default:
         field_server-count: Количество серверов
         field_server-count_jPgTg: Количество серверов
         field_server-lease-duration: Период аренды
-        field_server-pool: Пул
         field_server-private-ip: Приватный IP-адрес
         field_server-public-ip: Публичный IP-адрес
-        field_server-zone: Зона доступности
         field_ssh-public-key: Открытый SSH-ключ
         field_subnet-id: Приватная подсеть
         field_subnetwork-name: Имя
+        field_zone-id: Зона доступности
         label_create-image: Загрузить
         label_create-network: Создать VRF
         label_create-public-subnet: Заказать
@@ -9816,7 +9853,6 @@ default:
         title_section-backup: Резервное копирование
         title_section-disk: Диск
         title_section-lease-conditions: Условия аренды
-        title_section-lease-conditions_sQGNJ: Условия аренды
         title_section-location: Расположение
         title_section-resources: Ресурсы
         title_section-server-backups: Резервное копирование
@@ -10586,7 +10622,6 @@ default:
           popup-confirm_button_restart: Перезапустить
           popup-confirm_button_start: Запустить
           popup-confirm_button_stop: Остановить
-        label_service_5w4rd: Compute Cloud
         nfs:
           button_attach-instance-to-the-filesystem: Подключить к ВМ
           button_create-filesystem: Создать файловое хранилище
@@ -10705,6 +10740,8 @@ default:
         label_notifications_uWDue: Сервисные уведомления
         label_permissions_gAtoT: Разрешения
         label_quotas_gAtoT: Квоты
+        TogglCloudTreeButton:
+          tooltip__pin_panel: Закрепить панель
       data-catalog:
         action_create-catalog: Cоздать каталог
         action_edit-domain: Редактировать домен
@@ -10831,6 +10868,7 @@ default:
         label_private: Внутренняя
         label_public: Публичная
         label_records: Значение
+        label_ttl: TTL
         label_zone: Зона
         label_zone-record-sets: Записи
         label_zones-list: Зоны
@@ -11483,6 +11521,7 @@ default:
           column_ip-address: IP-адрес
           form:
             button_create-target-group: Создать целевую группу
+            field_deletion-protection: Защита от удаления
             field_listener-address: IP-адрес
             field_listener-name: Имя
             field_listener-port: Порт
@@ -12819,11 +12858,14 @@ default:
         addresses:
           button_action-disable-protection: Выключить защиту от удаления
           button_action-dynamic: Сделать динамическим
+          button_action-enable-protection: Включить защиту от удаления
           button_action-static: Сделать статическим
           button_create: Зарезервировать адрес
+          label_dns-spec-title: Настройки DNS
           label_title: IP-адреса
           popup-confirm_button_disable-protection: Выключить
           popup-confirm_button_dynamic: Изменить
+          popup-confirm_button_enable-protection: Включить
           popup-confirm_button_static: Изменить
           popup-create_button_create: Зарезервировать
           popup-create_field_advanced: Дополнительно

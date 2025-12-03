@@ -1,5 +1,5 @@
 ---
-title: '{{ baremetal-full-name }} network'
+title: Networking in {{ baremetal-full-name }}
 description: In this article, you will learn about public and private networks in {{ baremetal-full-name }}.
 ---
 
@@ -19,7 +19,7 @@ An _ephemeral public subnet_ is a public subnet of the `/31` size that is random
 
 Ephemeral public subnets are assigned to servers with **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in their network parameters.
 
-[DHCP is enabled](./dhcp.md#dhcp-ephemeral-public-subnet) in an ephemeral public subnet.
+When leasing a {{ baremetal-name }} server, you can enable the [DHCP server](./dhcp.md#dhcp-ephemeral-public-subnet) in an ephemeral public subnet. To do this, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}**. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to change the DHCP server settings in such subnet later.
 
 The lifecycle of an ephemeral public subnet depends on the lifecycle of the server this subnet is assigned to. When a server lease is cancelled, the ephemeral public subnet assigned to it will be automatically deleted and the server’s public IPv4 address will be released back to the {{ baremetal-name }} address pool.
 

@@ -348,6 +348,7 @@ default:
   link-tracker-cloudless: https://yandex.ru/support/tracker/ru
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.com/
+  link-wiki-cloudless: https://yandex.ru/support/wiki/ru
   link-yadisk-doc: https://yandex.ru/dev/disk-api/doc/en/
   link-yandex: https://yandex.com
   links:
@@ -396,6 +397,8 @@ default:
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Apache Hive™ Metastore
   metastore-name: Apache Hive™ Metastore
+  metastore:
+    integration-version: 3.1
   metrika: Yandex Metrica
   metrika-endpoint: Metrica
   metrika-link: https://metrika.yandex.com/
@@ -1221,6 +1224,18 @@ default:
         12_month|string: ₸1286900.00
         3_month|string: ₸1438300.00
         6_month|string: ₸1408020.00
+      ba-a401-2n2h-25g:
+        1_day|string: ₸617500.00
+        1_month|string: ₸598975.00
+        12_month|string: ₸524875.00
+        3_month|string: ₸586625.00
+        6_month|string: ₸574275.00
+      ba-a402-2n2h-25g:
+        1_day|string: ₸640500.00
+        1_month|string: ₸621285.00
+        12_month|string: ₸544425.00
+        3_month|string: ₸608475.00
+        6_month|string: ₸595665.00
       ba-a612-n-25g-p1:
         1_day|string: ₸733700.00
         1_month|string: ₸711689.00
@@ -3588,6 +3603,18 @@ default:
         12_month|string: ₽257380.00
         3_month|string: ₽287660.00
         6_month|string: ₽281604.00
+      ba-a401-2n2h-25g:
+        1_day|string: ₽123500.00
+        1_month|string: ₽119795.00
+        12_month|string: ₽104975.00
+        3_month|string: ₽117325.00
+        6_month|string: ₽114855.00
+      ba-a402-2n2h-25g:
+        1_day|string: ₽128100.00
+        1_month|string: ₽124257.00
+        12_month|string: ₽108885.00
+        3_month|string: ₽121695.00
+        6_month|string: ₽119133.00
       ba-a612-n-25g-p1:
         1_day|string: ₽146740.00
         1_month|string: ₽142337.80
@@ -5949,6 +5976,18 @@ default:
         12_month|string: $2144.832475
         3_month|string: $2397.165708
         6_month|string: $2346.699061
+      ba-a401-2n2h-25g:
+        1_day|string: $1029.166255
+        1_month|string: $998.291267
+        12_month|string: $874.791317
+        3_month|string: $977.707942
+        6_month|string: $957.124617
+      ba-a402-2n2h-25g:
+        1_day|string: $1067.499573
+        1_month|string: $1035.474586
+        12_month|string: $907.374637
+        3_month|string: $1014.124594
+        6_month|string: $992.774603
       ba-a612-n-25g-p1:
         1_day|string: $1222.832844
         1_month|string: $1186.147859
@@ -9749,6 +9788,7 @@ default:
         field_dhcp-settings: Assigning IP addresses via DHCP
         field_gateway: Default gateway
         field_gateway_t7LLk: Default gateway
+        field_hardware-pool-id: Pool
         field_interconnect-direct-id: Enter ID
         field_interconnect-from-folder: Choose from folder
         field_mac-address: MAC address
@@ -9760,13 +9800,12 @@ default:
         field_server-count: Number of servers
         field_server-count_jPgTg: Number of servers
         field_server-lease-duration: Lease duration
-        field_server-pool: Pool
         field_server-private-ip: Private IP address
         field_server-public-ip: Public IP address
-        field_server-zone: Availability zone
         field_ssh-public-key: Public SSH key
         field_subnet-id: Private subnet
         field_subnetwork-name: Name
+        field_zone-id: Availability zone
         label_create-image: Upload
         label_create-network: Create VRF
         label_create-public-subnet: Order
@@ -9806,7 +9845,6 @@ default:
         title_section-backup: Backup
         title_section-disk: Disk
         title_section-lease-conditions: Lease conditions
-        title_section-lease-conditions_sQGNJ: Lease conditions
         title_section-location: Location
         title_section-resources: Resources
         title_section-server-backups: Backup
@@ -10574,7 +10612,6 @@ default:
           popup-confirm_button_restart: Restart
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
-        label_service_5w4rd: Compute Cloud
         nfs:
           button_attach-instance-to-the-filesystem: Attach to VM
           button_create-filesystem: Create file storage
@@ -10693,6 +10730,8 @@ default:
         label_notifications_uWDue: Service notifications
         label_permissions_gAtoT: Permissions
         label_quotas_gAtoT: Quotas
+        TogglCloudTreeButton:
+          tooltip__pin_panel: Pin panel
       data-catalog:
         action_create-catalog: Create catalog
         action_edit-domain: Edit domain
@@ -10819,6 +10858,7 @@ default:
         label_private: Internal
         label_public: Public
         label_records: Data
+        label_ttl: TTL
         label_zone: Zone
         label_zone-record-sets: Records
         label_zones-list: Zones
@@ -11471,6 +11511,7 @@ default:
           column_ip-address: IP address
           form:
             button_create-target-group: Create target group
+            field_deletion-protection: Deletion protection
             field_listener-address: IP address
             field_listener-name: Name
             field_listener-port: Port
@@ -12807,11 +12848,14 @@ default:
         addresses:
           button_action-disable-protection: Disable deletion protection
           button_action-dynamic: Make dynamic
+          button_action-enable-protection: Enable deletion protection
           button_action-static: Make static
           button_create: Reserve address
+          label_dns-spec-title: DNS settings
           label_title: IP addresses
           popup-confirm_button_disable-protection: Disable
           popup-confirm_button_dynamic: Change
+          popup-confirm_button_enable-protection: Enable
           popup-confirm_button_static: Change
           popup-create_button_create: ' Reserve'
           popup-create_field_advanced: Advanced

@@ -4,7 +4,7 @@ Create an instance group using [Instance Groups](../concepts/instance-groups/ind
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}) or sign up. If not signed up yet, navigate to the management console and follow the on-screen instructions.
+1. Log in to the [management console]({{ link-console-main }}) or sign up. If not signed up yet, navigate to the management console and follow the instructions.
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
@@ -16,7 +16,7 @@ You can create an autoscaling instance group or group with a fixed number of VM 
 
 To create an instance group:
 1. In the [management console]({{ link-console-main }}), select the folder you want to create your instance group in.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
 1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
@@ -47,9 +47,9 @@ To create an instance group:
        * Click **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
        * Enter a name and a description for the new subnet. Specify availability zone and CIDR.
        * Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
-     * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select an IP address assignment method:
+     * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select the IP address assignment method:
        * `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`: To assign a random IP address from the {{ yandex-cloud }} IP address pool.
-       * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`: Not to assign a public IP address.
+       * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`: Do not assign a public IP address.
      * Optionally, select a [security group](../../vpc/concepts/security-groups.md). If there is no security group, create one:
        * Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc-security-group-select.label_add-security-group }}**.
        * Enter a name and description for the security group. You can add rules for the security group later in **{{ vpc-name }}**.

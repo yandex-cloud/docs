@@ -13,7 +13,7 @@ In this section, you can find the {{ mkf-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=285af0b6c6a6#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=688ba2e0d05a#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 
@@ -99,6 +99,7 @@ CVoS discount is only available for certain types of resources. If the relevant 
 
 
 ## Prices for the Russia region {#prices}
+
 
 
 

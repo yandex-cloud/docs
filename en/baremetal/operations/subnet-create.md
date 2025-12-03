@@ -13,8 +13,8 @@ description: In this tutorial, you will learn how to create a private subnet and
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}**.
   1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
-  1. In the **{{ ui-key.yacloud.baremetal.field_server-zone }}** field, select the [availability zone](../../overview/concepts/geo-scope.md) where your server will be located.
-  1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the [pool](../concepts/servers.md#server-pools) containing available servers for leasing.
+  1. In the **{{ ui-key.yacloud.baremetal.field_zone-id }}** field, select the [availability zone](../../overview/concepts/geo-scope.md) where your server will be located.
+  1. In the **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** field, select the [pool](../concepts/servers.md#server-pools) containing available servers for leasing.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, specify your subnet name. The naming requirements are as follows:
 
      {% include [name-format](../../_includes/name-format.md) %}

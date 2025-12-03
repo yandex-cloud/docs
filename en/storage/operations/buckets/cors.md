@@ -11,7 +11,9 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure CORS for.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket you want to configure CORS for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_cors }}** tab.
   1. Click **{{ ui-key.yacloud.storage.bucket.cors.button_cors_empty-create }}**.
@@ -46,11 +48,11 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
       Where:
       * `--name`: Name of the bucket to configure CORS for.
       * `--cors`: CORS parameters:
-        * `allowed-methods`: List of methods. The possible values are `method-get`, `method-put`, `method-post`, `method-delete`, and `method-head`. This is a required parameter.
-        * `allowed-origins`: List of websites allowed to send CORS requests to the bucket. This is a required parameter.
-        * `allowed-headers`: List of allowed headers. This is an optional parameter.
-        * `expose-headers`: List of headers that can be exposed to browser JavaScript apps. This is an optional parameter.
-        * `max-age-seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional parameter.
+        * `allowed-methods`: List of methods. The possible values are `method-get`, `method-put`, `method-post`, `method-delete`, and `method-head`. This is a required setting.
+        * `allowed-origins`: List of websites allowed to send CORS requests to the bucket. This is a required setting.
+        * `allowed-headers`: List of allowed headers. This is an optional setting.
+        * `expose-headers`: List of headers that can be exposed to browser JavaScript apps. This is an optional setting.
+        * `max-age-seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional setting.
 
         Parameter values are specified in quotes and square brackets. List items in values are separated by commas with no spaces, e.g., `--cors allowed-methods='[method-get,method-head]',allowed-origins='[example.com]'`.
 
@@ -164,18 +166,18 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
 
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
-     * `bucket`: Bucket name. This is a required parameter.
-     * `acl`: ACL policy to apply. This is an optional parameter.
+     * `bucket`: Bucket name. This is a required setting.
+     * `acl`: ACL policy to apply. This is an optional setting.
 
      `CORS` parameters:
-     * `allowed_headers`: Allowed headers. This is an optional parameter.
-     * `allowed_methods`: Allowed methods. The possible values are `GET`, `PUT`, `POST`, `DELETE` or `HEAD`. This is a required parameter.
-     * `allowed_origins`: Website allowed to send CORS requests to the bucket. This is a required parameter.
-     * `expose_headers`: Header that can be exposed to browser JavaScript apps. This is an optional parameter. 
-     * `max_age_seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional parameter.
-     * `server_side_encryption_configuration`: Bucket's server-side encryption configuration. This is an optional parameter.
+     * `allowed_headers`: Allowed headers. This is an optional setting.
+     * `allowed_methods`: Allowed methods. The possible values are `GET`, `PUT`, `POST`, `DELETE` or `HEAD`. This is a required setting.
+     * `allowed_origins`: Website allowed to send CORS requests to the bucket. This is a required setting.
+     * `expose_headers`: Header that can be exposed to browser JavaScript apps. This is an optional setting. 
+     * `max_age_seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional setting.
+     * `server_side_encryption_configuration`: Bucket's server-side encryption configuration. This is an optional setting.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
      1. In the command line, navigate to the directory where you created the configuration file.

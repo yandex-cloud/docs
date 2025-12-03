@@ -5,14 +5,14 @@ description: In this tutorial, you will learn about the classifier models availa
 
 # Classifier models based on {{ yagpt-name }}
 
-{{ foundation-models-full-name }} offers you {{ gpt-lite }} and {{ gpt-pro }}-based classifier models to [classify](./index.md) text requests provided in prompts. The classification is implemented based on the [{{ foundation-models-name }}Text Classification API](../../text-classification/api-ref/index.md).
+{{ foundation-models-full-name }} features classifier models powered by {{ gpt-lite }} and {{ gpt-pro }} to [classify](./index.md) text requests provided in prompts. The classification is implemented based on the [{{ foundation-models-name }}Text Classification API](../../text-classification/api-ref/index.md).
 
 If an out-of-the-box model is not enough, you can [fine-tune](../../operations/tuning/tune-classifiers.md) a {{ gpt-lite }}-based classifier for the model to classify your requests more accurately. To access a fine-tuned classifier model, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API method.
 
 | **Model** | **URI** | **[Operating modes](../generation/index.md#working-mode)** |
 |---|---|---|
-| Prompt-based classifier built on {{ gpt-lite }} | `cls://<folder_ID>/yandexgpt-lite/latest` | Synchronous |
-| Prompt-based classifier built on {{ gpt-pro }} | `cls://<folder_ID>/yandexgpt/latest` | Synchronous |
+| Prompt-based classifier based on {{ gpt-lite }} | `cls://<folder_ID>/yandexgpt-lite/latest` | Synchronous |
+| Prompt-based classifier based on {{ gpt-pro }} | `cls://<folder_ID>/yandexgpt/latest` | Synchronous |
 | Fine-tuned classifier | `cls://<basic_model_URI>/<version>@<tuning_suffix>` | Synchronous |
 
 ## Accessing models {#addressing-models}

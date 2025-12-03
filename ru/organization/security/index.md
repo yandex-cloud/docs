@@ -12,9 +12,45 @@
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-С помощью [интерфейса {{ cloud-center }}]({{ cloud-center-link }}), {{ yandex-cloud }} [CLI](../../cli/cli-ref/organization-manager/cli-ref/index.md), [API](../api-ref/authentication.md) или [{{ TF }}]({{ tf-provider-link }}) роль можно назначить на отдельные ресурсы сервиса:
+Вы также можете назначать роли на отдельные ресурсы сервиса:
 
-{% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  Через [интерфейс {{ cloud-center }}]({{ link-org-cloud-center }}) вы можете назначить роли на следующие ресурсы:
+
+  * [Организация](../operations/security.md)
+  * [Группа пользователей](../operations/access-manage-group.md)
+
+- CLI {#cli}
+
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Организация](../operations/security.md)
+  * [Пул пользователей](../concepts/user-pools.md)
+  * [Группа пользователей](../operations/access-manage-group.md)
+  * [SAML-приложение](../concepts/applications.md#saml)
+  * [OIDC-приложение](../concepts/applications.md#oidc)
+
+- {{ TF }} {#tf}
+
+  Через [{{ TF }}]({{ tf-provider-link }}) вы можете назначить роли на следующие ресурсы:
+
+  * [Организация](../operations/security.md)
+  * [Группа пользователей](../operations/access-manage-group.md)
+
+- API {#api}
+
+  Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Организация](../operations/security.md)
+  * [Пул пользователей](../concepts/user-pools.md)
+  * [Группа пользователей](../operations/access-manage-group.md)
+  * [SAML-приложение](../concepts/applications.md#saml)
+  * [OIDC-приложение](../concepts/applications.md#oidc)
+
+{% endlist %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 

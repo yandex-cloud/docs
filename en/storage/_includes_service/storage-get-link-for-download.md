@@ -1,5 +1,5 @@
-1. In the [management console]({{ link-console-main }}), select the folder.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Click the name of the bucket you need.
 1. Click the object name.
 1. Click ![link](../../_assets/storage/link.svg) **{{ ui-key.yacloud.storage.file.button_generate }}** in the top-right corner.

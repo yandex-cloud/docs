@@ -46,10 +46,10 @@ Create a new image from the link you got in {{ objstorage-name }}:
 - Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Click **{{ ui-key.yacloud.compute.images.button_upload }}**.
-  1. Name your image. Follow these naming requirements:
+  1. Name your image. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -111,7 +111,7 @@ Create a new image from the link you got in {{ objstorage-name }}:
 
      Where `source_url` is the image link in {{ objstorage-name }}.
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
   1. Make sure the configuration files are correct.
      1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
@@ -150,4 +150,4 @@ You can create a VM with disks from a pre-built image.
 
 {% include notitle [How to create a VM from custom image](../../operations/vm-create/create-from-user-image.md#create-vm-from-image) %}
 
-For information about {{ objstorage-name }} pricing, see [{#T}](../../../storage/pricing.md).
+For information about the {{ objstorage-name }} pricing, see [{#T}](../../../storage/pricing.md).

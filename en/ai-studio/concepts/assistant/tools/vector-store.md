@@ -80,7 +80,7 @@ For your AI assistant to be able to use {{ retrieval-tool-name }} based on an ac
 
 {% endlist %}
 
-Search usage instructions which you provide in a strategy is essentially a [prompt](../../index.md#prompt) telling the assistant when it should access the search index. For example:
+Search usage instructions which you provide in a strategy is essentially a [prompt](../../index.md#prompt) telling the assistant when it should access the search index. Here is an example:
 
 ```json
 "instruction": "Search through the knowledge base only if the user has specifically asked you to do so."

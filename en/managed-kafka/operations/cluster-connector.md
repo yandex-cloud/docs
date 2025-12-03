@@ -694,7 +694,9 @@ Specify the S3 Sink connector parameters:
   * Under **{{ ui-key.yacloud.kafka.field_connector-s3-connection }}**, specify the storage connection parameters:
       * **{{ ui-key.yacloud.kafka.field_connector-bucket-name }}**: Storage bucket name
       * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}**: Endpoint for storage access (to be requested from the storage provider)
-      * (Optional) **{{ ui-key.yacloud.kafka.field_connector-region }}**: Region name. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+      * (Optional) **{{ ui-key.yacloud.kafka.field_connector-region }}**: Region name. The default value is `{{ region-id }}`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+          {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
 
       
       * (Optional) **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
@@ -733,7 +735,9 @@ Specify the S3 Sink connector parameters:
     * `--file-max-records`: Maximum number of records that can be written to a single file in an S3-compatible storage.
     * `--bucket-name`: Name of the S3-compatible storage bucket to write data to.
     * `--storage-endpoint`: Endpoint for storage access (to be requested from the storage provider), e.g., `{{ s3-storage-host }}`.
-    * `--region`: Region where the S3-compatible storage bucket is located. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+    * `--region`: Region where the S3-compatible storage bucket is located. The default value is `{{ region-id }}`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+        {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
 
     
     * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
@@ -765,7 +769,9 @@ Specify the S3 Sink connector parameters:
         * **external_s3**: External S3-compatible storage connection parameters:
 
             * **endpoint**: Endpoint for storage access (to find out from storage provider), e.g., `{{ s3-storage-host }}`.
-            * **region**: Region where the S3-compatible storage bucket is located. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+            * **region**: Region where the S3-compatible storage bucket is located. The default value is `{{ region-id }}`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+                {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
 
             
             * **access_key_id**, **secret_access_key**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
@@ -788,7 +794,9 @@ Specify the S3 Sink connector parameters:
         * `bucketName`: Name of the bucket to write data to.
         * `externalS3`: External storage parameters:
             * `endpoint`: Endpoint for storage access (to be requested from the storage provider), e.g., `{{ s3-storage-host }}`.
-            * `region`: Region where the S3-compatible storage bucket is located. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+            * `region`: Region where the S3-compatible storage bucket is located. The default value is `{{ region-id }}`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+                {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
 
             
             * `accessKeyId`, `secretAccessKey`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
@@ -811,7 +819,9 @@ Specify the S3 Sink connector parameters:
         * `bucket_name`: Name of the bucket to write data to.
         * `external_s3`: External storage parameters:
             * `endpoint`: Endpoint for storage access (to be requested from the storage provider), e.g., `{{ s3-storage-host }}`.
-            * `region`: Region where the S3-compatible storage bucket is located. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+            * `region`: Region where the S3-compatible storage bucket is located. The default value is `{{ region-id }}`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+                {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
 
             
             * `access_key_id`, `secret_access_key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
