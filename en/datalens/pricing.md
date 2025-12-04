@@ -25,7 +25,7 @@ editable: false
 
 The plan you choose covers your organization and can only be [changed](./settings/service-plan.md#change-service-plan) by its owner or administrator. You pay for all [active users](#active-users).
 
-Service plans differ in [features](./concepts/service-plans-comparison.md) they offer and pricing.
+Different service plans offer different [features](./concepts/service-plans-comparison.md) and vary in cost.
 
 ## Prices for the Russia region {#prices}
 
@@ -57,7 +57,7 @@ To activate the _Business_ plan trial period, switch to the _Business_ service p
 
 {% cut "Cost calculation example" %}
 
-Let’s assume an organization has 5 Business plan users of {{ datalens-name }} whose activity over three months was as follows:
+Let’s assume an organization has five Business plan users of {{ datalens-name }} whose activity over three months was as follows:
 
 * In June, `user_1`, `user_2`, and `user_3` were active. The fee for June will be:
   
@@ -66,7 +66,7 @@ Let’s assume an organization has 5 Business plan users of {{ datalens-name }} 
   {% include [usd-example](../_pricing_examples/datalens/usd-users-1.md) %}
 
 
-* In June, user_1, `user_2`, and `user_3` were active. The fee for July will be:
+* In July, `user_2`, and `user_3` were active. The fee for July will be:
 
 
   

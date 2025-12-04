@@ -108,7 +108,7 @@ description: Check out {{ datalens-full-name }} release notes for October 2025.
 
 ### Setting up an AI prompt {#ai-promt-setting}
 
-Added an option to set a custom AI prompt. To do this, follow these steps:
+Now you can set up a custom AI prompt. To do this, follow these steps:
 
 1. Click ![image](../../_assets/console-icons/gear.svg) **Settings** in the left part of the navigation panel to open the settings.
 1. Go to the **AI settings** tab.

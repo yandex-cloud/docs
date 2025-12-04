@@ -5,6 +5,15 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.174.0 (December 4, 2025)
+##### FEATURES:
+* clickhouse: added field `engine` to yandex_mdb_clickhouse_database resources.
+* mdb_kafka: add disk_encryption_key_id field support for kafka clusters
+##### ENHANCEMENTS:
+* CloudOrganization: updated password quality policy fields in idp.userpool
+* mongodb: support resetting settings to default via update mask
+* mdb_mysql: add link to API proto specifications in `mysql_config` description
+
 ## 0.173.0 (December 1, 2025)
 ##### FEATURES:
 * OrganizationManager: added idp saml application resource and datasource

@@ -129,7 +129,7 @@ items:
             items:
               - name: Connection
                 href: operations/connection/chyt/create-chyt.md
-              - name: Specifics of JOIN
+              - name: Features of JOIN
                 href: operations/connection/chyt/chyt-global-join.md
               - name: Recommendations
                 href: operations/connection/chyt/chyt-recommendations.md
@@ -913,6 +913,8 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
+      - name: Pricing policy updates as of December 1
+        href: pricing-changes.md
       - name: Service plans
         href: concepts/service-plans-comparison.md
       - name: Configuring a service plan
@@ -1101,7 +1103,7 @@ items:
       - name: Measure filter is unsupported for this type of query
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
-      - name: Data preparation is not complete yet
+      - name: Data preparation not finished
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Memory limit has been exceeded during query execution
@@ -1122,7 +1124,7 @@ items:
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
-      - name: Data preparation is not complete yet
+      - name: Data preparation not finished
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md
       - name: Subquery exceeds data weight limit

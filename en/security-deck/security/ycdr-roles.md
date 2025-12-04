@@ -5,7 +5,7 @@ description: This page enlists service roles required to control access to the {
 
 # Service roles for {{ ycdr-full-name }}
 
-With [{{ ycdr-full-name }}](../concepts/dspm.md) ({{ ycdr-name }}) service roles, you can manage user access to dashboards and alert sinks.
+With [{{ ycdr-full-name }}](../concepts/dspm.md) ({{ ycdr-name }}) service roles, you can manage user access to dashboards.
 
 #### ycdr.admin {#ycdr-admin}
 

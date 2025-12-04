@@ -102,5 +102,7 @@ items:
         href: security/cspm-roles.md
       - name: Роли {{ atr-name }}
         href: security/access-transparency-roles.md
+      - name: Роли модуля {{ alerts-name }}
+        href: security/alerts-roles.md
   - name: Правила тарификации
     href: pricing.md

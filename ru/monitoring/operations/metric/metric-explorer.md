@@ -141,6 +141,5 @@ sourcePath: ru/monitoring_includes/operations/metric/metric-explorer.md
 
 #### См. также {#see-also}
 
-[{#T}](../../concepts/visualization/metric-explorer.md)
 [{#T}](../dashboard/create.md)
 [{#T}](../alert/create-alert.md)

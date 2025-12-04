@@ -2067,6 +2067,14 @@ description: В статье приведен полный справочник 
 
 Подробнее см. [Общие роли {{ sd-full-name }}](../security-deck/security/index.md).
 
+### Сервисные роли для модуля {{ ycdr-name }} {#ycdr-roles}
+
+#### ycdr.admin {#ycdr-admin}
+
+{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
+
+Подробнее см. [Управление доступом в {{ ycdr-name }}](../security-deck/security/ycdr-roles.md).
+
 ### Сервисные роли для контроля данных ({{ dspm-name }}) {#dspm-roles}
 
 #### dspm.worker {#dspm-worker}
@@ -2166,6 +2174,30 @@ description: В статье приведен полный справочник 
 {% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
 
 Подробнее см. [Управление доступом в {{ atr-name }}](../security-deck/security/access-transparency-roles.md).
+
+### Сервисные роли для модуля {{ alerts-name }} {#alerts-roles}
+
+#### security-deck.alertSinks.user {#security-deck-alertSinks-user}
+
+{% include [security-deck.alertSinks.user](../_roles/security-deck/alertSinks/user.md) %}
+
+#### security-deck.alertSinks.auditor {#security-deck-alertSinks-auditor}
+
+{% include [security-deck.alertSinks.auditor](../_roles/security-deck/alertSinks/auditor.md) %}
+
+#### security-deck.alertSinks.viewer {#security-deck-alertSinks-viewer}
+
+{% include [security-deck.alertSinks.viewer](../_roles/security-deck/alertSinks/viewer.md) %}
+
+#### security-deck.alertSinks.editor {#security-deck-alertSinks-editor}
+
+{% include [security-deck.alertSinks.editor](../_roles/security-deck/alertSinks/editor.md) %}
+
+#### security-deck.alertSinks.admin {#security-deck-alertSinks-admin}
+
+{% include [security-deck.alertSinks.admin](../_roles/security-deck/alertSinks/admin.md) %}
+
+Подробнее см. [Управление доступом в модуле Алерты](../security-deck/security/alerts-roles.md).
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}

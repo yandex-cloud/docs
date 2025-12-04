@@ -36,6 +36,7 @@ output "dbname" {
 
 ### Read-Only
 
+- `engine` (String) Database engine, possible values are: atomic,replicated.
 - `id` (String) The resource identifier.
 
 <a id="nestedatt--timeouts"></a>

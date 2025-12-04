@@ -43,7 +43,7 @@ output "network_id" {
 - `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption. Restoring without an encryption key will disable encryption if any exists.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `mysql_config` (Map of String) MySQL cluster config block.
+- `mysql_config` (Map of String) MySQL cluster configuration. For detailed information specific to your MySQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/mysql/v1/config).
 - `name` (String) The resource name.
 
 ### Read-Only

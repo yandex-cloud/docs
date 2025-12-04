@@ -100,6 +100,12 @@ Calculation for the storage cost and total cost:
 
 The prices for computing resources are the same for all types of hosts: mongod, mongos, and mongocfg.
 
+{% note info %}
+
+The prices for Intel Ice Lake (Compute Optimized) and AMD Zen 4 HighFreq is effective December 18, 2025.
+
+{% endnote %}
+
 
 
 {% include [usd-host](../_pricing/storedoc/usd-host.md) %}

@@ -1156,6 +1156,12 @@ default:
         12_month|int|string: "123\_250\_₸"
         3_month|string: "137\_750,00\_₸"
         6_month|string: "134\_850,00\_₸"
+      ba_i210_h_1_10g:
+        1_day|string: "169\_000,00\_₸"
+        1_month|string: "163\_930,00\_₸"
+        12_month|int|string: "143\_650\_₸"
+        3_month|string: "160\_550,00\_₸"
+        6_month|string: "157\_170,00\_₸"
       ba_i211_8s_10g:
         1_day|string: "499\_500,00\_₸"
         1_month|string: "484\_515,00\_₸"
@@ -3535,6 +3541,12 @@ default:
         12_month|int|string: "24\_650\_₽"
         3_month|string: "27\_550,00\_₽"
         6_month|string: "26\_970,00\_₽"
+      ba_i210_h_1_10g:
+        1_day|string: "33\_800,00\_₽"
+        1_month|string: "32\_786,00\_₽"
+        12_month|int|string: "28\_730\_₽"
+        3_month|string: "32\_110,00\_₽"
+        6_month|string: "31\_434,00\_₽"
       ba_i211_8s_10g:
         1_day|string: "99\_900,00\_₽"
         1_month|string: "96\_903,00\_₽"
@@ -5908,6 +5920,12 @@ default:
         12_month|int|string: "205\_$"
         3_month|string: "229,583242\_$"
         6_month|string: "224,749910\_$"
+      ba_i210_h_1_10g:
+        1_day|string: "281,666554\_$"
+        1_month|string: "273,216557\_$"
+        12_month|int|string: "239\_$"
+        3_month|string: "267,583226\_$"
+        6_month|string: "261,949895\_$"
       ba_i211_8s_10g:
         1_day|string: "832,499667\_$"
         1_month|string: "807,524677\_$"
