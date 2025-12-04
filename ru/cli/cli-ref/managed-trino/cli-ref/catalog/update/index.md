@@ -20,6 +20,7 @@ Syntax:
 - [yc managed-trino catalog update hive](hive.md) — Update Hive catalog
 - [yc managed-trino catalog update hudi](hudi.md) — Update Hudi catalog
 - [yc managed-trino catalog update iceberg](iceberg.md) — Update Iceberg catalog
+- [yc managed-trino catalog update mysql](mysql.md) — Update MySQL catalog
 - [yc managed-trino catalog update oracle](oracle.md) — Update Oracle catalog
 - [yc managed-trino catalog update postgresql](postgresql.md) — Update PostgreSQL catalog
 - [yc managed-trino catalog update sqlserver](sqlserver.md) — Update MS SQL Server catalog

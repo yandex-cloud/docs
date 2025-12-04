@@ -1987,6 +1987,14 @@ For more information, see [{#T}](../search-api/security/index.md).
 
 For more information, see [General {{ sd-full-name }} roles](../security-deck/security/index.md).
 
+### {{ ycdr-name }} roles {#ycdr-roles}
+
+#### ycdr.admin {#ycdr-admin}
+
+{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
+
+For more information, see [Access management in {{ ycdr-name }}](../security-deck/security/ycdr-roles.md).
+
 ### {{ dspm-name }} roles {#dspm-roles}
 
 #### dspm.worker {#dspm-worker}
@@ -2086,6 +2094,30 @@ For more information, see [Access management in {{ cspm-name }}](../security-dec
 {% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
 
 For more information, see [Access management in Access Transparency](../security-deck/security/access-transparency-roles.md).
+
+### {{ alerts-name }} roles {#alerts-roles}
+
+#### security-deck.alertSinks.user {#security-deck-alertSinks-user}
+
+{% include [security-deck.alertSinks.user](../_roles/security-deck/alertSinks/user.md) %}
+
+#### security-deck.alertSinks.auditor {#security-deck-alertSinks-auditor}
+
+{% include [security-deck.alertSinks.auditor](../_roles/security-deck/alertSinks/auditor.md) %}
+
+#### security-deck.alertSinks.viewer {#security-deck-alertSinks-viewer}
+
+{% include [security-deck.alertSinks.viewer](../_roles/security-deck/alertSinks/viewer.md) %}
+
+#### security-deck.alertSinks.editor {#security-deck-alertSinks-editor}
+
+{% include [security-deck.alertSinks.editor](../_roles/security-deck/alertSinks/editor.md) %}
+
+#### security-deck.alertSinks.admin {#security-deck-alertSinks-admin}
+
+{% include [security-deck.alertSinks.admin](../_roles/security-deck/alertSinks/admin.md) %}
+
+For more information, see [Access management in Alerts](../security-deck/security/alerts-roles.md).
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}

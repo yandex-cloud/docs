@@ -22,7 +22,7 @@ To create a {{ TR }} connection:
      * **Cloud and folder**. Select the folder where your service account will be located.
      * **Service account**. Select an existing service account or create a new one.
      * **Cluster**. Specify a cluster from the list of available {{ TR }} clusters or create a new one.
-     * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cache TTL in seconds**. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
 
      {% include [datalens-db-sql-level-2](../../../_includes/datalens/datalens-db-connection-sql-level-2.md) %}
 
@@ -39,7 +39,7 @@ To create a {{ TR }} connection:
        * **Hostname**. Specify the {{ TR }} coordinator path or IP address.
        * **Port**. Specify the {{ TR }} connection port. The default port is 8443.
        * **Username**. Specify the username for the {{ TR }} connection. (If authentication is disabled, you can use any username as it will not affect the connection. The field value will be sent together with requests to the source.)
-       * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+       * **Cache TTL in seconds**. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
 
        {% include [datalens-db-sql-level-2](../../../_includes/datalens/datalens-db-connection-sql-level-2.md) %}
 
@@ -51,7 +51,7 @@ To create a {{ TR }} connection:
        * **Port**. Specify the {{ TR }} connection port. The default port is 8443.
        * **Username**. Specify the username for the {{ TR }} connection.
        * **Password**. Enter the password for the specified user.
-       * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+       * **Cache TTL in seconds**. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
 
        {% include [datalens-db-sql-level-2](../../../_includes/datalens/datalens-db-connection-sql-level-2.md) %}
 
@@ -63,7 +63,7 @@ To create a {{ TR }} connection:
        * **Port**. Specify the {{ TR }} connection port. The default port is 8443.
        * **Username**. Specify the username for the {{ TR }} connection.
        * **JWT**. Specify a JWT.
-       * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+       * **Cache TTL in seconds**. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
 
        {% include [datalens-db-sql-level-2](../../../_includes/datalens/datalens-db-connection-sql-level-2.md) %}
 
@@ -106,3 +106,22 @@ You can specify additional connection settings in the **Advanced connection sett
 ## Connecting an external database {#external-db-connection}
 
 {% include [connection-external](../../../_includes/datalens/datalens-connection-external.md) %}
+
+
+
+## Creating a dataset {#create-dataset}
+
+The table search scope when connecting to {{ TR }} is limited to a specific folder.
+
+When [creating a dataset](../../dataset/create-dataset.md) based on the {{ TR }} connection:
+
+1. In the top-right corner of the connection page, click **Create dataset**.
+1. Select a folder in the source. The tables it contains will be shown on the panel below.
+
+   {% cut "Selecting a folder in the source" %}
+
+   ![image](../../../_assets/datalens/operations/connection/dataset-trino-catalog.png)
+
+   {% endcut %}
+
+1. Proceed with [this guide](../../dataset/create-dataset.md#add-data) from Step 4.

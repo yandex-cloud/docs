@@ -4122,6 +4122,8 @@ items:
                     href: cli-ref/managed-trino/cli-ref/catalog/create/hudi.md
                   - name: iceberg
                     href: cli-ref/managed-trino/cli-ref/catalog/create/iceberg.md
+                  - name: mysql
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/mysql.md
                   - name: oracle
                     href: cli-ref/managed-trino/cli-ref/catalog/create/oracle.md
                   - name: postgresql
@@ -4152,6 +4154,8 @@ items:
                     href: cli-ref/managed-trino/cli-ref/catalog/update/hudi.md
                   - name: iceberg
                     href: cli-ref/managed-trino/cli-ref/catalog/update/iceberg.md
+                  - name: mysql
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/mysql.md
                   - name: oracle
                     href: cli-ref/managed-trino/cli-ref/catalog/update/oracle.md
                   - name: postgresql

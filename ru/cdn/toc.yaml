@@ -103,6 +103,8 @@ items:
         href: concepts/index.md
       - name: Провайдеры
         href: concepts/providers.md
+      - name: Точки присутствия
+        href: concepts/points-of-presence.md
       - name: Ресурс
         href: concepts/resource.md
       - name: Источники и их группы

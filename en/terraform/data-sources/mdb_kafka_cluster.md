@@ -96,7 +96,7 @@ Optional:
 
 Read-Only:
 
-- `patch_version` (String) Patch version of the Kafka server software.
+- `patch_version` (String) Patch version of the Kafka server software. Patch version of the Kafka server software.
 
 
 <a id="nestedblock--config--kafka"></a>
@@ -367,3 +367,4 @@ Read-Only:
 - `hour` (Number) Hour of the day in UTC (in `HH` format). Allowed value is between 1 and 24.
 
 - `type` (String) Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
+
