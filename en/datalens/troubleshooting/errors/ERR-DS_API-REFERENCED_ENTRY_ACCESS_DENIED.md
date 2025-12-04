@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED error
-description: This page describes the ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED error.
+title: '{{ datalens-full-name }} error ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED'
+description: 'This page describes the Referenced connection <connection_ID> cannot be loaded: access denied {{ datalens-full-name }} error.'
 ---
 
-# Referenced connection <connection_ID> cannot be loaded: access denied
+# [{{ datalens-full-name }}] Referenced connection <connection_ID> cannot be loaded: access denied
 
 `ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED`
 

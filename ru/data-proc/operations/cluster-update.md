@@ -26,7 +26,7 @@ description: После создания кластера {{ dataproc-name }} в
     1. Добавьте или удалите [метки](../../resource-manager/concepts/labels.md) кластера в поле **{{ ui-key.yacloud.component.label-set.label_labels }}**.
     1. Измените настройки кластера:
 
-        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-full-name }}.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-full-name }}.
 
             Выберите существующий сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md).
 
@@ -92,6 +92,20 @@ description: После создания кластера {{ dataproc-name }} в
         {{ yc-dp }} cluster update --help
         ```
 
+    1. Чтобы изменить сервисный аккаунт кластера, передайте имя или идентификатор нужного аккаунта в параметре `--service-account-name` или `--service-account-id`.
+
+        ```bash
+        {{ yc-dp }} cluster update <имя_или_идентификатор_кластера> \
+           --service-account-id=<идентификатор_сервисного_аккаунта>
+        ```
+
+    1. Чтобы добавить или изменить сервисный аккаунт [автомасштабируемых подкластеров](../concepts/autoscaling.md), передайте имя или идентификатор нужного аккаунта в параметре `--autoscaling-service-account-name` или `--autoscaling-service-account-id`.
+
+        ```bash
+        {{ yc-dp }} cluster update <имя_или_идентификатор_кластера> \
+           --autoscaling-service-account-id=<идентификатор_сервисного_аккаунта>
+        ```
+
     1. Чтобы изменить [лог-группу](../../logging/concepts/log-group.md), в которую отправляются логи кластера, передайте идентификатор нужной лог-группы в параметре `--log-group-id`:
 
         ```bash
@@ -140,6 +154,26 @@ description: После создания кластера {{ dataproc-name }} в
           ...
           deletion_protection = true
           ui_proxy            = true
+          ...
+        }
+        ```
+
+    1. Чтобы изменить сервисный аккаунт кластера {{ dataproc-name }}, измените значение параметра `service_account_id` в описании кластера {{ dataproc-name }}:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "data_cluster" {
+          ...
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          ...
+        }
+        ```
+
+    1. Чтобы добавить или изменить сервисный аккаунт для управления [автомасштабируемыми подкластерами](../concepts/autoscaling.md), используйте параметр `autoscaling_service_account_id` в описании кластера {{ dataproc-name }}:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "data_cluster" {
+          ...
+          autoscaling_service_account_id = "<идентификатор_сервисного_аккаунта>"
           ...
         }
         ```

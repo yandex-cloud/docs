@@ -20,7 +20,36 @@ description: Управление доступом в сервисе идент�
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [сервисный аккаунт](../concepts/users/service-accounts.md) роль можно назначить в [консоли управления]({{ link-console-main }}), а также через {{ yandex-cloud }} [CLI](../../cli/cli-ref/iam/cli-ref/service-account/add-access-binding.md), [API](../api-ref/authentication.md) или [{{ TF }}]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+Вы также можете назначать роли на отдельные ресурсы сервиса:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  В [консоли управления]({{ link-console-main }}) вы можете назначить роли на [сервисный аккаунт](../concepts/users/service-accounts.md).
+
+- CLI {#cli}
+
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/iam/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Сервисный аккаунт](../concepts/users/service-accounts.md)
+  * [Федерация сервисных аккаунтов](../concepts/workload-identity.md)
+
+- {{ TF }} {#tf}
+
+  Через [{{ TF }}]({{ tf-provider-link }}) вы можете назначить роли на следующие ресурсы:
+
+  * [Сервисный аккаунт](../concepts/users/service-accounts.md)
+  * [Федерация сервисных аккаунтов](../concepts/workload-identity.md)
+
+- API {#api}
+
+  Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Сервисный аккаунт](../concepts/users/service-accounts.md)
+  * [Федерация сервисных аккаунтов](../concepts/workload-identity.md)
+
+{% endlist %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 

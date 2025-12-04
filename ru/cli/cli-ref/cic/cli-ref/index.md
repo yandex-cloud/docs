@@ -28,6 +28,7 @@ Syntax:
 	- [yc cic private-connection get](private-connection/get.md) — Get information about a privateConnection.
 	- [yc cic private-connection list](private-connection/list.md) — List privateConnections in a folder.
 	- [yc cic private-connection list-operations](private-connection/list-operations.md) — List operations for a privateConnection.
+	- [yc cic private-connection move](private-connection/move.md) — Move the specified private connection into the folder
 	- [yc cic private-connection remove-labels](private-connection/remove-labels.md) — Remove labels from a privateConnection.
 	- [yc cic private-connection remove-static-routes](private-connection/remove-static-routes.md) — Remove static routes from a privateConnection.
 	- [yc cic private-connection update](private-connection/update.md) — Modify configuration or attributes of a privateConnection.
@@ -35,6 +36,7 @@ Syntax:
 - [yc cic public-connection](public-connection/index.md) — [PREVIEW] Manage publicConnections.
 	- [yc cic public-connection get](public-connection/get.md) — Get information about an publicConnection.
 	- [yc cic public-connection list](public-connection/list.md) — List publicConnections in a folder.
+	- [yc cic public-connection move](public-connection/move.md) — Move the specified public connection into the folder
 - [yc cic trunk-connection](trunk-connection/index.md) — [PREVIEW] Manage trunk connections.
 	- [yc cic trunk-connection add-labels](trunk-connection/add-labels.md) — Add labels to a trunk connection.
 	- [yc cic trunk-connection create](trunk-connection/create.md) — Create a trunk connection.
@@ -42,6 +44,7 @@ Syntax:
 	- [yc cic trunk-connection get](trunk-connection/get.md) — Get information about a trunk connection.
 	- [yc cic trunk-connection list](trunk-connection/list.md) — List trunk connections in a folder.
 	- [yc cic trunk-connection list-operations](trunk-connection/list-operations.md) — List operations for a trunk connection.
+	- [yc cic trunk-connection move](trunk-connection/move.md) — Move the specified trunk connection into the folder
 	- [yc cic trunk-connection remove-labels](trunk-connection/remove-labels.md) — Remove labels from a trunk connection.
 	- [yc cic trunk-connection update](trunk-connection/update.md) — Modify configuration or attributes of a trunk connection.
 

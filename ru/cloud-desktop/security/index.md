@@ -21,6 +21,8 @@ description: Управление доступом в сервисе {{ cloud-de
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [cloud-desktop](../../_mermaid/roles/cloud-desktop.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### vdi.viewer {#vdi-viewer}

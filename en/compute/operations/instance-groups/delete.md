@@ -1,6 +1,6 @@
 ---
 title: How to delete an instance group
-description: Deleting an instance group is permanent and cannot be undone, so you cannot recover a deleted instance group. Along with the group, you also delete the {{ network-load-balancer-name }} target group, VM instances, and disks. To delete an instance group, open the folder page in the management console. Select {{ compute-full-name }}. On the **Virtual machines** page, go to the **Instance groups** tab. Select **Delete**.
+description: Deleting an instance group is permanent and cannot be undone, so you cannot recover a deleted instance group. Along with the group, you also delete the {{ network-load-balancer-name }} target group, VM instances, and disks. To delete an instance group, open the folder page in the management console. Go to {{ compute-full-name }}. On the **Virtual machines** page, go to the **Instance groups** tab. Select **Delete**.
 ---
 
 # Deleting an instance group
@@ -18,7 +18,7 @@ To delete an instance group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the instance group in question.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. In the line with the instance group, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.

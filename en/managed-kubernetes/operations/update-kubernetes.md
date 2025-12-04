@@ -58,7 +58,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
   You can specify update settings when [creating a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating its settings](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md).
 
-  In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, select the {{ managed-k8s-name }} cluster update policy:
+  In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, select the {{ managed-k8s-name }} cluster update policy:
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Select this option to disable auto updates.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Select this option for {{ managed-k8s-name }} to manage the update installation schedule.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Set the start time and duration of the update.
@@ -342,7 +342,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}**: Specify the maximum number of unavailable nodes the group may have during updates.
 
-  In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, select the {{ managed-k8s-name }} node group update policy:
+  In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, select the {{ managed-k8s-name }} node group update policy:
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Select this option to disable auto updates.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Select this option for {{ managed-k8s-name }} to manage the update installation schedule.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Set the start time and duration of the update.

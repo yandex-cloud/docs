@@ -1,6 +1,6 @@
 # Accounts in {{ yandex-cloud }}
 
-{{ yandex-cloud }} uses [Yandex accounts](#passport), [service accounts](#sa), and [federated accounts](#saml-federation).
+{{ yandex-cloud }} uses [Yandex accounts](#passport), [service accounts](#sa), [federated accounts](#saml-federation), and [local accounts](#local).
 
 {% note info %}
 

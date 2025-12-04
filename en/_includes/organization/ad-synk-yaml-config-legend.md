@@ -1,7 +1,7 @@
 Where:
 
 * `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) in {{ org-name }}.
-* `cloud_credentials_file_path`: Path to the file containing the [authorized key](../../iam/concepts/authorization/key.md) of the service account in {{ yandex-cloud }}. Here is an example:
+* `cloud_credentials_file_path`: Path to the file containing the [authorized key](../../iam/concepts/authorization/key.md) of the service account in {{ yandex-cloud }}. For example:
 
     * `/etc/yc-identityhub-sync-agent/authorized_key.json` (for Linux)
     * `C:\\ProgramData\\YcIdentityHubSyncAgent\\authorized_key.json` (for Windows)
@@ -24,7 +24,27 @@ Where:
     {% endnote %}
 
 * `drsr`: [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) protocol settings for {{ microsoft-idp.ad-short }} authentication of a [user](#dc-setup) with permissions to replicate folder data.
-* `ldap`: [LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) protocol settings for {{ microsoft-idp.ad-short }} authentication of a [user](#dc-setup) with permissions to replicate folder data.
+* `ldap`: [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) protocol settings for {{ microsoft-idp.ad-short }} authentication:
+
+    {% note warning %}
+
+    You can connect to a domain controller over `LDAPS` or `LDAP`. `LDAPS` is the recommended and safe option. Use `LDAP` only for setup and testing.
+
+    {% endnote %}
+
+    * `host`: IP address of the {{ microsoft-idp.ad-short }} domain controller. Specify the schema and port number depending on the protocol you use:
+
+        * For `LDAPS`: `ldaps://` is the schema and `636` is the port number.
+        * For `LDAP`: `ldap://` is the schema and `389` is the port number.
+    * `username`: Name of the {{ microsoft-idp.ad-short }} domain user with data replication permissions [assigned](#dc-setup).
+    * `password`: {{ microsoft-idp.ad-short }} domain user password.
+    * `certificate_path`: Path to the public key certificate file required to decrypt traffic from the domain controller. This is a required parameter when using `LDAPS`.
+
+        If the `working_directory` parameter specifies the path to the working directory, you can simply specify the certificate file name instead of its full path.
+    * `insecure_skip_verify`: Controls whether to ignore public key certificate validation errors when connecting to a domain controller. This is an optional parameter. The possible values are:
+
+        * `false`: Certificate validation errors will not be ignored. This is a default value.
+        * `true`: The synchronization agent will ignore certificate validation errors. This may prove effective for synchronization setup and testing. Not recommended for general use.
 * `logger`: Synchronization [logging](#logging) settings:
 
     * `level`: Logging level. The possible values are:
@@ -70,12 +90,16 @@ Where:
     * `filter`: Settings for filtering objects to synchronize on the {{ microsoft-idp.ad-short }} side:
 
         * `domain`: Domain name in the {{ microsoft-idp.ad-short }} domain controller where the agent will synchronize users and groups.
-        * `organization_units`: List of _organizational units_ (OUs) in the {{ microsoft-idp.ad-short }} folder in which the agent will synchronize users and groups.
+        * `organization_units`: List of _organization units_ (OUs) in the {{ microsoft-idp.ad-short }} folder in which the agent will synchronize users and groups.
 
         If object filtering is not configured, {{ ad-sync-agent }} will attempt to synchronize all [available objects](../../organization/concepts/ad-sync.md#sync-objects) in the {{ microsoft-idp.ad-short }} folder.
+    * `remove_user_behavior`: Controls what action should be applied to users on the {{ yandex-cloud }} side if the corresponding ones on the {{ microsoft-idp.ad-short }} side were deleted or ceased to satisfy the conditions specified in `sync_settings.filter` (e.g., if moved to another organization unit). This is an optional parameter. The possible values are:
 
-        {% note info %}
+        * `remove`: Users who were deleted ceased to satisfy the filter criteria will be deleted on the {{ org-name }} side. This is the default action.
+        * `block`: Users who were deleted ceased to satisfy the filter criteria will be deactivated on the {{ org-name }} side.
 
-        If a user or group no longer matches the specified filters during synchronization, e.g., if moved to a different organizational unit within {{ microsoft-idp.ad-short }}, such a user or group will be removed from {{ org-name }}.
+    {% note info %}
 
-        {% endnote %}
+    If synchronization reveals that a {{ microsoft-idp.ad-short }} user group was deleted or ceased to satisfy the filter criteria (e.g., if moved to another organization unit), such a group will be deleted on the {{ org-name }} side.
+
+    {% endnote %}

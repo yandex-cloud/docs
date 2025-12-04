@@ -35,6 +35,7 @@ resource "yandex_iam_service_account" "builder" {
 - `folder_id` (String) ID of the folder that the service account belongs to.
 - `id` (String) ID of the ServiceAccount resource to return.
  To get the service account ID, use a [ServiceAccountService.List] request.
+- `labels` (Map of String) Resource labels as `` key:value `` pairs. Maximum of 64 per resource.
 - `service_account_id` (String) ID of the ServiceAccount resource to return.
  To get the service account ID, use a [ServiceAccountService.List] request.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))

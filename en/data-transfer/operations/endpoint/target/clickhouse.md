@@ -19,7 +19,7 @@ description: In this tutorial, you will learn how to set up a {{ CH }} target en
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Migrating a {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
-    * [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
+    * [{#T}](../../../tutorials/opensearch-to-clickhouse.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Delivering data from {{ KF }} to {{ CH }}](../../../tutorials/mkf-to-mch.md).
@@ -105,7 +105,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -163,7 +163,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -221,13 +221,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     * {% include [sharding_settings](../../../../_includes/data-transfer/fields/clickhouse/ui/sharding-settings.md) %}
 
-    * {% include [alt_names](../../../../_includes/data-transfer/fields/clickhouse/ui/alt-names.md) %}
-
-    * {% include [flush_interval](../../../../_includes/data-transfer/fields/clickhouse/ui/flush-interval.md) %}
-
-    * {% include [retry-failed-toasts](../../../../_includes/data-transfer/fields/retry-failed-toasts.md) %}
-
-    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
+    * {% include [advanced_settings](../../../../_includes/data-transfer/fields/clickhouse/ui/advanced-settings.md) %}
 
 - CLI {#cli}
 
@@ -266,7 +260,7 @@ Connection to the database with explicitly specified network addresses and ports
         * {% include [round_robin](../../../../_includes/data-transfer/fields/clickhouse/terraform/round-robin.md) %}
 
         You can only specify one of the sharding options: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `sharding.custom_mapping`, or `sharding.round_robin`. If no sharding option is specified, all data will be transferred to a single shard.
-    
+
     * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 - API {#api}

@@ -28,18 +28,24 @@ Retrieves the list of Instance resources in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the Folder to list instances in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListInstancesResponse.next_page_token](#yandex.cloud.compute.v1.ListInstancesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results,
 set `page_token` to the [ListInstancesResponse.next_page_token](#yandex.cloud.compute.v1.ListInstancesResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -56,12 +62,16 @@ Each condition has the form `<field> <operator> <value>`, where:
 - `host_id`: ID of the [dedicated host](/docs/compute/concepts/dedicated-host) that the instance belongs to.
 2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
 3. `<value>` represents a value.
-String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). ||
+String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
+
+The maximum string length in characters is 1000. ||
 || order_by | **string**
 
 By which column the listing should be ordered and in which direction,
 format is "createdAt desc". "id asc" if omitted.
-The default sorting order is ascending ||
+The default sorting order is ascending
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListInstancesResponse {#yandex.cloud.compute.v1.ListInstancesResponse}
@@ -289,7 +299,6 @@ Computing resources of the instance such as the amount of memory and number of c
 
 Status of the instance.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Instance is waiting for resources to be allocated.
 - `RUNNING`: Instance is running normally.
 - `STOPPING`: Instance is being stopped.
@@ -358,7 +367,6 @@ ID of the dedicated host that the instance belongs to. ||
 
 Behaviour on maintenance events
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -402,28 +410,24 @@ The number of GPUs available to the instance. ||
 
 Enabled access to GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || aws_v1_http_endpoint | enum **MetadataOption**
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || gce_http_token | enum **MetadataOption**
 
 Enabled access to IAM credentials with GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || aws_v1_http_token | enum **MetadataOption**
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 |#
@@ -436,7 +440,6 @@ Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
 Access mode to the Disk resource.
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. ||
 || device_name | **string**
@@ -476,7 +479,6 @@ This value can be used to reference the device for mounting, resizing, and so on
 
 Access mode to the filesystem.
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. ||
 || device_name | **string**
@@ -540,7 +542,6 @@ An external IP address associated with this instance. ||
 
 IP version for the external IP address.
 
-- `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address, for example 192.0.2.235.
 - `IPV6`: IPv6 address. Not available yet. ||
 || dns_records[] | **[DnsRecord](#yandex.cloud.compute.v1.DnsRecord)**
@@ -575,7 +576,6 @@ When true, indicates there is a corresponding auto-created PTR DNS record. ||
 
 Authentication and authorization in serial console when using SSH protocol
 
-- `SSH_AUTHORIZATION_UNSPECIFIED`
 - `INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata
 - `OS_LOGIN`: Authentication and authorization using Oslogin service ||
 |#
@@ -606,7 +606,6 @@ True for short-lived compute instances. For more information, see [Preemptible V
 
 Network Type
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
@@ -640,7 +639,6 @@ Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
 
 Include or exclude action
 
-- `OPERATOR_UNSPECIFIED`
 - `IN`
 - `NOT_IN` ||
 || values[] | **string**
@@ -674,7 +672,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pci_topology | enum **PCITopology**
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#
@@ -709,13 +706,19 @@ Backup settings. ||
 ||Field | Description ||
 || product_id | **string**
 
-Required field. ID of the product. ||
+Required field. ID of the product.
+
+The maximum string length in characters is 50. ||
 || secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret)**>)
 
-A list of the secrets. ||
+A list of the secrets.
+
+No more than 100 per resource. The maximum string length in characters for each key is 100. ||
 || environment | **object** (map<**string**, **string**>)
 
-A list of the environmets. ||
+A list of the environmets.
+
+No more than 100 per resource. The maximum string length in characters for each key is 100. The maximum string length in characters for each value is 10000. ||
 |#
 
 ## Secret {#yandex.cloud.compute.v1.Secret}
@@ -724,13 +727,19 @@ A list of the environmets. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the secret. ||
+Required field. ID of the secret.
+
+The maximum string length in characters is 50. ||
 || key | **string**
 
-Required field. Name of the key. ||
+Required field. Name of the key.
+
+The maximum string length in characters is 256. ||
 || version_id | **string**
 
-Version of the secret. ||
+Version of the secret.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## BackupSpec {#yandex.cloud.compute.v1.BackupSpec}
@@ -742,14 +751,20 @@ Version of the secret. ||
 If true, backup is enabled. ||
 || initial_policy_ids[] | **string**
 
-A list of policy IDs to apply after resource registration. ||
+A list of policy IDs to apply after resource registration.
+
+The maximum number of elements is 50. The string length in characters for each value must be 1-50. ||
 || recovery_from_backup | **bool**
 
 If true, recovery from backup starts on instance. ||
 || backup_id | **string**
 
-ID of the backup to recover from. ||
+ID of the backup to recover from.
+
+The maximum string length in characters is 100. ||
 || instance_registration_id | **string**
 
-ID of the instance registration for cloud backup agent installation. ||
+ID of the instance registration for cloud backup agent installation.
+
+The maximum string length in characters is 100. ||
 |#

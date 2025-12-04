@@ -16,6 +16,12 @@ sourcePath: ru/monitoring_includes/api-ref/authentication.md
 
 {% include [authentication-api-key](../../_includes/authentication-api-key.md) %}
 
+{% note info %}
+
+Чтобы выполнять операции записи в лог-группу, задайте для API-ключа [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.logging.write`.
+
+{% endnote %}
+
 #### См. также {#see-also}
 
 [{#T}](../../iam/concepts/users/accounts.md)

@@ -259,7 +259,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
        * `serviceAccount:{service_account_id}`: Service account ID.
        * `federatedUser:{federated_user_id}`: Federated user ID.
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -271,7 +271,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
     

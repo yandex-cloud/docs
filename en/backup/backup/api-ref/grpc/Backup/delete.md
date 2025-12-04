@@ -24,7 +24,9 @@ Delete specific backup.
 ||Field | Description ||
 || compute_instance_id | **string**
 
-Required field. Compute Cloud instance ID of the Backup. ||
+Required field. Compute Cloud instance ID of the Backup.
+
+The maximum string length in characters is 50. ||
 || backup_id | **string**
 
 Required field. Backup ID that should be deleted. ||

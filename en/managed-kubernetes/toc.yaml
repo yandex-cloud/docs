@@ -17,7 +17,7 @@ items:
         href: operations/update-kubernetes.md
       - name: Configuring autoscaling
         href: operations/autoscale.md
-      - name: Activating the {{ k8s }} {{ TF }} provider
+      - name: Activating a {{ k8s }} {{ TF }} provider
         href: operations/apply-tf-provider.md
       - name: >-
           Installing applications from {{ marketplace-full-name }} using {{ TF
@@ -43,7 +43,7 @@ items:
               Installing cert-manager with the {{ dns-name }} ACME webhook
               plugin
             href: operations/applications/cert-manager-cloud-dns.md
-          - name: Installing the Container Storage Interface for S3
+          - name: Installing Container Storage Interface for S3
             href: operations/applications/csi-s3.md
           - name: Installing Crossplane
             href: operations/applications/crossplane.md
@@ -73,7 +73,7 @@ items:
             href: operations/applications/ingress-nginx.md
           - name: Installing an {{ alb-name }} ingress controller
             href: operations/applications/alb-ingress-controller.md
-          - name: Upgrading an {{ alb-name }} ingress controller
+          - name: Upgrading the {{ alb-name }} Ingress controller
             href: operations/applications/upgrade-alb-ingress-controller.md
           - name: Installing Istio
             href: operations/applications/istio.md
@@ -83,6 +83,8 @@ items:
             href: operations/applications/keda.md
           - name: Installing Kruise
             href: operations/applications/kruise.md
+          - name: Installing Kubernetes Node Remediation
+            href: operations/applications/kubernetes-node-remediation.md
           - name: Installing Kyverno & Kyverno Policies
             href: operations/applications/kyverno.md
           - name: Installing Loki
@@ -176,7 +178,7 @@ items:
               Configuring WireGuard gateways to connect external nodes to a
               cluster
             href: operations/external-nodes-connect-wireguard.md
-          - name: "Configuring IPSec gateways to connect external nodes to a cluster\_"
+          - name: Configuring IPSec gateways to connect external nodes to a cluster
             href: operations/external-nodes-connect-ipsec.md
           - name: Connecting a {{ baremetal-name }} server as an external node
             href: operations/bms-server-connect.md
@@ -220,7 +222,7 @@ items:
             href: tutorials/vpa-autoscaling.md
           - name: Updating the Metrics Server parameters
             href: tutorials/metrics-server.md
-          - name: Deploying and load testing a gRPC service with scaling
+          - name: Deploying and load testing a scalable gRPC service
             href: tutorials/load-testing-grpc-autoscaling.md
       - name: Installing NGINX
         items:
@@ -275,8 +277,8 @@ items:
       - name: Monitoring
         items:
           - name: >-
-              Cluster monitoring with {{ prometheus-name }} and {{ grafana-name
-              }}
+              Cluster monitoring with the help of {{ prometheus-name }} Operator
+              with {{ monitoring-full-name }} support
             href: tutorials/prometheus-grafana-monitoring.md
           - name: '{{ managed-k8s-name }} cluster monitoring with Filebeat OSS'
             href: tutorials/filebeat-oss-monitoring.md
@@ -294,7 +296,7 @@ items:
             href: tutorials/kubernetes-lockbox-secrets.md
           - name: Configuring Fluent Bit for {{ cloud-logging-name }}
             href: tutorials/fluent-bit-logging.md
-          - name: Setting up Gateway API
+          - name: Setting up the Gateway API
             href: tutorials/marketplace/gateway-api.md
           - name: Configuring an L7 {{ alb-name }} using an ingress controller
             href: tutorials/alb-ingress-controller.md
@@ -312,7 +314,7 @@ items:
             href: tutorials/marketplace/jaeger-over-ydb.md
           - name: Setting up Kyverno &amp; Kyverno Policies
             href: tutorials/marketplace/kyverno.md
-          - name: Using {{ MP }} to transmit metrics
+          - name: Using {{ MP }} to deliver metrics
             href: tutorials/marketplace/metrics-provider.md
           - name: Editing website images with Thumbor
             href: tutorials/marketplace/thumbor.md

@@ -7,9 +7,9 @@ description: Access management for Apache Hadoop® and Apache Spark™ cluster c
 
 {{ yandex-cloud }} users can only perform operations on resources according to their assigned roles. Without assigned roles, a user cannot perform most operations.
 
-To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md), access to {{ dataproc-name }} resources, i.e., clusters and subclusters, assign them the roles from the list below. Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
+To allow access to {{ dataproc-name }} resources (clusters and subclusters), assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
-To assign a role for a resource, a user should have either the `mdb.admin` role, or `dataproc.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `mdb.admin` role, `dataproc.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 

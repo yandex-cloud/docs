@@ -1,6 +1,6 @@
 # Information about existing {{ GP }} clusters
 
-You can request detailed information about each {{ mgp-name }} cluster you created.
+You can get detailed information about each {{ mgp-name }} cluster you created.
 
 ## Getting a list of clusters in a folder {#list-clusters}
 
@@ -24,11 +24,11 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.list](../api-ref/Cluster/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.list](../api-ref/Cluster/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -39,14 +39,14 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
         ```
 
         
-        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-    1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -69,10 +69,10 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
         ```
 
         
-        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-    1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -91,21 +91,21 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get information about the {{ GP }} cluster, run the following command:
+    To get information about a {{ GP }} cluster, run the following command:
 
     ```bash
     {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
     ```
 
-    You can request the cluster ID and name with the [list of clusters in the folder](#list-clusters).
+    You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Get](../api-ref/Cluster/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Get](../api-ref/Cluster/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -114,13 +114,13 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
             --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.greenplum.v1.Cluster) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.greenplum.v1.Cluster) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -142,9 +142,9 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
             yandex.cloud.mdb.greenplum.v1.ClusterService.Get
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.greenplum.v1.Cluster) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.greenplum.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
@@ -155,12 +155,12 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the cluster name and select the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+    1. Click the name of your cluster and open the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
     In the list of hosts, the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_role }}** column shows the role of each host:
 
     * `MASTER`: Primary master host to receive user connections.
-    * `REPLICA`: Standby master host to replicate data of the primary master host.
+    * `REPLICA`: Standby master host to replicate the primary master host's data.
     * `SEGMENT`: Segment host to store part of the cluster data.
 
 - CLI {#cli}
@@ -169,31 +169,31 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of cluster master hosts, run the command:
+    To get a list of cluster master hosts, run this command:
 
     ```bash
     {{ yc-mdb-gp }} hosts list master \
        --cluster-name=<cluster_name>
     ```
 
-    To get a list of cluster segment hosts, run the command:
+    To get a list of cluster segment hosts, run this command:
 
     ```bash
     {{ yc-mdb-gp }} hosts list segment \
        --cluster-name=<cluster_name>
     ```
 
-    You can request the cluster name with the [list of clusters in the folder](#list-clusters).
+    You can get the cluster name with the [list of clusters in the folder](#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. To get a list of cluster master hosts:
 
-        1. Use the [Cluster.ListMasterHosts](../api-ref/Cluster/listMasterHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Cluster.ListMasterHosts](../api-ref/Cluster/listMasterHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -202,13 +202,13 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
                 --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/master-hosts'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-        1. View the [server response](../api-ref/Cluster/listMasterHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure the request was successful.
+        1. View the [server response](../api-ref/Cluster/listMasterHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure your request was successful.
 
     1. To get a list of cluster segment hosts:
 
-        1. Use the [Cluster.ListSegmentHosts](../api-ref/Cluster/listSegmentHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Cluster.ListSegmentHosts](../api-ref/Cluster/listSegmentHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -217,13 +217,13 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
                 --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/segment-hosts'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-        1. View the [server response](../api-ref/Cluster/listSegmentHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure the request was successful.
+        1. Check the [server response](../api-ref/Cluster/listSegmentHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -247,9 +247,9 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
                 yandex.cloud.mdb.greenplum.v1.ClusterService.ListMasterHosts
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-        1. View the [server response](../api-ref/grpc/Cluster/listMasterHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure the request was successful.
+        1. View the [server response](../api-ref/grpc/Cluster/listMasterHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure your request was successful.
 
     1. To get a list of cluster segment hosts:
 
@@ -269,8 +269,8 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
                 yandex.cloud.mdb.greenplum.v1.ClusterService.ListSegmentHosts
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-        1. View the [server response](../api-ref/grpc/Cluster/listSegmentHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure the request was successful.
+        1. View the [server response](../api-ref/grpc/Cluster/listSegmentHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 {% endlist %}

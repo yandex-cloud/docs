@@ -4,7 +4,8 @@
 
 Чтобы подключаться из {{ websql-name }} к кластеру {{ mch-name }}, необходимо создать подключение:
 
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Нажмите на имя нужного кластера.
 1. [Включите опцию](../../../managed-clickhouse/operations/update.md#change-additional-settings) **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** в настройках кластера, если она еще не включена.
 1. Выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_explore-websql }}**.

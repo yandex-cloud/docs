@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to list buckets in.
             To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - folderId
@@ -42,7 +43,9 @@ GET https://storage.{{ api-host }}/storage/v1/buckets
 
 Required field. ID of the folder to list buckets in.
 
-To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.storage.v1.ListBucketsResponse}
@@ -246,7 +249,6 @@ For details, see [documentation](/docs/storage/concepts/storage-class). ||
 Bucket versioning status.
 For details, see [documentation](/docs/storage/concepts/versioning).
 
-- `VERSIONING_UNSPECIFIED`: Versioning unspecified.
 - `VERSIONING_DISABLED`: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation.
 Objects that are stored in the bucket have a version ID of `null`.
 
@@ -356,7 +358,6 @@ A grant resource, used to specify the permission granted and the grantee.
 
 Required field. Permission granted by the grant.
 
-- `PERMISSION_UNSPECIFIED`: Permission unspecified.
 - `PERMISSION_FULL_CONTROL`: Allows grantee the `PERMISSION_WRITE`, `PERMISSION_WRITE_ACP`, `PERMISSION_READ`, and `PERMISSION_READ_ACP`
 on the bucket.
 
@@ -383,7 +384,6 @@ Amazon S3-compatible HTTP API. ||
 
 Required field. The grantee type for the grant.
 
-- `GRANT_TYPE_UNSPECIFIED`: Grant type unspecified.
 - `GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](/docs/iam/concepts/#accounts).
 
   For this grantee type, you need to specify the user ID in `Bucket.acl.grants.granteeId` field. To get user ID, see
@@ -404,7 +404,9 @@ resource via signed (authenticated) or unsigned (anonymous) requests.
 ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API). ||
 || granteeId | **string**
 
-ID of the account who is a grantee. Required when the `grantType` is `GRANT_TYPE_ACCOUNT`. ||
+ID of the account who is a grantee. Required when the `grantType` is `GRANT_TYPE_ACCOUNT`.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## CorsRule {#yandex.cloud.storage.v1.CorsRule}
@@ -426,7 +428,8 @@ When a client sends a CORS-preflight `options` request with the `Access-Control-
 the list of the allowed methods. If there is a match, all the allowed methods are listed in the
 `Access-Control-Allow-Methods` header of the response.
 
-- `METHOD_UNSPECIFIED`: Method unspecified.
+The number of elements must be greater than 0.
+
 - `METHOD_GET`: HTTP `GET` method.
 - `METHOD_HEAD`: HTTP `HEAD` method.
 - `METHOD_POST`: HTTP `POST` method.
@@ -448,7 +451,9 @@ For example, `x-amz-*` value will allow all Amazon S3-compatible headers. ||
 List of request origins allowed by the CORS rule.
 
 Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
-For example, `http://*.example.com` value will allow requests originating from all subdomains of `example.com`. ||
+For example, `http://*.example.com` value will allow requests originating from all subdomains of `example.com`.
+
+The number of elements must be greater than 0. ||
 || exposeHeaders[] | **string**
 
 List of headers contained in responses to CORS requests that can be accessed by applications. ||
@@ -493,7 +498,6 @@ A configuration resource for redirecting all requests sent to the website.
 
 Scheme of the redirect URI.
 
-- `PROTOCOL_UNSPECIFIED`: Protocol unspecified.
 - `PROTOCOL_HTTP`: `http` scheme.
 - `PROTOCOL_HTTPS`: `https` scheme. ||
 || hostname | **string**
@@ -538,12 +542,13 @@ Hostname of the redirect URI. ||
 
 HTTP status code of the redirect response.
 
-Default value: `"301"`. ||
+Default value: `"301"`.
+
+Value must match the regular expression ` 3(0[1-9]\|[1-9][0-9]) `. ||
 || protocol | **enum** (Protocol)
 
 Scheme of the redirect URI.
 
-- `PROTOCOL_UNSPECIFIED`: Protocol unspecified.
 - `PROTOCOL_HTTP`: `http` scheme.
 - `PROTOCOL_HTTPS`: `https` scheme. ||
 || replaceKeyPrefixWith | **string**
@@ -815,7 +820,6 @@ For details about the concept, see [documentation](/docs/storage/concepts/object
 
 Status
 
-- `OBJECT_LOCK_STATUS_UNSPECIFIED`: Object lock status unspecified.
 - `OBJECT_LOCK_STATUS_DISABLED`: Object lock status disabled.
 - `OBJECT_LOCK_STATUS_ENABLED`: Object lock status enabled. ||
 || defaultRetention | **[DefaultRetention](#yandex.cloud.storage.v1.ObjectLock.DefaultRetention)**
@@ -833,7 +837,6 @@ Default lock configuration for added objects
 
 Mode
 
-- `MODE_UNSPECIFIED`: Mode unspecified.
 - `MODE_GOVERNANCE`: Mode governance.
 - `MODE_COMPLIANCE`: Mode compliance. ||
 || days | **string** (int64)

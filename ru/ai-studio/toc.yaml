@@ -38,21 +38,14 @@ items:
             href: concepts/tuning/index.md
           - name: Токены
             href: concepts/generation/tokens.md
-          - name: Юниты TBD
-            hidden: true
       - name: '{{ agents-atelier-name }}'
         items:
           - name: Обзор AI-агентов
             href: concepts/agents/index.md
           - name: Голосовые агенты
             href: concepts/agents/realtime.md
-          - name: Инструменты
-            items:
-              - name: Поиск в интернете
-                href: concepts/agents/tools/websearch.md
-              - name: Поиск по файлам
-                href: concepts/agents/tools/filesearch.md
           - name: '{{ assistant-api }}'
+            hidden: true
             items:
               - name: AI-Ассистенты
                 href: concepts/assistant/index.md
@@ -72,8 +65,14 @@ items:
                     href: concepts/assistant/rephraser.md
       - name: AI Search
         items:
+          - name: Обзор AI Search
+            href: concepts/search/index.md
           - name: Поисковые индексы {{ vector-store-name }}
             href: concepts/search/vectorstore.md
+          - name: Инструмент поиска по файлам
+            href: concepts/agents/tools/filesearch.md
+          - name: Инструмент поиска в интернете
+            href: concepts/agents/tools/websearch.md
       - name: '{{ mcp-hub-name }}'
         items:
           - name: Обзор
@@ -158,36 +157,39 @@ items:
                 href: operations/tuning/create-embeddings.md
       - name: '{{ agents-atelier-name }}'
         items:
-          - name: Разработка AI-агентов
+          - name: Создать простого текстового агента
+            href: operations/agents/create-simple-text-agent.md
+          - name: Создать текстового агента с вызовом функции
+            href: operations/agents/create-function-text-agent.md
+          - name: Создать голосового агента с помощью {{ realtime-api }}
+            href: operations/agents/create-voice-agent.md
+          - name: '{{ assistant-api }}'
+            hidden: true
             items:
-              - name: Создать голосового агента с помощью {{ realtime-api }}
-                href: operations/agents/create-voice-agent.md
-              - name: Создать простого текстового агента
-                href: operations/agents/create-simple-text-agent.md
-              - name: Создать текстового агента с вызовом функции
-                href: operations/agents/create-function-text-agent.md
-              - name: Создать текстового агента с поиском по файлам
-                href: operations/agents/create-filesearch-text-agent.md
-              - name: Управлять поисковым индексом {{ vector-store-name }}
-                href: operations/agents/manage-searchindex.md
-              - name: '{{ assistant-api }}'
-                items:
-                  - name: Создать простого ассистента
-                    href: operations/assistant/create.md
-                  - name: >-
-                      Создать ассистента с инструментом {{ retrieval-tool-name
-                      }}
-                    href: operations/assistant/create-with-searchindex.md
-                  - name: >-
-                      Создать ассистента для поиска с указанием метаданных
-                      файлов и индексов
-                    href: operations/assistant/create-with-labels.md
-                  - name: Создать ассистента с инструментом WebSearch
-                    href: operations/assistant/create-with-websearch.md
-                  - name: Получить промежуточные результаты генерации ответа
-                    href: operations/assistant/request-chunked-response.md
-                  - name: Перефразировать запросы с помощью модели
-                    href: operations/assistant/rephraser.md
+              - name: Создать простого ассистента
+                href: operations/assistant/create.md
+              - name: Создать ассистента с инструментом {{ retrieval-tool-name }}
+                href: operations/assistant/create-with-searchindex.md
+              - name: >-
+                  Создать ассистента для поиска с указанием метаданных файлов и
+                  индексов
+                href: operations/assistant/create-with-labels.md
+              - name: Создать ассистента с инструментом WebSearch
+                href: operations/assistant/create-with-websearch.md
+              - name: Получить промежуточные результаты генерации ответа
+                href: operations/assistant/request-chunked-response.md
+              - name: Перефразировать запросы с помощью модели
+                href: operations/assistant/rephraser.md
+      - name: AI Search
+        items:
+          - name: Создать текстового агента с поиском в интернете
+            href: operations/agents/create-websearch-text-agent.md
+          - name: Создать текстового агента с поиском по файлам
+            href: operations/agents/create-filesearch-text-agent.md
+          - name: Создать агента с поиском по заранее созданным чанкам
+            href: operations/agents/create-prechunked-search-agent.md
+          - name: Работа с поисковым индексом {{ vector-store-name }}
+            href: operations/agents/manage-searchindex.md
       - name: '{{ mcp-hub-name }}'
         items:
           - name: Подключить внешний MCP-сервер
@@ -569,6 +571,7 @@ items:
                   - name: TextEmbedding
                     href: embeddings/api-ref/grpc/Embeddings/textEmbedding.md
       - name: '{{ assistant-api }} (англ.)'
+        hidden: true
         items:
           - name: REST
             items:
@@ -974,6 +977,7 @@ items:
       - name: >-
           Реализация AI-ассистента с поиском по PDF-файлам со сложным
           форматированием
+        hidden: true
         href: tutorials/pdf-searchindex-ai-assistant.md
       - name: Дообучение моделей в {{ ml-platform-name }}
         href: tutorials/models-fine-tuning.md
@@ -982,6 +986,7 @@ items:
       - name: Интеграция генеративных моделей в Visual Studio Code
         href: tutorials/ai-model-ide-integration.md
       - name: Создание интеллектуального ассистента для Telegram
+        hidden: true
         href: tutorials/tg-bot-assistant.md
       - name: >-
           Разработка Telegram-бота с поддержкой AI-агента с помощью {{

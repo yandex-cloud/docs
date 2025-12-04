@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_A_KEY_COLUMN error
-description: This page describes the ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_A_KEY_COLUMN error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_A_KEY_COLUMN'
+description: This page describes the Column used in join expression is not a key column {{ datalens-full-name }} error.
 ---
 
-# Column used in join expression is not a key column
+# [{{ datalens-full-name }}] Column used in join expression is not a key column
 
 `ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_A_KEY_COLUMN`
 

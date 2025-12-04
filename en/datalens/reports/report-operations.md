@@ -22,6 +22,7 @@ In this section, you will learn how to work with a report:
 * [Configuring scaling](#scaling-settings)
 * [Enabling preview](#report-preview)
 * [Exporting a report](#report-export)
+* [Banning the use of Neuroanalyst](#report-neuroanalyst-off)
 
 ## Creating a report {#create-report}
 
@@ -75,7 +76,7 @@ To add report info:
 
 1. In the top-right corner, click **Save**.
 
-Now all users will see the ![image](../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the report. Clicking it will open the **Report info** window with the info.
+Now all users will see the ![image](../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the report. Clicking it will open the **Report info** window with the information.
 
 {% cut "Viewing report info" %}
 
@@ -350,3 +351,7 @@ To exit the preview mode, click **Close** at the top of the screen or press **Es
 ## Exporting a report {#report-export}
 
 To export a report, click **Export**. The report will be exported to a `.pdf` file.
+
+## Banning the use of Neuroanalyst {#report-neuroanalyst-off}
+
+{% include [datalens-report-neuroanalyst-off](../../_includes/datalens/operations/datalens-report-neuroanalyst-off.md) %}

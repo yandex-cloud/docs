@@ -10,7 +10,7 @@ description: 'Follow this guide to get information about the {{ baremetal-full-n
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the server belongs to.
-  1. In the list of services, go **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** and, in the list of servers that opens, select the one you need.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** and select the server in the list of servers.
 
       The page offers the following information:
 

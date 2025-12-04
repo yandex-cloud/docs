@@ -251,7 +251,7 @@ items:
             href: operations/disk-placement-groups/remove-disk.md
       - name: Creating an image
         items:
-          - name: Preparing a disk image
+          - name: Setting up a disk image
             href: operations/image-create/custom-image.md
           - name: Uploading a custom image
             href: operations/image-create/upload.md
@@ -624,6 +624,8 @@ items:
             href: tutorials/integrate-nextcloud/coi-based.md
           - name: Manually deploying Nextcloud on a VM or VM group
             href: tutorials/integrate-nextcloud/fault-tolerant.md
+          - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
+            href: tutorials/integrate-nextcloud/terraform.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -1052,6 +1054,10 @@ items:
             href: cli-ref/instance-group/delete.md
           - name: delete-instances
             href: cli-ref/instance-group/delete-instances.md
+          - name: disable-zones
+            href: cli-ref/instance-group/disable-zones.md
+          - name: enable-zones
+            href: cli-ref/instance-group/enable-zones.md
           - name: get
             href: cli-ref/instance-group/get.md
           - name: list
@@ -1642,6 +1648,10 @@ items:
                       instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses.md
                   - name: PauseProcesses
                     href: instancegroup/api-ref/grpc/InstanceGroup/pauseProcesses.md
+                  - name: DisableZones
+                    href: instancegroup/api-ref/grpc/InstanceGroup/disableZones.md
+                  - name: EnableZones
+                    href: instancegroup/api-ref/grpc/InstanceGroup/enableZones.md
               - name: Operation
                 items:
                   - name: Overview

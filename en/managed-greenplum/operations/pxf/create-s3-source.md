@@ -48,7 +48,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
         Where:
 
-        * `cluster-id`: Cluster ID. You can get it with the [list of clusters in the folder](../cluster-list.md#list-cluster).
+        * `cluster-id`: Cluster ID. You can this value by querying the [list of clusters in the folder](../cluster-list.md#list-cluster).
         * `access-key`, `secret-key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
         * `endpoint`: S3 storage address. {{ objstorage-name }} is set to `{{ s3-storage-host }}`. This is a default value.
         * `fast-upload`: Fast upload of large files to S3 storage. The possible values are:
@@ -57,11 +57,11 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -94,13 +94,13 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
             * `endpoint`: S3 storage address. {{ objstorage-name }} is set to `{{ s3-storage-host }}`. This is a default value.
 
-        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -143,9 +143,9 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
             * `endpoint`: S3 storage address. {{ objstorage-name }} is set to `{{ s3-storage-host }}`. This is a default value.
 
-        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

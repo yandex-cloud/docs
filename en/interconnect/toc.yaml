@@ -45,14 +45,20 @@ items:
         href: tutorials/index.md
       - name: Creating a direct trunk and a private connection in it
         href: tutorials/trunk-priv-add.md
+      - name: Creating a direct trunk and a public connection in it
+        href: tutorials/trunk-pub-add.md
       - name: Adding a private connection to a trunk
         href: tutorials/priv-add.md
       - name: Changing VPC IP prefixes in a routing instance
         href: tutorials/ri-prefixes-upsert.md
+      - name: Adding a public connection to a trunk
+        href: tutorials/pub-add.md
       - name: Updating trunk capacity
         href: tutorials/trunk-capacity-change.md
       - name: Deleting a private connection
         href: tutorials/priv-del.md
+      - name: Deleting a public connection
+        href: tutorials/pub-del.md
       - name: Deleting a trunk
         href: tutorials/trunk-del.md
   - name: Concepts
@@ -122,6 +128,8 @@ items:
             href: cli-ref/private-connection/list.md
           - name: list-operations
             href: cli-ref/private-connection/list-operations.md
+          - name: move
+            href: cli-ref/private-connection/move.md
           - name: remove-labels
             href: cli-ref/private-connection/remove-labels.md
           - name: remove-static-routes
@@ -138,6 +146,8 @@ items:
             href: cli-ref/public-connection/get.md
           - name: list
             href: cli-ref/public-connection/list.md
+          - name: move
+            href: cli-ref/public-connection/move.md
       - name: trunk-connection
         items:
           - name: Overview
@@ -154,6 +164,8 @@ items:
             href: cli-ref/trunk-connection/list.md
           - name: list-operations
             href: cli-ref/trunk-connection/list-operations.md
+          - name: move
+            href: cli-ref/trunk-connection/move.md
           - name: remove-labels
             href: cli-ref/trunk-connection/remove-labels.md
           - name: update

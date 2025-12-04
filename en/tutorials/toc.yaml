@@ -18,10 +18,22 @@ items:
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
       - name: >-
+          Creating an L7 load balancer in {{ alb-name }} with a {{ sws-name }}
+          profile
+        items:
+          - name: Overview
+            href: security/balancer-with-sws-profile/index.md
+          - name: Management console
+            href: security/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: security/balancer-with-sws-profile/terraform.md
+      - name: >-
           Creating an L7 load balancer with a {{ sws-name }} profile through an
           {{ alb-name }} ingress controller
         href: security/alb-ingress-with-sws-profile.md
-      - name: Centralized online publication and app protection against DDoS attacks
+      - name: Creating a distributed infrastructure with secure access
+        href: security/distributed-secured-infrastructure.md
+      - name: Centralized online publication and DDoS protection of applications
         href: security/different-folders-services.md
       - name: Basic SWS setup
         href: security/sws-basic-protection.md
@@ -226,6 +238,8 @@ items:
             href: security/single-sign-on/saml-opensearch.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
+          - name: SonarQube
+            href: security/single-sign-on/saml-sonarqube.md
       - name: Uploading audit logs to {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
@@ -295,6 +309,8 @@ items:
             href: archive/integrate-nextcloud/coi-based.md
           - name: Manually deploying Nextcloud on a VM or VM group
             href: archive/integrate-nextcloud/fault-tolerant.md
+          - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
+            href: archive/integrate-nextcloud/terraform.md
   - name: Development and testing
     items:
       - name: All tutorials
@@ -660,7 +676,13 @@ items:
           - name: >-
               Static website in {{ objstorage-name }} with access via {{
               cdn-name }}
-            href: applied/cdn-hosting.md
+            items:
+              - name: Overview
+                href: applied/cdn-hosting/index.md
+              - name: Management console, CLI, and API
+                href: applied/cdn-hosting/console.md
+              - name: '{{ TF }}'
+                href: applied/cdn-hosting/terraform.md
           - name: Website based on LAMP or LEMP stack
             items:
               - name: Overview
@@ -731,6 +753,8 @@ items:
             href: web/migrate-to-yc-cdn.md
           - name: Getting website traffic statistics with S3 Select
             href: web/user-agent-statistics.md
+          - name: Formatting {{ video-name }} content in IFrame
+            href: web/video-iframe.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store
@@ -1626,8 +1650,12 @@ items:
           - name: >-
               Implementing an AI assistant with search capabilities for PDF
               files with complex formatting
+            hidden: true
             href: ml-ai/pdf-searchindex-ai-assistant.md
-          - name: Integrating Qwen3 into Visual Studio Code as a coding assistant
-            href: ml-ai/qwen-vsc-integration.md
+          - name: >-
+              Integrating generative models into Visual Studio Code as a coding
+              assistant
+            href: ml-ai/ai-model-ide-integration.md
           - name: Creating an AI assistant for Telegram
+            hidden: true
             href: ml-ai/tg-bot-assistant.md

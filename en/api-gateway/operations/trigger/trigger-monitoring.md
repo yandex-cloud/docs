@@ -15,9 +15,9 @@ The chart update period is 15 seconds.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder containing your trigger.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. Select a trigger to view its monitoring charts.
 
@@ -26,7 +26,7 @@ The chart update period is 15 seconds.
     1. The following charts will open on the page:
 
         * **Request latency**: Average time it takes a trigger to process a request.
-        * **Read events**: Number of events causing a trigger to fire.
+        * **Read events**: Number of events that have set off a trigger.
         * **Function access errors**: Number of access errors when sending messages to WebSocket connections.
         * **Function call errors**: Number of errors when sending messages to WebSocket connections.
 
@@ -43,9 +43,9 @@ To get started with [metrics](../../../monitoring/concepts/data-model.md#metric)
 | `serverless.triggers.`<br/>`inflight` | Invocations | <ul><li>`request`: Message distribution.</li></ul>                                                                                                                                                                                                                                                                              | Number of concurrent message distributions.                                                                                                          |
 | `serverless.triggers.`<br/>`error_per_second` | Errors per second. | <ul><li>`request`: Message distribution.</li></ul>                                                                                                              | Frequency of message distribution errors.                                                                                                               |
 | `serverless.triggers.`<br/>`access_error_per_second` | Errors per second. | <ul><li>`request`: Message distribution.</li></ul>                                                                                                              | Frequency of access errors during message distribution.                                                                                                       |
-| `serverless.triggers.`<br/>`read_events_per_second` | Events per second. | <ul><li>`incoming`: Events causing any trigger to fire except for a trigger for {{ message-queue-full-name }}.</li><li>`message_queue`: Events causing a trigger for {{ message-queue-full-name }} to fire.</li></ul> | Frequency of events causing a trigger to fire.                                                                                                  |
+| `serverless.triggers.`<br/>`read_events_per_second` | Events per second. | <ul><li>`incoming`: Events that have set off any trigger other than a trigger for {{ message-queue-full-name }}.</li><li>`message_queue`: Events that have set off a trigger for {{ message-queue-full-name }}.</li></ul> | Frequency of events that set off a trigger.                                                                                                  |
 | `serverless.triggers.`<br/>`execution_time_milliseconds` | Invocations per second. | <ul><li>`request`: Message distribution.</li></ul>                                                                                                                                                                                                                                                                               | Distribution histogram of messaging frequency over request processing time in milliseconds. Request processing time intervals are provided in the `bin` label. |
-| `serverless.triggers.`<br/>`event_size_exceeded_per_second` | Errors per second. | <ul><li>`incoming`: Events causing any trigger to fire except for a trigger for {{ message-queue-full-name }}.                                                                                                                                                                                                          | Frequency of errors on exceeding the message size limit.                                                                                            |
+| `serverless.triggers.`<br/>`event_size_exceeded_per_second` | Errors per second. | <ul><li>`incoming`: Events that have set off any trigger other than a trigger for {{ message-queue-full-name }}.                                                                                                                                                                                                          | Frequency of errors on exceeding the message size limit.                                                                                            |
 
 ### Custom metrics labels {#labels}
 

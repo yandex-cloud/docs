@@ -11,7 +11,7 @@ items:
         items:
           - name: Creating a resource
             href: operations/resources/create-resource.md
-          - name: Copying a configuration from one resource to another
+          - name: Copying configuration from one resource to another
             href: operations/resources/copy-resource.md
           - name: Updating basic settings of a resource
             href: operations/resources/configure-basics.md
@@ -41,6 +41,8 @@ items:
             href: operations/resources/setup-http-rewrite.md
           - name: Setting up access via a secure token
             href: operations/resources/enable-secure-token.md
+          - name: Setting up location rules
+            href: operations/resources/location-rules.md
           - name: Managing additional resource settings
             href: operations/resources/configure-additions.md
           - name: Disabling a resource
@@ -88,7 +90,13 @@ items:
       - name: >-
           Setting up static website hosting in a {{ objstorage-full-name }}
           bucket with {{ cdn-full-name }} access
-        href: tutorials/cdn-hosting.md
+        items:
+          - name: Overview
+            href: tutorials/cdn-hosting/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/cdn-hosting/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-hosting/terraform.md
   - name: Concepts
     items:
       - name: Overview
@@ -127,6 +135,8 @@ items:
         href: concepts/secure-tokens.md
       - name: IP-based access policy
         href: concepts/ip-address-acl.md
+      - name: Location rules
+        href: concepts/location-rules.md
       - name: Log export
         href: concepts/logs.md
       - name: Labels

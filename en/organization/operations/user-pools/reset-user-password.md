@@ -52,6 +52,10 @@ To reset a [local](../../../iam/concepts/users/accounts.md#local) user password,
 
       Save the generated password and communicate it to the user. After closing the shell, you will not be able to view the new password.
 
+- API {#api}
+
+  Use the [User.GeneratePassword](../../idp/api-ref/User/generatePassword.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/GeneratePassword](../../idp/api-ref/grpc/User/generatePassword.md) gRPC API call.
+
 {% endlist %}
 
 The user must change this password on their first login to {{ yandex-cloud }}.
@@ -91,5 +95,9 @@ The user must change this password on their first login to {{ yandex-cloud }}.
       It must be at least seven characters long and must contain at least one uppercase Latin letter, one lowercase Latin letter, one number, and one special character. 
 
       {% endnote %}
+
+- API {#api}
+
+  Use the [User.SetOwnPassword](../../idp/api-ref/User/setOwnPassword.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/SetOwnPassword](../../idp/api-ref/grpc/User/setOwnPassword.md) gRPC API call.
 
 {% endlist %}

@@ -3,7 +3,7 @@ title: How to get information about a public image in {{ compute-full-name }}
 description: Follow this guide to get information about a public image.
 ---
 
-# Getting information about a public image
+# Getting public image info
 
 You can get the ID of a public image or other information about it.
 
@@ -14,7 +14,7 @@ You can get the ID of a public image or other information about it.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a virtual machine in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}** from the list that opens.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, click ![image](../../../_assets/console-icons/circle-info.svg) next to the [public image](../../concepts/image.md#public) you need.
@@ -86,7 +86,7 @@ You can get the ID of a public image or other information about it.
       * `data "yandex_compute_image"`: Description of the public image as a data source:
         * `family`: [Family](../../concepts/image.md#family) name of public image operating systems. To learn the image family name, [get](#get-info) a list of images in the folder.
       * `output "image"`: Output variable storing the public image ID:
-        * `value`: Returned value.
+        * `value`: Return value.
 
       For more information about the `yandex_compute_image` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_image).
 
@@ -94,7 +94,7 @@ You can get the ID of a public image or other information about it.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output
@@ -112,14 +112,14 @@ You can get the ID of a public image or other information about it.
 
 {% endlist %}
 
-## Getting information about a public image {#get-info}
+## Getting public image info {#get-info}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a virtual machine in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}** from the list that opens.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, click ![image](../../../_assets/console-icons/circle-info.svg) next to the [public image](../../concepts/image.md#public) you need.
@@ -189,15 +189,15 @@ You can get the ID of a public image or other information about it.
       * `data "yandex_compute_image"`: Description of the public image as a data source:
         * `image_id`: Public image ID. To learn the image ID, [get](#get-id) a list of images in the folder.
       * `output "image"`: Output variable storing information about the OS [family](../../concepts/image.md#family):
-        * `value`: Returned value.
+        * `value`: Return value.
 
-      You can replace `family` with any other parameter to get the information you need. For more information about the `yandex_compute_image` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_image).
+      You can replace `family` with any other parameter to get the information you need. For more information about the `yandex_compute_image` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/compute_image).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

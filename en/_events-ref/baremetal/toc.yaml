@@ -1,0 +1,55 @@
+items:
+  - name: ApplyUpdatePrivateCloudConnection
+    href: events-ref/ApplyUpdatePrivateCloudConnection.md
+  - name: BatchCreateServer
+    href: events-ref/BatchCreateServer.md
+  - name: CreateImage
+    href: events-ref/CreateImage.md
+  - name: CreatePrivateCloudConnection
+    href: events-ref/CreatePrivateCloudConnection.md
+  - name: CreatePrivateSubnet
+    href: events-ref/CreatePrivateSubnet.md
+  - name: CreatePublicSubnet
+    href: events-ref/CreatePublicSubnet.md
+  - name: CreateServer
+    href: events-ref/CreateServer.md
+  - name: CreateVRF
+    href: events-ref/CreateVRF.md
+  - name: DeleteImage
+    href: events-ref/DeleteImage.md
+  - name: DeletePrivateCloudConnection
+    href: events-ref/DeletePrivateCloudConnection.md
+  - name: DeletePrivateSubnet
+    href: events-ref/DeletePrivateSubnet.md
+  - name: DeletePublicSubnet
+    href: events-ref/DeletePublicSubnet.md
+  - name: DeleteServer
+    href: events-ref/DeleteServer.md
+  - name: DeleteVRF
+    href: events-ref/DeleteVRF.md
+  - name: PowerOffServer
+    href: events-ref/PowerOffServer.md
+  - name: PowerOnServer
+    href: events-ref/PowerOnServer.md
+  - name: RebootServer
+    href: events-ref/RebootServer.md
+  - name: RegisterServerBackupAgent
+    href: events-ref/RegisterServerBackupAgent.md
+  - name: ReinstallServer
+    href: events-ref/ReinstallServer.md
+  - name: StartServerProlongation
+    href: events-ref/StartServerProlongation.md
+  - name: StopServerProlongation
+    href: events-ref/StopServerProlongation.md
+  - name: UpdateImage
+    href: events-ref/UpdateImage.md
+  - name: UpdatePrivateCloudConnection
+    href: events-ref/UpdatePrivateCloudConnection.md
+  - name: UpdatePrivateSubnet
+    href: events-ref/UpdatePrivateSubnet.md
+  - name: UpdatePublicSubnet
+    href: events-ref/UpdatePublicSubnet.md
+  - name: UpdateServer
+    href: events-ref/UpdateServer.md
+  - name: UpdateVRF
+    href: events-ref/UpdateVRF.md

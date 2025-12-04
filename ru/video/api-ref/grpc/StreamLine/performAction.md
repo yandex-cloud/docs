@@ -28,7 +28,9 @@ Actions change the stream line's state without modifying its configuration.
 ||Field | Description ||
 || stream_line_id | **string**
 
-Required field. ID of the stream line on which to perform the action. ||
+Required field. ID of the stream line on which to perform the action.
+
+The maximum string length in characters is 50. ||
 || activate | **[ActivateAction](#yandex.cloud.video.v1.ActivateAction)**
 
 Activate the stream line, enabling it to receive and process video signals.

@@ -25,7 +25,7 @@ In this tutorial, you will learn how to use the following {{ metastore-name }} a
 
 To implement the above example, do the following:
 
-1. [Set up your infrastructure](#infra).
+1. [Set up the infrastructure](#infra).
 1. [Prepare and run a PySpark job](#prepare-job).
 1. [Check the result](#check-out).
 
@@ -93,6 +93,7 @@ Set up the infrastructure:
 1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `metastore-agent`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `{{ metastore.integration-version }}`.
     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `integration-network`.
     * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `integration-network-{{ region-id }}-a`.
     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `metastore-sg`.

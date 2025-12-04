@@ -10,3 +10,4 @@ description: In this tutorial, you will deploy Nextcloud on a {{ compute-full-na
 #### See also {#see-also}
 
 * [{#T}](./fault-tolerant.md)
+* [{#T}](./terraform.md)

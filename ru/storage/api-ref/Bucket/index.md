@@ -23,4 +23,8 @@ A set of methods for managing buckets.
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified bucket. ||
 || [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified bucket. ||
 || [ListAccessBindings](listAccessBindings.md) | Lists access bindings for the specified bucket. ||
+|| [CreateInventoryConfiguration](createInventoryConfiguration.md) | Create/Update an inventory configuration with the corresponding ID ||
+|| [GetInventoryConfiguration](getInventoryConfiguration.md) | Get an inventory configuration with the corresponding ID ||
+|| [DeleteInventoryConfiguration](deleteInventoryConfiguration.md) | Delete an inventory configuration with the corresponding ID ||
+|| [ListInventoryConfigurations](listInventoryConfigurations.md) | Listing inventory configurations ||
 |#

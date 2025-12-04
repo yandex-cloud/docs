@@ -28,18 +28,24 @@ Retrieves the list of reserved instance pool resources in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the Folder to list reserved instance pools in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListReservedInstancePoolsResponse.next_page_token](#yandex.cloud.compute.v1.ListReservedInstancePoolsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results,
 set `page_token` to the [ListReservedInstancePoolsResponse.next_page_token](#yandex.cloud.compute.v1.ListReservedInstancePoolsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -49,11 +55,15 @@ Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
 2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
 3. `<value>` represents a value.
-String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). ||
+String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
+
+The maximum string length in characters is 1000. ||
 || order_by | **string**
 
 By which column the listing should be ordered and in which direction,
-format is "createdAt desc". "id asc" if omitted. ||
+format is "createdAt desc". "id asc" if omitted.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListReservedInstancePoolsResponse {#yandex.cloud.compute.v1.ListReservedInstancePoolsResponse}
@@ -189,7 +199,9 @@ Stats for instances of the pool ||
 ||Field | Description ||
 || memory | **int64**
 
-Required field. The amount of memory available to the instance, specified in bytes. ||
+Required field. The amount of memory available to the instance, specified in bytes.
+
+The maximum value is 274877906944. ||
 || cores | **int64**
 
 Required field. The number of cores available to the instance. ||
@@ -222,7 +234,6 @@ Attach instance to specified GPU cluster. ||
 
 Network Type
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||

@@ -28,18 +28,26 @@ Request to list available geographical locations for shielding.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder for which to request a list of locations where shielding can be activated. ||
+Required field. ID of the folder for which to request a list of locations where shielding can be activated.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
-Maximum number of results per page. ||
+Maximum number of results per page.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results,
 set `page_token` to the [ListShieldingLocationsResponse.next_page_token](#yandex.cloud.cdn.v1.ListShieldingLocationsResponse)
-returned by a previous list response. ||
+returned by a previous list response.
+
+The maximum string length in characters is 100. ||
 || resource_id | **string**
 
-Required field. ID of the resource for which to request a list of locations where shielding can be activated. ||
+Required field. ID of the resource for which to request a list of locations where shielding can be activated.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListShieldingLocationsResponse {#yandex.cloud.cdn.v1.ListShieldingLocationsResponse}

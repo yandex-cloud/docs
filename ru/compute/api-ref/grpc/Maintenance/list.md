@@ -35,12 +35,16 @@ ListMaintenancesRequest allows listing maintenances by cloud ID, folder ID, reso
 
 Cloud ID for the resources.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `cloud_id`, `folder_id`, `resource_id`.
 
 Container specifies the resources for which to list maintenances. (Required) ||
 || folder_id | **string**
 
 Folder ID for the resources.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `cloud_id`, `folder_id`, `resource_id`.
 
@@ -49,24 +53,34 @@ Container specifies the resources for which to list maintenances. (Required) ||
 
 Resource ID of the target resource.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `cloud_id`, `folder_id`, `resource_id`.
 
 Container specifies the resources for which to list maintenances. (Required) ||
 || page_size | **int64**
 
-The maximum number of maintenances to return per response. ||
+The maximum number of maintenances to return per response.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
-Token to retrieve the next page of results. Omitted on the first request. ||
+Token to retrieve the next page of results. Omitted on the first request.
+
+The maximum string length in characters is 500. ||
 || order_by | **string**
 
 By which field the listing should be ordered and in which direction,
 format is "created_at desc". The default sorting order is ascending.
-Supported fields: ["created_at", "start_scheduled_at", "started_at"]. ||
+Supported fields: ["created_at", "start_scheduled_at", "started_at"].
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 Filter list by various fields.
-Supported fields: ["status", "resource_type", "resource_id"] ||
+Supported fields: ["status", "resource_type", "resource_id"]
+
+The maximum string length in characters is 100. ||
 |#
 
 ## yandex.cloud.maintenance.v2.ListMaintenancesResponse {#yandex.cloud.maintenance.v2.ListMaintenancesResponse}
@@ -141,7 +155,6 @@ Service-specific details. ||
 
 Status of the maintenance.
 
-- `STATUS_UNSPECIFIED`: Not set.
 - `SCHEDULED`: Maintenance is scheduled for a future time.
 - `RUNNING`: Maintenance is currently running.
 - `SUCCEEDED`: Maintenance completed successfully.

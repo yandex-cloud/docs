@@ -24,7 +24,9 @@ This removes both the metadata record and the associated subtitle file.
 ||Field | Description ||
 || subtitle_id | **string**
 
-Required field. ID of the subtitle to delete. ||
+Required field. ID of the subtitle to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

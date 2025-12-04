@@ -61,7 +61,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 ## Configure the CI script {#ci}
 
-1. Create the [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
+1. Create [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
    1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
    1. Click **Expand** next to **Variables**.
    1. Add the following environment variables depending on the {{ managed-k8s-name }} authentication method in {{ GL }}:
@@ -77,7 +77,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
              | jq -r .master.endpoints.external_v4_endpoint
           ```
 
-        * `KUBE_TOKEN`: Token that {{ GL }} will use to apply the configuration. Use the token obtained earlier.
+        * `KUBE_TOKEN`: Token that {{ GL }} will use to apply the configuration. Use the token you got earlier.
 
       - {{ GLA }} {#gla}
 
@@ -218,7 +218,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
             - (( SUM = $CRIT_VULN + $HIGH_VULN )) && (( RES = (SUM >= 1) )) && echo $RES && echo "image has $CRIT_VULN critical vulns and $HIGH_VULN high vulns" && exit 1 || echo "image has no high or crit vulns" exit 0
 
         deploy:
-          image: bitnami/kubectl:latest
+          image: bitnamilegacy/kubectl:latest
           stage: deploy
           script:
             - kubectl config use-context ${CI_PROJECT_PATH}:<GitLab_Agent_name>

@@ -20,7 +20,7 @@ Make sure the image you upload has the `READY` status.
 
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Select **Advanced setup**.
@@ -141,7 +141,7 @@ Make sure the image you upload has the `READY` status.
 
          * `size`: Disk size in GB.
          * `image-id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
-         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional parameter.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional setting.
 
            {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
            
@@ -203,7 +203,7 @@ Make sure the image you upload has the `READY` status.
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create a VM from a custom image:
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {
@@ -287,7 +287,7 @@ Make sure the image you upload has the `READY` status.
 
      {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
   1. Create the resources:
 

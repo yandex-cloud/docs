@@ -13,7 +13,7 @@ You need the `search-api.webSearch.user` [role](../security/index.md#search-api-
 
 For more information on the pricing of generative responses to queries, see [{#T}](../pricing.md).
 
-## Request body format {#body}
+## API request body format {#body}
 
 The names of the request body fields are different in [REST API](../api-ref/index.md) and [gRPC API](../api-ref/grpc/index.md): the former uses [camelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter, [snake_case](https://en.wikipedia.org/wiki/Snake_case).
 
@@ -249,13 +249,13 @@ Each query seeking a generative response must contain the following request body
 
 {% endlist %}
 
-## Submitting a query {#send-request}
+## Sending a request via the API {#send-request}
 
 {% list tabs group=instructions %}
 
 - REST API {#api}
 
-  To send a query, use the [search](../api-ref/GenSearch/search.md) method for [GenSearch](../api-ref/GenSearch/index.md). Install [cURL](https://curl.haxx.se) and [jq](https://stedolan.github.io/jq) if needed:
+  To send a request via the API, use the [search](../api-ref/GenSearch/search.md) method for [GenSearch](../api-ref/GenSearch/index.md). Install [cURL](https://curl.haxx.se) and [jq](https://stedolan.github.io/jq) if needed:
 
   ```bash
   curl \
@@ -283,6 +283,105 @@ Each query seeking a generative response must contain the following request body
   {% include [gen-response-request-legend](../../_includes/search-api/gen-response-request-legend.md) %}
 
 {% endlist %}
+
+## Sending a request via {{ ml-sdk-full-name }} {#request-via-sdk}
+
+To send a request for a generative response via [{{ ml-sdk-full-name }}](./index.md#sdk), run the following [Python](https://www.python.org/) code. This example illustrates the key aspects of using {{ ml-sdk-name }} to get a generative response:
+
+```python
+#!/usr/bin/env python3
+
+from __future__ import annotations
+
+import pprint
+
+from yandex_cloud_ml_sdk import YCloudML
+
+
+def main() -> None:
+
+    sdk = YCloudML(
+        folder_id="<folder_ID>",
+        auth="<API_key>",
+    )
+    sdk.setup_default_logging()
+
+    search = sdk.search_api.generative(
+        # You can use only one of the three params: site, host, or url
+        site=["yandex.cloud", "yandex.ru"],
+        # host=['yandex.cloud/', 'yandex.ru/'],
+        # url=['https://yandex.cloud/ru/docs/serverless-containers/concepts/container', 'https://yandex.cloud/ru/docs/container-registry/concepts/docker-image'],
+        fix_misspell=True,
+        enable_nrfm_docs=True,
+        search_filters=[
+            {"date": ">20250101"},
+            {"lang": "ru"},
+            {"format": "pdf"},
+        ],
+    )
+
+    # You can pass a string as a query
+    search_result = search.run("Yandex Cloud generative Search API params")
+
+    # You can examine the search_result structure via pprint
+    # to get to know how to work with it:
+    pprint.pprint(search_result)
+    print()
+
+    queries = [
+        # You can also pass a {'text', 'role'} dict like in the completions models
+        {"text": "Gen search api params", "role": "user"},
+        "With examples",
+    ]
+
+    # And you can pass an array of any allowed types
+    search_result = search.run(queries)  # type: ignore[arg-type]
+    print(search_result.text)
+    print()
+
+    # Also search result itself could be used as one of the queries for a better context
+    queries.append(search_result)  # type: ignore[arg-type]
+    queries.append("Get me more examples of how to use Generative Search API with gprc")
+
+    search_result = search.run(queries)  # type: ignore[arg-type]
+    print(search_result.text)
+    print()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Where:
+
+{% include [sdk-code-legend](../../_includes/ai-studio/examples/sdk-code-legend.md) %}
+
+Provide the search query text in the `.run` method and use the relevant `search_api.generative` object properties to set the parameters of your search:
+
+* The `site`, `host`, and `url` properties define the search scope. Note that the `site`, `host`, and `url` properties are mutually exclusive; you can only set one of them. If neither of these fields is set, the search will be performed across the entire Yandex search index.
+
+    * `site`: Restricts the search to a specific array of websites. Not more than 5 websites per search.
+
+        For example, for the `yandex.cloud` website, the search will target all `*.yandex.cloud/*` documents, i.e., the results will include pages with the following URLs:
+        * `yandex.cloud/`
+        * `subdomain.yandex.cloud/`
+        * `yandex.cloud/path/`
+        * `subdomain.yandex.cloud/path/`
+
+        In the `site` property, you can specify the exact path to the search area, e.g., `{{ link-docs }}`.
+    * `host`: Restricts the search to a specific array of hosts. Not more than 5 hosts per search.
+
+        For example, for the `yandex.cloud/` host, the search will target all `yandex.cloud/*` documents, i.e., the results will include pages with the following URLs:
+        * `yandex.cloud/`
+        * `yandex.cloud/path/`
+
+        Unlike `site`-based restrictions, `host`-based restrictions do not apply to subdomains. You also cannot provide a specific path to the search area in the `host` property.
+    * `url`: Restricts the search to a specific array of pages, e.g., `{{ link-docs }}/serverless-containers/concepts/container` and `{{ link-docs }}/container-registry/concepts/docker-image`. Not more than 10 pages per search.
+* `fix_misspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixed_misspell_query` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values are `true` or `false`.
+* `enable_nrfm_docs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enable_nrfm_docs` to `true`. This is an optional parameter. The possible values are `true` or `false`.
+* `search_filters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional parameter.
+
+For the {{ ml-sdk-name }} library source code and use cases, visit [this GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk). You can learn more about {{ ml-sdk-full-name }} in [this {{ ai-studio-name }} guide](../../ai-studio/sdk/index.md).
 
 ## Generative response {#response}
 

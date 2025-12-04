@@ -26,6 +26,7 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [{#T}](coi-fluent-bit-logging.md)
 * [{#T}](../container-infrastructure/k8s-fluent-bit-logging.md)
 * [{#T}](balancer-with-sws-profile/index.md)
+* [{#T}](distributed-secured-infrastructure.md)
 * [{#T}](different-folders-services.md)
 * [{#T}](alerts-monitoring.md)
 * [{#T}](maxpatrol.md)

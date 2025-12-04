@@ -64,6 +64,15 @@
    * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса:
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить случайный [IP-адрес](../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичный IP-адрес.
+
+     {% note info %}
+
+     {% include [nodes-internet-access](nodes-internet-access.md) %}
+
+     {% include [nodes-internet-access-additional](nodes-internet-access-additional.md) %}
+
+     {% endnote %}
+
    * Выберите [группы безопасности](../../vpc/concepts/security-groups.md).
 
      {% include [security-groups-alert](security-groups-alert.md) %}
@@ -93,7 +102,7 @@
     {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
 
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
-   * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите окно для обновлений:
+   * В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите окно для обновлений:
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — отключение автоматических обновлений.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — обновления разрешены в любое время.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — обновления будут происходить во временной интервал, указанный в поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}**.

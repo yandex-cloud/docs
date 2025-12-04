@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Image resource to update.
             To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - imageId
@@ -35,18 +36,21 @@ apiPlayground:
           description: |-
             **string**
             Name of the image.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the image.
+            The maximum string length in characters is 256.
           type: string
         minDiskSize:
           description: |-
             **string** (int64)
             Minimum size of the disk that can be created from this image.
             Specified in bytes. Should be more than the volume of source data and more than the virtual disk size.
+            Acceptable values are 4194304 to 4398046511104, inclusive.
           type: string
           format: int64
         labels:
@@ -54,6 +58,7 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -87,7 +92,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/images/{imageId}
 || imageId | **string**
 
 Required field. ID of the Image resource to update.
-To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#List) request. ||
+To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateImageRequest}
@@ -116,19 +123,27 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the image. ||
+Name of the image.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the image. ||
+Description of the image.
+
+The maximum string length in characters is 256. ||
 || minDiskSize | **string** (int64)
 
 Minimum size of the disk that can be created from this image.
-Specified in bytes. Should be more than the volume of source data and more than the virtual disk size. ||
+Specified in bytes. Should be more than the volume of source data and more than the virtual disk size.
+
+Acceptable values are 4194304 to 4398046511104, inclusive. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-Existing set of `labels` is completely replaced by the provided set. ||
+Existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -340,7 +355,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `READY`: Image is ready to use.
 - `ERROR`: Image encountered a problem and cannot operate.
@@ -370,7 +384,6 @@ Operating system type. The default is `LINUX`.
 
 This field is used to correctly emulate a vCPU and calculate the cost of using an instance.
 
-- `TYPE_UNSPECIFIED`
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
 |#
@@ -401,7 +414,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#

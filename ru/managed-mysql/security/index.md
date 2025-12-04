@@ -24,11 +24,13 @@ description: Управление доступом в сервисе по соз
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
+В [консоли управления]({{ link-console-main }}) или через [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/mdb/roles-managed-mysql.svg)
+{% include [roles-managed-mysql](../../_mermaid/roles/managed-mysql.md) %}
 
 ### Сервисные роли {#service-roles}
 

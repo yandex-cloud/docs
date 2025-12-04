@@ -25,7 +25,7 @@ To add a public SSH key to a profile:
   
       Use the filter or search as needed.
 
-  1. Navigate to the **{{ ui-key.yacloud_org.user.title_ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens:
+  1. Navigate to the **{{ ui-key.yacloud_org.user.title_ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens, do the following:
   
       1. Name the SSH key you are adding.
 
@@ -125,7 +125,7 @@ To add a public SSH key to a profile:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
       ```hcl
       resource "yandex_organizationmanager_user_ssh_key" "my_user_ssh_key" {
@@ -156,7 +156,7 @@ To add a public SSH key to a profile:
           terraform plan
           ```
 
-      If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -193,6 +193,12 @@ To add a public SSH key to a profile:
 You can only add an SSH key to a service account profile using the CLI, {{ TF }}, or API.
 
 To allow users to upload SSH keys to their own profiles, [enable](./os-login-access.md) the **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}** option.
+
+{% note info %}
+
+{% include [adding-sa-ssh-keys-notice](../../_includes/organization/adding-sa-ssh-keys-notice.md) %}
+
+{% endnote %}
 
 #### See also {#see-also}
 

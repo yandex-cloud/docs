@@ -168,6 +168,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/cluster/add-access-binding.md
               - name: create
                 href: cli-ref/cluster/create.md
               - name: delete
@@ -180,8 +182,14 @@ items:
                 href: cli-ref/cluster/import-data.md
               - name: list
                 href: cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/cluster/list-access-bindings.md
               - name: list-operations
                 href: cli-ref/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/cluster/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/cluster/start.md
               - name: stop
@@ -436,6 +444,8 @@ items:
                 href: operations/data-catalog/search-metadata.md
               - name: Анализ связей между метаданными
                 href: operations/data-catalog/analysis-metadata.md
+              - name: Получение профиля данных
+                href: operations/data-catalog/get-data-profile.md
               - name: Запросы к наборам данных с помощью {{ websql-full-name }}
                 href: operations/data-catalog/web-sql-query.md
       - name: Концепции

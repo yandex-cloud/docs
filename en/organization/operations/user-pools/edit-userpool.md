@@ -56,4 +56,8 @@ description: Follow this guide to edit a user pool in {{ org-name }}.
      * `--description`: New user pool description.
      * `labels`: New list of [labels](../../../resource-manager/concepts/labels.md). You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
+- API {#api}
+
+  Use the [Userpool.Update](../../idp/api-ref/Userpool/update.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/Update](../../idp/api-ref/grpc/Userpool/update.md) gRPC API call.
+
 {% endlist %}

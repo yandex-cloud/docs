@@ -34,4 +34,8 @@ description: Follow this guide to get information about a user pool in {{ org-na
      yc organization-manager idp userpool get <pool_ID>
      ```
 
+- API {#api}
+
+  Use the [Userpool.Get](../../idp/api-ref/Userpool/get.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/Get](../../idp/api-ref/grpc/Userpool/get.md) gRPC API call.
+
 {% endlist %}

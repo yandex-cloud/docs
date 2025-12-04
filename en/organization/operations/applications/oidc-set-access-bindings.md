@@ -33,7 +33,7 @@ To grant access to an [OIDC app](../../concepts/applications.md#oidc), assign [r
 
    1. Using the `yc organization-manager idp application oauth application set-access-bindings` command, assign the following roles:
       
-      * To a Yandex account user:
+      * To a Yandex account user or local user:
 
          ```bash
          yc organization-manager idp application oauth application set-access-bindings \
@@ -82,5 +82,9 @@ To grant access to an [OIDC app](../../concepts/applications.md#oidc), assign [r
         --access-binding role=<role2>,service-account-id=<service_account_ID> \
         --access-binding role=<role3>,service-account-id=<service_account_ID>
       ```
+
+- API {#api}
+
+  Use the [Application.SetAccessBindings](../../idp/application/oauth/api-ref/Application/setAccessBindings.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/SetAccessBindings](../../idp/application/oauth/api-ref/grpc/Application/setAccessBindings.md) gRPC API call.
 
 {% endlist %}

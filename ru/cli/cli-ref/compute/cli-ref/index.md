@@ -150,6 +150,8 @@ Syntax:
 	- [yc compute instance-group create](instance-group/create.md) — Create an instance group
 	- [yc compute instance-group delete](instance-group/delete.md) — Delete the specified instance group
 	- [yc compute instance-group delete-instances](instance-group/delete-instances.md) — Delete instances of the specified instance group
+	- [yc compute instance-group disable-zones](instance-group/disable-zones.md) — Disable zones for the specified instance group
+	- [yc compute instance-group enable-zones](instance-group/enable-zones.md) — Enable zones for the specified instance group
 	- [yc compute instance-group get](instance-group/get.md) — Show information about the specified instance group
 	- [yc compute instance-group list](instance-group/list.md) — List instance groups
 	- [yc compute instance-group list-access-bindings](instance-group/list-access-bindings.md) — List access bindings for the specified instance group

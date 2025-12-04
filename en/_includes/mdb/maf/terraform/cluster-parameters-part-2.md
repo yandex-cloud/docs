@@ -1,9 +1,9 @@
 * `security_group_ids`: List of [security group](../../../../managed-airflow/concepts/network.md#security-groups) IDs.
-* `webserver`, `scheduler`, `worker`, `triggerer`: {{ maf-name }} [component](../../../../managed-airflow/concepts/index.md#components) configuration:
+* `webserver`, `scheduler`, `worker`, `triggerer`, `dag_processor`: {{ maf-name }} [component](../../../../managed-airflow/concepts/index.md#components) configuration:
 
-    * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
+    * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
     * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-    * `resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The allowed values are:
+    * `resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
 
         * `c1-m2`: 1 vCPU, 2 GB RAM
         * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -13,6 +13,8 @@
         * `c4-m16`: 4 vCPUs, 16 GB RAM
         * `c8-m16`: 8 vCPUs, 16 GB RAM
         * `c8-m32`: 8 vCPUs, 32 GB RAM
+    
+    {% include notitle [dag-processor](../dag-processor.md) %}
 
 * `deb_packages`, `pip_packages`: Lists of deb and pip packages enabling you to install additional libraries and applications in the cluster for running DAG files:
 
@@ -30,7 +32,7 @@
 
     * `type`: Maintenance type. The possible values include:
         * `ANYTIME`: Any time.
-        * `WEEKLY`: On a schedule.
+        * `WEEKLY`: On schedule.
     * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
     * `hour`: Time of day (UTC) for the `WEEKLY` type, from `1` to `24`.
 

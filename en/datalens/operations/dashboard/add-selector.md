@@ -1,12 +1,12 @@
 ---
-title: Adding a selector to a dashboard
-description: Follow this guide to add a selector to a dashboard.
+title: Adding a selector to a dashboard in {{ datalens-full-name }}
+description: Follow this guide to add a selector to a dashboard in {{ datalens-full-name }}.
 ---
 
-# Adding a selector to a dashboard
+# Adding a selector to a dashboard in {{ datalens-full-name }}
 
 
-Before adding a selector, make sure you have the `{{ permission-write }}` or `{{ permission-admin }}` permission for the dashboard. For more information, see [{#T}](../../security/manage-access.md).
+Before adding a selector, make sure you have the `{{ permission-write }}` or `{{ permission-admin }}` permission for the dashboard. Learn more in [{#T}](../../security/manage-access.md).
 
 
 To add a [selector](../../dashboard/selector.md) to a dashboard:
@@ -96,7 +96,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
      * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is added to the end of the selector name. Not available for the **Checkbox** selector type.
      * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
-     * **Possible values**: List of values to select. Only available for the **List** selector type. To add several values ​​at once, copy the list of values ​​to the clipboard, paste it into the input field and click **Add**. You can also remove a value by clicking ![image](../../../_assets/console-icons/xmark.svg), or swap values ​​by dragging them.
+     * **Possible values**: List of values to select. Only available for the **List** selector type. To add multiple values at once, copy the list of values to the clipboard, paste it into the input field, and click **Add**. You can also remove a value by clicking ![image](../../../_assets/console-icons/xmark.svg), or swap the values around by dragging them.
      * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
      * **Time**: Allows specifying time. Only available for the **Calendar** selector type.
      * **Default value**: Displayed when you first open the dashboard. This field must be set for the **List** type; otherwise, no value will be available in the selector. This is a required field if the **Required field** option is enabled.

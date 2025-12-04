@@ -9,7 +9,7 @@ To add a user to the list of notification recipients:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-cloud }}), select the folder to configure. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
-  1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}** tab.
   1. Click **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-dialog }}**.
   1. In the **{{ ui-key.yacloud_components.notify-subs.label_subscribers-dialog-header }}** window that opens, select:
 
@@ -17,7 +17,7 @@ To add a user to the list of notification recipients:
 
         {% note info %}
 
-        You can add users with a [Yandex account](../../../iam/concepts/users/accounts.md#passport) as well as [federated users](../../../iam/concepts/users/accounts.md#saml-federation). Federated users should specify their email address in their account settings.
+        You can add [Yandex account](../../../iam/concepts/users/accounts.md#passport) users, [federated](../../../iam/concepts/users/accounts.md#saml-federation) and [local](../../../iam/concepts/users/accounts.md#local) users. Federated and local users must specify their email address in their account profile.
 
         {% endnote %}
 

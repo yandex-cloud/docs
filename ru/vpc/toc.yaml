@@ -33,8 +33,6 @@ items:
             href: operations/subnet-get-info.md
           - name: Перенести подсеть между каталогами
             href: operations/subnet-move.md
-          - name: Перенести подсеть в другую зону доступности
-            href: operations/subnet-relocate.md
           - name: Посмотреть список используемых адресов
             href: operations/subnet-used-addresses.md
       - name: IP-адрес
@@ -45,6 +43,8 @@ items:
             href: operations/set-static-ip.md
           - name: Сделать статический публичный IP-адрес динамическим
             href: operations/set-dynamic-ip.md
+          - name: Настроить защиту от удаления
+            href: operations/deletion-protection.md
           - name: Перенести адрес между каталогами
             href: operations/address-move.md
           - name: Получить информацию об IP-адресе

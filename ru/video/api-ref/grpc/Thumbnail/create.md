@@ -29,15 +29,21 @@ using the URL obtained from the GenerateUploadURL method.
 ||Field | Description ||
 || channel_id | **string**
 
-[Deprecated] ID of the channel. ||
+[Deprecated] ID of the channel.
+
+The maximum string length in characters is 50. ||
 || episode_id | **string**
 
 ID of the episode to associate the thumbnail with.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `episode_id`, `video_id`. ||
 || video_id | **string**
 
 ID of the video to associate the thumbnail with.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `episode_id`, `video_id`. ||
 |#

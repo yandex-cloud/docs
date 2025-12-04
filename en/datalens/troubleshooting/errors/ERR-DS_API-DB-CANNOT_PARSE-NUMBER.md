@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.DB.CANNOT_PARSE.NUMBER error
-description: This page describes the ERR.DS_API.DB.CANNOT_PARSE.NUMBER error.
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.CANNOT_PARSE.NUMBER'
+description: This page describes the Cannot parse number {{ datalens-full-name }} error.
 ---
 
-# Cannot parse number
+# [{{ datalens-full-name }}] Cannot parse number
 
 `ERR.DS_API.DB.CANNOT_PARSE.NUMBER`
 

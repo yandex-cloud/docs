@@ -10,7 +10,7 @@ description: This page covers FAQ about {{ baremetal-name }}.
 Restart the BMC: 
 
 1. In the [management console]({{ link-console-main }}), select **{{ baremetal-name }}** and the relevant server.
-1. In the left-hand menu, select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
+1. In the left-hand menu, select **{{ ui-key.yacloud.baremetal.label_kvm-console_37Kma }}**.
 1. In the console window, click **Reset BMC**.
 
 If restarting the BMC did not help, contact [support]({{ link-console-support }}).

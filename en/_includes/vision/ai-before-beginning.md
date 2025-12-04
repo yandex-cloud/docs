@@ -4,7 +4,7 @@ Get your account data for authentication:
 
 - Yandex or federated account {#yandex-account}
 
-  1. Get an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
+  1. Get an IAM token for a [Yandex account](../../iam/operations/iam-token/create.md), [federated account](../../iam/operations/iam-token/create-for-federation.md), or [local account](../../iam/operations/iam-token/create-for-local.md).
   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
   1. When accessing {{ vision-name }} via the API, provide the received parameters in each request:
 
@@ -22,7 +22,7 @@ Get your account data for authentication:
 
   * With an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
-      1. Get an [IAM token](../../iam/operations/iam-token/create-for-sa.md).
+      1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md).
       1. Provide the IAM token in the `Authorization` header in the following format:
 
           ```bash

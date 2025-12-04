@@ -28,25 +28,25 @@ This simple form allows you to create a VM with basic settings. To configure adv
 ## Create a VM {#create-vm}
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Select **Basic setup**.
 
     {% include [console-default-variant](../../_includes/compute/console-default-variant.md) %}
 
-1. Under **Operating systems and products**, select an [image](../concepts/image.md) and a Linux-based OS version.
+1. Under **Operating systems and products**, select an [image](../concepts/image.md) and a Linux OS.
 
     To see the list of all available images, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select one of the preset configurations or create a custom one. To create a custom configuration:
     * Select ![image](../../_assets/console-icons/gear.svg) **Custom configuration**.
     * Specify the required number of vCPUs, [guaranteed vCPU share](../concepts/performance-levels.md), and amount of RAM.
     * Make your VM [preemptible](../concepts/preemptible-vm.md), if required.
-1. Optionally, configure the boot [disk](../concepts/disk.md) under **Discs**:
+1. Optionally, configure a boot [disk](../concepts/disk.md) under **Disks**:
     * Select the [disk type](../concepts/disk.md#disks_types).
     * Specify the required disk size.
 1. Optionally, add a secondary disk:
-    * Under **Discs**, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+    * Under **Disks**, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
     * Select the [disk type](../concepts/disk.md#disks_types).
     * Specify the required disk size.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
@@ -58,7 +58,7 @@ This simple form allows you to create a VM with basic settings. To configure adv
 
       {% note alert %}
 
-      Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
 
       {% endnote %}
 
@@ -66,12 +66,12 @@ This simple form allows you to create a VM with basic settings. To configure adv
 
       {% include [vm-connect-linux](../../_includes/vm-connect-linux.md) %}
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select an IP address assignment method:
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select the IP address assignment method:
       * `Dynamic`: To assign a random IP address from the {{ yandex-cloud }} IP address pool.
 
         Stopping a VM releases its dynamic IP address. When you start the VM again, it will get a new public IP address. If you reboot a VM, it retains its dynamic public IP address.
 
-      * `Static`: To select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
+      * `Static`: To select a public IP address from the list of previously reserved static IP addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
 
 1. Expand the **Preset parameters** section and view the default VM parameters.
 

@@ -7,6 +7,137 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.180.0 (04.12.25) {#version0.180.0}
+
+##### {{ mtr-short-name }}
+* Добавлены команды для создания и обновления каталога {{ TR }} с коннектором {{ MY }} для {{ mtr-name }}:
+  * `yc managed trino catalog create mysql`;
+  * `yc managed trino catalog update mysql`.
+
+##### {{ org-name }}
+* Убрали часть парольных политик из команд по управлению пулами пользователей:
+  * `yc organization-manager idp userpool create`;
+  * `yc organization-manager idp userpool update`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 0.179.0 (02.12.25) {#version0.179.0}
+
+#### Изменения в CLI {#cli}
+
+* Добавлено новое поддерево команд `yc beta` с экспериментальными командами, использующими обновленный интерфейс.
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ org-name }}
+
+* Добавлены команды для управления политиками авторизации на уровне организации:
+  * `yc organization-manager organization list-access-policy-bindings`;
+  * `yc organization-manager organization bind-access-policy`;
+  * `yc organization-manager organization unbind-access-policy`.
+
+##### {{ resmgr-name }}
+
+* Добавлены команды для управления политиками авторизации на уровне облака:
+  * `yc resource-manager cloud list-access-policy-bindings`;
+  * `yc resource-manager cloud bind-access-policy`;
+  * `yc resource-manager cloud unbind-access-policy`.
+
+##### {{ resmgr-name }}
+
+* Добавлены команды для управления политиками авторизации на уровне каталога:
+  * `yc resource-manager folder list-access-policy-bindings`;
+  * `yc resource-manager folder bind-access-policy`;
+  * `yc resource-manager folder unbind-access-policy`.
+
+##### {{ at-name }}
+
+* Добавлен флаг `--destination-yds-codec` для выбора метода сжатия событий при настройке трейлов {{ yds-name }}:
+  * `yc audit-trails trail create`;
+  * `yc audit-trails trail update`.
+
+### Версия 0.178.0 (01.12.25) {#version0.178.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ mkf-name }}
+
+* Добавлен параметр `--disk-encryption-key-id` для указания ключа шифрования дисков кластера: `yc managed-kafka cluster create`
+
+##### {{ ig-name }}
+
+* Добавлены команды для управления режимом отключения зоны доступности (zonal shift) в {{ ig-name }}:
+  * `yc compute instance-group disable-zones`
+  * `yc compute instance-group enable-zones`
+
+### Версия 0.177.0 (27.11.25) {#version0.177.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ cr-name }}
+
+* Добавлены команды для перемещения PublicConnection, PrivateConnection, TrunkConnection и RoutingInstance:
+  * `yc cic public-connection move`
+  * `yc cic private-connection move`
+  * `yc cic trunk-connection move`
+  * `yc cloudrouter routing-instance move`
+
+##### {{ iam-name }}
+
+* Добавлено автоматическое сохранение SubjectID при инициализации профиля `yc init`.
+
+##### {{ maf-name }}, {{ mch-name }}, {{ mgp-name }}, {{ mkf-name }}, {{ metastore-name }}, {{ mmy-name }}, {{ mos-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ msp-name }}, {{ mtr-name }}, {{ mmg-name }}
+
+* Добавлены команды для управления access bindings:
+  * `yc managed-airflow cluster list-access-bindings`
+  * `yc managed-airflow cluster set-access-bindings`
+  * `yc managed-airflow cluster add-access-bindings`
+  * `yc managed-airflow cluster remove-access-bindings`
+  * `yc managed-clickhouse cluster list-access-bindings`
+  * `yc managed-clickhouse cluster set-access-bindings`
+  * `yc managed-clickhouse cluster add-access-bindings`
+  * `yc managed-clickhouse cluster remove-access-bindings`
+  * `yc managed-greenplum cluster list-access-bindings`
+  * `yc managed-greenplum cluster set-access-bindings`
+  * `yc managed-greenplum cluster add-access-bindings`
+  * `yc managed-greenplum cluster remove-access-bindings`
+  * `yc managed-kafka cluster list-access-bindings`
+  * `yc managed-kafka cluster set-access-bindings`
+  * `yc managed-kafka cluster add-access-bindings`
+  * `yc managed-kafka cluster remove-access-bindings`
+  * `yc managed-metastore cluster list-access-bindings`
+  * `yc managed-metastore cluster set-access-bindings`
+  * `yc managed-metastore cluster add-access-bindings`
+  * `yc managed-metastore cluster remove-access-bindings`
+  * `yc managed-mongodb cluster list-access-bindings`
+  * `yc managed-mongodb cluster set-access-bindings`
+  * `yc managed-mongodb cluster add-access-bindings`
+  * `yc managed-mongodb cluster remove-access-bindings`
+  * `yc managed-mysql cluster list-access-bindings`
+  * `yc managed-mysql cluster set-access-bindings`
+  * `yc managed-mysql cluster add-access-bindings`
+  * `yc managed-mysql cluster remove-access-bindings`
+  * `yc managed-opensearch cluster list-access-bindings`
+  * `yc managed-opensearch cluster set-access-bindings`
+  * `yc managed-opensearch cluster add-access-bindings`
+  * `yc managed-opensearch cluster remove-access-bindings`
+  * `yc managed-postgresql cluster list-access-bindings`
+  * `yc managed-postgresql cluster set-access-bindings`
+  * `yc managed-postgresql cluster add-access-bindings`
+  * `yc managed-postgresql cluster remove-access-bindings`
+  * `yc managed-redis cluster list-access-bindings`
+  * `yc managed-redis cluster set-access-bindings`
+  * `yc managed-redis cluster add-access-bindings`
+  * `yc managed-redis cluster remove-access-bindings`
+  * `yc managed-spark cluster list-access-bindings`
+  * `yc managed-spark cluster set-access-bindings`
+  * `yc managed-spark cluster add-access-bindings`
+  * `yc managed-spark cluster remove-access-bindings`
+  * `yc managed-trino cluster list-access-bindings`
+  * `yc managed-trino cluster set-access-bindings`
+  * `yc managed-trino cluster add-access-bindings`
+  * `yc managed-trino cluster remove-access-bindings`
+
 ### Версия 0.176.0 (20.11.25) {#version0.176.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -40,8 +171,6 @@ description: На странице представлены релизы CLI, а
 * `serverless mcp-gateway remove-access-binding`;
 * `serverless mcp-gateway allow-unauthenticated-invoke`;
 * `serverless mcp-gateway deny-unauthenticated-invoke`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.175.0 (10.11.25) {#version0.175.0}
 

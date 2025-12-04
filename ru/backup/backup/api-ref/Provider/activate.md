@@ -23,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Activate provider for Folder iD.
+            The maximum string length in characters is 50.
           type: string
         skipDefaultPolicy:
           description: |-
@@ -76,7 +77,9 @@ For more information, please see [activate-provider](/docs/backup/quickstart#act
 ||Field | Description ||
 || folderId | **string**
 
-Required field. Activate provider for Folder iD. ||
+Required field. Activate provider for Folder iD.
+
+The maximum string length in characters is 50. ||
 || skipDefaultPolicy | **boolean**
 
 Don't create default policies while activating the provider. ||
@@ -172,7 +175,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || folderId | **string**
 
-Required field. Activate provider for folder specified by ID. ||
+Required field. Activate provider for folder specified by ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

@@ -5,8 +5,6 @@ description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-
 
 # Creating a {{ dspm-name }} scan
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 [Data Security Posture Management](../../concepts/dspm.md) (DSPM) scans [data sources](../../concepts/dspm.md#data-source) to identify sensitive information in buckets.
 
 Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#configure-sd) the default folder to store {{ sd-name }} data.

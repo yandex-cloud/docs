@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mpg-full-name }}
-description: Access management in the {{ PG }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ PG }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mpg-name }}

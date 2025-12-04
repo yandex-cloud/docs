@@ -19,14 +19,18 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-opensearch cluster add-access-binding](add-access-binding.md) — Add access binding for the specified OpenSearch cluster
 - [yc managed-opensearch cluster backup](backup.md) — Create a backup for a managed OpenSearch cluster.
 - [yc managed-opensearch cluster create](create.md) — Create an OpenSearch cluster
 - [yc managed-opensearch cluster delete](delete.md) — Delete Opensearch clusters.
 - [yc managed-opensearch cluster get](get.md) — Get information about an OpenSearch cluster.
 - [yc managed-opensearch cluster list](list.md) — List OpenSearch clusters in a folder
+- [yc managed-opensearch cluster list-access-bindings](list-access-bindings.md) — List access bindings for the specified OpenSearch cluster
 - [yc managed-opensearch cluster list-backups](list-backups.md) — List available backups for an OpenSearch cluster.
+- [yc managed-opensearch cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified OpenSearch cluster
 - [yc managed-opensearch cluster restart-opensearch](restart-opensearch.md) — Restart OpenSearch on host.
 - [yc managed-opensearch cluster restore](restore.md) — Restore a managed OpenSearch cluster from a backup.
+- [yc managed-opensearch cluster set-access-bindings](set-access-bindings.md) — Set access bindings for the specified OpenSearch cluster and delete all existing access bindings if there were any
 - [yc managed-opensearch cluster start](start.md) — Start a managed OpenSearch cluster.
 - [yc managed-opensearch cluster stop](stop.md) — Stop a managed OpenSearch cluster.
 - [yc managed-opensearch cluster switch-master](switch-master.md) — Switch current master or ensure that it is not on specified hosts.

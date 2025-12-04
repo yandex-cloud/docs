@@ -87,7 +87,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 Get the cluster ID required to [connect](#connect) to the cluster:
 
 1. In the management console, navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
-1. Click the cluster name and select the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** tab.
+1. Click the name of your cluster and open the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** tab.
 1. Copy the cluster ID specified under **{{ ui-key.yacloud.common.section-base }}**.
 
 ## Connect to the cluster {#connect}

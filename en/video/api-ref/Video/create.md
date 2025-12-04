@@ -12,23 +12,27 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the channel where the video will be created.
+            The maximum string length in characters is 50.
           type: string
         title:
           description: |-
             **string**
             Required field. Title of the video to be displayed in interfaces and players.
+            The maximum string length in characters is 300.
           type: string
         description:
           description: |-
             **string**
             Detailed description of the video content and context.
             Optional field that can provide additional information about the video.
+            The maximum string length in characters is 4000.
           type: string
         thumbnailId:
           description: |-
             **string**
             ID of the thumbnail image to be used for the video.
             If not provided, a thumbnail may be automatically generated during transcoding.
+            The maximum string length in characters is 50.
           type: string
         autoTranscode:
           description: |-
@@ -49,6 +53,7 @@ apiPlayground:
             **string**
             ID of the style preset to apply to the video during processing.
             Style presets define visual appearance settings for the video player.
+            The maximum string length in characters is 50.
           type: string
         autoPublish:
           description: |-
@@ -71,6 +76,7 @@ apiPlayground:
             Maximum 64 labels per video.
             Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
             Values can contain alphanumeric characters and various symbols.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -119,6 +125,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Total size of the file to be uploaded, in bytes.
+              Value must be greater than 0.
             type: string
             format: int64
           fileName:
@@ -177,18 +184,26 @@ POST https://video.{{ api-host }}/video/v1/videos
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel where the video will be created. ||
+Required field. ID of the channel where the video will be created.
+
+The maximum string length in characters is 50. ||
 || title | **string**
 
-Required field. Title of the video to be displayed in interfaces and players. ||
+Required field. Title of the video to be displayed in interfaces and players.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
 Detailed description of the video content and context.
-Optional field that can provide additional information about the video. ||
+Optional field that can provide additional information about the video.
+
+The maximum string length in characters is 4000. ||
 || thumbnailId | **string**
 
 ID of the thumbnail image to be used for the video.
-If not provided, a thumbnail may be automatically generated during transcoding. ||
+If not provided, a thumbnail may be automatically generated during transcoding.
+
+The maximum string length in characters is 50. ||
 || autoTranscode | **enum** (AutoTranscode)
 
 Controls whether transcoding starts automatically after upload.
@@ -201,7 +216,9 @@ or DISABLE for manual initiation via the Transcode() method.
 || stylePresetId | **string**
 
 ID of the style preset to apply to the video during processing.
-Style presets define visual appearance settings for the video player. ||
+Style presets define visual appearance settings for the video player.
+
+The maximum string length in characters is 50. ||
 || autoPublish | **boolean**
 
 Controls whether the video is automatically published after transcoding.
@@ -217,7 +234,9 @@ Set explicitly to false to disable advertisements for this specific video. ||
 Custom user-defined labels as `key:value` pairs.
 Maximum 64 labels per video.
 Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
-Values can contain alphanumeric characters and various symbols. ||
+Values can contain alphanumeric characters and various symbols.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || tusd | **[VideoTUSDParams](#yandex.cloud.video.v1.VideoTUSDParams)**
 
 Upload video using the TUS (Tus Resumable Upload Protocol) protocol.
@@ -248,7 +267,9 @@ Video access permission settings (exactly one must be chosen). ||
 ||Field | Description ||
 || fileSize | **string** (int64)
 
-Total size of the file to be uploaded, in bytes. ||
+Total size of the file to be uploaded, in bytes.
+
+Value must be greater than 0. ||
 || fileName | **string**
 
 Original name of the file being uploaded.

@@ -24,23 +24,23 @@ The total cost of using {{ dataproc-name }} includes:
 * Markup on computing resources for using the {{ dataproc-name }} service.
 * The cost of using the {{ compute-name }} network drives.
 * The cost of using {{ cloud-logging-full-name }} to collect and store logs.
-* The cost of outgoing traffic.
+* Amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Using computing resources {#rules-compute}
 
-The cost is calculated for each hour of the virtual machine’s operation within {{ compute-name }} according to the [{{ compute-full-name }}](../compute/pricing.md#prices) resource pricing, with an additional markup for using the {{ dataproc-name }} service.
+The cost is calculated for each hour of the virtual machine’s operation within {{ compute-name }} according to the [{{ compute-full-name }}](../compute/pricing.md#prices) resource pricing, with an additional markup for using {{ dataproc-name }}.
 
 For public IP address pricing, refer to the [{#T}](../vpc/pricing.md) section in the {{ vpc-full-name }} documentation.
 
 ### Disk space usage {#rules-storage}
 
-The storage capacity allocated to each host in the cluster is billed as part of the {{ compute-name }} service according to [disk space pricing](../compute/pricing.md#prices-storage).
+The storage capacity allocated to each host in the cluster is billed as part of {{ compute-name }} according to the [disk space pricing](../compute/pricing.md#prices-storage).
 
 ### Using {{ cloud-logging-full-name }} {#rules-logs}
 
-Log collection and storage are billed according to the {{ cloud-logging-full-name }} [pricing policy](../logging/pricing.md).
+Log collection and storage are billed according to the [{{ cloud-logging-full-name }} pricing policy](../logging/pricing.md).
 
 ### Example cost calculation for standard hosts {#price-example}
 
@@ -62,7 +62,7 @@ The cost is calculated as follows:
 
 - Standard hosts
 
-  Hourly cost for a cluster consisting of two subclusters with the following specifications:
+  Cost per hour of using a cluster with two subclusters and the following specifications:
 
   * First subcluster:
     * **Master host**: `m2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 16 GB RAM.
@@ -81,11 +81,12 @@ The cost is calculated as follows:
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Host compute resources {#prices-hosts}
+### Host computing resources {#prices-hosts}
 
 #### Standard hosts {#standard-hosts}
 

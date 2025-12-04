@@ -5,11 +5,12 @@
 
 In {{ yandex-cloud }}, identification, authentication, and access control is performed by [{{ iam-full-name }} ({{ iam-short-name }})](../../../iam/) and [{{ org-full-name }}](../../../organization/).
 
-The platform works with three categories of accounts:
+{{ yandex-cloud }} supports four types of accounts:
 
 * [Yandex accounts](../../../iam/concepts/users/accounts.md#passport): Accounts in Yandex ID, including {{ yandex-360 }}.
-* [Federated accounts](../../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
-* [Service accounts](../../../iam/concepts/#sa): Accounts that programs can use to manage resources.
+* [Federated accounts](../../../iam/concepts/users/accounts.md#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
+* [Local accounts](../../../iam/concepts/users/accounts.md#local): Accounts whose data is stored only in {{ yandex-cloud }}.
+* [Service accounts](../../../iam/concepts/users/accounts.md#sa): Accounts used by applications to manage resources.
 
 Yandex ID and federated accounts are authenticated in their own systems. {{ yandex-cloud }} has no access to the passwords of these account users and only authenticates service accounts using {{ iam-short-name }}. For Yandex ID and {{ yandex-360 }} accounts, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 
@@ -29,7 +30,7 @@ When using {{ yandex-cloud }} together with {{ yandex-360 }}, follow the {{ yand
 
 [{{ org-full-name }}](../../../organization/) is a single service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources.
 
-For the purpose of centralized account management, use [SAML-compatible identity federations](../../../organization/concepts/add-federation.md). By using identity federations, a company can set up Single Sign-On, which is authentication in {{ yandex-cloud }} via their IdP server. With this approach, employees can use their corporate accounts that are subject to the company's security policies, such as:
+For centralized identity management, use [SAML-compatible identity federations](../../../organization/concepts/add-federation.md). By using identity federations, a company can set up Single Sign-On, which is authentication in {{ yandex-cloud }} via their IdP server. With this approach, employees can use their corporate accounts that are subject to the company's security policies, such as:
 
 * Revoking and blocking accounts.
 * Password policies.
@@ -1907,7 +1908,7 @@ For example, to tag resources which handle personal data under Federal Law No. F
 
   The example below shows how to check if there is a label to a [{{ vpc-full-name }}](../../../vpc/) cloud network. You can perform similar checks for other resource labels.
 
-  1. In the [management console]({{ link-console-main }}), select your folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Check it for labels.
 

@@ -1,9 +1,9 @@
 ---
-title: How to update a {{ GP }} cluster configuration in {{ mgp-full-name }}
-description: Follow this guide to update a {{ GP }} cluster configuration.
+title: How to update a {{ GP }} cluster's configuration in {{ mgp-full-name }}
+description: Follow this guide to update a {{ GP }} cluster's configuration.
 ---
 
-# Updating a {{ GP }} cluster configuration
+# Updating a {{ GP }} cluster's configuration
 
 
 After creating a cluster, you can:
@@ -15,13 +15,13 @@ After creating a cluster, you can:
 
 ## Changing the host class {#change-resource-preset}
 
-You can change the host class for both master hosts and segment hosts. When changing the host class, the cluster's primary master host will change.
+You can change the host class for both master and segment hosts. Switching the host class will change the cluster's primary master host.
 
 {% include [warn-preset-change](../../_includes/mdb/mgp/warn-preset-change.md) %}
 
-When changing the class of segment hosts, make sure that the new amount of memory in segment hosts is sufficient to maintain the number of connections specified in the [Max connections](../concepts/settings-list.md#setting-max-connections) setting.
+When changing the class of segment hosts, make sure the new amount of memory in segment hosts is sufficient to maintain the number of connections specified in the [Max connections](../concepts/settings-list.md#setting-max-connections) setting.
 
-We recommend changing the host class only when the cluster has no active workload.
+We recommend changing the host class only when your cluster has no active workload.
 
 {% include [note-change-resource-preset](../../_includes/mdb/note-change-resource-preset.md) %}
 
@@ -30,8 +30,8 @@ We recommend changing the host class only when the cluster has no active workloa
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
-  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for {{ GP }} master hosts or segment hosts.
+  1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the relevant class for {{ GP }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -40,9 +40,9 @@ We recommend changing the host class only when the cluster has no active workloa
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the [host class](../concepts/instance-types.md) for the cluster:
+  To change the [host class](../concepts/instance-types.md) for a cluster:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -73,7 +73,7 @@ We recommend changing the host class only when the cluster has no active workloa
      ```
 
 
-  1. Specify the required classes in the cluster update command:
+  1. Specify the relevant classes in the cluster update command:
 
       ```bash
       {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
@@ -89,9 +89,9 @@ We recommend changing the host class only when the cluster has no active workloa
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-      For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+      For a complete list of configuration fields you can edit for a {{ mgp-name }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-  1. In the {{ mgp-name }} cluster description, change the `resource_preset_id` attribute value under `master_subcluster.resources` or `segment_subcluster.resources`:
+  1. In the {{ mgp-name }} cluster description, edit the value of the `resource_preset_id` attribute under `master_subcluster.resources` or `segment_subcluster.resources`:
 
       ```hcl
       resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -123,11 +123,11 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -154,17 +154,17 @@ We recommend changing the host class only when the cluster has no active workloa
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: List of settings to update as a single string, separated by commas.
 
         * `masterConfig.resources.resourcePresetId` and `segmentConfig.resources.resourcePresetId`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -206,17 +206,17 @@ We recommend changing the host class only when the cluster has no active workloa
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings to update as an array of `paths[]` strings.
 
         * `master_config.resources.resource_preset_id` and `segment_config.resources.resource_preset_id`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Change the disk type and increase the storage size {#change-disk-size}
+## Changing the disk type and increasing the storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -228,7 +228,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **Yandex MPP Analytics for PostgreSQL**.
-  1. Select the cluster.
+  1. Select the cluster in question.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
@@ -243,15 +243,15 @@ We recommend changing the host class only when the cluster has no active workloa
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To increase the cluster storage size:
+  To increase your cluster storage size:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
       ```
 
-  1. Specify the required storage size for the master hosts or segment hosts in the cluster update command (at least as large as `disk_size` in the cluster properties):
+  1. Specify the required storage size for master or segment hosts in the cluster update command (at least as large as `disk_size` in the cluster properties):
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
@@ -265,9 +265,9 @@ We recommend changing the host class only when the cluster has no active workloa
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+        For a complete list of configuration fields you can edit for a {{ mgp-name }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-    1. In the {{ mgp-name }} cluster description, change the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
+    1. In the {{ mgp-name }} cluster description, edit the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -301,11 +301,11 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -334,20 +334,20 @@ We recommend changing the host class only when the cluster has no active workloa
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: List of settings to update as a single string, separated by commas.
 
-        * `masterConfig.resources`, `segmentConfig.resources`: Storage parameters for master hosts and segment hosts:
+        * `masterConfig.resources`, `segmentConfig.resources`: Storage properties for master hosts and segment hosts:
 
             * `diskTypeId`: [Disk type](../concepts/storage.md).
-            * `diskSize`: New storage size in bytes.
+            * `diskSize`: New storage size, in bytes.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -393,16 +393,16 @@ We recommend changing the host class only when the cluster has no active workloa
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings to update as an array of `paths[]` strings.
 
-        * `master_config.resources`, `segment_config.resources`: Storage parameters for master hosts and segment hosts:
+        * `master_config.resources`, `segment_config.resources`: Storage properties for master hosts and segment hosts:
 
             * `disk_type_id`: [Disk type](../concepts/storage.md).
-            * `disk_size`: New storage size in bytes.
+            * `disk_size`: New storage size, in bytes.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -412,7 +412,7 @@ You can add segment hosts to a {{ mgp-name }} cluster by [expanding it](cluster-
 
 ## Changing the cluster's availability zone {#change-cluster-zone}
 
-All {{ mgp-name }} cluster hosts are located in the same {{ yandex-cloud }} [availability zone](../../overview/concepts/geo-scope.md). You cannot migrate a cluster to a different availability zone. If you need to change the availability zone, [restore the cluster from a backup](cluster-backups.md#restore). When restoring from a backup, specify a new availability zone in the new cluster's settings.
+All hosts of a {{ mgp-name }} cluster are located in the same {{ yandex-cloud }} [availability zone](../../overview/concepts/geo-scope.md). You cannot migrate a cluster to a different availability zone. If you need to change the availability zone, [restore the cluster from a backup](cluster-backups.md#restore). When restoring from a backup, specify a new availability zone in the new cluster's settings.
 
 {% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 

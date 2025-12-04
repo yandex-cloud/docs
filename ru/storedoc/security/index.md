@@ -28,7 +28,7 @@ description: Управление доступом в сервисе по соз
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/mdb/roles-managed-mongodb.svg)
+{% include [roles-managed-storedoc](../../_mermaid/roles/managed-storedoc.md) %}
 
 ### Сервисные роли {#service-roles}
 

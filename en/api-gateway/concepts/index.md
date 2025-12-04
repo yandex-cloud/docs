@@ -20,6 +20,7 @@ Available extensions:
 * [Integration with {{ yds-name }}](../concepts/extensions/datastreams.md)
 * [Integration with {{ message-queue-short-name }}](../concepts/extensions/ymq.md)
 * [Integration with {{ ydb-short-name }}](../concepts/extensions/ydb.md)
+* [Integration with Swagger UI](./extensions/swagger.md)
 * [{#T}](../concepts/extensions/greedy-parameters.md)
 * [Generic HTTP method](../concepts/extensions/any-method.md)
 * [Authorization using a {{ sf-name }} function](../concepts/extensions/function-authorizer.md)

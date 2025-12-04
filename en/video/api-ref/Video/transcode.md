@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the video to transcode.
+            The maximum string length in characters is 50.
           type: string
       required:
         - videoId
@@ -61,6 +62,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Input audio track index (one-based).
+              The minimum value is 1.
             type: string
             format: int64
           srcLang:
@@ -70,6 +72,7 @@ apiPlayground:
               Track language will be deduced automatically if not provided.
               In the latter case the deduction accuracy is not guaranteed.
               For better performance please do specify the source track language when possible.
+              Value must match the regular expression ` |ara|deu|eng|fra|ita|jpn|kor|rus|spa|tur|zho `.
             pattern: '|ara|deu|eng|fra|ita|jpn|kor|rus|spa|tur|zho'
             type: string
       SubtitleTrack:
@@ -79,12 +82,14 @@ apiPlayground:
             description: |-
               **string**
               Required field. Target language represented as a three-letter code according to ISO 639-2/T.
+              Value must match the regular expression ` ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho `.
             pattern: ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho
             type: string
           label:
             description: |-
               **string**
               Required field. Track label to be displayed on the screen during video playback.
+              The maximum string length in characters is 50.
             type: string
         required:
           - dstLang
@@ -96,12 +101,14 @@ apiPlayground:
             description: |-
               **string**
               Required field. Target language represented as a three-letter code according to ISO 639-2/T.
+              Value must match the regular expression ` eng|kaz|rus `.
             pattern: eng|kaz|rus
             type: string
           label:
             description: |-
               **string**
               Required field. Track label to be displayed on the screen during video playback.
+              The maximum string length in characters is 50.
             type: string
         required:
           - dstLang
@@ -190,7 +197,9 @@ POST https://video.{{ api-host }}/video/v1/videos/{videoId}:transcode
 ||Field | Description ||
 || videoId | **string**
 
-Required field. ID of the video to transcode. ||
+Required field. ID of the video to transcode.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.TranscodeVideoRequest}
@@ -293,13 +302,17 @@ Settings for target audio tracks. ||
 ||Field | Description ||
 || trackIndex | **string** (int64)
 
-Input audio track index (one-based). ||
+Input audio track index (one-based).
+
+The minimum value is 1. ||
 || srcLang | **string**
 
 Source track language represented as a three-letter code according to ISO 639-2/T.
 Track language will be deduced automatically if not provided.
 In the latter case the deduction accuracy is not guaranteed.
-For better performance please do specify the source track language when possible. ||
+For better performance please do specify the source track language when possible.
+
+Value must match the regular expression ` \|ara\|deu\|eng\|fra\|ita\|jpn\|kor\|rus\|spa\|tur\|zho `. ||
 |#
 
 ## SubtitleTrack {#yandex.cloud.video.v1.VideoTranslationSettings.SubtitleTrack}
@@ -308,10 +321,14 @@ For better performance please do specify the source track language when possible
 ||Field | Description ||
 || dstLang | **string**
 
-Required field. Target language represented as a three-letter code according to ISO 639-2/T. ||
+Required field. Target language represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ` ara\|deu\|eng\|fra\|ita\|jpn\|kaz\|kor\|rus\|spa\|tur\|ukr\|zho `. ||
 || label | **string**
 
-Required field. Track label to be displayed on the screen during video playback. ||
+Required field. Track label to be displayed on the screen during video playback.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## AudioTrack {#yandex.cloud.video.v1.VideoTranslationSettings.AudioTrack}
@@ -320,10 +337,14 @@ Required field. Track label to be displayed on the screen during video playback.
 ||Field | Description ||
 || dstLang | **string**
 
-Required field. Target language represented as a three-letter code according to ISO 639-2/T. ||
+Required field. Target language represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ` eng\|kaz\|rus `. ||
 || label | **string**
 
-Required field. Track label to be displayed on the screen during video playback. ||
+Required field. Track label to be displayed on the screen during video playback.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## VideoSummarizationSettings {#yandex.cloud.video.v1.VideoSummarizationSettings}
@@ -356,13 +377,17 @@ Required field. Input track settings. ||
 ||Field | Description ||
 || trackIndex | **string** (int64)
 
-Input audio track index (one-based). ||
+Input audio track index (one-based).
+
+The minimum value is 1. ||
 || srcLang | **string**
 
 Source track language represented as a three-letter code according to ISO 639-2/T.
 It will be deduced automatically if not provided.
 In the latter case the deduction accuracy is not guaranteed.
-For better performance please do specify the source track language when possible. ||
+For better performance please do specify the source track language when possible.
+
+Value must match the regular expression ` \|ara\|deu\|eng\|fra\|ita\|jpn\|kor\|rus\|spa\|tur\|zho `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

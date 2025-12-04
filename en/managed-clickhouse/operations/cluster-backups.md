@@ -56,7 +56,7 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Backup](../api-ref/Cluster/backup.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -111,7 +111,7 @@ You can restore either a single [shard](../concepts/sharding.md) or the whole cl
 
 Before you begin, [assign](../../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
-* [{{ roles.mch.editor }}](../../iam/roles-reference.md#managed-clickhouse-editor) or higher for the backup folder and the new cluster folder.
+* [managed-clickhouse.restorer](../../iam/roles-reference.md#managed-clickhouse-restorer) or higher for the backup folder and the new cluster folder.
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) or higher if restoring a cluster linked to a [service account](../../iam/concepts/users/service-accounts.md).
 
 
@@ -149,7 +149,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
-  {{ mch-name }} will launch the operation to create a cluster from the backup.
+  {{ mch-name }} will initiate the process of creating a new cluster from the backup.
 
 - CLI {#cli}
 
@@ -209,12 +209,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
           * `--environment`: Environment:
 
               * `PRODUCTION`: For stable versions of your apps.
-              * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+              * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
 
           * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
           * `--host`: Host settings:
 
-              * `type`: Host type: `clickhouse` or `zookeeper`.
+              * `type`: Host type, `clickhouse` or `zookeeper`.
               * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
               * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
 
@@ -249,11 +249,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Restore](../api-ref/Cluster/restore.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         1. Create a file named `body.json` and paste the following code into it:
 
@@ -311,7 +311,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             * `environment`: Environment:
 
                 * `PRODUCTION`: For stable versions of your apps.
-                * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+                * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
             * `configSpec`: {{ CH }} cluster configuration. For a detailed description of the parameters, see the [Cluster.restore](../api-ref/Cluster/restore.md) method description.
             * `hostSpecs`: Array of the new hosts' settings. One array element contains settings for a single host and has the following structure:
@@ -354,7 +354,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
                 --data "@body.json"
             ```
 
-    1. View the [server response](../api-ref/Cluster/restore.md#responses) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/restore.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -422,10 +422,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             * `environment`: Environment:
 
                 * `PRODUCTION`: For stable versions of your apps.
-                * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+                * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
 
             * `config_spec`: {{ CH }} cluster configuration. For a detailed description of the parameters, see the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call description.
-            * `host_specs`: Array of the new hosts' settings. One array element contains settings for a single host and has the following structure:
+            * `host_specs`: Array of the new hosts' settings. Each array element contains the configuration for a single host and has the following structure:
 
                 * `type`: Host type.
                 * `zone_id`: Availability zone.
@@ -483,7 +483,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
-  To get a list of all backups in a folder:
+  To get the list of all backups in the folder:
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
@@ -529,13 +529,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. To get a list of {{ CH }} cluster backups:
 
-        1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -550,7 +550,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
     1. To get a list of backups for all {{ CH }} clusters in a folder:
 
-        1. Use the [Backup.List](../api-ref/Backup/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Backup.List](../api-ref/Backup/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -564,11 +564,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. View the [server response](../api-ref/Backup/list.md#responses) to make sure your request was successful.
+        1. Check the [server response](../api-ref/Backup/list.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -618,7 +618,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.clickhouse.v1.ListBackupsResponse) to make sure your request was successful.
+        1. Check the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.clickhouse.v1.ListBackupsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -656,7 +656,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Backup.Get](../api-ref/Backup/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Backup.Get](../api-ref/Backup/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -705,7 +705,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - Management console {#console}
 
-  In the [management console]({{ link-console-main }}), you can set the backup start time when [creating](cluster-create.md) or [updating a cluster](update.md).
+  In the [management console]({{ link-console-main }}), you can set the backup start time when [creating](cluster-create.md) or [updating the cluster](update.md).
 
 - CLI {#cli}
 
@@ -728,7 +728,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -753,7 +753,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             Here, we only specified a single parameter, `configSpec.backupWindowStart`.
 
@@ -804,7 +804,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Here, we only specified a single parameter, `config_spec.backup_window_start`.
 
@@ -812,7 +812,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -822,7 +822,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - Management console {#console}
   
-  In the [management console]({{ link-console-main }}), you can set a retention period for automatic backups when [creating](cluster-create.md) or [updating a cluster](update.md).
+  In the [management console]({{ link-console-main }}), you can set the retention period for automatic backups when [creating](cluster-create.md) or [updating the cluster](update.md).
   
 - CLI {#cli}
 
@@ -845,7 +845,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -865,7 +865,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
       Where:
 
-      * `updateMask`: List of parameters to update as a single string, separated by commas.
+      * `updateMask`: Comma-separated list of settings you want to update.
 
         Here, we only specified a single parameter, `configSpec.backupRetainPeriodDays`.
 
@@ -910,7 +910,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
       Where:
 
-      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
         Here, we only specified a single parameter, `config_spec.backup_retain_period_days`.
 
@@ -918,7 +918,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
       You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -962,11 +962,11 @@ You can only delete manual backups.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Backup.Delete](../api-ref/Backup/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Backup.Delete](../api-ref/Backup/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -981,12 +981,12 @@ You can only delete manual backups.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [BackupService.Delete](../api-ref/grpc/Backup/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [BackupService.Delete](../api-ref/grpc/Backup/delete.md) call to execute the following request via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \

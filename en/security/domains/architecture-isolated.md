@@ -6,14 +6,14 @@ The section provides recommendations for implementing such a scenario.
 
 ## Setting up networking
 
-For this scenario, we recommend using [{{ interconnect-name }}](../../interconnect/concepts/) to configure IP network connectivity between the client infrastructure resources and {{ yandex-cloud }} resources:
+For this scenario, we recommend using [{{ interconnect-name }}](../../interconnect/concepts/index.md) to configure IP network connectivity between the client infrastructure resources and {{ yandex-cloud }} resources:
 * Using the dedicated physical channels, the client’s network equipment is connected to {{ yandex-cloud }} equipment in [points of presence](../../interconnect/concepts/pops.md) either directly over a cross connection or via network providers.
 * With {{ interconnect-name }} connections, you can set up logical connections to the client’s [cloud networks](../../interconnect/concepts/priv-con.md), as well as to {{ yandex-cloud }} [services](../../interconnect/concepts/pub-con.md), such as [{{ objstorage-name }}](../../storage).
 * To ensure {{ interconnect-name }} fault tolerance, you may want to set up connections at multiple [points of presence](../../interconnect/concepts/pops.md).
-* For detailed instructions on how to enable and manage {{ interconnect-name }}, see the [relevant documentation](../../interconnect/operations/).
+* For detailed instructions on how to enable and manage {{ interconnect-name }}, see the [relevant documentation](../../interconnect/operations/index.md).
 
 ## Resource and access management
-In the {{ yandex-cloud }} resource model, any cloud user with the `editor` or `admin` permissions for a resource can modify its specifications. When infrastructure is isolated, this poses a risk of unauthorized changes in resource specifications, which compromises the threat model’s isolation principle. We recommend using [{{ at-name }}](../../audit-trails/) logs and [SIEM](https://ru.wikipedia.org/wiki/SIEM) notifications to track such events; however, there is also a proactive approach to monitoring changes in the protected environment.
+In the {{ yandex-cloud }} resource model, any cloud user with the `editor` or `admin` permissions for a resource can modify its specifications. When infrastructure is isolated, this poses a risk of unauthorized changes in resource specifications, which compromises the threat model’s isolation principle. We recommend using [{{ at-name }}](../../audit-trails/) logs and [SIEM](https://en.wikipedia.org/wiki/Security_information_and_event_management) notifications to track such events; however, there is also a proactive approach to monitoring changes in the protected environment.
 
 GitOps is an approach to infrastructure management where the product infrastructure is formally defined as code ([Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_code)) in line with the threat model. Changes to all infrastructure components are introduced as pull requests to the source code repository and then applied by a {{ yandex-cloud }} service account. All cloud users must have the `auditor` or `viewer` role for all production environment services. This allows you to mitigate the following risks:
 * Unauthorized access to resources and data.
@@ -21,7 +21,7 @@ GitOps is an approach to infrastructure management where the product infrastruct
 * Unauthorized resource editing which leads to threat model violation (e.g., assigning a public IP to a network interface or creating a gateaway to the internet).
 * Unwarranted manual changes made using high-level permissions.
 
-According to the DevOps principles, making a change is impossile without creating a pull request to the source code repository. This way, changes can only be approved and applied by certain responsible employees, or reviewers. Other employees make sure the changes are correct, so the pull request creator does not have all the decision-making authority. To keep track of changes, this approach relies on a source code management system. You need to make sure that no users have administrative privileges at the {{ yandex-cloud }} organization level and use subject groups to grant all the required roles for different environments.
+According to the DevOps principles, every change implies a pull request to the source code repository. Therefore, changes can only be approved and applied by reviewers (owners). Other employees make sure the changes are correct, so the pull request creator does not have all the decision-making authority. To keep track of changes, this approach relies on a source code management system. You need to make sure that no users have administrative privileges at the {{ yandex-cloud }} organization level and use subject groups to grant all the required roles for different environments.
 
 The source code management system offered by {{ yandex-cloud }} is [{{ mgl-full-name }}](../../managed-gitlab).
 

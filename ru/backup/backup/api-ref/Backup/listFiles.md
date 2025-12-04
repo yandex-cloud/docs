@@ -111,7 +111,6 @@ Might be empty if this is root directory. ||
 
 Required field. Type of the item.
 
-- `TYPE_UNSPECIFIED`
 - `TYPE_DIR`
 - `TYPE_FILE` ||
 || fullPath | **string**

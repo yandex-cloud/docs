@@ -94,6 +94,11 @@ Optional:
 - `zookeeper` (Block List, Max: 1) Configuration of the ZooKeeper subcluster. (see [below for nested schema](#nestedblock--config--zookeeper))
 
 
+Read-Only:
+
+- `patch_version` (String) Patch version of the Kafka server software. Patch version of the Kafka server software.
+
+
 <a id="nestedblock--config--kafka"></a>
 ### Nested Schema for `config.kafka`
 

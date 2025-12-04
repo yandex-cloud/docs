@@ -25,7 +25,9 @@ instance from Cloud Compute service.
 ||Field | Description ||
 || compute_instance_id | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
 || resource_id | **string**
 
 Required field. Resource ID is used to identify Compute Cloud instance in backup service. ||

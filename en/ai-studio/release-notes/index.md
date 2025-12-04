@@ -5,6 +5,14 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 10/11/2025 {#101125}
+
+You can no longer deploy the gpt-oss-20b and gpt-oss-120b models in dedicated instances. These models remain available in the [common instance](../concepts/generation/models.md#generation).
+
+## Release as of 07/11/2025 {#071125}
+
+Added support for [{{ search-api-full-name }}](../../search-api/) in {{ ml-sdk-full-name}}.
+
 ## Release as of 02/10/2025
 
 The {{ llama }} 8B and {{ llama }} 70B models are no longer supported in the common instance.
@@ -169,6 +177,6 @@ Updated the {{ yagpt-name }} and {{ gpt-lite }} [models](../concepts/generation/
 
 ## Release as of 02/08/23 {#020823}
 
-1. [Increased](../concepts/limits.md) the total number of prompt and response tokens.
+1. [Increased](../concepts/limits.md) the total number of tokens in the prompt and response.
 1. Added a new mode called Chat.
 1. Added a method for counting the number of tokens in a request.

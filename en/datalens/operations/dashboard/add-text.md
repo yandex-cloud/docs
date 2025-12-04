@@ -1,9 +1,9 @@
 ---
-title: How to add text to a dashboard
-description: Follow this guide to add text to a dashboard.
+title: How to add text to a dashboard in {{ datalens-full-name }}
+description: Follow this guide to add text to a dashboard in {{ datalens-full-name }}.
 ---
 
-# Adding text to a dashboard
+# Adding text to a dashboard in {{ datalens-full-name }}
 
 To add [text](../../dashboard/widget.md#text) to a dashboard:
 

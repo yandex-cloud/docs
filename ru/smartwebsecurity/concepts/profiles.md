@@ -10,7 +10,8 @@ _Профиль безопасности_ — основной элемент с
     {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
     
   * _{{ ui-key.yacloud.smart-web-security.title_no-template }}_. Профиль содержит только базовое правило по умолчанию, включенное для всего трафика.
-{% include [setting-by-expert](../../_includes/smartwebsecurity/setting-by-expert.md) %}
+
+   {% include [setting-by-expert](../../_includes/smartwebsecurity/setting-by-expert.md) %}
 
 Чтобы включить защиту {{ sws-name }}, [подключите профиль безопасности](../operations/host-connect.md) к своему ресурсу.
 

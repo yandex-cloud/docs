@@ -3,26 +3,25 @@ title: '{{ org-full-name }} pricing policy'
 description: This article covers the {{ org-name }} pricing policy.
 ---
 
-# {{ org-name }} pricing policy
+# {{ org-full-name }} pricing policy
 
 {% note info %}
 
-The prices will apply starting December 1, 2025.
+These prices apply starting December 1, 2025.
 
 {% endnote %}
 
-The fee for using {{ org-full-name }} is included in the service price. Only connecting to third-party applications is additionally charged.
-
+The fee for {{ org-full-name }} is included in the charge for paid services. Only fees for connections to external apps are charged separately.
 
 ## What goes into the cost of using {{ org-name }} {#rules}
 
-At the beginning of each month, funds are debited for the actual number of users who logged into third-party applications in the previous month.
+The amount for the selected number of users is debited at the beginning of each month.
 
-When purchasing a limit for a certain number of users, funds are debited immediately.
-
+When you buy a limit for a specific number of users, the amount is debited immediately.
 
 
 ## Prices for the Russia region {#prices}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

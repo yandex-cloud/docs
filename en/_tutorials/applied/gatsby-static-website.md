@@ -545,7 +545,7 @@ To build and upload a working version of the website to your bucket, use [AWS CL
           resolve: 'gatsby-plugin-s3',
           options: {
             bucketName: '<bucket_name>',
-            region: 'us-east-1',
+            region: '{{ region-id }}',
             customAwsEndpointHostname: '{{ s3-storage-host }}'
           }
         },
@@ -557,7 +557,7 @@ To build and upload a working version of the website to your bucket, use [AWS CL
 
     {% note info %}
 
-    Do not change the region value as this may lead to an error.
+    If an error occurs, replace the `region` value with the main AWS region — [first row in the regions table](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
 
     {% endnote %}
 

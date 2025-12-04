@@ -9,7 +9,9 @@ description: Пошаговые инструкции по работе с сет
 
 - [{#T}](load-balancer-list.md)
 - [{#T}](load-balancer-create.md)
+- [{#T}](internal-lb-create.md)
 - [{#T}](load-balancer-start-and-stop.md)
+- [{#T}](deletion-protection.md)
 - [{#T}](load-balancer-update.md)
 - [{#T}](load-balancer-change-zone.md)
 - [{#T}](load-balancer-delete.md)

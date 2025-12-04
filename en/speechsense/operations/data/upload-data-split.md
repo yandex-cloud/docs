@@ -1,13 +1,15 @@
 ---
-title: Uploading audio data with splitting via API
-description: Follow this guide to upload audio data to {{ speechsense-name }} via the gRPC API.
+title: Uploading long audio files with splitting via the gRPC API
+description: Follow this guide to upload long audio files to {{ speechsense-name }} by splitting them into chunks via the gRPC API.
 ---
 
-# Uploading audio data with splitting via gRPC API
+# Uploading long audio files with splitting via the gRPC API
 
 Use this guide to upload data to {{ speechsense-name }} for speech recognition and analysis via API. This example uses the following parameters:
 
 * [Audio format](../../concepts/formats.md): WAV.
+* Connection type: Single-channel audio with splitting enabled.
+* gRPC API method: [TalkService.UploadBadge](../../api-ref/grpc/Talk/uploadBadge.md).
 * The dialog metadata is stored in `metadata.json`.
 
 {% include [authentication](../../../_includes/speechsense/data/authentication.md) %}
@@ -22,7 +24,7 @@ If you want to upload the chat text instead of voice call audio, follow [this gu
 
 To prepare for uploading audio recordings:
 
-1. [Create a connection](../connection/create.md#create-one-channel-audio-connection) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** type with additional dialog splitting settings.
+1. [Create a connection](../connection/create.md#create-one-channel-audio-connection) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** type with the **{{ ui-key.yc-ui-talkanalytics.connections.additional.split.title }}** option enabled.
 
    If you want to upload [linked dialogs](../../concepts/dialogs.md#related-dialogs), add the `ticket_id` string key to the connection's general metadata. The dialogs will be linked by this key.
 
@@ -38,7 +40,7 @@ To prepare for uploading audio recordings:
 
 ## Uploading data {#upload-data}
 
-{% note info %}
+{% note warning %}
 
 {% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
 
@@ -46,106 +48,111 @@ To prepare for uploading audio recordings:
 
 {% include notitle [max-dialog-string](../../../_includes/speechsense/data/max-dialog-string.md) %}
 
+The only way to upload single-channel audio split into chunks is by calling [TalkService.UploadBadge](../../api-ref/grpc/Talk/uploadBadge.md).
+
+The supported audio formats are [WAV](../../concepts/formats.md#wav) and [MP3](../../concepts/formats.md#mp3).
+
 {% endnote %}
 
 1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}
 1. In the `upload_data` folder, create the `upload_grpc.py` Python script to upload your data to a {{ speechsense-name }} connection. The file will be transferred via chunks:
 
-      ```python
-      import argparse
-      import json
-      from typing import Dict
+   ```python
+   import argparse
+   import datetime
+   import json
+   from typing import Dict
 
-      import grpc
+   import grpc
 
-      from yandex.cloud.speechsense.v1 import talk_service_pb2
-      from yandex.cloud.speechsense.v1 import talk_service_pb2_grpc
-      from yandex.cloud.speechsense.v1 import audio_pb2
-
-
-      # Configure the chunk size
-      CHUNK_SIZE_BYTES = 1 * 1024 * 1024
+   from yandex.cloud.speechsense.v1 import talk_service_pb2
+   from yandex.cloud.speechsense.v1 import talk_service_pb2_grpc
+   from yandex.cloud.speechsense.v1 import audio_pb2
 
 
-      def upload_audio_requests_iterator(connection_id: str, metadata: Dict[str, str], audio_path: str):
-          # Transfer the general dialog metadata
-          yield talk_service_pb2.StreamTalkRequest(
-              metadata=talk_service_pb2.TalkMetadata(
-                  connection_id=connection_id,
-                  fields=metadata
-              )
-          )
-          # Transfer the audio metadata
-          yield talk_service_pb2.StreamTalkRequest(
-              audio=audio_pb2.AudioStreamingRequest(
-                  audio_metadata=audio_pb2.AudioMetadata(
-                      container_audio=audio_pb2.ContainerAudio.ContainerAudioType.CONTAINER_AUDIO_TYPE_WAV
-                  )
-              )
-          )
-          with open(audio_path, mode='rb') as fp:
-              data = fp.read(CHUNK_SIZE_BYTES)
-              while len(data) > 0:
-                  # Transfer the audio file's next byte chunk
-                  yield talk_service_pb2.StreamTalkRequest(
-                      audio=audio_pb2.AudioStreamingRequest(
-                          chunk=audio_pb2.AudioChunk(data=data)
-                      )
-                  )
-                  data = fp.read(CHUNK_SIZE_BYTES)
+   # Configure the chunk size
+   CHUNK_SIZE_BYTES = 1 * 1024 * 1024
 
 
-      def upload_talk(endpoint: str, connection_id: str, metadata: Dict[str, str], token: str, audio_path: str):
-          # Establish a connection with the server
-          credentials = grpc.ssl_channel_credentials()
-          channel = grpc.secure_channel(endpoint, credentials)
-          talk_service_stub = talk_service_pb2_grpc.TalkServiceStub(channel)
+   def upload_audio_requests_iterator(connection_id: str, metadata: Dict[str, str], audio_path: str):
+       # Transfer the general dialog metadata
+       yield talk_service_pb2.StreamTalkRequest(
+           metadata=talk_service_pb2.TalkMetadata(
+               connection_id=connection_id,
+               fields=metadata
+           )
+       )
 
-          # Transfer a request iterator and get a response from the server
-          response = talk_service_stub.UploadBadge(
-              upload_audio_requests_iterator(connection_id, metadata, audio_path, audio_type),
-              metadata=(('authorization', token),)
-          )
+       # Transfer the audio metadata
+       yield talk_service_pb2.StreamTalkRequest(
+           audio=audio_pb2.AudioStreamingRequest(
+               audio_metadata=audio_pb2.AudioMetadata(
+                   container_audio=audio_pb2.ContainerAudio(
+                       container_audio_type=audio_pb2.ContainerAudio.ContainerAudioType.CONTAINER_AUDIO_TYPE_WAV
+                   )
+               )
+           )
+       )
 
-          print(f'Talk id: {response.talk_id}')
+       with open(audio_path, mode='rb') as fp:
+           data = fp.read(CHUNK_SIZE_BYTES)
+           while len(data) > 0:
+               # Transfer the audio file's next byte chunk
+               yield talk_service_pb2.StreamTalkRequest(
+                   audio=audio_pb2.AudioStreamingRequest(
+                       chunk=audio_pb2.AudioChunk(data=data)
+                   )
+               )
+               data = fp.read(CHUNK_SIZE_BYTES)
 
 
-      if __name__ == '__main__':
-          parser = argparse.ArgumentParser()
+   def upload_talk(connection_id: str, metadata: Dict[str, str], token: str, audio_path: str):
+       # Establish a connection with the server
+       credentials = grpc.ssl_channel_credentials()
+       channel = grpc.secure_channel('api.speechsense.yandexcloud.net:443', credentials)
+       talk_service_stub = talk_service_pb2_grpc.TalkServiceStub(channel)
 
-          parser.add_argument('--endpoint', required=False, help='API Endpoint', type=str, default='{{ speechsense-endpoint }}')
-          parser.add_argument('--token', required=True, help='IAM token', type=str)
-          parser.add_argument('--token-type', required=False, help='Token type', choices=['iam-token', 'api-key'], default='iam-token', type=str)
-          parser.add_argument('--connection-id', required=True, help='Connection Id', type=str)
-          parser.add_argument('--audio-path', required=True, help='Audio file path', type=str)
-          parser.add_argument('--meta-path', required=False, help='Talk metadata json', type=str, default=None)
-    args = parser.parse_args()
+       # Transfer a request iterator and get a response from the server
+       response = talk_service_stub.UploadBadge(
+           upload_audio_requests_iterator(connection_id, metadata, audio_path),
+           metadata=[('authorization', token)]
+       )
 
-          required_keys = [
-              "operator_name",
-              "operator_id",
-              "date"
-          ]
-          with open(args.meta_path, 'r') as fp:
-              metadata = json.load(fp)
-          for required_key in required_keys:
-              if required_key not in metadata:
-                  raise ValueError(f"Metadata doesn't contain one of the reqiured keys: {required_key}.")
+       print(f'Badge id: {response.id}')
 
-          if args.token_type == 'iam-token':
-              token = f'Bearer {args.token}'
-          elif args.token_type == 'api-key':
-              token = f'Api-Key {args.token}'
 
-          if args.audio_type is None:
-              file_extension = args.audio_path.split('.')[-1]
-              if file_extension not in ['wav', 'ogg', 'mp3']:
-                  raise ValueError(f"Unknown file extension: {file_extension}. Specify the --audio-type argument.")
-              audio_type = file_extension
-          else:
-              audio_type = args.audio_type
+   if __name__ == '__main__':
+       parser = argparse.ArgumentParser()
 
-          upload_talk(args.endpoint, args.connection_id, metadata, token, args.audio_path, audio_type)
+       parser.add_argument('--key', required=True, help='API key or IAM token', type=str)
+       parser.add_argument('--key-type', required=False, help='Key type', choices=['iam-token', 'api-key'], default='iam-token', type=str)
+       parser.add_argument('--connection-id', required=True, help='Connection Id', type=str)
+       parser.add_argument('--audio-path', required=True, help='Audio file path', type=str)
+       parser.add_argument('--meta-path', required=False, help='Talk metadata json', type=str, default=None)
+       args = parser.parse_args()
+
+       # Default values to use if metadata is not defined
+       if args.meta_path is None:
+           now = datetime.datetime.now().isoformat()
+           metadata = {
+               'operator_name': 'Operator',
+               'operator_id': '1111',
+               'client_name': 'Client',
+               'client_id': '2222',
+               'date': str(now),
+               'direction_outgoing': 'true',
+               'language': 'ru-ru'
+           }
+       else:
+           with open(args.meta_path, 'r') as fp:
+               metadata = json.load(fp)
+
+       if args.key_type == 'iam-token':
+           token = f'Bearer {args.key}'
+       elif args.key_type == 'api-key':
+           token = f'Api-Key {args.key}'
+
+       upload_talk(args.connection_id, metadata, token, args.audio_path)
       ```
 
 1. In the `upload_data` directory, create a file named `metadata.json` with your conversation metadata:
@@ -154,6 +161,8 @@ To prepare for uploading audio recordings:
    {
        "operator_name": "<agent_name>",
        "operator_id": "<agent_ID>",
+       "client_name": "<customer_name>",
+       "client_id": "<customer_ID>",
        "date": "<start_date>",
        "language": "<language>",
        <additional_connection_parameters>
@@ -187,3 +196,5 @@ To prepare for uploading audio recordings:
    * `--meta-path`: Path to the file with the dialog metadata.
    * `--connection-id`: ID of the connection you upload the data to.
    * `--key`: API key for authentication. If using an IAM token, specify the `IAM_TOKEN` environment variable instead of `API_KEY`.
+
+1. If the script runs successfully, you will get a string with `Badge id`. Processing dialogs takes a while, so they will appear in the {{ speechsense-name }} console with a delay.

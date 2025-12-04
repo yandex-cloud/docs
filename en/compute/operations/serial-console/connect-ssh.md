@@ -128,7 +128,11 @@ Some operating systems may prompt you for your user credentials to access the VM
 
           You can also get the username using the `yc organization-manager os-login profile list` [{{ yandex-cloud }} CLI](../../../cli/cli-ref/organization-manager/cli-ref/oslogin/profile/list.md) command or in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) in the user profile on the **{{ ui-key.yacloud_org.user.title_oslogin-profiles }}** tab.
 
+          {% note info %}
+
           {% include [os-login-profile-tab-access-notice](../../../_includes/organization/os-login-profile-tab-access-notice.md) %}
+
+          {% endnote %}
 
       Example for a user with the `yid-orgusername` username and a VM with the `epd22a2tj3gd********` ID:
 

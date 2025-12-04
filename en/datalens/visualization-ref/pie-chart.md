@@ -1,4 +1,9 @@
-# Pie chart ![](../../_assets/datalens/pie.svg)
+---
+title: Pie chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the pie chart visualization type in {{ datalens-full-name }}.
+---
+
+# Pie chart ![](../../_assets/datalens/pie.svg) in {{ datalens-full-name }}
 
 This chart shows a proportional relationship of different categories to a total using circle segments (sectors). The entire circle area is 100% and corresponds to the sum of all categories. The area of each segment corresponds to the percentage of a category in the total amount. Pie charts are a good choice for demonstrating proportions of a small number of segments.
 

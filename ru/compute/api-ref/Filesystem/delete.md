@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the filesystem to delete.
             To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - filesystemId
@@ -43,7 +44,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
 
 Required field. ID of the filesystem to delete.
 
-To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request. ||
+To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

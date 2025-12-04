@@ -1,9 +1,9 @@
 ---
-title: Chart settings
-description: In this article, you will learn about chart settings and how to undo and redo changes to charts.
+title: '{{ datalens-full-name }} chart settings'
+description: In this article, you will learn about {{ datalens-full-name }} chart settings and how to undo and redo changes in charts.
 ---
 
-# Chart settings
+# {{ datalens-full-name }} chart settings
 
 Charts are configurable. For example, you can choose to display a legend, customize a color scheme, or set your own title.
 
@@ -184,11 +184,12 @@ Some of these settings may not be available for some axes.
 
 * **Discrete**: Plots the chart only for non-null values.
 * **Continuous**: Plots the chart for all values continuously. You can only use continuous mode for the `Integer`, `Fractional number`, `Date`, or `Date and time` data types. ||
-|| Axis formatting | Sets the formatting of numerical axis labels.<br/><br/>Available values:
+|| Axis formatting | Sets the formatting of axis labels with numeric values, date values, or date and time values.<br/><br/>Available values:
 
 * **Auto**: Default formatting.
-* **By first field on the X axis**: Displays the X axis labels with the formatting specified in the **Format** setting for the first field in the **X** section. Available in the X axis settings.
-* **By first field on the Y axis**: Displays the Y axis labels with the formatting specified in the **Format** setting for the first field in the **Y** section. Available in the Y axis settings. ||
+* **By first field on the X axis**: Displays the X axis labels with the formatting specified in the **Format** setting for the first field in the **X** section. Available in the X axis settings for numeric values.
+* **By first field on the Y axis**: Displays the Y axis labels with the formatting specified in the **Format** setting for the first field in the **Y** section. Available in the Y axis settings for numeric values.
+* **Manually**: Allows setting formatting parameters corresponding to field data type in the axis section. Available for numeric values, date values, or date and time values. ||
 || Grid | Enables or disables grid display on the chart.<br/><br/>Available values:
 
 * **On**: Shows grid.

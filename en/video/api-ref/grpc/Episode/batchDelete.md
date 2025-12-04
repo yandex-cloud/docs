@@ -32,6 +32,8 @@ This is more efficient than making multiple Delete requests when removing severa
 
 ID of the stream containing the episodes to delete.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `stream_id`, `line_id`.
 
 Specifies the parent resource containing the episodes to delete (exactly one must be chosen). ||
@@ -39,13 +41,17 @@ Specifies the parent resource containing the episodes to delete (exactly one mus
 
 ID of the stream line containing the episodes to delete.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `stream_id`, `line_id`.
 
 Specifies the parent resource containing the episodes to delete (exactly one must be chosen). ||
 || episode_ids[] | **string**
 
 List of episode IDs to delete.
-All episodes must exist and be linked to the specified parent resource. ||
+All episodes must exist and be linked to the specified parent resource.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

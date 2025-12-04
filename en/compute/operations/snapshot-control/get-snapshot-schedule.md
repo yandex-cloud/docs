@@ -2,14 +2,14 @@
 title: How to get information about a disk snapshot schedule in {{ compute-full-name }}
 ---
 
-# Getting information about a disk snapshot schedule
+# Getting disk snapshot schedule info
 
 {% list tabs %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your [schedule](../../concepts/snapshot-schedule.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Select the schedule.

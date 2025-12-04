@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION error
-description: This page describes the ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION error.
+title: '{{ datalens-full-name }} error ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION'
+description: This page describes the Window function has unselected dimension {{ datalens-full-name }} error.
 ---
 
-# Window function has unselected dimension
+# [{{ datalens-full-name }}] Window function has unselected dimension
 
 `ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION`
 

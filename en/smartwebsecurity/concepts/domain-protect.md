@@ -2,7 +2,7 @@
 
 {% include [preview-domain](../../_includes/smartwebsecurity/preview-domain.md)%}
 
-{{ sws-name }} enables protection of web applications deployed both in and beyond {{ yandex-cloud }}, e.g., in your internal infrastructure or on another hosting service. {{ sws-name }} provides various means to protect your infrastructure against cybersecurity threats at the application layer (L7) of the OSI model. These may include DDoS attacks, [bot](https://ru.wikipedia.org/wiki/Ботнет) attacks, [SQL injections](https://ru.wikipedia.org/wiki/Внедрение_SQL-кода), [cross-site scripting](https://ru.wikipedia.org/wiki/Межсайтовый_скриптинг), etc.
+{{ sws-name }} enables protection of web applications deployed both in and beyond {{ yandex-cloud }}, e.g., in your internal infrastructure or on another hosting service. {{ sws-name }} provides various means to protect your infrastructure against cybersecurity threats at the application layer (L7) of the OSI model. These may include DDoS attacks, [bot](https://en.wikipedia.org/wiki/Botnet) attacks, [SQL injections](https://en.wikipedia.org/wiki/SQL_injection), [cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting), etc.
 
 ## External resource protection: how it works {#scheme-protect}
 
@@ -58,7 +58,7 @@ When setting up the domain, you need to specify:
 
     Also, you can use the unprotected HTTP, but we recommend using it for test purposes only. Normally, when users visit such websites, browsers warn them the website is not secure.
   
-* _Target resources_, which are web servers or backends to receive verified and secure traffic. For target resources, you must specify the IP address and port used by your web application.
+* _Target resources_, which are web servers or backends to receive verified and secure traffic. For target resources, you specify the IP address and port your web application runs on.
 
     To send encrypted traffic from {{ sws-name }} to your application:
     
@@ -75,4 +75,4 @@ After setting up the domain, you can connect a [security profile](profiles.md) t
 To make sure your website or application gets only verified and secure requests from {{ sws-name }}:
 
 * Block all incoming requests.
-* Add only [{{ yandex-cloud }} addresses](../../overview/concepts/public-ips.md) to the list of allowed ones. The list of addresses will also be available in domain parameters under **How to activate protection**.
+* Add only [{{ sws-name }} addresses](../../overview/concepts/public-ips.md#sws-ips) to the list of allowed ones. The list of addresses will also be available in domain parameters under **How to activate protection**.

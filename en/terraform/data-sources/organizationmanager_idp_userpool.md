@@ -91,32 +91,32 @@ Read-Only:
 Read-Only:
 
 - `allow_similar` (Boolean) Whether passwords similar to previous ones are allowed.
+- `fixed` (Attributes) Fixed complexity requirements. Exactly one of complexity requirements must be specified. (see [below for nested schema](#nestedatt--password_quality_policy--fixed))
 - `match_length` (Number) Minimum length of substrings to check for similarity to vulnerable sequences.
 - `max_length` (Number) Maximum password length. Zero means no maximum length is enforced.
-- `min_length` (Number) Minimum password length.
-- `min_length_by_class_settings` (Attributes) Minimum length requirements based on character class diversity.
- If not specified, these checks are disabled. (see [below for nested schema](#nestedatt--password_quality_policy--min_length_by_class_settings))
-- `required_classes` (Attributes) Character classes required in passwords. (see [below for nested schema](#nestedatt--password_quality_policy--required_classes))
+- `smart` (Attributes) Smart complexity requirements. Exactly one of complexity requirements must be specified. (see [below for nested schema](#nestedatt--password_quality_policy--smart))
 
-<a id="nestedatt--password_quality_policy--min_length_by_class_settings"></a>
-### Nested Schema for `password_quality_policy.min_length_by_class_settings`
+<a id="nestedatt--password_quality_policy--fixed"></a>
+### Nested Schema for `password_quality_policy.fixed`
 
 Read-Only:
 
-- `one` (Number) Minimum length for passwords with one character class.
-- `three` (Number) Minimum length for passwords with three character classes.
-- `two` (Number) Minimum length for passwords with two character classes.
+- `digits_required` (Boolean) Whether digits are required in the password.
+- `lowers_required` (Boolean) Whether lowercase letters are required in the password.
+- `min_length` (Number) Minimum length required for all passwords.
+- `specials_required` (Boolean) Whether special characters are required in the password.
+- `uppers_required` (Boolean) Whether uppercase letters are required in the password.
 
 
-<a id="nestedatt--password_quality_policy--required_classes"></a>
-### Nested Schema for `password_quality_policy.required_classes`
+<a id="nestedatt--password_quality_policy--smart"></a>
+### Nested Schema for `password_quality_policy.smart`
 
 Read-Only:
 
-- `digits` (Boolean) Whether digits are required.
-- `lowers` (Boolean) Whether lowercase letters are required.
-- `specials` (Boolean) Whether special characters are required.
-- `uppers` (Boolean) Whether uppercase letters are required.
+- `four_classes` (Number) For passwords with all four classes of characters
+- `one_class` (Number) For passwords with one class of characters
+- `three_classes` (Number) For passwords with three classes of characters
+- `two_classes` (Number) For passwords with two classes of characters
 
 
 

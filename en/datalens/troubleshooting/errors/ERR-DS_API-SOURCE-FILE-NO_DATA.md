@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.SOURCE.FILE.NO_DATA error
-description: This page describes the ERR.DS_API.SOURCE.FILE.NO_DATA error.
+title: '{{ datalens-full-name }} error ERR.DS_API.SOURCE.FILE.NO_DATA'
+description: This page describes the Empty document {{ datalens-full-name }} error.
 ---
 
-# Empty document
+# [{{ datalens-full-name }}] Empty document
 
 `ERR.DS_API.SOURCE.FILE.NO_DATA`
 

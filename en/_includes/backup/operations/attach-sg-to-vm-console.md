@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select the folder where you want to connect a VM to {{ backup-name }}.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** and then select the VM.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** and select the VM.
 1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, add a security group to the VM [network interface](../../../compute/concepts/network.md):
 
     * In the top-right corner of the section, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.

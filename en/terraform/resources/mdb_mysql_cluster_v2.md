@@ -107,7 +107,7 @@ resource "yandex_vpc_security_group" "test-sgroup" {
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `maintenance_window` (Attributes) Maintenance policy of the MySQL cluster. (see [below for nested schema](#nestedatt--maintenance_window))
-- `mysql_config` (Map of String) MySQL cluster config.
+- `mysql_config` (Map of String) MySQL cluster configuration. For detailed information specific to your MySQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/mysql/v1/config).
 - `performance_diagnostics` (Attributes) Cluster performance diagnostics settings. The structure is documented below. (see [below for nested schema](#nestedatt--performance_diagnostics))
 - `resources` (Block, Optional) Resources allocated to hosts of the MySQL cluster. (see [below for nested schema](#nestedblock--resources))
 - `restore` (Attributes) The cluster will be created from the specified backup. (see [below for nested schema](#nestedatt--restore))

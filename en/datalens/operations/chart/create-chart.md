@@ -1,9 +1,9 @@
 ---
 title: How to create a chart in {{ datalens-full-name }}
-description: Follow this guide to create a chart.
+description: Follow this guide to create a chart in {{ datalens-full-name }}.
 ---
 
-# Creating a chart
+# Creating a chart in {{ datalens-full-name }}
 
 ## Creating a chart {#create-chart}
 

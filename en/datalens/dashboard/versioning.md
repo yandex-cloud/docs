@@ -1,9 +1,9 @@
 ---
-title: Dashboard versioning
-description: Dashboard versioning is the ability to store the history of dashboard configuration changes using versions. A list of versions is available to users with minimum {{ permission-write }} access permissions to the dashboard.
+title: Dashboard versioning in {{ datalens-full-name }}
+description: '{{ datalens-full-name }} dashboard versioning allows you to store the dashboard configuration revision history as versions. A list of versions is available to users with the minimum {{ permission-write }} access permissions to the dashboard.'
 ---
 
-# Versioning
+# Versioning in {{ datalens-full-name }}
 
 Dashboard versioning is the ability to store the history of dashboard configuration changes using versions. The list of versions is available to users with the lowest editing role for the dashboard.
 
@@ -46,7 +46,7 @@ All versions fall into the following types:
 
 ## Creating a new version {#version-create}
 
-A new version is automatically created when you click **Save** in dashboard edit mode. Dashboard configuration changes that, after saving, create a new version:
+A new version is automatically created when you click **Save** in dashboard edit mode. Below are dashboard configuration changes that create a new version once they are saved:
 
 * Changing dashboard settings accessible by clicking ![image](../../_assets/console-icons/gear.svg) at the top of the screen.
 * Adding, renaming, or deleting dashboard tabs.
@@ -97,6 +97,6 @@ To edit an outdated version, select it from the list of versions. To save edits 
   * Chart setting changes, that is, changes made from the Wizard, QL Chart, or Editor.
   * Changes to dataset settings made from the dataset interface.
   * Changes to connection settings made using the interface for editing connection parameters.
-  * Data changes to the source (rows added, updated, or deleted in the data source).
+  * Changes to the source data (rows added, updated, or deleted in the data source).
 
 * Versions do not display a list of changes. You can only view the saved status of the dashboard configuration.

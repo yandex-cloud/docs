@@ -2,15 +2,24 @@
 
 #|
 || Type of limit | Value ||
-|| Number of clusters per cloud | 5 ||
-|| Total number of processor cores for all cluster components per cloud | 300 ||
-|| Total HDD storage capacity | 18,432 GB ||
-|| Total virtual memory for all cluster components per cloud | 762 GB ||
-|| Total non-replicated SSD storage capacity | 5,022 GB ||
-|| Total SSD storage capacity | 5,022 GB ||
-|| Total number of NVIDIA® Ampere® A100 [GPUs](../../compute/concepts/gpus.md) for all cluster components per cloud | 0 ||
-|| Total number of NVIDIA® Tesla® T4 GPUs for all cluster components per cloud | 0 ||
-|| Total number of NVIDIA® Tesla® V100 GPUs for all cluster components per cloud | 0 ||
+|| Number of clusters per cloud
+`managed-ytsaurus.clusters.count` | 5 ||
+|| Total number of processor cores for all cluster components per cloud
+`managed-ytsaurus.cores.count` | 300 ||
+|| Total HDD storage capacity
+`managed-ytsaurus.hdd.size` | 18,432 GB ||
+|| Total virtual memory for all cluster components per cloud
+`managed-ytsaurus.memory.size` | 762 GB ||
+|| Total non-replicated SSD storage capacity
+`managed-ytsaurus.nrdssd.size` | 5,022 GB ||
+|| Total SSD storage capacity
+`managed-ytsaurus.ssd.size` | 5,022 GB ||
+|| Total number of NVIDIA® Ampere® A100 [GPUs](../../compute/concepts/gpus.md) for all cluster components per cloud 
+`managed-ytsaurus.a100-gpus.count` | 0 ||
+|| Total number of NVIDIA® Tesla® T4 GPUs for all cluster components per cloud
+`managed-ytsaurus.t4i-gpus.count` | 0 ||
+|| Total number of NVIDIA® Tesla® V100 GPUs for all cluster components per cloud
+`managed-ytsaurus.v100-gpus.count` | 0 ||
 |#
 
 ## Limits {#limits}

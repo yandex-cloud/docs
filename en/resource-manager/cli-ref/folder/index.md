@@ -21,15 +21,18 @@ Aliases:
 
 - [yc resource-manager folder add-access-binding](add-access-binding.md) — Add access binding for the specified folder
 - [yc resource-manager folder add-labels](add-labels.md) — Add labels to specified folder
+- [yc resource-manager folder bind-access-policy](bind-access-policy.md) — Bind access policy to the specified folder
 - [yc resource-manager folder create](create.md) — Create a folder
 - [yc resource-manager folder delete](delete.md) — Delete the specified folder
 - [yc resource-manager folder get](get.md) — Show information about the specified folder
 - [yc resource-manager folder list](list.md) — List folders
 - [yc resource-manager folder list-access-bindings](list-access-bindings.md) — List access bindings for the specified folder
+- [yc resource-manager folder list-access-policy-bindings](list-access-policy-bindings.md) — List access policy bindings for the specified folder
 - [yc resource-manager folder list-operations](list-operations.md) — List operations for the specified folder
 - [yc resource-manager folder remove-access-binding](remove-access-binding.md) — Remove access binding for the specified folder
 - [yc resource-manager folder remove-labels](remove-labels.md) — Remove labels from specified folder
 - [yc resource-manager folder set-access-bindings](set-access-bindings.md) — Set access bindings for the specified folder and delete all existing access bindings if there were any
+- [yc resource-manager folder unbind-access-policy](unbind-access-policy.md) — Unbind access policy from the specified folder
 - [yc resource-manager folder update](update.md) — Update the specified folder
 
 #### Global Flags

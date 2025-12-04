@@ -55,21 +55,31 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 ||Field | Description ||
 || name | **string**
 
-Name of the reserved instance pool. ||
+Name of the reserved instance pool.
+
+Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the reserved instance pool. ||
+Description of the reserved instance pool.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || zone_id | **string**
 
 Required field. ID of the availability zone where the reserved instance pool resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request
+
+The maximum string length in characters is 50. ||
 || folder_id | **string**
 
 Required field. ID of the folder to create the reserved instance pool in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || platform_id | **string**
 
 Required field. ID of the hardware platform configuration for the reserved instance pool.
@@ -91,7 +101,9 @@ Spec is used to determine which License IDs should be allowed for instances crea
 Network settings. ||
 || size | **int64**
 
-Desired size of the pool (number of slots for instances in this pool). ||
+Desired size of the pool (number of slots for instances in this pool).
+
+Acceptable values are 0 to 1048576, inclusive. ||
 || allow_oversubscription | **bool**
 
 Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).
@@ -105,7 +117,9 @@ Warning: When this option is enabled, attempting to start more instances than th
 ||Field | Description ||
 || memory | **int64**
 
-Required field. The amount of memory available to the instance, specified in bytes. ||
+Required field. The amount of memory available to the instance, specified in bytes.
+
+The maximum value is 274877906944. ||
 || cores | **int64**
 
 Required field. The number of cores available to the instance. ||
@@ -141,15 +155,21 @@ You can specify product ids explicitly or use disk_id|image_id|snapshot_id to in
 
 Disk ID.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`. ||
 || image_id | **string**
 
 Image ID.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`. ||
 || snapshot_id | **string**
 
 Snapshot ID.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`. ||
 || product_ids | **[ProductIDs](#yandex.cloud.compute.v1.ProductIDs)**
@@ -166,7 +186,9 @@ Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_i
 || product_ids[] | **string**
 
 License IDs that indicate which licenses are attached to resource.
-License IDs are used to calculate additional charges for the use of the virtual machine. ||
+License IDs are used to calculate additional charges for the use of the virtual machine.
+
+The maximum string length in characters for each value is 50. ||
 |#
 
 ## NetworkSettings {#yandex.cloud.compute.v1.NetworkSettings}
@@ -177,7 +199,6 @@ License IDs are used to calculate additional charges for the use of the virtual 
 
 Network Type
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
@@ -374,7 +395,9 @@ Stats for instances of the pool ||
 ||Field | Description ||
 || memory | **int64**
 
-Required field. The amount of memory available to the instance, specified in bytes. ||
+Required field. The amount of memory available to the instance, specified in bytes.
+
+The maximum value is 274877906944. ||
 || cores | **int64**
 
 Required field. The number of cores available to the instance. ||
@@ -407,7 +430,6 @@ Attach instance to specified GPU cluster. ||
 
 Network Type
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||

@@ -1,15 +1,15 @@
 ---
 title: Access management in {{ ml-platform-full-name }}
-description: Access management in {{ ml-platform-full-name }}, a service providing an ML development environment. For access to {{ ml-platform-name }} resources, assign to the user the required roles from the list below.
+description: Access management in {{ ml-platform-full-name }}, a service providing an ML development environment. To allow a user access to {{ ml-platform-name }} resources, assign them the roles from the list below.
 ---
 
 # Access management in {{ ml-platform-name }}
 
 User access to {{ ml-platform-full-name }} depends on relevant permissions granted within an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
 
-The operations available to {{ ml-platform-short-name }} users are determined by their roles. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). For more information about access management in {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
+The operations available to {{ ml-platform-short-name }} users are determined by their roles. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). For more information about access management in {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 Access control is implemented at the [community](../concepts/community.md) and [project](../concepts/project.md) level. You can also make resources available to all community users by [publishing](../operations/index.md#share) them in the community. The access permissions you grant apply to the whole hierarchy of resources. For example, if you assign a role for a {{ ml-platform-name }} project to a user, all permissions will also apply to resources within that project. Learn more about [relationships between {{ ml-platform-name }} resources](../concepts/resource-model.md).
 
@@ -22,7 +22,7 @@ You can assign a role to a user in the {{ ml-platform-name }} interface:
 
 You can also grant access permissions through the [{{ org-name }} interface in {{ cloud-center }}]({{ link-org-cloud-center }}) using [{{ TF }}]({{ tf-provider-link }}) and the [{{ yandex-cloud }} API](../api-ref/authentication.md).
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -68,7 +68,7 @@ You can also grant access permissions through the [{{ org-name }} interface in {
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `Editor` role instead of `Viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `Editor` role instead of `Viewer`.
 
 #|
 || **Action** | **Required roles** ||
@@ -97,4 +97,4 @@ The table below lists the roles required to perform a particular action. You can
 * [{{ org-full-name }}](../../organization/)
 * [{#T}](../../iam/concepts/access-control/index.md)
 * [{#T}](../../iam/concepts/users/service-accounts.md)
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance)
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance)

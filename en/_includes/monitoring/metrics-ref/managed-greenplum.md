@@ -1,4 +1,4 @@
-The `name` label is for the metric name.
+The `name` label contains the metric name.
 
 Labels shared by all {{ mgp-name }} metrics:
 
@@ -354,9 +354,9 @@ Additional labels: `dev` for the disk ID in the system.
 | `gp.connect_percent`<br/>`DGAUGE`, % | Percentage of connections | 
 | `gp.has_alive`<br/>`DGAUGE` | Live segment indicator. It can be either `1` if all segments are healthy or `0` if there are no healthy segments.  |
 | `gp.has_dead`<br/>`DGAUGE` | Dead segment indicator. It can be either `1` if there are failed segments or `0` if there are none.  |
-| `gp.is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if a DB host is alive or `0` if it is not. | 
+| `gp.is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if the database host is healthy or `0` if it is not. | 
 | `gp.is_alive_segment`<br/>`DGAUGE` | Segment host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
-| `gp.is_dead`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `0` if a DB host is alive or `1` if it is not. | 
+| `gp.is_dead`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `0` if the database host is healthy or `1` if it is not. | 
 | `gp.is_master`<br/>`DGAUGE` | Host type indicator.<br/>It can be either `1` if it is a DB master host or `0` if it is not. | 
 | `gp.master_replication_state`<br/>`DGAUGE` | Master replication state |
 | `gp.percent_xid_wraparound`<br/>`DGAUGE`, % | Using a transaction ID sequence.<br/>Additional labels: `db_name`. | 
@@ -404,6 +404,29 @@ These metrics enable monitoring the [cluster expansion](../../../managed-greenpl
 | `gp_expand.tables_in_progress`<br/>`DGAUGE`, count    | Number of tables currently being redistributed |
 | `gp_expand.tables_left`<br/>`DGAUGE`, count           | Number of tables left to redistribute |
 | `gp_expand.tables_total`<br/>`DGAUGE`, count          | Total number of tables requiring redistribution |
+
+## Bloat metrics {#managed-greenplum-bloat-metrics}
+
+These metrics show the state of the system catalog and the `pg_attribute` table, including the number of currently valid (`live_tuples`) and outdated (`dead_tuples`) strings, the system catalog and `pg_attribute` table size, as well as the last vacuum time.
+
+| Name<br/>Type, units | Description |
+| ----- | ----- |
+| `catalog_dead_tuples_segment`<br/>`DGAUGE`, count | Number of `dead_tuples` in the catalog for all segments |
+| `catalog_live_tuples_segment`<br/>`DGAUGE`, count | Number of `live_tuples` in the catalog for all segments |
+| `catalog_size_segment`<br/>`DGAUGE`, bytes | Catalog size for all segments |
+| `catalog_vacuum_age_segment`<br/>`DGAUGE`, seconds | Maximum elapsed time since the last vacuum across all catalog tables on the segments |
+| `catalog_dead_tuples_master`<br/>`DGAUGE`, count | Number of `dead_tuples` in the catalog on the master |
+| `catalog_live_tuples_master`<br/>`DGAUGE`, count | Number of `live_tuples` in the catalog on the master |
+| `catalog_size_master`<br/>`DGAUGE`, bytes | Size of the catalog on the master with all segments |
+| `catalog_vacuum_age_master`<br/>`DGAUGE`, seconds | Maximum elapsed time since the last vacuum across all catalog tables on the master |
+| `pg_attribute_dead_tuples_segment`<br/>`DGAUGE`, count | Number of `dead_tuples` in the `pg_attribute` table for all segments |
+| `pg_attribute_live_tuples_segment`<br/>`DGAUGE`, count | Number of `live_tuples` in the `pg_attribute` table for all segments |
+| `pg_attribute_size_segment`<br/>`DGAUGE`, bytes | `pg_attribute` table size for all segments |
+| `pg_attribute_vacuum_age_segment`<br/>`DGAUGE`, seconds | Time since the last `pg_attribute` table vacuum for all segments |
+| `pg_attribute_dead_tuples_master`<br/>`DGAUGE`, count | Number of `dead_tuples` in the `pg_attribute` table on the master |
+| `pg_attribute_live_tuples_master`<br/>`DGAUGE`, count | Number of `live_tuples` in the `pg_attribute` table on the master |
+| `pg_attribute_size_master`<br/>`DGAUGE`, bytes | `pg_attribute` table size on the master with all segments |
+| `pg_attribute_vacuum_age_master`<br/>`DGAUGE`, seconds | Time since the last `pg_attribute` table vacuum on the master |
 
 ## PXF metrics {#managed-greenplum-pxf-metrics}
 

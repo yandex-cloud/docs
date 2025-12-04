@@ -1,7 +1,9 @@
-* `--cluster-id`: ID of the cluster where you are creating your {{ TR }} catalog. You can request the cluster ID with a [list of clusters](../../managed-trino/operations/cluster-list.md#list-clusters).
+* `--cluster-id`: ID of the cluster where you are creating your {{ TR }} catalog. You can get the cluster ID from the [list of clusters](../../managed-trino/operations/cluster-list.md#list-clusters).
 * `--metastore-hive-uri`: URI for connection to the {{ metastore-name }} cluster in `thrift://<cluster_IP_address>:9083` format.
 
   To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** in the left-hand panel.
+
+  {% include [metastore version](metastore-version-catalog-create.md) %}
 
 * `--filesystem-native-s3`: [{{ objstorage-full-name }}](../../storage/quickstart/index.md).
 * `--filesystem-external-s3-aws-access-key`: ID of AWS-compatible static access key.

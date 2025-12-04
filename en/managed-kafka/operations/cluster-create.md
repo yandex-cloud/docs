@@ -1,7 +1,7 @@
 # Creating an {{ KF }} cluster
 
 
-A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](../concepts/brokers.md) where [topics and their partitions](../concepts/topics.md) are located. [Producers and consumers](../concepts/producers-consumers.md) can work with these topics by connecting to {{ mkf-name }} cluster hosts.
+A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](../concepts/brokers.md) that host [topics and their partitions](../concepts/topics.md). [Producers and consumers](../concepts/producers-consumers.md) can work with these topics by connecting to {{ mkf-name }} cluster hosts.
 
 {% note info %}
 
@@ -177,7 +177,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
      Where:
      * `--zookeeper-resource-preset`: {{ ZK }} [host class](../concepts/instance-types.md).
      * `--zookeeper-disk-size`: Storage size.
-     * `--controller-disk-type`: {{ ZK }} [disk type](../concepts/storage.md).
+     * `--zookeeper-disk-type`: {{ ZK }} [disk type](../concepts/storage.md).
   
   1. {% include notitle [maintenance](../../_includes/mdb/mkf/create-cluster.md#maintenance) %}
 
@@ -248,7 +248,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
      * `version`: {{ KF }} version, {{ versions.tf.str }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
      * `zones` and `brokers_count`: Availability zones and number of broker hosts per zone.
-     * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+     * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
 
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
@@ -282,7 +282,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -292,13 +292,13 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
      After this, all required resources will be created in the specified folder, and the [FQDNs of the {{ mkf-name }}](../concepts/network.md#hostname) cluster hosts will be displayed in the terminal. You can check the new resources and their configuration in the [management console]({{ link-console-main }}).
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -398,7 +398,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
             * `name`: Cluster name.
             * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-            * `networkId`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
+            * `networkId`: ID of the [network](../../vpc/concepts/network.md) to host the cluster.
 
             
             * `securityGroupIds`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
@@ -409,14 +409,14 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 * `version`: {{ KF }} version, {{ versions.cli.str }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
                 * `kafka`: {{ KF }} configuration:
 
-                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
 
                 * `zookeeper`: {{ ZK }} configuration:
 
                     * `resources.resourcePresetId`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
-                    * `resources.diskSize`: Disk size in bytes.
+                    * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: Disk type.
 
 
@@ -451,7 +451,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
@@ -474,13 +474,13 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         1. Create a file named `body.json` and paste the following code into it:
 
@@ -582,7 +582,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
             * `name`: Cluster name.
             * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-            * `network_id`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
+            * `network_id`: ID of the [network](../../vpc/concepts/network.md) to host the cluster.
 
             
             * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
@@ -594,13 +594,13 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 * `kafka`: {{ KF }} configuration:
 
                     * `resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md) call.
-                    * `resources.disk_size`: Disk size in bytes.
+                    * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: [Disk type](../concepts/storage.md).
 
                 * `zookeeper`: {{ ZK }} configuration:
 
                     * `resources.resource_preset_id`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md) call.
-                    * `resources.disk_size`: Disk size in bytes.
+                    * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: Disk type.
 
 
@@ -636,7 +636,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
@@ -814,9 +814,9 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
      You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
 
      {% endnote %}
-
+  
   1. To use [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}](../concepts/kraft.md#cluster-topology), provide the {{ kraft-short-name }} host configuration.
-
+       
      ```bash
      {{ yc-mdb-kf }} cluster create \
          ...
@@ -907,7 +907,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
        * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`: Three availability zones, one broker host in each availability zone.
        * `zones = ["<one_availability_zone>"] brokers_count = 3`: One availability zone, three broker hosts.
 
-     * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+     * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
 
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
@@ -941,7 +941,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -951,13 +951,13 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
      After this, all required resources will be created in the specified folder, and the [FQDNs of the {{ mkf-name }}](../concepts/network.md#hostname) cluster hosts will be displayed in the terminal. You can check the new resources and their configuration in the [management console]({{ link-console-main }}).
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1057,7 +1057,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
             * `name`: Cluster name.
             * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-            * `networkId`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
+            * `networkId`: ID of the [network](../../vpc/concepts/network.md) to host the cluster.
 
             
             * `securityGroupIds`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
@@ -1068,14 +1068,14 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 * `version`: {{ KF }} version. Specify version 3.6 or higher.
                 * `kafka`: {{ KF }} configuration:
 
-                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
 
                 * `kraft`: [{{ kraft-short-name }}](../concepts/kraft.md) configuration:
 
                     * `resources.resourcePresetId`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
-                    * `resources.diskSize`: Disk size in bytes.
+                    * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: Disk type.
 
                     {% include notitle [note-warning-combined-mode](../../_includes/mdb/mkf/create-cluster.md#note-warning-combined-mode) %}
@@ -1092,7 +1092,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 * `assignPublicIp`: Access to broker hosts from the internet, `true` or `false`.
 
 
-                * `schemaRegistry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`. You will not be able to edit this setting once you create the {{ mkf-name }} cluster.
+                * `schemaRegistry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`. You will not be able to edit this setting once you create a {{ mkf-name }} cluster.
                 * `restApiConfig`: {{ KF }} REST API configuration. For access to sending requests to the {{ KF }} REST API, specify `enabled: true`.
                 * `diskSizeAutoscaling`: Set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) (as a percentage of the total storage size), that will trigger an increase in storage size when reached:
 
@@ -1107,7 +1107,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
                 {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs.md) %}
 
-            * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
+            * `userSpecs`: User settings as an array of elements, one per user. Each element has the following structure:
 
                 {% include [rest-user-specs](../../_includes/mdb/mkf/api/rest-user-specs.md) %}
 
@@ -1118,7 +1118,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
@@ -1141,7 +1141,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1249,7 +1249,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
             * `name`: Cluster name.
             * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-            * `network_id`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
+            * `network_id`: ID of the [network](../../vpc/concepts/network.md) to host the cluster.
 
             
             * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
@@ -1261,13 +1261,13 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 * `kafka`: {{ KF }} configuration:
 
                     * `resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md) call.
-                    * `resources.disk_size`: Disk size in bytes.
+                    * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: [Disk type](../concepts/storage.md).
 
-                * `kraft`: [{{ kraft-short-name }}](../concepts/kraft.md) configuration.
+                * `kraft`: [{{ kraft-short-name }}](../concepts/kraft.md) configuration:
 
                     * `resources.resource_preset_id`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md) call.
-                    * `resources.disk_size`: Disk size in bytes.
+                    * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: Disk type.
                     
                     {% include notitle [note-warning-combined-mode](../../_includes/mdb/mkf/create-cluster.md#note-warning-combined-mode) %}
@@ -1299,7 +1299,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
                 {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs.md) %}
 
-            * `user_specs`: User settings as an array of elements, one for each user. Each element has the following structure:
+            * `user_specs`: User settings as an array of elements, one per user. Each element has the following structure:
 
                 {% include [rest-user-specs](../../_includes/mdb/mkf/api/grpc-user-specs.md) %}
 
@@ -1310,7 +1310,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
@@ -1335,7 +1335,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ KF }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ KF }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ KF }} cluster with the settings of another one created earlier. Do it by importing the original {{ KF }} cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea if the original {{ KF }} cluster has lots of settings and you want to create a similar one.
 
 To create a {{ KF }} cluster copy:
 
@@ -1354,15 +1354,15 @@ To create a {{ KF }} cluster copy:
         resource "yandex_mdb_kafka_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ KF }} cluster to the environment variable:
+    1. Save the ID of the original {{ KF }} cluster to an environment variable:
 
         ```bash
         export KAFKA_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](../../managed-kafka/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-kafka/operations/cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ KF }} cluster into the {{ TF }} configuration:
+    1. Import the original {{ KF }} cluster settings to the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_kafka_cluster.old ${KAFKA_CLUSTER_ID}
@@ -1386,11 +1386,11 @@ To create a {{ KF }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with the provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
-    1. Validate your {{ TF }} configuration files:
+    1. Make sure the {{ TF }} configuration files are correct:
 
         ```bash
         terraform validate
@@ -1421,12 +1421,11 @@ To create a {{ KF }} cluster copy:
   
   * Name: `mykf`.
   * Environment: `production`.
-  * {{ KF }} version: 3.5.
+  * {{ KF }} version: 3.9.
   * Network: `{{ network-name }}`.
   * Subnet ID: `{{ subnet-id }}`.
   * Security group: `{{ security-group }}`.
-  * Host class: `{{ host-class }}`, availability zone: `{{ region-id }}-a`.
-  * With one broker host.
+  * Broker host class: `{{ host-class }}`, availability zone: `{{ region-id }}-a`.
   * Network SSD storage (`{{ disk-type-example }}`): 10 GB.
   * Public access: Allowed.
   * Deletion protection: Enabled.
@@ -1439,7 +1438,7 @@ To create a {{ KF }} cluster copy:
   {{ yc-mdb-kf }} cluster create \
      --name mykf \
      --environment production \
-     --version 3.5 \
+     --version 3.9 \
      --network-name {{ network-name }} \
      --subnet-ids {{ subnet-id }} \
      --zone-ids {{ region-id }}-a \
@@ -1453,6 +1452,7 @@ To create a {{ KF }} cluster copy:
   ```
 
 
+
 - {{ TF }} {#tf}
 
   Create a {{ mkf-name }} cluster with the following test specifications:
@@ -1460,15 +1460,10 @@ To create a {{ KF }} cluster copy:
   * Folder ID: `{{ tf-folder-id }}`.
   * Name: `mykf`.
   * Environment: `PRODUCTION`.
-  * {{ KF }} version: 3.5.
-  * New network: `mynet`, subnet: `mysubnet`.
-
-  
+  * {{ KF }} version: 3.9.
+  * New network: `mynet`, subnet: `mysubnet`, address range: `10.5.0.0/24`.
   * Security group: `mykf-sg` (allow ingress connections to the {{ mkf-name }} cluster on port `9091`).
-
-
-  * Host class: `{{ host-class }}`, availability zone: `{{ region-id }}-a`.
-  * With one broker host.
+  * Broker host class: `{{ host-class }}`, availability zone: `{{ region-id }}-a`.
   * Network SSD storage (`{{ disk-type-example }}`): 10 GB.
 
   
@@ -1479,7 +1474,6 @@ To create a {{ KF }} cluster copy:
 
   The configuration file for this {{ mkf-name }} cluster looks like this:
 
-  
   ```hcl
   resource "yandex_mdb_kafka_cluster" "mykf" {
     environment         = "PRODUCTION"
@@ -1492,7 +1486,7 @@ To create a {{ KF }} cluster copy:
     config {
       assign_public_ip = true
       brokers_count    = 1
-      version          = "3.5"
+      version          = "3.9"
       kafka {
         resources {
           disk_size          = 10
@@ -1534,3 +1528,473 @@ To create a {{ KF }} cluster copy:
 
 
 {% endlist %}
+
+### Creating a cluster with {{ kraft-short-name }} in combined mode {#kafka-kraft}
+
+In our example, we use the [configuration](../concepts/kraft.md#cluster-topology) with three availability zones, each hosting a single broker.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Create a {{ mkf-name }} cluster with the following test specifications:
+
+  * Name: `kafka-kraft`.
+  * Environment: `production`.
+  * {{ KF }} version: `3.9`.
+  
+  
+  * Network ID: `enpc6eqfhmj2********`.
+  * Subnet IDs:
+    
+    * `e9bhbia2scnk********`
+    * `e2lfqbm5nt9r********`
+    * `fl8beqmjckv8********`
+  
+
+  * One broker host in each of the following availability zones:
+
+      
+    * `ru-central1-a`
+    * `ru-central1-b`
+    * `ru-central1-d`
+  
+
+  * [Host class](../concepts/instance-types.md): `s2.micro`.
+  * Network HDD storage (`network-hdd`): `10` GB.
+
+  
+  * Public access: Allowed.
+  * Security group: `enp68jq81uun********`.
+
+
+  Run this command:
+
+  
+  ```bash
+  yc managed-kafka cluster create \
+    --name kafka-kraft \
+    --environment production \
+    --version 3.9 \
+    --network-id enpc6eqfhmj2******** \
+    --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
+    --zone-ids ru-central1-a,ru-central1-b,ru-central1-d \
+    --brokers-count 1 \
+    --resource-preset s2.micro \
+    --disk-size 10 \
+    --disk-type network-hdd \
+    --assign-public-ip \
+    --security-group-ids enp68jq81uun********
+  ```
+
+
+
+- {{ TF }} {#tf}
+
+  Create a {{ mkf-name }} cluster with the following test specifications:
+
+  * Name: `kafka-kraft`.
+  * Environment: `production`.
+  * {{ KF }} version: `3.9`.
+  * New network: `kafka-net`, subnets in each availability zone:
+    
+    * `kafka-subnet-a` with the `10.1.0.0/24` address range.
+    * `kafka-subnet-b` with the `10.2.0.0/24` address range.
+    * `kafka-subnet-d` with the `10.3.0.0/24` address range.
+
+  * One broker host in each of the following availability zones:
+    
+    * `ru-central1-a`
+    * `ru-central1-b`
+    * `ru-central1-d`
+  
+  * [Host class](../concepts/instance-types.md): `s2.micro`.
+  * Network HDD storage (`network-hdd`): `10` GB.
+  * Public access: Allowed.
+  * Security group: `kafka-sg`, allowing all incoming and outgoing traffic.
+
+  The configuration file for this {{ mkf-name }} cluster looks like this:
+
+  ```hcl
+  resource "yandex_mdb_kafka_cluster" "kafka-kraft" {
+    name                = "kafka-kraft"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.kafka-net.id
+    subnet_ids          = [yandex_vpc_subnet.kafka-subnet-a.id, yandex_vpc_subnet.kafka-subnet-b.id, yandex_vpc_subnet.kafka-subnet-d.id]
+    security_group_ids  = [yandex_vpc_security_group.kafka-sg.id]
+
+    config {
+      version          = "3.9"
+      brokers_count    = 1
+      zones            = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
+      assign_public_ip = true
+      
+      kafka {
+        resources {
+          disk_size          = 10
+          disk_type_id       = "network-hdd"
+          resource_preset_id = "s2.micro"
+        }
+
+        kafka_config {}
+      }
+    }
+  }
+
+  resource "yandex_vpc_network" "kafka-net" {
+    name = "kafka-net"
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-a" {
+    name           = "kafka-subnet-a"
+    zone           = "ru-central1-a"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.1.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-b" {
+    name           = "kafka-subnet-b"
+    zone           = "ru-central1-b"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.2.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-d" {
+    name           = "kafka-subnet-d"
+    zone           = "ru-central1-d"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.3.0.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "kafka-sg" {
+    name       = "kafka-sg"
+    network_id = yandex_vpc_network.kafka-net.id
+  
+    ingress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+  ```
+
+
+{% endlist %}
+
+### Creating a cluster with separate {{ kraft-short-name }} hosts (multi-host cluster) {#kafka-kraft-mh}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Create a {{ mkf-name }} cluster with the following test specifications:
+
+  * Name: `kafka-kraft-mh`.
+  * Environment: `production`.
+  * {{ KF }} version: `3.9`.
+  
+  
+  * Network ID: `enpc6eqfhmj2********`.
+  * Subnet IDs:
+    
+    * `e9bhbia2scnk********`
+    * `e2lfqbm5nt9r********`
+    * `fl8beqmjckv8********`
+  
+
+  * Hosts: Two broker hosts in the `ru-central1-a` availability zone.
+  * [Host class](../concepts/instance-types.md): `s2.micro`.
+  * Network HDD storage (`network-hdd`): `10` GB.
+  * [{{ kraft-short-name }}](../concepts/kraft.md) controller [host class](../concepts/instance-types.md): `s2.micro`.
+  * [{{ kraft-short-name }}](../concepts/kraft.md) controller network SSD storage (`network-ssd`): `10` GB.
+
+  
+  * Public access: Allowed.
+  * Security group: `enp68jq81uun********`.
+
+
+  Run this command:
+
+  
+  ```bash
+  yc managed-kafka cluster create \
+    --name kafka-kraft-mh \
+    --environment production \
+    --version 3.9 \
+    --network-id enpc6eqfhmj2******** \
+    --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
+    --zone-ids ru-central1-a \
+    --brokers-count 2 \
+    --resource-preset s2.micro \
+    --disk-size 10 \
+    --disk-type network-hdd \
+    --controller-resource-preset s2.micro \
+    --controller-disk-size 10 \
+    --controller-disk-type network-ssd \
+    --assign-public-ip \
+    --security-group-ids enp68jq81uun********
+  ```
+
+
+
+- {{ TF }} {#tf}
+
+  Create a {{ mkf-name }} cluster with the following test specifications:
+
+  * Name: `kafka-kraft-mh`.
+  * Environment: `production`.
+  * {{ KF }} version: `3.9`.
+  * New network: `kafka-net`, subnets in each availability zone:
+    
+    * `kafka-subnet-a` with the `10.1.0.0/24` address range.
+    * `kafka-subnet-b` with the `10.2.0.0/24` address range.
+    * `kafka-subnet-d` with the `10.3.0.0/24` address range.
+  
+  * Hosts: Two broker hosts in the `ru-central1-a` availability zone.
+  * [Host class](../concepts/instance-types.md): `s2.micro`.
+  * Network HDD storage (`network-hdd`): `10` GB.
+  * [{{ kraft-short-name }}](../concepts/kraft.md) controller [host class](../concepts/instance-types.md): `s2.micro`.
+  * [{{ kraft-short-name }}](../concepts/kraft.md) controller network SSD storage (`network-ssd`): `10` GB.
+  * Public access: Allowed.
+  * Security group: `kafka-sg`, allowing all incoming and outgoing traffic.
+
+  The configuration file for this {{ mkf-name }} cluster looks like this:
+
+  ```hcl
+  resource "yandex_mdb_kafka_cluster" "kafka-kraft-mh" {
+    name                = "kafka-kraft-mh"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.kafka-net.id
+    subnet_ids          = [yandex_vpc_subnet.kafka-subnet-a.id,yandex_vpc_subnet.kafka-subnet-b.id,yandex_vpc_subnet.kafka-subnet-d.id]
+    security_group_ids  = [yandex_vpc_security_group.kafka-sg.id]
+
+    config {
+      version          = "3.9"
+      brokers_count    = 2
+      zones            = ["ru-central1-a"]
+      assign_public_ip = true
+      
+      kafka {
+        resources {
+          disk_size          = 10
+          disk_type_id       = "network-hdd"
+          resource_preset_id = "s2.micro"
+        }
+
+        kafka_config {}
+      }
+
+      kraft {
+        resources {
+          resource_preset_id = "s2.micro"
+          disk_type_id       = "network-ssd"
+          disk_size          = 10
+        }
+      }
+    }
+  }
+
+  resource "yandex_vpc_network" "kafka-net" {
+    name = "kafka-net"
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-a" {
+    name           = "kafka-subnet-a"
+    zone           = "ru-central1-a"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.1.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-b" {
+    name           = "kafka-subnet-b"
+    zone           = "ru-central1-b"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.2.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-d" {
+    name           = "kafka-subnet-d"
+    zone           = "ru-central1-d"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.3.0.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "kafka-sg" {
+    name       = "kafka-sg"
+    network_id = yandex_vpc_network.kafka-net.id
+  
+    ingress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+  ```
+
+
+{% endlist %}
+
+### Creating a cluster with separate {{ ZK }} hosts (multi-host cluster) {#kafka-zk-mh}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Create a {{ mkf-name }} cluster with the following test specifications:
+
+  * Name: `kafka-zk-mh`.
+  * Environment: `production`.
+  * {{ KF }} version: `3.9`.
+  
+  
+  * Network ID: `enpc6eqfhmj2********`.
+  * Subnet IDs:
+    
+    * `e9bhbia2scnk********`
+    * `e2lfqbm5nt9r********`
+    * `fl8beqmjckv8********`
+  
+
+  * Hosts: Two broker hosts in the `ru-central1-a` availability zone.
+  * [Host class](../concepts/instance-types.md): `s2.micro`.
+  * Network HDD storage (`network-hdd`): `10` GB.
+  * {{ ZK }} [host class](../concepts/instance-types.md): `s2.micro`.
+  * [{{ ZK }}](../concepts/index.md#zookeeper) network SSD storage (`network-ssd`): `10` GB.
+  
+  
+  * Public access: Allowed.
+  * Security group: `enp68jq81uun********`.
+
+
+  Run this command:
+
+  
+  ```bash
+  yc managed-kafka cluster create \
+    --name kafka-zk-mh \
+    --environment production \
+    --version 3.9 \
+    --network-id enpc6eqfhmj2******** \
+    --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
+    --zone-ids ru-central1-a \
+    --brokers-count 2 \
+    --resource-preset s2.micro \
+    --disk-size 10 \
+    --disk-type network-hdd \
+    --zookeeper-resource-preset s2.micro \
+    --zookeeper-disk-size 10 \
+    --zookeeper-disk-type network-ssd \
+    --assign-public-ip \
+    --security-group-ids enp68jq81uun********
+  ```  
+
+
+
+- {{ TF }} {#tf}
+
+  Create a {{ mkf-name }} cluster with the following test specifications:
+
+  * Name: `kafka-zk-mh`.
+  * Environment: `production`.
+  * {{ KF }} version: `3.9`.
+  * New network: `kafka-net`, subnets in each availability zone:
+    
+    * `kafka-subnet-a` with the `10.1.0.0/24` address range.
+    * `kafka-subnet-b` with the `10.2.0.0/24` address range.
+    * `kafka-subnet-d` with the `10.3.0.0/24` address range.
+  
+  * Hosts: Two broker hosts in the `ru-central1-a` availability zone.
+  * [Host class](../concepts/instance-types.md): `s2.micro`.
+  * Network HDD storage (`network-hdd`): `10` GB.
+  * {{ ZK }} [host class](../concepts/instance-types.md): `s2.micro`.
+  * [{{ ZK }}](../concepts/index.md#zookeeper) network SSD storage (`network-ssd`): `10` GB.
+  * Public access: Allowed.
+  * Security group: `kafka-sg`, allowing all incoming and outgoing traffic.
+
+  The configuration file for this {{ mkf-name }} cluster looks like this:
+
+  ```hcl
+  resource "yandex_mdb_kafka_cluster" "kafka-zk-mh" {
+    name                = "kafka-zk-mh"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.kafka-net.id
+    subnet_ids          = [yandex_vpc_subnet.kafka-subnet-a.id,yandex_vpc_subnet.kafka-subnet-b.id,yandex_vpc_subnet.kafka-subnet-d.id]
+    security_group_ids  = [yandex_vpc_security_group.kafka-sg.id]
+
+    config {
+      version          = "3.9"
+      brokers_count    = 2
+      zones            = ["ru-central1-a"]
+      assign_public_ip = true
+      
+      kafka {
+        resources {
+          disk_size          = 10
+          disk_type_id       = "network-hdd"
+          resource_preset_id = "s2.micro"
+        }
+
+        kafka_config {}
+      }
+
+      zookeeper {
+        resources {
+          resource_preset_id = "s2.micro"
+          disk_type_id       = "network-ssd"
+          disk_size          = 10
+        }
+      }
+    }
+  }
+
+  resource "yandex_vpc_network" "kafka-net" {
+    name = "kafka-net"
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-a" {
+    name           = "kafka-subnet-a"
+    zone           = "ru-central1-a"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.1.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-b" {
+    name           = "kafka-subnet-b"
+    zone           = "ru-central1-b"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.2.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-d" {
+    name           = "kafka-subnet-d"
+    zone           = "ru-central1-d"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.3.0.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "kafka-sg" {
+    name       = "kafka-sg"
+    network_id = yandex_vpc_network.kafka-net.id
+  
+    ingress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+  ```
+
+
+{% endlist %}  

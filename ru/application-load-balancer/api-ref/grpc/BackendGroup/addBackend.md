@@ -287,7 +287,9 @@ An HTTP backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend. ||
+Required field. Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -301,7 +303,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **int64**
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend. For details about target groups, see
@@ -364,7 +368,9 @@ For details about panic mode, see [documentation](/docs/application-load-balance
 
 If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times.
 
-Default value: `0`. ||
+Default value: `0`.
+
+Acceptable values are 0 to 100, inclusive. ||
 || locality_aware_routing_percent | **int64**
 
 Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
@@ -376,7 +382,9 @@ If there are no healthy backends in an availability zone, all the traffic is div
 If `strict_locality` is `true`, the specified value is ignored.
 A load balancer node sends all the traffic within its availability zone, regardless of backends' health.
 
-Default value: `0`. ||
+Default value: `0`.
+
+Acceptable values are 0 to 100, inclusive. ||
 || strict_locality | **bool**
 
 Specifies whether a load balancer node should only send traffic to backends in its availability zone,
@@ -429,7 +437,9 @@ A resource for target groups that belong to the backend.
 
 List of ID's of target groups that belong to the backend.
 
-To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/grpc/TargetGroup/list#List) request. ||
+To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/grpc/TargetGroup/list#List) request.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## StorageBucketBackend {#yandex.cloud.apploadbalancer.v1.StorageBucketBackend}
@@ -484,7 +494,9 @@ Default value: `0`. ||
 
 Port used for health checks.
 
-If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks. ||
+If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || stream | **[StreamHealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck.StreamHealthCheck)**
 
 TCP stream health check settings.
@@ -559,6 +571,8 @@ A health check payload resource.
 
 Payload text.
 
+The string length in characters must be greater than 0.
+
 Includes only one of the fields `text`.
 
 Payload. ||
@@ -585,7 +599,9 @@ Default value: `false`, HTTP/1.1 is used. ||
 || expected_statuses[] | **int64**
 
 A list of HTTP response statuses considered healthy.
-By default only 200 HTTP status code considered healthy. ||
+By default only 200 HTTP status code considered healthy.
+
+Acceptable values are 100 to 599, inclusive. ||
 |#
 
 ## GrpcHealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck}
@@ -668,7 +684,9 @@ A gRPC backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend. ||
+Required field. Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -682,7 +700,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **int64**
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend.
@@ -713,7 +733,9 @@ A stream (TCP) backend resource.
 ||Field | Description ||
 || name | **string**
 
-Name of the backend. ||
+Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -727,7 +749,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **int64**
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend. For details about target groups, see
@@ -1242,7 +1266,9 @@ An HTTP backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend. ||
+Required field. Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -1256,7 +1282,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **int64**
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
 
 Target groups that belong to the backend. For details about target groups, see
@@ -1319,7 +1347,9 @@ For details about panic mode, see [documentation](/docs/application-load-balance
 
 If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times.
 
-Default value: `0`. ||
+Default value: `0`.
+
+Acceptable values are 0 to 100, inclusive. ||
 || locality_aware_routing_percent | **int64**
 
 Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
@@ -1331,7 +1361,9 @@ If there are no healthy backends in an availability zone, all the traffic is div
 If `strict_locality` is `true`, the specified value is ignored.
 A load balancer node sends all the traffic within its availability zone, regardless of backends' health.
 
-Default value: `0`. ||
+Default value: `0`.
+
+Acceptable values are 0 to 100, inclusive. ||
 || strict_locality | **bool**
 
 Specifies whether a load balancer node should only send traffic to backends in its availability zone,
@@ -1384,7 +1416,9 @@ A resource for target groups that belong to the backend.
 
 List of ID's of target groups that belong to the backend.
 
-To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/grpc/TargetGroup/list#List) request. ||
+To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/grpc/TargetGroup/list#List) request.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## StorageBucketBackend {#yandex.cloud.apploadbalancer.v1.StorageBucketBackend2}
@@ -1439,7 +1473,9 @@ Default value: `0`. ||
 
 Port used for health checks.
 
-If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend2) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks. ||
+If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend2) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || stream | **[StreamHealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck.StreamHealthCheck2)**
 
 TCP stream health check settings.
@@ -1514,6 +1550,8 @@ A health check payload resource.
 
 Payload text.
 
+The string length in characters must be greater than 0.
+
 Includes only one of the fields `text`.
 
 Payload. ||
@@ -1540,7 +1578,9 @@ Default value: `false`, HTTP/1.1 is used. ||
 || expected_statuses[] | **int64**
 
 A list of HTTP response statuses considered healthy.
-By default only 200 HTTP status code considered healthy. ||
+By default only 200 HTTP status code considered healthy.
+
+Acceptable values are 100 to 599, inclusive. ||
 |#
 
 ## GrpcHealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck2}
@@ -1634,7 +1674,9 @@ A resource for HTTP-header-field-based session affinity configuration.
 ||Field | Description ||
 || header_name | **string**
 
-Name of the HTTP header field that is used for session affinity. ||
+Name of the HTTP header field that is used for session affinity.
+
+The string length in characters must be 1-256. ||
 |#
 
 ## CookieSessionAffinity {#yandex.cloud.apploadbalancer.v1.CookieSessionAffinity}
@@ -1645,7 +1687,9 @@ A resource for cookie-based session affinity configuration.
 ||Field | Description ||
 || name | **string**
 
-Name of the cookie that is used for session affinity. ||
+Name of the cookie that is used for session affinity.
+
+The string length in characters must be 1-256. ||
 || ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Maximum age of cookies that are generated for sessions.
@@ -1659,7 +1703,9 @@ If not set, the balancer does not generate cookies and only uses incoming ones f
 Path of cookie.
 This will be used to set the path of a new cookie when it is generated.
 
-If path is unspecified or empty, no path will be set for the cookie. ||
+If path is unspecified or empty, no path will be set for the cookie.
+
+The string length in characters must be 0-256. ||
 |#
 
 ## GrpcBackendGroup {#yandex.cloud.apploadbalancer.v1.GrpcBackendGroup}
@@ -1725,7 +1771,9 @@ A gRPC backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend. ||
+Required field. Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -1739,7 +1787,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **int64**
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
 
 Target groups that belong to the backend.
@@ -1798,7 +1848,9 @@ A stream (TCP) backend resource.
 ||Field | Description ||
 || name | **string**
 
-Name of the backend. ||
+Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -1812,7 +1864,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **int64**
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
 
 Target groups that belong to the backend. For details about target groups, see

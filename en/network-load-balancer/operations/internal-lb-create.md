@@ -7,43 +7,50 @@ description: Follow this guide to create an internal network load balancer.
 
 {% note info %}
 
-To create an internal network load balancer, you need the `load-balancer.privateAdmin` role.
+To create an [internal network load balancer](../concepts/nlb-types.md), you need the `load-balancer.privateAdmin` [role](../security/index.md#load-balancer-private-admin).
 
 {% include [type-update](../../_includes/network-load-balancer/type-update.md) %}
 
 {% endnote %}
 
-{% note info %}
-
-The internal load balancer listener gets a random IP address within the selected [subnet](../../vpc/concepts/network.md#subnet).
-
-{% endnote %}
+To create an internal network load balancer:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  To create an [internal network load balancer](../concepts/nlb-types.md):
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-  1. Name the load balancer. Follow these naming requirements:
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the load balancer. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Select `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}` as your load balancer type. 
+  1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}** field, select `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`. 
+  1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** field, enable load balancer protection from deletion.
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, add a [listener](../concepts/listener.md):
       1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
       1. In the window that opens, specify these listener settings:
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-subnet-id }}** where the load balancer will route traffic.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`.
+          * In the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, select the method through which the listener will get the IP address the load balancer will receive traffic on:
 
-            {% note info %}
+              * `{{ ui-key.yacloud.common.label_auto }}`: For the listener to automatically get a free IP address from the selected subnet range.
+              * `{{ ui-key.yacloud.common.label_list }}`: To manually reserve a particular IP address for the listener in the subnet you select.
+              
+                  In the **{{ ui-key.yacloud.component.internal-v4-address-field.label_internal-address-title }}** field that opens, select a previously reserved IP address or click **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}** to reserve a new one. In the window that opens, specify the parameters of the reserved IP address:
 
-            By default, the listener uses TCP. To use UDP, [contact technical support]({{ link-console-support }}).
+                  * **{{ ui-key.yacloud.common.name }}**.
+                  * **{{ ui-key.yacloud.vpc.addresses.popup-create_field_internal-v4-address }}**: Specify a free IP address in the subnet range selected for the listener.
+                  * Optionally, in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** field, enable deletion protection for the reserved IP address.
+                  * Click **{{ ui-key.yacloud.common.create }}**.
+          * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}** field, select `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`.
 
-            {% endnote %}
+              {% note info %}
+
+              By default, the listener uses TCP. To use UDP, [contact technical support]({{ link-console-support }}).
+
+              {% endnote %}
 
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** where the listener will listen for incoming traffic. The possible values range from `1` to `32767`.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** to which the load balancer will redirect traffic. The possible values range from `1` to `32767`.
@@ -57,8 +64,14 @@ The internal load balancer listener gets a random IP address within the selected
           * Click **{{ ui-key.yacloud.common.create }}**.
       1. Optionally, under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify the [resource health check](../concepts/health-check.md) settings:
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`. For HTTP health checks, specify the URL in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** for health checks. The possible values range from `1` to `32767`.
+          * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**, choose one of the options:
+          
+              * `{{ ui-key.yacloud.common.label_http }}`. Additionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field, specify the path for health checks.
+              * `{{ ui-key.yacloud.common.label_tcp }}`.
+              * `{{ ui-key.yacloud.common.label_http2 }}`. Additionally, in the **{{ ui-key.yacloud.compute.group.overview.label_host }}** and **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** fields, specify the host address and path for health checks.
+              * `{{ ui-key.yacloud.common.label_https }}`. Additionally, in the **{{ ui-key.yacloud.compute.group.overview.label_host }}** and **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** fields, specify the host address and path for health checks.
+              * `{{ ui-key.yacloud.common.label_grpc }}`. Additionally, in the **{{ ui-key.yacloud.compute.group.overview.label_service-name }}** and **{{ ui-key.yacloud.compute.group.overview.label_authority }}** fields, specify the details of your gRPC service.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: Port number for health checks. The possible values range from `1` to `32767`.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Health check interval in seconds.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider the VM ready to receive traffic.
@@ -86,20 +99,21 @@ The internal load balancer listener gets a random IP address within the selected
      yc load-balancer network-load-balancer create <load_balancer_name> \
         --type=internal \
         --listener name=<listener_name>,`
-                  `port=<port>,`
-                  `target-port=<target_port>,`
-                  `protocol=<protocol>,`
-                  `internal-subnet-id=<subnet_ID>,`
-                  `internal-ip-version=<IP_address_version> \
+                   `port=<port>,`
+                   `target-port=<target_port>,`
+                   `protocol=<protocol>,`
+                   `internal-subnet-id=<subnet_ID>,`
+                   `internal-ip-version=<IP_address_version>,`
+                   `internal-address=<listener_IP_address> \
         --target-group target-group-id=<target_group_ID>,`
-                      `healthcheck-name=<health_check_name>,`
-                      `healthcheck-interval=<health_check_interval>s,`
-                      `healthcheck-timeout=<health_check_timeout>s,`
-                      `healthcheck-unhealthythreshold=<number_of_failed_checks_to_get_Unhealthy_status>,`
-                      `healthcheck-healthythreshold=<number_of_successful_checks_to_get_Healthy_status>,`
-                      `healthcheck-tcp-port=<TCP_port>,`
-                      `healthcheck-http-port=<HTTP_port>,`
-                      `healthcheck-http-path=<URL>
+                       `healthcheck-name=<health_check_name>,`
+                       `healthcheck-interval=<health_check_interval>s,`
+                       `healthcheck-timeout=<health_check_timeout>s,`
+                       `healthcheck-unhealthythreshold=<number_of_failed_checks_to_get_Unhealthy_status>,`
+                       `healthcheck-healthythreshold=<number_of_successful_checks_to_get_Healthy_status>,`
+                       `healthcheck-tcp-port=<TCP_port>,`
+                       `healthcheck-http-port=<HTTP_port>,`
+                       `healthcheck-http-path=<URL>
      ```
 
      Where:
@@ -112,8 +126,13 @@ The internal load balancer listener gets a random IP address within the selected
          * `protocol`: Protocol the listener will use, `tcp` or `udp`.
          * `internal-subnet-id`: Subnet ID.
          * `internal-ip-version`: Internal IP address version, `ipv4` or `ipv6`.
+         * `internal-address`: Listener IP address not occupied by other resources and belonging to the subnet range specified in the `internal-subnet-id` property.
+
+             If the `internal-address` property is not specified, the internal load balancer listener gets a random IP address from the selected [subnet](../../vpc/concepts/network.md#subnet) range.
 
      {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
+
+     For more information about the `yc load-balancer network-load-balancer create` command, see the [{{ yandex-cloud }} CLI reference](../../cli/cli-ref/load-balancer/cli-ref/network-load-balancer/create.md).
 
 - {{ TF }} {#tf}
 
@@ -125,7 +144,7 @@ The internal load balancer listener gets a random IP address within the selected
 
   1. Describe the network load balancer settings in the configuration file.
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
@@ -136,9 +155,11 @@ The internal load balancer listener gets a random IP address within the selected
          name = "<listener_name>"
          port = <port_number>
          internal_address_spec {
-           subnet_id = "<subnet_ID>"
+           subnet_id  = "<subnet_ID>"
            ip_version = "<IP_address_version>"
+           address    = "<listener_IP_address>"
          }
+       }
        attached_target_group {
          target_group_id = "<target_group_ID>"
          healthcheck {
@@ -160,9 +181,12 @@ The internal load balancer listener gets a random IP address within the selected
      * `listener`: Listener settings:
        * `name`: Listener name.
        * `port`: Port number (ranging from `1` to `32767`) on which the load balancer will listen to incoming traffic.
-       * `internal_address_spec`: Specification of the listener for the external load balancer settings:
+       * `internal_address_spec`: Specification of the internal load balancer's listener:
          * `subnet_id`: Subnet ID.
-         * `ip_version`: External IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
+         * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
+         * `address`: Listener IP address not occupied by other resources and belonging to the subnet range specified in the `subnet_id` field.
+
+             If the `address` field value is not specified, the internal load balancer listener gets a random IP address from the selected [subnet](../../vpc/concepts/network.md#subnet) range.
      * `attached_target_group`: Description of the network load balancer's target group settings:
         * `target_group_id`: Target group ID.
 
@@ -170,7 +194,7 @@ The internal load balancer listener gets a random IP address within the selected
 
         * `healthcheck`: Health check settings. Specify a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-link }}/resources/lb_network_load_balancer).
 
   1. Create a network load balancer:
 
@@ -248,6 +272,7 @@ Create an internal network load balancer with a listener and attached target gro
     * Protocol: `TCP`
     * Subnet ID: `b0cp4drld130********`
     * IP address version: `ipv4`
+    * Listener IP address: `192.168.1.25`
 * Target group ID: `enpu2l7q9kth********`
 * Target group health check settings:
     * Name: `http`
@@ -268,19 +293,20 @@ Create an internal network load balancer with a listener and attached target gro
   yc load-balancer network-load-balancer create internal-lb-test-2 \
      --type=internal \
      --listener name=test-listener,`
-               `port=80,`
-               `target-port=81,`
-               `protocol=tcp,`
-               `internal-subnet-id=b0cp4drld130********,`
-               `internal-ip-version=ipv4 \
+                `port=80,`
+                `target-port=81,`
+                `protocol=tcp,`
+                `internal-subnet-id=b0cp4drld130********,`
+                `internal-ip-version=ipv4,`
+                `internal-address=192.168.1.25 \
      --target-group target-group-id=enpu2l7q9kth********,`
-                   `healthcheck-name=http,`
-                   `healthcheck-interval=2s,`
-                   `healthcheck-timeout=1s,`
-                   `healthcheck-unhealthythreshold=2,`
-                   `healthcheck-healthythreshold=2,`
-                   `healthcheck-http-port=80,`
-                   `healthcheck-http-path=/
+                    `healthcheck-name=http,`
+                    `healthcheck-interval=2s,`
+                    `healthcheck-timeout=1s,`
+                    `healthcheck-unhealthythreshold=2,`
+                    `healthcheck-healthythreshold=2,`
+                    `healthcheck-http-port=80,`
+                    `healthcheck-http-path=/
   ```
 
 - {{ TF }} {#tf}
@@ -300,6 +326,7 @@ Create an internal network load balancer with a listener and attached target gro
          internal_address_spec {
            subnet_id  = "b0cp4drld130********"
            ip_version = "ipv4"
+           address    = "192.168.1.25"
          }
        }
        attached_target_group {
@@ -319,7 +346,7 @@ Create an internal network load balancer with a listener and attached target gro
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 
@@ -346,7 +373,8 @@ Create an internal network load balancer with a listener and attached target gro
         "targetPort": "81",
         "internalAddressSpec": {
           "subnetId": "b0cp4drld130********",
-          "ipVersion": "IPV4"
+          "ipVersion": "IPV4",
+          "address": "192.168.1.25"
         }
       }
     ],

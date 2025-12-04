@@ -11,7 +11,6 @@ The host class determines the computing power allocated for each host in a clust
 
 The host class determines the available [disk types](./storage.md):
 
-* **s1**, **m1**: `local-ssd`.
 * **s2**, **m2**, **s3**, **m3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 * **b2**, **b3**: `network-ssd`, `network-hdd`.
 
@@ -25,27 +24,16 @@ Hosts in {{ mkf-name }} clusters are deployed on {{ compute-full-name }} VMs. Yo
 
 The full list of possible host configurations on each platform is provided below.
 
-{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
+{% note info %}
+
+For cluster hosts residing in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md), you cannot use local SSD storage if you select Intel Cascade Lake.
+
+{% endnote %}
 
 {% include [instance-types-code](../../_includes/mdb/mkf-instance-types-code.md) %}
 
 | Host class name | Number of vCPUs | Guaranteed vCPU share | RAM, GB | Disk <br>size, GB |
 |-------------------|-----------------|---------------------------|---------|----------------------|
-| **Intel Broadwell**                                                                              |
-| s1.nano           | 1               | 100%                      | 4       | 100 - 1,500           |
-| s1.micro          | 2               | 100%                      | 8       | 100 - 1,500           |
-| s1.small          | 4               | 100%                      | 16      | 100 - 1,500           |
-| s1.medium         | 8               | 100%                      | 32      | 100 - 1,500           |
-| s1.large          | 16              | 100%                      | 64      | 100 - 1,500           |
-| s1.xlarge         | 32              | 100%                      | 128     | 100 - 1,500           |
-| m1.micro          | 2               | 100%                      | 16      | 100 - 1,500           |
-| m1.small          | 4               | 100%                      | 32      | 100 - 1,500           |
-| m1.medium         | 6               | 100%                      | 48      | 100 - 1,500           |
-| m1.large          | 8               | 100%                      | 64      | 100 - 1,500           |
-| m1.xlarge         | 12              | 100%                      | 96      | 100 - 1,500           |
-| m1.2xlarge        | 16              | 100%                      | 128     | 100 - 1,500           |
-| m1.3xlarge        | 24              | 100%                      | 192     | 100 - 1,500           |
-| m1.4xlarge        | 32              | 100%                      | 256     | 100 - 1,500           |
 | **Intel Cascade Lake**                                                                           |
 | b2.medium         | 2               | 50%                       | 4       | 10 - 8,192             |
 | m2.micro          | 2               | 100%                      | 16      | 10 - 32,736           |
@@ -117,7 +105,7 @@ The full list of possible host configurations on each platform is provided below
 | m4a-c96-m768      | 96              | 100%                      | 768     | 10 - 32,768           |
 | m4a-c128-m1024    | 128             | 100%                      | 1 024   | 10 - 32,768           |
 | m4a-c224-m1792    | 224             | 100%                      | 1 792   | 10 - 32,768           |
-| **AMD Zen 4 HighFreq**                                                         -                 |
+| **AMD Zen 4 HighFreq**                                                                          |
 | s4af-c2-m8        | 2               | 100%                      | 8       | 10 - 32,768           |
 | s4af-c4-m16       | 4               | 100%                      | 16      | 10 - 32,768           |
 | s4af-c8-m32       | 8               | 100%                      | 32      | 10 - 32,768           |

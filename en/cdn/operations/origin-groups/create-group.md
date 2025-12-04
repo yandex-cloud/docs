@@ -12,7 +12,7 @@ To create an [origin group](../../concepts/origins.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to host your origin group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
   1. Enter a name for the origin group.
@@ -82,34 +82,8 @@ To create an [origin group](../../concepts/origins.md):
 
   1. Define the parameters of the `yandex_cdn_origin_group` resource in the configuration file.
 
-     Here is an example of the configuration file structure:
+     {% include [create-origin-group-tf](../../../_includes/cdn/create-origin-group-tf.md) %}
 
-     ```hcl
-     resource "yandex_cdn_origin_group" "my_group" {
-       name = "<origin_group_name>"
-       use_next = true
-       origin {
-        source = "<origin_1_IP_address_or_domain_name>"
-       }
-       origin {
-        source = "<origin_2_IP_address_or_domain_name>"
-       }
-       origin {
-        source = "<origin_3_IP_address_or_domain_name>"
-        backup = false
-       }
-     }
-     ```
-
-     Where:
-     * `name`: Origin group name.
-     * `use_next`: Indicates whether to use the next [origin](../../concepts/resource.md) on the list.
-     * `origin`: Origin specification:
-       * `source`: Origin [IP address](../../../vpc/concepts/address.md) or domain name.
-       * `enabled`: Flag showing whether the origin is enabled.
-       * `backup`: Flag showing whether the origin as a backup one. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
-
-     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/cdn_origin_group).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

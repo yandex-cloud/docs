@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN error
-description: This page describes the ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN error.
+title: '{{ datalens-full-name }} error ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN'
+description: This page describes the Formula syntax error {{ datalens-full-name }} error.
 ---
 
-# Formula syntax error
+# [{{ datalens-full-name }}] Formula syntax error
 
 `ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN`
 

@@ -91,7 +91,7 @@ To check rights for the `example.com` domain, follow these steps:
 
     - {{ dns-full-name }} {#dns}
 
-       Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the `TXT` record type section, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens:
+      Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the `TXT` record type section, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens, do the following:
 
       1. If the current folder contains an appropriate DNS zone, it will be automatically inserted into the **{{ ui-key.yacloud.dns.label_zone }}** field. If there is no appropriate DNS zone, click **{{ ui-key.yacloud.dns.button_zone-create }}** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
       1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -132,7 +132,7 @@ A check is performed automatically if the following conditions are met:
 * The certificate is used in the [HTTPS configuration](../../storage/operations/hosting/certificate#cert-manager) of a static website in [{{ objstorage-name }}](../../tutorials/web/static/index.md).
 * For each certificate domain, the following is configured:
     * An [alias](../../storage/operations/hosting/own-domain.md) for the static website bucket where the certificate is used.
-    * Or a [redirect](../../storage/operations/hosting/multiple-domains.md) to the domain with the alias for the bucket.
+    * Or a [redirect](../../storage/operations/hosting/multiple-domains/index.md) to the domain with the alias for the bucket.
 * The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it does not contain masks for subdomains.
 
 ### Redirecting to a validation server on a web server {#auto-vs}
@@ -144,7 +144,7 @@ A check is performed automatically if the following conditions are met:
     ```
     http://<domain>/.well-known/acme-challenge/*
     ```
-    to
+    with
     ```
     https://{{ api-host-certmanager-validation }}/<certificate_ID>/*
     ```

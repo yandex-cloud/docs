@@ -46,10 +46,14 @@ use the origin via a [CacheService.Purge](/docs/cdn/api-ref/grpc/Cache/purge#Pur
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
+Required field. ID of the folder that the origin belongs to.
+
+The maximum string length in characters is 50. ||
 || origin_id | **int64**
 
-ID of the origin. ||
+ID of the origin.
+
+Value must be greater than 0. ||
 || source | **string**
 
 IP address or Domain name of your origin and the port (if custom).
@@ -241,10 +245,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || origin_id | **int64**
 
-ID of the origin. ||
+ID of the origin.
+
+Value must be greater than 0. ||
 || origin_group_id | **int64**
 
-Parent origins group ID. ||
+Parent origins group ID.
+
+Value must be greater than 0. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}

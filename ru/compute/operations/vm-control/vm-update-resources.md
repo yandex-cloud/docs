@@ -12,6 +12,12 @@ description: Следуя данной инструкции, вы сможете
 
 В этом разделе приведена инструкция для изменения количества и производительности ядер процессора (vCPU), а также количества памяти (RAM).
 
+{% note warning %}
+
+{% include [vcpu-note](../../../_includes/compute/vcpu-note.md) %}
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

@@ -28,4 +28,8 @@
         --domain my-domain.ru
       ```
 
+- API {#api}
+
+  Use the [Federation.DeleteDomain](../../organization/saml/api-ref/Federation/deleteDomain.md) REST API method for the [Federation](../../organization/saml/api-ref/Federation/index.md) resource or the [FederationService/DeleteDomain](../../organization/saml/api-ref/grpc/Federation/deleteDomain.md) gRPC API call.
+
 {% endlist %}

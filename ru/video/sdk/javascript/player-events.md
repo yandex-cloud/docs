@@ -176,6 +176,18 @@ player.on('BufferedRangesChange', ({ bufferedRanges }) => {
 });
 ```
 
+#### FullscreenStateChange {#fullscreenstatechange}
+
+Изменение состояния полноэкранного режима. 
+
+В объекте `{ isFullscreen }` в обработчик поступает новое значение [состояния полноразмерного режима](./player-state.md#state-isFullscreen).
+
+Пример:
+```javascript
+player.on('FullscreenStateChange', ({ isFullscreen }) => {
+    console.log(isFullscreen);
+});
+```
 
 #### См. также {#see-also}
 

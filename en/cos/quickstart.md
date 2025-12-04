@@ -1,5 +1,5 @@
 ---
-title: How to get started with {{ cos-name }}
+title: Getting started with {{ cos-name }}
 description: Follow this guide to create a VM from a {{ coi }} and run a Docker container on it.
 ---
 

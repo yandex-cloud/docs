@@ -41,66 +41,7 @@ For more information, see [{#T}](../../security/overview.md).
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for setting up static website hosting in a bucket:
-
-     ```bash
-     yc storage bucket update --help
-     ```
-     
-  1. Create a hosting configuration file in JSON format. Here is an example:
-     
-     ```json
-     {
-       "index": "index.html",
-       "error": "error404.html"
-     }
-     ```
-
-     Where:
-
-     * `index`: Absolute path to the website home page file.
-
-       {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
-
-     * `error`: Absolute path to the file the user will see in case of 4xx errors.
-  
-  1. Run this command:
-
-     ```bash
-     yc storage bucket update --name <bucket_name> \
-       --website-settings-from-file <path_to_file>
-     ```
-     
-     Where:
-     * `--name`: Bucket name.
-     * `--website-settings-from-file`: Path to the hosting configuration file.
-
-     Result:
-
-     ```text
-     name: my-bucket
-     folder_id: b1gjs8dck8bv********
-     default_storage_class: STANDARD
-     versioning: VERSIONING_SUSPENDED
-     max_size: "10737418240"
-     acl: {}
-     created_at: "2022-12-14T08:42:16.273717Z"
-     ```
-
-  To make sure the bucket description now contains the hosting settings, run this command:
-
-  ```bash
-  yc storage --name <bucket_name> bucket get --full
-  ```
-
-  Result:
-
-  ```text
-  website_settings:
-    index: index.html
-    error: error404.html
-    redirect_all_requests: {}
-  ```
+  {% include [hosting-setup-cli](../../../_includes/storage/hosting-setup-cli.md) %}
 
 - {{ TF }} {#tf}
 
@@ -160,11 +101,11 @@ For more information, see [{#T}](../../security/overview.md).
      * `bucket`: Bucket name.
      * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
      * `website`: Website parameters:
-       * `index_document`: Absolute path to the website home page file. This is a required parameter.
+       * `index_document`: Absolute path to the website home page file. This is a required setting.
 
          {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
 
-       * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
+       * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
 
   1. Make sure the configuration files are correct.
 
@@ -201,7 +142,9 @@ For more information, see [{#T}](../../security/overview.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure request redirects for.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket you want to redirect all requests for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
@@ -221,7 +164,7 @@ For more information, see [{#T}](../../security/overview.md).
      yc storage bucket update --help
      ```
      
-  1. Create a redirect configuration file in JSON format. For example:
+  1. Create a redirect configuration file in JSON format. Here is an example:
      
      ```json
      {
@@ -297,8 +240,8 @@ For more information, see [{#T}](../../security/overview.md).
      * `bucket`: Bucket name.
      * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
      * `website`: Website parameters:
-       * `index_document`: Absolute path to the website home page file. This is a required parameter.
-       * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
+       * `index_document`: Absolute path to the website home page file. This is a required setting.
+       * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
        * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can specify a protocol prefix (`http://` or `https://`). By default, the original request protocol is used.
 
      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
@@ -349,7 +292,9 @@ With routing rules, you can redirect requests based on the object name prefixes 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure conditional request redirects for.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket you want to configure conditional request redirects for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}**, click **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
@@ -375,7 +320,7 @@ With routing rules, you can redirect requests based on the object name prefixes 
      yc storage bucket update --help
      ```
      
-  1. Create a conditional redirect configuration file in JSON format. For example:
+  1. Create a conditional redirect configuration file in JSON format. Here is an example:
      
      ```json
      {
@@ -400,7 +345,7 @@ With routing rules, you can redirect requests based on the object name prefixes 
      ```
 
      Where:
-     * `index`: Absolute path to the website home page file. This is a required parameter.
+     * `index`: Absolute path to the website home page file. This is a required setting.
 
          {% note info %}
 
@@ -408,7 +353,7 @@ With routing rules, you can redirect requests based on the object name prefixes 
 
          {% endnote %}
 
-     * `error`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
+     * `error`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
      * `condition`: Condition to trigger a redirect:
      
        * `httpErrorCodeReturnedEquals`: HTTP response code.
@@ -500,8 +445,8 @@ With routing rules, you can redirect requests based on the object name prefixes 
      * `bucket`: Bucket name.
      * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
      * `website`: Website parameters:
-       * `index_document`: Absolute path to the website home page file. This is a required parameter.
-       * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
+       * `index_document`: Absolute path to the website home page file. This is a required setting.
+       * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
        * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the relevant API method (the **For conditionally redirecting requests** tab).
 
      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
@@ -547,5 +492,5 @@ With routing rules, you can redirect requests based on the object name prefixes 
 #### See also {#see-also}
 
 * [{#T}](own-domain.md)
-* [{#T}](multiple-domains.md)
+* [{#T}](multiple-domains/index.md)
 * [{#T}](certificate.md)

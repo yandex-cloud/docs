@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of resource to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - resourceId
@@ -36,7 +37,9 @@ DELETE https://cdn.{{ api-host }}/cdn/v1/resources/{resourceId}
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of resource to delete. ||
+Required field. ID of resource to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

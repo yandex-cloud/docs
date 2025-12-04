@@ -48,6 +48,10 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
 
+1. В списке **{{ ui-key.yacloud_video.presets.label_style-preset }}** выберите [шаблон](concepts/presets.md) оформления плеера из доступных в канале или создайте новый.
+
+     Если шаблон не выбран, к видео будут применен шаблон по умолчанию, который добавляется при создании канала.
+
 1. {% include [add-summarization-optional](../_includes/video/add-summarization-optional.md) %}
 1. {% include [add-subtitles-optional](../_includes/video/add-subtitles-optional.md) %}
 1. {% include [add-translation-optional](../_includes/video/add-translation-optional.md) %}
@@ -75,5 +79,7 @@ description: Следуя данной инструкции, вы сможете
 
 * [{#T}](streaming.md)
 * [Обзор сервиса {{ video-full-name }}](./concepts/index.md)
+* [Загрузить видео](operations/video/upload.md)
+* [Настроить шаблон плеера](operations/style-presets/update.md)
 * [Настроить показ рекламы](operations/channels/settings.md#ad-settings)
 * [{#T}](troubleshooting.md)

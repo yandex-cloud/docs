@@ -21,7 +21,9 @@ To enable object locks:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure locks for.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket you want to configure encryption for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}** tab.
   1. To enable using locks, check **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_temp-object-lock-enabled_v3heA }}**.
@@ -64,9 +66,9 @@ To enable object locks:
       Where:
 
       * `object_lock_configuration`: Object lock settings:
-        * `object_lock_enabled`: Enables object locks. You must enable bucket versioning to set this property. This is an optional parameter.
+        * `object_lock_enabled`: Enables object locks. You must enable bucket versioning to set this property. This is an optional setting.
 
-      For more information about the bucket parameters you can specify using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information about the bucket parameters you can specify using {{ TF }}, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Create the resources:
 
@@ -106,14 +108,16 @@ To set up default object locks:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure default locks for.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket you want to configure default locks for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}** tab.
   1. To enable or disable using locks, use the **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_temp-object-lock-enabled_v3heA }}** option.
   1. Enable **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_default-rules-enabled_qtmC8 }}**.
   1. Select **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. You cannot override, shorten, or remove such locks until they expire.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. You cannot override, shorten, or remove such locks until they expire.
   1. Specify **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** in days or years. It starts from the moment you upload the object version to the bucket.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -191,8 +195,8 @@ To set up default object locks:
       Where:
 
       * `rule`: Object lock rule. It contains the `default_retention` parameter with retention settings:
-        * `mode`: Lock type. It can be either `GOVERNANCE` or `COMPLIANCE`. This is an optional parameter.
-        * `years` or `days`: Object lock duration (retention period). Provide it as a number. This is an optional parameter.
+        * `mode`: Lock type. It can be either `GOVERNANCE` or `COMPLIANCE`. This is an optional setting.
+        * `years` or `days`: Object lock duration (retention period). Provide it as a number. This is an optional setting.
 
   1. Apply the changes:
 
@@ -231,7 +235,9 @@ To disable object locks:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure locks for.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket you want to configure encryption for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}** tab.
   1. To disable using locks, uncheck **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_temp-object-lock-enabled_v3heA }}**.

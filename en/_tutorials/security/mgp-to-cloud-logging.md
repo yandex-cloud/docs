@@ -1,6 +1,6 @@
-# Transferring {{ mgp-name }} cluster logs to {{ cloud-logging-full-name }}
+# Transferring a {{ GP }} cluster's logs to {{ cloud-logging-full-name }}
 
-You can set up regular collection of {{ mgp-name }} cluster performance logs. Logs will be delivered to a [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}. You can choose between these two types of log groups:
+You can set up regular collection of {{ GP }} cluster performance logs. Logs will be delivered to a [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}. You can choose between these two types of log groups:
 
 * [Default log group of the cluster folder](#default)
 * [Custom log group](#custom)
@@ -11,7 +11,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
 ## Transferring data to the default log group {#default}
 
-1. Create a {{ mgp-name }} cluster with active logging and a service account [created earlier](#before-you-begin):
+1. Create a {{ GP }} cluster with active logging and a service account [created earlier](#before-you-begin):
 
    {% list tabs group=instructions %}
 
@@ -30,7 +30,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
       1. Under **{{ ui-key.yacloud.mdb.forms.section_user }}**, specify the admin user credentials:
 
          * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, but cannot start with a hyphen. It must be from 1 to 32 characters long.
-         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
+         * The **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
 
       1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
@@ -72,7 +72,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
-      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
+      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs to work, e.g., `--log-greenplum-enabled`.
 
       * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
 
@@ -82,7 +82,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
-      * `--log-folder-id`: ID of the folder the {{ mgp-name }} cluster was created in.
+      * `--log-folder-id`: ID of the folder the {{ GP }} cluster was created in.
 
    * {{ TF }} {#tf}
 
@@ -152,13 +152,13 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           * `folder_id`: Specify the ID of the folder whose log group you want to use.
 
-      1. Validate your {{ TF }} configuration files using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
           ```bash
           terraform validate
           ```
 
-          {{ TF }} will display any configuration errors detected in your files.
+          {{ TF }} will show any errors found in your configuration files.
 
       1. Create the required infrastructure:
 
@@ -259,7 +259,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 ## Sending data to a custom log group {#custom}
 
 1. [Create a log group](../../logging/operations/create-group.md) named `greenplum-log-group`.
-1. Create a {{ mgp-name }} cluster with active logging and a service account [created earlier](#before-you-begin):
+1. Create a {{ GP }} cluster with active logging and a service account [created earlier](#before-you-begin):
 
    {% list tabs group=instructions %}
 
@@ -278,7 +278,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
       1. Under **{{ ui-key.yacloud.mdb.forms.section_user }}**, specify the admin user credentials:
 
          * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, but cannot start with a hyphen. It must be from 1 to 32 characters long.
-         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
+         * The **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
 
       1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
@@ -320,7 +320,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
-      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
+      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs to work, e.g., `--log-greenplum-enabled`.
 
       * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
 
@@ -400,13 +400,13 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           * `log_group_id`: ID of the log group to write logs to.
 
-      1. Validate your {{ TF }} configuration files using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
           ```bash
           terraform validate
           ```
 
-          {{ TF }} will display any configuration errors detected in your files.
+          {{ TF }} will show any errors found in your configuration files.
 
       1. Create the required infrastructure:
 

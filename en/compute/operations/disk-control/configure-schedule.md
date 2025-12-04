@@ -20,7 +20,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** tab and select the disk.
   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
   1. Select a schedule or create a new one. For more information about setting up schedules, see [Creating a disk snapshot schedule](../snapshot-control/create-schedule.md).
@@ -77,7 +77,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
           - fhm1c7u23aiq********
         disk_placement_policy: {}
       ```
-      For more information about the `yc compute disk list` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/list.md).
+      For more information about the `yc compute disk list` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/list.md).
 
       To get a list of disks added to a specific schedule, you can also use this command:
 
@@ -154,7 +154,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** tab and select the disk.
   1. In the row with the schedule under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-schedule }}**.
 

@@ -12,11 +12,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the channel containing the videos for which to generate player URLs.
+            The maximum string length in characters is 50.
           type: string
         videoIds:
           description: |-
             **string**
             List of video IDs for which to generate player URLs.
+            The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50.
           type: array
           items:
             type: string
@@ -95,10 +97,14 @@ POST https://video.{{ api-host }}/video/v1/videos:batchGetPlayerURLs
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel containing the videos for which to generate player URLs. ||
+Required field. ID of the channel containing the videos for which to generate player URLs.
+
+The maximum string length in characters is 50. ||
 || videoIds[] | **string**
 
-List of video IDs for which to generate player URLs. ||
+List of video IDs for which to generate player URLs.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 || params | **[VideoPlayerParams](#yandex.cloud.video.v1.VideoPlayerParams)**
 
 Optional player parameters to customize the playback experience.

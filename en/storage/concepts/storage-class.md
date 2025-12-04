@@ -54,6 +54,10 @@ Setting the default storage may be useful when the tool you use does not allow y
 
 ## Changing an object storage class {#changing-storage-class}
 
+
+{% include [changing-storage-class](../../_includes/storage/changing-storage-class.md) %}
+
+
 To change the storage class, you can:
 
 * Upload the object to {{ objstorage-name }} again and select the required storage class.

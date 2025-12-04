@@ -105,7 +105,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
        * `role`: [Role](../security/index.md#roles-list) being assigned.
        * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use the following format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about `yandex_kms_asymmetric_signature_key` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
+       For more information about `yandex_kms_asymmetric_signature_key` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
    1. Create the resources:
 
@@ -175,7 +175,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
    1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
    1. Use one of the commands below to assign roles:
 
-      * To a Yandex account user:
+      * To a Yandex account user or local user:
 
          ```bash
          yc kms asymmetric-signature-key set-access-bindings \
@@ -249,7 +249,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
        * `role`: [Role](../security/index.md#roles-list) being assigned.
        * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use the following format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about `yandex_kms_asymmetric_signature_key` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
+       For more information about `yandex_kms_asymmetric_signature_key` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
    1. Create the resources:
 

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             ID of updated resource rule.
+            Value must be greater than 0.
           type: string
           format: int64
       additionalProperties: false
@@ -21,16 +22,19 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of resource.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Name of updated resource rule.
+            The maximum string length in characters is 50.
           type: string
         rulePattern:
           description: |-
             **string**
             Resource rule pattern.
+            The maximum string length in characters is 100.
           type: string
         options:
           description: '**[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)**'
@@ -300,7 +304,6 @@ apiPlayground:
               **enum** (RewriteFlag)
               Break flag is applied to the option by default.
               It is not shown in the field.
-              - `REWRITE_FLAG_UNSPECIFIED`
               - `LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and
               starts a search for a new location matching changed URI.
               - `BREAK`: Stops processing of the current set of the Rewrite option.
@@ -332,7 +335,6 @@ apiPlayground:
             description: |-
               **enum** (SecureKeyURLType)
               The type of the URL signing. The URL could be available for all IP addresses or for the only one IP.
-              - `SECURE_KEY_URL_TYPE_UNSPECIFIED`
               - `ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.
               - `DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses.
             type: string
@@ -353,7 +355,6 @@ apiPlayground:
             description: |-
               **enum** (PolicyType)
               The policy type. One of allow or deny value.
-              - `POLICY_TYPE_UNSPECIFIED`
               - `POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.
               - `POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field.
             type: string
@@ -514,7 +515,9 @@ PATCH https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
 ||Field | Description ||
 || ruleId | **string** (int64)
 
-Required field. ID of updated resource rule. ||
+Required field. ID of updated resource rule.
+
+Value must be greater than 0. ||
 |#
 
 ## Body parameters {#yandex.cloud.cdn.v1.UpdateResourceRuleRequest}
@@ -685,13 +688,19 @@ Required field. ID of updated resource rule. ||
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of resource. ||
+Required field. ID of resource.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of updated resource rule. ||
+Name of updated resource rule.
+
+The maximum string length in characters is 50. ||
 || rulePattern | **string**
 
-Resource rule pattern. ||
+Resource rule pattern.
+
+The maximum string length in characters is 100. ||
 || options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)** ||
 || weight | **string** (int64)
 
@@ -1029,7 +1038,6 @@ The value must have the following format: `<source path> <destination path>`, wh
 Break flag is applied to the option by default.
 It is not shown in the field.
 
-- `REWRITE_FLAG_UNSPECIFIED`
 - `LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and
 starts a search for a new location matching changed URI.
 - `BREAK`: Stops processing of the current set of the Rewrite option.
@@ -1053,7 +1061,6 @@ The key for the URL signing. ||
 
 The type of the URL signing. The URL could be available for all IP addresses or for the only one IP.
 
-- `SECURE_KEY_URL_TYPE_UNSPECIFIED`
 - `ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.
 - `DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses. ||
 |#
@@ -1070,7 +1077,6 @@ False - the option is disabled and its default value of the [flag](#yandex.cloud
 
 The policy type. One of allow or deny value.
 
-- `POLICY_TYPE_UNSPECIFIED`
 - `POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.
 - `POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field. ||
 || exceptedValues[] | **string**
@@ -1338,10 +1344,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of resource. ||
+Required field. ID of resource.
+
+The maximum string length in characters is 50. ||
 || ruleId | **string** (int64)
 
-ID of updated resource rule. ||
+ID of updated resource rule.
+
+Value must be greater than 0. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -1369,14 +1379,20 @@ Resource rule.
 ||Field | Description ||
 || id | **string** (int64)
 
-Rule ID. ||
+Rule ID.
+
+Value must be greater than 0. ||
 || name | **string**
 
-Required field. Rule name. ||
+Required field. Rule name.
+
+The maximum string length in characters is 50. ||
 || rulePattern | **string**
 
 Required field. Rule pattern.
-Must be a valid regular expression. ||
+Must be a valid regular expression.
+
+The maximum string length in characters is 100. ||
 || options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions2)** ||
 || weight | **string** (int64)
 
@@ -1712,7 +1728,6 @@ The value must have the following format: `<source path> <destination path>`, wh
 Break flag is applied to the option by default.
 It is not shown in the field.
 
-- `REWRITE_FLAG_UNSPECIFIED`
 - `LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and
 starts a search for a new location matching changed URI.
 - `BREAK`: Stops processing of the current set of the Rewrite option.
@@ -1736,7 +1751,6 @@ The key for the URL signing. ||
 
 The type of the URL signing. The URL could be available for all IP addresses or for the only one IP.
 
-- `SECURE_KEY_URL_TYPE_UNSPECIFIED`
 - `ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.
 - `DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses. ||
 |#
@@ -1753,7 +1767,6 @@ False - the option is disabled and its default value of the [flag](#yandex.cloud
 
 The policy type. One of allow or deny value.
 
-- `POLICY_TYPE_UNSPECIFIED`
 - `POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.
 - `POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field. ||
 || exceptedValues[] | **string**

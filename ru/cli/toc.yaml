@@ -678,6 +678,8 @@ items:
                 href: cli-ref/cic/cli-ref/private-connection/list.md
               - name: list-operations
                 href: cli-ref/cic/cli-ref/private-connection/list-operations.md
+              - name: move
+                href: cli-ref/cic/cli-ref/private-connection/move.md
               - name: remove-labels
                 href: cli-ref/cic/cli-ref/private-connection/remove-labels.md
               - name: remove-static-routes
@@ -694,6 +696,8 @@ items:
                 href: cli-ref/cic/cli-ref/public-connection/get.md
               - name: list
                 href: cli-ref/cic/cli-ref/public-connection/list.md
+              - name: move
+                href: cli-ref/cic/cli-ref/public-connection/move.md
           - name: trunk-connection
             items:
               - name: Overview
@@ -710,6 +714,8 @@ items:
                 href: cli-ref/cic/cli-ref/trunk-connection/list.md
               - name: list-operations
                 href: cli-ref/cic/cli-ref/trunk-connection/list-operations.md
+              - name: move
+                href: cli-ref/cic/cli-ref/trunk-connection/move.md
               - name: remove-labels
                 href: cli-ref/cic/cli-ref/trunk-connection/remove-labels.md
               - name: update
@@ -791,6 +797,8 @@ items:
               - name: list-operations
                 href: >-
                   cli-ref/cloudrouter/cli-ref/routing-instance/list-operations.md
+              - name: move
+                href: cli-ref/cloudrouter/cli-ref/routing-instance/move.md
               - name: move-prefix
                 href: cli-ref/cloudrouter/cli-ref/routing-instance/move-prefix.md
               - name: remove-labels
@@ -1119,6 +1127,10 @@ items:
                 href: cli-ref/compute/cli-ref/instance-group/delete.md
               - name: delete-instances
                 href: cli-ref/compute/cli-ref/instance-group/delete-instances.md
+              - name: disable-zones
+                href: cli-ref/compute/cli-ref/instance-group/disable-zones.md
+              - name: enable-zones
+                href: cli-ref/compute/cli-ref/instance-group/enable-zones.md
               - name: get
                 href: cli-ref/compute/cli-ref/instance-group/get.md
               - name: list
@@ -2536,6 +2548,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-airflow/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/managed-airflow/cli-ref/cluster/add-access-binding.md
               - name: create
                 href: cli-ref/managed-airflow/cli-ref/cluster/create.md
               - name: delete
@@ -2544,8 +2558,16 @@ items:
                 href: cli-ref/managed-airflow/cli-ref/cluster/get.md
               - name: list
                 href: cli-ref/managed-airflow/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: >-
+                  cli-ref/managed-airflow/cli-ref/cluster/list-access-bindings.md
               - name: list-operations
                 href: cli-ref/managed-airflow/cli-ref/cluster/list-operations.md
+              - name: remove-access-binding
+                href: >-
+                  cli-ref/managed-airflow/cli-ref/cluster/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/managed-airflow/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-airflow/cli-ref/cluster/start.md
               - name: stop
@@ -2570,6 +2592,9 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: >-
+                  cli-ref/managed-clickhouse/cli-ref/cluster/add-access-binding.md
               - name: add-extension
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/add-extension.md
               - name: add-external-dictionary
@@ -2600,6 +2625,9 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/get-extension.md
               - name: list
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: >-
+                  cli-ref/managed-clickhouse/cli-ref/cluster/list-access-bindings.md
               - name: list-backups
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/list-backups.md
               - name: list-extensions
@@ -2613,6 +2641,9 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/list-operations.md
               - name: move
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/move.md
+              - name: remove-access-binding
+                href: >-
+                  cli-ref/managed-clickhouse/cli-ref/cluster/remove-access-binding.md
               - name: remove-extension
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/remove-extension.md
               - name: remove-external-dictionary
@@ -2628,6 +2659,9 @@ items:
                   cli-ref/managed-clickhouse/cli-ref/cluster/reschedule-maintenance.md
               - name: restore
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/restore.md
+              - name: set-access-bindings
+                href: >-
+                  cli-ref/managed-clickhouse/cli-ref/cluster/set-access-bindings.md
               - name: set-compression
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/set-compression.md
               - name: set-query-masking-rules
@@ -2816,6 +2850,9 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-greenplum/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: >-
+                  cli-ref/managed-greenplum/cli-ref/cluster/add-access-binding.md
               - name: add-labels
                 href: cli-ref/managed-greenplum/cli-ref/cluster/add-labels.md
               - name: backup
@@ -2830,6 +2867,9 @@ items:
                 href: cli-ref/managed-greenplum/cli-ref/cluster/get.md
               - name: list
                 href: cli-ref/managed-greenplum/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: >-
+                  cli-ref/managed-greenplum/cli-ref/cluster/list-access-bindings.md
               - name: list-backups
                 href: cli-ref/managed-greenplum/cli-ref/cluster/list-backups.md
               - name: list-logs
@@ -2838,6 +2878,9 @@ items:
                 href: cli-ref/managed-greenplum/cli-ref/cluster/list-operations.md
               - name: move
                 href: cli-ref/managed-greenplum/cli-ref/cluster/move.md
+              - name: remove-access-binding
+                href: >-
+                  cli-ref/managed-greenplum/cli-ref/cluster/remove-access-binding.md
               - name: remove-labels
                 href: cli-ref/managed-greenplum/cli-ref/cluster/remove-labels.md
               - name: reschedule-maintenance
@@ -2845,6 +2888,9 @@ items:
                   cli-ref/managed-greenplum/cli-ref/cluster/reschedule-maintenance.md
               - name: restore
                 href: cli-ref/managed-greenplum/cli-ref/cluster/restore.md
+              - name: set-access-bindings
+                href: >-
+                  cli-ref/managed-greenplum/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-greenplum/cli-ref/cluster/start.md
               - name: stop
@@ -2975,6 +3021,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-kafka/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/managed-kafka/cli-ref/cluster/add-access-binding.md
               - name: create
                 href: cli-ref/managed-kafka/cli-ref/cluster/create.md
               - name: delete
@@ -2983,6 +3031,8 @@ items:
                 href: cli-ref/managed-kafka/cli-ref/cluster/get.md
               - name: list
                 href: cli-ref/managed-kafka/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/managed-kafka/cli-ref/cluster/list-access-bindings.md
               - name: list-hosts
                 href: cli-ref/managed-kafka/cli-ref/cluster/list-hosts.md
               - name: list-logs
@@ -2991,9 +3041,13 @@ items:
                 href: cli-ref/managed-kafka/cli-ref/cluster/list-operations.md
               - name: move
                 href: cli-ref/managed-kafka/cli-ref/cluster/move.md
+              - name: remove-access-binding
+                href: cli-ref/managed-kafka/cli-ref/cluster/remove-access-binding.md
               - name: reschedule-maintenance
                 href: >-
                   cli-ref/managed-kafka/cli-ref/cluster/reschedule-maintenance.md
+              - name: set-access-bindings
+                href: cli-ref/managed-kafka/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-kafka/cli-ref/cluster/start.md
               - name: stop
@@ -3189,6 +3243,9 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-metastore/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: >-
+                  cli-ref/managed-metastore/cli-ref/cluster/add-access-binding.md
               - name: create
                 href: cli-ref/managed-metastore/cli-ref/cluster/create.md
               - name: delete
@@ -3201,8 +3258,17 @@ items:
                 href: cli-ref/managed-metastore/cli-ref/cluster/import-data.md
               - name: list
                 href: cli-ref/managed-metastore/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: >-
+                  cli-ref/managed-metastore/cli-ref/cluster/list-access-bindings.md
               - name: list-operations
                 href: cli-ref/managed-metastore/cli-ref/cluster/list-operations.md
+              - name: remove-access-binding
+                href: >-
+                  cli-ref/managed-metastore/cli-ref/cluster/remove-access-binding.md
+              - name: set-access-bindings
+                href: >-
+                  cli-ref/managed-metastore/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-metastore/cli-ref/cluster/start.md
               - name: stop
@@ -3227,6 +3293,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-mongodb/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/managed-mongodb/cli-ref/cluster/add-access-binding.md
               - name: add-labels
                 href: cli-ref/managed-mongodb/cli-ref/cluster/add-labels.md
               - name: backup
@@ -3241,6 +3309,9 @@ items:
                 href: cli-ref/managed-mongodb/cli-ref/cluster/get.md
               - name: list
                 href: cli-ref/managed-mongodb/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: >-
+                  cli-ref/managed-mongodb/cli-ref/cluster/list-access-bindings.md
               - name: list-backups
                 href: cli-ref/managed-mongodb/cli-ref/cluster/list-backups.md
               - name: list-logs
@@ -3249,6 +3320,9 @@ items:
                 href: cli-ref/managed-mongodb/cli-ref/cluster/list-operations.md
               - name: move
                 href: cli-ref/managed-mongodb/cli-ref/cluster/move.md
+              - name: remove-access-binding
+                href: >-
+                  cli-ref/managed-mongodb/cli-ref/cluster/remove-access-binding.md
               - name: remove-labels
                 href: cli-ref/managed-mongodb/cli-ref/cluster/remove-labels.md
               - name: reschedule-maintenance
@@ -3256,6 +3330,8 @@ items:
                   cli-ref/managed-mongodb/cli-ref/cluster/reschedule-maintenance.md
               - name: restore
                 href: cli-ref/managed-mongodb/cli-ref/cluster/restore.md
+              - name: set-access-bindings
+                href: cli-ref/managed-mongodb/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-mongodb/cli-ref/cluster/start.md
               - name: stop
@@ -3348,6 +3424,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-mysql/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/managed-mysql/cli-ref/cluster/add-access-binding.md
               - name: add-labels
                 href: cli-ref/managed-mysql/cli-ref/cluster/add-labels.md
               - name: backup
@@ -3360,6 +3438,8 @@ items:
                 href: cli-ref/managed-mysql/cli-ref/cluster/get.md
               - name: list
                 href: cli-ref/managed-mysql/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/managed-mysql/cli-ref/cluster/list-access-bindings.md
               - name: list-backups
                 href: cli-ref/managed-mysql/cli-ref/cluster/list-backups.md
               - name: list-logs
@@ -3368,6 +3448,8 @@ items:
                 href: cli-ref/managed-mysql/cli-ref/cluster/list-operations.md
               - name: move
                 href: cli-ref/managed-mysql/cli-ref/cluster/move.md
+              - name: remove-access-binding
+                href: cli-ref/managed-mysql/cli-ref/cluster/remove-access-binding.md
               - name: remove-labels
                 href: cli-ref/managed-mysql/cli-ref/cluster/remove-labels.md
               - name: reschedule-maintenance
@@ -3375,6 +3457,8 @@ items:
                   cli-ref/managed-mysql/cli-ref/cluster/reschedule-maintenance.md
               - name: restore
                 href: cli-ref/managed-mysql/cli-ref/cluster/restore.md
+              - name: set-access-bindings
+                href: cli-ref/managed-mysql/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-mysql/cli-ref/cluster/start.md
               - name: start-failover
@@ -3385,6 +3469,8 @@ items:
                 href: cli-ref/managed-mysql/cli-ref/cluster/update.md
               - name: update-config
                 href: cli-ref/managed-mysql/cli-ref/cluster/update-config.md
+          - name: connect
+            href: cli-ref/managed-mysql/cli-ref/connect.md
           - name: database
             items:
               - name: Overview
@@ -3459,6 +3545,9 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-opensearch/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: >-
+                  cli-ref/managed-opensearch/cli-ref/cluster/add-access-binding.md
               - name: backup
                 href: cli-ref/managed-opensearch/cli-ref/cluster/backup.md
               - name: create
@@ -3469,13 +3558,22 @@ items:
                 href: cli-ref/managed-opensearch/cli-ref/cluster/get.md
               - name: list
                 href: cli-ref/managed-opensearch/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: >-
+                  cli-ref/managed-opensearch/cli-ref/cluster/list-access-bindings.md
               - name: list-backups
                 href: cli-ref/managed-opensearch/cli-ref/cluster/list-backups.md
+              - name: remove-access-binding
+                href: >-
+                  cli-ref/managed-opensearch/cli-ref/cluster/remove-access-binding.md
               - name: restart-opensearch
                 href: >-
                   cli-ref/managed-opensearch/cli-ref/cluster/restart-opensearch.md
               - name: restore
                 href: cli-ref/managed-opensearch/cli-ref/cluster/restore.md
+              - name: set-access-bindings
+                href: >-
+                  cli-ref/managed-opensearch/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-opensearch/cli-ref/cluster/start.md
               - name: stop
@@ -3540,6 +3638,9 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-postgresql/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/cluster/add-access-binding.md
               - name: add-labels
                 href: cli-ref/managed-postgresql/cli-ref/cluster/add-labels.md
               - name: backup
@@ -3552,6 +3653,9 @@ items:
                 href: cli-ref/managed-postgresql/cli-ref/cluster/get.md
               - name: list
                 href: cli-ref/managed-postgresql/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/cluster/list-access-bindings.md
               - name: list-backups
                 href: cli-ref/managed-postgresql/cli-ref/cluster/list-backups.md
               - name: list-logs
@@ -3560,6 +3664,9 @@ items:
                 href: cli-ref/managed-postgresql/cli-ref/cluster/list-operations.md
               - name: move
                 href: cli-ref/managed-postgresql/cli-ref/cluster/move.md
+              - name: remove-access-binding
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/cluster/remove-access-binding.md
               - name: remove-labels
                 href: cli-ref/managed-postgresql/cli-ref/cluster/remove-labels.md
               - name: reschedule-maintenance
@@ -3567,6 +3674,9 @@ items:
                   cli-ref/managed-postgresql/cli-ref/cluster/reschedule-maintenance.md
               - name: restore
                 href: cli-ref/managed-postgresql/cli-ref/cluster/restore.md
+              - name: set-access-bindings
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-postgresql/cli-ref/cluster/start.md
               - name: start-failover
@@ -3651,6 +3761,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-redis/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/managed-redis/cli-ref/cluster/add-access-binding.md
               - name: add-labels
                 href: cli-ref/managed-redis/cli-ref/cluster/add-labels.md
               - name: backup
@@ -3665,6 +3777,8 @@ items:
                 href: cli-ref/managed-redis/cli-ref/cluster/get.md
               - name: list
                 href: cli-ref/managed-redis/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/managed-redis/cli-ref/cluster/list-access-bindings.md
               - name: list-backups
                 href: cli-ref/managed-redis/cli-ref/cluster/list-backups.md
               - name: list-logs
@@ -3675,6 +3789,8 @@ items:
                 href: cli-ref/managed-redis/cli-ref/cluster/move.md
               - name: rebalance
                 href: cli-ref/managed-redis/cli-ref/cluster/rebalance.md
+              - name: remove-access-binding
+                href: cli-ref/managed-redis/cli-ref/cluster/remove-access-binding.md
               - name: remove-labels
                 href: cli-ref/managed-redis/cli-ref/cluster/remove-labels.md
               - name: reschedule-maintenance
@@ -3682,6 +3798,8 @@ items:
                   cli-ref/managed-redis/cli-ref/cluster/reschedule-maintenance.md
               - name: restore
                 href: cli-ref/managed-redis/cli-ref/cluster/restore.md
+              - name: set-access-bindings
+                href: cli-ref/managed-redis/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-redis/cli-ref/cluster/start.md
               - name: start-failover
@@ -3842,6 +3960,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-spark/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/managed-spark/cli-ref/cluster/add-access-binding.md
               - name: create
                 href: cli-ref/managed-spark/cli-ref/cluster/create.md
               - name: delete
@@ -3850,8 +3970,14 @@ items:
                 href: cli-ref/managed-spark/cli-ref/cluster/get.md
               - name: list
                 href: cli-ref/managed-spark/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/managed-spark/cli-ref/cluster/list-access-bindings.md
               - name: list-operations
                 href: cli-ref/managed-spark/cli-ref/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/managed-spark/cli-ref/cluster/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/managed-spark/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-spark/cli-ref/cluster/start.md
               - name: stop
@@ -3996,6 +4122,8 @@ items:
                     href: cli-ref/managed-trino/cli-ref/catalog/create/hudi.md
                   - name: iceberg
                     href: cli-ref/managed-trino/cli-ref/catalog/create/iceberg.md
+                  - name: mysql
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/mysql.md
                   - name: oracle
                     href: cli-ref/managed-trino/cli-ref/catalog/create/oracle.md
                   - name: postgresql
@@ -4026,6 +4154,8 @@ items:
                     href: cli-ref/managed-trino/cli-ref/catalog/update/hudi.md
                   - name: iceberg
                     href: cli-ref/managed-trino/cli-ref/catalog/update/iceberg.md
+                  - name: mysql
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/mysql.md
                   - name: oracle
                     href: cli-ref/managed-trino/cli-ref/catalog/update/oracle.md
                   - name: postgresql
@@ -4040,6 +4170,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-trino/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/managed-trino/cli-ref/cluster/add-access-binding.md
               - name: create
                 href: cli-ref/managed-trino/cli-ref/cluster/create.md
               - name: delete
@@ -4050,10 +4182,16 @@ items:
                 href: cli-ref/managed-trino/cli-ref/cluster/get-access-control.md
               - name: list
                 href: cli-ref/managed-trino/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/managed-trino/cli-ref/cluster/list-access-bindings.md
               - name: list-operations
                 href: cli-ref/managed-trino/cli-ref/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/managed-trino/cli-ref/cluster/remove-access-binding.md
               - name: remove-access-control
                 href: cli-ref/managed-trino/cli-ref/cluster/remove-access-control.md
+              - name: set-access-bindings
+                href: cli-ref/managed-trino/cli-ref/cluster/set-access-bindings.md
               - name: set-access-control
                 href: cli-ref/managed-trino/cli-ref/cluster/set-access-control.md
               - name: start
@@ -4619,6 +4757,9 @@ items:
               - name: add-labels
                 href: >-
                   cli-ref/organization-manager/cli-ref/organization/add-labels.md
+              - name: bind-access-policy
+                href: >-
+                  cli-ref/organization-manager/cli-ref/organization/bind-access-policy.md
               - name: get
                 href: cli-ref/organization-manager/cli-ref/organization/get.md
               - name: leave
@@ -4628,6 +4769,9 @@ items:
               - name: list-access-bindings
                 href: >-
                   cli-ref/organization-manager/cli-ref/organization/list-access-bindings.md
+              - name: list-access-policy-bindings
+                href: >-
+                  cli-ref/organization-manager/cli-ref/organization/list-access-policy-bindings.md
               - name: list-operations
                 href: >-
                   cli-ref/organization-manager/cli-ref/organization/list-operations.md
@@ -4640,6 +4784,9 @@ items:
               - name: set-access-bindings
                 href: >-
                   cli-ref/organization-manager/cli-ref/organization/set-access-bindings.md
+              - name: unbind-access-policy
+                href: >-
+                  cli-ref/organization-manager/cli-ref/organization/unbind-access-policy.md
               - name: update
                 href: cli-ref/organization-manager/cli-ref/organization/update.md
           - name: oslogin
@@ -4742,6 +4889,8 @@ items:
                 href: cli-ref/resource-manager/cli-ref/cloud/add-access-binding.md
               - name: add-labels
                 href: cli-ref/resource-manager/cli-ref/cloud/add-labels.md
+              - name: bind-access-policy
+                href: cli-ref/resource-manager/cli-ref/cloud/bind-access-policy.md
               - name: create
                 href: cli-ref/resource-manager/cli-ref/cloud/create.md
               - name: delete
@@ -4752,6 +4901,9 @@ items:
                 href: cli-ref/resource-manager/cli-ref/cloud/list.md
               - name: list-access-bindings
                 href: cli-ref/resource-manager/cli-ref/cloud/list-access-bindings.md
+              - name: list-access-policy-bindings
+                href: >-
+                  cli-ref/resource-manager/cli-ref/cloud/list-access-policy-bindings.md
               - name: list-operations
                 href: cli-ref/resource-manager/cli-ref/cloud/list-operations.md
               - name: remove-access-binding
@@ -4761,6 +4913,8 @@ items:
                 href: cli-ref/resource-manager/cli-ref/cloud/remove-labels.md
               - name: set-access-bindings
                 href: cli-ref/resource-manager/cli-ref/cloud/set-access-bindings.md
+              - name: unbind-access-policy
+                href: cli-ref/resource-manager/cli-ref/cloud/unbind-access-policy.md
               - name: update
                 href: cli-ref/resource-manager/cli-ref/cloud/update.md
           - name: folder
@@ -4771,6 +4925,8 @@ items:
                 href: cli-ref/resource-manager/cli-ref/folder/add-access-binding.md
               - name: add-labels
                 href: cli-ref/resource-manager/cli-ref/folder/add-labels.md
+              - name: bind-access-policy
+                href: cli-ref/resource-manager/cli-ref/folder/bind-access-policy.md
               - name: create
                 href: cli-ref/resource-manager/cli-ref/folder/create.md
               - name: delete
@@ -4782,6 +4938,9 @@ items:
               - name: list-access-bindings
                 href: >-
                   cli-ref/resource-manager/cli-ref/folder/list-access-bindings.md
+              - name: list-access-policy-bindings
+                href: >-
+                  cli-ref/resource-manager/cli-ref/folder/list-access-policy-bindings.md
               - name: list-operations
                 href: cli-ref/resource-manager/cli-ref/folder/list-operations.md
               - name: remove-access-binding
@@ -4791,6 +4950,9 @@ items:
                 href: cli-ref/resource-manager/cli-ref/folder/remove-labels.md
               - name: set-access-bindings
                 href: cli-ref/resource-manager/cli-ref/folder/set-access-bindings.md
+              - name: unbind-access-policy
+                href: >-
+                  cli-ref/resource-manager/cli-ref/folder/unbind-access-policy.md
               - name: update
                 href: cli-ref/resource-manager/cli-ref/folder/update.md
       - name: serverless
@@ -5079,6 +5241,37 @@ items:
                     href: cli-ref/serverless/cli-ref/function/version/remove-tag.md
                   - name: set-tag
                     href: cli-ref/serverless/cli-ref/function/version/set-tag.md
+          - name: mcp-gateway
+            items:
+              - name: Overview
+                href: cli-ref/serverless/cli-ref/mcp-gateway/index.md
+              - name: add-access-binding
+                href: cli-ref/serverless/cli-ref/mcp-gateway/add-access-binding.md
+              - name: allow-unauthenticated-invoke
+                href: >-
+                  cli-ref/serverless/cli-ref/mcp-gateway/allow-unauthenticated-invoke.md
+              - name: create
+                href: cli-ref/serverless/cli-ref/mcp-gateway/create.md
+              - name: delete
+                href: cli-ref/serverless/cli-ref/mcp-gateway/delete.md
+              - name: deny-unauthenticated-invoke
+                href: >-
+                  cli-ref/serverless/cli-ref/mcp-gateway/deny-unauthenticated-invoke.md
+              - name: get
+                href: cli-ref/serverless/cli-ref/mcp-gateway/get.md
+              - name: list
+                href: cli-ref/serverless/cli-ref/mcp-gateway/list.md
+              - name: list-access-bindings
+                href: cli-ref/serverless/cli-ref/mcp-gateway/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/serverless/cli-ref/mcp-gateway/list-operations.md
+              - name: remove-access-binding
+                href: >-
+                  cli-ref/serverless/cli-ref/mcp-gateway/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/serverless/cli-ref/mcp-gateway/set-access-bindings.md
+              - name: update
+                href: cli-ref/serverless/cli-ref/mcp-gateway/update.md
           - name: mdbproxy
             items:
               - name: Overview
@@ -5203,10 +5396,18 @@ items:
             items:
               - name: Overview
                 href: cli-ref/serverless/cli-ref/workflow/index.md
+              - name: add-access-binding
+                href: cli-ref/serverless/cli-ref/workflow/add-access-binding.md
+              - name: allow-unauthenticated-execution
+                href: >-
+                  cli-ref/serverless/cli-ref/workflow/allow-unauthenticated-execution.md
               - name: create
                 href: cli-ref/serverless/cli-ref/workflow/create.md
               - name: delete
                 href: cli-ref/serverless/cli-ref/workflow/delete.md
+              - name: deny-unauthenticated-execution
+                href: >-
+                  cli-ref/serverless/cli-ref/workflow/deny-unauthenticated-execution.md
               - name: execution
                 items:
                   - name: Overview
@@ -5228,8 +5429,14 @@ items:
                 href: cli-ref/serverless/cli-ref/workflow/get.md
               - name: list
                 href: cli-ref/serverless/cli-ref/workflow/list.md
+              - name: list-access-bindings
+                href: cli-ref/serverless/cli-ref/workflow/list-access-bindings.md
               - name: list-operations
                 href: cli-ref/serverless/cli-ref/workflow/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/serverless/cli-ref/workflow/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/serverless/cli-ref/workflow/set-access-bindings.md
               - name: update
                 href: cli-ref/serverless/cli-ref/workflow/update.md
       - name: smartcaptcha

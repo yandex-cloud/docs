@@ -53,7 +53,7 @@ To use the examples:
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      * `<instruction_for_search_strategy>`: Prompt with an instruction for the model on how to access the search index. For example: `Search through the knowledge base only if the user has specifically asked you to do so`.
+      * `<search_strategy_instruction>`: Prompt instructing the model on how to access the search index. Here is an example: `Search through the knowledge base only if the user has specifically asked you to do so`.
 
   1. Run the file you created:
 
@@ -325,7 +325,7 @@ To use the examples:
           Where:
           * `modelUri`: [URI](../../concepts/generation/models.md#generation) of the text generation model.
           * `searchIndexIds`: Search index ID you got at the previous step.
-          * `instruction`: Prompt with an instruction for the model on how to access the search index. For example: `Search through the knowledge base only if the user has specifically asked you to do so`.
+          * `instruction`: Prompt instructing the model on how to access the search index. Here is an example: `Search through the knowledge base only if the user has specifically asked you to do so`.
       1. Send a request to create an AI assistant by specifying the path to the new `assistant.json` request body file:
 
           ```bash

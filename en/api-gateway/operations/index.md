@@ -24,10 +24,10 @@ description: In this article, you will learn how to work with {{ api-gw-full-nam
 * [{#T}](api-gw-migration.md)
 * [{#T}](api-gw-delete.md)
 
-## Getting information about a trigger {#trigger-info}
+## Getting trigger information {#trigger-info}
 
 * [Getting a list of triggers](trigger/trigger-list.md)
-* [Getting information about a trigger](trigger/trigger-info.md)
+* [Getting trigger information](trigger/trigger-info.md)
 
 ## Creating a trigger {#trigger-create}
 
@@ -60,6 +60,8 @@ description: In this article, you will learn how to work with {{ api-gw-full-nam
 * [{{ ydb-name }}](spec-constructor/ydb.md)
 * [{{ ml-platform-name }}](spec-constructor/datasphere.md)
 * [{{ foundation-models-full-name }}](spec-constructor/yagpt.md)
+* [{{ sw-full-name }}](spec-constructor/workflows.md)
+* [Swagger UI](spec-constructor/swagger.md)
 
 ## Getting additional information {#get-additional-info}
 

@@ -76,7 +76,7 @@ description: Use this tutorial to create a Linux VM.
      * `--create-boot-disk`: VM boot disk settings:
          * `auto-delete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).
          * `image-family`: [Image family](../../concepts/image.md#family), e.g., `centos-7`. This option allows you to install the latest version of the OS from the specified family.
-         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional parameter.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted boot disk. This is an optional parameter.
 
            {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
 
@@ -96,7 +96,7 @@ description: Use this tutorial to create a Linux VM.
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {
@@ -191,11 +191,12 @@ description: Use this tutorial to create a Linux VM.
 - API {#api}
 
   Create a VM using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource:
-  1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
+  1. [Create](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
   1. Get a [{{ iam-short-name }} token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
-     * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
+     * [Guide](../../../iam/operations/iam-token/create.md) for a Yandex account user.
      * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../../iam/concepts/users/service-accounts.md).
      * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+     * [Guide](../../../iam/operations/iam-token/create-for-local.md) for a local account.
   1. [Get the ID](../../../resource-manager/operations/folder/get-id.md) of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Get info on the [image](../../concepts/image.md) to create your VM from, such as image ID and minimum [disk](../../concepts/disk.md) size:
      * If you know the [image family](../../concepts/image.md#family), get info on the latest image in that family:
@@ -282,7 +283,7 @@ description: Use this tutorial to create a Linux VM.
      * `zoneId`: Availability zone matching the selected subnet.
      * `platformId`: [Platform](../../concepts/vm-platforms.md).
      * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
-     * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+     * `metadata`: In metadata, provide the public key for accessing the VM via SSH. Learn more in [{#T}](../../concepts/vm-metadata.md).
      * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size.
      * `autoDelete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).
 

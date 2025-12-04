@@ -24,10 +24,14 @@ Get specified by id resource rule.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field. ID of resource. ||
+Required field. ID of resource.
+
+The maximum string length in characters is 50. ||
 || rule_id | **int64**
 
-ID of the requested resource rule. ||
+ID of the requested resource rule.
+
+Value must be greater than 0. ||
 |#
 
 ## Rule {#yandex.cloud.cdn.v1.Rule}
@@ -198,14 +202,20 @@ Resource rule.
 ||Field | Description ||
 || id | **int64**
 
-Rule ID. ||
+Rule ID.
+
+Value must be greater than 0. ||
 || name | **string**
 
-Required field. Rule name. ||
+Required field. Rule name.
+
+The maximum string length in characters is 50. ||
 || rule_pattern | **string**
 
 Required field. Rule pattern.
-Must be a valid regular expression. ||
+Must be a valid regular expression.
+
+The maximum string length in characters is 100. ||
 || options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)** ||
 || weight | **int64**
 
@@ -541,7 +551,6 @@ The value must have the following format: `<source path> <destination path>`, wh
 Break flag is applied to the option by default.
 It is not shown in the field.
 
-- `REWRITE_FLAG_UNSPECIFIED`
 - `LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and
 starts a search for a new location matching changed URI.
 - `BREAK`: Stops processing of the current set of the Rewrite option.
@@ -565,7 +574,6 @@ The key for the URL signing. ||
 
 The type of the URL signing. The URL could be available for all IP addresses or for the only one IP.
 
-- `SECURE_KEY_URL_TYPE_UNSPECIFIED`
 - `ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.
 - `DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses. ||
 |#
@@ -582,7 +590,6 @@ False - the option is disabled and its default value of the [flag](#yandex.cloud
 
 The policy type. One of allow or deny value.
 
-- `POLICY_TYPE_UNSPECIFIED`
 - `POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.
 - `POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field. ||
 || excepted_values[] | **string**

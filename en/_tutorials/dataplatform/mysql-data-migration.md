@@ -6,29 +6,13 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
 
     This method is easy to configure, does not require the creation of an intermediate VM, and allows you to transfer the entire database without interrupting user service. To use it, allow connections to the source cluster from the internet.
 
-    To learn more, see [{#T}](../../data-transfer/concepts/use-cases.md).
+    Learn more in [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Transferring data by creating and restoring a logical dump](#logical-dump).
 
     A _logical dump_ is a file with a set of commands running which one by one you can restore the state of a database. To achieve a full logical dump, before you create it, switch the source cluster to <q>read-only</q>.
 
     Use this method only if, for some reason, it is not possible to migrate data using {{ data-transfer-name }}.
-
-
-## Required paid resources {#paid-resources}
-
-The cost of transferring data with {{ data-transfer-full-name }} includes:
-
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
-
-The cost of transferring data using a database dump includes:
-
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* When creating a VM to download a dump: Fee for using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-
 
 ## Transferring data using {{ data-transfer-name }} {#data-transfer}
 
@@ -57,6 +41,14 @@ Migration stages:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+### Required paid resources {#paid-resources-logical-dump}
+
+* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Virtual machine if created to download a dump: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+
+
 ### Getting started {#before-you-begin}
 
 Create the required resources:
@@ -65,11 +57,11 @@ Create the required resources:
 
 - Manually {#manual}
 
-    1. Create a [{{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) in any suitable configuration. In this case, the following applies:
+    1. Create a [{{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. In this case, the following applies:
 
         * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
-            Transferring data with {{ MY }} major version upgrade is possible but not guaranteed. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+            Transferring data with {{ MY }} major version upgrade is possible but not guaranteed. For more information, see this [{{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
             You [cannot](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html) perform migration while downgrading {{ MY }} version.
 
@@ -103,18 +95,18 @@ Create the required resources:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and the rule permitting access to the cluster.
         * {{ mmy-name }} cluster with public internet access.
         * (Optional) Virtual machine with public internet access.
 
-    1. Specify the following in the `data-migration-mysql-mmy.tf` file:
+    1. Specify the following in `data-migration-mysql-mmy.tf`:
 
         * Target cluster parameters:
 
             * `target_mysql_version`: {{ MY }} version. Must be the same or higher than in the source cluster.
             * `target_sql_mode`: [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode). It must be the same as in the source cluster.
             * `target_db_name`: Database name.
-            * `target_user` and `target_password`: Name and user password of the database owner.
+            * `target_user` and `target_password`: Database owner username and password.
 
         * (Optional) Virtual machine parameters:
 
@@ -127,7 +119,7 @@ Create the required resources:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 

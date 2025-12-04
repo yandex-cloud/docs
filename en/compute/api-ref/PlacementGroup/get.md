@@ -112,5 +112,7 @@ field containing approriate structure. ||
 
 #|
 ||Field | Description ||
-|| partitions | **string** (int64) ||
+|| partitions | **string** (int64)
+
+Acceptable values are 2 to 5, inclusive. ||
 |#

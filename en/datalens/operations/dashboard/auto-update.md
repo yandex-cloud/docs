@@ -1,9 +1,9 @@
 ---
 title: How to set up dashboard auto-update in {{ datalens-full-name }}
-description: Follow this guide to set up dashboard auto-update.
+description: Follow this guide to set up dashboard auto-update in {{ datalens-full-name }}.
 ---
 
-# Dashboard auto-update
+# Dashboard auto-update in {{ datalens-full-name }}
 
 To set up dashboard auto-update:
 

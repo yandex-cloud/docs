@@ -17,10 +17,10 @@
 `DeleteEntry`                    | Удаление объекта
 `DeleteWorkbooks`              | Удаление одного или нескольких воркбуков
 `DisableBillingInstanceService` | Получение сигнала от {{ billing-name }} о неактивности привязанного к {{ datalens-name }} платежного аккаунта
-`DisableFolders`                | [Отключение](../../../datalens/settings/disable-folder-navigation.md) навигации по папкам
-`DisableTenantBilling`          | Планирование отключения тарифа Business пользователем в начале следующего месяца
+`DisableFolders`                | [Отключение](../../../datalens/settings/navigation.md#disable-folder-navigation) навигации по папкам
+`DisableTenantBilling`          | Планирование отключения тарифа Business пользователем в начале следующего месяца ^1^
 `EnableBillingInstanceService`  | Получение сигнала от {{ billing-name }} об активности привязанного к {{ datalens-name }} [платежного аккаунта](../../../billing/concepts/billing-account.md)
-`EnableTenantBilling`           | Включение пользователем тарифа Business
+`EnableTenantBilling`           | Включение пользователем тарифа Business ^1^
 `FolderEntryBatchModifyPermissions` | Массовое изменение настроек доступа к папочным объектам
 `FolderEntryModifyPermissions`   | Изменение настроек доступа к папочным объектам
 `MigrateEntriesToWorkbook`       | Миграция объектов в воркбук
@@ -41,3 +41,5 @@
 `UpdateEntry`                    | Изменение объекта
 `UpdateWorkbook`               | Изменение воркбука
 `UpdateWorkbookAccessBindings` | Изменение настроек доступа к воркбуку
+
+^1^ С 1 декабря 2025 года события больше не передаются в связи с прекращением действия [тарифа Business](../../../datalens/pricing-changes.md).

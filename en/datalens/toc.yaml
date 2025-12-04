@@ -129,7 +129,7 @@ items:
             items:
               - name: Connection
                 href: operations/connection/chyt/create-chyt.md
-              - name: Specifics of JOIN
+              - name: Features of JOIN
                 href: operations/connection/chyt/chyt-global-join.md
               - name: Recommendations
                 href: operations/connection/chyt/chyt-recommendations.md
@@ -639,7 +639,7 @@ items:
             href: concepts/aggregation-tutorial.md
           - name: Window functions
             href: concepts/window-function-tutorial.md
-          - name: LOD expressions and filtering in aggregation functions
+          - name: LOD expressions and filtering management in aggregation functions
             href: concepts/lod-aggregation.md
           - name: Functions for time series
             href: concepts/time-series-functions.md
@@ -783,6 +783,8 @@ items:
             href: operations/chart/add-parameter-chart.md
       - name: Adding chart info
         href: operations/chart/add-description.md
+      - name: Opening a chart as a table
+        href: operations/chart/open-as-table.md
       - name: Versioning
         href: concepts/chart/versioning.md
       - name: Exporting data from charts
@@ -847,6 +849,8 @@ items:
             href: operations/dashboard/auto-update.md
           - name: Changing dashboard settings
             href: operations/dashboard/dash-settings.md
+          - name: Disabling Neuroanalyst on your dashboard
+            href: operations/dashboard/dashboard-neuroanalyst-off.md
           - name: Widget display order on a mobile device
             href: operations/dashboard/display-modes.md
           - name: Adding a JS selector to a dashboard
@@ -909,6 +913,8 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
+      - name: Pricing policy updates as of December 1
+        href: pricing-changes.md
       - name: Service plans
         href: concepts/service-plans-comparison.md
       - name: Configuring a service plan
@@ -917,8 +923,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: September 2025
+      - name: October 2025
         href: release-notes/index.md
+      - name: September 2025
+        href: release-notes/2509.md
       - name: August 2025
         href: release-notes/2508.md
       - name: July 2025
@@ -927,10 +935,10 @@ items:
         href: release-notes/2506.md
       - name: May 2025
         href: release-notes/2505.md
-      - name: April 2025
-        href: release-notes/2504.md
       - name: Archive
         items:
+          - name: April 2025
+            href: release-notes/2504.md
           - name: March 2025
             href: release-notes/2503.md
           - name: February 2025
@@ -1095,7 +1103,7 @@ items:
       - name: Measure filter is unsupported for this type of query
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
-      - name: Data preparation is not complete yet
+      - name: Data preparation not finished
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Memory limit has been exceeded during query execution
@@ -1116,7 +1124,7 @@ items:
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
-      - name: Data preparation is not complete yet
+      - name: Data preparation not finished
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md
       - name: Subquery exceeds data weight limit

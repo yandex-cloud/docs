@@ -26,7 +26,9 @@ The URL is pre-signed and has a limited validity period.
 || thumbnail_id | **string**
 
 Required field. ID of the thumbnail for which to generate an upload URL.
-The thumbnail record must already exist, typically created using the Create method. ||
+The thumbnail record must already exist, typically created using the Create method.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GenerateThumbnailUploadURLResponse {#yandex.cloud.video.v1.GenerateThumbnailUploadURLResponse}

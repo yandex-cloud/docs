@@ -1,6 +1,6 @@
 # Viewing operations with {{ api-gw-name }} resources
 
-All actions with {{ api-gw-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ api-gw-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -11,7 +11,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
   You can get a list of operations for a specific resource. The steps below describe how you can do this for an API gateway. The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the API gateway.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-right.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-gateways }}**.
   1. Select the API gateway you need.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_operations }}** panel for the selected API gateway.
@@ -24,7 +24,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for the {{ api-gw-name }} resource, run this command:
+  To get the list of operations for the {{ api-gw-name }} resource, run this command:
 
   ```bash
   yc serverless <resource_type> list-operations <resource_name_or_ID>
@@ -49,7 +49,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc serverless api-gateway list-operations <API_gateway_name_or_ID> --format yaml
@@ -82,7 +82,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
 
 1. [Get a list of operations](#get-operations) for the API gateway.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

@@ -1,4 +1,9 @@
-# Point map with clusters ![](../../_assets/datalens/heatmap.svg)
+---
+title: Point map with clusters in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the point map with clusters visualization type in {{ datalens-full-name }}.
+---
+
+# Point map with clusters ![](../../_assets/datalens/heatmap.svg) in {{ datalens-full-name }}
 
 A point map with clusters differs from a [regular point map](point-map-chart.md) in clustering adjacent points. On the map, a cluster is represented as a donut chart with the number of points displayed in the center.
 
@@ -11,7 +16,7 @@ The cluster center only displays the number of points entering this cluster. You
 The behavior of points varies depending on the map scale:
 
 * When scaling down, points merge into clusters.
-* When scaling up, the distance between points increases, and the cluster automatically splits into smaller clusters and/or individual points.
+* When scaling up, the distance between points increases and the cluster automatically splits into smaller clusters and/or individual points.
 
 If the map has only one point in the selected scale, this point is not going to be clustered. In this case, instead of a donut chart, you will see a point just like in a regular point map.
 
@@ -21,14 +26,14 @@ Clustering on a map improves visualization when there is a large number of point
 
 ## Wizard sections {#wizard-sections}
 
-Limitations:
+The following restrictions apply:
 
 * The **Point size**, **Tooltips**, and **Signatures** sections only apply to individual points.
 * You can only add a dimension to the **Color** section.
 
 Wizard<br/> section| Description
 ----- | ----
-Points with clusters (Geopoints) | Measure of the [Geopoint](../dataset/data-types#geopoint) type
+Points with clusters (Geopoints) | Measure of the [Geopoint](../dataset/data-types.md#geopoint) type
 Point size | Measure. Sets point size depending on the measure value.
 Colors | Dimension. Sets cluster chart segmentation.
 Labels | Measure. Displayed as text on a point. When used, point size control is blocked.
@@ -48,7 +53,7 @@ Filters | Dimension or measure. Used as a filter for the entire chart.
 1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../dataset/create-dataset.md#create).
 1. Select **Map** for chart type.
 1. Select the **Points with clusters (Geopoints)** layer type.
-1. Drag a dimension of the [Geopoint](../dataset/data-types#geopoint) type from the dataset to the layer type selection section.
+1. Drag a dimension of the [Geopoint](../dataset/data-types.md#geopoint) type from the dataset to the layer type selection section.
 1. Set the size of the points displayed on the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/console-icons/gear.svg) in the line with the section name.
 1. Color the points on the map. Drag a dimension to the **Color** section.
 1. Add tooltips to show the dimension and measure values when hovering over a point.

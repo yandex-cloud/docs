@@ -62,6 +62,10 @@ description: Следуя данной инструкции, вы сможете
 
     {% endnote %}
 
+* **Redirected to SmartCaptcha by ARL Profile RPS** — количество входящих запросов в секунду, направленных профилем ARL в {{ captcha-name }} для дополнительной верификации.
+
+    Метрика — `load_balancer.smart_web_security.arl_requests_per_second`, отфильтрованная при помощи метки `arl_verdict`=`captcha`.
+
 Вы можете комбинировать несколько метрик на одном графике и [настраивать свои дашборды](../../monitoring/operations/dashboard/create.md) в сервисе {{ monitoring-short-name }}.
 
 #### См. также {#see-also}

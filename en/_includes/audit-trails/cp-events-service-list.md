@@ -1,5 +1,6 @@
 * [{{ api-gw-full-name }}](../../audit-trails/concepts/events.md#api-gateway)
 * [{{ alb-full-name }}](../../audit-trails/concepts/events.md#alb)
+* [{{ ai-studio-full-name }}](../../audit-trails/concepts/events.md#ai-studio)
 * [{{ at-full-name }}](../../audit-trails/concepts/events.md#audit-trails)
 * [{{ baremetal-full-name }}](../../audit-trails/concepts/events.md#baremetal)
 * [{{ certificate-manager-full-name }}](../../audit-trails/concepts/events.md#certificate-manager)

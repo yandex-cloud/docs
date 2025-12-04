@@ -50,7 +50,6 @@ To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.Li
 
 Type of interconnect to use for this GPU cluster.
 
-- `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
 - `INFINIBAND`: InfiniBand interconnect. ||
 |#
 
@@ -178,7 +177,6 @@ GPU cluster labels as `key:value` pairs. ||
 
 Status of the GPU cluster.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: GPU cluster is being created.
 - `READY`: GPU cluster is ready to use.
 - `ERROR`: GPU cluster encountered a problem and cannot operate.
@@ -190,6 +188,5 @@ ID of the availability zone where the GPU cluster resides. ||
 
 Type of interconnect used for this GPU cluster.
 
-- `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
 - `INFINIBAND`: InfiniBand interconnect. ||
 |#

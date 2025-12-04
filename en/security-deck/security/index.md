@@ -5,9 +5,9 @@ description: Managing access permissions in {{ sd-full-name }} information secur
 
 # Common {{ sd-full-name }} roles
 
-{{ yandex-cloud }} users can only perform operations on resources according to their assigned roles. If a user has no roles yet, they cannot perform any operations.
+{{ yandex-cloud }} users can only perform operations on resources in accordance with the roles assigned to them. If a user has no roles yet, they cannot perform any operations.
 
-To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md), access to {{ sd-name }} resources, assign them the roles from the list below. Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
+To allow access to {{ sd-name }} resources, assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md). Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
 {% note info %}
 
@@ -15,7 +15,7 @@ For more information about role inheritance, see [Inheritance of access permissi
 
 {% endnote %}
 
-## What roles this service has {#roles-list}
+## Roles this service has {#roles-list}
 
 In {{ sd-name }}, you can manage access using both service and primitive roles.
 
@@ -43,10 +43,13 @@ In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 {{ yandex-cloud }} also supports a separate list of roles for each {{ sd-name }} module. For more information, see:
 
+* [Roles for {{ ycdr-full-name }})](./ycdr-roles.md).
 * [Roles for Data Security Posture Management](./dspm-roles.md).
+* [Roles for security management with KSPM](./kspm-roles.md).
 * [Roles for Cloud Infrastructure Entitlement Management](./ciem-roles.md).
 * [Roles for security management with {{ cspm-name }}](./cspm-roles.md).
 * [Roles for {{ atr-name }} data analysis](./access-transparency-roles.md).
+* [Roles for managing alerts and alert sinks](./alerts-roles.md).
 
 ### Primitive roles {#primitive-roles}
 

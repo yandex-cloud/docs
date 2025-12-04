@@ -8,7 +8,7 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 ## Creating a site {#web}
 
 * [Static website in {{ objstorage-full-name }}](../web/static/index.md)
-* [Static website in {{ objstorage-name }} with access via {{ cdn-name }}](cdn-hosting.md)
+* [Static website in {{ objstorage-name }} with access via {{ cdn-name }}](cdn-hosting/index.md)
 * [Website based on LAMP or LEMP stack](../web/lamp-lemp/index.md)
 * [Joomla-based website with {{ PG }} database](../web/joomla-postgresql/index.md)
 * [Creating a WordPress website](../web/wordpress/index.md)
@@ -22,6 +22,7 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 * [{#T}](../web/gatsby-static-website.md)
 * [{#T}](../web/migrate-to-yc-cdn.md)
 * [{#T}](../web/user-agent-statistics.md)
+* [{#T}](../web/video-iframe.md)
 
 ## 1C {#1c}
 

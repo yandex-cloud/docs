@@ -6,6 +6,14 @@ editable: false
 
 # Service plans {{ datalens-full-name }}
 
+
+
+{% note info %}
+
+Starting December 1, {{ datalens-name }} introduces a revised pricing policy. For details of the changes, see [this article](../pricing-changes.md).
+
+{% endnote %}
+
 {{ datalens-full-name }} features service plans offering different service packages:
 
 * **Community**: Suitable for small teams and non-profit projects.
@@ -13,7 +21,7 @@ editable: false
 
 The plan you choose covers your organization and can only be [changed](../settings/service-plan.md#change-service-plan) by its owner or administrator. You must pay for all [active users](../pricing.md#active-users).
 
-Service plans offer different features and [cost](../pricing.md#prices) differently.
+Different service plans offer different features and vary in [cost](../pricing.md#prices).
 
 **Service plan**  | **Community** | **Business**
 ------------------ |---------------|---------------

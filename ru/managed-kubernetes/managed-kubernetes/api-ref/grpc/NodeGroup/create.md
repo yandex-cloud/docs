@@ -175,13 +175,19 @@ To get the Kubernetes cluster ID, use a [ClusterService.List](/docs/managed-kube
 || name | **string**
 
 Name of the node group.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the node group. ||
+Description of the node group.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || node_template | **[NodeTemplate](#yandex.cloud.k8s.v1.NodeTemplate)**
 
 Required field. Node template for creating the node group. ||
@@ -203,7 +209,9 @@ Version of Kubernetes components that runs on the nodes. ||
 Maintenance policy of the node group. ||
 || allowed_unsafe_sysctls[] | **string**
 
-Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). ||
+Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
+
+The maximum string length in characters for each value is 253. Each value must match the regular expression ` ([a-z0-9]([-_a-z0-9]*[a-z0-9])?\.)*([a-z0-9][-_a-z0-9]*)?[a-z0-9*] `. ||
 || node_taints[] | **[Taint](#yandex.cloud.k8s.v1.Taint)**
 
 Taints that are applied to the nodes of the node group at creation time. ||
@@ -225,10 +233,14 @@ In order to be unique it must contain at least on of instance unique placeholder
 combination of {instance.zone_id} and {instance.index_in_zone}
 Example: my-instance-{instance.index}
 If not set, default is used: {instance_group.id}-{instance.short_id}
-It may also contain another placeholders, see metadata doc for full list. ||
+It may also contain another placeholders, see metadata doc for full list.
+
+The maximum string length in characters is 128. ||
 || labels | **object** (map<**string**, **string**>)
 
-these labels will be assigned to compute nodes (instances), created by the nodegroup ||
+these labels will be assigned to compute nodes (instances), created by the nodegroup
+
+No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || platform_id | **string**
 
 ID of the hardware platform configuration for the node. ||
@@ -242,7 +254,9 @@ Specification for the boot disk that will be attached to the node. ||
 
 The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
 
-For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh). ||
+For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh).
+
+No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || v4_address_spec | **[NodeAddressSpec](#yandex.cloud.k8s.v1.NodeAddressSpec)**
 
 Specification for the create network interfaces for the node group compute instances.
@@ -271,17 +285,25 @@ GPU settings ||
 ||Field | Description ||
 || memory | **int64**
 
-Amount of memory available to the node, specified in bytes. ||
+Amount of memory available to the node, specified in bytes.
+
+The minimum value is 0. ||
 || cores | **int64**
 
-Number of cores available to the node. ||
+Number of cores available to the node.
+
+The minimum value is 0. ||
 || core_fraction | **int64**
 
 Baseline level of CPU performance with the possibility to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+
+Acceptable values are 0 to 100, inclusive. ||
 || gpus | **int64**
 
-Number of GPUs available to the node. ||
+Number of GPUs available to the node.
+
+The minimum value is 0. ||
 |#
 
 ## DiskSpec {#yandex.cloud.k8s.v1.DiskSpec}
@@ -290,10 +312,14 @@ Number of GPUs available to the node. ||
 ||Field | Description ||
 || disk_type_id | **string**
 
-ID of the disk type. ||
+ID of the disk type.
+
+Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated\|network-ssd-io-m3 `. ||
 || disk_size | **int64**
 
-Size of the disk, specified in bytes. ||
+Size of the disk, specified in bytes.
+
+Acceptable values are 0 to 4398046511104, inclusive. ||
 |#
 
 ## NodeAddressSpec {#yandex.cloud.k8s.v1.NodeAddressSpec}
@@ -316,7 +342,6 @@ Internal DNS configuration. ||
 
 IP version for the public IP address.
 
-- `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address, for example 192.168.0.0.
 - `IPV6`: IPv6 address, not available yet. ||
 |#
@@ -333,7 +358,9 @@ Required field. FQDN (required). ||
 DNS zone id (optional, if not set, private zone is used). ||
 || ttl | **int64**
 
-DNS record ttl, values in 0-86400 (optional). ||
+DNS record ttl, values in 0-86400 (optional).
+
+Acceptable values are 0 to 86400, inclusive. ||
 || ptr | **bool**
 
 When set to true, also create PTR DNS record (optional). ||
@@ -383,9 +410,8 @@ Identifier of placement group ||
 ||Field | Description ||
 || type | enum **Type**
 
-Required field. 
+Required field.
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`
 - `SOFTWARE_ACCELERATED` ||
 |#
@@ -396,9 +422,8 @@ Required field.
 ||Field | Description ||
 || type | enum **Type**
 
-Required field. 
+Required field.
 
-- `TYPE_UNSPECIFIED`
 - `DOCKER`
 - `CONTAINERD` ||
 |#
@@ -421,7 +446,6 @@ GPU cluster id, that mk8s node will join. ||
 
 GPU environment configured on node.
 
-- `GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.
 - `RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.
 - `RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers.
 You should install drivers on a node yourself in that case.
@@ -450,7 +474,9 @@ Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 ||Field | Description ||
 || size | **int64**
 
-Number of nodes in the node group. ||
+Number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## AutoScale {#yandex.cloud.k8s.v1.ScalePolicy.AutoScale}
@@ -459,13 +485,19 @@ Number of nodes in the node group. ||
 ||Field | Description ||
 || min_size | **int64**
 
-Minimum number of nodes in the node group. ||
+Minimum number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || max_size | **int64**
 
-Maximum number of nodes in the node group. ||
+Maximum number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || initial_size | **int64**
 
-Initial number of nodes in the node group. ||
+Initial number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NodeGroupAllocationPolicy {#yandex.cloud.k8s.v1.NodeGroupAllocationPolicy}
@@ -498,13 +530,17 @@ ID of the subnet. If a network chosen for the Kubernetes cluster has only one su
 The maximum number of running instances that can be taken offline (i.e.,
 stopped or deleted) at the same time during the update process.
 If `max_expansion` is not specified or set to zero, `max_unavailable` must
-be set to a non-zero value. ||
+be set to a non-zero value.
+
+Acceptable values are 0 to 100, inclusive. ||
 || max_expansion | **int64**
 
 The maximum number of instances that can be temporarily allocated above
 the group's target size during the update process.
 If `max_unavailable` is not specified or set to zero, `max_expansion` must
-be set to a non-zero value. ||
+be set to a non-zero value.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NodeGroupMaintenancePolicy {#yandex.cloud.k8s.v1.NodeGroupMaintenancePolicy}
@@ -576,7 +612,9 @@ Window duration. ||
 ||Field | Description ||
 || days_of_week[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
 
-Days of the week and the maintenance window for these days when automatic updates are allowed. ||
+Days of the week and the maintenance window for these days when automatic updates are allowed.
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekMaintenanceWindow {#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow}
@@ -587,7 +625,8 @@ Days of the week and the maintenance window for these days when automatic update
 
 Days of the week when automatic updates are allowed.
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -617,7 +656,6 @@ The taint value corresponding to the taint key. ||
 
 The effect of the taint on pods that do not tolerate the taint.
 
-- `EFFECT_UNSPECIFIED`
 - `NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint,
 but allow all pods submitted to Kubelet without going through the scheduler
 to start, and allow all already-running pods to continue running.
@@ -897,7 +935,6 @@ Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 
 Status of the node group.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Node group is waiting for resources to be allocated.
 - `RUNNING`: Node group is running.
 - `RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.
@@ -954,10 +991,14 @@ In order to be unique it must contain at least on of instance unique placeholder
 combination of {instance.zone_id} and {instance.index_in_zone}
 Example: my-instance-{instance.index}
 If not set, default is used: {instance_group.id}-{instance.short_id}
-It may also contain another placeholders, see metadata doc for full list. ||
+It may also contain another placeholders, see metadata doc for full list.
+
+The maximum string length in characters is 128. ||
 || labels | **object** (map<**string**, **string**>)
 
-these labels will be assigned to compute nodes (instances), created by the nodegroup ||
+these labels will be assigned to compute nodes (instances), created by the nodegroup
+
+No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || platform_id | **string**
 
 ID of the hardware platform configuration for the node. ||
@@ -971,7 +1012,9 @@ Specification for the boot disk that will be attached to the node. ||
 
 The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
 
-For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh). ||
+For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh).
+
+No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || v4_address_spec | **[NodeAddressSpec](#yandex.cloud.k8s.v1.NodeAddressSpec2)**
 
 Specification for the create network interfaces for the node group compute instances.
@@ -1000,17 +1043,25 @@ GPU settings ||
 ||Field | Description ||
 || memory | **int64**
 
-Amount of memory available to the node, specified in bytes. ||
+Amount of memory available to the node, specified in bytes.
+
+The minimum value is 0. ||
 || cores | **int64**
 
-Number of cores available to the node. ||
+Number of cores available to the node.
+
+The minimum value is 0. ||
 || core_fraction | **int64**
 
 Baseline level of CPU performance with the possibility to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+
+Acceptable values are 0 to 100, inclusive. ||
 || gpus | **int64**
 
-Number of GPUs available to the node. ||
+Number of GPUs available to the node.
+
+The minimum value is 0. ||
 |#
 
 ## DiskSpec {#yandex.cloud.k8s.v1.DiskSpec2}
@@ -1019,10 +1070,14 @@ Number of GPUs available to the node. ||
 ||Field | Description ||
 || disk_type_id | **string**
 
-ID of the disk type. ||
+ID of the disk type.
+
+Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated\|network-ssd-io-m3 `. ||
 || disk_size | **int64**
 
-Size of the disk, specified in bytes. ||
+Size of the disk, specified in bytes.
+
+Acceptable values are 0 to 4398046511104, inclusive. ||
 |#
 
 ## NodeAddressSpec {#yandex.cloud.k8s.v1.NodeAddressSpec2}
@@ -1045,7 +1100,6 @@ Internal DNS configuration. ||
 
 IP version for the public IP address.
 
-- `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address, for example 192.168.0.0.
 - `IPV6`: IPv6 address, not available yet. ||
 |#
@@ -1062,7 +1116,9 @@ Required field. FQDN (required). ||
 DNS zone id (optional, if not set, private zone is used). ||
 || ttl | **int64**
 
-DNS record ttl, values in 0-86400 (optional). ||
+DNS record ttl, values in 0-86400 (optional).
+
+Acceptable values are 0 to 86400, inclusive. ||
 || ptr | **bool**
 
 When set to true, also create PTR DNS record (optional). ||
@@ -1112,9 +1168,8 @@ Identifier of placement group ||
 ||Field | Description ||
 || type | enum **Type**
 
-Required field. 
+Required field.
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`
 - `SOFTWARE_ACCELERATED` ||
 |#
@@ -1125,9 +1180,8 @@ Required field.
 ||Field | Description ||
 || type | enum **Type**
 
-Required field. 
+Required field.
 
-- `TYPE_UNSPECIFIED`
 - `DOCKER`
 - `CONTAINERD` ||
 |#
@@ -1150,7 +1204,6 @@ GPU cluster id, that mk8s node will join. ||
 
 GPU environment configured on node.
 
-- `GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.
 - `RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.
 - `RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers.
 You should install drivers on a node yourself in that case.
@@ -1179,7 +1232,9 @@ Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 ||Field | Description ||
 || size | **int64**
 
-Number of nodes in the node group. ||
+Number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## AutoScale {#yandex.cloud.k8s.v1.ScalePolicy.AutoScale2}
@@ -1188,13 +1243,19 @@ Number of nodes in the node group. ||
 ||Field | Description ||
 || min_size | **int64**
 
-Minimum number of nodes in the node group. ||
+Minimum number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || max_size | **int64**
 
-Maximum number of nodes in the node group. ||
+Maximum number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || initial_size | **int64**
 
-Initial number of nodes in the node group. ||
+Initial number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NodeGroupAllocationPolicy {#yandex.cloud.k8s.v1.NodeGroupAllocationPolicy2}
@@ -1227,13 +1288,17 @@ ID of the subnet. If a network chosen for the Kubernetes cluster has only one su
 The maximum number of running instances that can be taken offline (i.e.,
 stopped or deleted) at the same time during the update process.
 If `max_expansion` is not specified or set to zero, `max_unavailable` must
-be set to a non-zero value. ||
+be set to a non-zero value.
+
+Acceptable values are 0 to 100, inclusive. ||
 || max_expansion | **int64**
 
 The maximum number of instances that can be temporarily allocated above
 the group's target size during the update process.
 If `max_unavailable` is not specified or set to zero, `max_expansion` must
-be set to a non-zero value. ||
+be set to a non-zero value.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## VersionInfo {#yandex.cloud.k8s.v1.VersionInfo}
@@ -1327,7 +1392,9 @@ Window duration. ||
 ||Field | Description ||
 || days_of_week[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow2)**
 
-Days of the week and the maintenance window for these days when automatic updates are allowed. ||
+Days of the week and the maintenance window for these days when automatic updates are allowed.
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekMaintenanceWindow {#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow2}
@@ -1338,7 +1405,8 @@ Days of the week and the maintenance window for these days when automatic update
 
 Days of the week when automatic updates are allowed.
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -1368,7 +1436,6 @@ The taint value corresponding to the taint key. ||
 
 The effect of the taint on pods that do not tolerate the taint.
 
-- `EFFECT_UNSPECIFIED`
 - `NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint,
 but allow all pods submitted to Kubelet without going through the scheduler
 to start, and allow all already-running pods to continue running.

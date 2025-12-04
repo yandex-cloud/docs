@@ -835,10 +835,6 @@ items:
             href: infrastructure/gta-v-server.md
           - name: Конвертация видео в GIF на Python
             href: serverless/video-converting-queue.md
-          - name: Интеграция {{ speechsense-name }} с {{ bitrix24-name }}
-            href: speechsense/bitrix24.md
-          - name: Интеграция {{ speechsense-name }} с {{ amocrm-name }}
-            href: speechsense/amocrm.md
   - name: Построение Data Platform
     items:
       - name: Все руководства
@@ -1685,6 +1681,18 @@ items:
               Регулярное распознавание изображений и PDF-документов из бакета {{
               objstorage-name }}
             href: ml-ai/vision-ocrrecognizer-storage.md
+      - name: Речевая аналитика
+        items:
+          - name: >-
+              Автоматическая загрузка данных в {{ speechsense-full-name }} с
+              помощью {{ sw-full-name }}
+            href: ml-ai/speechsense/auto-upload.md
+          - name: Интеграция {{ speechsense-name }} с {{ amocrm-name }}
+            href: ml-ai/speechsense/amocrm.md
+          - name: Интеграция {{ speechsense-name }} с {{ bitrix24-name }}
+            href: ml-ai/speechsense/bitrix24.md
+          - name: Работа с AI-ассистентом в {{ speechsense-name }}
+            href: ml-ai/speechsense/ai-assistant.md
       - name: >-
           Использование генеративных нейросетей {{ foundation-models-full-name
           }}
@@ -1692,10 +1700,12 @@ items:
           - name: >-
               Реализация AI-ассистента с поиском по PDF-файлам со сложным
               форматированием
+            hidden: true
             href: ml-ai/pdf-searchindex-ai-assistant.md
           - name: >-
               Интеграция генеративных моделей в Visual Studio Code в качестве
               ассистента для написания кода
             href: ml-ai/ai-model-ide-integration.md
           - name: Создание интеллектуального ассистента для Telegram
+            hidden: true
             href: ml-ai/tg-bot-assistant.md

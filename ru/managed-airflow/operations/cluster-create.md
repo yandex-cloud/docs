@@ -79,7 +79,7 @@ keywords:
 
         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-  1. Задайте количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/index.md#presets) для [компонентов](../concepts/index.md#components) {{ maf-name }}:
+  1. Задайте количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/instance-types.md) для [компонентов](../concepts/index.md#components) {{ maf-name }}:
 
       * веб-сервера;
       * планировщика;

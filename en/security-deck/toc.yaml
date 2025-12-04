@@ -12,6 +12,8 @@ items:
         href: operations/index.md
       - name: '{{ sd-name }} workspaces'
         items:
+          - name: Overview
+            href: operations/workspaces/index.md
           - name: Creating a workspace
             href: operations/workspaces/create.md
           - name: Viewing the workspace dashboard and operations
@@ -24,20 +26,36 @@ items:
             href: operations/workspaces/delete.md
       - name: Data Security Posture Management ({{ dspm-name }})
         items:
+          - name: Overview
+            href: operations/dspm/index.md
           - name: Creating a data source
             href: operations/dspm/create-data-source.md
           - name: Creating a scan
             href: operations/dspm/create-scan.md
       - name: '{{ k8s }}® Security Posture Management (KSPM)'
-        href: operations/kspm.md
+        items:
+          - name: Overview
+            href: operations/kspm/index.md
+          - name: Activating KSPM
+            href: operations/kspm/enable-kspm.md
+          - name: Working with a dashboard
+            href: operations/kspm/use-kspm.md
+          - name: Viewing control rules
+            href: operations/kspm/view-rules.md
+          - name: Managing exceptions to control rules
+            href: operations/kspm/manage-exceptions.md
       - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
         items:
+          - name: Overview
+            href: operations/ciem/index.md
           - name: Viewing a list of access permissions
             href: operations/ciem/view-permissions.md
           - name: Revoking an access permission
             href: operations/ciem/revoke-permissions.md
       - name: Cloud Security Posture Management ({{ cspm-name }})
         items:
+          - name: Overview
+            href: operations/cspm/index.md
           - name: View control and violation rules
             href: operations/cspm/view-rules.md
           - name: Managing exceptions to control rules
@@ -82,5 +100,7 @@ items:
         href: security/cspm-roles.md
       - name: '{{ atr-name }} roles'
         href: security/access-transparency-roles.md
+      - name: '{{ alerts-name }} roles'
+        href: security/alerts-roles.md
   - name: Pricing policy
     href: pricing.md

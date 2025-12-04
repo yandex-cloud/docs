@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the stream line on which to perform the action.
+            The maximum string length in characters is 50.
           type: string
       required:
         - streamLineId
@@ -67,7 +68,9 @@ POST https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}:performAct
 ||Field | Description ||
 || streamLineId | **string**
 
-Required field. ID of the stream line on which to perform the action. ||
+Required field. ID of the stream line on which to perform the action.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.PerformLineActionRequest}

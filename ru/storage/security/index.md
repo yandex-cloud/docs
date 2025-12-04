@@ -22,7 +22,9 @@ description: Управление доступом в сервисе, предо
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-В [консоли управления]({{ link-console-main }}), с помощью {{ yandex-cloud }} [CLI](../../cli/quickstart.md), [API](../../api-design-guide/index.yaml) или [{{ TF }}]({{ tf-provider-link }}) вы можете назначить роль на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или отдельный бакет. Назначенные роли будут действовать и на вложенные ресурсы.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+На отдельный бакет роль можно назначить в [консоли управления]({{ link-console-main }}), а также через [{{ yandex-cloud }} API](../api-ref/Bucket/setAccessBindings.md) или [{{ TF }}]({{ tf-provider-link }}/storage_bucket_iam_binding).
 
 О том, как управлять доступом к бакетам и объектам в них, см. раздел [{#T}](../concepts/acl.md).
 
@@ -30,7 +32,7 @@ description: Управление доступом в сервисе, предо
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![service-roles-hierarchy](../../_assets/storage/service-roles-hierarchy.svg)
+{% include [storage](../../_mermaid/roles/storage.md) %}
 
 ### Сервисные роли {#service-roles}
 

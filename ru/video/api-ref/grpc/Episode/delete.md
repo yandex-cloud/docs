@@ -23,7 +23,9 @@ Deletes a specific episode by its ID.
 ||Field | Description ||
 || episode_id | **string**
 
-Required field. ID of the episode to delete. ||
+Required field. ID of the episode to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -15,7 +15,7 @@ description: Follow this guide to encrypt a disk snapshot in {{ compute-short-na
   1. Create an encrypted disk from the snapshot you want to encrypt:
 
       1. In the [management console]({{ link-console-main }}), select the folder with your source snapshot.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks.label_title }}**.
       1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
       1. Enter a name for the disk.

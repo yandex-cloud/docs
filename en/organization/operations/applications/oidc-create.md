@@ -145,6 +145,12 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
+- API {#api}
+
+  1. Use the [OAuthClient.Create](../../../iam/api-ref/OAuthClient/create.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Create](../../../iam/api-ref/grpc/OAuthClient/create.md) gRPC API call.
+  1. Use the [OAuthClientSecret.Create](../../../iam/api-ref/OAuthClientSecret/create.md) REST API method for the [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) resource or the [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md) gRPC API call.
+  1. Use the [Application.Create](../../idp/application/oauth/api-ref/Application/create.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Create](../../idp/application/oauth/api-ref/grpc/Application/create.md) gRPC API call.  
+
 {% endlist %}
 
 ## Set up your application {#setup-application}
@@ -230,6 +236,10 @@ Before configuring your OIDC application in {{ org-name }}, get the redirect URI
      folder_id: b1g500m2195v********
      status: ACTIVE
      ```
+
+- API {#api}
+
+  Use the [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
 
 {% endlist %}
 

@@ -1,112 +1,8 @@
 title: '{{ foundation-models-full-name }}'
 href: index.yaml
 items:
-  - name: Getting started
-    items:
-      - name: Getting started with {{ yagpt-name }}
-        href: quickstart/yandexgpt.md
-      - name: Getting started with {{ yandexart-name }}
-        href: quickstart/yandexart.md
-  - name: Step-by-step guides
-    items:
-      - name: All guides
-        href: operations/index.md
-      - name: Disabling request logging
-        href: operations/disable-logging.md
-      - name: Getting an API key
-        href: operations/get-api-key.md
-      - name: Text generation
-        items:
-          - name: Estimating prompt size in tokens
-            href: operations/generation/evaluate-request.md
-          - name: Sending a request in prompt mode
-            href: operations/generation/create-prompt.md
-          - name: Sending a series of requests in chat mode
-            href: operations/generation/create-chat.md
-          - name: Sending an asynchronous request
-            href: operations/generation/async-request.md
-          - name: Calling a function from a model
-            href: operations/generation/function-call.md
-      - name: Image generation
-        href: operations/generation/yandexart-request.md
-      - name: Batch processing
-        href: operations/batch/create.md
-      - name: Using dedicated instances
-        items:
-          - name: Creating an instance
-            href: operations/resources/create-instance.md
-          - name: Getting instance info
-            href: operations/resources/get-instance.md
-          - name: Updating an instance
-            href: operations/resources/edit-instance.md
-          - name: Cloning an instance
-            href: operations/resources/clone-instance.md
-          - name: Stopping and starting an instance
-            href: operations/resources/start-stop-instance.md
-          - name: Managing instance labels
-            href: operations/resources/labels-instance.md
-          - name: Sending a request to an instance
-            href: operations/resources/request-instance.md
-          - name: Deleting an instance
-            href: operations/resources/delete-instance.md
-      - name: Classification
-        items:
-          - name: Using prompt-based classifiers
-            href: operations/classifier/readymade.md
-          - name: Using fine-tuned classifiers
-            href: operations/classifier/additionally-trained.md
-      - name: Embeddings
-        items:
-          - name: Using embeddings to search through the knowledge base
-            href: operations/embeddings/search.md
-      - name: Working with datasets
-        items:
-          - name: Creating a dataset
-            href: operations/resources/create-dataset.md
-          - name: Creating a dataset for tuning a text generation model
-            href: operations/resources/create-dataset-gpt.md
-          - name: Creating a dataset for tuning a text classifier
-            href: operations/resources/create-dataset-classifier.md
-      - name: Model tuning
-        items:
-          - name: Fine-tuning a text generation model
-            href: operations/tuning/create.md
-          - name: Fine-tuning a text classification model
-            href: operations/tuning/tune-classifiers.md
-          - name: Tuning an embedding model
-            href: operations/tuning/create-embeddings.md
-      - name: Developing AI agents
-        items:
-          - name: Creating a voice agent via {{ realtime-api }}
-            href: operations/agents/create-voice-agent.md
-          - name: Creating a simple text agent
-            href: operations/agents/create-simple-text-agent.md
-          - name: Creating a text agent with a function call
-            href: operations/agents/create-function-text-agent.md
-          - name: Managing {{ vector-store-name }} search index
-            href: operations/agents/manage-searchindex.md
-          - name: '{{ assistant-api }}'
-            items:
-              - name: Creating a simple assistant
-                href: operations/assistant/create.md
-              - name: Creating an assistant with the {{ retrieval-tool-name }} tool
-                href: operations/assistant/create-with-searchindex.md
-              - name: Creating a search assistant with file and index metadata
-                href: operations/assistant/create-with-labels.md
-              - name: Creating an assistant with the WebSearch tool
-                href: operations/assistant/create-with-websearch.md
-              - name: Getting intermediate response generation results
-                href: operations/assistant/request-chunked-response.md
-              - name: Rephrasing queries using the model
-                href: operations/assistant/rephraser.md
-      - name: '{{ mcp-hub-name }}'
-        items:
-          - name: Connecting an external MCP server
-            href: operations/mcp-servers/connect-external.md
-          - name: Creating an MCP server from a template
-            href: operations/mcp-servers/create-from-template.md
-          - name: Creating an MCP server from scratch
-            href: operations/mcp-servers/create-brand-new.md
+  - name: Getting started with {{ model-gallery-name }}
+    href: quickstart/yandexgpt.md
   - name: Concepts
     expanded: true
     items:
@@ -150,7 +46,14 @@ items:
             href: concepts/agents/index.md
           - name: Voice agents
             href: concepts/agents/realtime.md
+          - name: Tools
+            items:
+              - name: Web search
+                href: concepts/agents/tools/websearch.md
+              - name: File search
+                href: concepts/agents/tools/filesearch.md
           - name: '{{ assistant-api }}'
+            hidden: true
             items:
               - name: AI assistants
                 href: concepts/assistant/index.md
@@ -184,6 +87,117 @@ items:
         href: concepts/limits.md
       - name: Terms and definitions
         href: concepts/glossary.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Disabling request logging
+        href: operations/disable-logging.md
+      - name: Getting an API key
+        href: operations/get-api-key.md
+      - name: '{{ model-gallery-name }}'
+        items:
+          - name: Text generation
+            items:
+              - name: Estimating prompt size in tokens
+                href: operations/generation/evaluate-request.md
+              - name: Sending a request in prompt mode
+                href: operations/generation/create-prompt.md
+              - name: Sending a series of requests in chat mode
+                href: operations/generation/create-chat.md
+              - name: Sending an asynchronous request
+                href: operations/generation/async-request.md
+              - name: Calling a function from a model
+                href: operations/generation/function-call.md
+          - name: Image generation
+            href: operations/generation/yandexart-request.md
+          - name: Batch processing
+            href: operations/batch/create.md
+          - name: Using dedicated instances
+            items:
+              - name: Creating an instance
+                href: operations/resources/create-instance.md
+              - name: Getting instance info
+                href: operations/resources/get-instance.md
+              - name: Updating an instance
+                href: operations/resources/edit-instance.md
+              - name: Cloning an instance
+                href: operations/resources/clone-instance.md
+              - name: Stopping and starting an instance
+                href: operations/resources/start-stop-instance.md
+              - name: Managing instance labels
+                href: operations/resources/labels-instance.md
+              - name: Sending a request to an instance
+                href: operations/resources/request-instance.md
+              - name: Deleting an instance
+                href: operations/resources/delete-instance.md
+          - name: Classification
+            items:
+              - name: Using prompt-based classifiers
+                href: operations/classifier/readymade.md
+              - name: Using fine-tuned classifiers
+                href: operations/classifier/additionally-trained.md
+          - name: Embeddings
+            items:
+              - name: Using embeddings to search through the knowledge base
+                href: operations/embeddings/search.md
+          - name: Working with datasets
+            items:
+              - name: Creating a dataset
+                href: operations/resources/create-dataset.md
+              - name: Creating a dataset for tuning a text generation model
+                href: operations/resources/create-dataset-gpt.md
+              - name: Creating a dataset for tuning a text classifier
+                href: operations/resources/create-dataset-classifier.md
+          - name: Model tuning
+            items:
+              - name: Fine-tuning a text generation model
+                href: operations/tuning/create.md
+              - name: Fine-tuning a text classification model
+                href: operations/tuning/tune-classifiers.md
+              - name: Tuning an embedding model
+                href: operations/tuning/create-embeddings.md
+      - name: '{{ agents-atelier-name }}'
+        items:
+          - name: Developing AI agents
+            items:
+              - name: Creating a voice agent via {{ realtime-api }}
+                href: operations/agents/create-voice-agent.md
+              - name: Creating a simple text agent
+                href: operations/agents/create-simple-text-agent.md
+              - name: Creating a text agent with a function call
+                href: operations/agents/create-function-text-agent.md
+              - name: Creating a text agent with file search
+                href: operations/agents/create-filesearch-text-agent.md
+              - name: Managing {{ vector-store-name }} search index
+                href: operations/agents/manage-searchindex.md
+              - name: '{{ assistant-api }}'
+                hidden: true
+                items:
+                  - name: Creating a simple assistant
+                    href: operations/assistant/create.md
+                  - name: >-
+                      Creating an assistant with the {{ retrieval-tool-name }}
+                      tool
+                    href: operations/assistant/create-with-searchindex.md
+                  - name: Creating a search assistant with file and index metadata
+                    href: operations/assistant/create-with-labels.md
+                  - name: Creating an assistant with the WebSearch tool
+                    href: operations/assistant/create-with-websearch.md
+                  - name: Getting intermediate response generation results
+                    href: operations/assistant/request-chunked-response.md
+                  - name: Rephrasing queries using the model
+                    href: operations/assistant/rephraser.md
+      - name: '{{ mcp-hub-name }}'
+        items:
+          - name: Connecting an external MCP server
+            href: operations/mcp-servers/connect-external.md
+          - name: Creating an MCP server from a template
+            href: operations/mcp-servers/create-from-template.md
+          - name: Creating an MCP server from scratch
+            href: operations/mcp-servers/create-brand-new.md
+  - name: Switching from the {{ assistant-api }} to {{ responses-api }}
+    href: concepts/agents/assistant-responses-migration.md
   - name: Compatibility with {{ openai }}
     href: concepts/openai-compatibility.md
   - name: '{{ ml-sdk-full-name }}'
@@ -555,6 +569,7 @@ items:
                   - name: TextEmbedding
                     href: embeddings/api-ref/grpc/Embeddings/textEmbedding.md
       - name: '{{ assistant-api }}'
+        hidden: true
         items:
           - name: REST
             items:
@@ -960,14 +975,16 @@ items:
       - name: >-
           Implementing an AI assistant with search capabilities for PDF files
           with complex formatting
+        hidden: true
         href: tutorials/pdf-searchindex-ai-assistant.md
       - name: Model tuning in {{ ml-platform-name }}
         href: tutorials/models-fine-tuning.md
       - name: Creating an AI agent with {{ sf-full-name }}
         href: tutorials/create-ai-agent-function.md
-      - name: Integrating the Qwen3 model into Visual Studio Code
-        href: tutorials/qwen-vsc-integration.md
+      - name: Integrating generative models into Visual Studio Code
+        href: tutorials/ai-model-ide-integration.md
       - name: Creating an AI assistant for Telegram
+        hidden: true
         href: tutorials/tg-bot-assistant.md
       - name: >-
           Developing a Telegram bot with AI agent support using {{ sw-full-name

@@ -1,9 +1,9 @@
 ---
-title: ERR.DS_API.TYPE_CAST.FAILED error
-description: This page describes the ERR.DS_API.TYPE_CAST.FAILED error.
+title: '{{ datalens-full-name }} error ERR.DS_API.TYPE_CAST.FAILED'
+description: This page describes the Data type conversion error {{ datalens-full-name }} error.
 ---
 
-# Data type conversion error
+# [{{ datalens-full-name }}] Data type conversion error
 
 `ERR.DS_API.TYPE_CAST.FAILED`
 

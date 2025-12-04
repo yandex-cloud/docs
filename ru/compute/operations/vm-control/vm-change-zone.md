@@ -109,8 +109,8 @@ description: Следуя данной инструкции, вы сможете
       +----------------------+---------------------------------+--------------------------------+----------------------+
       |          ID          |              NAME               |          DESCRIPTION           |      NETWORK-ID      |
       +----------------------+---------------------------------+--------------------------------+----------------------+
-      | enpagmu40nj577vbbsl5 | my-sg-group                     |                                | enpnohfm8jb52d4c9av8 |
-      | enpe9n88cellg5p3av6g | default-sg-enpnohfm8jb52d4c9av8 | Default security group for     | enpnohfm8jb52d4c9av8 |
+      | enpagmu40nj5******** | my-sg-group                     |                                | enpnohfm8jb5******** |
+      | enpe9n88cell******** | default-sg-enpnohfm8jb5******** | Default security group for     | enpnohfm8jb5******** |
       |                      |                                 | network                        |                      |
       +----------------------+---------------------------------+--------------------------------+----------------------+
       ```

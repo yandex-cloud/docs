@@ -28,6 +28,8 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [arl-rule-request-count](../../_includes/smartwebsecurity/arl-rule-request-count.md) %}
 
+      1. {% include [arl-rule-action-over-limit](../../_includes/smartwebsecurity/arl-rule-action-over-limit.md) %}
+      
       1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
 
 - {{ TF }} {#tf}

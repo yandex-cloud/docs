@@ -19,6 +19,61 @@ To deactivate a federated user account:
 
   {% include [deactivate-user-ui](../../../_includes/organization/deactivate-user-ui.md) %}
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for deactivating federated users:
+
+     ```bash
+     yc organization-manager federation saml suspend-user-accounts --help
+     ```
+
+  1. Get a list of federations in the organization:
+
+     ```bash
+     yc organization-manager federation saml list \
+       --organization-id <organization_ID>
+     ```
+
+     Where `--organization-id` is the [ID of the organization](../organization-get-id.md) you need the list of federations for.
+
+  1. Get a list of active federation users:
+
+     ```bash
+     yc organization-manager federation saml list-user-accounts <federation_ID> \
+       --organization-id <organization_ID> \
+       --filter active=true
+     ```
+
+     Where:
+
+     * `<federation_ID>`: ID of the federation you need the list of users for.
+     * `--organization-id`: ID of the organization the federation belongs to.
+     * `--filter active=true`: Filter to get only active users.
+
+  1. To deactivate users, provide their IDs in this command:
+
+     ```bash
+     yc organization-manager federation saml suspend-user-accounts <federation_ID> \
+       --subject-ids <user_1_ID>,<user_2_ID>,...,<user_N_ID> \
+       --organization-id <organization_ID> \
+       --reason <reason_for_deactivation>
+     ```
+
+     Where:
+     
+     * `<federation_ID>`: ID of the federation to deactivate users in.
+     * `--subject-ids`: List of user IDs for deactivation.
+     * `--organization-id`: ID of the organization the federation belongs to.
+     * `--reason`: Reason for deactivation. This is an optional parameter.
+
+- API {#api}
+
+  Use the [Federation.Suspend](../../saml/api-ref/Federation/suspendUserAccounts.md) REST API method for the [Federation](../../saml/api-ref/Federation/index.md) resource or the [FederationService/Suspend](../../saml/api-ref/grpc/Federation/suspendUserAccounts.md) gRPC API call.
+
 {% endlist %}
 
 ## Deactivating a local user {#deactivate-local}
@@ -54,7 +109,11 @@ To deactivate a local user account:
        --reason <reason_for_deactivation>
      ```
 
-     Where `--reason` states why you want to deactivate the user. This is an optional parameter.
+     Where `--reason` is the reason for deactivation. This is an optional parameter.
+
+- API {#api}
+
+  Use the [User.Suspend](../../idp/api-ref/User/suspend.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/Suspend](../../idp/api-ref/grpc/User/suspend.md) gRPC API call.
 
 {% endlist %}
 

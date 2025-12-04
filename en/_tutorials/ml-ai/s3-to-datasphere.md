@@ -4,7 +4,7 @@
 You will create a [bucket](../../storage/concepts/bucket.md) in [{{ objstorage-name }}](../../storage/), mount it to the Windows file system using [rclone](https://rclone.org), and upload data to this bucket to train a [model](../../datasphere/concepts/models/index.md) in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).
 
 To use data from {{ objstorage-name }} to train a model in {{ ml-platform-name }}:
-1. [Set up your infrastructure](#infra).
+1. [Set up the infrastructure](#infra).
 1. [Create a static access key](#create-static-key).
 1. [Create a bucket](#bucket-create).
 1. [Set up a connection to {{ objstorage-name }}](#rclone-config).
@@ -171,7 +171,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you will need a [st
      }
      ```
 
-     For more information about `yandex_storage_bucket`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about the `yandex_storage_bucket` resource, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/storage_bucket).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

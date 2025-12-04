@@ -5,7 +5,7 @@
 
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Select **Advanced setup**.
@@ -13,7 +13,7 @@
 
       * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click ![image](../../_assets/console-icons/pencil.svg), and, in the window that opens, select **{{ ui-key.yacloud.common.create }}**.
-      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the disk snapshot you need from the list below. Use the filter as needed.
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the disk snapshot you need from the list below. Optionally, use the filter.
       * Enter a name for the new boot disk.
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).
       * Specify the required disk and block size.
@@ -92,7 +92,7 @@
       * `--create-boot-disk`: VM boot disk settings:
 
           * `snapshot-name`: Disk snapshot name.
-          * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../kms/concepts/key.md) to create an encrypted boot disk. This is an optional parameter.
+          * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../kms/concepts/key.md) to create an encrypted boot disk. This is an optional setting.
 
             {% include [encryption-role](../../_includes/compute/encryption-role.md) %}
 
@@ -103,7 +103,7 @@
       * `--create-disk`: Secondary disk settings:
 
           * `snapshot-name`: Disk snapshot name.
-          * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
+          * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../kms/concepts/key.md) to create an encrypted disk. This is an optional setting.
 
       * `--ssh-key`: Path to the file with the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 

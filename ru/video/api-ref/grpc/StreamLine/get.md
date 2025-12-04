@@ -24,7 +24,9 @@ Returns all stream line metadata, configuration, and related information.
 ||Field | Description ||
 || stream_line_id | **string**
 
-Required field. ID of the stream line to retrieve. ||
+Required field. ID of the stream line to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## StreamLine {#yandex.cloud.video.v1.StreamLine}

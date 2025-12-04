@@ -16,11 +16,11 @@ To use the examples:
 - Python {#python}
 
   1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `ai.assistants.editor` and `ai.languageModels.user` [roles](../../security/index.md#service-roles) to it.
-  1. [Get](../get-api-key.md#run-client) the service account [API key](../../../iam/concepts/authorization/api-key.md) and save it.
+  1. [Get](../get-api-key.md#run-client) and save the service account's [API key](../../../iam/concepts/authorization/api-key.md).
   
         {% note info %}
         
-        If you are using [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows), we recommend [installing](https://learn.microsoft.com/en-us/windows/wsl/install) the [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) shell first and then using it to perform other operations.
+        If you are using [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows), we recommend [installing](https://learn.microsoft.com/en-us/windows/wsl/install) the [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) shell first and using it to proceed.
         
         {% endnote %}
 

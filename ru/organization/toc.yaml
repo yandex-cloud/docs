@@ -39,10 +39,12 @@ items:
             href: operations/add-account.md
           - name: Получить информацию о пользователе
             href: operations/users-get.md
-          - name: Изменить данные пользователя
+          - name: Изменить данные локального пользователя
             href: operations/user-pools/edit-user.md
           - name: Изменить пароль локального пользователя
             href: operations/user-pools/reset-user-password.md
+          - name: Управление пользователем в портале Мой аккаунт
+            href: operations/manage-account.md
           - name: Посмотреть группы пользователя
             href: operations/get-users-groups.md
           - name: Активировать пользователя
@@ -191,6 +193,8 @@ items:
             href: operations/revoke-role.md
       - name: Синхронизировать пользователей и группы с {{ microsoft-idp.ad-short }}
         href: operations/sync-ad.md
+      - name: Управлять тарификацией {{ org-name }}
+        href: operations/manage-billing.md
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -267,6 +271,8 @@ items:
         href: concepts/mfa.md
       - name: Управляемые организации
         href: concepts/controlled-org.md
+      - name: Портал Мой аккаунт
+        href: concepts/my-account.md
       - name: Синхронизация с {{ microsoft-idp.ad-short }}
         href: concepts/ad-sync.md
       - name: Квоты и лимиты
@@ -626,6 +632,8 @@ items:
             href: cli-ref/organization/add-access-binding.md
           - name: add-labels
             href: cli-ref/organization/add-labels.md
+          - name: bind-access-policy
+            href: cli-ref/organization/bind-access-policy.md
           - name: get
             href: cli-ref/organization/get.md
           - name: leave
@@ -634,6 +642,8 @@ items:
             href: cli-ref/organization/list.md
           - name: list-access-bindings
             href: cli-ref/organization/list-access-bindings.md
+          - name: list-access-policy-bindings
+            href: cli-ref/organization/list-access-policy-bindings.md
           - name: list-operations
             href: cli-ref/organization/list-operations.md
           - name: remove-access-binding
@@ -642,6 +652,8 @@ items:
             href: cli-ref/organization/remove-labels.md
           - name: set-access-bindings
             href: cli-ref/organization/set-access-bindings.md
+          - name: unbind-access-policy
+            href: cli-ref/organization/unbind-access-policy.md
           - name: update
             href: cli-ref/organization/update.md
       - name: oslogin
@@ -1500,5 +1512,7 @@ items:
     href: at-ref.md
   - name: История изменений
     href: release-notes.md
+  - name: История изменений {{ org-full-name }} Sync Agent
+    href: sync-agent-release-notes.md
   - name: Обучающие курсы
     href: training.md

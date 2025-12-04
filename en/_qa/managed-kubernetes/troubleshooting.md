@@ -298,7 +298,7 @@ You can provide internet access to your {{ managed-k8s-name }} cluster nodes in 
 
 {% note info %}
 
-If you assign public IP addresses to your cluster nodes and then configure a NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see [our {{ vpc-full-name }} article](../../vpc/concepts/routing.md#internet-routes).
+If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see [our {{ vpc-full-name }} article](../../vpc/concepts/routing.md#internet-routes).
 
 {% endnote %}
 
@@ -424,7 +424,7 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 
 1. Enable connections from the cluster to NTP servers.
    
-   [Create a rule](../../vpc/operations/security-group-add-rule.md) in the [security group of the cluster and node groups](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-cluster):
+   [Create a rule](../../vpc/operations/security-group-add-rule.md) for outbound traffic in the [cluster and node group security group](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-cluster):
 
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`. If your NTP server uses a port other than `123`, specify that port.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
@@ -433,7 +433,7 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 
 1. Update the network settings in the cluster node group using one of the following methods:
 
-   * Connect to each node in the group [over SSH](../../managed-kubernetes/operations/node-connect-ssh.md) or [via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md) and run the `sudo dhclient -v -r && sudo dhclient` command.
+   * Connect to each node in the group [over SSH](../../managed-kubernetes/operations/node-connect-ssh.md) or [via {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md) and run the `sudo dhclient -v -r && sudo dhclient` command.
    * Reboot the group nodes at any convenient time.
 
    {% note warning %}

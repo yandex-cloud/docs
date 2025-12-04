@@ -32,7 +32,17 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите платежный аккаунт.
   1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
   1. В открывшемся окне введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-  1. Введите данные карты и нажмите кнопку **Оплатить**.
+  1. Выберите [способ пополнения баланса](../payment/payment-methods-individual.md):
+     * СБП (Система быстрых платежей):
+        1. Нажмите кнопку **Оплатить СБП**.
+        1. Отсканируйте QR-код с помощью мобильного приложения вашего банка и подтвердите платеж.
+
+        {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
+
+     * Банковская карта, привязанная к [Яндекс ID](../../iam/concepts/users/accounts.md#passport).  
+     * Добавить карту:
+        1. Введите данные карты.
+        1. Нажмите кнопку **Оплатить**.
 
 {% endlist %}
 
@@ -87,4 +97,13 @@ description: Следуя данной инструкции, вы сможете
 
     Платеж происходит в режиме реального времени и зачисляется в течение 15 минут.
 
+  - СБП (Система быстрых платежей) {#sbp}
+
+    {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
+
+    Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Выберите способ пополнения баланса через СБП и нажмите кнопку **Оплатить СБП**.
+    
+    Отсканируйте QR-код с помощью приложения вашего банка и подтвердите платеж.
+
+    
   {% endlist %}

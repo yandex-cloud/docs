@@ -5,6 +5,7 @@ description: Из этой статьи вы узнаете, как настро
 
 # Настроить доступ пользователям OIDC-приложения в {{ org-full-name }}
 
+
 Чтобы предоставить доступ к [OIDC-приложению](../../concepts/applications.md#oidc), назначьте [роли](../../../iam/concepts/access-control/roles.md) субъектам. [Узнайте](../../security/index.md#roles-list), какие роли действуют в сервисе, чтобы назначить нужные.
 
 {% list tabs group=instructions %}

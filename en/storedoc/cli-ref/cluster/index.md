@@ -19,6 +19,7 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-mongodb cluster add-access-binding](add-access-binding.md) — Add access binding for the specified MongoDB cluster
 - [yc managed-mongodb cluster add-labels](add-labels.md) — Assign labels to a MongoDB cluster.
 - [yc managed-mongodb cluster backup](backup.md) — Create a backup for the specified MongoDB cluster.
 - [yc managed-mongodb cluster create](create.md) — Create a MongoDB cluster.
@@ -26,13 +27,16 @@ Aliases:
 - [yc managed-mongodb cluster enable-sharding](enable-sharding.md) — Enable sharding for MongoDB cluster.
 - [yc managed-mongodb cluster get](get.md) — Get information about the specified MongoDB cluster.
 - [yc managed-mongodb cluster list](list.md) — List MongoDB clusters in a folder.
+- [yc managed-mongodb cluster list-access-bindings](list-access-bindings.md) — List access bindings for the specified MongoDB cluster
 - [yc managed-mongodb cluster list-backups](list-backups.md) — List available backups for the specified MongoDB cluster.
 - [yc managed-mongodb cluster list-logs](list-logs.md) — Retrieve logs for the specified MongoDB cluster.
 - [yc managed-mongodb cluster list-operations](list-operations.md) — List operations for the specified MongoDB cluster.
 - [yc managed-mongodb cluster move](move.md) — Move the specified MongoDB cluster into the folder
+- [yc managed-mongodb cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified MongoDB cluster
 - [yc managed-mongodb cluster remove-labels](remove-labels.md) — Remove labels from specified MongoDB cluster
 - [yc managed-mongodb cluster reschedule-maintenance](reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 - [yc managed-mongodb cluster restore](restore.md) — Restore a MongoDB cluster from a backup.
+- [yc managed-mongodb cluster set-access-bindings](set-access-bindings.md) — Set access bindings for the specified MongoDB cluster and delete all existing access bindings if there were any
 - [yc managed-mongodb cluster start](start.md) — Start the specified MongoDB cluster
 - [yc managed-mongodb cluster stop](stop.md) — Stop the specified MongoDB cluster
 - [yc managed-mongodb cluster update](update.md) — Modify configuration or attributes of a MongoDB cluster.

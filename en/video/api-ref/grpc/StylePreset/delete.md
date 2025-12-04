@@ -25,7 +25,9 @@ This operation will fail if the style preset is currently in use by any videos, 
 || style_preset_id | **string**
 
 Required field. ID of the style preset to delete.
-The style preset must not be in use by any videos, episodes, or playlists. ||
+The style preset must not be in use by any videos, episodes, or playlists.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

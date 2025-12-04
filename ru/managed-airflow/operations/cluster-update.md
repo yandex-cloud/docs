@@ -34,7 +34,7 @@ keywords:
 
        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-    1. В блоках для настройки [компонентов](../concepts/index.md#components) {{ maf-name }} — **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, **{{ ui-key.yacloud.airflow.section_workers }}**, **{{ ui-key.yacloud.airflow.section_dag_processor }}** — укажите количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/index.md#presets).
+    1. В блоках для настройки [компонентов](../concepts/index.md#components) {{ maf-name }} — **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, **{{ ui-key.yacloud.airflow.section_workers }}**, **{{ ui-key.yacloud.airflow.section_dag_processor }}** — укажите количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/instance-types.md).
 
        {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 

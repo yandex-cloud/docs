@@ -110,7 +110,7 @@ Set up the infrastructure:
 
    You can view the FQDN in the management console:
 
-      1. Open to the cluster page.
+      1. Navigate to the cluster page.
       1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. In the row of the host with the `KAFKA` role, copy the value of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
@@ -267,7 +267,7 @@ On a local machine:
 
    You can view the FQDN in the management console:
 
-      1. Open to the cluster page.
+      1. Navigate to the cluster page.
       1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. In the row of the host with the `KAFKA` role, copy the value of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
@@ -400,7 +400,7 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 

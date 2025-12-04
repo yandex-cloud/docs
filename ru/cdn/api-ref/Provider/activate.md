@@ -12,12 +12,14 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder that the activate provider belongs to.
+            The maximum string length in characters is 50.
           type: string
         providerType:
           description: |-
             **string**
             Required field. Specify provider brand/type.
             Possible values: `gcore`.
+            The maximum string length in characters is 50.
           type: string
       required:
         - folderId
@@ -50,12 +52,16 @@ POST https://cdn.{{ api-host }}/cdn/v1/providers:activate
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the activate provider belongs to. ||
+Required field. ID of the folder that the activate provider belongs to.
+
+The maximum string length in characters is 50. ||
 || providerType | **string**
 
 Required field. Specify provider brand/type.
 
-Possible values: `gcore`. ||
+Possible values: `gcore`.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -145,7 +151,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the activate provider belongs to. ||
+Required field. ID of the folder that the activate provider belongs to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

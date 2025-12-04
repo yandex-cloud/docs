@@ -1,6 +1,6 @@
 ---
 title: Manually deploying Nextcloud in the {{ yandex-cloud }} infrastructure
-description: In this tutorial, you will manually deploy a fault-tolerant {{ yandex-cloud }} infrastructure that runs Nextcloud integrated with {{ objstorage-name }}.
+description: In this tutorial, you will manually deploy a fault-tolerant {{ yandex-cloud }} infrastructure that runs Nextcloud integrated with {{ objstorage-full-name }}.
 canonical: '{{ link-docs }}/tutorials/archive/integrate-nextcloud/fault-tolerant'
 ---
 
@@ -11,3 +11,4 @@ canonical: '{{ link-docs }}/tutorials/archive/integrate-nextcloud/fault-tolerant
 #### See also {#see-also}
 
 * [{#T}](./coi-based.md)
+* [{#T}](./terraform.md)

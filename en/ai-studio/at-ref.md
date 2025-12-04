@@ -1,16 +1,22 @@
 ---
-title: '{{ foundation-models-full-name }} event reference in {{ at-full-name }}'
-description: This page provides a reference for {{ foundation-models-name }} events tracked in {{ at-name }}.
+title: '{{ ai-studio-full-name }} event reference in {{ at-full-name }}'
+description: This page provides a reference for {{ ai-studio-full-name }} events tracked in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference
 
-{{ at-name }} supports tracking data plane events for {{ foundation-models-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format-data-plane.md).
+{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) and [data plane](../audit-trails/concepts/format-data-plane.md) events for {{ ai-studio-full-name }}.
 
 The general format of the `event_type` field value is as follows:
 
 ```text
-{{ at-event-prefix }}.audit.ai.foundationmodel.<event_name>
+{{ at-event-prefix }}.audit.ai.<event_name>
 ```
 
-{% include [foundation-models-dp](../_includes/audit-trails/events/foundation-models-dp.md) %}
+## Control plane event reference {#control-plane-events}
+
+{% include [compute-events](../_includes/audit-trails/events/ai-studio-events.md) %}
+
+## Data plane event reference {#data-plane-events}
+
+{% include [ai-studio-events-dp](../_includes/audit-trails/events/ai-studio-events-dp.md) %}

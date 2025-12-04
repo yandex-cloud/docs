@@ -27,13 +27,14 @@ RescheduleMaintenanceRequest allows to reschedule maintenance to another date an
 ||Field | Description ||
 || maintenance_id | **string**
 
-Required field. Required. ID of the maintenance. ||
+Required field. Required. ID of the maintenance.
+
+The maximum string length in characters is 50. ||
 || reschedule_type | enum **Type**
 
 Required. If `reschedule_type` is "SPECIFIC_TIME",
 must set up `schedule_time` as well.
 
-- `TYPE_UNSPECIFIED`: Not set.
 - `IMMEDIATE`: If the user wants to reschedule the maintenance to happen now.
 - `NEXT_AVAILABLE_WINDOW`: If the user wants to reschedule the maintenance for the next maintenance window.
 - `SPECIFIC_TIME`: If the user wants to reschedule the maintenance to a specific time. ||
@@ -168,7 +169,6 @@ Service-specific details. ||
 
 Status of the maintenance.
 
-- `STATUS_UNSPECIFIED`: Not set.
 - `SCHEDULED`: Maintenance is scheduled for a future time.
 - `RUNNING`: Maintenance is currently running.
 - `SUCCEEDED`: Maintenance completed successfully.

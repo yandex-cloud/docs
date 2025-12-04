@@ -26,7 +26,9 @@ Deleting a snapshot removes its data permanently and is irreversible.
 || snapshot_id | **string**
 
 Required field. ID of the snapshot to delete.
-To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/grpc/Snapshot/list#List) request. ||
+To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/grpc/Snapshot/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

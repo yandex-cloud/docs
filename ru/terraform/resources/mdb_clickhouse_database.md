@@ -72,6 +72,7 @@ resource "yandex_mdb_clickhouse_database" "bar" {
 
 ### Optional
 
+- `engine` (String) Database engine, possible values are: atomic,replicated.
 - `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 
 ### Read-Only

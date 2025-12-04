@@ -1,6 +1,11 @@
-# Normalized stacked area chart ![](../../_assets/datalens/normalized-area.svg)
+---
+title: Normalized stacked area chart in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the normalized stacked area chart visualization type in {{ datalens-full-name }}.
+---
 
-A normalized area chart shows changes to the contribution of each category in a measure value over a time interval. Areas are highlighted in different colors and located above each other. The chart shows the percentage of areas and not their absolute value. The width of an area indicates its ratio to the total amount represented as 100%. For example, the percentage of different expenses in the total budget amount.
+# Normalized stacked area chart ![](../../_assets/datalens/normalized-area.svg) in {{ datalens-full-name }}
+
+A normalized stacked area chart shows variations in the amount each category contributes into a measure over a time interval. Areas are highlighted in different colors and located above each other. The chart shows the percentage of areas and not their absolute value. The width of an area indicates its ratio to the total amount represented as 100%. For example, the percentage of different expenses in the total budget amount.
 
 ![normalized-area-chart](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-chart.png)
 
@@ -48,7 +53,7 @@ December 2019|	451K |	307K | 111K
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 X | Dimension. You can specify only one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings).
 Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md).

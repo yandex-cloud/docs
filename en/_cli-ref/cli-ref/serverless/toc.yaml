@@ -258,6 +258,34 @@ items:
             href: cli-ref/function/version/remove-tag.md
           - name: set-tag
             href: cli-ref/function/version/set-tag.md
+  - name: mcp-gateway
+    items:
+      - name: Overview
+        href: cli-ref/mcp-gateway/index.md
+      - name: add-access-binding
+        href: cli-ref/mcp-gateway/add-access-binding.md
+      - name: allow-unauthenticated-invoke
+        href: cli-ref/mcp-gateway/allow-unauthenticated-invoke.md
+      - name: create
+        href: cli-ref/mcp-gateway/create.md
+      - name: delete
+        href: cli-ref/mcp-gateway/delete.md
+      - name: deny-unauthenticated-invoke
+        href: cli-ref/mcp-gateway/deny-unauthenticated-invoke.md
+      - name: get
+        href: cli-ref/mcp-gateway/get.md
+      - name: list
+        href: cli-ref/mcp-gateway/list.md
+      - name: list-access-bindings
+        href: cli-ref/mcp-gateway/list-access-bindings.md
+      - name: list-operations
+        href: cli-ref/mcp-gateway/list-operations.md
+      - name: remove-access-binding
+        href: cli-ref/mcp-gateway/remove-access-binding.md
+      - name: set-access-bindings
+        href: cli-ref/mcp-gateway/set-access-bindings.md
+      - name: update
+        href: cli-ref/mcp-gateway/update.md
   - name: mdbproxy
     items:
       - name: Overview
@@ -374,10 +402,16 @@ items:
     items:
       - name: Overview
         href: cli-ref/workflow/index.md
+      - name: add-access-binding
+        href: cli-ref/workflow/add-access-binding.md
+      - name: allow-unauthenticated-execution
+        href: cli-ref/workflow/allow-unauthenticated-execution.md
       - name: create
         href: cli-ref/workflow/create.md
       - name: delete
         href: cli-ref/workflow/delete.md
+      - name: deny-unauthenticated-execution
+        href: cli-ref/workflow/deny-unauthenticated-execution.md
       - name: execution
         items:
           - name: Overview
@@ -398,7 +432,13 @@ items:
         href: cli-ref/workflow/get.md
       - name: list
         href: cli-ref/workflow/list.md
+      - name: list-access-bindings
+        href: cli-ref/workflow/list-access-bindings.md
       - name: list-operations
         href: cli-ref/workflow/list-operations.md
+      - name: remove-access-binding
+        href: cli-ref/workflow/remove-access-binding.md
+      - name: set-access-bindings
+        href: cli-ref/workflow/set-access-bindings.md
       - name: update
         href: cli-ref/workflow/update.md

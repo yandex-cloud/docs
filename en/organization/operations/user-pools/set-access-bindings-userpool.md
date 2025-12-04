@@ -35,7 +35,7 @@ To grant access to a [pool](../../concepts/user-pools.md), assign [roles](../../
    1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
    1. Using the `yc organization-manager idp userpool set-access-bindings` command, assign the following roles:
       
-      * To a Yandex account user:
+      * To a Yandex account user or local user:
 
          ```bash
          yc organization-manager idp userpool set-access-bindings \
@@ -84,5 +84,9 @@ To grant access to a [pool](../../concepts/user-pools.md), assign [roles](../../
         --access-binding role=<role2>,service-account-id=<service_account_ID> \
         --access-binding role=<role3>,service-account-id=<service_account_ID>
       ```
+
+- API {#api}
+
+  Use the [Userpool.SetAccessBindings](../../idp/api-ref/Userpool/setAccessBindings.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/SetAccessBindings](../../idp/api-ref/grpc/Userpool/setAccessBindings.md) gRPC API call.
 
 {% endlist %}

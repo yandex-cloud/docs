@@ -4,7 +4,7 @@ You can process data from these systems either individually or as part of one co
 
 In this tutorial, you will create three dedicated data storages: customers, purchased items, and purchase dates. You can get data from all storages at the same time using a federated query from a notebook cell.
 
-1. [Set up your infrastructure](#infra).
+1. [Set up the infrastructure](#infra).
 1. [Get started in {{ yq-name }}](#yq-begin).
 1. [Connect to the {{ objstorage-name }} data](#storage-connect).
 1. [Connect to the {{ mch-name }} data](#ch-connect).
@@ -243,7 +243,7 @@ Any running {{ mch-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
       * Select the `yq-sa` service account.
-      * Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **Access from the management console** options.
+      * Enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **Access from the management console**.
 
   1. You can leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.

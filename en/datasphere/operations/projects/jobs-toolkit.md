@@ -40,11 +40,11 @@ To start working with {{ ds-jobs }}, get authenticated using a Yandex or federat
       If you already have an OAuth token, click **Cancel**.
   1. In the **Input OAuth token** field that opens, enter your OAuth token.
 
-  To delete the OAuth token, use this command: `> DataSphere Jobs: Remove OAuth token`.
+  To delete the OAuth token, use this command:`> DataSphere Jobs: Remove OAuth token`.
 
-- Federated account {#federated-account}
+- Federated or local account {#federated-account}
 
-  To authenticate a federated account, you need to install and configure the [CLI](../../../cli/quickstart.md). If the CLI is installed in the default folder or the path to it is specified in the `Path` environment variable, {{ ds-jobs }} Toolkit will detect it automatically. If not, specify the CLI executable path in the extension settings:
+  To authenticate a federated or local account, you need to install and configure the [CLI](../../../cli/quickstart.md). If the CLI is installed in the default folder or the path to it is specified in the `Path` environment variable, the toolkit will detect it automatically. If not, specify the CLI executable path in the extension settings:
 
   1. In the left-hand panel, select **{{ ds-jobs }}** and click **Settings**.
   1. In the **Datasphere: Yandex Cloud Console Path** field, enter the path to the CLI executable, such as the following:
@@ -134,7 +134,7 @@ To start working with {{ ds-jobs }}, get authenticated using a Yandex or federat
 
 {{ ds-jobs }} Toolkit allows you to view the job history and manage your jobs.
 
-To see the job history in {{ ds-jobs }}, select ![logo](../../../_assets/datasphere/ds-logo.svg) **{{ ds-jobs }}** in the left-hand panel. This will open the **DATASPHERE JOBS: LAUNCH HISTORY** panel where you will see your jobs sorted by start time.
+To see the job history in {{ ds-jobs }}, select ![logo](../../../_assets/datasphere/ds-logo.svg) **{{ ds-jobs }}** in the left-hand panel. This will open the **DATASPHERE JOBS: LAUNCH HISTORY** panel with jobs sorted by start time.
 
 You can perform the following actions from the {{ ds-jobs }} history panel:
 

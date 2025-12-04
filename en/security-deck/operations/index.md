@@ -21,7 +21,10 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 
 ## {{ k8s }}® Security Posture Management (KSPM) {#k8s}
 
-* [{#T}](kspm.md).
+* [{#T}](kspm/enable-kspm.md).
+* [{#T}](kspm/use-kspm.md).
+* [{#T}](kspm/view-rules.md).
+* [{#T}](kspm/manage-exceptions.md).
 
 ## Cloud Security Posture Management ({{ cspm-name }}) {#cspm}
 

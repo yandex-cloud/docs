@@ -25,13 +25,19 @@ ListOperations return all operations in backup service for given instance
 ||Field | Description ||
 || compute_instance_id | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
-Number of results per page. ||
+Number of results per page.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
-Token for the results page. ||
+Token for the results page.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListResourceOperationsResponse {#yandex.cloud.backup.v1.ListResourceOperationsResponse}

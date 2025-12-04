@@ -1,4 +1,9 @@
-# Connecting to a data source
+---
+title: Connections in {{ datalens-full-name }}
+description: Connections in {{ datalens-full-name }} contain information about data source access parameters.
+---
+
+# Connecting to a data source in {{ datalens-full-name }}
 
 _Connections_ contain information about data source access parameters, such as the DB host IP address and port.
 
@@ -34,7 +39,7 @@ The following connection types are available in {{ datalens-short-name }}:
    * [{{ billing-name }}](../operations/connection/create-cloud-billing.md)
    * [Yandex Monitoring](../operations/connection/create-monitoring.md)
   * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
-   * [Connecting API Connector](../operations/connection/create-api-connector.md)
+  * [Connecting API Connector](../operations/connection/create-api-connector.md)
    * [{{ speechsense-name }}](../operations/connection/create-speechsense.md)
 
 
@@ -61,7 +66,7 @@ You can add other connections from those [available in {{ marketplace-full-name 
 
 ## Access management {#access-management}
 
-You can configure connection permissions. For more information, see [{#T}](../security/index.md).
+You can configure connection permissions. Learn more in [{#T}](../security/index.md).
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

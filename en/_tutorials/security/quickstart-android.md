@@ -67,7 +67,7 @@ To embed [{{ captcha-name }}](../../smartcaptcha/) in an Android app:
 
 1. Get a [server response](../../smartcaptcha/concepts/validation.md). It contains a JSON object with the `status` and `message` fields.
 
-   >Here is an example:
+   >For example:
    >
    >* It is a human:
    >

@@ -5,6 +5,31 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.174.0 (December 4, 2025)
+##### FEATURES:
+* clickhouse: added field `engine` to yandex_mdb_clickhouse_database resources.
+* mdb_kafka: add disk_encryption_key_id field support for kafka clusters
+##### ENHANCEMENTS:
+* CloudOrganization: updated password quality policy fields in idp.userpool
+* mongodb: support resetting settings to default via update mask
+* mdb_mysql: add link to API proto specifications in `mysql_config` description
+
+## 0.173.0 (December 1, 2025)
+##### FEATURES:
+* OrganizationManager: added idp saml application resource and datasource
+* OrganizationManager: added idp oauth application resource and datasource
+* dns: changing `folder_id` attribute in `dns_zone` moves DNS Zone to new folder
+##### ENHANCEMENTS:
+* mdb_kafka: add `patch_version` read-only attribute
+* iam: add `labels` option to `yandex_iam_service_account` resource
+* audittrails: add `codec` option for YDS trails
+
+## 0.172.0 (November 25, 2025)
+##### FEATURES:
+* cloud_desktops: add cloud_desktops to terraform
+##### BUG FIXES:
+* postgresql: fix infinite changes on plan/apply after shared_preload_libraries deletion
+
 ## 0.171.0 (November 17, 2025)
 ##### BUG FIXES:
 * mysql: user permission REFERENCES added

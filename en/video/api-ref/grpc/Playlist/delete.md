@@ -24,7 +24,9 @@ This removes the playlist but does not affect the videos or episodes it contains
 ||Field | Description ||
 || playlist_id | **string**
 
-Required field. ID of the playlist to delete. ||
+Required field. ID of the playlist to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

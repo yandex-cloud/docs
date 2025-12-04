@@ -36,6 +36,7 @@ When using [domains](concepts/domain-protect.md), in addition to the cost of pro
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Subscription billing {#subscription}
@@ -64,7 +65,7 @@ If the plan you select is not enough, you can switch to another with pro-rata re
 
 
 
-To calculate the cost of using the service, use our [calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+To calculate the cost of using the service, use our [calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -113,11 +114,11 @@ One resource unit delivers the following maximum performance (autoscaling thresh
 * 300 new connections per second.
 * 22 MB (176 Mbit) of traffic per second (covers both incoming and outgoing traffic).
 
-The default minimum number of resource units per proxy server is 6 (2 in each availability zone).
-
 The system autoscales the resource unit group based on external load on the proxy server nodes. It calculates the group size to keep load per resource unit below the specified thresholds.
 
-The proxy server fee is per hour. You are charged for the maximum number of resource units that were running for an hour.
+The default minimum number of resource units per proxy server is 6 (2 in each availability zone). If you need more proxy server resource units, you can submit a request to increase their number.
+
+The proxy server fee is per hour. You are charged for the minimum number of resource units that were running for an hour.
 
 Traffic protection from DDoS attacks at levels L3–L4 is charged based on the amount of [legitimate](concepts/rules.md#rule-action) traffic in GB.
 
@@ -150,4 +151,5 @@ The prices below are for reference only. {{ sws-name }} usage by your services w
 
 
 {% include [usd-smartwebsecurity](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity.md) %}
+
 

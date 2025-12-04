@@ -31,6 +31,8 @@ items:
                 href: operations/hosts.md
               - name: Управление хостами {{ ZK }}
                 href: operations/zk-hosts.md
+              - name: Управление хостами {{ CK }}
+                href: operations/ck-hosts.md
               - name: Миграция хостов в другую зону доступности
                 href: operations/host-migration.md
           - name: Управление резервными копиями
@@ -57,6 +59,8 @@ items:
             href: operations/cluster-users.md
       - name: Хранение и обработка данных
         items:
+          - name: Управление расширениями
+            href: operations/cluster-extensions.md
           - name: Управление собственной геобазой
             href: operations/geobase.md
           - name: Подключение внешних словарей
@@ -249,6 +253,8 @@ items:
         items:
           - name: Overview
             href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
           - name: add-extension
             href: cli-ref/cluster/add-extension.md
           - name: add-external-dictionary
@@ -275,6 +281,8 @@ items:
             href: cli-ref/cluster/get-extension.md
           - name: list
             href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
           - name: list-backups
             href: cli-ref/cluster/list-backups.md
           - name: list-extensions
@@ -287,6 +295,8 @@ items:
             href: cli-ref/cluster/list-operations.md
           - name: move
             href: cli-ref/cluster/move.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
           - name: remove-extension
             href: cli-ref/cluster/remove-extension.md
           - name: remove-external-dictionary
@@ -299,6 +309,8 @@ items:
             href: cli-ref/cluster/reschedule-maintenance.md
           - name: restore
             href: cli-ref/cluster/restore.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
           - name: set-compression
             href: cli-ref/cluster/set-compression.md
           - name: set-query-masking-rules

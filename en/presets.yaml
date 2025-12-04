@@ -348,6 +348,7 @@ default:
   link-tracker-cloudless: https://yandex.ru/support/tracker/ru
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.com/
+  link-wiki-cloudless: https://yandex.ru/support/wiki/ru
   link-yadisk-doc: https://yandex.ru/dev/disk-api/doc/en/
   link-yandex: https://yandex.com
   links:
@@ -396,6 +397,8 @@ default:
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Apache Hive™ Metastore
   metastore-name: Apache Hive™ Metastore
+  metastore:
+    integration-version: 3.1
   metrika: Yandex Metrica
   metrika-endpoint: Metrica
   metrika-link: https://metrika.yandex.com/
@@ -555,6 +558,7 @@ default:
   python-full-ver: Python 3.12
   quota-manager-full-name: Yandex Cloud Quota Manager
   quota-manager-name: Cloud Quota Manager
+  quota-manager-short-name: Quota Manager
   RD: Valkey™
   realtime-api: Realtime API
   realtime-model: speech-realtime-250923
@@ -580,6 +584,7 @@ default:
   roles-datalens-instances-admin: datalens.instances.admin
   roles-datalens-instances-user: datalens.instances.user
   roles-datalens-visitor: datalens.visitor
+  roles-datalens-workbooks-editor: datalens.workbooks.editor
   roles-datasphere-admin: datasphere.admin
   roles-datasphere-communities-admin: datasphere.communities.admin
   roles-datasphere-communities-developer: datasphere.communities.developer
@@ -1147,6 +1152,12 @@ default:
         12_month|int|string: ₸123250
         3_month|string: ₸137750.00
         6_month|string: ₸134850.00
+      ba_i210_h_1_10g:
+        1_day|string: ₸169000.00
+        1_month|string: ₸163930.00
+        12_month|int|string: ₸143650
+        3_month|string: ₸160550.00
+        6_month|string: ₸157170.00
       ba_i211_8s_10g:
         1_day|string: ₸499500.00
         1_month|string: ₸484515.00
@@ -1219,6 +1230,18 @@ default:
         12_month|string: ₸1286900.00
         3_month|string: ₸1438300.00
         6_month|string: ₸1408020.00
+      ba-a401-2n2h-25g:
+        1_day|string: ₸617500.00
+        1_month|string: ₸598975.00
+        12_month|string: ₸524875.00
+        3_month|string: ₸586625.00
+        6_month|string: ₸574275.00
+      ba-a402-2n2h-25g:
+        1_day|string: ₸640500.00
+        1_month|string: ₸621285.00
+        12_month|string: ₸544425.00
+        3_month|string: ₸608475.00
+        6_month|string: ₸595665.00
       ba-a612-n-25g-p1:
         1_day|string: ₸733700.00
         1_month|string: ₸711689.00
@@ -1285,6 +1308,30 @@ default:
         12_month|string: ₸2023425.00
         3_month|string: ₸2261475.00
         6_month|string: ₸2213865.00
+      bf25_i201_h:
+        1_day|string: ₸74490.00
+        1_month|string: ₸74490.00
+        12_month|string: ₸74490.00
+        3_month|string: ₸74490.00
+        6_month|string: ₸74490.00
+      bf25_i202_s:
+        1_day|string: ₸78000.00
+        1_month|string: ₸78000.00
+        12_month|string: ₸78000.00
+        3_month|string: ₸78000.00
+        6_month|string: ₸78000.00
+      bf25_i204_s:
+        1_day|string: ₸79875.00
+        1_month|string: ₸79875.00
+        12_month|string: ₸79875.00
+        3_month|string: ₸79875.00
+        6_month|string: ₸79875.00
+      bf25_i205_s:
+        1_day|string: ₸92720.00
+        1_month|string: ₸92720.00
+        12_month|string: ₸92720.00
+        3_month|string: ₸92720.00
+        6_month|string: ₸92720.00
       ha_i302_s_10g:
         1_day|string: ₸459000.00
         1_month|string: ₸445230.00
@@ -1619,6 +1666,11 @@ default:
   sku|KZT|foundation_models:
     image_generation:
       v1|string: ₸11.00
+    realtime_audio:
+      input:
+        v1|string: ₸0.13
+      output:
+        v1|string: ₸0.10
     text_classification:
       v1|string: ₸0.75
     text_embedding:
@@ -2323,6 +2375,63 @@ default:
       ui:
         cluster:
           v1|string: ₸21000.00
+    keeper:
+      clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: ₸10692.00
+            c100|string: ₸14.85
+          ram|month|string: ₸2099.52
+          ram|string: ₸2.9160
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₸12993.84
+            c100|string: ₸18.0470
+          ram|month|string: ₸2551.68
+          ram|string: ₸3.5440
+        v1:
+          cpu:
+            c100|month|string: ₸8454.24
+            c100|string: ₸11.7420
+            c50|month|string: ₸2521.44
+            c50|string: ₸3.5020
+          ram|month|string: ₸1928.16
+          ram|string: ₸2.6780
+          software_accelerated_network:
+            cpu|month|string: ₸7935.12
+            cpu|string: ₸11.0210
+        v2:
+          cpu:
+            c100|month|string: ₸7464.96
+            c100|string: ₸10.3680
+            c50|month|string: ₸2643.84
+            c50|string: ₸3.6720
+          ram|month|string: ₸2021.76
+          ram|string: ₸2.8080
+          software_accelerated_network:
+            cpu|month|string: ₸8320.32
+            cpu|string: ₸11.5560
+        v3:
+          cpu:
+            c100|month|string: ₸6687.36
+            c100|string: ₸9.2880
+            c50|month|string: ₸2371.68
+            c50|string: ₸3.2940
+          software_accelerated_network:
+            cpu|month|string: ₸8320.32
+            cpu|string: ₸11.5560
+        v4a:
+          cpu:
+            c100|month|string: ₸6687.36
+            c100|string: ₸9.2880
+          ram|month|string: ₸1827.36
+          ram|string: ₸2.5380
+    software_accelerated_network:
+      keeper:
+        clickhouse:
+          highfreq-v4a:
+            cores|month|string: Free
+            cores|string: Free
     zk:
       clickhouse:
         highfreq-v3:
@@ -2777,12 +2886,21 @@ default:
                   v3|string: ₸1.3608
           mdb:
             ch:
+              ch:
+                keeper:
+                  ram:
+                    v3|string: ₸2.1573
               cpu:
                 c100:
                   v2|month|string: ₸6345.2160
                   v2|string: ₸8.8128
                   v3|month|string: ₸5684.2560
                   v3|string: ₸7.8948
+              keeper:
+                cpu:
+                  c100:
+                    v3|month|string: ₸5684.2560
+                    v3|string: ₸7.8948
               ram:
                 v2|month|string: ₸1718.4960
                 v2|string: ₸2.3868
@@ -3041,6 +3159,26 @@ default:
             ram:
               v2|month|string: ₸1546.6464
               v2|string: ₸2.1481
+      special-offer:
+        y1:
+          mdb:
+            ch:
+              keeper:
+                cpu:
+                  c100:
+                    v2|month|string: ₸5822.6688
+                    v2|string: ₸8.0870
+                    v3|month|string: ₸5216.1408
+                    v3|string: ₸7.2446
+                    v4a|month|string: ₸5216.04
+                    v4a|string: ₸7.2445
+                ram:
+                  v2|month|string: ₸1576.9728
+                  v2|string: ₸2.1902
+                  v3|month|string: ₸1425.3408
+                  v3|string: ₸1.9796
+                  v4a|month|string: ₸1425.24
+                  v4a|string: ₸1.9795
   sku|KZT|video:
     cdn:
       traffic:
@@ -3399,6 +3537,12 @@ default:
         12_month|int|string: ₽24650
         3_month|string: ₽27550.00
         6_month|string: ₽26970.00
+      ba_i210_h_1_10g:
+        1_day|string: ₽33800.00
+        1_month|string: ₽32786.00
+        12_month|int|string: ₽28730
+        3_month|string: ₽32110.00
+        6_month|string: ₽31434.00
       ba_i211_8s_10g:
         1_day|string: ₽99900.00
         1_month|string: ₽96903.00
@@ -3471,6 +3615,18 @@ default:
         12_month|string: ₽257380.00
         3_month|string: ₽287660.00
         6_month|string: ₽281604.00
+      ba-a401-2n2h-25g:
+        1_day|string: ₽123500.00
+        1_month|string: ₽119795.00
+        12_month|string: ₽104975.00
+        3_month|string: ₽117325.00
+        6_month|string: ₽114855.00
+      ba-a402-2n2h-25g:
+        1_day|string: ₽128100.00
+        1_month|string: ₽124257.00
+        12_month|string: ₽108885.00
+        3_month|string: ₽121695.00
+        6_month|string: ₽119133.00
       ba-a612-n-25g-p1:
         1_day|string: ₽146740.00
         1_month|string: ₽142337.80
@@ -3537,6 +3693,30 @@ default:
         12_month|string: ₽404685.00
         3_month|string: ₽452295.00
         6_month|string: ₽442773.00
+      bf25_i201_h:
+        1_day|string: ₽14898.00
+        1_month|string: ₽14898.00
+        12_month|string: ₽14898.00
+        3_month|string: ₽14898.00
+        6_month|string: ₽14898.00
+      bf25_i202_s:
+        1_day|string: ₽15600.00
+        1_month|string: ₽15600.00
+        12_month|string: ₽15600.00
+        3_month|string: ₽15600.00
+        6_month|string: ₽15600.00
+      bf25_i204_s:
+        1_day|string: ₽15975.00
+        1_month|string: ₽15975.00
+        12_month|string: ₽15975.00
+        3_month|string: ₽15975.00
+        6_month|string: ₽15975.00
+      bf25_i205_s:
+        1_day|string: ₽18544.00
+        1_month|string: ₽18544.00
+        12_month|string: ₽18544.00
+        3_month|string: ₽18544.00
+        6_month|string: ₽18544.00
       ha_i302_s_10g:
         1_day|string: ₽91800.00
         1_month|string: ₽89046.00
@@ -3838,7 +4018,6 @@ default:
         v1|string: Free
   sku|RUB|datalens:
     users:
-      v1|number: 990
       v1|string: ₽990.00
   sku|RUB|datasphere:
     filestores|number: 0.0013
@@ -3872,6 +4051,11 @@ default:
   sku|RUB|foundation_models:
     image_generation:
       v1|string: ₽2.20
+    realtime_audio:
+      input:
+        v1|string: ₽0.0260
+      output:
+        v1|string: ₽0.02
     text_classification:
       v1|string: ₽0.15
     text_embedding:
@@ -4579,6 +4763,63 @@ default:
       ui:
         cluster:
           v1|string: ₽4200.00
+    keeper:
+      clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: ₽2138.40
+            c100|string: ₽2.97
+          ram|month|string: ₽419.9040
+          ram|string: ₽0.5832
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₽2598.7680
+            c100|string: ₽3.6094
+          ram|month|string: ₽510.3360
+          ram|string: ₽0.7088
+        v1:
+          cpu:
+            c100|month|string: ₽1690.8480
+            c100|string: ₽2.3484
+            c50|month|string: ₽504.2880
+            c50|string: ₽0.7004
+          ram|month|string: ₽385.6320
+          ram|string: ₽0.5356
+          software_accelerated_network:
+            cpu|month|string: ₽1587.0240
+            cpu|string: ₽2.2042
+        v2:
+          cpu:
+            c100|month|string: ₽1492.9920
+            c100|string: ₽2.0736
+            c50|month|string: ₽528.7680
+            c50|string: ₽0.7344
+          ram|month|string: ₽404.3520
+          ram|string: ₽0.5616
+          software_accelerated_network:
+            cpu|month|string: ₽1664.0640
+            cpu|string: ₽2.3112
+        v3:
+          cpu:
+            c100|month|string: ₽1337.4720
+            c100|string: ₽1.8576
+            c50|month|string: ₽474.3360
+            c50|string: ₽0.6588
+          software_accelerated_network:
+            cpu|month|string: ₽1664.0640
+            cpu|string: ₽2.3112
+        v4a:
+          cpu:
+            c100|month|string: ₽1337.4720
+            c100|string: ₽1.8576
+          ram|month|string: ₽365.4720
+          ram|string: ₽0.5076
+    software_accelerated_network:
+      keeper:
+        clickhouse:
+          highfreq-v4a:
+            cores|month|string: Free
+            cores|string: Free
     zk:
       clickhouse:
         highfreq-v3:
@@ -5033,12 +5274,21 @@ default:
                   v3|string: ₽0.2722
           mdb:
             ch:
+              ch:
+                keeper:
+                  ram:
+                    v3|string: ₽0.4315
               cpu:
                 c100:
                   v2|month|string: ₽1269.0432
                   v2|string: ₽1.7626
                   v3|month|string: ₽1136.8512
                   v3|string: ₽1.5790
+              keeper:
+                cpu:
+                  c100:
+                    v3|month|string: ₽1136.8512
+                    v3|string: ₽1.5790
               ram:
                 v2|month|string: ₽343.6992
                 v2|string: ₽0.4774
@@ -5297,6 +5547,26 @@ default:
             ram:
               v2|month|string: ₽309.3293
               v2|string: ₽0.4296
+      special-offer:
+        y1:
+          mdb:
+            ch:
+              keeper:
+                cpu:
+                  c100:
+                    v2|month|string: ₽1164.5338
+                    v2|string: ₽1.6174
+                    v3|month|string: ₽1043.2282
+                    v3|string: ₽1.4489
+                    v4a|month|string: ₽1043.2080
+                    v4a|string: ₽1.4489
+                ram:
+                  v2|month|string: ₽315.3946
+                  v2|string: ₽0.4380
+                  v3|month|string: ₽285.0682
+                  v3|string: ₽0.3959
+                  v4a|month|string: ₽285.0480
+                  v4a|string: ₽0.3959
   sku|RUB|video:
     cdn:
       traffic:
@@ -5646,6 +5916,12 @@ default:
         12_month|int|string: $205
         3_month|string: $229.583242
         6_month|string: $224.749910
+      ba_i210_h_1_10g:
+        1_day|string: $281.666554
+        1_month|string: $273.216557
+        12_month|int|string: $239
+        3_month|string: $267.583226
+        6_month|string: $261.949895
       ba_i211_8s_10g:
         1_day|string: $832.499667
         1_month|string: $807.524677
@@ -5718,6 +5994,18 @@ default:
         12_month|string: $2144.832475
         3_month|string: $2397.165708
         6_month|string: $2346.699061
+      ba-a401-2n2h-25g:
+        1_day|string: $1029.166255
+        1_month|string: $998.291267
+        12_month|string: $874.791317
+        3_month|string: $977.707942
+        6_month|string: $957.124617
+      ba-a402-2n2h-25g:
+        1_day|string: $1067.499573
+        1_month|string: $1035.474586
+        12_month|string: $907.374637
+        3_month|string: $1014.124594
+        6_month|string: $992.774603
       ba-a612-n-25g-p1:
         1_day|string: $1222.832844
         1_month|string: $1186.147859
@@ -5784,6 +6072,30 @@ default:
         12_month|string: $3372.373651
         3_month|string: $3769.123492
         6_month|string: $3689.773524
+      bf25_i201_h:
+        1_day|string: $124.149950
+        1_month|string: $124.149950
+        12_month|string: $124.149950
+        3_month|string: $124.149950
+        6_month|string: $124.149950
+      bf25_i202_s:
+        1_day|string: $129.999948
+        1_month|string: $129.999948
+        12_month|string: $129.999948
+        3_month|string: $129.999948
+        6_month|string: $129.999948
+      bf25_i204_s:
+        1_day|string: $133.124947
+        1_month|string: $133.124947
+        12_month|string: $133.124947
+        3_month|string: $133.124947
+        6_month|string: $133.124947
+      bf25_i205_s:
+        1_day|string: $154.533272
+        1_month|string: $154.533272
+        12_month|string: $154.533272
+        3_month|string: $154.533272
+        6_month|string: $154.533272
       ha_i302_s_10g:
         1_day|string: $764.999694
         1_month|string: $742.049703
@@ -6116,6 +6428,11 @@ default:
   sku|USD|foundation_models:
     image_generation:
       v1|string: $0.018333
+    realtime_audio:
+      input:
+        v1|string: $0.000217
+      output:
+        v1|string: $0.000167
     text_classification:
       v1|string: $0.001250
     text_embedding:
@@ -6123,7 +6440,6 @@ default:
       v1|string: $0.000083
     text_generation_alt:
       v1|number: 0.001667
-      v1|string: $0.001667
     text_generation:
       v1|number: 0.001667
       v1|string: $0.001667
@@ -6818,6 +7134,63 @@ default:
       ui:
         cluster:
           v1|string: $34.999986
+    keeper:
+      clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: $17.819993
+            c100|string: $0.024750
+          ram|month|string: $3.499199
+          ram|string: $0.004860
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $21.656391
+            c100|string: $0.030078
+          ram|month|string: $4.252798
+          ram|string: $0.005907
+        v1:
+          cpu:
+            c100|month|string: $14.090394
+            c100|string: $0.019570
+            c50|month|string: $4.202398
+            c50|string: $0.005837
+          ram|month|string: $3.213599
+          ram|string: $0.004463
+          software_accelerated_network:
+            cpu|month|string: $13.225195
+            cpu|string: $0.018368
+        v2:
+          cpu:
+            c100|month|string: $12.441595
+            c100|string: $0.017280
+            c50|month|string: $4.406399
+            c50|string: $0.006120
+          ram|month|string: $3.369599
+          ram|string: $0.004680
+          software_accelerated_network:
+            cpu|month|string: $13.867194
+            cpu|string: $0.019260
+        v3:
+          cpu:
+            c100|month|string: $11.145596
+            c100|string: $0.015480
+            c50|month|string: $3.952799
+            c50|string: $0.005490
+          software_accelerated_network:
+            cpu|month|string: $13.867194
+            cpu|string: $0.019260
+        v4a:
+          cpu:
+            c100|month|string: $11.145596
+            c100|string: $0.015480
+          ram|month|string: $3.045599
+          ram|string: $0.004230
+    software_accelerated_network:
+      keeper:
+        clickhouse:
+          highfreq-v4a:
+            cores|month|string: Free
+            cores|string: Free
     zk:
       clickhouse:
         highfreq-v3:
@@ -7266,12 +7639,21 @@ default:
                   v3|string: $0.002268
           mdb:
             ch:
+              ch:
+                keeper:
+                  ram:
+                    v3|string: $0.003595
               cpu:
                 c100:
                   v2|month|string: $10.575356
                   v2|string: $0.014688
                   v3|month|string: $9.473756
                   v3|string: $0.013158
+              keeper:
+                cpu:
+                  c100:
+                    v3|month|string: $9.473756
+                    v3|string: $0.013158
               ram:
                 v2|month|string: $2.864159
                 v2|string: $0.003978
@@ -7526,6 +7908,26 @@ default:
             ram:
               v2|month|string: $2.577743
               v2|string: $0.003580
+      special-offer:
+        y1:
+          mdb:
+            ch:
+              keeper:
+                cpu:
+                  c100:
+                    v2|month|string: $9.704444
+                    v2|string: $0.013478
+                    v3|month|string: $8.693564
+                    v3|string: $0.012074
+                    v4a|month|string: $8.693397
+                    v4a|string: $0.012074
+                ram:
+                  v2|month|string: $2.628287
+                  v2|string: $0.003650
+                  v3|month|string: $2.375567
+                  v3|string: $0.003299
+                  v4a|month|string: $2.375399
+                  v4a|string: $0.003299
   sku|USD|video:
     cdn:
       traffic:
@@ -7794,6 +8196,9 @@ default:
             switch_dashboards: Dashboards
             switch_datasets: Datasets
             switch_root: All objects
+        plugin-with-menu:
+          view:
+            button_duplicate: Duplicate
       connection:
         connections-list:
           modify:
@@ -8357,7 +8762,6 @@ default:
           upload-config: Upload a configuration file
         approved:
           tab:
-            explore: Metrics
             info: General information
             recording-rules: Recording rules
         common:
@@ -8525,10 +8929,15 @@ default:
           switch_overview: Account
           switch_proposals: Offers
         accounts:
+          dialog_button_create: Create an account
           listing_button_create: Create an account
       center-layout:
         Layout:
           organization-description_kvoUz: Users & applications
+        MyAccountLayout:
+          groups_pqQRu: Groups
+          profile_8kyBA: Profile
+          security_7zQ3g: Login and security
       cloud-components:
         manage-cert-dialog:
           action-generate-new-certificate: Generate new certificate
@@ -8691,6 +9100,29 @@ default:
         organization: Identity Hub
       mfa-policy-audiences:
         action_add-users: Add users
+      my-account:
+        GroupsPageLayout:
+          header: My groups
+        login:
+          entry-methods:
+            header: Login methods
+        ProfileEditPageLayout:
+          main_breadcrumb: Profile data
+        ProfilePage:
+          edit_action: Edit
+        refresh-tokens:
+          action_remove_all: Delete all tokens
+        security:
+          login-confirmation:
+            header: Login confirmation
+        SecurityPageLayout:
+          refresh_breadcrumb: Refresh tokens
+      myaccount:
+        security:
+          EntryMethodsTable:
+            change-action: Change
+          LoginConfirmationTable:
+            delete-action: Delete
       organization:
         apps:
           AppAssignmentsPage:
@@ -8731,6 +9163,22 @@ default:
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
+        billing:
+          ChangeLimitsBlock:
+            change_limit_action: Change limit
+          layout:
+            bind_account_action: Link account
+            change_account_action: Change account
+          LoggedUsersBlock:
+            title: Users logged into external applications
+          UpdateLimitDialog:
+            action: Go to payment
+            confirm_action: Pay
+            downgrade_action: Save
+            new_limit: New limit
+        idp:
+          PasswordDialog:
+            action_save-password_gaB2s: Save password
         security-settings:
           acr_any-mfa_j6PdY: Any
           acr_phr_7hMqk: Phishing-resistant
@@ -8796,6 +9244,7 @@ default:
         apps: Apps
         federations: Federations
         groups: Groups
+        organization-billing: Billing management
         oslogin:
           title: Security settings
         securitySettings: Security settings
@@ -8859,7 +9308,7 @@ default:
             table_controls_rJ32E: Top controls with warnings
         settings:
           SettingsPageLayout:
-            alertSinkLabel_gvxBa: Alert Sink
+            alertSinkLabel_gvxBa: Alert Sinks
             connectorsLabel_2NoP9: Connectors
             workspacesLabel_kZyU1: Workspaces
         workspaces:
@@ -8903,8 +9352,8 @@ default:
           WorkspaceParticipantsForm:
             action_add-user: Add participants
             WorkspaceAclTable:
-              action_assign-roles: Assign roles
-              action_remove-user: Remove user
+              action_assign-roles: Edit roles
+              action_remove-user: Revoke all roles
           WorkspaceResourcesForm:
             actionDelete: Delete
             actionEditConnector: Edit connector
@@ -8924,6 +9373,7 @@ default:
       support:
         switch_tickets: Tickets
         tickets:
+          label_search-placeholder: Describe issue or ask a question
           table:
             label_column_ticket_type: Ticket type
       user:
@@ -9002,9 +9452,24 @@ default:
         action_download: Download
         action_edit: Edit
         statistics: Statistics
+        upload: Upload
       dashboard:
         action_add-user: Add a participant
         action_go-to-org: Go to organization
+      playlists:
+        action_add-playlist-video: Add video
+        action_create-playlist: Create playlist
+        title_playlists: Playlists
+        title_playlists-video-list: Play order
+      presets:
+        action_create-preset: Create template
+        action_set-as-default: Select as default template
+        button_open-preset-template-dialog: View template in a separate window
+        label_style-preset: Player preset
+        label_title: Template name
+        section_styles-settings: Style setup
+        section_wigets-settings: Widget settings
+        title_presets: Player template
       stream-lines:
         action_create-line: Create a line
         label_input-stream-protocol: Stream input protocol
@@ -9037,6 +9502,8 @@ default:
         label_thumbnail: Thumbnail
       videos:
         action_create-video: Upload video
+        action_generate-subtitles: Generate
+        action_subtitles_upload_again: Upload again
         field_summarization: Summary
         label_access_rights-public: All users
         label_access_rights-sign-url-access: By temporary link
@@ -9339,6 +9806,7 @@ default:
         field_dhcp-settings: Assigning IP addresses via DHCP
         field_gateway: Default gateway
         field_gateway_t7LLk: Default gateway
+        field_hardware-pool-id: Pool
         field_interconnect-direct-id: Enter ID
         field_interconnect-from-folder: Choose from folder
         field_mac-address: MAC address
@@ -9350,13 +9818,12 @@ default:
         field_server-count: Number of servers
         field_server-count_jPgTg: Number of servers
         field_server-lease-duration: Lease duration
-        field_server-pool: Pool
         field_server-private-ip: Private IP address
         field_server-public-ip: Public IP address
-        field_server-zone: Availability zone
         field_ssh-public-key: Public SSH key
         field_subnet-id: Private subnet
         field_subnetwork-name: Name
+        field_zone-id: Availability zone
         label_create-image: Upload
         label_create-network: Create VRF
         label_create-public-subnet: Order
@@ -9364,7 +9831,7 @@ default:
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
         label_images: Boot images
-        label_kvm-console: KVM console
+        label_kvm-console_37Kma: KVM console
         label_load-image: Upload image
         label_lockbox-key: Key
         label_lockbox-name: Name
@@ -9378,7 +9845,7 @@ default:
         label_public-ip-no: No address
         label_public-ip-via-dhcp: Assign via DHCP
         label_public-subnets: Public addresses and subnets
-        label_subnetworks: Private subnets
+        label_subnetworks_uU4LH: Private subnets
         label_vrf-interconnect-direct-type: Connection ID
         label_vrf-interconnect-select-type: Setup method
         servers:
@@ -9395,9 +9862,7 @@ default:
         title_section-accesses: Accesses
         title_section-backup: Backup
         title_section-disk: Disk
-        title_section-disk_9Txqx: Disk
         title_section-lease-conditions: Lease conditions
-        title_section-lease-conditions_sQGNJ: Lease conditions
         title_section-location: Location
         title_section-resources: Resources
         title_section-server-backups: Backup
@@ -9566,6 +10031,8 @@ default:
         RequstCertificateDialog:
           createCertificate_b5eZg: Create certificate
       clickhouse:
+        AddCoordinatorHost:
+          title_main-settings_68Grp: Main settings
         button_create-cluster: Create ClickHouse cluster
         cluster:
           databases:
@@ -9583,6 +10050,9 @@ default:
             field_ml-model-type: Type
             field_ml-model-uri: URL
             label_add-ml-model: Create
+          section_clickhouse-keeper-disk: ClickHouse Keeper storage size
+          section_clickhouse-keeper-hosts: Clickhouse Keeper hosts
+          section_clickhouse-keeper-resource: Clickhouse Keeper host class
           switch_backups: Backups
           switch_databases: Databases
           switch_datalens: DataLens
@@ -9596,6 +10066,9 @@ default:
           switch_shard-groups: Shard groups
           switch_shards: Shards
           switch_users: Users
+          value_coordination-service-embedded-clickhouse-keeper: Embedded ClickHouse Keeper
+          value_coordination-service-separated-clickhouse-keeper: ClickHouse Keeper (on separate hosts)
+          value_coordination-service-zookeeper: ZooKeeper (on separate hosts)
         field_convert_tables_to_replicated: Convert non-replicated tables
         hosts:
           dialog:
@@ -9608,6 +10081,7 @@ default:
         switch_list: Clusters
         switch_operations: Operations
         title_clickhouse: ClickHouse
+        title_keeper: Keeper
         title_zookeeper: ZooKeeper
       cloud-registry:
         action_registry-create: Create registry
@@ -10035,6 +10509,7 @@ default:
           popup-confirm_button_stop: Stop
         hardware-gen1-v1-title_oK6qE: Gen 1.1 (MBR, BIOS)
         hardware-gen1-v2-title_eSmBa: Gen 1.2 (MBR, BIOS)
+        hardware-gen2-title_a2Gfq: Gen 2 (GPT, UEFI)
         hardware-generation_1iEpT: Hardware generation
         host-group:
           hosts:
@@ -10083,8 +10558,6 @@ default:
           stop-dialog:
             button_stop: Stop
           switch_console: Serial console
-          switch_disks: Disks
-          switch_file-storages: File storages
           switch_service-console: Serial port
         instances_jsoza: Virtual machines
         instances:
@@ -10157,7 +10630,6 @@ default:
           popup-confirm_button_restart: Restart
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
-        label_service_5w4rd: Compute Cloud
         nfs:
           button_attach-instance-to-the-filesystem: Attach to VM
           button_create-filesystem: Create file storage
@@ -10276,6 +10748,8 @@ default:
         label_notifications_uWDue: Service notifications
         label_permissions_gAtoT: Permissions
         label_quotas_gAtoT: Quotas
+        TogglCloudTreeButton:
+          tooltip__pin_panel: Pin panel
       data-catalog:
         action_create-catalog: Create catalog
         action_edit-domain: Edit domain
@@ -10402,6 +10876,7 @@ default:
         label_private: Internal
         label_public: Public
         label_records: Data
+        label_ttl: TTL
         label_zone: Zone
         label_zone-record-sets: Records
         label_zones-list: Zones
@@ -10411,6 +10886,7 @@ default:
         label_service-account-select: Service account
       gitlab:
         action_create-backup: Create backup
+        button_configure-data-types: Configure data storage in Object Storage
         button_create-instance: Create instance
         button_finish-migration: Complete migration
         button_rollback-migration: Cancel migration
@@ -10436,6 +10912,7 @@ default:
         switch_instances: Instances
         title_backups: Backups
         title_migration: Migration
+        title_object-storage: Data in Object Storage
         title_omniauth: OmniAuth
         title_runners: Runners
       gpu-cluster:
@@ -10858,7 +11335,6 @@ default:
             field_cluster-cidr: CIDR cluster
             field_kms-key: Encryption key
             field_maintenance-daily: Time (UTC) and duration
-            field_maintenance-window: Maintenance frequency / Disable
             field_master-type: Type of master
             field_master-version: Kubernetes version
             field_network: Cloud network
@@ -10888,6 +11364,8 @@ default:
           popup-confirm_button_delete: Delete
         custom-resources:
           label_tab-resources: Resources
+        MaintenanceSection:
+          maintenance-window-field-with-none-option_tx5Wn: Maintenance frequency / Disable
         namespaces:
           button_create: Create
           popup-add_field_name: Name
@@ -11051,6 +11529,7 @@ default:
           column_ip-address: IP address
           form:
             button_create-target-group: Create target group
+            field_deletion-protection: Deletion protection
             field_listener-address: IP address
             field_listener-name: Name
             field_listener-port: Port
@@ -11300,6 +11779,7 @@ default:
             action_add-host: Create host
             action_delete-host: Delete
             action_restart-host: Restart
+            button_add-clickhouse-keeper: Create ClickHouse Keeper host
             button_add-zookeeper: Create ZooKeeper host
             button_create-coordinator: Set up coordinator service
             button_manual-failover: Switch master
@@ -11468,6 +11948,7 @@ default:
           label_compute-subcluster: Compute
           label_data-subcluster: Data
           label_deletion-protection: Deletion protection
+          label_disk-encryption: Disk encryption
           label_disk-size: Size
           label_diskTypeId: Disk type
           label_greenplum_pool_client-idle-timeout: Client Idle Timeout
@@ -11502,6 +11983,7 @@ default:
           section_subclusters: Subclusters
           section_user: User
           section_zookeeper-disk: ZooKeeper storage size
+          section_zookeeper-hosts: ZooKeeper hosts
           section_zookeeper-resource: ZooKeeper host class
           title_deb-packages: Deb packages
           title_pip-packages: Pip packages
@@ -11524,6 +12006,11 @@ default:
           title_maintenance: Technical maintenance
         shard-groups:
           button_add-group: Create shard group
+      metadata-hub:
+        data-catalog:
+          AssetProfiling:
+            ProfileHeader:
+              title_profile-parameters_26kSu: Profiling settings
       metastore:
         action_export: Export
         action_import: Import
@@ -12118,6 +12605,7 @@ default:
           context_phonemes-title: Phonemes
           context_word-stress-title: Stress
           context_word-title: Emphasize word
+        label_playground: SpeechKit Playground
         speech-synthesis:
           field_audio: Audio format
           field_language: Language
@@ -12130,9 +12618,25 @@ default:
         speech-to-text-v2:
           label_button_copy-text: Copy text
           label_button_start-recognition: Start recognition
+          recognition-params-section_title_1EDuy: Recognition parameters
         speech-to-text:
           field_language: Language
+          field_literature-text: Literature text
+          field_profanity-filter: Profanity filter
+          field_text-normalization: Text normalization
           label_language-auto: Automatic
+        SpeechToTextFormV2:
+          ClassificationField:
+            classification-label_6C7VV: Classifiers
+          InstructionField:
+            label_htJqL: Instructions
+            type-select-label_cLWcs: Result format
+          SpeakerLabelingForm:
+            field_speaker-grouping_2eSt9: Grouping speaker phrases
+            field_speaker-splitting_dqi2d: Speaker recognition
+          SummarizationField:
+            add-instruction-button_kdko4: Add instructions
+            summarization-label_rm8oc: Result processing
       spqr:
         console_password: Password from Sharded PostgreSQL console
         field_coordinator: Coordinator
@@ -12194,9 +12698,6 @@ default:
             value_days: Number of days
             value_expired-object-delete-marker: Deletion marker without noncurrent versions
           menu_version-history: Version history
-          object-lock:
-            title-mode-compliance: Compliance
-            title-mode-governance: Governance
           policy:
             button_add-resource: Add resource
             button_add-value: Add value
@@ -12215,15 +12716,15 @@ default:
           popup-create-folder_button_create: Create
           popup-create-folder_field_name: Folder name
           settings:
-            access_value_private: Restricted
-            access_value_public: Public
+            access_value_private: With authorization
+            access_value_public: For all
             button_save: Save
             class_value_cold: Cold
             class_value_ice: Ice
             class_value_standard: Standard
-            field_access-config-read: Read access to settings
-            field_access-list: Object listing access
-            field_access-read: Object read access
+            field_access-config-read: Read settings
+            field_access-list: Read object list
+            field_access-read: Read objects
             field_class: Storage class
             field_name: ' Name'
             field_size-limit: Max size
@@ -12278,6 +12779,8 @@ default:
           action_file-restore: Restore
           button_generate: Get link
           label_lifetime: Lifetime
+          value_object-lock-mode-compliance: Compliance
+          value_object-lock-mode-governance: Governance
         form:
           BucketObjectLockFormContent:
             field_default-rules-enabled_qtmC8: Default locks for new versions
@@ -12311,6 +12814,26 @@ default:
         task: Task
         train-model: Fine-tune model
         tunings: Fine-tuning models
+      ui:
+        metadata-hub:
+          data-catalog:
+            constants:
+              label_include-field-distinct-count_73gDL: Enable distinct value count
+              label_include-field-distinct-value-frequencies_tag9L: Enable distinct value frequency count
+              label_include-field-histogram_dsfNW: Enable field histogram
+              label_include-field-max-value_4D1zy: Enable field max value
+              label_include-field-mean-value_6qPHU: Enable field mean value
+              label_include-field-median-value_jPJbY: Enable field median value
+              label_include-field-min-value_24EaF: Enable field min value
+              label_include-field-null-count_sAR8k: Enable field null count
+              label_include-field-quantiles_14ojH: Enables field quintiles
+              label_include-field-sample-values_msWXw: Enable field sample values
+              label_include-field-stddev-value_p9Gbi: Enables field value stddev
+              label_limit_nTvrt: Limit
+              label_profile-table-level-only_7nYxP: Table level only
+              label_profile-table-row-limit_c8X7A: Table row limit
+              label_profile-table-size-limit_wgTaU: Table size limit
+              label_query-combiner-enabled_mUDtA: Enable query joining
       vdi:
         button_add-image: Add image
         button_desktop-create: Create desktop
@@ -12343,11 +12866,14 @@ default:
         addresses:
           button_action-disable-protection: Disable deletion protection
           button_action-dynamic: Make dynamic
+          button_action-enable-protection: Enable deletion protection
           button_action-static: Make static
           button_create: Reserve address
+          label_dns-spec-title: DNS settings
           label_title: IP addresses
           popup-confirm_button_disable-protection: Disable
           popup-confirm_button_dynamic: Change
+          popup-confirm_button_enable-protection: Enable
           popup-confirm_button_static: Change
           popup-create_button_create: ' Reserve'
           popup-create_field_advanced: Advanced
@@ -12460,8 +12986,6 @@ default:
           playground:
             text-generation:
               title: Text generation
-          section_title:
-            playground: AI Playground
         instruction: Instructions
         label_seed: Seed
         label_temperature-text: Temperature
@@ -14003,8 +14527,13 @@ default:
       docker:
         build-path: Project storage mounting point
         credentials-switcher-label: Authentication data
+        disk-size:
+          label: Disk size, GB
         docker-template: Docker template
         dockerfile: Docker file
+        location:
+          datasphere:
+            title: DataSphere
         repository: Docker name
         tag: Tag
       edit-project-page:
@@ -14167,6 +14696,10 @@ default:
         title: Transfer projects
         transfer-selected-projects: Transfer selected projects
     yc-ui-talkanalytics:
+      assistants:
+        applying: Enable assistant
+        assistants: Assistants
+        prompt: Instructions
       common:
         add: Add
         add-filter: Add filter
@@ -14567,7 +15100,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.4
+        tag: v1.20.5
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

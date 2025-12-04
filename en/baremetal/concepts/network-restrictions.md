@@ -4,11 +4,29 @@ There is a number of restrictions in {{ baremetal-name }} networks.
 
 ## MAC addresses {#mac-addresses}
 
-If you need more MAC addresses per port, contact [support]({{ link-console-support }}) and describe the tasks that require the change.
-
 Type of limit | Quantity
 --- | ---
 MAC addresses per port | 5
+
+The limit on the number of MAC addresses is set separately for each server’s network interface. If you need more MAC addresses, create a request to [support]({{ link-console-support }}) specifying the servers for which you need to increase the limit.
+
+{% cut "Request template" %}
+
+```text
+Subject: [BareMetal]: Changing limits on the number of MAC addresses
+
+Request text:
+Please change the limits on the number of MAC addresses for the following servers.
+
+servers:
+  - id: "ly5ckajdi38d********"
+    mac_addresses: ["aa:bb:cc:dd:ee:ff"]
+  - id: "ly5fy37fir9s********"
+    mac_addresses: ["aa:bb:cc:dd:ee:fd", "aa:bb:cc:dd:ee:fc"]
+mac_limit: 10
+```
+
+{% endcut %}
 
 {% note info %}
 
@@ -31,12 +49,7 @@ MSS in private network | 8870
 
 ### Bandwidth model in a public network {#bandwidth-for-pubic-network}
 
-
 {% include [public-net-bandwidth-restrictions](../../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
-
-Data amount, TB per day | Connection capacity, Gbps
---- | ---
-10 | 1 
 
 {% note info %}
 
@@ -50,7 +63,7 @@ Data amount, TB per day | Connection capacity, Gbps | Note
 --- | --- | ---
 100 | 10 | You can use this package only for servers with 10 and 25 Gbps NICs.
 
-[Billing for increased bandwidth](../../baremetal/pricing#bandwidth-package).
+[Billing for increased bandwidth](../../baremetal/pricing.md#bandwidth-package).
 
 ### Bandwidth between Baremetal and VPC {#bandwidth-bm-vpc}
 

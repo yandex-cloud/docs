@@ -304,7 +304,6 @@ Kubernetes marketplace product version. ||
 
 Status of a helm release.
 
-- `STATUS_UNSPECIFIED`
 - `UNKNOWN`: Helm release status is unknown
 - `DEPLOYED`: Helm release deployed.
 - `UNINSTALLED`: Helm release uninstalled.

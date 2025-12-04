@@ -3,6 +3,8 @@
 
 С помощью сервисных ролей {{ connection-manager-full-name }} вы сможете просматривать несекретные данные подключений и управлять подключениями. Просматривать секретные данные подключений, такие как пароли доступа к БД, можно в сервисе [{{ lockbox-full-name }}](../../lockbox/index.yaml). Для этого дополнительно необходима [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
+{% include [roles-connection-manager](../../_mermaid/roles/connection-manager.md) %}
+
 ### connection-manager.auditor {#connection-manager-auditor}
 
 {% include [connection-manager.auditor](../../_roles/connection-manager/auditor.md) %}

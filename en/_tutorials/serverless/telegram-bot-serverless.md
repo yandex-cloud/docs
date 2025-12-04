@@ -32,12 +32,17 @@ The cost of Telegram bot support includes:
 
 ## Set up resources {#create-resources}
 
-1. [Download](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) the file archive required to create a bot.
+1. Clone the [repository](https://sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless) with the source code required to create the bot. Do it by running this [git](https://git-scm.com/) command in the terminal:
+
+    ```bash
+    git clone https://git@git.sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless.git
+    ```
+
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-editor }}` and `{{ roles-functions-invoker }}` roles for your folder. 
 
-## Create a Telegram bot {#create-bot}
+## Register your Telegram bot {#create-bot}
 
-Create a bot in Telegram and get a token.
+Register your bot in Telegram and get a token.
 
 1. To register the new bot, start [BotFather](https://t.me/BotFather) and run this command:
 
@@ -45,10 +50,10 @@ Create a bot in Telegram and get a token.
     /newbot
     ```
 
-1. In the `name` field, enter a name for the bot, e.g., `Serverless Hello Telegram Bot`. This is the name users will see when chatting with the bot.
-1. In the `username` field, specify a username for the bot, e.g., `ServerlessHelloTelegramBot`. This will allow users to find your bot on Telegram. The username must end with `...Bot` or `..._bot`.
+1. In the `name` field, enter a name for the bot, e.g., `Serverless Hello Telegram Bot`. This is the name the bot users will see.
+1. In the `username` field, specify a username for the bot, e.g., `ServerlessHelloTelegramBot`. You can use it to locate the bot in Telegram. The username must end with `...Bot` or `..._bot`.
 
-    Once done, you will get a token. Save it, as you will need it later.
+    As a result, you will get a token. Save it, as you will need it later.
 
 1. Set an icon for the bot using `sayhello.png` from the saved archive. Send this command to BotFather:
 
@@ -71,7 +76,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
 
-      1. Enter a name for the bucket. Save the bucket name, as you will need it later.
+      1. Enter a name for the bucket. Save the bucket name. You will need it later.
       1. Specify these bucket settings:
 
           * **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}**: `1 {{ ui-key.yacloud_portal.common.units.label_gigabyte }}`
@@ -105,7 +110,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the created bucket.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket.
+  1. Select the previously created bucket.
   1. Select `sayhello.png`.
   1. Click **{{ ui-key.yacloud.storage.file.button_generate }}**.
   1. Make sure the image is accessible through the link in your browser.
@@ -114,7 +119,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
 
 ## Create an API gateway {#create-gateway}
 
-Create and configure an [API Gateway](../../api-gateway/concepts/index.md).
+Create and configure an [API gateway](../../api-gateway/concepts/index.md).
 
 {% list tabs group=instructions %}
 
@@ -292,7 +297,7 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
 
 ## Test your Telegram bot {#test-bot}
 
-Chat with the bot:
+Talk to the bot:
 
 1. Open Telegram and search for the bot using the previously created `username`.
 1. Send `/start` to the chat.
