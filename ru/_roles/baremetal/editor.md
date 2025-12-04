@@ -12,4 +12,4 @@
 * просматривать информацию о [квотах](../../baremetal/concepts/limits.md#baremetal-quotas) сервиса Yandex BareMetal;
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-Включает разрешения, предоставляемые ролью `baremetal.viewer`.
+Включает разрешения, предоставляемые ролью `baremetal.operator`.

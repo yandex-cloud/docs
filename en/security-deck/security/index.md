@@ -43,10 +43,13 @@ In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 {{ yandex-cloud }} also supports a separate list of roles for each {{ sd-name }} module. For more information, see:
 
+* [Roles for {{ ycdr-full-name }})](./ycdr-roles.md).
 * [Roles for Data Security Posture Management](./dspm-roles.md).
+* [Roles for security management with KSPM](./kspm-roles.md).
 * [Roles for Cloud Infrastructure Entitlement Management](./ciem-roles.md).
 * [Roles for security management with {{ cspm-name }}](./cspm-roles.md).
 * [Roles for {{ atr-name }} data analysis](./access-transparency-roles.md).
+* [Roles for managing alerts and alert sinks](./alerts-roles.md).
 
 ### Primitive roles {#primitive-roles}
 

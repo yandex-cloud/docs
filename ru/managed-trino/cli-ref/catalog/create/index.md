@@ -20,6 +20,7 @@ Syntax:
 - [yc managed-trino catalog create hive](hive.md) — Create Hive catalog
 - [yc managed-trino catalog create hudi](hudi.md) — Create Hudi catalog
 - [yc managed-trino catalog create iceberg](iceberg.md) — Create Iceberg catalog
+- [yc managed-trino catalog create mysql](mysql.md) — Create MySQL catalog
 - [yc managed-trino catalog create oracle](oracle.md) — Create Oracle catalog
 - [yc managed-trino catalog create postgresql](postgresql.md) — Create PostgreSQL catalog
 - [yc managed-trino catalog create sqlserver](sqlserver.md) — Create MS SQL Server catalog

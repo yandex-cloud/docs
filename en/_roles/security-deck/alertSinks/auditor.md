@@ -1,0 +1,1 @@
+The `security-deck.alertSinks.auditor` role enables viewing info on [alert sinks](../../../security-deck/concepts/workspace.md#alert-sinks) and [access permissions](../../../iam/concepts/access-control/index.md) granted for them.

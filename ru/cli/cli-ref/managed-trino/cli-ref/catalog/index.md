@@ -28,6 +28,7 @@ Aliases:
 	- [yc managed-trino catalog create hive](create/hive.md) — Create Hive catalog
 	- [yc managed-trino catalog create hudi](create/hudi.md) — Create Hudi catalog
 	- [yc managed-trino catalog create iceberg](create/iceberg.md) — Create Iceberg catalog
+	- [yc managed-trino catalog create mysql](create/mysql.md) — Create MySQL catalog
 	- [yc managed-trino catalog create oracle](create/oracle.md) — Create Oracle catalog
 	- [yc managed-trino catalog create postgresql](create/postgresql.md) — Create PostgreSQL catalog
 	- [yc managed-trino catalog create sqlserver](create/sqlserver.md) — Create MS SQL Server catalog
@@ -39,6 +40,7 @@ Aliases:
 	- [yc managed-trino catalog update hive](update/hive.md) — Update Hive catalog
 	- [yc managed-trino catalog update hudi](update/hudi.md) — Update Hudi catalog
 	- [yc managed-trino catalog update iceberg](update/iceberg.md) — Update Iceberg catalog
+	- [yc managed-trino catalog update mysql](update/mysql.md) — Update MySQL catalog
 	- [yc managed-trino catalog update oracle](update/oracle.md) — Update Oracle catalog
 	- [yc managed-trino catalog update postgresql](update/postgresql.md) — Update PostgreSQL catalog
 	- [yc managed-trino catalog update sqlserver](update/sqlserver.md) — Update MS SQL Server catalog

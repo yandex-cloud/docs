@@ -7,6 +7,20 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.180.0 (04.12.25) {#version0.180.0}
+
+##### {{ mtr-short-name }}
+* Добавлены команды для создания и обновления каталога {{ TR }} с коннектором {{ MY }} для {{ mtr-name }}:
+  * `yc managed trino catalog create mysql`;
+  * `yc managed trino catalog update mysql`.
+
+##### {{ org-name }}
+* Убрали часть парольных политик из команд по управлению пулами пользователей:
+  * `yc organization-manager idp userpool create`;
+  * `yc organization-manager idp userpool update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.179.0 (02.12.25) {#version0.179.0}
 
 #### Изменения в CLI {#cli}
@@ -40,9 +54,7 @@ description: На странице представлены релизы CLI, а
 
 * Добавлен флаг `--destination-yds-codec` для выбора метода сжатия событий при настройке трейлов {{ yds-name }}:
   * `yc audit-trails trail create`;
-  * `y`c audit-trails trail update`.
-
-## Предыдущие релизы {#previous-release}
+  * `yc audit-trails trail update`.
 
 ### Версия 0.178.0 (01.12.25) {#version0.178.0}
 

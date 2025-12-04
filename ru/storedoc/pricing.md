@@ -121,6 +121,12 @@ editable: false
 
 Цены на вычислительные ресурсы одинаковы для всех видов хостов — mongod, mongos и mongocfg.
 
+{% note info %}
+
+Цены на Intel Ice Lake (Compute Optimized) и AMD Zen 4 HighFreq действуют с 18 декабря 2025 года.
+
+{% endnote %}
+
 
 {% list tabs group=pricing %}
 

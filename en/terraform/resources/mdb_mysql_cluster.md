@@ -341,7 +341,7 @@ Regenerate hosts after changing the assign_public_ip parameter.
 - `host_group_ids` (Set of String) A list of host group IDs to place VMs of the cluster on.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `maintenance_window` (Block List, Max: 1) Maintenance policy of the MySQL cluster. (see [below for nested schema](#nestedblock--maintenance_window))
-- `mysql_config` (Map of String) MySQL cluster config block.
+- `mysql_config` (Map of String) MySQL cluster configuration. For detailed information specific to your MySQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/mysql/v1/config).
 - `performance_diagnostics` (Block List, Max: 1) Cluster performance diagnostics settings. [YC Documentation](https://yandex.cloud/docs/managed-mysql/api-ref/grpc/cluster_service#PerformanceDiagnostics). (see [below for nested schema](#nestedblock--performance_diagnostics))
 - `restore` (Block List, Max: 1) The cluster will be created from the specified backup. (see [below for nested schema](#nestedblock--restore))
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.

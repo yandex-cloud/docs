@@ -6,6 +6,6 @@ Users with this role can:
 * Use Yandex Cloud resources in DSPM data sources.
 * View info on DSPM [data categories](../../security-deck/concepts/dspm.md#data-categories).
 * View info on security [scan](../../security-deck/concepts/dspm.md#scanning) jobs, as well as create, modify, and delete such jobs.
-* Run security scan jobs and view their results, as well as info on the detected threats.
+* Run security scan jobs and view their results and info on detected threats, which includes viewing masked and unprocessed data in the scan results.
 
 This role includes the `dspm.editor` permissions.

@@ -15,7 +15,7 @@
 Лицензия [Apache 2.0]({{ license-apache }}) | `gpt://<идентификатор_каталога>/qwq-32b` | 32 768 ||
 || **Llama 3.3 70B Instruct**^\*^ 
 [Карточка модели](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
-[Лицензия Llama 3.3](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE) | `gpt://<идентификатор_каталога>/llama3.3-70b-instruct` | 8 192 ||
+[Лицензия Llama 3.3](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE) | `gpt://<идентификатор_каталога>/llama3.3-70b-instruct` | 16 384 ||
 || **Llama 3.1 70B Instruct**^\*^
 [Карточка модели](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct)
 [Лицензия Llama 3.1](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct/blob/main/LICENSE)  | `gpt://<идентификатор_каталога>/llama3.1-70b-instruct` | 8 192 ||
@@ -43,7 +43,7 @@
 [Условия использования Gemma]({{ license-gemma }}) | `gpt://<идентификатор_каталога>/gemma-3-12b-it` | 65 536 ||
 || **Gemma 3 27B it**
 [Карточка модели](https://huggingface.co/google/gemma-3-4b-it)
-[Условия использования Gemma]({{ license-gemma }}) | `gpt://<идентификатор_каталога>/gemma-3-27b-it` | 32 768 ||
+[Условия использования Gemma]({{ license-gemma }}) | `gpt://<идентификатор_каталога>/gemma-3-27b-it` | 30 720 ||
 || **Qwen3 0.6B** 
 [Карточка модели](https://huggingface.co/Qwen/Qwen3-0.6B)
 Лицензия [Apache 2.0]({{ license-apache }}) | `gpt://<идентификатор_каталога>/qwen3-0.6b` | 32 768 ||
@@ -76,8 +76,8 @@
 
 #|
 || **Модель** | **URI** | **Контекст** ||
-|| **Qwen2 VL 7B**</br>[Карточка модели](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct)</br>Лицензия [Apache 2.0]({{ license-apache }}) | `gpt://<идентификатор_каталога>/qwen2-vl-7b-instruct/` | 4 096 ||
-|| **Qwen2.5 VL 7B**</br>[Карточка модели](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct)</br>Лицензия [Apache 2.0]({{ license-apache }})  | `gpt://<идентификатор_каталога>/qwen2.5-vl-7b-instruct/` | 4 096 ||
+|| **Qwen2 VL 7B**</br>[Карточка модели](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct)</br>Лицензия [Apache 2.0]({{ license-apache }}) | `gpt://<идентификатор_каталога>/qwen2-vl-7b-instruct/` | 16 384 ||
+|| **Qwen2.5 VL 7B**</br>[Карточка модели](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct)</br>Лицензия [Apache 2.0]({{ license-apache }})  | `gpt://<идентификатор_каталога>/qwen2.5-vl-7b-instruct/` | 16 384 ||
 || **Qwen 2.5 VL 32B Instruct**</br>[Карточка модели](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct)</br>Лицензия [Apache 2.0]({{ license-apache }}) | `gpt://<идентификатор_каталога>/qwen2.5-vl-32b-instruct/` | 4 096 ||
 || **DeepSeek VL2**</br>[Карточка модели](https://huggingface.co/deepseek-ai/deepseek-vl2)</br>[Лицензия DeepSeek](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/LICENSE-MODEL) | `gpt://<идентификатор_каталога>/deepseek-vl2/` | 4096 ||
 || **DeepSeek VL2 Tiny**</br>[Карточка модели](https://huggingface.co/deepseek-ai/deepseek-vl2-tiny)</br>[Лицензия DeepSeek](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/LICENSE-MODEL) | `gpt://<идентификатор_каталога>/deepseek-vl2-tiny/` | 4096 ||

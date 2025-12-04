@@ -5,6 +5,14 @@ description: From this article, you will learn how to configure a service plan f
 
 # Configuring a {{ datalens-short-name }} service plan
 
+
+
+{% note info %}
+
+Starting December 1, {{ datalens-name }} introduces a revised pricing policy. For details of the changes, see [this article](../pricing-changes.md).
+
+{% endnote %}
+
 There are two [service plans](../pricing.md#service-plans) for {{ datalens-short-name }}: _Community_, which is free, and _Business_, for which you need to add a [billing account](../../billing/concepts/billing-account.md) for your organization.
 
 To [see](#info) which service plan you are currently on, refer to {{ datalens-short-name }} settings. You can also [switch to another plan](#change-service-plan) or [add a billing account](#add-billing-account) from the same place.
@@ -18,7 +26,7 @@ To view details on your current service plan and billing account:
 
 ## Changing your service plan {#change-service-plan}
 
-When switching between service plans, the following rules apply:
+A user with the `{{ roles-datalens-admin }}` role in {{ datalens-short-name }} can change the service plan. When switching between service plans, the following rules apply:
 
 * You can switch to the _Business_ plan at any time. The price for the first month is calculated in proportion to the remaining number of days of the month.
 
@@ -26,7 +34,7 @@ When switching between service plans, the following rules apply:
 
 * If you are in your Business trial period, once this period ends, you will pay for the second month of use in proportion to the remaining number of days. If you switch to the Community plan during the trial period, you will continue with Business until the end of the trial period, after which Business will change to Community.
 
-To switch to a different service plan:
+To change your service plan:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
@@ -43,7 +51,7 @@ Only users with a Yandex ID or Yandex 360 account can create new billing account
 To link a billing account, the user needs to following [roles](../security/roles.md#service-roles):
 
 * `billing.accounts.editor` or higher for a billing account.
-* `{{ roles-datalens-admin }}` for an organization with {{ datalens-short-name }} or roles including the `{{ roles-datalens-admin }}` permissions, such as `{{ roles-admin }}` or `{{ roles-organization-owner }}`.
+* `{{ roles-datalens-admin }}` or roles including its permissions, e.g., `{{ roles-organization-owner }}`, for an organization with {{ datalens-short-name }}.
 
 {% endnote %}
 
