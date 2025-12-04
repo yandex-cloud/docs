@@ -34,7 +34,7 @@
       }
 
       window.smartCaptcha.render('captcha-container', {
-        sitekey: '<ключ_клиент>',
+        sitekey: '<ключ_клиента>',
         invisible: true, // Сделать капчу невидимой
         callback: callback,
       });
