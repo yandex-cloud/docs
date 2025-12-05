@@ -115,6 +115,8 @@ items:
         href: dhcp.md
       - name: SOAP
         href: soap.md
+      - name: TCP/IP
+        href: tcp-ip.md
       - name: Вебхук
         href: webhook.md
   - name: Безопасность

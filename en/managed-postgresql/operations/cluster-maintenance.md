@@ -1,43 +1,43 @@
 ---
 title: '{{ PG }} cluster maintenance'
-description: Follow this guide to view information about planned and performed {{ PG }} cluster maintenance and schedule maintenance.
+description: In this tutorial, you will learn how to view the {{ PG }} cluster’s scheduled and completed maintenance events and schedule new maintenance windows.
 ---
 
 # {{ PG }} cluster maintenance
 
-{{ mpg-full-name }} cluster [maintenance](../concepts/maintenance.md) can be managed.
+You can manage the [technical maintenance](../concepts/maintenance.md) of a {{ mpg-full-name }} cluster.
 
-## Getting a list of maintenances {#list-maintenance}
+## Getting the maintenance list {#list-maintenance}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
 
-To view maintenances with a particular status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the list of maintenances and select the status of interest from the drop-down menu. You can also find a maintenance by its ID or task name: use the box above the list of maintenances.
+To view maintenance events with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. You can also find a maintenance event by its ID or job name using the search field above the list.
 
-## Getting cluster logs related to maintenance {#maintenance-logs}
+## Getting maintenance-related cluster logs {#maintenance-logs}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
-  1. Click the maintenance ID you need.
+  1. Click the ID of the maintenance event you need.
   1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
 
-## Moving scheduled maintenance {#postpone-planned-maintenance}
+## Postpone the planned maintenance {#postpone-planned-maintenance}
 
-Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status are scheduled for a particular date and time specified in the **{{ ui-key.yacloud.mdb.maintenance.label_task-start-time }}** column. You can move them to a new date and time if needed.
+Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status have a specific scheduled date and time specified in the **{{ ui-key.yacloud.mdb.maintenance.label_task-start-time }}** column. You can reschedule them to a new date and time if needed.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  To move a maintenance to a new date and time:
+  To reschedule a maintenance job to a new date and time:
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
   1. In the drop-down menu, select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
-  1. In the window that opens:
-      * To move a maintenance forward to the next maintenance window, click **{{ ui-key.yacloud.component.maintenance-alert.value_next-available-window }}** and then **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
-      * To move a maintenance forward or backward to a specific UTC date and time, click **{{ ui-key.yacloud.component.maintenance-alert.value_specific-time }}**, then select a new date and time interval and click **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
+  1. In the window that opens, do the following:
+      * To postpone the maintenance until the next available window, click **{{ ui-key.yacloud.component.maintenance-alert.value_next-available-window }}** and then **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
+      * To reschedule maintenance to a specific UTC date and time, click **{{ ui-key.yacloud.component.maintenance-alert.value_specific-time }}**, then select a new date and time interval and click **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
 
 - CLI {#cli}
 
@@ -45,15 +45,15 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To move a maintenance to a new date and time:
+  To reschedule a maintenance job to a new date and time:
 
-  1. View the description of the CLI command to move maintenance:
+  1. See the description of the CLI command for rescheduling maintenance:
 
       ```bash
       {{ yc-mdb-pg }} cluster reschedule-maintenance --help
       ```
 
-  1. To move a maintenance to the nearest window, run the command by specifying the `next-available-window` reschedule type. To move to a specific date and time, specify the `specific-time` reschedule type:
+  1. To reschedule the maintenance to the next available window, run this command using the `next-available-window` reschedule type. To reschedule the maintenance to a specific date and time, use the `specific-time` reschedule type:
 
       ```bash
       {{ yc-mdb-pg }} cluster reschedule-maintenance <cluster_name_or_ID> \
@@ -61,24 +61,24 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
          --delayed-until <timestamp>
       ```
 
-      The timestamp must have one of the following formats:
+      The timestamp must be in one of the following formats:
         * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt)
         * HH:MM:SS
         * Number of hours and minutes by which to move the maintenance.
 
       For example, `2006-01-02T15:04:05Z`, `15:04:05`, `2h`, or `3h30m ago`. When selecting the `next-available-window` reschedule type, you do not need to specify `--delayed-until`.
 
-  You can [get the cluster name with the list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name from the [folder’s cluster list](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-  To move a maintenance to a new date and time:
+  To reschedule a maintenance job to a new date and time:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method and run the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -92,25 +92,25 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
                 }'
         ```
 
-        Where `rescheduleType` is the reschedule type, which can take one of these two values:
+        Where `rescheduleType` is the reschedule type that can be one of the following values:
 
-          * `NEXT_AVAILABLE_WINDOW`: Moving a maintenance job to the nearest window.
+          * `NEXT_AVAILABLE_WINDOW`: Postpone maintenance until the next available window.
           * `SPECIFIC_TIME`: Move the maintenance to a specific date and time.
 
         The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. When selecting the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayedUntil`.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) call and run the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) call to execute the following request via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -128,7 +128,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
        yandex.cloud.mdb.postgresql.v1.ClusterService.RescheduleMaintenance
      ```
 
-     Where `reschedule_type` is the reschedule type, which can take one of these two values:
+     Where `reschedule_type` is the reschedule type that can be one of the following values:
 
         * `NEXT_AVAILABLE_WINDOW`: Move the maintenance to the nearest window.
         * `SPECIFIC_TIME`: Move the maintenance to a specific date and time.
@@ -137,23 +137,23 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
-## Performing scheduled maintenance immediately {#exec-planned-maintenance}
+## Starting scheduled maintenance immediately {#exec-planned-maintenance}
 
-If you need to, you can perform a maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status immediately without waiting for the time specified in the **{{ ui-key.yacloud.mdb.maintenance.label_task-start-time }}** column.
+If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status immediately, prior to the time specified in the **{{ ui-key.yacloud.mdb.maintenance.label_task-start-time }}** column.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  To perform a scheduled cluster maintenance immediately:
+  To run a scheduled cluster maintenance job immediately:
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the maintenance.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job you need.
   1. In the drop-down menu, select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
 
 - CLI {#cli}
@@ -162,32 +162,32 @@ If you need to, you can perform a maintenance with the **{{ ui-key.yacloud.mdb.m
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To perform a scheduled cluster maintenance immediately:
+  To run a scheduled cluster maintenance job immediately:
 
-  1. View the description of the CLI command to move maintenance:
+  1. See the description of the CLI command for rescheduling maintenance:
 
       ```bash
       {{ yc-mdb-pg }} cluster reschedule-maintenance --help
       ```
 
-  1. Run this command with `immediate` for reschedule type:
+  1. Run this command using the `immediate` reschedule type:
 
       ```bash
       {{ yc-mdb-pg }} cluster reschedule-maintenance <cluster_name_or_ID> \
          --reschedule-type immediate
       ```
 
-  You can [get the cluster name with the list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-  To perform a scheduled cluster maintenance immediately:
+  To run a scheduled cluster maintenance job immediately:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method and run the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -202,16 +202,16 @@ If you need to, you can perform a maintenance with the **{{ ui-key.yacloud.mdb.m
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) call and run the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) call to execute the following request via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -230,17 +230,17 @@ If you need to, you can perform a maintenance with the **{{ ui-key.yacloud.mdb.m
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
 ## Configuring a maintenance window {#set-maintenance-window}
 
-By default, maintenance can be scheduled to any time slot. You can select a particular day of week and hour for the maintenance. For example, you can specify the time when the cluster is least loaded.
+By default, maintenance can be scheduled for any time. You can choose a specific day of the week and hour to schedule maintenance. For example, you can choose the time when the cluster is least busy.
 
 {% note warning %}
 
-By selecting a new maintenance interval you will automatically cancel scheduled maintenance unless it falls within the new interval.
+When you select a new maintenance window, any scheduled maintenance that does not fall within it will be automatically canceled.
 
 {% endnote %}
 
@@ -248,12 +248,12 @@ By selecting a new maintenance interval you will automatically cancel scheduled 
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
-  1. In the window that opens:
-     * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (default).
-     * To allow maintenance once a week at a particular time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the day of week and hour in UTC.
+  1. In the window that opens, do the following:
+     * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}**, which is also the default option.
+     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and hour in UTC.
 
 - CLI {#cli}
 
@@ -261,7 +261,7 @@ By selecting a new maintenance interval you will automatically cancel scheduled 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for updating the maintenance window:
+  1. See the description of the CLI command for updating the maintenance window:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -280,19 +280,19 @@ By selecting a new maintenance interval you will automatically cancel scheduled 
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-  You can [get the cluster name with the list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about creating this file, see [this guide](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      For a complete list of configurable {{ mpg-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
 
   1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -304,11 +304,11 @@ By selecting a new maintenance interval you will automatically cancel scheduled 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -331,30 +331,30 @@ By selecting a new maintenance interval you will automatically cancel scheduled 
 
      Where:
 
-     * `updateMask`: List of parameters to update as a single string, separated by commas.
+     * `updateMask`: Comma-separated list of settings you want to update.
 
-       Only one parameter is provided in this case.
+       Here, we provide only one setting.
 
-     * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
+     * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including those for disabled clusters. In `maintenanceWindow`, provide one of the following values:
 
-       * `anytime`: Maintenance can be scheduled to any time slot.
+       * `anytime`: Maintenance can be scheduled at any time.
        * `weeklyMaintenanceWindow`: Maintenance can be scheduled to selected day of week and time only:
 
          * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+         * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -383,17 +383,17 @@ By selecting a new maintenance interval you will automatically cancel scheduled 
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-       Only one parameter is provided in this case.
+       Here, we provide only one setting.
 
-     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
+     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including those for disabled clusters. In `maintenance_window`, provide one of the two values:
 
-       * `anytime`: Maintenance can be scheduled to any time slot.
+       * `anytime`: Maintenance can be scheduled at any time.
        * `weekly_maintenance_window`: Maintenance can be scheduled to selected day of week and time only:
 
          * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+         * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

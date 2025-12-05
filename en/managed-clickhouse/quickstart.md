@@ -6,8 +6,11 @@ description: Follow this guide to create a {{ CH }} cluster and connect to it.
 # Getting started with {{ mch-name }}
 
 To get started:
+
+
 * [Create a database cluster](#cluster-create).
 * [Connect to the DB](#connect).
+
 
 
 
@@ -20,7 +23,7 @@ To get started:
 
 1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](security.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
 
-   To associate the service account with a cluster, e.g., to [use {{ objstorage-full-name }}](operations/s3-access.md), your account also needs the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+   To attach the service account to a cluster, e.g., to [use {{ objstorage-full-name }}](operations/s3-access.md), your account also needs the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -50,7 +53,7 @@ To get started:
    sudo apt update && sudo apt install --yes clickhouse-client
    ```
 
-1. Download the configuration file for `clickhouse-client`:
+1. Download the `clickhouse-client` configuration file:
 
    {% include [ClickHouse client config](../_includes/mdb/mch/client-config.md) %}
 
@@ -63,11 +66,10 @@ To get started:
 1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mch-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
 
+
 ## Connect to the DB {#connect}
 
-
 1. If you are using [security groups](../vpc/concepts/security-groups.md) for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
-
 
 1. To connect to the DB server, get SSL certificates:
 
@@ -100,7 +102,7 @@ To get started:
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](concepts/index.md).
+* Read about the [service concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a database](operations/connect/index.md).
 * Check [questions and answers](qa/general.md).
 

@@ -1,6 +1,6 @@
 # Expanding a cluster
 
-You can expand a {{ mgp-name }} cluster by adding segment hosts to it. You need to add at least two hosts. You can also increase the [number of segments per host](../concepts/index.md).
+You can expand a {{ GP }} cluster by adding segment hosts to it. You need to add at least two hosts. You can also increase the [number of segments per host](../concepts/index.md).
 
 When a cluster is being expanded, its data is automatically redistributed evenly across all hosts in the cluster (including added hosts). For more information, see [{#T}](../concepts/expand.md).
 

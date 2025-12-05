@@ -121,6 +121,7 @@ A CVoS discount is only available for certain resource types. For unsupported re
 
 
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 Host prices are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.

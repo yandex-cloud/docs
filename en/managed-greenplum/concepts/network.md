@@ -12,7 +12,7 @@ When creating a cluster, you can:
 * Enable public access to connect to the cluster from outside {{ yandex-cloud }}.
 
 
-You can only connect to {{ mgp-short-name }} clusters via master hosts. You cannot connect to segment hosts directly.
+You can only connect to {{ GP }} clusters via master hosts. You cannot connect to segment hosts directly.
 
 Segment hosts are combined into a virtual network, where each of them is a cloud resource. Data is replicated and rebalanced across the segments within this network.
 
@@ -24,7 +24,7 @@ By default, master hosts are available for connection from the VMs located in th
 
 When you create a cluster, {{ mgp-short-name }} automatically assigns its hosts both short and full (FQDN) names. These cannot be changed.
 
-To learn how to get host FQDN, see [this guide](../operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../operations/connect.md#fqdn).
 
 
 You can use FQDNs to access master hosts from both inside and outside {{ yandex-cloud }}.

@@ -90,7 +90,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. To get a list of cluster backups:
 
-        1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -112,7 +112,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. To get a list of backups for all clusters in a folder:
 
-        1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [BackupService.List](../api-ref/grpc/Backup/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -129,14 +129,14 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
             ```
 
             
-            You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
         1. Check the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) to make sure your request was successful.
 
 {% endlist %}
 
-## Getting backup info {#get-backup}
+## Getting backup information {#get-backup}
 
 {% list tabs group=instructions %}
 
@@ -177,7 +177,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [BackupService.Get](../api-ref/grpc/Backup/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -206,7 +206,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 - Management console {#console}
 
     1. Navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
     {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -238,7 +238,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -271,7 +271,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
 For a new cluster, you need to configure all settings that are required when creating it.
 
-To migrate the hosts of a {{ mgp-name }} cluster to a different availability zone, restore your cluster from a backup. When restoring a cluster from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), create the [endpoint](../../data-transfer/operations/endpoint/index.md#create) and [transfer](../../data-transfer/operations/transfer.md#create) again after restoring the cluster from a backup.
+To migrate the hosts of a {{ GP }} cluster to a different availability zone, restore your cluster from a backup. When restoring a cluster from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), create the [endpoint](../../data-transfer/operations/endpoint/index.md#create) and [transfer](../../data-transfer/operations/transfer.md#create) again after restoring the cluster from a backup.
 
 {% note warning %}
 
@@ -295,7 +295,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
-    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
     1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
     1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to revert the cluster's state. You can enter a value manually or select one from the drop-down calendar. The system will select the restore point closest to that time.
 
@@ -321,7 +321,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
     1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
-    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup at hand and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
     1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
     1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to revert the cluster's state. You can enter a value manually or select one from the drop-down calendar. The system will select the restore point closest to that time.
 
@@ -343,7 +343,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
-    {{ mgp-name }} will launch the operation to create a cluster from the backup.
+    {{ mgp-name }} will start creating a cluster from the backup.
 
 - CLI {#cli}
 
@@ -394,8 +394,8 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
         * `--name`: Cluster name.
         * `--environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
-            * `PRODUCTION`: For stable versions of your apps.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRODUCTION`: For stable versions of your applications.
 
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
         * `--master-resource-preset`: [Master host class](../concepts/instance-types.md#available-flavors).
@@ -490,8 +490,8 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
-            * `PRODUCTION`: For stable versions of your apps.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRODUCTION`: For stable versions of your applications.
 
         * `networkId`: [Network](../../vpc/concepts/network.md#network) ID.
         * `config`: Cluster settings:
@@ -607,8 +607,8 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
-            * `PRODUCTION`: For stable versions of your apps.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRODUCTION`: For stable versions of your applications.
 
         * `network_id`: [Network](../../vpc/concepts/network.md#network) ID.
         * `config`: Cluster settings:
@@ -651,7 +651,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
                 Specify either `folder_id` or `log_group_id`.
 
 
-    1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \

@@ -33,6 +33,8 @@ items:
         items:
           - name: Основы работы с {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Установка Битрикс
+            href: operations/applications/bitrix.md
           - name: Установка Argo CD
             href: operations/applications/argo-cd.md
           - name: Установка Chaos Mesh

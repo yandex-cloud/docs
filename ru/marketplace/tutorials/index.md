@@ -22,3 +22,4 @@ description: Различные сценарии использованияпр�
 * [{#T}](thumbor.md)
 * [{#T}](istio.md)
 * [{#T}](hashicorp-vault.md)
+* [{#T}](s2s-vpn.md)

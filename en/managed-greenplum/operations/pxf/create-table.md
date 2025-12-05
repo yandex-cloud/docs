@@ -8,9 +8,9 @@ description: Follow this guide to create an external PXF table using an SQL quer
 ## Getting started {#before-you-begin}
 
 
-1. In the {{ mgp-name }} cluster subnet, [set up a NAT gateway and link a routing table](../../../vpc/operations/create-nat-gateway.md).
+1. In the {{ GP }} cluster's subnet, [set up a NAT gateway and link a routing table](../../../vpc/operations/create-nat-gateway.md).
 1. In the same subnet, [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
-1. Create an external data source. The steps needed to create a source depend on the source connection type:
+1. Create an external data source. The steps for creating a source depend on the source connection type:
 
     * [S3](create-s3-source.md)
     * [JDBC](create-jdbc-source.md)
@@ -20,7 +20,7 @@ description: Follow this guide to create an external PXF table using an SQL quer
 
 ## Creating an external table using an SQL query {#sql-statement}
 
-The SQL query syntax to create an external table is as follows:
+The syntax of the SQL query for creating an external table is as follows:
 
 ```sql
 CREATE [WRITABLE] EXTERNAL TABLE <table_name>
@@ -31,7 +31,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <table_name>
 
 Where:
 
-* `<table_name>`: Name of the external table you are about to create in the {{ GP }} cluster.
+* `<table_name>`: Name of the external table you are creating in the {{ GP }} cluster.
 * `<column_name>`: Column name.
 * `<data_type>`: Column data type. It must match the column data type in the external DBMS table.
 * `<data_path_or_table_name>`: External object name, see [examples of external tables](#pxf-examples).
@@ -43,11 +43,11 @@ Where:
 
 * `SERVER`: Name of the external PXF data source.
 
-    Instead of `SERVER`, you can provide the parameters defining the external data source configuration. These depend on the source connection type. For more information, see the [{{ GP }} PFX documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/intro_pxf.html#create_external_table) and examples of creating external tables.
+    Instead of `SERVER`, you can provide parameters defining the external data source configuration. These depend on the source connection type. For more information, see the [{{ GP }} PFX guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/intro_pxf.html#create_external_table) and examples of creating external tables.
 
 The `WRITABLE` option allows writing data to an external object. To read data from an external object, create an external table with the `READABLE` option.
 
-## Examples for creating external tables {#pxf-examples}
+## Examples of creating external tables {#pxf-examples}
 
 {% list tabs group=data_sources %}
 
@@ -59,7 +59,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
     1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
-    1. Optionally, [create an external JDBC data source](create-jdbc-source.md) with the following parameters:
+    1. Optionally, [create an external JDBC data source](create-jdbc-source.md) with the following properties:
 
         * **Name**: `chserver`
         * **Driver**: `com.clickhouse.jdbc.ClickHouseDriver`
@@ -73,7 +73,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
         You can get the cluster ID with the [list of clusters](../../../managed-clickhouse/operations/cluster-list.md#list-clusters) in the folder.
 
-        With no data source created, you need to provide the source connection parameters in the SQL query for creating an external table.
+        With no data source created, you will need to provide the source connection properties in the SQL query for creating an external table.
 
     1. [Connect to the {{ CH }} DB](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
     1. Create a test table and populate it with data:
@@ -87,7 +87,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         ```
 
     1. [Connect to the {{ GP }}](../connect.md) DB.
-    1. Create an external table named `pxf_ch` to reference the `test` table in the {{ CH }} cluster. The SQL query depends on whether you previously created an external data source or not:
+    1. Create an external table named `pxf_ch` to reference the `test` table in the {{ CH }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
 
@@ -150,7 +150,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
     1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
-    1. Optionally, [create an external JDBC data source](create-jdbc-source.md) with the following parameters:
+    1. Optionally, [create an external JDBC data source](create-jdbc-source.md) with the following properties:
 
         * **Name**: `mysqlserver`
         * **Driver**: `com.mysql.jdbc.Driver`
@@ -164,7 +164,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
         You can get the cluster ID with the [list of clusters](../../../managed-mysql/operations/cluster-list.md#list-clusters) in the folder.
 
-        With no data source created, you need to provide the source connection parameters in the SQL query for creating an external table.
+        With no data source created, you will need to provide the source connection properties in the SQL query for creating an external table.
 
     1. [Connect to the {{ MY }} DB](../../../managed-mysql/operations/connect.md#connection-string) using `mysql`.
     1. Create a test table and populate it with data:
@@ -178,7 +178,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         ```
 
     1. [Connect to the {{ GP }}](../connect.md) DB.
-    1. Create an external table named `pxf_mysql` to reference the `test` table in the {{ MY }} cluster. The SQL query depends on whether you previously created an external data source or not:
+    1. Create an external table named `pxf_mysql` to reference the `test` table in the {{ MY }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
 
@@ -224,7 +224,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
     1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
-    1. Optionally, [create an external JDBC data source](create-jdbc-source.md) with the following parameters:
+    1. Optionally, [create an external JDBC data source](create-jdbc-source.md) with the following properties:
 
         * **Name**: `pgserver`
         * **Driver**: `org.postgresql.Driver`
@@ -238,7 +238,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
         You can get the cluster ID with the [list of clusters](../../../managed-postgresql/operations/cluster-list.md#list-clusters) in the folder.
 
-        With no data source created, you need to provide the source connection parameters in the SQL query for creating an external table.
+        With no data source created, you will need to provide the source connection properties in the SQL query for creating an external table.
 
     1. [Connect to the {{ PG }} DB](../../../managed-postgresql/operations/connect.md#bash) using `psql`.
     1. Create a test table and populate it with data:
@@ -252,7 +252,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         ```
 
     1. [Connect to the {{ GP }}](../connect.md) DB.
-    1. Create an external table named `pxf_pg` to reference the `public.test` table in the {{ PG }} cluster. The SQL query depends on whether you previously created an external data source or not:
+    1. Create an external table named `pxf_pg` to reference the `public.test` table in the {{ PG }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
 
@@ -295,16 +295,16 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
     1. [Create an {{ objstorage-name }}](../../../storage/operations/buckets/create.md) bucket with restricted access.
     1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key).
-    1. (Optional) [Create an external S3 data source](create-s3-source.md) with the following parameters:
+    1. Optionally, [create an external S3 data source](create-s3-source.md) with the following properties:
 
         * **Name**: `objserver`.
         * **Access Key**: ID of the static access key you previously created.
         * **Secret Key**: Secret key you previously created along with the static access key.
         * **Endpoint**: `{{ s3-storage-host }}`.
 
-        With no data source created, you need to provide the source connection parameters in the SQL query for creating an external table.
+        With no data source created, you will need to provide the source connection properties in the SQL query for creating an external table.
 
-    1. Create a test file named `test.csv` on the local machine:
+    1. Create a test file named `test.csv` on your local machine:
 
         ```csv
         1,111
@@ -313,12 +313,12 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
     1. [Upload your test file to the bucket](../../../storage/operations/objects/upload.md).
 
-        Files you are uploading to the bucket must not start with `.` and `_`. Such files are considered hidden, and PXF does not read data from them.
+        Files you are uploading to the bucket must not start with `.` or `_`. Such files are considered hidden, and PXF does not read data from them.
 
     1. [Connect to the {{ GP }}](../connect.md) DB.
-    1. To read data from the {{ objstorage-name }} bucket:
+    1. To read data from an {{ objstorage-name }} bucket:
 
-        1. Create an external table named `pxf_s3_read` to reference the bucket. The SQL query depends on whether you previously created an external data source or not:
+        1. Create an external table named `pxf_s3_read` to reference the bucket. The SQL query depends on whether you previously created an external data source:
 
             * With a data source created:
 
@@ -353,7 +353,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
             (2 rows)
             ```
 
-    1. To write data to a {{ objstorage-name }} bucket:
+    1. To write data to an {{ objstorage-name }} bucket:
 
         1. Create an external table named `pxf_s3_write` with the `WRITABLE` option. You do not need to specify a file name when creating the table:
 
@@ -373,7 +373,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
                 FORMAT 'CSV';
                 ```
 
-        1. Add data to the table:
+        1. Populate the table with data:
 
             ```sql
             INSERT INTO pxf_s3_write VALUES (3,333);
@@ -387,7 +387,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
     {% note info %}
 
-    To create an external table from {{ objstorage-name }}, you can use the S3 protocol and transmit your static key parameters using a file located on a web server. For more information, see [this tutorial](../../tutorials/config-server-for-s3.md).
+    To create an external table from {{ objstorage-name }}, you can use the S3 protocol and transmit your static key properties using a file located on a web server. For more information, see [this tutorial](../../tutorials/config-server-for-s3.md).
 
     {% endnote %}
 

@@ -1,7 +1,7 @@
 # Creating a {{ GP }} cluster
 
 
-A {{ mgp-name }} cluster consists of master hosts that get client queries and segment hosts that process and store data.
+A {{ GP }} cluster consists of master hosts that get client queries and segment hosts that process and store data.
 
 For more information, see [{#T}](../concepts/index.md).
 
@@ -9,14 +9,14 @@ For more information, see [{#T}](../concepts/index.md).
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mgp.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see this [{{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mgp.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    To create a {{ mgp-name }} cluster:
+    To create a {{ GP }} cluster:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
     1. Select **Yandex MPP Analytics for PostgreSQL**.
@@ -24,8 +24,8 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
     1. Enter a name for the cluster. It must be unique within the folder.
     1. Optionally, enter a description for the cluster.
     1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
-        * `PRODUCTION`: For stable versions of your apps.
-        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+        * `PRODUCTION`: For stable versions of your applications.
+        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
     1. Select the {{ GP }} version.
 
     
@@ -145,7 +145,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To create a {{ mgp-name }} cluster:
+    To create a {{ GP }} cluster:
 
     
     1. Check whether the folder has any subnets for the cluster hosts:
@@ -163,7 +163,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         {{ yc-mdb-gp }} cluster create --help
         ```
 
-    1. In this command, specify the cluster properties (our example does not use all available parameters):
+    1. Specify the cluster properties in this command (the example does not show all that are available):
 
         
         ```bash
@@ -196,8 +196,8 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         * `--greenplum-version`: {{ GP }} version, {{ versions.cli.str }}.
         * `--environment`: Environment:
-            * `PRODUCTION`: For stable versions of your apps.
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+            * `PRODUCTION`: For stable versions of your applications.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
         * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, number, or underscore. It must be from 1 to 32 characters long.
         * `--user-password`: Password. It must be from 8 to 128 characters long.
@@ -313,20 +313,20 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
-  To create a {{ mgp-name }} cluster:
+  To create a {{ GP }} cluster:
 
-  1. In the command line, navigate to the directory that contains the {{ TF }} configuration files with the infrastructure plan. If there is no such directory, create one.
+  1. In the command line, navigate to the directory that will contain the {{ TF }} configuration files with the infrastructure plan. If there is no such directory, create one.
 
   
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
-      The cluster is hosted on a cloud network. If you already have a suitable network, you do not need to describe it again.
+      The cluster is hosted on a cloud network. If you already have a network in place, you do not need to describe it again.
 
-      Cluster hosts are located on the selected cloud network's subnets. If you already have suitable subnets, you do not need to describe them again.
+      Cluster hosts are located on the selected cloud network's subnets. If you already have subnets in place, you do not need to describe them again.
 
-      Below is a sample structure of a configuration file describing a single-subnet cloud network:
+      Below is an example of a configuration file describing a single-subnet cloud network:
 
       ```hcl
       resource "yandex_vpc_network" "<network_name_in_{{ TF }}>" { name = "<network_name>" }
@@ -390,7 +390,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       Where:
 
       * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
-      * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+      * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
 
           {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -408,7 +408,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 
 
-      For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mgp }}).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mgp }}).
 
   
   1. Optionally, specify [dedicated host](../../compute/concepts/dedicated-host.md) groups to place master or segment hosts on dedicated hosts:
@@ -463,7 +463,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Create your cluster:
+  1. Create a cluster:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -591,7 +591,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
+        * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`.
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -601,7 +601,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             * `size`: Maximum number of client connections.
             * `clientIdleTimeout`: Idle timeout for a client connection (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in your cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in your cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -766,7 +766,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+        * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -776,7 +776,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             * `size`: Maximum number of client connections.
             * `client_idle_timeout`: Idle timeout for a client connection (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in your cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -804,7 +804,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                 Specify either `folder_id` or `log_group_id`.
 
 
-    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -825,7 +825,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ GP }} cluster with the settings of another one created earlier. To do so, import the {{ GP }} source cluster's configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when a source {{ GP }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ GP }} cluster with the settings of another one created earlier. Do it by importing the original {{ GP }} cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea if the original {{ GP }} cluster has lots of settings and you want to create a similar one.
 
 To create a {{ GP }} cluster copy:
 
@@ -844,7 +844,7 @@ To create a {{ GP }} cluster copy:
         resource "yandex_mdb_greenplum_cluster" "old" { }
         ```
 
-    1. Write the ID of the source {{ GP }} cluster to the environment variable:
+    1. Save the ID of the original {{ GP }} cluster to an environment variable:
 
         ```bash
         export GREENPLUM_CLUSTER_ID=<cluster_ID>
@@ -852,7 +852,7 @@ To create a {{ GP }} cluster copy:
 
         You can request the ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Import the settings of the source {{ GP }} cluster into the {{ TF }} configuration:
+    1. Import the original {{ GP }} cluster settings to the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_greenplum_cluster.old ${GREENPLUM_CLUSTER_ID}
@@ -876,11 +876,11 @@ To create a {{ GP }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with the provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
-    1. Validate your {{ TF }} configuration files:
+    1. Make sure the {{ TF }} configuration files are correct:
 
         ```bash
         terraform validate
@@ -904,7 +904,7 @@ To create a {{ GP }} cluster copy:
 
 - CLI {#cli}
 
-    Create a {{ mgp-name }} cluster with the following test specifications:
+    Create a {{ GP }} cluster with the following test specifications:
 
     
     * Name: `gp-cluster`

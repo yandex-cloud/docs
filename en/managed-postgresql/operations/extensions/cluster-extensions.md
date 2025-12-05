@@ -37,7 +37,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** section.
   1. The **{{ ui-key.yacloud.mdb.cluster.databases.column_extensions }}** column will show the list of extensions loaded for each database.
 
@@ -58,11 +58,11 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.Get](../../api-ref/Database/get.md) method to execute the following request via {{ api-examples.rest.tool }}:
+  1. Call the [Database.Get](../../api-ref/Database/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -71,7 +71,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/databases/<DB_name>'
      ```
 
-     You can get the cluster ID from the [folder’s cluster list](../cluster-list.md#list-clusters), and the database name from the [cluster’s database list](../databases.md#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/Database/get.md#responses) to make sure your request was successful.
 
@@ -79,7 +79,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -101,7 +101,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Get
      ```
 
-     You can get the cluster ID from the [folder’s cluster list](../cluster-list.md#list-clusters), and the database name from the [cluster’s database list](../databases.md#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/grpc/Database/get.md#yandex.cloud.mdb.postgresql.v1.Database) to make sure your request was successful.
 
@@ -115,8 +115,8 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. Find the database you need in the list, click ![options](../../../_assets/console-icons/ellipsis.svg) in its row, then select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-manage }}**.
   1. Select the extensions you need and click **{{ ui-key.yacloud.postgresql.databases.dialog.button_submit }}**.
 
@@ -140,7 +140,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create this file, see [this guide](../cluster-create.md).
+     For information on how to create this file, see [Creating a cluster](../cluster-create.md).
 
      For a complete list of configurable {{ mpg-name }} cluster database settings, refer to the [{{ TF }} provider guides]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
@@ -156,7 +156,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
       }
       ```
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -166,11 +166,11 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.Update](../../api-ref/Database/update.md) method to execute the following request via {{ api-examples.rest.tool }}:
+  1. Call the [Database.Update](../../api-ref/Database/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      {% include [note-updatemask](../../../_includes/note-api-updatemask.md) %}
 
@@ -205,13 +205,13 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
        Use a name from the [list of supported {{ PG }}](#postgresql) extensions and utilities.
 
-     You can get the cluster ID from the [folder’s cluster list](../cluster-list.md#list-clusters), and the database name from the [cluster’s database list](../databases.md#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/Database/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -260,7 +260,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
        Use a name from the [list of supported {{ PG }}](#postgresql) extensions and utilities.
 
-     You can get the cluster ID from the [folder’s cluster list](../cluster-list.md#list-clusters), and the database name from the [cluster’s database list](../databases.md#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -295,6 +295,8 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 * Using the `cube` data type, which requires you to enable the `cube` extension.
 * Using the built-in `point` data type.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
 || <p>[fuzzystrmatch]({{ pg-docs }}/fuzzystrmatch.html)</p><p>Provides functions for calculating string similarity and distance.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.2 | 1.2 ||
+|| <p>[h3](https://github.com/zachasme/h3-pg)</p><p>Adds support for [H3 library](https://h3geo.org/docs/) data structures for geospatial hierarchical partitioning into hexagonal cells to build a grid of such cells over the surface of the Earth.</p> | - | - | - | - | - | 4.1.3 | 4.1.3 ||
+|| <p>[h3_postgis](https://github.com/libreearth/h3_postgis)</p><p>Adds support for [H3 library](https://h3geo.org/docs/) data structures when using GIS (geographic information system) objects.</p> | - | - | - | - | - | 4.1.3 | 4.1.3 ||
 || <p>[hstore]({{ pg-docs }}/static/hstore.html)</p><p>Contains the `hstore` data type for storing and efficient use of <q>key:value</q> pairs within a single table field.</p> | 1.5 | 1.6 | 1.7 | 1.8 | 1.8 | 1.8 | 1.8 ||
 || <p>[hypopg](https://hypopg.readthedocs.io/en/rel1_stable/)</p><p>Contains virtual indexes. Virtual indexes provide a low-cost way to determine whether {{ PG }} will use real indexes for [problematic queries](../../tutorials/profiling.md#solving-inefficient-queries).</p> | 1.3.1 | 1.3.1 | 1.3.1 | 1.3.1 | 1.3.1 | 1.4.0 | 1.4.1 ||
 || <p>[intarray]({{ pg-docs }}/static/intarray.html)</p><p>Provides functions and operators for handling integer arrays containing no `NULL` values.</p> | 1.2 | 1.2 | 1.3 | 1.5 | 1.5 | 1.5 | 1.5 ||
@@ -319,6 +321,7 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[pg_stat_statements]({{ pg-docs }}/pgstatstatements.html)</p><p>Enables you to track the scheduling and collect execution statistics of all SQL queries running in a cluster.</p><p>To use this extension, you need the [`mdb_monitor`](../../concepts/roles.md#mdb_monitor) role.</p> | 1.6 | 1.7 | 1.8 | 1.9 | 1.10 | 1.10 | 1.11 ||
 || <p>[pg_tm_aux](https://github.com/x4m/pg_tm_aux)</p><p>Enables you to create a logical replication slot in the past.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.1 | 1.1.1 | 1.1.1 ||
 || <p>[pg_trgm]({{ pg-docs }}/static/pgtrgm.html)</p><p>Provides tools for fast similarity search across strings using trigram matching.</p> | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 | 1.6 ||
+|| <p>[pg_uuidv7](https://github.com/fboulnois/pg_uuidv7)</p><p>Adds support for generating and managing [UUIDv7 identifiers](https://www.rfc-editor.org/rfc/rfc9562.html#name-uuid-version-7).</p> | - | - | - | - | 1.5 | 1.5 | 1.5 ||
 || <p>[pgaudit](https://www.pgaudit.org/)</p><p>Provides additional logging tools and enhanced auditing capabilities.</p><p>Using this extension requires you to [enable the `pgaudit` shared library](#libraries-connection).</p><p>For more information, see [Using pgaudit](./pgaudit.md).</p>  | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.7 | 16.0 | 17.0 ||
 || <p>[pgcrypto]({{ pg-docs }}/static/pgcrypto.html)</p><p>Provides cryptographic functions for {{ PG }}. For more information, see [Using pgcrypto](./pgcrypto.md).</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
 || <p>[pglogical](https://github.com/2ndQuadrant/pglogical)</p><p>Adds support for streaming logical replication based on the publish/subscribe model.</p><p>Using this extension requires you to [enable the `pglogical` shared library](#libraries-connection).</p> | 2.4.1 | 2.4.1 | 2.4.1 | 2.4.1 | 2.4.4 | 2.4.4 | 2.4.5 ||
@@ -329,6 +332,7 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[plpgsql](https://www.timescale.com/learn/postgresql-extensions-plpgsql)</p><p>Adds support for the PL/pgSQL procedural language.</p> | - | - | - | - | - | - | 1.0 ||
 || <p>[plv8](https://plv8.github.io/)</p><p>Adds support for the plv8 JavaScript-based procedural language powered by the V8 engine.</p> | 3.0.0 | 3.0.0 | 3.0.0 | 3.0.0 | - | 3.2.3 | 3.2.3 ||
 || <p>[postgis](https://postgis.net/docs/)</p><p>Adds capabilities for storing and processing GIS (Geographic Information System) objects in {{ PG }} databases.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
+|| <p>[postgis_raster](https://postgis.net/docs/RT_reference.html)</p><p>Adds the ability to store and process raster geospatial data from GIS (geographic information system) objects in {{ PG }} databases.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
 || <p>[postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder)</p><p>Provides functions for geocoding using data in the [TIGER](https://wiki.openstreetmap.org/wiki/TIGER) format.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
 || <p>[postgis_topology](https://postgis.net/docs/Topology.html)</p><p>Contains data types and functions of the `postgis` extension for managing topological objects.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
 || <p>[postgres_fdw]({{ pg-docs }}/static/postgres-fdw.html)</p><p>Adds a [foreign data wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing external {{ PG }} servers.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.0 | 1.0 | 1.0 | 1.1 | 1.1 | 1.1 | 1.1 ||

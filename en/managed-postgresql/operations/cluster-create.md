@@ -1,6 +1,6 @@
 ---
 title: How to create a {{ PG }} cluster
-description: In this tutorial, you will learn how to create a {{ PG }} cluster with one or more database hosts.
+description: Follow this guide to create a {{ PG }} cluster with one or multiple database hosts.
 ---
 
 # Creating a {{ PG }} cluster
@@ -10,7 +10,7 @@ A {{ PG }} cluster is one or more [database hosts](../concepts/index.md) between
 
 {% note info %}
 
-* The number of hosts you can create in a {{ PG }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and the [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create together with a {{ PG }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * The available disk types depend on the selected [host class](../concepts/instance-types.md#available-flavors).
 * If the database storage reaches 97% capacity, the cluster will switch to read-only mode. Plan and increase your storage size beforehand, or [set up an automatic storage expansion](storage-space.md#disk-size-autoscale).
 
@@ -24,7 +24,7 @@ By default, {{ mpg-name }} sets the maximum possible number of connections for e
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role, as well as the [{{ roles.mpg.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} guides](../../iam/operations/roles/grant.md).
+To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mpg.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} guides](../../iam/operations/roles/grant.md).
 
 
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
@@ -40,12 +40,12 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   To create a {{ mpg-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your database cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Specify the cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
-  1. Select the environment where you want to create your cluster (the environment cannot be changed after cluster creation):
+  1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
      * `PRODUCTION`: For stable versions of your applications.
-     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first of the two to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
   1. Select the DBMS version.
   1. Select the host class, which will determine the technical specifications of the [VMs](../../compute/concepts/vm.md) for deploying your database hosts. All available options are listed under [Host classes](../concepts/instance-types.md). Changing the cluster’s host class updates the specifications for all of its existing hosts.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -56,7 +56,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-     * Select the storage capacity for your data and backups. For more details on how backups utilize storage space, see [Backups](../concepts/backup.md).
+     * Select the storage capacity for your data and backups. For more information on how backups occupy storage space, see [Backups](../concepts/backup.md).
 
      
      * Optionally, select **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
@@ -65,7 +65,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
-       To learn more about disk encryption, see [Storage](../../network-load-balancer/k8s-ref/networkpolicy.md).
+       To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
   1. Optionally, under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, specify the following settings:
@@ -104,11 +104,11 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      
      * Password:
 
-       * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select this option to set your own password. The password must be from 8 to 128 characters long.
+       * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select this option to set your own password. It must be from 8 to 128 characters long.
 
        * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Select this option to generate a password using {{ connection-manager-name }}.
 
-       To view the password after cluster creation, select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
+       To view the password after creating a cluster, select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
      * Collation locale and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the level of an individual database.
@@ -125,15 +125,15 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to [configure the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to be able to connect to the cluster.
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, configure the settings for the cluster’s database hosts. By default, each host is created in a separate [subnet](../../vpc/concepts/network.md#subnet). To select a specific subnet for a host, click ![image](../../_assets/console-icons/pencil.svg) next to it.
 
-     The minimum number of hosts in a cluster depends on the selected [disk type](../concepts/storage.md). The default cluster configuration offered in the management console includes:
+     The minimum number of hosts per cluster depends on the selected [disk type](../concepts/storage.md). The default cluster configuration offered in the management console includes:
 
-      * Two hosts if selected disk type is `network-ssd`, `network-hdd`, or `network-ssd-io-m3`.
-      * Three hosts if selected disk type is `local-ssd` or `network-ssd-nonreplicated`.
+      * Two hosts if the selected disk type is `network-ssd`, `network-hdd`, or `network-ssd-io-m3`.
+      * Three hosts if the selected disk type is `local-ssd` or `network-ssd-nonreplicated`.
 
      {% note warning %}
 
@@ -141,7 +141,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      {% endnote %}
 
-     After creating a {{ mpg-name }} cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
+     After creating a {{ mpg-name }} cluster, you can add more hosts to it if your [folder resource](../concepts/limits.md) quotas allow.
 
      
      To enable internet access to the hosts, check **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
@@ -179,13 +179,13 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-  1. See the description of the CLI command for creating a cluster:
+  1. View the description of the CLI command for creating a cluster:
 
      ```bash
      {{ yc-mdb-pg }} cluster create --help
      ```
 
-  1. Specify the cluster settings in the creation command (our example does not include all available settings):
+  1. Specify the cluster properties in this command (the example does not show all that are available):
 
      
      ```bash
@@ -238,13 +238,13 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      
      {% note info %}
 
-     You can also generate a password using {{ connection-manager-name }}. To do this, modify the command, specifying user details as follows:
+     You can also generate a password using {{ connection-manager-name }}. To do this, edit the command, specifying user properties as follows:
 
      ```bash
        --user name=<username>,generate-password=true
      ```
 
-     To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
+     To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
      {% endnote %}
 
@@ -256,9 +256,9 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      
      To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), provide `--disk-encryption-key-id <KMS_key_ID>`. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-     To enable access to the cluster from [{{ sf-full-name }}](../../functions/), use the `--serverless-access` flag. For more details on configuring access, see [{{ sf-name }} guides](../../functions/operations/database-connection.md).
+     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` argument. For details on setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
-     To enable access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), use the `--yandexquery-access=true` flag. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
+     To allow access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), provide the `--yandexquery-access=true` argument. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
 
 
      {% note info %}
@@ -275,7 +275,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
   To create a {{ mpg-name }} cluster:
   1. In the configuration file, describe the properties of resources you want to create:
-     * DB cluster: Description of the cluster and its hosts.
+     * Database cluster: Description of the cluster and its hosts.
      * Database: Cluster database description.
      * User: Cluster user description.
 
@@ -356,7 +356,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually. See [User management](cluster-users.md) and [Database management](databases.md) for details.
 
-       If the setting is changed on a running cluster, the new value will only be inherited by users and databases with **Same as cluster** protection level.
+       If the setting is changed on a running cluster, the new value will only be inherited by users and databases with the **Same as cluster** protection level.
 
        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -371,9 +371,9 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      
      {% note info %}
 
-     You can also generate a password using {{ connection-manager-name }}. To do this, replace `"password" = "<user_password>"` with `generate_password = true`.
+     You can also generate a password using {{ connection-manager-name }}. Do it by going `generate_password = true` instead of `password = "<user_password>"`.
 
-     To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
+     To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
      {% endnote %}
 
@@ -409,7 +409,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
      For a complete list of configurable {{ mpg-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
-  1. Validate your configuration.
+  1. Check if the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -512,10 +512,10 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      Where:
 
-     * `folderId`: Folder ID. You can get it from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
+     * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-     * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
+     * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
@@ -527,7 +527,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually. See [User management](cluster-users.md) and [Database management](databases.md) for details.
 
-       If the setting is changed on a running cluster, the new value will only be inherited by users and databases with **Same as cluster** protection level.
+       If the setting is changed on a running cluster, the new value will only be inherited by users and databases with the **Same as cluster** protection level.
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -537,7 +537,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        * `resources`: Cluster resources:
 
          * `resourcePresetId`: [Host class](../concepts/instance-types.md).
-         * `diskSize`: Disk size in bytes.
+         * `diskSize`: Disk size, in bytes.
          * `diskTypeId`: [Disk type](../concepts/storage.md).
 
        
@@ -573,7 +573,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           
           You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generatePassword": true` instead of `"password": "<user_password>"`.
 
-          To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
+          To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
        * `permissions.databaseName`: Name of the database to which the user will have access.
@@ -590,7 +590,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.  
 
-  1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method to execute the following request via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -700,7 +700,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-     * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
+     * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
@@ -712,7 +712,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
         By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually. See [User management](cluster-users.md) and [Database management](databases.md) for details.
 
-        If the setting is changed on a running cluster, the new value will only be inherited by users and databases with **Same as cluster** protection level.
+        If the setting is changed on a running cluster, the new value will only be inherited by users and databases with the **Same as cluster** protection level.
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -722,11 +722,11 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        * `resources`: Cluster resources:
 
          * `resource_preset_id`: [Host class](../concepts/instance-types.md).
-         * `disk_size`: Disk size in bytes.
+         * `disk_size`: Disk size, in bytes.
          * `disk_type_id`: [Disk type](../concepts/storage.md).
 
        
-       * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+       * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -758,13 +758,13 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           
           You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
 
-          To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
+          To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
        * `permissions.database_name`: Name of the database to which the user will have access.
        * `login`: User permission to connect to the DB, `true` or `false`.
 
-     * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+     * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
        * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
@@ -775,7 +775,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
 
-  1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -804,7 +804,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ PG }} cluster using the settings of the previously created cluster. To do this, import the {{ PG }} source cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as a starting point for modification. Import is convenient when the source {{ PG }} cluster has many settings and you need to create a similar cluster.
+You can create a {{ PG }} cluster with the settings of another one created earlier. Do it by importing the original {{ PG }} cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea if the original {{ PG }} cluster has lots of settings and you want to create a similar one.
 
 To create a {{ PG }} cluster copy:
 
@@ -817,7 +817,7 @@ To create a {{ PG }} cluster copy:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. In your current working directory, create a `.tf` file with the following content:
+    1. In the same working directory, place a `.tf` file with the following contents:
 
         ```hcl
         resource "yandex_mdb_postgresql_cluster" "old" { }
@@ -829,7 +829,7 @@ To create a {{ PG }} cluster copy:
         export POSTGRESQL_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID from the [folder’s cluster list](../../managed-postgresql/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
     1. Import the original {{ PG }} cluster settings to the {{ TF }} configuration:
 
@@ -844,29 +844,29 @@ To create a {{ PG }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Create a new directory named `imported-cluster` and move your file there.
-    1. Modify the configuration so it can be used to create a new cluster:
+    1. Place the file in the new `imported-cluster` directory.
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete `created_at`, `health`, `id`, and `status`.
         * In the `host` sections, delete `fqdn` and `role`.
         * If the `disk_size_autoscaling` section has `disk_size_limit = 0`, delete this section.
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
-        * Optionally, you can customize the configuration further if needed.
+        * Optionally, make further changes if you need a customized configuration.
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating the provider configuration file manually, you can download it [here](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Move the configuration file to the `imported-cluster` directory and edit it to [include your required values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added your authentication credentials to the environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
-    1. Validate your {{ TF }} configuration files:
+    1. Make sure the {{ TF }} configuration files are correct:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -886,7 +886,7 @@ To create a {{ PG }} cluster copy:
 
 - CLI {#cli}
 
-  To create a single-host cluster, provide one `--host` parameter.
+  To create a cluster with a single host, provide a single `--host` parameter.
 
   Create a {{ mpg-name }} cluster with the following test specifications:
 
@@ -899,7 +899,7 @@ To create a {{ PG }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
   * User: `user1`, password: `user1user1`.
   * Database: `db1`, owner: `user1`.
-  * Deletion protection for the the cluster, its databases, and users: Enabled.
+  * Deletion protection for the cluster, its databases, and users: Enabled.
 
 
   Run this command:
@@ -940,7 +940,7 @@ To create a {{ PG }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
   * User: `user1`, password: `user1user1`.
   * Database: `db1`, owner: `user1`.
-  * Protection of the cluster, its DBs, and users against accidental deletion: Enabled.
+  * Deletion protection for the cluster, its databases, and users: Enabled.
 
   The configuration file for this cluster looks like this:
 

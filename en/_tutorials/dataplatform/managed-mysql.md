@@ -9,4 +9,4 @@ This method allows you to migrate the entire database without interrupting user 
 
 ## See also {#see-also}
 
-For other migration methods, see the [{{ mmy-full-name }}](../../managed-mysql/tutorials/data-migration.md) documentation.
+For other migration methods, see this [{{ mmy-full-name }} tutorial](../../managed-mysql/tutorials/data-migration/index.md).

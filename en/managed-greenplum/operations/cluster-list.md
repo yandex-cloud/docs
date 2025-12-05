@@ -1,6 +1,6 @@
 # Information about existing {{ GP }} clusters
 
-You can get detailed information about each {{ mgp-name }} cluster you created.
+You can get detailed information about each {{ GP }} cluster you created.
 
 ## Getting a list of clusters in a folder {#list-clusters}
 
@@ -39,7 +39,7 @@ You can get detailed information about each {{ mgp-name }} cluster you created.
         ```
 
         
-        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
     1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) to make sure your request was successful.
@@ -52,7 +52,7 @@ You can get detailed information about each {{ mgp-name }} cluster you created.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.List](../api-ref/grpc/Cluster/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.List](../api-ref/grpc/Cluster/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -69,7 +69,7 @@ You can get detailed information about each {{ mgp-name }} cluster you created.
         ```
 
         
-        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
     1. Check the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) to make sure your request was successful.
@@ -126,7 +126,7 @@ You can get detailed information about each {{ mgp-name }} cluster you created.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \

@@ -1,6 +1,6 @@
 ---
 title: Expanding a {{ GP }} cluster
-description: How does a cluster expand procedure work in {{ mgp-full-name }}.
+description: How does a cluster expand procedure work in {{ GP }}.
 ---
 
 # Expanding a {{ GP }} cluster
@@ -59,7 +59,7 @@ This is because the [gpexpand]({{ gp.docs.broadcom }}/6/greenplum-database/utili
 
 You cannot shorten the preparation stage, but you can influence the duration of the data redistribution stage. To do this, before you run the procedure, [configure](../operations/cluster-expand.md) the [settings](#settings) that control the cluster's behavior at this stage. By combining settings, you can find the right balance between the speed of data redistribution and the speed of processing user requests.
 
-As the data redistribution stage can potentially take a long time, there are tools for {{ mgp-name }} clusters to [monitor](../operations/cluster-expand.md#redistribute-monitoring) the data redistribution process. Use these tools while cluster expansion is ongoing to get more accurate information about its progress and be able to estimate its completion time.
+As the data redistribution stage can potentially take a long time, there are tools for {{ GP }} clusters to [monitor](../operations/cluster-expand.md#redistribute-monitoring) the data redistribution process. Use these tools while cluster expansion is ongoing to get more accurate information about its progress and be able to estimate its completion time.
 
 ## Settings affecting data redistribution process {#redistribution}
 

@@ -1,8 +1,8 @@
 # Connecting to a database
 
-Because the {{ GP }} DBMS is based on {{ PG }}, the same tools are used to connect to both DBMSs.
+Since {{ GP }} is based on {{ PG }}, the same tools are used for connecting to both.
 
-You can connect to a {{ mgp-short-name }} cluster only via the [primary master host](../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](cluster-list.md#get-hosts).
+You can only connect to a {{ GP }} cluster through the [primary master host](../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](cluster-list.md#get-hosts).
 
 You can connect to a cluster:
 
@@ -11,11 +11,11 @@ You can connect to a cluster:
 
 ## Configuring security groups {#configuring-security-groups}
 
-You can assign one or more security groups to a {{ mgp-name }} cluster. To connect to a cluster, security groups must include rules allowing traffic on {{ port-mgp }} port from certain IP addresses or other security groups.
+You can assign one or more security groups to a {{ GP }} cluster. To connect to a cluster, security groups must include rules allowing traffic on port {{ port-mgp }} from certain IP addresses or other security groups.
 
 {% note info %}
 
-A security group assigned to a cluster controls traffic between the cluster and other cloud or external resources. You do not need to configure interaction between cluster hosts as it is controlled by a separate system security group.
+A security group assigned to a cluster controls traffic between the cluster and other cloud or external resources. You do not need to configure interaction between cluster hosts, as it is controlled by a separate system security group.
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ Rule settings depend on the connection method you select:
 
             This rule enables {{ mgp-name }} to use external data sources, e.g., PXF or GPFDIST.
 
-    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+    1. [Configure the VM security group](../../vpc/operations/security-group-add-rule.md) to allow connections to the VM as well as traffic between the VM and the cluster hosts.
 
         * For incoming traffic:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
@@ -55,7 +55,7 @@ Rule settings depend on the connection method you select:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Range of addresses to connect from.
 
-            This rule allows you to connect to a VM over SSH.
+            This rule allows VM connections over SSH.
 
         * For outgoing traffic:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
@@ -81,15 +81,15 @@ To use an SSL connection, get a certificate:
 
 To connect to a master host, you need its [FQDN](../concepts/network.md#hostname). You can use the FQDN of a particular host in the cluster or a [special FQDN](#fqdn-master) always pointing to the primary master host.
 
-Host FQDN example:
+Here is a host FQDN example:
 
 ```text
 {{ host-name }}.{{ dns-zone }}
 ```
 
-### Getting host FQDN {#get-fqdn}
+### Getting a host FQDN {#get-fqdn}
 
-You can obtain the {{ GP }} host FQDN by doing one of the following:
+There are several ways to get a {{ GP }} host FQDN:
 
 * Look up the FQDN in the management console:
 
@@ -97,13 +97,13 @@ You can obtain the {{ GP }} host FQDN by doing one of the following:
     1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, navigate to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
 * [Request a list of cluster hosts](cluster-list.md#get-hosts) using the CLI or API.
 
 ### Special primary master FQDN {#fqdn-master}
 
-If you do not want to manually connect to another master host when the current one becomes unavailable, use a special FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format. It always points to the primary master host in the cluster. Connection to this FQDN is permitted and both read and write operations are allowed.
+If you do not want to manually connect to another master host when the current one becomes unavailable, use a special FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format. It always points to the primary master host in the cluster. Connection to this FQDN is permitted, with both read and write operations allowed.
 
 A special FQDN may temporarily point to an unavailable master host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
 
@@ -138,7 +138,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
 
             1. Configure the connection as follows:
 
-                * **User**, **Password**: DB user's name and password.
+                * **User**, **Password**: DB user name and password.
                 * **URL**: Connection string. Use the [special primary master FQDN](#fqdn-master):
 
                     ```http
@@ -147,9 +147,9 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
 
             1. Click **Download** to download the connection driver.
         1. On the **SSH/SSL** tab:
-            1. Enable the **Use SSL** setting.
+            1. Enable **Use SSL**.
             1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-    1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+    1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
     1. Click **OK** to save the data source.
 
 - DBeaver {#dbeaver}
@@ -158,15 +158,15 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
         1. In the **Database** menu, select **New connection**.
         1. Select **{{ GP }}** from the DB list.
         1. Click **Next**.
-        1. Specify the connection parameters on the **Main** tab:
+        1. Specify the connection settings on the **Main** tab:
             * **Host**: [Special FQDN of the primary master](#fqdn-master), `c-<cluster_ID>.rw.{{ dns-zone }}`.
             * **Port**: `{{ port-mgp }}`.
             * **Database**: DB to connect to.
-            * Under **Authentication**, specify the DB user's name and password.
+            * Under **Authentication**, specify the DB user name and password.
         1. On the **SSL** tab:
             1. Enable **Use SSL**.
             1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
-    1. Click **Test Connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+    1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
     1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
@@ -180,8 +180,8 @@ You can only use {{ pgadmin }} to connect to public cluster hosts [using an SSL 
 Create a new server connection:
 
 1. Select **Object** → **Register** → **Server...**
-1. On the **General** tab, in the **Name** field, specify the name for the cluster. This name will be shown in the {{ pgadmin }} interface. You can set any name.
-1. In the **Connection** tab, specify the connection parameters:
+1. On the **General** tab, in the **Name** field, specify the cluster name to be shown in the {{ pgadmin }} interface. You can set any name.
+1. In the **Connection** tab, specify the connection settings:
 
     * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
     * **Port**: `{{ port-mgp }}`.
@@ -198,17 +198,17 @@ Create a new server connection:
 
 As a result, the cluster appears in the server list in the navigation menu.
 
-To monitor the cluster status, use [{{ monitoring-full-name }}](monitoring.md) instead of the **Dashboard** tab in {{ pgadmin }} which might generate an error:
+To monitor the cluster status, use [{{ monitoring-full-name }}](monitoring.md) rather than the **Dashboard** tab in {{ pgadmin }}, since the latter might generate an error:
 
 ```text
 column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait_event AS wait_event, ^
 ```
 
-This error does not occur in other tabs in {{ pgadmin }}.
+This error does not occur in other {{ pgadmin }} tabs.
 
 ## Before you connect from a Docker container {#connection-docker}
 
-To connect to a {{ mgp-name }} cluster from a Docker container, add the following lines to the Dockerfile:
+To connect to a {{ GP }} cluster from a Docker container, add the following lines to the Dockerfile:
 
 {% list tabs group=connection %}
 
@@ -221,7 +221,7 @@ To connect to a {{ mgp-name }} cluster from a Docker container, add the followin
     ```
 
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     ```bash
     RUN apt-get update && \
@@ -238,14 +238,14 @@ To connect to a {{ mgp-name }} cluster from a Docker container, add the followin
 
 {% include [conn-strings-environment](../../_includes/mdb/mgp/conn-strings-env.md) %}
 
-When creating a {{ GP }} cluster, the user database is not created. To test the connection, use the `postgres` service database.
+Creating a {{ GP }} cluster does not entail creating a user database. To test the connection, use the `postgres` service database.
 
-To connect to a publicly accessible cluster, prepare an [SSL certificate](#get-ssl-cert). The examples assume that the `root.crt` SSL certificate is located in the following directory:
+To connect to a publicly accessible cluster, prepare an [SSL certificate](#get-ssl-cert). In these examples, the `root.crt` SSL certificate is located in the following directory:
 
 * `/home/<home_directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
 
-You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](#fqdn-master). To learn how to get host FQDN, see [this guide](#fqdn).
+You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](#fqdn-master). To learn how to get a host's FQDN, see [this guide](#fqdn).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

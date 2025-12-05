@@ -1,7 +1,7 @@
 # Exporting {{ GP }} data to a cold storage
 
 
-In a {{ mgp-full-name }} cluster, you can enable [hybrid storage](../../../managed-greenplum/concepts/hybrid-storage.md) for [append-optimized (AO) and append-optimized column-oriented (AOCO) tables](../../../managed-greenplum/concepts/tables.md). With this done, the [{{ YZ }} extension](../../../managed-greenplum/operations/extensions/yezzey.md) can transfer data in such tables from a cluster storage to a cold storage.
+In a {{ GP }} cluster, you can enable [hybrid storage](../../../managed-greenplum/concepts/hybrid-storage.md) for [append-optimized (AO) and append-optimized column-oriented (AOCO) tables](../../../managed-greenplum/concepts/tables.md). With this done, the [{{ YZ }} extension](../../../managed-greenplum/operations/extensions/yezzey.md) can transfer data in such tables from a cluster storage to a cold storage.
 
 Cold storage is a convenient option if you need to store your data for a long time without using it much. This will make data storage [less costly](../../../managed-greenplum/pricing/index.md#rules-storage).
 
@@ -25,15 +25,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mgp-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ GP }} pricing](../../../managed-greenplum/pricing/index.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ GP }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ GP }} pricing](../../../managed-greenplum/pricing/index.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-create.md). When creating a cluster, make sure to enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
+1. [Create a {{ GP }} cluster](../../../managed-greenplum/operations/cluster-create.md). When creating a cluster, make sure to enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
    {% note info %}
 

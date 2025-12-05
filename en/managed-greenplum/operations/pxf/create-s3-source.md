@@ -2,7 +2,7 @@
 
 In {{ mgp-name }}, you can use [{{ objstorage-full-name }}](../../../storage/index.yaml) or other third-party S3 services as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the S3 connection type.
 
-To get started, [create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key). You will need to specify its data in the source parameters.
+To get started, [create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key). You will need to specify its data in the source properties.
 
 ## Create an external data source
 
@@ -13,7 +13,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
     To create an external S3 data source:
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Open the page of the {{ mgp-name }} cluster you need.
+    1. Open the page of the {{ GP }} cluster in question.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
     1. Select the `{{ ui-key.yacloud.greenplum.cluster.pxf.value_s3 }}` connection type.
@@ -29,7 +29,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
     To create an external S3 data source:
 
-    1. View the description of the CLI command to create a data source:
+    1. View the description of the CLI command for creating a data source:
 
         ```bash
         {{ yc-mdb-gp }} pxf-datasource create s3 --help
@@ -48,12 +48,12 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
         Where:
 
-        * `cluster-id`: Cluster ID. You can this value by querying the [list of clusters in the folder](../cluster-list.md#list-cluster).
+        * `cluster-id`: Cluster ID. You can get it with the [list of clusters in the folder](../cluster-list.md#list-cluster).
         * `access-key`, `secret-key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
-        * `endpoint`: S3 storage address. {{ objstorage-name }} is set to `{{ s3-storage-host }}`. This is a default value.
+        * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value.
         * `fast-upload`: Fast upload of large files to S3 storage. The possible values are:
-            * `true` (default): PXF generates files on the disk before sending them to S3 storage.
-            * `false`: PXF generates files in RAM (if RAM capacity is reached, it writes them to disk).
+            * `true`: PXF generates files on the disk before sending them to S3 storage. This is the default value.
+            * `false`: PXF generates files in RAM (if out of RAM, it writes them to disk).
 
 - REST API {#api}
 
@@ -89,10 +89,10 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
             * `accessKey`, `secretKey`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
             * `fastUpload`: Fast upload of large files to S3 storage. The possible values are:
-                * `true` (default): PXF generates files on the disk before sending them to S3 storage.
-                * `false`: PXF generates files in RAM (if RAM capacity is reached, it writes them to disk).
+                * `true`: PXF generates files on the disk before sending them to S3 storage. This is the default value.
+                * `false`: PXF generates files in RAM (if out of RAM, it writes them to disk).
 
-            * `endpoint`: S3 storage address. {{ objstorage-name }} is set to `{{ s3-storage-host }}`. This is a default value.
+            * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value.
 
         You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
@@ -138,10 +138,10 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
             * `access_key`, `secret_key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
             * `fast_upload`: Fast upload of large files to S3 storage. The possible values are:
-                * `true` (default): PXF generates files on the disk before sending them to S3 storage.
-                * `false`: PXF generates files in RAM (if RAM capacity is reached, it writes them to disk).
+                * `true`: PXF generates files on the disk before sending them to S3 storage. This is the default value.
+                * `false`: PXF generates files in RAM (if out of RAM, it writes them to disk).
 
-            * `endpoint`: S3 storage address. {{ objstorage-name }} is set to `{{ s3-storage-host }}`. This is a default value.
+            * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value.
 
         You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 

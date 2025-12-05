@@ -6,10 +6,6 @@ description: In this guide, you will learn how to enable and disable services to
 # Enabling and disabling a service
 
 
-
-{% include notitle [preview](../../../_includes/note-preview.md) %}
-
-
 In {{ iam-full-name }}, you can enable and disable [service access](../../concepts/service-control.md) to user resources in a specific cloud.
 
 {% include [service-control-access](../../../_includes/iam/service-control-access.md) %}

@@ -4,7 +4,7 @@
 {% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
 
 
-You can migrate data from {{ objstorage-name }} to the {{ mgp-name }} table using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -18,10 +18,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ objstorage-name }} bucket fee covering data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mgp-name }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
-* Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Per-transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ objstorage-name }} bucket fee: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ GP }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* Fee for public IP address assignment to cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee per transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -33,7 +33,7 @@ The support cost for this solution includes:
 
     - Manually {#manual}
 
-        1. [Create a target {{ mgp-name }} cluster](../../managed-greenplum/operations/cluster-create.md) in any suitable configuration with publicly available hosts and the following settings:
+        1. [Create a target {{ GP }} cluster](../../managed-greenplum/operations/cluster-create.md) in any suitable configuration with publicly available hosts and the following settings:
 
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
@@ -67,7 +67,7 @@ The support cost for this solution includes:
             * Service account for bucket operations, e.g., creation and access.
             * {{ lockbox-name }} secret for the service account static key required to configure the source endpoint.
             * Source {{ objstorage-name }} bucket.
-            * {{ mgp-name }} target cluster.
+            * {{ GP }} target cluster in {{ mgp-name }}.
             * Transfer.
 
         1. In the `object-storage-to-greenplum.tf` file, specify the values of the following variables:
@@ -75,7 +75,7 @@ The support cost for this solution includes:
             * `folder_id`: Cloud folder ID, same as in the provider settings.
             * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
             * `gp_version`: {{ GP }} version.
-            * `gp_password`: {{ GP }} user password.
+            * `gp_password`: {{ GP }} password.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -83,7 +83,7 @@ The support cost for this solution includes:
             terraform validate
             ```
 
-            {{ TF }} will display any configuration errors detected in your files.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -120,7 +120,7 @@ The support cost for this solution includes:
 
 ## Create a database in the target cluster {#prepare-data}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to the auxiliary `postgres` database in the {{ mgp-name }} target cluster as `user1`.
+1. [Connect](../../managed-greenplum/operations/connect.md) to the auxiliary `postgres` database in the {{ GP }} target cluster as `user1`.
 
 1. Create a database named `db1`:
 
@@ -166,7 +166,7 @@ The support cost for this solution includes:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
 
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -184,7 +184,7 @@ The support cost for this solution includes:
             terraform validate
             ```
 
-            {{ TF }} will display any configuration errors detected in your files.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -198,11 +198,11 @@ The support cost for this solution includes:
 
 To verify that the transfer is operational, test the copy and replication processes.
 
-### Test the copy process {#verify-copy}
+### Test the copy operation {#verify-copy}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to `db1` in your target {{ mgp-name }} cluster.
+1. [Connect](../../managed-greenplum/operations/connect.md) to `db1` in your target {{ GP }} cluster.
 
-1. Run this request:
+1. Run this query:
 
     ```sql
     SELECT * FROM public.table1;
@@ -226,11 +226,11 @@ To verify that the transfer is operational, test the copy and replication proces
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `demo_data2.csv` file to the {{ objstorage-name }} bucket.
 
-1. Make sure the data from `demo_data2.csv` has been added to the target database:
+1. Verify that the data from `demo_data2.csv` has been loaded into the target database:
 
-    1. [Connect](../../managed-greenplum/operations/connect.md) to `db1` in the {{ mgp-name }} target cluster.
+    1. [Connect](../../managed-greenplum/operations/connect.md) to `db1` in the {{ GP }} target cluster.
 
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         SELECT * FROM public.table1;
@@ -254,7 +254,7 @@ To verify that the transfer is operational, test the copy and replication proces
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 * [Transfer](../../data-transfer/operations/transfer.md#delete)
 * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete)
@@ -266,8 +266,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     - Manually {#manual}
 
-        * [{{ mgp-name }} cluster](../../managed-greenplum/operations/cluster-delete.md).
-        * [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
+        * [{{ GP }} cluster](../../managed-greenplum/operations/cluster-delete.md)
+        * [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md)
 
     - Using {{ TF }} {#tf}
 

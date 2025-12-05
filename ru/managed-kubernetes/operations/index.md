@@ -21,6 +21,7 @@ description: Из статьи вы узнаете, как работать с �
 ## Установка приложений из {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/bitrix.md)
 * [{#T}](applications/argo-cd.md)
 * [{#T}](applications/chaos-mesh.md)
 * [{#T}](applications/cert-manager-cloud-dns.md)

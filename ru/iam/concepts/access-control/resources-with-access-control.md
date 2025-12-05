@@ -12,21 +12,21 @@ description: Из статьи вы узнаете, на какие ресурс
 
 ## Наследование прав доступа {#permission-inheritance}
 
-Роли [назначаются](../../operations/roles/grant.md) на [ресурсы](../../../resource-manager/concepts/resources-hierarchy.md) {{ yandex-cloud }}, причем для ресурсов большинства [сервисов](../../../overview/concepts/services.md) {{ yandex-cloud }} действует стандартный механизм [наследования](../../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) прав доступа:
+Роли [назначаются](../../operations/roles/grant.md) на [ресурсы](../../../resource-manager/concepts/resources-hierarchy.md) {{ yandex-cloud }}. Для ресурсов большинства [сервисов](../../../overview/concepts/services.md) {{ yandex-cloud }} действует стандартный механизм [наследования](../../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) прав доступа:
 
 {% include [basic-role-inheritance-chain](../../../_includes/basic-role-inheritance-chain.md) %}
 
 ### Исключения из правил наследования прав доступа {#inheritance-exceptions}
 
-Несколько сервисов {{ yandex-cloud }} не подчиняются стандартному механизму наследования ролей — для этих сервисов роли должны быть назначены пользователям отдельно:
+Несколько сервисов {{ yandex-cloud }} не подчиняются стандартному механизму наследования ролей. Для этих сервисов роли должны быть назначены пользователям отдельно:
 
-* [{{ billing-name }}](../../../billing/security/index.md)
-* [{{ tracker-full-name }}]({{ link-tracker-cloudless }}access)
-* [{{ datalens-full-name }}](../../../datalens/security/index.md)
-* [{{ wiki-full-name }}]({{ link-wiki-cloudless }}/page-management/access-setup)
-* [{{ forms-full-name }}]({{ link-forms-cloudless }}/access)
-* [{{ ml-platform-full-name }}](../../../datasphere/security/index.md)
-* [{{ speechsense-full-name }}](../../../speechsense/security/index.md)
+* [{{ billing-name }}](../../../billing/security/index.md);
+* [{{ tracker-full-name }}]({{ link-tracker-cloudless }}access);
+* [{{ datalens-full-name }}](../../../datalens/security/index.md);
+* [{{ wiki-full-name }}]({{ link-wiki-cloudless }}/page-management/access-setup);
+* [{{ forms-full-name }}]({{ link-forms-cloudless }}/access);
+* [{{ ml-platform-full-name }}](../../../datasphere/security/index.md);
+* [{{ speechsense-full-name }}](../../../speechsense/security/index.md).
 
 ## Гранулярное назначение ролей {#granular-assignment}
 

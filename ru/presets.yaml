@@ -1205,35 +1205,35 @@ default:
         3_month|string: "409\_450,00\_₸"
         6_month|string: "400\_830,00\_₸"
       ba_i501_h_25g:
-        1_day|string: "1\_106\_500,00\_₸"
-        1_month|string: "1\_073\_305,00\_₸"
-        12_month|string: "940\_525,00\_₸"
-        3_month|string: "1\_051\_175,00\_₸"
-        6_month|string: "1\_029\_045,00\_₸"
+        1_day|string: "700\_500,00\_₸"
+        1_month|string: "679\_485,00\_₸"
+        12_month|string: "595\_425,00\_₸"
+        3_month|string: "665\_475,00\_₸"
+        6_month|string: "651\_465,00\_₸"
       ba_i506_nh_25g:
-        1_day|string: "1\_205\_500,00\_₸"
-        1_month|string: "1\_169\_335,00\_₸"
-        12_month|string: "1\_024\_675,00\_₸"
-        3_month|string: "1\_145\_225,00\_₸"
-        6_month|string: "1\_121\_115,00\_₸"
+        1_day|string: "755\_500,00\_₸"
+        1_month|string: "732\_835,00\_₸"
+        12_month|string: "642\_175,00\_₸"
+        3_month|string: "717\_725,00\_₸"
+        6_month|string: "702\_615,00\_₸"
       ba_i507_nh_2x25g:
-        1_day|string: "1\_218\_000,00\_₸"
-        1_month|string: "1\_181\_460,00\_₸"
-        12_month|string: "1\_035\_300,00\_₸"
-        3_month|string: "1\_157\_100,00\_₸"
-        6_month|string: "1\_132\_740,00\_₸"
+        1_day|string: "790\_500,00\_₸"
+        1_month|string: "766\_785,00\_₸"
+        12_month|string: "671\_925,00\_₸"
+        3_month|string: "750\_975,00\_₸"
+        6_month|string: "735\_165,00\_₸"
       ba_i511_nh_25g:
-        1_day|string: "1\_499\_500,00\_₸"
-        1_month|string: "1\_454\_515,00\_₸"
-        12_month|string: "1\_274\_575,00\_₸"
-        3_month|string: "1\_424\_525,00\_₸"
-        6_month|string: "1\_394\_535,00\_₸"
+        1_day|string: "961\_000,00\_₸"
+        1_month|string: "932\_170,00\_₸"
+        12_month|string: "816\_850,00\_₸"
+        3_month|string: "912\_950,00\_₸"
+        6_month|string: "893\_730,00\_₸"
       ba_i512_nh_2x25g:
-        1_day|string: "1\_514\_000,00\_₸"
-        1_month|string: "1\_468\_580,00\_₸"
-        12_month|string: "1\_286\_900,00\_₸"
-        3_month|string: "1\_438\_300,00\_₸"
-        6_month|string: "1\_408\_020,00\_₸"
+        1_day|string: "986\_000,00\_₸"
+        1_month|string: "956\_420,00\_₸"
+        12_month|string: "838\_100,00\_₸"
+        3_month|string: "936\_700,00\_₸"
+        6_month|string: "916\_980,00\_₸"
       ba-a401-2n2h-25g:
         1_day|string: "617\_500,00\_₸"
         1_month|string: "598\_975,00\_₸"
@@ -1259,11 +1259,11 @@ default:
         3_month|string: "1\_267\_300,00\_₸"
         6_month|string: "1\_240\_620,00\_₸"
       ba-a702-6n-4h-2x25g:
-        1_day|string: "1\_801\_500,00\_₸"
-        1_month|string: "1\_747\_455,00\_₸"
-        12_month|string: "1\_531\_275,00\_₸"
-        3_month|string: "1\_711\_425,00\_₸"
-        6_month|string: "1\_675\_395,00\_₸"
+        1_day|string: "1\_964\_500,00\_₸"
+        1_month|string: "1\_905\_565,00\_₸"
+        12_month|string: "1\_669\_825,00\_₸"
+        3_month|string: "1\_866\_275,00\_₸"
+        6_month|string: "1\_826\_985,00\_₸"
       ba-a704-4n-2x25g:
         1_day|string: "1\_167\_000,00\_₸"
         1_month|string: "1\_131\_990,00\_₸"
@@ -1307,11 +1307,11 @@ default:
         3_month|string: "1\_243\_811,25\_₸"
         6_month|string: "1\_217\_625,75\_₸"
       ba-i523-nh-2x25g:
-        1_day|string: "2\_380\_500,00\_₸"
-        1_month|string: "2\_309\_085,00\_₸"
-        12_month|string: "2\_023\_425,00\_₸"
-        3_month|string: "2\_261\_475,00\_₸"
-        6_month|string: "2\_213\_865,00\_₸"
+        1_day|string: "1\_370\_500,00\_₸"
+        1_month|string: "1\_329\_385,00\_₸"
+        12_month|string: "1\_164\_925,00\_₸"
+        3_month|string: "1\_301\_975,00\_₸"
+        6_month|string: "1\_274\_565,00\_₸"
       bf25_i201_h:
         1_day|string: "74\_490,00\_₸"
         1_month|string: "74\_490,00\_₸"
@@ -1343,11 +1343,11 @@ default:
         3_month|string: "436\_050,00\_₸"
         6_month|string: "426\_870,00\_₸"
       ha-a701-6n-4h-2x25g:
-        1_day|string: "1\_792\_500,00\_₸"
-        1_month|string: "1\_738\_725,00\_₸"
-        12_month|string: "1\_523\_625,00\_₸"
-        3_month|string: "1\_702\_875,00\_₸"
-        6_month|string: "1\_667\_025,00\_₸"
+        1_day|string: "1\_901\_000,00\_₸"
+        1_month|string: "1\_843\_970,00\_₸"
+        12_month|string: "1\_615\_850,00\_₸"
+        3_month|string: "1\_805\_950,00\_₸"
+        6_month|string: "1\_767\_930,00\_₸"
       ha-a703-4n-2x25g:
         1_day|string: "1\_132\_500,00\_₸"
         1_month|string: "1\_098\_525,00\_₸"
@@ -3590,35 +3590,35 @@ default:
         3_month|string: "81\_890,00\_₽"
         6_month|string: "80\_166,00\_₽"
       ba_i501_h_25g:
-        1_day|string: "221\_300,00\_₽"
-        1_month|string: "214\_661,00\_₽"
-        12_month|string: "188\_105,00\_₽"
-        3_month|string: "210\_235,00\_₽"
-        6_month|string: "205\_809,00\_₽"
+        1_day|string: "140\_100,00\_₽"
+        1_month|string: "135\_897,00\_₽"
+        12_month|string: "119\_085,00\_₽"
+        3_month|string: "133\_095,00\_₽"
+        6_month|string: "130\_293,00\_₽"
       ba_i506_nh_25g:
-        1_day|string: "241\_100,00\_₽"
-        1_month|string: "233\_867,00\_₽"
-        12_month|string: "204\_935,00\_₽"
-        3_month|string: "229\_045,00\_₽"
-        6_month|string: "224\_223,00\_₽"
+        1_day|string: "151\_100,00\_₽"
+        1_month|string: "146\_567,00\_₽"
+        12_month|string: "128\_435,00\_₽"
+        3_month|string: "143\_545,00\_₽"
+        6_month|string: "140\_523,00\_₽"
       ba_i507_nh_2x25g:
-        1_day|string: "243\_600,00\_₽"
-        1_month|string: "236\_292,00\_₽"
-        12_month|string: "207\_060,00\_₽"
-        3_month|string: "231\_420,00\_₽"
-        6_month|string: "226\_548,00\_₽"
+        1_day|string: "158\_100,00\_₽"
+        1_month|string: "153\_357,00\_₽"
+        12_month|string: "134\_385,00\_₽"
+        3_month|string: "150\_195,00\_₽"
+        6_month|string: "147\_033,00\_₽"
       ba_i511_nh_25g:
-        1_day|string: "299\_900,00\_₽"
-        1_month|string: "290\_903,00\_₽"
-        12_month|string: "254\_915,00\_₽"
-        3_month|string: "284\_905,00\_₽"
-        6_month|string: "278\_907,00\_₽"
+        1_day|string: "192\_200,00\_₽"
+        1_month|string: "186\_434,00\_₽"
+        12_month|string: "163\_370,00\_₽"
+        3_month|string: "182\_590,00\_₽"
+        6_month|string: "178\_746,00\_₽"
       ba_i512_nh_2x25g:
-        1_day|string: "302\_800,00\_₽"
-        1_month|string: "293\_716,00\_₽"
-        12_month|string: "257\_380,00\_₽"
-        3_month|string: "287\_660,00\_₽"
-        6_month|string: "281\_604,00\_₽"
+        1_day|string: "197\_200,00\_₽"
+        1_month|string: "191\_284,00\_₽"
+        12_month|string: "167\_620,00\_₽"
+        3_month|string: "187\_340,00\_₽"
+        6_month|string: "183\_396,00\_₽"
       ba-a401-2n2h-25g:
         1_day|string: "123\_500,00\_₽"
         1_month|string: "119\_795,00\_₽"
@@ -3644,11 +3644,11 @@ default:
         3_month|string: "253\_460,00\_₽"
         6_month|string: "248\_124,00\_₽"
       ba-a702-6n-4h-2x25g:
-        1_day|string: "360\_300,00\_₽"
-        1_month|string: "349\_491,00\_₽"
-        12_month|string: "306\_255,00\_₽"
-        3_month|string: "342\_285,00\_₽"
-        6_month|string: "335\_079,00\_₽"
+        1_day|string: "392\_900,00\_₽"
+        1_month|string: "381\_113,00\_₽"
+        12_month|string: "333\_965,00\_₽"
+        3_month|string: "373\_255,00\_₽"
+        6_month|string: "365\_397,00\_₽"
       ba-a704-4n-2x25g:
         1_day|string: "233\_400,00\_₽"
         1_month|string: "226\_398,00\_₽"
@@ -3692,11 +3692,11 @@ default:
         3_month|string: "248\_762,25\_₽"
         6_month|string: "243\_525,15\_₽"
       ba-i523-nh-2x25g:
-        1_day|string: "476\_100,00\_₽"
-        1_month|string: "461\_817,00\_₽"
-        12_month|string: "404\_685,00\_₽"
-        3_month|string: "452\_295,00\_₽"
-        6_month|string: "442\_773,00\_₽"
+        1_day|string: "274\_100,00\_₽"
+        1_month|string: "265\_877,00\_₽"
+        12_month|string: "232\_985,00\_₽"
+        3_month|string: "260\_395,00\_₽"
+        6_month|string: "254\_913,00\_₽"
       bf25_i201_h:
         1_day|string: "14\_898,00\_₽"
         1_month|string: "14\_898,00\_₽"
@@ -3728,11 +3728,11 @@ default:
         3_month|string: "87\_210,00\_₽"
         6_month|string: "85\_374,00\_₽"
       ha-a701-6n-4h-2x25g:
-        1_day|string: "358\_500,00\_₽"
-        1_month|string: "347\_745,00\_₽"
-        12_month|string: "304\_725,00\_₽"
-        3_month|string: "340\_575,00\_₽"
-        6_month|string: "333\_405,00\_₽"
+        1_day|string: "380\_200,00\_₽"
+        1_month|string: "368\_794,00\_₽"
+        12_month|string: "323\_170,00\_₽"
+        3_month|string: "361\_190,00\_₽"
+        6_month|string: "353\_586,00\_₽"
       ha-a703-4n-2x25g:
         1_day|string: "226\_500,00\_₽"
         1_month|string: "219\_705,00\_₽"
@@ -5969,35 +5969,35 @@ default:
         3_month|string: "682,416394\_$"
         6_month|string: "668,049733\_$"
       ba_i501_h_25g:
-        1_day|string: "1\_844,165929\_$"
-        1_month|string: "1\_788,840951\_$"
-        12_month|string: "1\_567,541040\_$"
-        3_month|string: "1\_751,957633\_$"
-        6_month|string: "1\_715,074314\_$"
+        1_day|string: "1\_167,499533\_$"
+        1_month|string: "1\_132,474547\_$"
+        12_month|string: "992,374603\_$"
+        3_month|string: "1\_109,124556\_$"
+        6_month|string: "1\_085,774566\_$"
       ba_i506_nh_25g:
-        1_day|string: "2\_009,165863\_$"
-        1_month|string: "1\_948,890887\_$"
-        12_month|string: "1\_707,790984\_$"
-        3_month|string: "1\_908,707570\_$"
-        6_month|string: "1\_868,524253\_$"
+        1_day|string: "1\_259,166163\_$"
+        1_month|string: "1\_221,391178\_$"
+        12_month|string: "1\_070,291239\_$"
+        3_month|string: "1\_196,207855\_$"
+        6_month|string: "1\_171,024532\_$"
       ba_i507_nh_2x25g:
-        1_day|string: "2\_029,999188\_$"
-        1_month|string: "1\_969,099212\_$"
-        12_month|string: "1\_725,499310\_$"
-        3_month|string: "1\_928,499229\_$"
-        6_month|string: "1\_887,899245\_$"
+        1_day|string: "1\_317,499473\_$"
+        1_month|string: "1\_277,974489\_$"
+        12_month|string: "1\_119,874552\_$"
+        3_month|string: "1\_251,624499\_$"
+        6_month|string: "1\_225,274510\_$"
       ba_i511_nh_25g:
-        1_day|string: "2\_499,165667\_$"
-        1_month|string: "2\_424,190697\_$"
-        12_month|string: "2\_124,290817\_$"
-        3_month|string: "2\_374,207384\_$"
-        6_month|string: "2\_324,224070\_$"
+        1_day|string: "1\_601,666026\_$"
+        1_month|string: "1\_553,616045\_$"
+        12_month|string: "1\_361,416122\_$"
+        3_month|string: "1\_521,582725\_$"
+        6_month|string: "1\_489,549404\_$"
       ba_i512_nh_2x25g:
-        1_day|string: "2\_523,332324\_$"
-        1_month|string: "2\_447,632354\_$"
-        12_month|string: "2\_144,832475\_$"
-        3_month|string: "2\_397,165708\_$"
-        6_month|string: "2\_346,699061\_$"
+        1_day|string: "1\_643,332676\_$"
+        1_month|string: "1\_594,032696\_$"
+        12_month|string: "1\_396,832775\_$"
+        3_month|string: "1\_561,166042\_$"
+        6_month|string: "1\_528,299389\_$"
       ba-a401-2n2h-25g:
         1_day|string: "1\_029,166255\_$"
         1_month|string: "998,291267\_$"
@@ -6023,11 +6023,11 @@ default:
         3_month|string: "2\_112,165822\_$"
         6_month|string: "2\_067,699173\_$"
       ba-a702-6n-4h-2x25g:
-        1_day|string: "3\_002,498799\_$"
-        1_month|string: "2\_912,423835\_$"
-        12_month|string: "2\_552,123979\_$"
-        3_month|string: "2\_852,373859\_$"
-        6_month|string: "2\_792,323883\_$"
+        1_day|string: "3\_274,165357\_$"
+        1_month|string: "3\_175,940396\_$"
+        12_month|string: "2\_783,040553\_$"
+        3_month|string: "3\_110,457089\_$"
+        6_month|string: "3\_044,973782\_$"
       ba-a704-4n-2x25g:
         1_day|string: "1\_944,999222\_$"
         1_month|string: "1\_886,649245\_$"
@@ -6071,11 +6071,11 @@ default:
         3_month|string: "2\_073,017921\_$"
         6_month|string: "2\_029,375438\_$"
       ba-i523-nh-2x25g:
-        1_day|string: "3\_967,498413\_$"
-        1_month|string: "3\_848,473461\_$"
-        12_month|string: "3\_372,373651\_$"
-        3_month|string: "3\_769,123492\_$"
-        6_month|string: "3\_689,773524\_$"
+        1_day|string: "2\_284,165753\_$"
+        1_month|string: "2\_215,640780\_$"
+        12_month|string: "1\_941,540890\_$"
+        3_month|string: "2\_169,957465\_$"
+        6_month|string: "2\_124,274150\_$"
       bf25_i201_h:
         1_day|string: "124,149950\_$"
         1_month|string: "124,149950\_$"
@@ -6107,11 +6107,11 @@ default:
         3_month|string: "726,749709\_$"
         6_month|string: "711,449715\_$"
       ha-a701-6n-4h-2x25g:
-        1_day|string: "2\_987,498805\_$"
-        1_month|string: "2\_897,873841\_$"
-        12_month|string: "2\_539,373984\_$"
-        3_month|string: "2\_838,123865\_$"
-        6_month|string: "2\_778,373889\_$"
+        1_day|string: "3\_168,332066\_$"
+        1_month|string: "3\_073,282104\_$"
+        12_month|string: "2\_693,082256\_$"
+        3_month|string: "3\_009,915463\_$"
+        6_month|string: "2\_946,548821\_$"
       ha-a703-4n-2x25g:
         1_day|string: "1\_887,499245\_$"
         1_month|string: "1\_830,874268\_$"
@@ -8485,6 +8485,10 @@ default:
             popup-create-cloud_button_add: Создать
             popup-create-cloud_label_organization: Организация
           label_acl: Права доступа
+          quotas:
+            label_quota-name-iam:
+              serviceAccounts:
+                count: Количество сервисных аккаунтов
     yacloud_components:
       acl:
         action:
@@ -10091,6 +10095,8 @@ default:
         title_clickhouse: ClickHouse
         title_keeper: Keeper
         title_zookeeper: ZooKeeper
+      cloud-apps:
+        label_marketplace: Магазин приложений
       cloud-registry:
         action_registry-create: Создать реестр
         title_registries: Реестры
@@ -11134,6 +11140,8 @@ default:
                 size: Общий объём HDD-дисков
               instanceCores:
                 count: Количество vCPU виртуальных машин
+              instanceMemory:
+                size: Общий объём RAM виртуальных машин
               instances:
                 count: Количество виртуальных машин
               ssdDisks:
@@ -11147,6 +11155,17 @@ default:
                 size: Объём виртуальной памяти
               ssd:
                 size: Объём SSD-хранилищ
+            label_quota-name-vpc:
+              externalStaticAddresses:
+                count: Количество статических публичных IP-адресов
+              routeTables:
+                count: Количество таблиц маршрутизации
+              securityGroups:
+                count: Количество групп безопасности
+              staticRoutes:
+                count: Количество статических маршрутов
+              subnets:
+                count: Количество подсетей
             value_status-error: Почти израсходованы
             value_status-warning: Активно используются
           switch_overview: Обзор
@@ -11172,6 +11191,7 @@ default:
             label_baremetal: BareMetal
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
+            label_cloud-apps: Cloud Apps
             label_cloud-desktop: Cloud Desktop
             label_cloud-registry: Cloud Registry
             label_cns: Cloud Notification Service
@@ -15098,6 +15118,21 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
         tag: 7.3.11-2
+    yc_bitrix-env:
+      dockerImages:
+        nginx:
+          repository:
+            name: >-
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1764089856329713384751806090650435327427957097722
+            tag: '1.28'
+        php:
+          repository:
+            name: >-
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1764089856329713384751806090650435327427957097722
+            tag: 8.2.29
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
+        tag: 1.0.5
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-
