@@ -1,9 +1,9 @@
 ---
-title: FAQ about {{ mmy-full-name }}®
-description: This page presents FAQ about {{ mmy-short-name }}®.
+title: FAQ about {{ mmy-full-name }}
+description: This page covers FAQ about {{ mmy-short-name }}.
 ---
 
-# FAQ about {{ mmy-short-name }}®
+# FAQ about {{ mmy-short-name }}
 
 
 ### General questions {#toc-general}

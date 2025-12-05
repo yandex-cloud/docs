@@ -298,10 +298,12 @@ items:
                 href: operations/upload-schema-to-subject.md
               - name: Добавление схемы в существующий субъект
                 href: operations/add-schema.md
-              - name: Удаление схемы
-                href: operations/delete-schema.md
+              - name: Просмотр схемы
+                href: operations/view-schema.md
               - name: Сравнение схем
                 href: operations/compare-schemas.md
+              - name: Удаление схемы
+                href: operations/delete-schema.md
           - name: Субъекты
             items:
               - name: Создание субъекта

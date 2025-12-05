@@ -77,7 +77,7 @@ You pay for the following:
 
   * You can only order non-replicated SSD (`network-ssd-nonreplicated`) storage for clusters with two master hosts, in increments of 93 GB.
 
-  To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
+  To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 * Space occupied by DB backups beyond the storage size specified for the cluster.
 
@@ -123,6 +123,7 @@ A CVoS discount is only available for certain resource types. For unsupported re
 
 
 
+
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
 
@@ -142,7 +143,7 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 The cost calculation varies depending on the [host configuration](../concepts/instance-types.md):
 
-* For i2 and i3 hosts (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and [the price for software-accelerated network usage](../../compute/pricing.md#software-accelerated-network).
+* For i2 and i3 hosts (`io-optimized`), the cost is made up of the price for {{ GP }} host computing resources (see the table below) and [the price for software-accelerated network usage](../../compute/pricing.md#software-accelerated-network).
 * For hosts with other configurations, you only pay for their computing resources:
 
 

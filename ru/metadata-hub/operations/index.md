@@ -43,8 +43,9 @@ description: Пошаговые инструкции по работе с {{ met
 * Схемы:
   * [{#T}](upload-schema-to-subject.md)
   * [{#T}](add-schema.md)
-  * [{#T}](delete-schema.md)
+  * [{#T}](view-schema.md)
   * [{#T}](compare-schemas.md)
+  * [{#T}](delete-schema.md)
 * Субъекты:
   * [{#T}](create-subject.md)
   * [{#T}](update-subject.md)

@@ -12,31 +12,31 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mgp-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ GP }} pricing](../../../managed-greenplum/pricing/index.md)).
+* {{ GP }} cluster fee: Use of computing resources allocated to hosts and disk space (see [{{ GP }} pricing](../../../managed-greenplum/pricing/index.md)).
 * Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: Data storage and operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)). 
+* {{ objstorage-name }} bucket fee covering data storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)). 
 * VM fee: Using its computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-create.md) with any suitable configuration.
+    1. [Create a {{ GP }} cluster](../../../managed-greenplum/operations/cluster-create.md) with any suitable configuration.
 
     
     1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
     
-    1. [Create a virtual machine on Linux](../../../compute/operations/vm-create/create-linux-vm.md) in the same cloud network as the {{ mgp-name }} cluster.
+    1. [Create a virtual machine on Linux](../../../compute/operations/vm-create/create-linux-vm.md) in the same cloud network as the {{ GP }} cluster.
 
 
     1. [Create a {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md) with restricted access. [Upload](../../../storage/operations/objects/upload.md) the `example.csv` file with a test table to it:
@@ -69,19 +69,19 @@ Set up your infrastructure:
         * Network.
         * Subnet.
         * Service account with a static access key.
-        * {{ mgp-name }} cluster.
+        * {{ GP }} cluster in {{ mgp-name }}.
         * Bucket to contain the `example.csv` file.
         * Virtual machine on [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
 
-    1. Specify the following in the `greenplum-s3-vm.tf` file:
+    1. Specify the following in `greenplum-s3-vm.tf`:
 
-        * Password for the user named `user` for access to the {{ mgp-name }} cluster.
+        * Password for the user named `user` for access to the {{ GP }} cluster.
         * Virtual machine image ID.
         * Username and path to the SSH key for virtual machine access.
         * Folder ID for the same service account as specified in the provider settings.
         * Bucket name that must be unique throughout {{ objstorage-name }}.
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
+    1. In the terminal, navigate to the directory containing the infrastructure plan.
 
     1. To verify that the config files are correct, run the command below:
 
@@ -89,7 +89,7 @@ Set up your infrastructure:
        terraform validate
        ```
 
-       If there are any errors in the configuration files, {{ TF }} will point them out.
+       {{ TF }} will show any errors found in your configuration files.
 
     1. Create the infrastructure required to follow the steps provided in this tutorial:
 
@@ -181,7 +181,7 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
 
 ## Create an external table {#create-ext-table}
 
-1. [Connect to the {{ mgp-name }} cluster](../../../managed-greenplum/operations/connect.md).
+1. [Connect to the {{ GP }} cluster](../../../managed-greenplum/operations/connect.md).
 1. Run a query to create an external table referencing the `example.csv` table in the bucket:
 
     ```sql
@@ -213,7 +213,7 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 
@@ -223,7 +223,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
     1. [Delete the VM](../../../compute/operations/vm-control/vm-delete.md).
     1. If you reserved a public static IP address for the VM, [delete it](../../../vpc/operations/address-delete.md).
     1. [Delete the bucket in {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
-    1. [Delete the {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-delete.md).
+    1. [Delete the {{ GP }} cluster](../../../managed-greenplum/operations/cluster-delete.md).
     1. [Delete the service account](../../../iam/operations/sa/delete.md).
     1. [Delete the subnet](../../../vpc/operations/subnet-delete.md).
     1. [Delete the route table](../../../vpc/operations/delete-route-table.md).

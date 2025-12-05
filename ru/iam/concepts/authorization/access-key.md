@@ -51,7 +51,7 @@ description: Из статьи вы узнаете, зачем нужен ста
 
 Пример секретного ключа: `YCVdheub7w9bImcGAnd3dZnf08FRbvjeUFvehGvc`.
 
-Чтобы ознакомиться с примером использования секретного ключа и его идентификатора в AWS-совестимом API, смотрите раздел [AWS Command Line Interface](../../../storage/tools/aws-cli.md#config-files).
+Чтобы ознакомиться с примером использования секретного ключа и его идентификатора в AWS-совместимом API, смотрите раздел [AWS Command Line Interface](../../../storage/tools/aws-cli.md#config-files).
 
 ## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
 

@@ -18,13 +18,13 @@ To restore a cluster from a backup, follow [this guide](../operations/cluster-ba
 
 ## Creating a backup {#size}
 
-The first and every second automatic backup, as well as all manually created backups are full backups of all databases. Other backups are incremental and store only the data that has changed since the previous backup to save space.
+The first and every second automatic backup, as well as all manually created backups are full backups of all databases. To save space, other backups are incremental and only store the data that has changed since the previous backup.
 
-A backup is automatically created every day. You cannot disable automatic backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. Default time: `22:00 - 23:00` UTC (Coordinated Universal Time).
+A backup is automatically created every day. You cannot disable automatic backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. The default value is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage. Append-optimized tables use data deduplication technology: newly added data or old data last archived more than 30 days ago is copied. The backup size does not include the deduplicated part size, so the displayed value can be significantly smaller than the data size in the cluster.
 
-Backups are only created on running clusters. If you are not using your {{ mgp-short-name }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings).
+Backups are only created on running clusters. If you are not using your {{ GP }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings).
 
 For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md#create-backup).
 

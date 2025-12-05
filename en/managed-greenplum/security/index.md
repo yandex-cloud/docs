@@ -75,7 +75,7 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
-When you create a {{ mgp-name }} cluster, an admin user with the `mdb_admin` role is created automatically. This role replaces the superuser when working with the database and is not analogous to the `{{ roles-mdb-admin }}` role in {{ yandex-cloud }}. For more information, see [{#T}](../concepts/cluster-users.md).
+When you create a {{ GP }} cluster, an admin user with the `mdb_admin` role is created automatically. This role replaces the superuser when working with the database and is not analogous to the `{{ roles-mdb-admin }}` role in {{ yandex-cloud }}. For more information, see [{#T}](../concepts/cluster-users.md).
 
 #### vpc.publicAdmin {#vpc-public-admin}
 
@@ -92,7 +92,7 @@ When you create a {{ mgp-name }} cluster, an admin user with the `mdb_admin` rol
 
 To use {{ maf-name }}, you need the [{{ roles.mgp.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder to house the new cluster. The `{{ roles.mgp.viewer }}` role only allows you to view the list of clusters.
 
-To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
+To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
 
 You can always assign a role with more permissions. For example, you can assign the `{{ roles.mgp.admin }}` role instead of `{{ roles.mgp.editor }}`.
 

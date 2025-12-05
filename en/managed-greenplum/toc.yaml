@@ -627,7 +627,7 @@ items:
         href: qa/backup.md
       - name: Updating a cluster
         href: qa/update.md
-      - name: '{{ mgp-short-name }} cluster and hosts'
+      - name: '{{ GP }} cluster and hosts'
         href: qa/cluster-hosts.md
       - name: Working with external tables
         href: qa/pxf.md

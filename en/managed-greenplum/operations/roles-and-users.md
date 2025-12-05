@@ -12,7 +12,7 @@ description: In this tutorial, you will learn how to manage database access righ
 ​
 ​For more information, see [Users and roles](../concepts/cluster-users.md).
 
-The admin user is created together with the {{ mgp-name }} cluster and automatically gets the `mdb_admin` role. [Connect to the database](connect.md) on its behalf to:
+The admin user is created together with the {{ GP }} cluster and automatically gets the `mdb_admin` role. [Connect to the database](connect.md) on its behalf to:
 
 * [View a list of roles](#list).
 * [Create a role](#create).

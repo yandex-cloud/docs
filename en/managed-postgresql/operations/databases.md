@@ -1,6 +1,6 @@
 # Managing databases in {{ mpg-name }}
 
-You can add, rename, and remove databases, as well as view information about them.
+You can add, rename, and drop databases, as well as view their details.
 
 {% include [db-sql](../../_includes/mdb/mdb-db-sql-limits.md) %}
 
@@ -10,8 +10,8 @@ You can add, rename, and remove databases, as well as view information about the
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
 
@@ -19,7 +19,7 @@ You can add, rename, and remove databases, as well as view information about the
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of databases in a cluster, run the command:
+  To get a list of cluster databases, run this command:
 
   ```bash
   {{ yc-mdb-pg }} database list --cluster-name=<cluster_name>
@@ -29,11 +29,11 @@ You can add, rename, and remove databases, as well as view information about the
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.List](../api-ref/Database/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Database.List](../api-ref/Database/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -44,16 +44,16 @@ You can add, rename, and remove databases, as well as view information about the
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService.List](../api-ref/grpc/Database/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [DatabaseService.List](../api-ref/grpc/Database/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -71,7 +71,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -83,12 +83,12 @@ You can add, rename, and remove databases, as well as view information about the
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name.
-  1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
+  1. If necessary, [create](cluster-users.md#adduser) a new user account for database owner.
   1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
-  1. Specify the database settings:
+  1. Specify database settings:
 
       * Name
 
@@ -103,11 +103,11 @@ You can add, rename, and remove databases, as well as view information about the
           - **Enabled**
           - **Disabled**
 
-      * (Optional) Template: The name of one of the existing databases from which the data schema needs to be copied. All connections to the template database will be closed while the new database is being created.
+      * Template: The name an existing database to use as a template for the new database’s schema. This is an optional setting. Creating the new database will close all active connections to the template database.
 
-          For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createdatabase.html).
+          For more information, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/sql-createdatabase.html).
 
-      * Collation and character set locales.
+      * Locales for collation and character set.
 
           {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
@@ -121,13 +121,13 @@ You can add, rename, and remove databases, as well as view information about the
 
   To create a database in a cluster:
 
-  1. View a description of the CLI create database command:
+  1. See the description of the CLI command for creating a database:
 
      ```bash
      {{ yc-mdb-pg }} database create --help
      ```
 
-  1. Request a list of cluster users to select the owner of the new database:
+  1. Request a list of cluster users to select the owner for the new database:
 
      ```bash
      {{ yc-mdb-pg }} user list --cluster-name=<cluster_name>
@@ -135,12 +135,12 @@ You can add, rename, and remove databases, as well as view information about the
 
      If the required user is not in the list, [create it](cluster-users.md#adduser).
 
-  1. Run the create database command. If necessary, specify the required collation and character set locales (the default ones are `LC_COLLATE=C` and `LC_CTYPE=C`) and the template:
+  1. Run the database creation command. Optionally, specify the template and your preferred collation and character set locales. The default locale settings are `LC_COLLATE=C` and `LC_CTYPE=C`:
 
      ```bash
      {{ yc-mdb-pg }} database create <DB_name> \
         --cluster-name=<cluster_name> \
-        --owner=<database_owner_name> \
+        --owner=<DB_owner_name> \
         --lc-collate=<collation_locale> \
         --lc-type=<character_set_locale> \
         --template-db=<DB_template_name>
@@ -150,23 +150,23 @@ You can add, rename, and remove databases, as well as view information about the
 
      You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-     {{ mpg-short-name }} runs the create database operation.
+     {{ mpg-short-name }} will start creating the database.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of editable fields in the {{ mpg-name }} cluster database configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_database).
+        For a complete list of configurable {{ mpg-name }} cluster database settings, refer to the [{{ TF }} provider guides]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
-    1. Add the `yandex_mdb_postgresql_database` resource: If necessary, specify the required collation and character set locales (the default ones are `LC_COLLATE=C` and `LC_CTYPE=C`) and the template:
+    1. Add the `yandex_mdb_postgresql_database` resource: Optionally, specify the template and your preferred collation and character set locales. The default locale settings are `LC_COLLATE=C` and `LC_CTYPE=C`:
 
         ```hcl
         resource "yandex_mdb_postgresql_database" "<DB_name>" {
           cluster_id  = "<cluster_ID>"
           name        = "<DB_name>"
-          owner       = "<database_owner_name>"
+          owner       = "<DB_owner_name>"
           lc_collate  = "<collation_locale>"
           lc_type     = "<character_set_locale>"
           template_db = "<DB_template_name>"
@@ -180,7 +180,7 @@ You can add, rename, and remove databases, as well as view information about the
 
         {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-    1. Make sure the settings are correct.
+    1. Check if the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -190,17 +190,17 @@ You can add, rename, and remove databases, as well as view information about the
 
   {% note warning %}
 
-  After you create a DB, do not change its owner in the `owner` parameter, as this will recreate the DB and its data will be lost.
+  Changing the owner of the existing database by editing the `owner` setting will trigger the database recreation, resulting in data loss.
 
   {% endnote %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.Create](../api-ref/Database/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Database.Create](../api-ref/Database/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -211,7 +211,7 @@ You can add, rename, and remove databases, as well as view information about the
        --data '{
                  "databaseSpec": {
                    "name": "<DB_name>",
-                   "owner": "<database_owner_name>",
+                   "owner": "<DB_owner_name>",
                    "lcCollate": "<collation_locale>",
                    "lcCtype": "<character_set_locale>",
                    "extensions": [
@@ -224,16 +224,16 @@ You can add, rename, and remove databases, as well as view information about the
                }'
      ```
 
-     Where `databaseSpec` is the object containing the new DB settings: Its structure is as follows:
+     Where `databaseSpec` is the object containing the settings for the new database, with the following structure:
 
-     * `name`: DB name.
+     * `name`: Database name.
 
        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     * `owner`: DB owner username.
+     * `owner`: Database owner.
      * `lcCollate`: Collation locale. The default value is `C`.
      * `lcCtype`: Character set locale. The default value is `C`.
-     * `extensions`: Array of DB extensions. One array element contains settings for a single extension and has the following structure:
+     * `extensions`: Array of database extensions. Each array element contains the configuration for a single extension and has the following structure:
 
        * `extensions.name`: Extension name.
 
@@ -243,16 +243,16 @@ You can add, rename, and remove databases, as well as view information about the
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService.Create](../api-ref/grpc/Database/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [DatabaseService.Create](../api-ref/grpc/Database/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -265,7 +265,7 @@ You can add, rename, and remove databases, as well as view information about the
              "cluster_id": "<cluster_ID>",
              "database_spec": {
                "name": "<DB_name>",
-               "owner": "<database_owner_name>",
+               "owner": "<DB_owner_name>",
                "lc_collate": "<collation_locale>",
                "lc_ctype": "<character_set_locale>",
                "extensions": [
@@ -280,26 +280,26 @@ You can add, rename, and remove databases, as well as view information about the
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Create
      ```
 
-     Where `databaseSpec` is the object containing the new DB settings: Its structure is as follows:
+     Where `databaseSpec` is the object containing the settings for the new database, with the following structure:
 
-     * `name`: DB name.
+     * `name`: Database name.
 
        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     * `owner`: DB owner username.
+     * `owner`: Database owner.
      * `lc_collate`: Collation locale. The default value is `C`.
      * `lc_ctype`: Character set locale. The default value is `C`.
-     * `extensions`: Array of DB extensions. One array element contains settings for a single extension and has the following structure:
+     * `extensions`: Array of database extensions. Each array element contains the configuration for a single extension and has the following structure:
 
        * `extensions.name`: Extension name.
 
-       Give a name according to the [list of supported {{ PG }} extensions and utilities](extensions/cluster-extensions.md#postgresql).
+       Use a name from  the [list of supported {{ PG }} extensions and utilities](extensions/cluster-extensions.md#postgresql).
 
      * `deletion_protection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -309,14 +309,14 @@ You can add, rename, and remove databases, as well as view information about the
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of editable fields in the {{ mpg-name }} cluster database configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_database).
+      For a complete list of configurable {{ mpg-name }} cluster database settings, refer to the [{{ TF }} provider guides]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
-  1. Find the `yandex_mdb_postgresql_database` resource of the database you need.
-  1. Change the value of the `name` field:
+  1. Find the `yandex_mdb_postgresql_database` resource describing your target database.
+  1. Change the `name` field value:
 
       ```hcl
       resource "yandex_mdb_postgresql_database" "<database_name>" {
@@ -328,7 +328,7 @@ You can add, rename, and remove databases, as well as view information about the
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -338,11 +338,11 @@ You can add, rename, and remove databases, as well as view information about the
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.Update](../api-ref/Database/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Database.Update](../api-ref/Database/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -360,26 +360,26 @@ You can add, rename, and remove databases, as well as view information about the
 
      Where:
 
-     * `updateMask`: List of parameters to update as a single string, separated by commas.
+     * `updateMask`: Comma-separated list of settings you want to update.
 
-       In this case, only one parameter is provided.
+       Here, we provide only one setting.
 
-     * `newDatabaseName`: New DB name.
+     * `newDatabaseName`: New database name.
 
        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](#list-db).
 
-  1. View the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService.Update](../api-ref/grpc/Database/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [DatabaseService.Update](../api-ref/grpc/Database/update.md) call to execute the following request via {{ api-examples.grpc.tool }} (or another tool of your choice):
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -406,17 +406,17 @@ You can add, rename, and remove databases, as well as view information about the
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-       Only one parameter is provided in this case.
+       Here, we provide only one setting.
 
-     * `new_database_name`: New DB name.
+     * `new_database_name`: New database name.
 
        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -426,17 +426,17 @@ You can add, rename, and remove databases, as well as view information about the
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-  1. Select the appropriate value in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant database row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Select your preferred option in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-  1. Find the `yandex_mdb_postgresql_database` resource of the DB you need.
+  1. Find the `yandex_mdb_postgresql_database` resource describing your target database.
 
   1. Add the `deletion_protection` parameter. The possible values are `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
@@ -448,7 +448,7 @@ You can add, rename, and remove databases, as well as view information about the
         }
         ```
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -458,11 +458,11 @@ You can add, rename, and remove databases, as well as view information about the
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.Update](../api-ref/Database/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Database.Update](../api-ref/Database/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -480,24 +480,24 @@ You can add, rename, and remove databases, as well as view information about the
 
      Where:
 
-     * `updateMask`: List of parameters to update as a single string, separated by commas.
+     * `updateMask`: Comma-separated list of settings you want to update.
 
-       Only one parameter is provided in this case.
+       Here, we provide only one setting.
 
      * `deletionProtection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](#list-db).
 
-  1. View the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService.Update](../api-ref/grpc/Database/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [DatabaseService.Update](../api-ref/grpc/Database/update.md) call to execute the following request via {{ api-examples.grpc.tool }} (or another tool of your choice):
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -524,36 +524,36 @@ You can add, rename, and remove databases, as well as view information about the
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-       Only one parameter is provided in this case.
+       Here, we provide only one setting.
 
      * `deletion_protection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 {% note warning %}
 
-Deletion protection only applies at specific DB level. Deleting a cluster will delete all DBs, including those protected from deletion.
+Deletion protection only applies to individual databases. Deleting a cluster will permanently remove all its databases, including those with deletion protection.
 
 {% endnote %}
 
 ## Deleting a database {#remove-db}
 
-A DB can be protected against deletion. To delete such a DB, [disable the protection](#update-db-deletion-protection) first.
+A database can have deletion protection enabled. To delete it, first [disable deletion protection](#update-db-deletion-protection).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   To delete a database:
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, and confirm the deletion.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+  1. Select the database you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, then confirm the deletion.
 
 - CLI {#cli}
 
@@ -561,27 +561,27 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete a database, run the command:
+  To delete a database, run this command:
 
   ```bash
   {{ yc-mdb-pg }} database delete <DB_name> \
      --cluster-name <cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
   To delete a database:
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more information about creating this file, see [Creating clusters](cluster-create.md).
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
-     For a complete list of editable fields in the {{ mpg-name }} cluster database configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_database).
+     For a complete list of configurable {{ mpg-name }} cluster database settings, refer to the [{{ TF }} provider guides]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
-  1. Delete the `yandex_mdb_postgresql_database` resource with the name of the database you want to delete.
+  1. Remove the `yandex_mdb_postgresql_database` resource with the name of the database you are deleting.
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -591,11 +591,11 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.Delete](../api-ref/Database/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Database.Delete](../api-ref/Database/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -604,18 +604,18 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/databases/<DB_name>'
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](#list-db).
 
-  1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -632,14 +632,14 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Delete
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+Before creating a new database with the same name, wait for the delete operation to complete. Otherwise, the original database will be restored. You can get the operation status with the [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}

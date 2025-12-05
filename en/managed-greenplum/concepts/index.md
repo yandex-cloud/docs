@@ -8,7 +8,7 @@ description: In this article, you will learn about the {{ mgp-name }} resource r
 
 The main entity used in {{ mgp-name }} is a _database cluster_.
 
-Each cluster consists of database hosts, which are virtual machines with DBMS servers deployed on them. A {{ mgp-name }} cluster contains:
+Each cluster consists of database hosts, which are virtual machines with DBMS servers deployed on them. A {{ GP }} cluster contains:
 
 * Two _master hosts_.
 * Two or more _segment hosts_.
@@ -25,7 +25,7 @@ The number of segments is the same for each host. When [expanding a cluster](../
 
 
 
-{{ mgp-name }} cluster hosts are cloud VMs. Such VMs can reside on:
+{{ GP }} cluster hosts are cloud VMs. Such VMs can reside on:
 
 * _Regular {{ yandex-cloud }} hosts_:
 
@@ -40,7 +40,7 @@ The number of segments is the same for each host. When [expanding a cluster](../
     To learn more, see [{#T}](../../compute/concepts/dedicated-host.md).
 
 
-All {{ mgp-name }} cluster hosts are placed in the same availability zone, `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`.
+All {{ GP }} cluster hosts are placed in the same availability zone, `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`.
 
 When creating a cluster, specify:
 

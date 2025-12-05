@@ -140,6 +140,8 @@ items:
                 href: tutorials/ipsec/index.md
               - name: Самостоятельная реализация средствами {{ yandex-cloud }}
                 href: tutorials/ipsec/ipsec-vpn.md
+              - name: Развертывание S2S VPN с помощью strongSwan
+                href: tutorials/ipsec/s2s-vpn.md
               - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
                 href: tutorials/ipsec/sgw.md
           - name: ViPNet Coordinator в {{ yandex-cloud }}

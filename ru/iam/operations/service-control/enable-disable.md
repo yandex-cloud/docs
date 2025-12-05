@@ -6,10 +6,6 @@ description: С помощью этой инструкции вы научите
 # Включение и выключение сервиса
 
 
-
-{% include notitle [preview](../../../_includes/note-preview.md) %}
-
-
 В {{ iam-full-name }} есть возможность включать и выключать [доступ сервисов](../../concepts/service-control.md) к ресурсам пользователя в определенном облаке.
 
 {% include [service-control-access](../../../_includes/iam/service-control-access.md) %}

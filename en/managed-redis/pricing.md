@@ -102,6 +102,7 @@ A CVoS discount is only available for certain resource types. For unsupported re
 
 
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}

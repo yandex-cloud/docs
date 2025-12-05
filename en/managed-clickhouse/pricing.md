@@ -131,6 +131,7 @@ CVoS discount is only available for certain types of resources. If the relevant 
 
 
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
@@ -159,6 +160,7 @@ CVoS discount is only available for certain types of resources. If the relevant 
 
 
 {% include [usd-host-keeper.md](../_pricing/managed-clickhouse/usd-host-keeper.md) %}
+
 
 
 ### Computing resources of {{ ZK }} hosts {#prices-zookeeper}

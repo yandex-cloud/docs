@@ -52,7 +52,7 @@ To view information about sessions and queries:
 
 ## Viewing the resource consumption history for completed queries {#consumption-history}
 
-The resource consumption history includes a variety of system metrics. These show how a {{ mgp-name }} cluster was consuming resources to process queries at different time points. You can also view a list of completed queries. Using this information, you can manage your cluster hosts' CPU and memory in such a way so as to process queries more effectively.
+The resource consumption history includes a variety of system metrics. These show how a {{ GP }} cluster was consuming resources to process queries at different time points. You can also view a list of completed queries. Using this information, you can manage your cluster hosts' CPU and memory in such a way so as to process queries more effectively.
 
 To view the resource consumption history for completed queries:
 

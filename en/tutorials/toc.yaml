@@ -1043,7 +1043,13 @@ items:
       - name: >-
           Migrating a database from a third-party {{ MY }} cluster to a {{
           mmy-name }} cluster
-        href: dataplatform/mysql-data-migration.md
+        items:
+          - name: Overview
+            href: dataplatform/mysql-data-migration/index.md
+          - name: Transferring data using {{ data-transfer-name }}
+            href: dataplatform/mysql-data-migration/data-transfer.md
+          - name: Migrating data using a logical dump
+            href: dataplatform/mysql-data-migration/logical-dump-migration.md
       - name: '{{ mmy-name }} performance analysis and tuning'
         href: dataplatform/profiling-mmy.md
       - name: >-

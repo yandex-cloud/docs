@@ -1,6 +1,6 @@
 # Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can set up data transfer from {{ mmy-name }} to {{ mgp-name }} databases using {{ data-transfer-name }}. To do this:
+You can set up a data transfer from {{ mmy-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* {{ mgp-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* {{ GP }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
@@ -36,7 +36,7 @@ Set up the infrastructure:
 
         For more information about administrative privileges, see the [settings description](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
-    1. In the same availability zone, [create a {{ mgp-name }} target cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration with publicly available hosts and the following settings:
+    1. In the same availability zone, [create a {{ GP }} target cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration with publicly available hosts and the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mgp_user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`.
@@ -61,7 +61,7 @@ Set up the infrastructure:
         * [Networks](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
         * [Security groups](../../vpc/concepts/security-groups.md) for making cluster connections.
         * {{ mmy-name }} source cluster.
-        * {{ mgp-name }} target cluster.
+        * {{ GP }} target cluster in {{ mgp-name }}.
         * Source endpoint.
         * Transfer.
 
@@ -111,7 +111,7 @@ Set up the infrastructure:
 
 ## Create a database in the target cluster {#prepare-data}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to the auxiliary `postgres` database in the {{ mgp-name }} target cluster as `mgp_user`.
+1. [Connect](../../managed-greenplum/operations/connect.md) to the auxiliary `postgres` database in the {{ GP }} target cluster as `mgp_user`.
 
 1. Create a database named `mgp_db`:
 
@@ -176,7 +176,7 @@ To verify that the transfer is operational, test the copy and replication proces
 
 ### Test the copy operation {#verify-copy}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to `mgp_db` in your target {{ mgp-name }} cluster.
+1. [Connect](../../managed-greenplum/operations/connect.md) to `mgp_db` in your target {{ GP }} cluster.
 
 1. Run this query:
 
@@ -197,7 +197,7 @@ To verify that the transfer is operational, test the copy and replication proces
 
 1. Make sure the new row has been added to the target database:
 
-    1. [Connect](../../managed-greenplum/operations/connect.md) to `mgp_db` in your target {{ mgp-name }} cluster.
+    1. [Connect](../../managed-greenplum/operations/connect.md) to `mgp_db` in your target {{ GP }} cluster.
     1. Run this query:
 
         ```sql
@@ -212,7 +212,7 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 
@@ -221,7 +221,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
     * [Transfer](../../data-transfer/operations/transfer.md#delete)
     * [Endpoints](../../data-transfer/operations/endpoint/index.md#delete)
     * [{{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md)
-    * [{{ mgp-name }} cluster](../../managed-greenplum/operations/cluster-delete.md)
+    * [{{ GP }} cluster](../../managed-greenplum/operations/cluster-delete.md)
 
 - Using {{ TF }} {#tf}
 

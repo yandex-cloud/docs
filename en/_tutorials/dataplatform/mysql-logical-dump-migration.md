@@ -1,24 +1,4 @@
-# Migrating a database from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
-
-There are two ways to migrate data from a third-party _source cluster_ to a {{ mmy-name }} _target cluster_:
-
-* [Transferring data using {{ data-transfer-full-name }}](#data-transfer).
-
-    This method is easy to configure, does not require the creation of an intermediate VM, and allows you to transfer the entire database without interrupting user service. To use it, allow connections to the source cluster from the internet.
-
-    Learn more in [{#T}](../../data-transfer/concepts/use-cases.md).
-
-* [Transferring data by creating and restoring a logical dump](#logical-dump).
-
-    A _logical dump_ is a file with a set of commands running which one by one you can restore the state of a database. To achieve a full logical dump, before you create it, switch the source cluster to <q>read-only</q>.
-
-    Use this method only if, for some reason, it is not possible to migrate data using {{ data-transfer-name }}.
-
-## Transferring data using {{ data-transfer-name }} {#data-transfer}
-
-{% include notitle [Migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql.md) %}
-
-## Transferring data by creating and restoring a logical dump {#logical-dump}
+# Transferring data by creating and restoring a logical dump
 
 To move data to a {{ mmy-name }} cluster, create a logical dump of the desired database and restore it to the target cluster. There are two ways to do this:
 
@@ -28,7 +8,7 @@ To move data to a {{ mmy-name }} cluster, create a logical dump of the desired d
 Migration stages:
 
 1. [Create a dump](#dump) of the database you want to migrate.
-1. (Optional) [Upload a dump to an intermediate virtual machine](#vm-load) in {{ yandex-cloud }}.
+1. Optionally, [upload a dump to an intermediate virtual machine](#vm-load) in {{ yandex-cloud }}.
 
     Transfer your data to an intermediate VM in {{ compute-full-name }} if:
 
@@ -42,14 +22,14 @@ Migration stages:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-### Required paid resources {#paid-resources-logical-dump}
+## Required paid resources {#paid-resources-logical-dump}
 
 * {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Virtual machine if created to download a dump: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
-### Getting started {#before-you-begin}
+## Getting started {#before-you-begin}
 
 Create the required resources:
 
@@ -57,17 +37,17 @@ Create the required resources:
 
 - Manually {#manual}
 
-    1. Create a [{{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. In this case, the following applies:
+    1. Create a [target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. In this case, the following applies:
 
         * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
-            Transferring data with {{ MY }} major version upgrade is possible but not guaranteed. For more information, see this [{{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+            Transferring data with {{ MY }} major version upgrade is possible but not guaranteed. For more information, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
             You [cannot](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html) perform migration while downgrading {{ MY }} version.
 
         * [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
 
-    1. (Optional step) [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) based on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
+    1. Optionally, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) based on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
 
         * **{{ ui-key.yacloud.compute.instances.create.section_storages }}** → **{{ ui-key.yacloud.compute.disk-form.field_size }}**: Sufficient to store both archived and unarchived dumps.
 
@@ -97,7 +77,7 @@ Create the required resources:
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * [Security group](../../vpc/concepts/security-groups.md) and the rule permitting access to the cluster.
         * {{ mmy-name }} cluster with public internet access.
-        * (Optional) Virtual machine with public internet access.
+        * Virtual machine with public internet access (optional).
 
     1. Specify the following in `data-migration-mysql-mmy.tf`:
 
@@ -108,10 +88,10 @@ Create the required resources:
             * `target_db_name`: Database name.
             * `target_user` and `target_password`: Database owner username and password.
 
-        * (Optional) Virtual machine parameters:
+        * Virtual machine parameters (optional):
 
-            * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-            * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
+            * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+            * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -129,7 +109,7 @@ Create the required resources:
 
 {% endlist %}
 
-### Creating a dump {#dump}
+## Creating a dump {#dump}
 
 {% list tabs %}
 
@@ -236,14 +216,14 @@ Create the required resources:
 
 {% endlist %}
 
-### (Optional) Uploading a dump to a virtual machine in {{ yandex-cloud }} {#vm-load}
+## Uploading a dump to a virtual machine in {{ yandex-cloud }} (optional) {#vm-load}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to an intermediate virtual machine over SSH.
 
 1. Copy the archive containing the database dump to the intermediate virtual machine, e.g., using `scp`:
 
     ```bash
-    scp ~/db_dump.tar.gz <VM_username>@<VM_public_IP_address>:~/db_dump.tar.gz
+    scp ~/db_dump.tar.gz <VM_user_name>@<VM_public_IP_address>:~/db_dump.tar.gz
     ```
 
 1. Extract the dump from the archive:
@@ -252,7 +232,7 @@ Create the required resources:
     tar -xzf ~/db_dump.tar.gz
     ```
 
-### Restoring data {#restore}
+## Restoring data {#restore}
 
 {% note alert %}
 
@@ -323,7 +303,7 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 
 You can get the cluster ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
-### Deleting the created resources {#clear-out}
+## Deleting the created resources {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
 
