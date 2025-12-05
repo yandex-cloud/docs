@@ -36,7 +36,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
     To change the PXF settings:
 
-    1. See the description of the CLI command for updating a cluster configuration:
+    1. See the description of the CLI command for updating the cluster configuration:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
@@ -82,7 +82,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
         For more information on how to create this file, see [{#T}](../cluster-create.md).
 
-        For a complete list of {{ mgp-name }} cluster configuration fields you can update, see this [{{ TF }} provider article]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mgp }}).
 
     1. In the cluster description, under `pxf_config`, configure the PXF settings:
 
@@ -118,7 +118,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-    1. Make sure the settings are correct.
+    1. Check if the settings are correct.
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -188,7 +188,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
     1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../../_includes/note-grpc-api-updatemask.md) %}
 

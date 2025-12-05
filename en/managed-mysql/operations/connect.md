@@ -64,7 +64,7 @@ Rule settings depend on the connection method you select:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-            This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install all required certificates and tools on your VM.
+            This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
 
 {% endlist %}
 
@@ -103,11 +103,11 @@ There are several ways to get a {{ MY }} host FQDN:
 
 * View the FQDN in the management console:
 
-    1. Open to the cluster page.
+    1. Navigate to the cluster page.
     1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** value.
+    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-* In the [management console]({{ link-console-main }}), copy the cluster connection command. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
 * [Get the list of cluster hosts](../operations/hosts.md#list) using the CLI or API.
 
@@ -140,7 +140,6 @@ An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to the [replica](../
 * When connecting to this FQDN, you can only perform read operations.
 * If there are no active replicas in the cluster, you cannot connect to this FQDN as the respective DNS CNAME record will point to a `null` object.
 
-
 ## Connecting from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
@@ -160,8 +159,8 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
            * **Host**: [FQDN of any {{ MY }}](#fqdn) host or a [special FQDN](#fqdn-master).
            * **Port**: `{{ port-mmy }}`.
            * **User**, **Password**: Database user name and password.
-           * **Database**: Target database name.
-        1. Click **Download** to download the database driver.
+           * **Database**: Name of the database to connect to.
+        1. Click **Download** to download the connection driver.
      1. On the **SSH/SSL** tab:
          1. Enable **Use SSL**.
          1. In the **CA file** field, specify the path to the [SSL certificate file for your connection](#get-ssl-cert).
@@ -181,11 +180,11 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
         * **Username**, **Password**: Database user name and password.
      1. On the **SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
+         1. In the **Root certificate** field, specify the path to the [SSL certificate](#get-ssl-cert) file you previously saved.
          1. Under **Advanced**:
             1. Enable **Require SSL**.
             1. Enable **Verify server certificate**.
-  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
+  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
   1. Click **Done** to save the database connection settings.
 
 {% endlist %}
@@ -199,7 +198,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
 
 ## Before you connect from a Docker container {#connection-docker}
 
-To connect to a {{ mmy-name }} cluster from a Docker container, add the following lines to your Dockerfile:
+To connect to a {{ mmy-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
 {% list tabs group=connection %}
 

@@ -6,8 +6,11 @@ description: Follow this guide to create a {{ VLK }} cluster and connect to it.
 # Getting started with {{ mrd-name }}
 
 To get started:
+
+
 1. [Create a cluster](#cluster-create).
 1. [Connect to the cluster](#connect).
+
 
 
 ## Getting started {#before-you-begin}
@@ -75,6 +78,7 @@ To create a cluster:
 
 For more information about creating a cluster, see [{#T}](./operations/cluster-create.md).
 
+
 ## Connect to the cluster {#connect}
 
 1. [Use](../compute/operations/vm-connect/ssh.md) SSH to [connect to the previously created VM](#before-you-begin).
@@ -120,6 +124,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
     {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
 1. Once connected, send the `PING` command. {{ VLK }} should respond with `PONG`.
+
 
 ## What's next {#whats-next}
 

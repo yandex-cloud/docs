@@ -13,13 +13,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ mgp-name }} cluster fee: Covers the use of computational resources allocated to hosts and disk storage (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* {{ GP }} cluster fee: Use of computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
 
-* {{ mch-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster fee: Use of computing resources allocated to hosts, including ZooKeeper hosts, and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
-* Transfer fee: Based on computational resource consumption and the total number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Transfer fee: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -30,7 +30,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 - Manually {#manual}
 
-    1. [Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) with any suitable configuration.
+    1. [Create a {{ GP }} source cluster in {{ mgp-name }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) with any suitable configuration.
 
     1. [Create a {{ mch-full-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster) with a database named `db1` using any suitable configuration.
 
@@ -61,24 +61,24 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
         * [Security groups](../../vpc/concepts/security-groups.md) for cluster access.
 
 
-        * {{ mgp-name }} source cluster.
+        * {{ GP }} source cluster in {{ mgp-name }}.
         * {{ mch-name }} target cluster.
         * Target endpoint.
 
-    1. In the `greenplum-clickhouse.tf` file, specify the following:
+    1. Specify the following in `greenplum-clickhouse.tf`:
 
         * `mgp_password`: {{ GP }} admin password.
         * `mch_db`: {{ CH }} database name.
         * `mch_user`: {{ CH }} database user name.
         * `mch_password`: {{ CH }} database user password.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -98,7 +98,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md), create a table named `x_tab`, and populate it with data:
+1. [Connect to the {{ GP }} cluster](../../managed-greenplum/operations/connect.md), create a table named `x_tab`, and populate it with data:
 
     ```sql
     CREATE TABLE x_tab
@@ -134,7 +134,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Verify replication after reactivation {#example-check-copy}
 
-1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md). Then, in the `x_tab` table, delete one row and update another:
+1. [Connect to the {{ GP }} cluster](../../managed-greenplum/operations/connect.md). Then, in the `x_tab` table, delete one row and update another:
 
     ```sql
     DELETE FROM x_tab WHERE id = 41;
@@ -159,18 +159,18 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
         1. [Delete](../../managed-clickhouse/operations/cluster-delete.md) the {{ mch-name }} cluster.
-        1. [Delete](../../managed-greenplum/operations/cluster-delete.md) the {{ mgp-name }} cluster.
+        1. [Delete](../../managed-greenplum/operations/cluster-delete.md) the {{ GP }} cluster.
         1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 
     - {{ TF }} {#tf}

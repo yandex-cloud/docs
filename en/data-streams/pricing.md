@@ -45,7 +45,6 @@ The cost of data processing per month (for a 31-day month) will be:
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Price per write unit {#event}

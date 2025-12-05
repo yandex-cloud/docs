@@ -30,7 +30,7 @@ We recommend changing the host class only when your cluster has no active worklo
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
-  1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select your cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the relevant class for {{ GP }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -85,13 +85,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-      For a complete list of configuration fields you can edit for a {{ mgp-name }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
+      For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mgp }}).
 
-  1. In the {{ mgp-name }} cluster description, edit the value of the `resource_preset_id` attribute under `master_subcluster.resources` or `segment_subcluster.resources`:
+  1. In the {{ GP }} cluster description, edit the value of the `resource_preset_id` attribute under `master_subcluster.resources` or `segment_subcluster.resources`:
 
       ```hcl
       resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -111,7 +111,7 @@ We recommend changing the host class only when your cluster has no active worklo
       }
       ```
 
-  1. Make sure the settings are correct.
+  1. Check if the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -154,7 +154,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `updateMask`: List of settings to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `masterConfig.resources.resourcePresetId` and `segmentConfig.resources.resourcePresetId`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
@@ -170,7 +170,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -228,7 +228,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **Yandex MPP Analytics for PostgreSQL**.
-  1. Select the cluster in question.
+  1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
@@ -261,13 +261,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of configuration fields you can edit for a {{ mgp-name }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mgp }}).
 
-    1. In the {{ mgp-name }} cluster description, edit the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
+    1. In the {{ GP }} cluster description, edit the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -289,7 +289,7 @@ We recommend changing the host class only when your cluster has no active worklo
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Check if the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -334,12 +334,12 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `updateMask`: List of settings to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `masterConfig.resources`, `segmentConfig.resources`: Storage properties for master hosts and segment hosts:
 
             * `diskTypeId`: [Disk type](../concepts/storage.md).
-            * `diskSize`: New storage size, in bytes.
+            * `diskSize`: New storage size in bytes.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -353,7 +353,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -408,11 +408,11 @@ We recommend changing the host class only when your cluster has no active worklo
 
 ## Expanding a cluster {#add-hosts}
 
-You can add segment hosts to a {{ mgp-name }} cluster by [expanding it](cluster-expand.md). You need to add at least two hosts. You can also increase the [number of segments per host](../concepts/index.md) when expanding a cluster.
+You can add segment hosts to a {{ GP }} cluster by [expanding it](cluster-expand.md). You need to add at least two hosts. You can also increase the [number of segments per host](../concepts/index.md) when expanding a cluster.
 
 ## Changing the cluster's availability zone {#change-cluster-zone}
 
-All hosts of a {{ mgp-name }} cluster are located in the same {{ yandex-cloud }} [availability zone](../../overview/concepts/geo-scope.md). You cannot migrate a cluster to a different availability zone. If you need to change the availability zone, [restore the cluster from a backup](cluster-backups.md#restore). When restoring from a backup, specify a new availability zone in the new cluster's settings.
+All hosts of a {{ GP }} cluster are located in the same {{ yandex-cloud }} [availability zone](../../overview/concepts/geo-scope.md). You cannot migrate a cluster to a different availability zone. If you need to change the availability zone, [restore the cluster from a backup](cluster-backups.md#restore). When restoring from a backup, specify a new availability zone in the new cluster's settings.
 
 {% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 

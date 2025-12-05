@@ -6,10 +6,6 @@ description: In this guide, you will learn how to get information about the stat
 # Getting the status of services
 
 
-
-{% include notitle [preview](../../../_includes/note-preview.md) %}
-
-
 In {{ iam-full-name }}, you can manage [service access](../../concepts/service-control.md) to user resources in a specific cloud.
 
 ## Getting a list of services {#list}

@@ -3,16 +3,19 @@ title: Getting started with {{ mmy-full-name }}
 description: Follow this guide to create a {{ MY }} cluster and connect to it.
 ---
 
-# Getting started with {{ mmy-name }}®
+# Getting started with {{ mmy-name }}
 
 To get started:
+
+
 * [Create a database cluster](#cluster-create).
 * [Connect to the DB](#connect).
 
 
+
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
@@ -31,7 +34,7 @@ To get started:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to your VM over SSH.
 1. Install the required dependencies and the {{ MY }} client:
 
    ```bash
@@ -44,14 +47,13 @@ To get started:
 1. In the management console, select the folder where you want to create a DB cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Set the {{ mmy-name }} cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
+1. Set the {{ mmy-name }} cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the {{ mmy-name }} cluster is ready: its status on the {{ mmy-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+
 
 ## Connect to the DB {#connect}
 
-
 1. If you are using [security groups](../vpc/concepts/security-groups.md) for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the {{ mmy-name }} cluster and the connecting host.
-
 
 1. To connect to the DB server, get an SSL certificate:
 
@@ -64,6 +66,6 @@ To get started:
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](concepts/index.md).
+* Read about the [service concepts](concepts/index.md).
 * Learn more about [creating a {{ mmy-name }} cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).
-* Read [questions and answers](qa/general.md).
+* Check [questions and answers](qa/general.md).

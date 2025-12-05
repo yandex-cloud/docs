@@ -1,12 +1,12 @@
 ---
 title: '{{ mmy-full-name }} use cases'
-description: Various {{ mmy-full-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ mmy-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ mmy-name }} tutorials
 
 * [{#T}](profiling-mmy.md)
-* [{#T}](data-migration.md)
+* [{#T}](data-migration/index.md)
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](sqoop.md)
 * [{#T}](mkf-mmy-data-transfer.md)

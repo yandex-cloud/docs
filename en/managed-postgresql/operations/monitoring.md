@@ -1,9 +1,9 @@
 ---
-title: Monitoring the state of PostgreSQL clusters and hosts
-description: You can track the state of a {{ mpg-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure alerts in {{ monitoring-full-name }} to monitor the cluster state automatically.
+title: PostgreSQL cluster and host status monitoring
+description: You can monitor the state of a {{ mpg-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster health monitoring.
 ---
 
-# Monitoring the state of a {{ PG }} cluster and hosts
+# {{ PG }} cluster and host status monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -14,40 +14,40 @@ description: You can track the state of a {{ mpg-name }} cluster and its individ
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
 
-To identify potential issues in a cluster, [use other tools](../tutorials/performance-problems.md) to analyze and monitor the cluster state.
+To identify potential issues in a cluster, [use other cluster diagnostic tools](../tutorials/performance-problems.md) alongside monitoring.
 
 
-## Monitoring the cluster state {#monitoring-cluster}
+## Cluster status monitoring {#monitoring-cluster}
 
 To view detailed information on the state of a {{ mpg-name }} cluster:
 
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
 1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-The following charts will appear on the page:
+You will see the following charts:
 
-* **Age of oldest transaction/statement**: Oldest transaction processing and operator execution time.
-* **Average transaction/statement time**: Average transaction processing and operator execution time.
-* **CPU usage**: Processor core workload.
-* **Disk read/write bytes**: Disk read and write speed (bytes per second).
-* **Disk read/write IOPS**: Disk read and write activity (ops per second).
-* **Disk usage by DB**: Disk usage by database (bytes).
-* **Disk usage on primary**: Disk usage on a master host (bytes).
-* **Inode usage by host**: Number of inodes used by host.
-* **Inode usage on primary**: Number of inodes used on a master host.
-* **Is Primary, [boolean]**: Indicates which host is the master and for how long.
-* **Free space**: Free disk space for each host (in bytes).
-* **Log errors**: Number of logged errors per second.
-* **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
-* **Network Bytes**: Network data transfer speed (bytes per second).
-* **OOM Count**: Shows whether there are Out-Of-Memory Killer processes. They stop apps that use up all the memory on the machine and prevent the OS from crashing.
-* **Packets received/sent**: Network packet transmission activity (packets per second).
+* **Age of oldest transaction/statement**: Oldest transaction/statement execution time.
+* **Average transaction/statement time**: Average transaction/statement processing time.
+* **CPU usage**: Processor core utilization.
+* **Disk read/write bytes**: Speed of disk read and write operations (bytes per second).
+* **Disk read/write IOPS**: Intensity of disk read and write operations (operations per second).
+* **Disk usage by DB**: Disk space utilization, broken down by database (bytes).
+* **Disk usage on primary**: Disk space utilization on the master host (bytes).
+* **Inode usage by host**: Number of inodes used by each host.
+* **Inode usage on primary**: Number of inodes used on the master host.
+* **Is Primary, [boolean]**: Shows which host is the master and for how long.
+* **Free space**: Free disk space, broken down by host (bytes).
+* **Log errors**: Number of errors logged per second.
+* **Memory usage**: RAM utilization (bytes). At high loads, the value of the **Free** metric decreases, while the others increase.
+* **Network received/sent bytes**: Network data transfer speed (bytes per second).
+* **OOM Count**: Indicates the presence of Out-Of-Memory Killer processes. These processes kill memory-exhausting applications, which prevents the OS from crashing.
+* **Packets received/sent**: Network packet rate (packets per second).
 * **Pooler is alive, [boolean]**: Connection pooler health for each host either as a master or as a replica.
 * **PostgreSQL Alive, [boolean]**: PostgreSQL health for each host either as a master or as a replica.
-* **Replication lag**: Replication delay.
+* **Replication lag**: Replication delay time.
 
     {% note warning %}
 
@@ -55,53 +55,53 @@ The following charts will appear on the page:
 
     {% endnote %}
 
-* **Session CPU usage cores**: Number of utilized processor cores by session type.
-* **Sessions per wait event**: Number of waiting sessions by wait type.
-* **Sessions read bytes**: Amount of data read by session type (bytes).
-* **Sessions write bytes**: Amount of data written by session type (bytes).
-* **Statement quantiles**: Operator execution time by percentile.
+* **Session CPU usage cores**: Number of used processor cores, broken down by session type.
+* **Sessions per wait event**: Number of waiting sessions, broken down by wait event type.
+* **Sessions read bytes**: Volume of data read in bytes, broken down by session type.
+* **Sessions write bytes**: Volume of data written in bytes, broken down by session type.
+* **Statement quantiles**: Statement execution time, broken down by percentile.
 * **TCP connections**: Number of TCP connections per second.
 * **Total pooler connections**: Number of pooler connections, both client and server.
-* **Total size of temporary files**: Total temporary file size (bytes).
-* **Total size of WAL files**: Total [WAL file](../concepts/backup.md) size (bytes).
-* **Transaction quantiles**: Transaction processing time by percentile.
-* **Transactions/statements per second**: Number of transactions and operators per second.
+* **Total size of temporary files**: Total size of temporary files in bytes.
+* **Total size of WAL files**: Total size of [WAL files](../concepts/backup.md) in bytes.
+* **Transaction quantiles**: Transaction processing time, broken down by percentile.
+* **Transactions/statements per second**: Number of transactions and statements per second.
 
-## Monitoring the state of hosts {#monitoring-hosts}
+## Host status monitoring {#monitoring-hosts}
 
 To view detailed information on the state of individual {{ mpg-name }} hosts:
 
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
-1. Select the host from the drop-down list.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
+1. Select the host you need from the drop-down list.
 
-This page displays charts showing the load on an individual host in the cluster:
+This page displays the charts showing workloads of individual cluster hosts:
 
-* **CPU usage**: Processor core workload. As the load goes up, the **Idle** value goes down.
+* **CPU usage**: Processor core workload. With increased workload, the **Idle** value drops.
 * **Disk IOPS**: Number of disk operations per second.
-* **Disk read/write bytes**: Speed of disk operations, in bytes per second.
-* **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
-* **Network bytes**: Speed of network data exchange, in bytes per second.
-* **Network packets**: Number of network packets exchange per second.
+* **Disk read/write bytes**: Speed of disk operations in bytes per second.
+* **Memory usage**: RAM utilization in bytes. At high loads, the value of the **Free** metric decreases, while the others increase.
+* **Network bytes**: Network data transfer speed in bytes per second.
+* **Network packets**: Number of packets transferred over the network, per second.
 
-The **Disk read/write bytes** and the **Disk IOPS** charts show that the **Read** property increases when active database reads are in progress, and that **Write** increases when database writes are in progress.
+The **Disk read/write bytes** and the **Disk IOPS** charts show the increase of the **Read** metric during database read activity, and the increase of the **Write** metric during database write activity..
 
-For hosts with the **Replica** role, **Received** is normally greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
+For **Replica** hosts, the value of the **Received** metric on the **Network Bytes** and **Network Packets** charts is usually higher than the **Sent** metric.
 
 
-## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
+## Setting up alerts in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
-    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster for which you want to set up alerts.
+    1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
     1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
-        * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
-        * **{{ mpg-name }} — Host Overview** to configure host alerts.
-    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+        * **{{ mpg-name }} — Cluster Overview** to set up cluster alerts.
+        * **{{ mpg-name }} — Host Overview** to set up host alerts.
+    1. Locate the chart you need, click its ![options](../../_assets/console-icons/ellipsis.svg) icon, and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} guides](../../monitoring/concepts/querying.md).
     1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger the alert.
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
@@ -109,7 +109,7 @@ For hosts with the **Replica** role, **Received** is normally greater than **Sen
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-The recommended thresholds are as follows:
+Below are recommended thresholds for some metrics:
 
 | Metric                               | Parameter                | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`                   | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`                 |
 |---------------------------------------|:--------------------------:|:-------------------------:|:-------------------------:|
@@ -123,19 +123,19 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-templa
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`: `96,636,764,160` bytes (90%).
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`: `85,899,345,920` bytes (80%).
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-postgresql-ref.md).
+You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-postgresql-ref.md).
 
 
-## Cluster state and status {#cluster-health-and-status}
+## Cluster health and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To view a state and status of a cluster:
+To check the cluster’s health and status:
 
-1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. Locate the cluster you need in the list, and hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
-### Cluster states {#cluster-health}
+### Cluster health {#cluster-health}
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 

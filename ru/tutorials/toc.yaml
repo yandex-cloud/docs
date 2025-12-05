@@ -513,6 +513,10 @@ items:
                 href: routing/ipsec/index.md
               - name: Самостоятельная реализация средствами {{ yandex-cloud }}
                 href: routing/ipsec/ipsec-vpn.md
+              - name: >-
+                  Развертывание S2S VPN с помощью Cloud App strongSwan в {{
+                  yandex-cloud }}
+                href: routing/ipsec/s2s-vpn.md
               - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
                 href: routing/ipsec/sgw.md
           - name: Соединение с облачной сетью при помощи OpenVPN

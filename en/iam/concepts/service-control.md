@@ -6,10 +6,6 @@ description: In this tutorial, you will learn how to manage the access of servic
 # Service access to user resources
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
 {{ yandex-cloud }} comprises multiple [services](../../overview/concepts/services.md). Some of these services may need access to various resources in a user [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) to perform certain tasks. For example, to manage DB connections, {{ connection-manager-full-name }} requires permissions to create and manage {{ lockbox-full-name }} secrets in a user cloud.
 
 {{ iam-full-name }} allows you to manage service access to resources in a user cloud by [enabling](../operations/service-control/enable-disable.md#enable) or [disabling](../operations/service-control/enable-disable.md#disable) the relevant services.

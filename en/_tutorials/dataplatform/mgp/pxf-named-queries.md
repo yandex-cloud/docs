@@ -1,12 +1,12 @@
 # Getting data from external sources using named queries
 
-You can use named queries to retrieve data from external systems through [PXF](../../../managed-greenplum/concepts/external-tables.md) in {{ mgp-full-name }}.
+You can use named queries to retrieve data from external systems through [PXF](../../../managed-greenplum/concepts/external-tables.md) in {{ GP }}.
 
-A _named query_ is a prebuilt SQL query stored in the `mdb_toolkit.pxf_named_queries` table of the {{ mgp-name }} cluster's system database. You specify the query name reference when creating an external table.
+A _named query_ is a prebuilt SQL query stored in the `mdb_toolkit.pxf_named_queries` table of the {{ GP }} cluster's system database. You specify the query name reference when creating an external table.
 
 Named queries allow you to join tables and aggregate data in an external source when creating a view is not an option. With all computations performed externally, the cluster operates more efficiently.
 
-Named queries can be used with data sources connected to a {{ mgp-name }} cluster through a JDBC connector.
+Named queries can be used with data sources connected to a {{ GP }} cluster through a JDBC connector.
 
 To get data from an external source using a named query:
 
@@ -22,8 +22,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for a {{ mgp-name }} cluster, specifically computing resources allocated to cluster hosts, as well as the size of storage and backups (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
-* Fee for a {{ mpg-full-name }} cluster, specifically computing resources allocated to cluster hosts, as well as the size of storage and backups (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ GP }} cluster fee: Computing resources allocated to hosts, size of storage and backups (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* {{ mpg-full-name }} cluster fee: Computing resources allocated to hosts, size of storage and backups (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Fee for hourly usage of NAT gateways and outgoing traffic they handle (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * Fee for using public IP addresses (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
@@ -36,9 +36,9 @@ Set up the infrastructure:
 
 - Manually {#manual}
 
-    1. [Create](../../../managed-greenplum/operations/cluster-create.md) a {{ mgp-name }} cluster with any suitable configuration.
+    1. [Create](../../../managed-greenplum/operations/cluster-create.md) a {{ GP }} cluster with any suitable configuration.
     
-    1. In the {{ mgp-name }} cluster [subnet](../../../vpc/concepts/network.md#subnet), [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
+    1. In the {{ GP }} cluster [subnet](../../../vpc/concepts/network.md#subnet), [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
     1. [Create](../../../managed-postgresql/operations/cluster-create.md) a {{ mpg-name }} cluster with publicly available hosts.
 
@@ -56,12 +56,12 @@ Set up the infrastructure:
          * Subnets.
          * NAT gateways.
          * Security groups.
-         * {{ mgp-name }} cluster.
+         * {{ GP }} cluster in {{ mgp-name }}.
          * {{ mpg-name }} cluster.
 
     1. Specify the following in the file:
 
-         * `mgp_password`: {{ GP }} user password.
+         * `mgp_password`: {{ GP }} password.
          * `mgp_version`: {{ GP }} version.
          * `mpg_password`: {{ PG }} database user password.
          * `mpg_version`: {{ PG }} version.
@@ -72,7 +72,7 @@ Set up the infrastructure:
          terraform validate
          ```
 
-       If there are any errors in the configuration files, {{ TF }} will point them out.
+       {{ TF }} will show any errors found in your configuration files.
 
     1. Create an infrastructure:
 
@@ -142,7 +142,7 @@ Set up the infrastructure:
 
 ## Create an external data source {#create-jdbc-source}
 
-In the {{ mgp-name }} cluster, [create an external data source](../../../managed-greenplum/operations/pxf/create-jdbc-source.md) with the following settings:
+In the {{ GP }} cluster, [create an external data source](../../../managed-greenplum/operations/pxf/create-jdbc-source.md) with the following settings:
 
    * **Name**: `pgserver`.
    * **Driver**: `org.postgresql.Driver`.
@@ -239,7 +239,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 - Manually {#manual}
 
-   1. [Delete](../../../managed-greenplum/operations/cluster-delete.md) the {{ mgp-name }} cluster.
+   1. [Delete](../../../managed-greenplum/operations/cluster-delete.md) the {{ GP }} cluster.
    1. [Delete](../../../managed-postgresql/operations/cluster-delete.md) the {{ mpg-name }} cluster.
    1. [Delete](../../../vpc/operations/delete-nat-gateway.md) the NAT gateways.
 

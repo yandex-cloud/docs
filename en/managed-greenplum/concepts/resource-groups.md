@@ -34,7 +34,7 @@ Every resource group has the following parameters:
 
 ## Default resource groups {#default}
 
-Once you create a {{ mgp-name }} cluster, it includes three resource groups:
+Once you create a {{ GP }} cluster, it includes three resource groups:
 
 * `admin_group`: Service group assigned to the `monitor` and `gpadmin` service roles.
 * `mdb_admin_group`: Group for administrators. By default, it is assigned to the administrator user whose username and password you specified when creating the cluster.

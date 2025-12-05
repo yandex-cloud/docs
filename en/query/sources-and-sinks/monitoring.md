@@ -1,5 +1,7 @@
 # Reading data from {{ monitoring-name }} using {{ yq-name }} connections
 
+{% include [public-preview](../../_includes/preview-pp.md) %}
+
 [{{ monitoring-name }}](../../monitoring/concepts/index.md) allows you to collect and store metrics and display them as charts on dashboards. Data sent to {{ monitoring-name }} consists of measured values (`metrics`) and `labels` that describe them. 
 
 For example, to track the number of application failures, you can use the failure count per time interval as a metric. Data describing a failure, e.g., a host name or application version, serves as labels. The {{ monitoring-name }} interface allows you to aggregate metrics by label.

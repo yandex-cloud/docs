@@ -7,7 +7,7 @@ description: This section contains {{ mgp-name }} release notes.
 
 ## July 2025 {#jul-2025}
 
-Added the ability to [transfer cluster logs to {{ cloud-logging-full-name }}](operations/mgp-to-cloud-logging.md).
+Added a feature to [transfer cluster logs to {{ cloud-logging-full-name }}](operations/mgp-to-cloud-logging.md).
 
 
 ## May 2025 {#may-2025}

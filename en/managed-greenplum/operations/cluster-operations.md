@@ -14,7 +14,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
   1. Select the cluster you need.
   1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-     You will see a list of operations with the cluster you selected.
+     You will see the list of operations with this cluster.
 
 - CLI {#cli}
 
@@ -22,7 +22,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the list of operations for a {{ mgp-name }} cluster, run this command:
+  To get a list of operations for a {{ GP }} cluster, run this command:
 
   ```bash
   yc managed-greenplum cluster list-operations <cluster_name_or_ID>
@@ -90,7 +90,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Use the [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -114,7 +114,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
 ## Getting operation details {#get-operations-info}
 
-1. [Get the list of operations](#get-operations) for the cluster.
+1. [Get a list of operations](#get-operations) for your cluster.
 1. Copy the ID of the operation you need.
 1. Get the operation details:
 
@@ -174,7 +174,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
       1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-      1. Use the [OperationService.Get](../api-ref/grpc/Operation/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Call the [OperationService.Get](../api-ref/grpc/Operation/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
           ```bash
           grpcurl \

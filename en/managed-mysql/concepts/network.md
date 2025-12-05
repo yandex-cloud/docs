@@ -59,7 +59,7 @@ When connecting to a cluster from the same cloud network, configure security gro
 
 ## Use cases {#examples}
 
-* [{#T}](../tutorials/data-migration.md)
+* [{#T}](../tutorials/data-migration/index.md)
 * [{#T}](../tutorials/sqoop.md)
 * [{#T}](../tutorials/sync-mysql.md)
 * [{#T}](../tutorials/bitrix-shop/index.md)

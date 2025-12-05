@@ -21,7 +21,7 @@ description: '{{ GP }} offers two types of table data storage: heap storage and 
 
     Column-oriented data storage reduces read and write overhead significantly when a query only accesses a small number of columns from the entire table field set. Column-oriented tables also get compressed better. When working with {{ GP }}, we recommend using column-oriented tables with standard compression of level 1 as an analytical DBMS.
 
-    For AO and AOCO tables in {{ mgp-name }} clusters, [hybrid storage](./hybrid-storage.md) is available: with the [{{ YZ }} extension](../operations/extensions/yezzey.md), you can move some of your tables from the cluster storage to a cold storage, and vice versa. Cold storage is a convenient option if you need to store your table data for a long time without using it much. This will make data storage [less costly](../pricing/index.md#rules-storage).
+    For AO and AOCO tables in {{ GP }} clusters, [hybrid storage](./hybrid-storage.md) is available: with the [{{ YZ }} extension](../operations/extensions/yezzey.md), you can move some of your tables from the cluster storage to a cold storage, and vice versa. Cold storage is a convenient option if you need to store your table data for a long time without using it much. This will make data storage [less costly](../pricing/index.md#rules-storage).
 
 ## Creating column-oriented tables {#create-columnar-table}
 

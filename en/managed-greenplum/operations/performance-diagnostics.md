@@ -5,7 +5,7 @@ description: Follow this guide to run performance diagnostics.
 
 # Performance diagnostics
 
-For performance diagnostics, the {{ mgp-name }} cluster uses:
+For performance diagnostics, the {{ GP }} cluster uses:
 
 * In versions 6.22 and lower, a dedicated `gpperfmon` database.
 * In versions 6.25 or higher, the [{{ GP }} command center](../concepts/command-center.md).

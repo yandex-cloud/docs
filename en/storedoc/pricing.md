@@ -42,7 +42,7 @@ The {{ mmg-name }} usage cost includes:
 
 The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation cost the same as two minutes). You do not pay for the time when the {{ SD }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ SD }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -62,11 +62,11 @@ You are charged for the following:
 
     * Backups are stored free of charge as long as the combined size of the DB and all its backups is smaller than the selected storage size.
 
-    * {{ mmg-short-name }}'s automatic backup function does not create a new backup each time but saves the DB changes from the previous one. It means the storage space taken up by automatic backups only increases in proportion to the volume of changes.
+    * {{ mmg-short-name }}'s automatic backup function does not create a new backup each time but saves the DB changes from the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changes.
 
-    * The number of cluster hosts does not affect the storage size and, therefore, the free volume of backups.
+    * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -92,13 +92,14 @@ Calculation for the storage cost and total cost:
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-host}
 
-The prices for computing resources are the same for all types of hosts: mongod, mongos, and mongocfg.
+The prices for computing resources are the same for all types of hosts: `mongod`, `mongos`, and `mongocfg`.
 
 {% note info %}
 
@@ -117,7 +118,7 @@ The prices for Intel Ice Lake (Compute Optimized) and AMD Zen 4 HighFreq is effe
 
 {% note info %}
 
-Access to ultra high-speed network storage with three replicas (SSD) is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
+Access to ultra high-speed network storage with three replicas (SSD) is available upon request. If you need one, contact [our support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

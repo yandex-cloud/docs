@@ -2,7 +2,7 @@
 
 {% note info %}
 
-To learn about data migration from a third-party {{ MY }} cluster, see this article: [{#T}](../../managed-mysql/tutorials/data-migration.md).
+To learn about data migration from a third-party {{ MY }} cluster, see this article: [{#T}](../../managed-mysql/tutorials/data-migration/index.md).
 
 {% endnote %}
 
@@ -20,7 +20,7 @@ There are two ways to migrate data from a {{ mmy-name }} _source cluster_ to a t
 
     This method allows you to migrate the entire database without interrupting user service.
 
-    Learn more in [{#T}](../../data-transfer/concepts/use-cases.md).
+    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Transferring data using external replication](#binlog-replication).
 

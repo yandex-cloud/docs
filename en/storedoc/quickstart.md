@@ -6,8 +6,11 @@ description: Follow this guide to set up and configure an {{ SD }} cluster.
 # Getting started with {{ mmg-name }}
 
 To get started:
-1. [Create a cluster](#cluster-create).
-1. [Connect to the DB](#connect).
+
+
+* [Create a cluster](#cluster-create).
+* [Connect to the DB](#connect).
+
 
 
 ## Getting started {#before-you-begin}
@@ -47,27 +50,26 @@ To get started:
 
 ## Create a cluster {#cluster-create}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
 1. Select **Yandex StoreDoc**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mmg-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
 
+
 ## Connect to the DB {#connect}
 
-
 1. If you are using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
-
 
 1. Get an SSL certificate:
 
    {% include [install-certificate](../_includes/mdb/mmg/install-certificate.md) %}
 
-1. Connect to the cluster using the {{ SD }} CLI:
+1. Connect to the cluster using the {{ MG }} CLI:
 
    {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
 
-    To learn how to get host FQDN, see [this guide](operations/connect/index.md#get-fqdn).
+    Learn how to get a host FQDN in [this guide](operations/connect/index.md#get-fqdn).
 
 
 ## What's next {#whats-next}

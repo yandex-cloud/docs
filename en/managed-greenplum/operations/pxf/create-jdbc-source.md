@@ -5,7 +5,7 @@ description: Follow this guide to create an external JDBC data source.
 
 # Creating an external JDBC data source
 
-In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the JDBC connection type, you can use the following:
+In {{ mgp-name }}, you can use the following as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the JDBC connection type:
 
 * {{ CH }}
 * HBase
@@ -23,7 +23,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Open the page of the {{ mgp-name }} cluster you need.
+    1. Open the page of the {{ GP }} cluster in question.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
     1. Select the `{{ ui-key.yacloud.greenplum.cluster.pxf.value_jdbc }}` connection type.
@@ -39,7 +39,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
     To create an external JDBC data source:
 
-    1. View the description of the CLI command to create a data source:
+    1. View the description of the CLI command for creating a data source:
 
         ```bash
         {{ yc-mdb-gp }} pxf-datasource create jdbc --help
@@ -105,7 +105,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
         * `name`: External data source name.
         * `jdbc`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#jdbc-settings).
 
-        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
     1. Check the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -148,7 +148,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
         * `name`: External data source name.
         * `jdbc`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#jdbc-settings).
 
-        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
     1. Check the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

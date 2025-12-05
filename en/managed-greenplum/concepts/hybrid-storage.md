@@ -1,6 +1,6 @@
 ---
 title: Hybrid storage in {{ mgp-name }}
-description: How hybrid storage works in a {{ mgp-full-name }} cluster.
+description: How hybrid storage works in a {{ GP }} cluster.
 ---
 
 # Hybrid storage in {{ mgp-name }}

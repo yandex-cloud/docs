@@ -1,6 +1,6 @@
 # Creating an external HDFS data source
 
-In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the HDFS connection type, you can use HDFS as part of [{{ dataproc-full-name }}](../../../data-proc/index.yaml) or other third-party HDFS services.
+In {{ mgp-name }}, you can use HDFS as part of [{{ dataproc-full-name }}](../../../data-proc/index.yaml) or other third-party HDFS services as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the HDFS connection type.
 
 ## Create an external data source {#create-external-source}
 
@@ -9,7 +9,7 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Open the page of the {{ mgp-name }} cluster you need.
+    1. Open the page of the {{ GP }} cluster in question.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
     1. Select the `{{ ui-key.yacloud.greenplum.cluster.pxf.value_hdfs }}` connection type.

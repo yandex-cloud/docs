@@ -1201,35 +1201,35 @@ default:
         3_month|string: ₸409450.00
         6_month|string: ₸400830.00
       ba_i501_h_25g:
-        1_day|string: ₸1106500.00
-        1_month|string: ₸1073305.00
-        12_month|string: ₸940525.00
-        3_month|string: ₸1051175.00
-        6_month|string: ₸1029045.00
+        1_day|string: ₸700500.00
+        1_month|string: ₸679485.00
+        12_month|string: ₸595425.00
+        3_month|string: ₸665475.00
+        6_month|string: ₸651465.00
       ba_i506_nh_25g:
-        1_day|string: ₸1205500.00
-        1_month|string: ₸1169335.00
-        12_month|string: ₸1024675.00
-        3_month|string: ₸1145225.00
-        6_month|string: ₸1121115.00
+        1_day|string: ₸755500.00
+        1_month|string: ₸732835.00
+        12_month|string: ₸642175.00
+        3_month|string: ₸717725.00
+        6_month|string: ₸702615.00
       ba_i507_nh_2x25g:
-        1_day|string: ₸1218000.00
-        1_month|string: ₸1181460.00
-        12_month|string: ₸1035300.00
-        3_month|string: ₸1157100.00
-        6_month|string: ₸1132740.00
+        1_day|string: ₸790500.00
+        1_month|string: ₸766785.00
+        12_month|string: ₸671925.00
+        3_month|string: ₸750975.00
+        6_month|string: ₸735165.00
       ba_i511_nh_25g:
-        1_day|string: ₸1499500.00
-        1_month|string: ₸1454515.00
-        12_month|string: ₸1274575.00
-        3_month|string: ₸1424525.00
-        6_month|string: ₸1394535.00
+        1_day|string: ₸961000.00
+        1_month|string: ₸932170.00
+        12_month|string: ₸816850.00
+        3_month|string: ₸912950.00
+        6_month|string: ₸893730.00
       ba_i512_nh_2x25g:
-        1_day|string: ₸1514000.00
-        1_month|string: ₸1468580.00
-        12_month|string: ₸1286900.00
-        3_month|string: ₸1438300.00
-        6_month|string: ₸1408020.00
+        1_day|string: ₸986000.00
+        1_month|string: ₸956420.00
+        12_month|string: ₸838100.00
+        3_month|string: ₸936700.00
+        6_month|string: ₸916980.00
       ba-a401-2n2h-25g:
         1_day|string: ₸617500.00
         1_month|string: ₸598975.00
@@ -1255,11 +1255,11 @@ default:
         3_month|string: ₸1267300.00
         6_month|string: ₸1240620.00
       ba-a702-6n-4h-2x25g:
-        1_day|string: ₸1801500.00
-        1_month|string: ₸1747455.00
-        12_month|string: ₸1531275.00
-        3_month|string: ₸1711425.00
-        6_month|string: ₸1675395.00
+        1_day|string: ₸1964500.00
+        1_month|string: ₸1905565.00
+        12_month|string: ₸1669825.00
+        3_month|string: ₸1866275.00
+        6_month|string: ₸1826985.00
       ba-a704-4n-2x25g:
         1_day|string: ₸1167000.00
         1_month|string: ₸1131990.00
@@ -1303,11 +1303,11 @@ default:
         3_month|string: ₸1243811.25
         6_month|string: ₸1217625.75
       ba-i523-nh-2x25g:
-        1_day|string: ₸2380500.00
-        1_month|string: ₸2309085.00
-        12_month|string: ₸2023425.00
-        3_month|string: ₸2261475.00
-        6_month|string: ₸2213865.00
+        1_day|string: ₸1370500.00
+        1_month|string: ₸1329385.00
+        12_month|string: ₸1164925.00
+        3_month|string: ₸1301975.00
+        6_month|string: ₸1274565.00
       bf25_i201_h:
         1_day|string: ₸74490.00
         1_month|string: ₸74490.00
@@ -1339,11 +1339,11 @@ default:
         3_month|string: ₸436050.00
         6_month|string: ₸426870.00
       ha-a701-6n-4h-2x25g:
-        1_day|string: ₸1792500.00
-        1_month|string: ₸1738725.00
-        12_month|string: ₸1523625.00
-        3_month|string: ₸1702875.00
-        6_month|string: ₸1667025.00
+        1_day|string: ₸1901000.00
+        1_month|string: ₸1843970.00
+        12_month|string: ₸1615850.00
+        3_month|string: ₸1805950.00
+        6_month|string: ₸1767930.00
       ha-a703-4n-2x25g:
         1_day|string: ₸1132500.00
         1_month|string: ₸1098525.00
@@ -3586,35 +3586,35 @@ default:
         3_month|string: ₽81890.00
         6_month|string: ₽80166.00
       ba_i501_h_25g:
-        1_day|string: ₽221300.00
-        1_month|string: ₽214661.00
-        12_month|string: ₽188105.00
-        3_month|string: ₽210235.00
-        6_month|string: ₽205809.00
+        1_day|string: ₽140100.00
+        1_month|string: ₽135897.00
+        12_month|string: ₽119085.00
+        3_month|string: ₽133095.00
+        6_month|string: ₽130293.00
       ba_i506_nh_25g:
-        1_day|string: ₽241100.00
-        1_month|string: ₽233867.00
-        12_month|string: ₽204935.00
-        3_month|string: ₽229045.00
-        6_month|string: ₽224223.00
+        1_day|string: ₽151100.00
+        1_month|string: ₽146567.00
+        12_month|string: ₽128435.00
+        3_month|string: ₽143545.00
+        6_month|string: ₽140523.00
       ba_i507_nh_2x25g:
-        1_day|string: ₽243600.00
-        1_month|string: ₽236292.00
-        12_month|string: ₽207060.00
-        3_month|string: ₽231420.00
-        6_month|string: ₽226548.00
+        1_day|string: ₽158100.00
+        1_month|string: ₽153357.00
+        12_month|string: ₽134385.00
+        3_month|string: ₽150195.00
+        6_month|string: ₽147033.00
       ba_i511_nh_25g:
-        1_day|string: ₽299900.00
-        1_month|string: ₽290903.00
-        12_month|string: ₽254915.00
-        3_month|string: ₽284905.00
-        6_month|string: ₽278907.00
+        1_day|string: ₽192200.00
+        1_month|string: ₽186434.00
+        12_month|string: ₽163370.00
+        3_month|string: ₽182590.00
+        6_month|string: ₽178746.00
       ba_i512_nh_2x25g:
-        1_day|string: ₽302800.00
-        1_month|string: ₽293716.00
-        12_month|string: ₽257380.00
-        3_month|string: ₽287660.00
-        6_month|string: ₽281604.00
+        1_day|string: ₽197200.00
+        1_month|string: ₽191284.00
+        12_month|string: ₽167620.00
+        3_month|string: ₽187340.00
+        6_month|string: ₽183396.00
       ba-a401-2n2h-25g:
         1_day|string: ₽123500.00
         1_month|string: ₽119795.00
@@ -3640,11 +3640,11 @@ default:
         3_month|string: ₽253460.00
         6_month|string: ₽248124.00
       ba-a702-6n-4h-2x25g:
-        1_day|string: ₽360300.00
-        1_month|string: ₽349491.00
-        12_month|string: ₽306255.00
-        3_month|string: ₽342285.00
-        6_month|string: ₽335079.00
+        1_day|string: ₽392900.00
+        1_month|string: ₽381113.00
+        12_month|string: ₽333965.00
+        3_month|string: ₽373255.00
+        6_month|string: ₽365397.00
       ba-a704-4n-2x25g:
         1_day|string: ₽233400.00
         1_month|string: ₽226398.00
@@ -3688,11 +3688,11 @@ default:
         3_month|string: ₽248762.25
         6_month|string: ₽243525.15
       ba-i523-nh-2x25g:
-        1_day|string: ₽476100.00
-        1_month|string: ₽461817.00
-        12_month|string: ₽404685.00
-        3_month|string: ₽452295.00
-        6_month|string: ₽442773.00
+        1_day|string: ₽274100.00
+        1_month|string: ₽265877.00
+        12_month|string: ₽232985.00
+        3_month|string: ₽260395.00
+        6_month|string: ₽254913.00
       bf25_i201_h:
         1_day|string: ₽14898.00
         1_month|string: ₽14898.00
@@ -3724,11 +3724,11 @@ default:
         3_month|string: ₽87210.00
         6_month|string: ₽85374.00
       ha-a701-6n-4h-2x25g:
-        1_day|string: ₽358500.00
-        1_month|string: ₽347745.00
-        12_month|string: ₽304725.00
-        3_month|string: ₽340575.00
-        6_month|string: ₽333405.00
+        1_day|string: ₽380200.00
+        1_month|string: ₽368794.00
+        12_month|string: ₽323170.00
+        3_month|string: ₽361190.00
+        6_month|string: ₽353586.00
       ha-a703-4n-2x25g:
         1_day|string: ₽226500.00
         1_month|string: ₽219705.00
@@ -5965,35 +5965,35 @@ default:
         3_month|string: $682.416394
         6_month|string: $668.049733
       ba_i501_h_25g:
-        1_day|string: $1844.165929
-        1_month|string: $1788.840951
-        12_month|string: $1567.541040
-        3_month|string: $1751.957633
-        6_month|string: $1715.074314
+        1_day|string: $1167.499533
+        1_month|string: $1132.474547
+        12_month|string: $992.374603
+        3_month|string: $1109.124556
+        6_month|string: $1085.774566
       ba_i506_nh_25g:
-        1_day|string: $2009.165863
-        1_month|string: $1948.890887
-        12_month|string: $1707.790984
-        3_month|string: $1908.707570
-        6_month|string: $1868.524253
+        1_day|string: $1259.166163
+        1_month|string: $1221.391178
+        12_month|string: $1070.291239
+        3_month|string: $1196.207855
+        6_month|string: $1171.024532
       ba_i507_nh_2x25g:
-        1_day|string: $2029.999188
-        1_month|string: $1969.099212
-        12_month|string: $1725.499310
-        3_month|string: $1928.499229
-        6_month|string: $1887.899245
+        1_day|string: $1317.499473
+        1_month|string: $1277.974489
+        12_month|string: $1119.874552
+        3_month|string: $1251.624499
+        6_month|string: $1225.274510
       ba_i511_nh_25g:
-        1_day|string: $2499.165667
-        1_month|string: $2424.190697
-        12_month|string: $2124.290817
-        3_month|string: $2374.207384
-        6_month|string: $2324.224070
+        1_day|string: $1601.666026
+        1_month|string: $1553.616045
+        12_month|string: $1361.416122
+        3_month|string: $1521.582725
+        6_month|string: $1489.549404
       ba_i512_nh_2x25g:
-        1_day|string: $2523.332324
-        1_month|string: $2447.632354
-        12_month|string: $2144.832475
-        3_month|string: $2397.165708
-        6_month|string: $2346.699061
+        1_day|string: $1643.332676
+        1_month|string: $1594.032696
+        12_month|string: $1396.832775
+        3_month|string: $1561.166042
+        6_month|string: $1528.299389
       ba-a401-2n2h-25g:
         1_day|string: $1029.166255
         1_month|string: $998.291267
@@ -6019,11 +6019,11 @@ default:
         3_month|string: $2112.165822
         6_month|string: $2067.699173
       ba-a702-6n-4h-2x25g:
-        1_day|string: $3002.498799
-        1_month|string: $2912.423835
-        12_month|string: $2552.123979
-        3_month|string: $2852.373859
-        6_month|string: $2792.323883
+        1_day|string: $3274.165357
+        1_month|string: $3175.940396
+        12_month|string: $2783.040553
+        3_month|string: $3110.457089
+        6_month|string: $3044.973782
       ba-a704-4n-2x25g:
         1_day|string: $1944.999222
         1_month|string: $1886.649245
@@ -6067,11 +6067,11 @@ default:
         3_month|string: $2073.017921
         6_month|string: $2029.375438
       ba-i523-nh-2x25g:
-        1_day|string: $3967.498413
-        1_month|string: $3848.473461
-        12_month|string: $3372.373651
-        3_month|string: $3769.123492
-        6_month|string: $3689.773524
+        1_day|string: $2284.165753
+        1_month|string: $2215.640780
+        12_month|string: $1941.540890
+        3_month|string: $2169.957465
+        6_month|string: $2124.274150
       bf25_i201_h:
         1_day|string: $124.149950
         1_month|string: $124.149950
@@ -6103,11 +6103,11 @@ default:
         3_month|string: $726.749709
         6_month|string: $711.449715
       ha-a701-6n-4h-2x25g:
-        1_day|string: $2987.498805
-        1_month|string: $2897.873841
-        12_month|string: $2539.373984
-        3_month|string: $2838.123865
-        6_month|string: $2778.373889
+        1_day|string: $3168.332066
+        1_month|string: $3073.282104
+        12_month|string: $2693.082256
+        3_month|string: $3009.915463
+        6_month|string: $2946.548821
       ha-a703-4n-2x25g:
         1_day|string: $1887.499245
         1_month|string: $1830.874268
@@ -8481,6 +8481,10 @@ default:
             popup-create-cloud_button_add: Create
             popup-create-cloud_label_organization: Organization
           label_acl: Access bindings
+          quotas:
+            label_quota-name-iam:
+              serviceAccounts:
+                count: Number of service accounts
     yacloud_components:
       acl:
         action:
@@ -10083,6 +10087,8 @@ default:
         title_clickhouse: ClickHouse
         title_keeper: Keeper
         title_zookeeper: ZooKeeper
+      cloud-apps:
+        label_marketplace: Marketplace
       cloud-registry:
         action_registry-create: Create registry
         title_registries: Registries
@@ -11124,6 +11130,8 @@ default:
                 size: Total HDD capacity
               instanceCores:
                 count: Number of vCPUs for instances
+              instanceMemory:
+                size: Total RAM for instances
               instances:
                 count: Number of instances
               ssdDisks:
@@ -11137,6 +11145,17 @@ default:
                 size: Amount of virtual memory
               ssd:
                 size: SSD storage capacity
+            label_quota-name-vpc:
+              externalStaticAddresses:
+                count: Number of static public IP addresses
+              routeTables:
+                count: Number of routing tables
+              securityGroups:
+                count: Number of security groups
+              staticRoutes:
+                count: Number of static routes
+              subnets:
+                count: Number of subnets
             value_status-error: Almost exhausted
             value_status-warning: Actively used
           switch_overview: Overview
@@ -11162,6 +11181,7 @@ default:
             label_baremetal: BareMetal
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
+            label_cloud-apps: Cloud Apps
             label_cloud-desktop: Cloud Desktop
             label_cloud-registry: Cloud Registry
             label_cns: Cloud Notification Service
@@ -15088,6 +15108,21 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
         tag: 7.3.11-2
+    yc_bitrix-env:
+      dockerImages:
+        nginx:
+          repository:
+            name: >-
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1764089856329713384751806090650435327427957097722
+            tag: '1.28'
+        php:
+          repository:
+            name: >-
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1764089856329713384751806090650435327427957097722
+            tag: 8.2.29
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
+        tag: 1.0.5
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-

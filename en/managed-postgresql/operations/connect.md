@@ -60,7 +60,7 @@ Rule settings depend on the chosen connection method:
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-       This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install all required certificates and tools on your VM.
+       This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
 
 {% endlist %}
 
@@ -88,12 +88,12 @@ Publicly accessible {{ PG }} hosts only support encrypted connections. You must 
 To connect to a host, you will need its [FQDN](../concepts/network.md#hostname). You can get it using one of the following methods:
 
 * [Request a list of cluster hosts](../operations/hosts.md#list-hosts).
-* In the [management console]({{ link-console-main }}), copy the cluster connection command. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
-* Locate the FQDN in the management console:
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* View the FQDN in the management console:
 
-   1. Open to the cluster page.
+   1. Navigate to the cluster page.
    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** value.
+   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
 Cluster hosts also use [special FQDNs](#special-fqdns).
 
@@ -253,11 +253,11 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
           jdbc:postgresql://<{{ PG }}_host_1>:{{ port-mpg }},...,<{{ PG }}_host_N>:{{ port-mpg }}/<DB_name>
           ```
 
-        * Click **Download** to download the database driver.
+        * Click **Download** to download the connection driver.
      1. On the **SSH/SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **CA file** field, specify the path to the [SSL certificate file for your connection](#get-ssl-cert).
-  1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
+         1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+  1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
   1. Click **OK** to save the data source.
 
 - DBeaver {#dbeaver}
@@ -273,16 +273,19 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
         * Under **Authentication**, specify the database user name and password.
      1. On the **SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **Root certificate** field, specify the path to the [SSL certificate](#get-ssl-cert) file you saved previously.
-  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
+         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
+  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
   1. Click **Done** to save the database connection settings.
 
 {% endlist %}
 
 
+
+
 ## Connecting from {{ websql-full-name }} {#websql}
 
 {% include [WebSQL](../../_includes/mdb/mpg/websql.md) %}
+
 
 
 
@@ -294,8 +297,8 @@ Connections from {{ pgadmin }} are only permitted to publicly accessible cluster
 
 Create a new server connection:
 
-1. In the menu, select **Object** → **Register** → **Server...**
-1. In the **Name** field of the **General** tab, specify the cluster name for the {{ pgadmin }} interface. You can choose any name.
+1. Select **Object** → **Register** → **Server...**
+1. On the **General** tab, in the **Name** field, specify the cluster name to be shown in the {{ pgadmin }} interface. You can set any name.
 1. In the **Connection** tab, specify the connection settings:
 
     * **Host name/address**: [Master FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
@@ -306,12 +309,13 @@ Create a new server connection:
 
 1. In the **Parameters** tab:
 
-    * Set the **SSL mode** to `verify-full`.
-    * Add the **Root certificate** parameter and specify the path to your previously saved SSL certificate file as its value.
+    * Set the **SSL mode** parameter to `verify-full`.
+    * Add a new **Root certificate** parameter and specify the path to the saved SSL certificate file in it.
 
 1. Click **Save** to save the server connection settings.
 
 Your cluster will appear in the server list located in the navigation menu.
+
 
 ## Connecting from {{ google-looker }} {#connection-google-looker}
 
@@ -349,7 +353,7 @@ Connections from [{{ google-looker }}](https://lookerstudio.google.com/overview)
 
 ## Before you connect from a Docker container {#connection-docker}
 
-To connect to a {{ mpg-name }} cluster from a Docker container, add the following lines to your Dockerfile:
+To connect to a {{ mpg-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
 
 {% list tabs group=connection %}
@@ -396,4 +400,4 @@ You can connect to a cluster using either regular host [FQDNs](../concepts/netwo
 
 {% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
-If the connection to the cluster and the test query are successful, you will see the {{ PG }} version. One exception is the [userver framework example](#cpp-userver), where the `SELECT 1 as ping` test query will be executed for periodic {{ PG }} cluster availability checks.
+If your cluster connection and test query are successful, you will see the {{ PG }} version. One exception is the [userver framework example](#cpp-userver), where the `SELECT 1 as ping` test query will be executed for periodic {{ PG }} cluster availability checks.

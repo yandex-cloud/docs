@@ -8,5 +8,6 @@ canonical: '{{ link-docs }}/tutorials/routing/ipsec'
 
 Для организации сетевой связности с помощью IPsec-шлюзов воспользуйтесь одним из вариантов:
 
-* [{#T}](sgw.md)
 * [{#T}](ipsec-vpn.md)
+* [{#T}](s2s-vpn.md)
+* [{#T}](sgw.md)
