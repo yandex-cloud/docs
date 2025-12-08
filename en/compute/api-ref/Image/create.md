@@ -133,6 +133,14 @@ apiPlayground:
         - required:
             - uri
     definitions:
+      Nvidia:
+        type: object
+        properties:
+          driver:
+            description: |-
+              **string**
+              Gpu driver version.
+            type: string
       Os:
         type: object
         properties:
@@ -150,6 +158,12 @@ apiPlayground:
               - STANDARD
               - SOFTWARE_ACCELERATED
               - HARDWARE_ACCELERATED
+          nvidia:
+            description: |-
+              **[Nvidia](#yandex.cloud.compute.v1.Nvidia)**
+              Gpu type.
+              This field is used to correctly select a node with a host gpu that matches the gpu from here, in order to run the VM on it.
+            $ref: '#/definitions/Nvidia'
       LegacyHardwareFeatures:
         type: object
         properties:
@@ -220,7 +234,10 @@ POST https://compute.{{ api-host }}/compute/v1/images
   "uri": "string",
   // end of the list of possible fields
   "os": {
-    "type": "string"
+    "type": "string",
+    "nvidia": {
+      "driver": "string"
+    }
   },
   "pooled": "boolean",
   "hardwareGeneration": {
@@ -337,6 +354,19 @@ This field is used to correctly emulate a vCPU and calculate the cost of using a
 
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
+|| nvidia | **[Nvidia](#yandex.cloud.compute.v1.Nvidia)**
+
+Gpu type.
+This field is used to correctly select a node with a host gpu that matches the gpu from here, in order to run the VM on it. ||
+|#
+
+## Nvidia {#yandex.cloud.compute.v1.Nvidia}
+
+#|
+||Field | Description ||
+|| driver | **string**
+
+Gpu driver version. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -407,7 +437,10 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
     ],
     "status": "string",
     "os": {
-      "type": "string"
+      "type": "string",
+      "nvidia": {
+        "driver": "string"
+      }
     },
     "pooled": "boolean",
     "hardwareGeneration": {
@@ -536,6 +569,8 @@ ID of the image. ||
 ID of the folder that the image belongs to. ||
 || createdAt | **string** (date-time)
 
+Creation timestamp.
+
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
@@ -609,6 +644,19 @@ This field is used to correctly emulate a vCPU and calculate the cost of using a
 
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
+|| nvidia | **[Nvidia](#yandex.cloud.compute.v1.Nvidia2)**
+
+Gpu type.
+This field is used to correctly select a node with a host gpu that matches the gpu from here, in order to run the VM on it. ||
+|#
+
+## Nvidia {#yandex.cloud.compute.v1.Nvidia2}
+
+#|
+||Field | Description ||
+|| driver | **string**
+
+Gpu driver version. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration2}

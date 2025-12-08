@@ -92,11 +92,11 @@ apiPlayground:
             Configuration for bucket's allowed private endpoints.
             requires permission s3:PutBucketAllowedPrivateEndpoints
           $ref: '#/definitions/BucketAllowedPrivateEndpoints'
-        disabledAccesskeyAuth:
+        disabledStatickeyAuth:
           description: |-
             **boolean**
-            An option to disable access key auth for a bucket.
-            requires permission s3:PutBucketAccessKeyAuthSettings
+            An option to disable static key auth for a bucket.
+            requires permission s3:UpdateBucketStaticKeyAuthSettings
           type: boolean
       required:
         - name
@@ -306,7 +306,7 @@ POST https://storage.{{ api-host }}/storage/v1/buckets
       "string"
     ]
   },
-  "disabledAccesskeyAuth": "boolean"
+  "disabledStatickeyAuth": "boolean"
 }
 ```
 
@@ -375,10 +375,10 @@ versioning was suspended are still versioned and keep their version IDs.
 
 Configuration for bucket's allowed private endpoints.
 requires permission s3:PutBucketAllowedPrivateEndpoints ||
-|| disabledAccesskeyAuth | **boolean**
+|| disabledStatickeyAuth | **boolean**
 
-An option to disable access key auth for a bucket.
-requires permission s3:PutBucketAccessKeyAuthSettings ||
+An option to disable static key auth for a bucket.
+requires permission s3:UpdateBucketStaticKeyAuthSettings ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -685,7 +685,7 @@ white list of private endpoints bucket accessible from ||
       ]
     },
     "resourceId": "string",
-    "disabledAccesskeyAuth": "boolean"
+    "disabledStatickeyAuth": "boolean"
   }
   // end of the list of possible fields
 }
@@ -887,9 +887,9 @@ Bucket allowed private endpoints. ||
 || resourceId | **string**
 
 ID of the Yandex.Cloud entity that owns the bucket. ||
-|| disabledAccesskeyAuth | **boolean**
+|| disabledStatickeyAuth | **boolean**
 
-An option to disable access key auth for a bucket. ||
+An option to disable static key auth for a bucket. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags2}

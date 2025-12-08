@@ -241,7 +241,7 @@ bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/p
     ]
   },
   "resourceId": "string",
-  "disabledAccesskeyAuth": "boolean"
+  "disabledStatickeyAuth": "boolean"
 }
 ```
 
@@ -344,9 +344,9 @@ Bucket allowed private endpoints. ||
 || resourceId | **string**
 
 ID of the Yandex.Cloud entity that owns the bucket. ||
-|| disabledAccesskeyAuth | **boolean**
+|| disabledStatickeyAuth | **boolean**
 
-An option to disable access key auth for a bucket. ||
+An option to disable static key auth for a bucket. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}

@@ -296,7 +296,7 @@ subcluster_name | Имя подкластера
 | `redis_mem_replication_backlog`<br/>`DGAUGE`, байты | Использование оперативной памяти для циклического буфера репликации. |
 | `redis_memory_limit`<br/>`DGAUGE`, байты | Объем памяти, выделенной хосту. |
 | `redis_module_fork_last_cow_size`<br/>`DGAUGE`, байты | Количество данных, скопированных при вызове `fork()` с использованием механизма COW. |
-| `redis_oom_count`<br/>`DGAUGE`, штуки | Количество ошибок Out of Memory, за час. |
+| `redis_oom_count`<br/>`COUNTER`, штуки | Количество ошибок Out of Memory. |
 | `redis_rdb_last_cow_size`<br/>`DGAUGE`, байты | Количество данных, скопированных при создании RDB-файла. |
 | `redis_repl_backlog_histlen`<br/>`DGAUGE`, байты | Текущий объем памяти, занятый данными в буфере репликации. |
 | `redis_repl_backlog_size`<br/>`DGAUGE`, байты | Максимальный объем памяти, доступный под буфер репликации. |

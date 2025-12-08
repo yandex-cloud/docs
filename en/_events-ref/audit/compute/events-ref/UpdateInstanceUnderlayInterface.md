@@ -60,7 +60,7 @@ editable: false
   "details": {
     "instanceId": "string",
     "instanceName": "string",
-    "underlayNetworks": [
+    "underlayInterfaces": [
       {
         "id": "string",
         "networkName": "string",
@@ -236,7 +236,7 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || instanceId | **string** ||
 || instanceName | **string** ||
-|| underlayNetworks[] | **[UnderlayNetworkInterface](#yandex.cloud.audit.compute.UpdateInstanceUnderlayInterface.UnderlayNetworkInterface)** ||
+|| underlayInterfaces[] | **[UnderlayNetworkInterface](#yandex.cloud.audit.compute.UpdateInstanceUnderlayInterface.UnderlayNetworkInterface)** ||
 |#
 
 ## UnderlayNetworkInterface {#yandex.cloud.audit.compute.UpdateInstanceUnderlayInterface.UnderlayNetworkInterface}

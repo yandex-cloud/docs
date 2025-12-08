@@ -10,6 +10,6 @@
    * **Трафик** — `При условии`.
    * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`.
    * **Request path** — `Соответствует регулярному выражению`.
-   * Введите выражение `/(captcha_smart.*\.(css|js)|showcaptcha|checkcaptcha)`.
+   * Введите выражение `{{ allowed-captcha-request }}`.
 
 1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
