@@ -62,7 +62,10 @@ editable: false
     "imageName": "string",
     "family": "string",
     "os": {
-      "type": "string"
+      "type": "string",
+      "nvidia": {
+        "driver": "string"
+      }
     },
     "productIds": [
       "string"
@@ -248,4 +251,12 @@ Includes only one of the fields `sourceImageId`, `sourceDiskId`, `sourceSnapshot
 
 - `LINUX`
 - `WINDOWS` ||
+|| nvidia | **[Nvidia](#yandex.cloud.compute.v1.Nvidia)** ||
+|#
+
+## Nvidia {#yandex.cloud.compute.v1.Nvidia}
+
+#|
+||Field | Description ||
+|| driver | **string** ||
 |#

@@ -87,7 +87,10 @@ editable: false
       "placementGroupPartition": "string"
     },
     "os": {
-      "type": "string"
+      "type": "string",
+      "nvidia": {
+        "driver": "string"
+      }
     },
     "productIds": [
       "string"
@@ -520,6 +523,14 @@ A list of messages that carry the error details. ||
 
 - `LINUX`
 - `WINDOWS` ||
+|| nvidia | **[Nvidia](#yandex.cloud.compute.v1.Nvidia)** ||
+|#
+
+## Nvidia {#yandex.cloud.compute.v1.Nvidia}
+
+#|
+||Field | Description ||
+|| driver | **string** ||
 |#
 
 ## MetadataOptions {#yandex.cloud.compute.v1.MetadataOptions}

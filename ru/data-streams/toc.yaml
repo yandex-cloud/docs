@@ -133,6 +133,8 @@ items:
         href: tutorials/search-events-query.md
       - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
         href: tutorials/postbox-webhook.md
+      - name: Диагностика медленной записи в {{ yds-full-name }}
+        href: tutorials/slow-writes-debug.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

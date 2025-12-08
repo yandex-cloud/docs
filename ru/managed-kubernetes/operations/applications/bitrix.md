@@ -169,8 +169,8 @@ description: Следуя данной инструкции, вы сможете
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с административным окружением Битрикс выполните команду:
 
    ```bash
-   helm pull oci://{{ mkt-k8s-key.yc_bitrix-env.helmChart.name }} \
-     --version {{ mkt-k8s-key.yc_bitrix-env.helmChart.tag }} \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env \
+     --version 1.0.5 \
      --untar && \
    helm install \
      --namespace bitrix-space \
@@ -222,13 +222,13 @@ description: Следуя данной инструкции, вы сможете
       1. Скачайте образ `bitrix-admin-php`:
 
          ```shell
-         docker pull {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:{{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.tag }}
+         docker pull {{ registry }}/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1764089856329713384751806090650435327427957097722:8.2.29
          ```
 
       1. Установите тег в реестре, [созданном ранее](#before-you-begin):
 
          ```shell
-         docker tag {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:{{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.tag }} {{ registry }}/<идентификатор_реестра>/bitrix-env/bitrix/bitrix-admin-php
+         docker tag {{ registry }}/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1764089856329713384751806090650435327427957097722:8.2.29 {{ registry }}/<идентификатор_реестра>/bitrix-env/bitrix/bitrix-admin-php
          ```
 
       1. Создайте в директории с папкой `bitrix` файл `Dockerfile-php` со следующим содержимым:
@@ -254,13 +254,13 @@ description: Следуя данной инструкции, вы сможете
          docker push {{ registry }}/<идентификатор_реестра>/bitrix-prod-php
          ```
 
-   1. Аналогично выполненным шагам из п. 2, подготовьте образ Битрикс с NGINX `bitrix-prod-nginx` на основе базового образа `{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.name }}:{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.tag }}`.
+   1. Аналогично выполненным шагам из п. 2, подготовьте образ Битрикс с NGINX `bitrix-prod-nginx` на основе базового образа `{{ registry }}/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1764089856329713384751806090650435327427957097722:1.28`.
 
    1. Выполните установку Helm-чарта:
 
        ```bash
-       helm pull oci://{{ mkt-k8s-key.yc_bitrix-env.helmChart.name }} \
-         --version {{ mkt-k8s-key.yc_bitrix-env.helmChart.tag }} \
+       helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env \
+         --version 1.0.5 \
          --untar && \
        helm install \
          --namespace bitrix-prod \

@@ -55,7 +55,7 @@ metadata:
 
     ...  # see annotations reference below
 spec:
-  ingressClassName: gwin  # use Gwin ingress class
+  ingressClassName: gwin-default  # use Gwin ingress class
   defaultBackend:  # default backend for unmatched requests
     service:
       name: default-service
@@ -425,7 +425,7 @@ metadata:
     gwin.yandex.cloud/redirect.https-redirect.replaceHost: "secure.example.com"
     gwin.yandex.cloud/redirect.https-redirect.responseCode: "301"
 spec:
-  ingressClassName: gwin
+  ingressClassName: gwin-default
   rules:
     - host: "example.com"
       http:
@@ -512,7 +512,7 @@ IngressSpec describes the Ingress the user wishes to exist.
 
 | Field | Description |
 |-------|-------------|
-| ingressClassName | **string** <br> IngressClassName is the name of the IngressClass cluster resource. For Gwin, use `gwin`. <br> Example: `gwin` |
+| ingressClassName | **string** <br> IngressClassName is the name of the IngressClass cluster resource. For Gwin, use `gwin`. <br> Example: `gwin-default` |
 | defaultBackend | **[IngressBackend](#ingressbackend)** <br> DefaultBackend is the backend that should handle requests that don't match any rule. |
 | tls | **[[]IngressTLS](#ingresstls)** <br> TLS configuration. |
 | rules | **[[]IngressRule](#ingressrule)** <br> List of host rules used to configure the Ingress. |
