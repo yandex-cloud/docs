@@ -135,11 +135,11 @@ apiPlayground:
             **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
             requires permission s3:PutBucketAllowedPrivateEndpoints
           $ref: '#/definitions/BucketAllowedPrivateEndpoints'
-        disabledAccesskeyAuth:
+        disabledStatickeyAuth:
           description: |-
             **boolean**
-            An option to disable access key auth for a bucket.
-            requires permission s3:PutBucketAccessKeyAuthSettings
+            An option to disable static key auth for a bucket.
+            requires permission s3:UpdateBucketStaticKeyAuthSettings
           type: boolean
       required:
         - updateMask
@@ -949,7 +949,7 @@ To get the bucket name, make a [BucketService.List](/docs/storage/api-ref/Bucket
       "string"
     ]
   },
-  "disabledAccesskeyAuth": "boolean"
+  "disabledStatickeyAuth": "boolean"
 }
 ```
 
@@ -1034,10 +1034,10 @@ For details, see [documentation](/docs/storage/concepts/encryption) ||
 || allowedPrivateEndpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
 
 requires permission s3:PutBucketAllowedPrivateEndpoints ||
-|| disabledAccesskeyAuth | **boolean**
+|| disabledStatickeyAuth | **boolean**
 
-An option to disable access key auth for a bucket.
-requires permission s3:PutBucketAccessKeyAuthSettings ||
+An option to disable static key auth for a bucket.
+requires permission s3:UpdateBucketStaticKeyAuthSettings ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -1774,7 +1774,7 @@ white list of private endpoints bucket accessible from ||
       ]
     },
     "resourceId": "string",
-    "disabledAccesskeyAuth": "boolean"
+    "disabledStatickeyAuth": "boolean"
   }
   // end of the list of possible fields
 }
@@ -1976,9 +1976,9 @@ Bucket allowed private endpoints. ||
 || resourceId | **string**
 
 ID of the Yandex.Cloud entity that owns the bucket. ||
-|| disabledAccesskeyAuth | **boolean**
+|| disabledStatickeyAuth | **boolean**
 
-An option to disable access key auth for a bucket. ||
+An option to disable static key auth for a bucket. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags2}

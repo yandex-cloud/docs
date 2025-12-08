@@ -162,7 +162,7 @@ to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
       "string"
     ]
   },
-  "disabled_accesskey_auth": "bool"
+  "disabled_statickey_auth": "bool"
 }
 ```
 
@@ -248,10 +248,10 @@ For details, see [documentation](/docs/storage/concepts/encryption) ||
 || allowed_private_endpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
 
 requires permission s3:PutBucketAllowedPrivateEndpoints ||
-|| disabled_accesskey_auth | **bool**
+|| disabled_statickey_auth | **bool**
 
-An option to disable access key auth for a bucket.
-requires permission s3:PutBucketAccessKeyAuthSettings ||
+An option to disable static key auth for a bucket.
+requires permission s3:UpdateBucketStaticKeyAuthSettings ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -966,7 +966,7 @@ white list of private endpoints bucket accessible from ||
       ]
     },
     "resource_id": "string",
-    "disabled_accesskey_auth": "bool"
+    "disabled_statickey_auth": "bool"
   }
   // end of the list of possible fields
 }
@@ -1130,9 +1130,9 @@ Bucket allowed private endpoints. ||
 || resource_id | **string**
 
 ID of the Yandex.Cloud entity that owns the bucket. ||
-|| disabled_accesskey_auth | **bool**
+|| disabled_statickey_auth | **bool**
 
-An option to disable access key auth for a bucket. ||
+An option to disable static key auth for a bucket. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags2}

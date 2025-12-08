@@ -186,7 +186,7 @@ The maximum string length in characters is 50. ||
         ]
       },
       "resource_id": "string",
-      "disabled_accesskey_auth": "bool"
+      "disabled_statickey_auth": "bool"
     }
   ]
 }
@@ -293,9 +293,9 @@ Bucket allowed private endpoints. ||
 || resource_id | **string**
 
 ID of the Yandex.Cloud entity that owns the bucket. ||
-|| disabled_accesskey_auth | **bool**
+|| disabled_statickey_auth | **bool**
 
-An option to disable access key auth for a bucket. ||
+An option to disable static key auth for a bucket. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}

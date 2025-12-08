@@ -34,7 +34,10 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
   "uri": "string",
   // end of the list of possible fields
   "os": {
-    "type": "Type"
+    "type": "Type",
+    "nvidia": {
+      "driver": "string"
+    }
   },
   "pooled": "bool",
   "hardware_generation": {
@@ -151,6 +154,19 @@ This field is used to correctly emulate a vCPU and calculate the cost of using a
 
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
+|| nvidia | **[Nvidia](#yandex.cloud.compute.v1.Nvidia)**
+
+Gpu type.
+This field is used to correctly select a node with a host gpu that matches the gpu from here, in order to run the VM on it. ||
+|#
+
+## Nvidia {#yandex.cloud.compute.v1.Nvidia}
+
+#|
+||Field | Description ||
+|| driver | **string**
+
+Gpu driver version. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -223,7 +239,10 @@ and UEFI boot (with UEFI related features).
     ],
     "status": "Status",
     "os": {
-      "type": "Type"
+      "type": "Type",
+      "nvidia": {
+        "driver": "string"
+      }
     },
     "pooled": "bool",
     "hardware_generation": {
@@ -319,7 +338,9 @@ ID of the image. ||
 || folder_id | **string**
 
 ID of the folder that the image belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
 || name | **string**
 
 Name of the image. 1-63 characters long. ||
@@ -387,6 +408,19 @@ This field is used to correctly emulate a vCPU and calculate the cost of using a
 
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
+|| nvidia | **[Nvidia](#yandex.cloud.compute.v1.Nvidia2)**
+
+Gpu type.
+This field is used to correctly select a node with a host gpu that matches the gpu from here, in order to run the VM on it. ||
+|#
+
+## Nvidia {#yandex.cloud.compute.v1.Nvidia2}
+
+#|
+||Field | Description ||
+|| driver | **string**
+
+Gpu driver version. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration2}

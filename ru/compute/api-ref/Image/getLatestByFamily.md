@@ -76,7 +76,10 @@ Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
   ],
   "status": "string",
   "os": {
-    "type": "string"
+    "type": "string",
+    "nvidia": {
+      "driver": "string"
+    }
   },
   "pooled": "boolean",
   "hardwareGeneration": {
@@ -105,6 +108,8 @@ ID of the image. ||
 
 ID of the folder that the image belongs to. ||
 || createdAt | **string** (date-time)
+
+Creation timestamp.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -179,6 +184,19 @@ This field is used to correctly emulate a vCPU and calculate the cost of using a
 
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
+|| nvidia | **[Nvidia](#yandex.cloud.compute.v1.Nvidia)**
+
+Gpu type.
+This field is used to correctly select a node with a host gpu that matches the gpu from here, in order to run the VM on it. ||
+|#
+
+## Nvidia {#yandex.cloud.compute.v1.Nvidia}
+
+#|
+||Field | Description ||
+|| driver | **string**
+
+Gpu driver version. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
