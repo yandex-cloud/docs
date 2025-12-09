@@ -1308,7 +1308,9 @@ keywords:
             * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
             
           * Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
-    
+
+          {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
+
     1. Измените параметры [TLS](../../glossary/tls.md). Можно изменить, добавить или удалить сертификаты.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -1354,13 +1356,15 @@ keywords:
 
         * Параметры логирования:
 
-            * `--log-enabled` — включает логирование. Логи, сгенерированные компонентами {{ TR }}, будут отправляться в {{ cloud-logging-full-name }}.
-            * `--log-folder-id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
-            * `--log-group-id` — идентификатор пользовательской [лог-группы](../../logging/concepts/log-group.md).
+          * `--log-enabled` — включает логирование. Логи, сгенерированные компонентами {{ TR }}, будут отправляться в {{ cloud-logging-full-name }}.
+          * `--log-folder-id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
+          * `--log-group-id` — идентификатор пользовательской [лог-группы](../../logging/concepts/log-group.md).
 
-                Вы можете указать только один из параметров: `--log-folder-id` или `--log-group-id`.
+            Вы можете указать только один из параметров: `--log-folder-id` или `--log-group-id`.
 
-            * `--log-min-level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO` (значение по умолчанию), `WARN`, `ERROR` и `FATAL`.
+          * `--log-min-level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO` (значение по умолчанию), `WARN`, `ERROR` и `FATAL`.
+        
+          {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
         
         * `--trusted-certs-from-files` — список путей к файлам с доверенными сертификатами. 
         
@@ -1395,6 +1399,8 @@ keywords:
     1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/), добавьте к описанию кластера блок `logging`:
 
         {% include [Terraform logging parameters description](../../_includes/managed-trino/terraform/logging-parameters.md) %}
+
+        {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
 
     1. Чтобы изменить параметры [TLS](../../glossary/tls.md):
 
@@ -1461,6 +1467,8 @@ keywords:
                 Вы можете указать только один из параметров: `folderId` или `logGroupId`.
 
             * `minLevel` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO` (значение по умолчанию), `WARN`, `ERROR` и `FATAL`.
+
+            {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
 
         * `maintenanceWindow` — настройки окна [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
@@ -1572,6 +1580,8 @@ keywords:
                 Вы можете указать только один из параметров: `folderId` или `logGroupId`.
 
             * `min_level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO` (значение по умолчанию), `WARN`, `ERROR` и `FATAL`.
+
+            {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
 
         * `maintenance_window` — настройки окна [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 

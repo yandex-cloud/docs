@@ -8,7 +8,7 @@ description: Из статьи вы узнаете, что такое воркб
 
 Воркбуки и коллекции — новый подход к организации объектов в {{ datalens-short-name }}, который является альтернативой старой навигации по папкам. С новым подходом объекты {{ datalens-short-name }} можно размещать в специальных контейнерах:
 
-* **Воркбук** — хранит [подключения](../concepts/connection.md), [датасеты](../dataset/index.md), [чарты](../concepts/chart/index.md), [дашборды](../concepts/dashboard.md) и [отчеты](../reports/index.md).
+* **Воркбук** — хранит [подключения](../concepts/connection/index.md), [датасеты](../dataset/index.md), [чарты](../concepts/chart/index.md), [дашборды](../concepts/dashboard.md) и [отчеты](../reports/index.md).
 
   {% cut "Воркбук" %}
 

@@ -42,13 +42,19 @@ Required field. ID of the bus to update. ||
 Field mask that specifies which fields of the bus are going to be updated. ||
 || name | **string**
 
-New name of the bus. ||
+New name of the bus.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-New description of the bus. ||
+New description of the bus.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-New labels of the bus. ||
+New labels of the bus.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || deletion_protection | **bool**
 
 New flag that disallow deletion of the bus. ||
@@ -68,12 +74,16 @@ New options for logging from the bus. ||
 
 Entry will be written to log group resolved by ID.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
 || folder_id | **string**
 
 Entry will be written to default log group for specified folder.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
@@ -84,9 +94,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -241,7 +248,6 @@ Deletion protection. ||
 
 Status of the bus.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `ACTIVE`
 - `DELETING` ||
@@ -261,12 +267,16 @@ Options for logging from the bus. ||
 
 Entry will be written to log group resolved by ID.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
 || folder_id | **string**
 
 Entry will be written to default log group for specified folder.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
@@ -277,9 +287,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.

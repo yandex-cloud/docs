@@ -99,12 +99,12 @@ API gateway labels as `key:value` pairs. ||
 
 Status of the API gateway.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: API gateway is being created.
 - `ACTIVE`: API gateway is ready for use.
 - `DELETING`: API gateway is being deleted.
 - `ERROR`: API gateway failed. The only allowed action is delete.
-- `UPDATING`: API gateway is being updated. ||
+- `UPDATING`: API gateway is being updated.
+- `STOPPED`: API gateway stopped. ||
 || domain | **string**
 
 Default domain for the API gateway. Generated at creation time. ||
@@ -192,9 +192,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -247,8 +244,12 @@ Variable value that can has only primitive type ||
 ||Field | Description ||
 || weight | **int64**
 
-It describes percentage of requests, which will be processed by canary. ||
+It describes percentage of requests, which will be processed by canary.
+
+Acceptable values are 0 to 99, inclusive. ||
 || variables | **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
 
-Values specification variables, associated with canary. ||
+Values specification variables, associated with canary.
+
+More than 0 per resource. ||
 |#

@@ -36,12 +36,14 @@ apiPlayground:
             **string**
             New name for the container.
             The name must be unique within the folder.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
           pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
         description:
           description: |-
             **string**
             New description for the container.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
@@ -49,6 +51,7 @@ apiPlayground:
             Container labels as `key:value` pairs.
             Existing set of labels is completely replaced by the provided set, so if you just want
             to add or remove a label, request the current set of labels with a [ContainerService.Get](/docs/serverless-containers/containers/api-ref/Container/get#Get) request.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -112,16 +115,22 @@ The rest of the fields will be reset to the default. ||
 || name | **string**
 
 New name for the container.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-New description for the container. ||
+New description for the container.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Container labels as `key:value` pairs.
 
 Existing set of labels is completely replaced by the provided set, so if you just want
-to add or remove a label, request the current set of labels with a [ContainerService.Get](/docs/serverless-containers/containers/api-ref/Container/get#Get) request. ||
+to add or remove a label, request the current set of labels with a [ContainerService.Get](/docs/serverless-containers/containers/api-ref/Container/get#Get) request.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -292,7 +301,6 @@ URL that needs to be requested to call the container. ||
 
 Status of the container.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Container is being created.
 - `ACTIVE`: Container is ready for use.
 - `DELETING`: Container is being deleted.

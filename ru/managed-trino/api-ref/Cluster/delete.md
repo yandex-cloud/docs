@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Trino cluster that is being deleted.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -36,7 +37,9 @@ DELETE https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Trino cluster that is being deleted. ||
+Required field. ID of the Trino cluster that is being deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

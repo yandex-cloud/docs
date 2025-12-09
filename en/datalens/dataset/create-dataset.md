@@ -66,7 +66,7 @@ You can use SQL queries for database sources only.
 
    ![screenshot](../../_assets/datalens/dataset/dataset-add-connection.png)
 
-1. Select a data source [connection](../concepts/connection.md).
+1. Select a data source [connection](../concepts/connection/index.md).
 1. Add data from the data source:
 
    {% list tabs %}
@@ -86,7 +86,7 @@ You can use SQL queries for database sources only.
 
      {% note info %}
 
-     * To use subqueries as a source, in the connection settings, enable **SQL query access level** → **Allow subqueries in datasets** when creating or editing a [connection](../concepts/connection.md).
+     * To use subqueries as a source, in the connection settings, enable **SQL query access level** → **Allow subqueries in datasets** when creating or editing a [connection](../concepts/connection/index.md).
      * Describing a dataset via a SQL query does not support parameters. However, you can use [parameterized queries](../operations/chart/create-sql-chart.md#selector-parameters) in [QL charts](../concepts/chart/ql-charts.md).
 
      {% endnote %}

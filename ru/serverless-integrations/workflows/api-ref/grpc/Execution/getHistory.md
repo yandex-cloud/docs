@@ -77,7 +77,9 @@ Required field. ID of the Workflow execution. ||
 Workflow execution details. ||
 || entries[] | **[HistoryEntry](#yandex.cloud.serverless.workflows.v1.HistoryEntry)**
 
-Workflow execution detailed history items. ||
+Workflow execution detailed history items.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## ExecutionPreview {#yandex.cloud.serverless.workflows.v1.ExecutionPreview}
@@ -94,7 +96,6 @@ ID of the Workflow. ||
 
 Status of the Workflow execution
 
-- `STATUS_UNSPECIFIED`
 - `QUEUED`: Workflow execution is being queued.
 - `RUNNING`: Workflow execution is running.
 - `PAUSED`: Workflow execution is being paused.
@@ -141,7 +142,6 @@ Error details, in case Workflow step failed. ||
 
 Status of the Workflow step.
 
-- `STATUS_UNSPECIFIED`
 - `SCHEDULED`: Step execution is being scheduled.
 - `STARTED`: Step execution is started.
 - `COMPLETED`: Step execution is completed.

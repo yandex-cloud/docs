@@ -19,17 +19,20 @@ apiPlayground:
             **string**
             Name of the API gateway.
             The name must be unique within the folder.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the API gateway.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -124,8 +127,6 @@ apiPlayground:
               **enum** (Level)
               Minimum log entry level.
               See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-              - `LEVEL_UNSPECIFIED`: Default log level.
-                Equivalent to not specifying log level at all.
               - `TRACE`: Trace log level.
                 Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
@@ -196,12 +197,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               It describes percentage of requests, which will be processed by canary.
+              Acceptable values are 0 to 99, inclusive.
             type: string
             format: int64
           variables:
             description: |-
               **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
               Values specification variables, associated with canary.
+              More than 0 per resource.
             type: object
             additionalProperties:
               $ref: '#/definitions/VariableInput'
@@ -262,13 +265,19 @@ To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/
 || name | **string**
 
 Name of the API gateway.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the API gateway. ||
+Description of the API gateway.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || openapiSpec | **string**
 
 The text of specification, JSON or YAML.
@@ -336,9 +345,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -391,10 +397,14 @@ Variable value that can has only primitive type ||
 ||Field | Description ||
 || weight | **string** (int64)
 
-It describes percentage of requests, which will be processed by canary. ||
+It describes percentage of requests, which will be processed by canary.
+
+Acceptable values are 0 to 99, inclusive. ||
 || variables | **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
 
-Values specification variables, associated with canary. ||
+Values specification variables, associated with canary.
+
+More than 0 per resource. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -591,12 +601,12 @@ API gateway labels as `key:value` pairs. ||
 
 Status of the API gateway.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: API gateway is being created.
 - `ACTIVE`: API gateway is ready for use.
 - `DELETING`: API gateway is being deleted.
 - `ERROR`: API gateway failed. The only allowed action is delete.
-- `UPDATING`: API gateway is being updated. ||
+- `UPDATING`: API gateway is being updated.
+- `STOPPED`: API gateway stopped. ||
 || domain | **string**
 
 Default domain for the API gateway. Generated at creation time. ||
@@ -684,9 +694,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -739,8 +746,12 @@ Variable value that can has only primitive type ||
 ||Field | Description ||
 || weight | **string** (int64)
 
-It describes percentage of requests, which will be processed by canary. ||
+It describes percentage of requests, which will be processed by canary.
+
+Acceptable values are 0 to 99, inclusive. ||
 || variables | **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput2)**>)
 
-Values specification variables, associated with canary. ||
+Values specification variables, associated with canary.
+
+More than 0 per resource. ||
 |#

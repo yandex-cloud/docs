@@ -501,6 +501,7 @@ default:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Identity Hub
   org-name: Identity Hub
+  org-sync-agent-name: Yandex Identity Hub Sync Agent
   OS: OpenSearch
   os:
     docs: https://opensearch.org/docs/latest
@@ -8684,7 +8685,7 @@ default:
           edit: Edit
           open-in-monitoring: Open in Monitoring
           save: Save
-          setup: Setup widget
+          setup: Edit
         settings:
           general:
             labels:
@@ -10387,10 +10388,6 @@ default:
       components:
         AsideNavigation:
           label_all-services_6sGQy: All services
-        ChatCommon:
-          ChatsMenuHeader:
-            action_create-chat_97ZqE: New chat
-            action_delete-all-chats_awFCg: Delete all chats
       compute:
         attach-disk:
           button_attach: Attach
@@ -10564,6 +10561,7 @@ default:
             raw-mode: Raw mode
           stop-dialog:
             button_stop: Stop
+          switch_backups: Backups
           switch_console: Serial console
           switch_service-console: Serial port
         instances_jsoza: Virtual machines
@@ -10682,6 +10680,7 @@ default:
         snapshots:
           list:
             button_action-image: Create image
+        storage_uisyT: Disks and storages
         storage:
           button_create-disk: Create disk
         value_disk-type-network-hdd_cw9XD: HDD
@@ -10756,7 +10755,7 @@ default:
         label_permissions_gAtoT: Permissions
         label_quotas_gAtoT: Quotas
         TogglCloudTreeButton:
-          tooltip__pin_panel: Pin panel
+          tooltip__pin_panel: Pin folder tree
       data-catalog:
         action_create-catalog: Create catalog
         action_edit-domain: Edit domain
@@ -12616,7 +12615,7 @@ default:
         brand-voice_button_activate_47zAB: Activate
         brand-voice_create-dataset_option_title_record-audio_jvUMz: Record audio files
         brand-voice_create-dataset_option_title_upload-audio_4D15S: Add audio files
-        brand-voice_create-dataset_option_title_upload-zip_nFtBR: Download ZIP archive
+        brand-voice_create-dataset_option_title_upload-zip_nFtBR: Upload ZIP archive
         brand-voice_section_title_voice-usage_15pws: Use of voice
         button_create-dataset_nLanW: Create a dataset
         button_create-voice_nkMBz: Create voice

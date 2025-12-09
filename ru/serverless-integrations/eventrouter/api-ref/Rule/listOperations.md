@@ -21,6 +21,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per response.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -28,6 +29,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             `next_page_token` returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -38,6 +40,7 @@ apiPlayground:
             modified_at
             created_by
             done
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -70,11 +73,15 @@ Required field. ID of the rule to list operations for. ||
 ||Field | Description ||
 || pageSize | **string** (int64)
 
-The maximum number of results per response. ||
+The maximum number of results per response.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-`next_page_token` returned by a previous list request. ||
+`next_page_token` returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 Supported attributes for filter:
@@ -82,7 +89,9 @@ description
 created_at
 modified_at
 created_by
-done ||
+done
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.serverless.eventrouter.v1.ListRuleOperationsResponse}

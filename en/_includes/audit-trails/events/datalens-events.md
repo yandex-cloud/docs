@@ -8,7 +8,7 @@ Event name | Description
 `CreateColorPalette` | Creating a [color palette](../../../datalens/operations/chart/create-palette.md)
 `CreateEmbed` | Creating an embedding
 `CreateEmbeddingSecret` | Creating a key for an [embedding](../../../datalens/security/embedded-objects.md)
-`CreateEntry`                    | Creating an object. Object (`Entry`) is a common term for [connections](../../../datalens/concepts/connection.md), [datasets](../../../datalens/dataset/index.md), [charts](../../../datalens/concepts/chart/index.md), [dashboards](../../../datalens/concepts/dashboard.md), [reports](../../../datalens/reports/index.md), and folders.
+`CreateEntry`                    | Creating an object. Object (`Entry`) is a common term for [connections](../../../datalens/concepts/connection/index.md), [datasets](../../../datalens/dataset/index.md), [charts](../../../datalens/concepts/chart/index.md), [dashboards](../../../datalens/concepts/dashboard.md), [reports](../../../datalens/reports/index.md), and folders.
 `CreateWorkbook`               | Creating a workbook
 `DeleteCollections`              | Deleting collections
 `DeleteColorPalette` | Deleting a color palette

@@ -23,7 +23,9 @@ Returns the specified connection info.
 ||Field | Description ||
 || connection_id | **string**
 
-Required field. ID of the connection to get. ||
+Required field. ID of the connection to get.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Connection {#yandex.cloud.serverless.apigateway.websocket.v1.Connection}

@@ -231,11 +231,24 @@ metadata:
     gwin.yandex.cloud/rules.securityProfileID: "security-profile-1"  # WAF profile for routes
     gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # WAF profile for hosts
     
+    # Host rewriting
+    gwin.yandex.cloud/rules.hostRewrite.auto: "true"  # automatically rewrite host to backend target
+    gwin.yandex.cloud/rules.hostRewrite.replace: "backend.example.com"  # static host replacement
+    
+    # Path rewriting
+    gwin.yandex.cloud/rules.http.regexRewrite.regex: "^/service/([^/]+)(/.*)$"  # regex pattern for path rewriting
+    gwin.yandex.cloud/rules.http.regexRewrite.substitute: "\\2/instance/\\1"  # substitution pattern with capture groups
+    
     # Rate limiting
-    gwin.yandex.cloud/hosts.rateLimit.allRequests.perSecond: "100"  # global rate limit
-    gwin.yandex.cloud/hosts.rateLimit.allRequests.perMinute: "6000"  # global rate limit
-    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perSecond: "10"  # per-IP rate limit
-    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perMinute: "600"  # per-IP rate limit
+    gwin.yandex.cloud/rules.rateLimit.allRequests.perSecond: "100"  # route-level rate limit for all requests
+    gwin.yandex.cloud/rules.rateLimit.allRequests.perMinute: "6000"  # route-level rate limit for all requests
+    gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perSecond: "10"  # route-level rate limit per IP
+    gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perMinute: "600"  # route-level rate limit per IP
+
+    gwin.yandex.cloud/hosts.rateLimit.allRequests.perSecond: "100"  # host-level rate limit for all requests
+    gwin.yandex.cloud/hosts.rateLimit.allRequests.perMinute: "6000"  # host-level rate limit for all requests
+    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perSecond: "10"  # host-level rate limit per IP
+    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perMinute: "600"  # host-level rate limit per IP
     
     # RBAC configuration
     gwin.yandex.cloud/rules.rbac.action: "ALLOW"  # default RBAC action
@@ -385,6 +398,29 @@ For `discardRule` annotations you can set up any name. It does not affect ALB co
 | `gwin.yandex.cloud/rules.http.upgradeTypes` <br> _(comma separated strings)_ <br> Supported HTTP Upgrade header values. <br> Example: `websocket` |
 | `gwin.yandex.cloud/rules.allowedMethods` <br> _(comma separated strings)_ <br> Restricts which HTTP methods are allowed for this route. If not specified, all methods are allowed. <br> Example: `GET,POST,PUT` |
 | `gwin.yandex.cloud/rules.prefixRewrite` <br> _(string)_ <br> Replaces URL paths in HTTP/gRPC requests. With pathType Exact, the entire path is replaced; with pathType Prefix, only the matching prefix is rewritten. <br> Example: `/new-prefix` |
+
+#### Host rewriting
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/rules.hostRewrite.auto` <br> _(boolean)_ <br> Automatically replaces the host with that of the target backend. Cannot be used together with `hostRewrite.replace`. <br> Example: `true` |
+| `gwin.yandex.cloud/rules.hostRewrite.replace` <br> _(string)_ <br> Static host replacement value for HTTP/1.1 Host headers and HTTP/2 :authority pseudo-headers. Cannot be used together with `hostRewrite.auto`. <br> Example: `backend.example.com` |
+
+#### Path rewriting
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/rules.http.regexRewrite.regex` <br> _(string)_ <br> Regular expression pattern to match portions of the path for rewriting. Used together with `regexRewrite.substitute`. <br> Example: `^/service/([^/]+)(/.*)$` |
+| `gwin.yandex.cloud/rules.http.regexRewrite.substitute` <br> _(string)_ <br> Substitution string for path rewriting with capture group support. Pattern `^/service/([^/]+)(/.*)$` with substitution `\\2/instance/\\1` transforms `/service/foo/v1/api` to `/v1/api/instance/foo`. <br> Example: `\\2/instance/\\1` |
+
+#### Route rate limiting
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/rules.rateLimit.allRequests.perSecond` <br> _(number)_ <br> Route-level rate limit for all requests per second. <br> Example: `100` |
+| `gwin.yandex.cloud/rules.rateLimit.allRequests.perMinute` <br> _(number)_ <br> Route-level rate limit for all requests per minute. <br> Example: `6000` |
+| `gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perSecond` <br> _(number)_ <br> Route-level rate limit per IP address per second. <br> Example: `10` |
+| `gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perMinute` <br> _(number)_ <br> Route-level rate limit per IP address per minute. <br> Example: `600` |
 
 #### Header modification
 

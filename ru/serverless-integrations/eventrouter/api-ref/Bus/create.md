@@ -17,17 +17,20 @@ apiPlayground:
           description: |-
             **string**
             Name of the bus.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
           pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
         description:
           description: |-
             **string**
             Description of the bus.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Labels for the bus.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -65,6 +68,7 @@ apiPlayground:
             description: |-
               **string**
               Entry will be written to log group resolved by ID.
+              The maximum string length in characters is 50.
               Includes only one of the fields `logGroupId`, `folderId`.
               Log entries destination.
             type: string
@@ -72,6 +76,7 @@ apiPlayground:
             description: |-
               **string**
               Entry will be written to default log group for specified folder.
+              The maximum string length in characters is 50.
               Includes only one of the fields `logGroupId`, `folderId`.
               Log entries destination.
             type: string
@@ -80,8 +85,6 @@ apiPlayground:
               **enum** (Level)
               Minimum log entry level.
               See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-              - `LEVEL_UNSPECIFIED`: Default log level.
-                Equivalent to not specifying log level at all.
               - `TRACE`: Trace log level.
                 Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
@@ -148,13 +151,19 @@ POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses
 Required field. ID of the folder to create a bus in. ||
 || name | **string**
 
-Name of the bus. ||
+Name of the bus.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the bus. ||
+Description of the bus.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Labels for the bus. ||
+Labels for the bus.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || deletionProtection | **boolean**
 
 Flag that disallow deletion of the bus. ||
@@ -174,12 +183,16 @@ Options for logging from the bus. ||
 
 Entry will be written to log group resolved by ID.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
 || folderId | **string**
 
 Entry will be written to default log group for specified folder.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -190,9 +203,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -397,7 +407,6 @@ Deletion protection. ||
 
 Status of the bus.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `ACTIVE`
 - `DELETING` ||
@@ -417,12 +426,16 @@ Options for logging from the bus. ||
 
 Entry will be written to log group resolved by ID.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
 || folderId | **string**
 
 Entry will be written to default log group for specified folder.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -433,9 +446,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.

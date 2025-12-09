@@ -38,7 +38,7 @@ A new version is automatically created when you click **Save** in dataset edit m
 
 * Changes on the **Sources** tab:
 
-  * Replacing a [connection](../concepts/connection.md).
+  * Replacing a [connection](../concepts/connection/index.md).
   * [Adding data](../dataset/create-dataset.md#add-data) to the workspace from source tables or via an SQL query.
   * [Configuring links](../dataset/create-dataset.md#links).
   * Changing data table settings. To open the settings window, click ![image](../../_assets/console-icons/ellipsis.svg) → **Change settings** to the right of the table.

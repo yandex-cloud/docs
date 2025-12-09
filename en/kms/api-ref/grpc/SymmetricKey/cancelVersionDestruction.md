@@ -24,10 +24,14 @@ Cancels previously scheduled version destruction, if the version hasn't been des
 ||Field | Description ||
 || key_id | **string**
 
-Required field. ID of the key to cancel a version's destruction for. ||
+Required field. ID of the key to cancel a version's destruction for.
+
+The maximum string length in characters is 50. ||
 || version_id | **string**
 
-Required field. ID of the version whose scheduled destruction should be cancelled. ||
+Required field. ID of the version whose scheduled destruction should be cancelled.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -143,7 +147,6 @@ ID of the symmetric KMS key that the version belongs to. ||
 
 Status of the key version.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and can be used for encryption and decryption.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
 is specified in the `SymmetricKeyVersion.destroy_at` field.
@@ -152,11 +155,11 @@ is specified in the `SymmetricKeyVersion.destroy_at` field.
 
 Encryption algorithm that should be used when using the key version to encrypt plaintext.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the key version was created. ||

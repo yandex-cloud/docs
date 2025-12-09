@@ -1512,7 +1512,7 @@ items:
     href: at-ref.md
   - name: История изменений
     href: release-notes.md
-  - name: История изменений {{ org-full-name }} Sync Agent
+  - name: История изменений {{ org-sync-agent-name }}
     href: sync-agent-release-notes.md
   - name: Обучающие курсы
     href: training.md

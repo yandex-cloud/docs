@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the connection to disconnect.
+            The maximum string length in characters is 50.
           type: string
       required:
         - connectionId
@@ -36,7 +37,9 @@ DELETE https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/co
 ||Field | Description ||
 || connectionId | **string**
 
-Required field. ID of the connection to disconnect. ||
+Required field. ID of the connection to disconnect.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.serverless.apigateway.websocket.v1.DisconnectResponse}

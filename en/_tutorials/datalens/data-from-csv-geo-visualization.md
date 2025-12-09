@@ -9,7 +9,7 @@ This guide analyzes public data on road accidents in Russia. In addition to iden
 
 
 
-* Work with the {{ datalens-short-name }} key entities: [Connections](../../datalens/concepts/connection.md), [Datasets](../../datalens/dataset/index.md), [Charts](../../datalens/concepts/chart/index.md), and [Dashboards](../../datalens/concepts/dashboard.md).
+* Work with the {{ datalens-short-name }} key entities: [Connections](../../datalens/concepts/connection/index.md), [Datasets](../../datalens/dataset/index.md), [Charts](../../datalens/concepts/chart/index.md), and [Dashboards](../../datalens/concepts/dashboard.md).
 * Merge multiple sources at single dataset level.
 * Use the `Date and time` data type and edit chart-level groupings.
 * Work with geodata: geopoints and geopolygons.
@@ -51,7 +51,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Create a connection to files {#create-connection}
 
-Create a [connection](../../datalens/concepts/connection.md) to source data files:
+Create a [connection](../../datalens/concepts/connection/index.md) to source data files:
 
 
 1. In the top-right corner of the workbook, click **Create** → ![image](../../_assets/console-icons/thunderbolt.svg) **Connection**.

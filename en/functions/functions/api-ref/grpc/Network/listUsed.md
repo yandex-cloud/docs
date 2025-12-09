@@ -32,11 +32,15 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListUsedNetworksResponse.next_page_token](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse)
 that can be used to get the next page of results in subsequent list requests.
 
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListUsedNetworksResponse.next_page_token](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse) returned by a previous list request. ||
+[ListUsedNetworksResponse.next_page_token](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || cloud_id | **string**
 
 ID of the cloud to list used networks in.
@@ -100,7 +104,6 @@ ID of the folder that the network belongs to. ||
 
 Status of the network.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Network is connecting to its first serverless resource.
 - `ACTIVE`: Network is already being used by some serverless resources.
 - `OBSOLETE`: Network is no longer used by any serverless resources.

@@ -169,7 +169,6 @@ ID of the service account associated with the revision. ||
 
 Status of the revision.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Revision is being created.
 - `ACTIVE`: Revision is currently used by the container.
 - `OBSOLETE`: Revision is not used by the container. May be deleted later. ||
@@ -227,7 +226,9 @@ Override for the image's ENTRYPOINT. ||
 Override for the image's CMD. ||
 || environment | **object** (map<**string**, **string**>)
 
-Additional environment for the container. ||
+Additional environment for the container.
+
+The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `. ||
 || working_dir | **string**
 
 Override for the image's WORKDIR. ||
@@ -267,14 +268,20 @@ Resources allocated to a revision.
 ||Field | Description ||
 || memory | **int64**
 
-Amount of memory available to the revision, specified in bytes, multiple of 128MB. ||
+Amount of memory available to the revision, specified in bytes, multiple of 128MB.
+
+Acceptable values are 134217728 to 8589934592, inclusive. ||
 || cores | **int64**
 
-Number of cores available to the revision. ||
+Number of cores available to the revision.
+
+Acceptable values are 0 to 4, inclusive. ||
 || core_fraction | **int64**
 
 Specifies baseline performance for a core in percent, multiple of 5%.
-Should be 100% for cores > 1. ||
+Should be 100% for cores > 1.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## Secret {#yandex.cloud.serverless.containers.v1.Secret}
@@ -312,7 +319,9 @@ Network the revision will have access to. ||
 
 The list of subnets (from the same network) the revision can be attached to.
 
-Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. ||
+Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+
+The string length in characters for each value must be greater than 0. ||
 |#
 
 ## ProvisionPolicy {#yandex.cloud.serverless.containers.v1.ProvisionPolicy}
@@ -350,12 +359,16 @@ Is logging from container disabled. ||
 
 Entry should be written to log group resolved by ID.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
 || folder_id | **string**
 
 Entry should be written to default log group for specified folder.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
@@ -366,9 +379,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -395,7 +405,9 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 ||Field | Description ||
 || bucket_id | **string**
 
-Required field. S3 bucket name for mounting. ||
+Required field. S3 bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 S3 bucket prefix for mounting. ||
@@ -404,7 +416,9 @@ S3 bucket prefix for mounting. ||
 Is mount read only. ||
 || mount_point_path | **string**
 
-Required field. Mount point path inside the container for mounting. ||
+Required field. Mount point path inside the container for mounting.
+
+The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `. ||
 |#
 
 ## Mount {#yandex.cloud.serverless.containers.v1.Mount}
@@ -415,12 +429,13 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || mount_point_path | **string**
 
-Required field. The absolute mount point path inside the container for mounting. ||
+Required field. The absolute mount point path inside the container for mounting.
+
+The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `. ||
 || mode | enum **Mode**
 
 Mount's mode
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`
 - `READ_WRITE` ||
 || object_storage | **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
@@ -447,7 +462,9 @@ ObjectStorage as a mount
 ||Field | Description ||
 || bucket_id | **string**
 
-Required field. ObjectStorage bucket name for mounting. ||
+Required field. ObjectStorage bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 ObjectStorage bucket prefix for mounting. ||
@@ -461,7 +478,9 @@ Disk as a mount
 ||Field | Description ||
 || size | **int64**
 
-The size of disk for mount in bytes ||
+The size of disk for mount in bytes
+
+Value must be greater than 0. ||
 || block_size | **int64**
 
 Optional block size of disk for mount in bytes ||
@@ -507,14 +526,12 @@ Includes only one of the fields `http`, `task`. ||
 
 Enabled access to GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || aws_v1_http_endpoint | enum **MetadataOption**
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 |#

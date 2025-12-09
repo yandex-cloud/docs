@@ -17,6 +17,8 @@ keywords:
 
 * [managed-trino.admin](../security.md#managed-trino-admin) — чтобы создать кластер;
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [{{ roles-logging-reader }}](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
+* [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера;
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
 
 [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).

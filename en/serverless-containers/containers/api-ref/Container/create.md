@@ -19,17 +19,20 @@ apiPlayground:
             **string**
             Name of the container.
             The name must be unique within the folder.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
           pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
         description:
           description: |-
             **string**
             Description of the container.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -79,13 +82,19 @@ To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/
 || name | **string**
 
 Name of the container.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the container. ||
+Description of the container.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -256,7 +265,6 @@ URL that needs to be requested to call the container. ||
 
 Status of the container.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Container is being created.
 - `ACTIVE`: Container is ready for use.
 - `DELETING`: Container is being deleted.

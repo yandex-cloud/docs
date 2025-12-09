@@ -23,7 +23,9 @@ Disconnects the specified connection.
 ||Field | Description ||
 || connection_id | **string**
 
-Required field. ID of the connection to disconnect. ||
+Required field. ID of the connection to disconnect.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## DisconnectResponse {#yandex.cloud.serverless.apigateway.websocket.v1.DisconnectResponse}

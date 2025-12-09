@@ -23,7 +23,9 @@ Gets value of public key.
 ||Field | Description ||
 || key_id | **string**
 
-Required field. ID of the asymmetric KMS key to be used for public key retrieval. ||
+Required field. ID of the asymmetric KMS key to be used for public key retrieval.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## AsymmetricGetPublicKeyResponse {#yandex.cloud.kms.v1.asymmetricencryption.AsymmetricGetPublicKeyResponse}

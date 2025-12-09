@@ -514,8 +514,8 @@ items:
               - name: Самостоятельная реализация средствами {{ yandex-cloud }}
                 href: routing/ipsec/ipsec-vpn.md
               - name: >-
-                  Развертывание S2S VPN с помощью Cloud App strongSwan в {{
-                  yandex-cloud }}
+                  Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud
+                  }}
                 href: routing/ipsec/s2s-vpn.md
               - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
                 href: routing/ipsec/sgw.md

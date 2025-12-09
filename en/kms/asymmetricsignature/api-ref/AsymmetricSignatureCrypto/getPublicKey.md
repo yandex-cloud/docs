@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the asymmetric KMS key to be used for public key retrieval.
+            The maximum string length in characters is 50.
           type: string
       required:
         - keyId
@@ -36,7 +37,9 @@ GET https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}/publicKey
 ||Field | Description ||
 || keyId | **string**
 
-Required field. ID of the asymmetric KMS key to be used for public key retrieval. ||
+Required field. ID of the asymmetric KMS key to be used for public key retrieval.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricGetPublicKeyResponse}

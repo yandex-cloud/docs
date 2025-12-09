@@ -29,7 +29,9 @@ Required field. ID of the version to remove a tag from.
 To get the a version ID make a [FunctionService.ListVersions](/docs/functions/functions/api-ref/grpc/Function/listVersions#ListVersions) request. ||
 || tag | **string**
 
-Tag to remove from the specified version. ||
+Tag to remove from the specified version.
+
+Value must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -225,7 +227,9 @@ ID of the version. ||
 ID of the function that the version belongs to. ||
 || description | **string**
 
-Description of the version. ||
+Description of the version.
+
+The string length in characters must be 0-256. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the version. ||
@@ -257,7 +261,6 @@ Final size of the deployment package after unpacking. ||
 
 Status of the version.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Version is being created.
 - `ACTIVE`: Version is ready to use.
 - `OBSOLETE`: Version will be deleted soon.
@@ -291,7 +294,9 @@ Config for asynchronous invocations of the version ||
 Optional size of in-memory mounted /tmp directory in bytes. ||
 || concurrency | **int64**
 
-The maximum number of requests processed by a function instance at the same time ||
+The maximum number of requests processed by a function instance at the same time
+
+Acceptable values are 0 to 16, inclusive. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.functions.v1.Mount)**
 
 Mounts to be used by the version. ||
@@ -308,7 +313,9 @@ Resources allocated to a version.
 ||Field | Description ||
 || memory | **int64**
 
-Amount of memory available to the version, specified in bytes, multiple of 128MB. ||
+Amount of memory available to the version, specified in bytes, multiple of 128MB.
+
+Acceptable values are 134217728 to 8589934592, inclusive. ||
 |#
 
 ## Connectivity {#yandex.cloud.serverless.functions.v1.Connectivity}
@@ -324,7 +331,9 @@ It's essential to specify network with subnets in all availability zones. ||
 || subnet_id[] | **string**
 
 Complete list of subnets (from the same network) the version can be attached to.
-It's essential to specify at least one subnet for each availability zones. ||
+It's essential to specify at least one subnet for each availability zones.
+
+The string length in characters for each value must be greater than 0. ||
 |#
 
 ## Secret {#yandex.cloud.serverless.functions.v1.Secret}
@@ -360,12 +369,16 @@ Is logging from function disabled. ||
 
 Entry should be written to log group resolved by ID.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
 || folder_id | **string**
 
 Entry should be written to default log group for specified folder.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
@@ -376,9 +389,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -405,13 +415,17 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 ||Field | Description ||
 || bucket_id | **string**
 
-Required field. S3 bucket name for mounting. ||
+Required field. S3 bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 S3 bucket prefix for mounting. ||
 || mount_point_name | **string**
 
-Required field. Mount point directory name (not path) for mounting. ||
+Required field. Mount point directory name (not path) for mounting.
+
+The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `. ||
 || read_only | **bool**
 
 Is mount read only. ||
@@ -423,7 +437,9 @@ Is mount read only. ||
 ||Field | Description ||
 || retries_count | **int64**
 
-Number of retries of version invocation ||
+Number of retries of version invocation
+
+Acceptable values are 0 to 100, inclusive. ||
 || success_target | **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
 
 Required field. Target for successful result of the version's invocation ||
@@ -469,7 +485,9 @@ Includes only one of the fields `empty_target`, `ymq_target`. ||
 Required field. Queue ARN ||
 || service_account_id | **string**
 
-Required field. Service account which has write permission on the queue. ||
+Required field. Service account which has write permission on the queue.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Mount {#yandex.cloud.serverless.functions.v1.Mount}
@@ -480,12 +498,13 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || name | **string**
 
-Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt; ||
+Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt;
+
+The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `. ||
 || mode | enum **Mode**
 
 Mount's mode
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`
 - `READ_WRITE` ||
 || object_storage | **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
@@ -512,7 +531,9 @@ ObjectStorage as a mount
 ||Field | Description ||
 || bucket_id | **string**
 
-Required field. ObjectStorage bucket name for mounting. ||
+Required field. ObjectStorage bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 ObjectStorage bucket prefix for mounting. ||
@@ -526,7 +547,9 @@ Disk as a mount
 ||Field | Description ||
 || size | **int64**
 
-The size of disk for mount in bytes ||
+The size of disk for mount in bytes
+
+Value must be greater than 0. ||
 || block_size | **int64**
 
 Optional block size of disk for mount in bytes ||
@@ -540,14 +563,12 @@ Optional block size of disk for mount in bytes ||
 
 Enabled access to GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || aws_v1_http_endpoint | enum **MetadataOption**
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 |#

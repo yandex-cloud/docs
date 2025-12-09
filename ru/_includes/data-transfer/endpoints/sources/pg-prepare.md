@@ -28,8 +28,12 @@
 
     1. Настройте [количество подключений пользователя](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) к базе данных.
 
-    1. Если источник репликации — кластер, [включите](../../../../managed-postgresql/operations/extensions/cluster-extensions.md) для него расширение `pg_tm_aux`. Это позволит продолжить репликацию в случае смены хоста-мастера. В некоторых случаях при смене мастера в кластере трансфер может завершиться ошибкой. Подробнее см. в разделе [Решение проблем](../../../../data-transfer/troubleshooting/index.md#master-change).
-    
+    1. Если источник репликации — кластер, выполните настройки:
+
+        * [Включите](../../../../managed-postgresql/operations/extensions/cluster-extensions.md) для него расширение `pg_tm_aux`. Это позволит продолжить репликацию в случае смены хоста-мастера. В некоторых случаях при смене мастера в кластере трансфер может завершиться ошибкой. Подробнее см. в разделе [Решение проблем](../../../../data-transfer/troubleshooting/index.md#master-change).
+
+        * Укажите в кластере значение [настройки](../../../../managed-postgresql/concepts/settings-list.md#setting-wal-keep-size) `Wal keep size`. В случае смены хоста-мастера хранимой в [WAL](https://www.postgresql.org/docs/current/wal-intro.html) на новом мастере истории должно хватать для продолжения репликации с того же места. Если истории недостаточно, трансфер может завершиться [ошибкой](../../../../data-transfer/operations/endpoint/source/postgresql.md/#no-wal-story). В качестве минимального значения настройки `Wal keep size` рекомендуется взять среднее значение из графика **Source buffer size** в [мониторинге {{ data-transfer-name }}](../../../../data-transfer/operations/monitoring.md). Если на диске достаточно свободных ресурсов, укажите значение настройки с запасом.
+
     1. {% include [Таблицы без первичных ключей](../../primary-keys-postgresql.md) %}
     
     1. Выключите перенос внешних ключей на стадии создания эндпоинта-источника. Создайте их заново после окончания трансфера.

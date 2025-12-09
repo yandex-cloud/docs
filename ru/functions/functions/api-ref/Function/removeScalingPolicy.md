@@ -24,6 +24,7 @@ apiPlayground:
             **string**
             Required field. Version tag.
             To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request.
+            Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
           pattern: '[a-z][-_0-9a-z]*|[$]latest'
           type: string
       required:
@@ -68,7 +69,9 @@ To get a function ID, make a [FunctionService.List](/docs/functions/functions/ap
 
 Required field. Version tag.
 
-To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request. ||
+To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request.
+
+Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

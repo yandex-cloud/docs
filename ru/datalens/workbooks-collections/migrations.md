@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы выполни
 
 {% endnote %}
 
-Для миграции можно выбрать любой объект ([подключение](../concepts/connection.md), [датасет](../dataset/index.md), [чарт](../concepts/chart/index.md), [дашборд](../concepts/dashboard.md)) и выполнить ее способом [переноса](#migration-transfer) или [копирования](#migration-copy).
+Для миграции можно выбрать любой объект ([подключение](../concepts/connection/index.md), [датасет](../dataset/index.md), [чарт](../concepts/chart/index.md), [дашборд](../concepts/dashboard.md)) и выполнить ее способом [переноса](#migration-transfer) или [копирования](#migration-copy).
 
 ## Миграция переносом {#migration-transfer}
 

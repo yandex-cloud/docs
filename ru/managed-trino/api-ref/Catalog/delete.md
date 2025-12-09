@@ -10,11 +10,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Trino Cluster resource which contains the requested catalog.
+            The maximum string length in characters is 50.
           type: string
         catalogId:
           description: |-
             **string**
             Required field. ID of the Trino Catalog resource.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -42,10 +44,14 @@ DELETE https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}/catalo
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Trino Cluster resource which contains the requested catalog. ||
+Required field. ID of the Trino Cluster resource which contains the requested catalog.
+
+The maximum string length in characters is 50. ||
 || catalogId | **string**
 
-Required field. ID of the Trino Catalog resource. ||
+Required field. ID of the Trino Catalog resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

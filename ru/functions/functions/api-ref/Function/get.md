@@ -83,13 +83,19 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the function. The name is unique within the folder. ||
+Name of the function. The name is unique within the folder.
+
+The string length in characters must be 3-63. ||
 || description | **string**
 
-Description of the function. ||
+Description of the function.
+
+The string length in characters must be 0-256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Function labels as `key:value` pairs. ||
+Function labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || httpInvokeUrl | **string**
 
 URL that needs to be requested to invoke the function. ||
@@ -97,7 +103,6 @@ URL that needs to be requested to invoke the function. ||
 
 Status of the function.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Function is being created.
 - `ACTIVE`: Function is ready to be invoked.
 - `DELETING`: Function is being deleted.
