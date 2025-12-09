@@ -24,6 +24,8 @@ description: В этой инструкции вы научитесь созда
 
     * [managed-trino.admin](security.md#managed-trino-admin) — чтобы создать кластер;
     * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
+    * [{{ roles-logging-reader }}](../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
+    * [logging.editor](../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера;
     * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}

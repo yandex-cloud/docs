@@ -25,15 +25,18 @@ Sends data to the specified connection.
 ||Field | Description ||
 || connection_id | **string**
 
-Required field. ID of the connection to which send. ||
+Required field. ID of the connection to which send.
+
+The maximum string length in characters is 50. ||
 || data | **bytes**
 
-Required field. Data to send. ||
+Required field. Data to send.
+
+The maximum string length in characters is 131072. ||
 || type | enum **DataType**
 
 Type of the sending data.
 
-- `DATA_TYPE_UNSPECIFIED`
 - `BINARY`: Binary data.
 - `TEXT`: Text data. ||
 |#

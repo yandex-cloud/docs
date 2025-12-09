@@ -108,7 +108,7 @@ items:
   - name: Connections
     items:
       - name: Overview
-        href: concepts/connection.md
+        href: concepts/connection/index.md
       - name: Versioning
         href: concepts/connection/versioning.md
       - name: Caching

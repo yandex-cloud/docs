@@ -1,5 +1,5 @@
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![collections](../../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** and open the required workbook or [create](../../../datalens/workbooks-collections/workbooks-collections-create.md) a new one. If using legacy folder navigation, select a directory or create a new one to save the [connection](../../../datalens/concepts/connection.md) to.
+1. In the left-hand panel, select ![collections](../../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** and open the required workbook or [create](../../../datalens/workbooks-collections/workbooks-collections-create.md) a new one. If using legacy folder navigation, select a directory or create a new one to save the [connection](../../../datalens/concepts/connection/index.md) to.
 
 1. In the top-right corner, click **Create** → ![image](../../../_assets/console-icons/thunderbolt.svg) **Connection**.
 1. Under **Files and services**, select the **{{ speechsense-name }}** connection.

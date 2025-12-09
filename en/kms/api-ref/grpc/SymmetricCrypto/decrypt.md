@@ -25,12 +25,16 @@ Decrypts the given ciphertext with the specified key.
 ||Field | Description ||
 || key_id | **string**
 
-Required field. ID of the symmetric KMS key to use for decryption. ||
+Required field. ID of the symmetric KMS key to use for decryption.
+
+The maximum string length in characters is 50. ||
 || aad_context | **bytes**
 
 Additional authenticated data, must be the same as was provided
 in the corresponding [SymmetricEncryptRequest](/docs/kms/api-ref/grpc/SymmetricCrypto/encrypt#yandex.cloud.kms.v1.SymmetricEncryptRequest).
-Should be encoded with base64. ||
+Should be encoded with base64.
+
+The maximum string length in characters is 8192. ||
 || ciphertext | **bytes**
 
 Required field. Ciphertext to be decrypted.

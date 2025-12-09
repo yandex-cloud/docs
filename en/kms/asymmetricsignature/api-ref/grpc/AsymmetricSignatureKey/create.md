@@ -29,22 +29,29 @@ Creates an asymmetric KMS key in the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to create a asymmetric KMS key in. ||
+Required field. ID of the folder to create a asymmetric KMS key in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the key. ||
+Name of the key.
+
+The maximum string length in characters is 100. ||
 || description | **string**
 
-Description of the key. ||
+Description of the key.
+
+The maximum string length in characters is 1024. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
-For example, `"project": "mvp"` or `"source": "dictionary"`. ||
+For example, `"project": "mvp"` or `"source": "dictionary"`.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || signature_algorithm | enum **AsymmetricSignatureAlgorithm**
 
 Asymmetric signature algorithm.
 
-- `ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
 - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
 - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512
@@ -185,7 +192,6 @@ Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
@@ -195,7 +201,6 @@ Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
 
 Signature Algorithm ID.
 
-- `ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
 - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
 - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512

@@ -504,6 +504,7 @@ default:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Identity Hub
   org-name: Identity Hub
+  org-sync-agent-name: Yandex Identity Hub Sync Agent
   OS: OpenSearch
   os:
     docs: https://opensearch.org/docs/latest
@@ -8688,7 +8689,7 @@ default:
           edit: Редактировать
           open-in-monitoring: Открыть в Мониторинге
           save: Сохранить
-          setup: Настроить виджет
+          setup: Редактировать
         settings:
           general:
             labels:
@@ -10395,10 +10396,6 @@ default:
       components:
         AsideNavigation:
           label_all-services_6sGQy: Все сервисы
-        ChatCommon:
-          ChatsMenuHeader:
-            action_create-chat_97ZqE: Новый чат
-            action_delete-all-chats_awFCg: Удалить все чаты
       compute:
         attach-disk:
           button_attach: Подключить
@@ -10572,6 +10569,7 @@ default:
             raw-mode: Исходные данные
           stop-dialog:
             button_stop: Остановить
+          switch_backups: Резервные копии
           switch_console: Серийная консоль
           switch_service-console: Последовательный порт
         instances_jsoza: Виртуальные машины
@@ -10692,6 +10690,7 @@ default:
         snapshots:
           list:
             button_action-image: Создать образ
+        storage_uisyT: Диски и хранилища
         storage:
           button_create-disk: Создать диск
         value_disk-type-network-hdd_cw9XD: HDD
@@ -10766,7 +10765,7 @@ default:
         label_permissions_gAtoT: Разрешения
         label_quotas_gAtoT: Квоты
         TogglCloudTreeButton:
-          tooltip__pin_panel: Закрепить панель
+          tooltip__pin_panel: Закрепить дерево каталогов
       data-catalog:
         action_create-catalog: Cоздать каталог
         action_edit-domain: Редактировать домен

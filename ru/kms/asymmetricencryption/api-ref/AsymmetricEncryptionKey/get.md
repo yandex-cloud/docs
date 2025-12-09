@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the asymmetric KMS key to return.
             To get the ID of an asymmetric KMS key use a [AsymmetricEncryptionKeyService.List](/docs/kms/asymmetricencryption/api-ref/AsymmetricEncryptionKey/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - keyId
@@ -40,7 +41,9 @@ GET https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys/{keyId}
 || keyId | **string**
 
 Required field. ID of the asymmetric KMS key to return.
-To get the ID of an asymmetric KMS key use a [AsymmetricEncryptionKeyService.List](/docs/kms/asymmetricencryption/api-ref/AsymmetricEncryptionKey/list#List) request. ||
+To get the ID of an asymmetric KMS key use a [AsymmetricEncryptionKeyService.List](/docs/kms/asymmetricencryption/api-ref/AsymmetricEncryptionKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.kms.v1.asymmetricencryption.AsymmetricEncryptionKey}
@@ -94,7 +97,6 @@ Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
@@ -104,7 +106,6 @@ Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
 
 Asymmetric Encryption Algorithm ID.
 
-- `ASYMMETRIC_ENCRYPTION_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_ENC_OAEP_SHA_256`: RSA-2048 encryption with OAEP padding and SHA-256
 - `RSA_3072_ENC_OAEP_SHA_256`: RSA-3072 encryption with OAEP padding and SHA-256
 - `RSA_4096_ENC_OAEP_SHA_256`: RSA-4096 encryption with OAEP padding and SHA-256 ||

@@ -27,7 +27,9 @@ Puts event to bus.
 Required field. ID of the bus to put event. ||
 || body | **string**
 
-Required field. Event body. ||
+Required field. Event body.
+
+The maximum string length in characters is 262144. ||
 |#
 
 ## google.protobuf.Empty {#google.protobuf.Empty}

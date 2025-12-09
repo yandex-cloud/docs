@@ -5,7 +5,7 @@ description: When creating a dashboard in {{ datalens-full-name }}, you might wa
 
 # Joining {{ datalens-full-name }} data
 
-{{ datalens-full-name }} uses a [connection](connection.md) to retrieve data from a source (DB, CSV, Yandex Metrica, and so on). You can create datasets, charts, and selectors from the connection data. If the source has multiple tables, you can combine them to build the required set of data. You can link data from different datasets at the chart level or through selector links.
+{{ datalens-full-name }} uses a [connection](./connection/index.md) to retrieve data from a source (DB, CSV, Yandex Metrica, and so on). You can create datasets, charts, and selectors from the connection data. If the source has multiple tables, you can combine them to build the required set of data. You can link data from different datasets at the chart level or through selector links.
 
 ## Data joining methods{#data-join}
 

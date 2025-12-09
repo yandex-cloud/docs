@@ -13,7 +13,7 @@ description: Follow this guide to migrate objects to workbooks.
 
 {% endnote %}
 
-You can select any object ([connection](../concepts/connection.md), [dataset](../dataset/index.md), [chart](../concepts/chart/index.md), [dashboard](../concepts/dashboard.md)) for migration and perform it by [transferring](#migration-transfer) or [copying](#migration-copy).
+You can select any object ([connection](../concepts/connection/index.md), [dataset](../dataset/index.md), [chart](../concepts/chart/index.md), [dashboard](../concepts/dashboard.md)) for migration and perform it by [transferring](#migration-transfer) or [copying](#migration-copy).
 
 ## Migration by transfer {#migration-transfer}
 

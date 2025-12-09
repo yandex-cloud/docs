@@ -117,19 +117,27 @@ Required field. ID of the rule to update. ||
 Field mask that specifies which fields of the rule are going to be updated. ||
 || name | **string**
 
-New name of the rule. ||
+New name of the rule.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-New description of the rule. ||
+New description of the rule.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-New labels for the rule. ||
+New labels for the rule.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter)**
 
 New filter for the rule. ||
 || targets[] | **[Target](#yandex.cloud.serverless.eventrouter.v1.Target)**
 
-New targets for the rule. ||
+New targets for the rule.
+
+The number of elements must be in the range 1-5. ||
 || deletion_protection | **bool**
 
 New flag that disallow deletion of the rule. ||
@@ -142,6 +150,8 @@ New flag that disallow deletion of the rule. ||
 || jq_filter | **string**
 
 JQ filter for matching events.
+
+The maximum string length in characters is 1024.
 
 Includes only one of the fields `jq_filter`. ||
 |#
@@ -188,7 +198,6 @@ Dead letter settings of the target. ||
 
 Status of the target.
 
-- `STATUS_UNSPECIFIED`
 - `ENABLED`: Target is enabled.
 - `DISABLED`: Target is disabled.
 - `RESOURCE_NOT_FOUND`: Target does not exist.
@@ -208,7 +217,9 @@ Required field. Stream database. ||
 Required field. Full stream name, like /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test. ||
 || service_account_id | **string**
 
-Required field. Service account, which has write permission on the stream. ||
+Required field. Service account, which has write permission on the stream.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## YmqTarget {#yandex.cloud.serverless.eventrouter.v1.YmqTarget}
@@ -221,7 +232,9 @@ Required field. Queue ARN.
 Example: yrn:yc:ymq:ru-central1:aoe***:test ||
 || service_account_id | **string**
 
-Required field. Service account which has write access to the queue. ||
+Required field. Service account which has write access to the queue.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## FunctionTarget {#yandex.cloud.serverless.eventrouter.v1.FunctionTarget}
@@ -230,13 +243,17 @@ Required field. Service account which has write access to the queue. ||
 ||Field | Description ||
 || function_id | **string**
 
-Required field. Function ID. ||
+Required field. Function ID.
+
+The maximum string length in characters is 50. ||
 || function_tag | **string**
 
 Function tag, optional. ||
 || service_account_id | **string**
 
-Service account which has call permission on the function, optional. ||
+Service account which has call permission on the function, optional.
+
+The maximum string length in characters is 50. ||
 || batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
 
 Batch settings. ||
@@ -248,10 +265,14 @@ Batch settings. ||
 ||Field | Description ||
 || max_count | **int64**
 
-Maximum batch size: trigger will send a batch if number of events exceeds this value. ||
+Maximum batch size: trigger will send a batch if number of events exceeds this value.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || max_bytes | **int64**
 
-Maximum batch size: trigger will send a batch if total size of events exceeds this value. ||
+Maximum batch size: trigger will send a batch if total size of events exceeds this value.
+
+Acceptable values are 0 to 262144, inclusive. ||
 || cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Maximum batch size: trigger will send a batch if its lifetime exceeds this value. ||
@@ -263,7 +284,9 @@ Required field. Maximum batch size: trigger will send a batch if its lifetime ex
 ||Field | Description ||
 || container_id | **string**
 
-Required field. Container ID. ||
+Required field. Container ID.
+
+The maximum string length in characters is 50. ||
 || container_revision_id | **string**
 
 Container revision ID. ||
@@ -272,7 +295,9 @@ Container revision ID. ||
 Endpoint HTTP path to invoke. ||
 || service_account_id | **string**
 
-Service account which should be used to call a container, optional. ||
+Service account which should be used to call a container, optional.
+
+The maximum string length in characters is 50. ||
 || batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
 
 Batch settings. ||
@@ -284,13 +309,17 @@ Batch settings. ||
 ||Field | Description ||
 || gateway_id | **string**
 
-Required field. Gateway ID. ||
+Required field. Gateway ID.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
 Required field. Path. ||
 || service_account_id | **string**
 
-Required field. Service account which has permission for writing to websockets. ||
+Required field. Service account which has permission for writing to websockets.
+
+The maximum string length in characters is 50. ||
 || batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
 
 Batch settings. ||
@@ -302,17 +331,23 @@ Batch settings. ||
 ||Field | Description ||
 || log_group_id | **string**
 
+The maximum string length in characters is 63.
+
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log group ID or folder ID. ||
 || folder_id | **string**
+
+The maximum string length in characters is 63.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log group ID or folder ID. ||
 || service_account_id | **string**
 
-Required field. Service account which has permission for writing logs. ||
+Required field. Service account which has permission for writing logs.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## WorkflowTarget {#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget}
@@ -321,10 +356,14 @@ Required field. Service account which has permission for writing logs. ||
 ||Field | Description ||
 || workflow_id | **string**
 
-Required field. Workflow ID. ||
+Required field. Workflow ID.
+
+The maximum string length in characters is 50. ||
 || service_account_id | **string**
 
-Required field. SA which should be used to start workflow. ||
+Required field. SA which should be used to start workflow.
+
+The maximum string length in characters is 50. ||
 || batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
 
 Batch settings. ||
@@ -338,6 +377,8 @@ Batch settings. ||
 
 JQ string inrerpolation expression for changing event format.
 
+The maximum string length in characters is 65536.
+
 Includes only one of the fields `jq_transformer`. ||
 |#
 
@@ -347,7 +388,9 @@ Includes only one of the fields `jq_transformer`. ||
 ||Field | Description ||
 || retry_attempts | **int64**
 
-Maximum number of retries (extra calls) before an action fails. ||
+Maximum number of retries (extra calls) before an action fails.
+
+Acceptable values are 0 to 10, inclusive. ||
 || maximum_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Event goes to dlq when its age exceeds this value. Default is 24h. ||
@@ -362,7 +405,9 @@ Event goes to dlq when its age exceeds this value. Default is 24h. ||
 ID of the queue. ||
 || service_account_id | **string**
 
-Required field. Service account which has write permission on the queue. ||
+Required field. Service account which has write permission on the queue.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -576,7 +621,9 @@ Resource labels as `key:value` pairs. ||
 Filter for the rule. ||
 || targets[] | **[Target](#yandex.cloud.serverless.eventrouter.v1.Target2)**
 
-Targets of the rule. ||
+Targets of the rule.
+
+The number of elements must be in the range 1-5. ||
 || deletion_protection | **bool**
 
 Flag that disallow deletion of the rule. ||
@@ -584,7 +631,6 @@ Flag that disallow deletion of the rule. ||
 
 Rule status
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Rule creation in progress, rule is not enabled yet
 - `ENABLED`: Rule is operating
 - `UPDATING`: Rule update in progress, rule is disabled during update
@@ -599,6 +645,8 @@ Rule status
 || jq_filter | **string**
 
 JQ filter for matching events.
+
+The maximum string length in characters is 1024.
 
 Includes only one of the fields `jq_filter`. ||
 |#
@@ -645,7 +693,6 @@ Dead letter settings of the target. ||
 
 Status of the target.
 
-- `STATUS_UNSPECIFIED`
 - `ENABLED`: Target is enabled.
 - `DISABLED`: Target is disabled.
 - `RESOURCE_NOT_FOUND`: Target does not exist.
@@ -665,7 +712,9 @@ Required field. Stream database. ||
 Required field. Full stream name, like /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test. ||
 || service_account_id | **string**
 
-Required field. Service account, which has write permission on the stream. ||
+Required field. Service account, which has write permission on the stream.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## YmqTarget {#yandex.cloud.serverless.eventrouter.v1.YmqTarget2}
@@ -678,7 +727,9 @@ Required field. Queue ARN.
 Example: yrn:yc:ymq:ru-central1:aoe***:test ||
 || service_account_id | **string**
 
-Required field. Service account which has write access to the queue. ||
+Required field. Service account which has write access to the queue.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## FunctionTarget {#yandex.cloud.serverless.eventrouter.v1.FunctionTarget2}
@@ -687,13 +738,17 @@ Required field. Service account which has write access to the queue. ||
 ||Field | Description ||
 || function_id | **string**
 
-Required field. Function ID. ||
+Required field. Function ID.
+
+The maximum string length in characters is 50. ||
 || function_tag | **string**
 
 Function tag, optional. ||
 || service_account_id | **string**
 
-Service account which has call permission on the function, optional. ||
+Service account which has call permission on the function, optional.
+
+The maximum string length in characters is 50. ||
 || batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
 
 Batch settings. ||
@@ -705,10 +760,14 @@ Batch settings. ||
 ||Field | Description ||
 || max_count | **int64**
 
-Maximum batch size: trigger will send a batch if number of events exceeds this value. ||
+Maximum batch size: trigger will send a batch if number of events exceeds this value.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || max_bytes | **int64**
 
-Maximum batch size: trigger will send a batch if total size of events exceeds this value. ||
+Maximum batch size: trigger will send a batch if total size of events exceeds this value.
+
+Acceptable values are 0 to 262144, inclusive. ||
 || cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Maximum batch size: trigger will send a batch if its lifetime exceeds this value. ||
@@ -720,7 +779,9 @@ Required field. Maximum batch size: trigger will send a batch if its lifetime ex
 ||Field | Description ||
 || container_id | **string**
 
-Required field. Container ID. ||
+Required field. Container ID.
+
+The maximum string length in characters is 50. ||
 || container_revision_id | **string**
 
 Container revision ID. ||
@@ -729,7 +790,9 @@ Container revision ID. ||
 Endpoint HTTP path to invoke. ||
 || service_account_id | **string**
 
-Service account which should be used to call a container, optional. ||
+Service account which should be used to call a container, optional.
+
+The maximum string length in characters is 50. ||
 || batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
 
 Batch settings. ||
@@ -741,13 +804,17 @@ Batch settings. ||
 ||Field | Description ||
 || gateway_id | **string**
 
-Required field. Gateway ID. ||
+Required field. Gateway ID.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
 Required field. Path. ||
 || service_account_id | **string**
 
-Required field. Service account which has permission for writing to websockets. ||
+Required field. Service account which has permission for writing to websockets.
+
+The maximum string length in characters is 50. ||
 || batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
 
 Batch settings. ||
@@ -759,17 +826,23 @@ Batch settings. ||
 ||Field | Description ||
 || log_group_id | **string**
 
+The maximum string length in characters is 63.
+
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log group ID or folder ID. ||
 || folder_id | **string**
+
+The maximum string length in characters is 63.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log group ID or folder ID. ||
 || service_account_id | **string**
 
-Required field. Service account which has permission for writing logs. ||
+Required field. Service account which has permission for writing logs.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## WorkflowTarget {#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget2}
@@ -778,10 +851,14 @@ Required field. Service account which has permission for writing logs. ||
 ||Field | Description ||
 || workflow_id | **string**
 
-Required field. Workflow ID. ||
+Required field. Workflow ID.
+
+The maximum string length in characters is 50. ||
 || service_account_id | **string**
 
-Required field. SA which should be used to start workflow. ||
+Required field. SA which should be used to start workflow.
+
+The maximum string length in characters is 50. ||
 || batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
 
 Batch settings. ||
@@ -795,6 +872,8 @@ Batch settings. ||
 
 JQ string inrerpolation expression for changing event format.
 
+The maximum string length in characters is 65536.
+
 Includes only one of the fields `jq_transformer`. ||
 |#
 
@@ -804,7 +883,9 @@ Includes only one of the fields `jq_transformer`. ||
 ||Field | Description ||
 || retry_attempts | **int64**
 
-Maximum number of retries (extra calls) before an action fails. ||
+Maximum number of retries (extra calls) before an action fails.
+
+Acceptable values are 0 to 10, inclusive. ||
 || maximum_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Event goes to dlq when its age exceeds this value. Default is 24h. ||
@@ -819,5 +900,7 @@ Event goes to dlq when its age exceeds this value. Default is 24h. ||
 ID of the queue. ||
 || service_account_id | **string**
 
-Required field. Service account which has write permission on the queue. ||
+Required field. Service account which has write permission on the queue.
+
+The maximum string length in characters is 50. ||
 |#

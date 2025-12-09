@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the symmetric KMS key that the generated data key should be encrypted with.
+            The maximum string length in characters is 50.
           type: string
       required:
         - keyId
@@ -23,6 +24,7 @@ apiPlayground:
             **string**
             ID of the key version to encrypt the generated data key with.
             Defaults to the primary version if not specified.
+            The maximum string length in characters is 50.
           type: string
         aadContext:
           description: |-
@@ -30,17 +32,18 @@ apiPlayground:
             Additional authenticated data (AAD context), optional.
             If specified, this data will be required for decryption with the [SymmetricDecryptRequest](/docs/kms/api-ref/SymmetricCrypto/decrypt#yandex.cloud.kms.v1.SymmetricDecryptRequest).
             Should be encoded with base64.
+            The maximum string length in characters is 8192.
           type: string
           format: bytes
         dataKeySpec:
           description: |-
             **enum** (SymmetricAlgorithm)
             Encryption algorithm and key length for the generated data key.
-            - `SYMMETRIC_ALGORITHM_UNSPECIFIED`
             - `AES_128`: AES algorithm with 128-bit keys.
             - `AES_192`: AES algorithm with 192-bit keys.
             - `AES_256`: AES algorithm with 256-bit keys.
             - `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+            - `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm
           type: string
           enum:
             - SYMMETRIC_ALGORITHM_UNSPECIFIED
@@ -48,6 +51,7 @@ apiPlayground:
             - AES_192
             - AES_256
             - AES_256_HSM
+            - GOST_R_3412_2015_K
         skipPlaintext:
           description: |-
             **boolean**
@@ -76,7 +80,9 @@ POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:generateDataKey
 ||Field | Description ||
 || keyId | **string**
 
-Required field. ID of the symmetric KMS key that the generated data key should be encrypted with. ||
+Required field. ID of the symmetric KMS key that the generated data key should be encrypted with.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.kms.v1.GenerateDataKeyRequest}
@@ -95,21 +101,25 @@ Required field. ID of the symmetric KMS key that the generated data key should b
 || versionId | **string**
 
 ID of the key version to encrypt the generated data key with.
-Defaults to the primary version if not specified. ||
+Defaults to the primary version if not specified.
+
+The maximum string length in characters is 50. ||
 || aadContext | **string** (bytes)
 
 Additional authenticated data (AAD context), optional.
 If specified, this data will be required for decryption with the [SymmetricDecryptRequest](/docs/kms/api-ref/SymmetricCrypto/decrypt#yandex.cloud.kms.v1.SymmetricDecryptRequest).
-Should be encoded with base64. ||
+Should be encoded with base64.
+
+The maximum string length in characters is 8192. ||
 || dataKeySpec | **enum** (SymmetricAlgorithm)
 
 Encryption algorithm and key length for the generated data key.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || skipPlaintext | **boolean**
 
 If `true`, the method won't return the data key as plaintext.

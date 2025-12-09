@@ -1,4 +1,4 @@
-# Развертывание S2S VPN с помощью Cloud App strongSwan в {{ yandex-cloud }}
+# Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud }}
 
 
 В этом руководстве вы развернете защищенное site‑to‑site (S2S) VPN‑соединение между облачной инфраструктурой в {{ yandex-cloud }} и удаленной площадкой с помощью IPsec‑шлюза на базе [strongSwan](https://www.strongswan.org/). Для этого будет использоваться приложение [strongSwan S2S VPN](/marketplace/products/yc/ipsec-sgw) из каталога [{{ cloud-apps-full-name }}](/services/cloud-apps/). Приложение автоматизирует развертывание и базовую настройку IPsec‑туннеля, позволяя:

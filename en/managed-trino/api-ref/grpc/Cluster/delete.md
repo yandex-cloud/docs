@@ -23,7 +23,9 @@ Deletes the specified Trino Cluster resource.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Trino cluster that is being deleted. ||
+Required field. ID of the Trino cluster that is being deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

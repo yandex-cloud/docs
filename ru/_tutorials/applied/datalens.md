@@ -499,7 +499,7 @@
 
 ## Настройте мониторинг в {{ datalens-name }} {#configure-datalens}
 
-Чтобы наблюдать за состоянием устройств, настройте [подключение](../../datalens/concepts/connection.md), создайте [датасет](../../datalens/dataset/index.md), [чарты](../../datalens/concepts/chart/index.md) и [дашборд](../../datalens/concepts/dashboard.md).
+Чтобы наблюдать за состоянием устройств, настройте [подключение](../../datalens/concepts/connection/index.md), создайте [датасет](../../datalens/dataset/index.md), [чарты](../../datalens/concepts/chart/index.md) и [дашборд](../../datalens/concepts/dashboard.md).
 
 ### Настройте подключение к {{ mpg-name }} {#connect-mpg}
 
@@ -512,7 +512,7 @@
   1. Нажмите кнопку **Создать подключение**.
   1. Выберите коннектор **{{ PG }}**.
 
-      При подключении к внешнему источнику данных (который не является ресурсом {{ yandex-cloud }}) предоставьте доступ к источнику [для диапазонов IP-адресов сервиса {{ datalens-name }}](../../datalens/concepts/connection.md#changing-connection-ranges).
+      При подключении к внешнему источнику данных (который не является ресурсом {{ yandex-cloud }}) предоставьте доступ к источнику [для диапазонов IP-адресов сервиса {{ datalens-name }}](../../datalens/concepts/connection/index.md#changing-connection-ranges).
 
   1. Выберите облако и каталог.
   1. Выберите кластер `my-pg-database` и хост.

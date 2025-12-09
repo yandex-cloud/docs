@@ -34,19 +34,27 @@ To get a function ID, make a [FunctionService.List](/docs/functions/functions/ap
 
 Required field. Version tag.
 
-To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/grpc/Function/listTagHistory#ListTagHistory) request. ||
+To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/grpc/Function/listTagHistory#ListTagHistory) request.
+
+Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `. ||
 || provisioned_instances_count | **int64**
 
 Minimum guaranteed provisioned instances count for all zones in total.
-Billed separately. ||
+Billed separately.
+
+The minimum value is 0. ||
 || zone_instances_limit | **int64**
 
 Upper limit for instance count in each zone.
-0 means no limit. ||
+0 means no limit.
+
+The minimum value is 0. ||
 || zone_requests_limit | **int64**
 
 Upper limit of requests count in each zone.
-0 means no limit. ||
+0 means no limit.
+
+The minimum value is 0. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

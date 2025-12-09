@@ -378,7 +378,9 @@ items:
                 href: tutorials/istio.md
               - name: Использование HashiCorp Vault для хранения секретов
                 href: tutorials/hashicorp-vault.md
-              - name: Развертывание S2S VPN с помощью Cloud App strongSwan
+              - name: >-
+                  Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud
+                  }}
                 href: tutorials/s2s-vpn.md
       - name: Концепции
         items:

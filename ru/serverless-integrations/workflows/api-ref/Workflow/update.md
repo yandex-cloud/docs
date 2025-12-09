@@ -22,17 +22,20 @@ apiPlayground:
           description: |-
             **string**
             Name of the Workflow. The name is unique within the folder.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the Workflow.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Workflow labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -125,8 +128,6 @@ apiPlayground:
               **enum** (Level)
               Minimum logs level.
               See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-              - `LEVEL_UNSPECIFIED`: Default log level.
-                Equivalent to not specifying log level at all.
               - `TRACE`: Trace log level.
                 Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
@@ -160,6 +161,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Cron expression for the Workflow schedule.
+              The maximum string length in characters is 100.
             type: string
           timezone:
             description: |-
@@ -226,13 +228,19 @@ Required field. ID of the Workflow. ||
 ||Field | Description ||
 || name | **string**
 
-Name of the Workflow. The name is unique within the folder. ||
+Name of the Workflow. The name is unique within the folder.
+
+Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the Workflow. ||
+Description of the Workflow.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Workflow labels as `key:value` pairs. ||
+Workflow labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
 
 Specification of the Workflow. ||
@@ -297,9 +305,6 @@ Minimum logs level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -326,7 +331,9 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 ||Field | Description ||
 || cronExpression | **string**
 
-Required field. Cron expression for the Workflow schedule. ||
+Required field. Cron expression for the Workflow schedule.
+
+The maximum string length in characters is 100. ||
 || timezone | **string**
 
 Required field. Timezone for the Workflow schedule. ||
@@ -519,7 +526,6 @@ Workflow labels as `key:value` pairs. ||
 
 Status of the Workflow.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Workflow is being created.
 - `ACTIVE`: Workflow is ready for use.
 - `UPDATING`: Workflow is being updated.
@@ -576,9 +582,6 @@ Minimum logs level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -605,7 +608,9 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 ||Field | Description ||
 || cronExpression | **string**
 
-Required field. Cron expression for the Workflow schedule. ||
+Required field. Cron expression for the Workflow schedule.
+
+The maximum string length in characters is 100. ||
 || timezone | **string**
 
 Required field. Timezone for the Workflow schedule. ||

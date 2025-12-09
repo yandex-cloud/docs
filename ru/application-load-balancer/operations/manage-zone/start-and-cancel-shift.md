@@ -9,6 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Отключить зону доступности {#disable-zones}
 
+{% include [disable-zone-ig-nlb-alb](../../../_includes/instance-groups/disable-zone-ig-nlb-alb.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -90,6 +92,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Включить зону доступности {#enable-zones}
 
+{% include [enable-zone-ig-nlb-alb](../../../_includes/instance-groups/enable-zone-ig-nlb-alb.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -146,3 +150,8 @@ description: Следуя данной инструкции, вы сможете
 Ранее для включения и отключения зоны доступности использовались команды CLI `start-zonal-shift`, `cancel-zonal-shift` и методы API `StartZonalShift`, `CancelZonalShift`. Сейчас они устарели и будут удалены в ближайшее время.
 
 {% endnote %}
+
+### См. также {#see-also}
+
+* [Отключить и включить зоны доступности для группы ВМ {{ compute-full-name }}](../../../compute/operations/instance-groups/disable-enable-zone.md)
+* [Отключить и включить зоны доступности в {{ network-load-balancer-full-name }}](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)

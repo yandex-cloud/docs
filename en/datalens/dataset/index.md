@@ -7,7 +7,7 @@ description: A dataset in {{ datalens-full-name }} describes a set of data and i
 
 A _dataset_ describes a set of data and its structure. Data in a dataset is represented as fields.
 
-{{ datalens-short-name }} creates a dataset based on a data source for which there is a [connection](../concepts/connection.md).
+{{ datalens-short-name }} creates a dataset based on a data source for which there is a [connection](../concepts/connection/index.md).
 
 
 A dataset works with sources in direct access mode: it runs all data queries on the source side. At the same time, you cannot change data in the source itself using {{ datalens-short-name }}.

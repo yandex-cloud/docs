@@ -592,7 +592,9 @@ A trigger to invoke a serverless function. For more information, see [Triggers](
 ID of the trigger. Generated at creation time. ||
 || folderId | **string**
 
-Required field. ID of the folder that the trigger belongs to. ||
+Required field. ID of the folder that the trigger belongs to.
+
+The maximum string length in characters is 50. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp for the trigger.
@@ -605,10 +607,14 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the trigger. ||
+Name of the trigger.
+
+The string length in characters must be 3-63. ||
 || description | **string**
 
-Description of the trigger. ||
+Description of the trigger.
+
+The string length in characters must be 0-256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Trigger labels as `key:value` pairs. ||
@@ -619,7 +625,6 @@ Required field. Rule for trigger activation (always consistent with the trigger 
 
 Trigger status.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`
 - `PAUSED` ||
 |#
@@ -679,10 +684,14 @@ Rule for activating a timed trigger.
 ||Field | Description ||
 || cronExpression | **string**
 
-Required field. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). ||
+Required field. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer).
+
+The maximum string length in characters is 100. ||
 || payload | **string**
 
-Payload to be passed to function. ||
+Payload to be passed to function.
+
+The maximum string length in characters is 4096. ||
 || invokeFunction | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
 
 Instructions for invoking a function once.
@@ -721,7 +730,9 @@ A single function invocation.
 ||Field | Description ||
 || functionId | **string**
 
-Required field. ID of the function to invoke. ||
+Required field. ID of the function to invoke.
+
+The maximum string length in characters is 50. ||
 || functionTag | **string**
 
 Version tag of the function to execute. ||
@@ -738,7 +749,9 @@ A function invocation with retries.
 ||Field | Description ||
 || functionId | **string**
 
-Required field. ID of the function to invoke. ||
+Required field. ID of the function to invoke.
+
+The maximum string length in characters is 50. ||
 || functionTag | **string**
 
 Version tag of the function to execute. ||
@@ -761,7 +774,9 @@ Settings for retrying to invoke a function.
 ||Field | Description ||
 || retryAttempts | **string** (int64)
 
-Maximum number of retries (extra invokes) before the action is considered failed. ||
+Maximum number of retries (extra invokes) before the action is considered failed.
+
+Acceptable values are 1 to 5, inclusive. ||
 || interval | **string** (duration)
 
 Required field. Time in seconds to wait between individual retries. ||
@@ -776,7 +791,9 @@ Required field. Time in seconds to wait between individual retries. ||
 ID of the queue. ||
 || serviceAccountId | **string**
 
-Required field. Service account which has write permission on the queue. ||
+Required field. Service account which has write permission on the queue.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## InvokeContainerWithRetry {#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry}
@@ -787,7 +804,9 @@ A container invocation with retries.
 ||Field | Description ||
 || containerId | **string**
 
-Required field. ID of the container to invoke. ||
+Required field. ID of the container to invoke.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
@@ -808,13 +827,17 @@ DLQ policy (no value means discarding a message). ||
 ||Field | Description ||
 || gatewayId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
-Required field.  ||
+Required field. ||
 || serviceAccountId | **string**
 
-Required field. sa which has permission for writing to websockets ||
+Required field. sa which has permission for writing to websockets
+
+The maximum string length in characters is 50. ||
 |#
 
 ## MessageQueue {#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue}
@@ -828,7 +851,9 @@ Rule for activating a message queue trigger.
 Required field. ID of the message queue in Message Queue. ||
 || serviceAccountId | **string**
 
-Required field. ID of the service account which has read access to the message queue. ||
+Required field. ID of the service account which has read access to the message queue.
+
+The maximum string length in characters is 50. ||
 || batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
 
 Required field. Batch settings for processing messages in the queue. ||
@@ -867,7 +892,9 @@ Settings for batch processing of messages in a queue.
 || size | **string** (int64)
 
 Batch size. Trigger will send the batch of messages to the function
-when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. ||
+when the number of messages in the queue reaches `size`, or the `cutoff` time has passed.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || cutoff | **string** (duration)
 
 Required field. Maximum wait time. Trigger will send the batch of messages to the function when
@@ -882,7 +909,9 @@ A single container invocation.
 ||Field | Description ||
 || containerId | **string**
 
-Required field. ID of the container to invoke. ||
+Required field. ID of the container to invoke.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
@@ -978,7 +1007,8 @@ Action to be executed when the there's a new message in the MQTT topic. ||
 
 Type (name) of events, at least one value is required.
 
-- `OBJECT_STORAGE_EVENT_TYPE_UNSPECIFIED`
+The number of elements must be greater than 0.
+
 - `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
 - `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
 - `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT` ||
@@ -1019,7 +1049,8 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 
 Type (name) of events, at least one value is required.
 
-- `CONTAINER_REGISTRY_EVENT_TYPE_UNSPECIFIED`
+The number of elements must be greater than 0.
+
 - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`
 - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
 - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
@@ -1082,7 +1113,9 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`. ||
 || size | **string** (int64)
 
 Batch size. Trigger will send the batch of messages to the function
-when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. ||
+when the number of messages in the log group reaches `size`, or the `cutoff` time has passed.
+
+Acceptable values are 0 to 100, inclusive. ||
 || cutoff | **string** (duration)
 
 Maximum wait time. Trigger will send the batch of messages to the function when
@@ -1095,15 +1128,22 @@ the number of messages in the log group reaches `size`, or the `cutoff` time has
 ||Field | Description ||
 || logGroupId | **string**
 
-Log events filter settings. ||
-|| resourceType[] | **string** ||
-|| resourceId[] | **string** ||
-|| streamName[] | **string** ||
+Log events filter settings.
+
+The maximum string length in characters is 50. ||
+|| resourceType[] | **string**
+
+Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
+|| resourceId[] | **string**
+
+Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
+|| streamName[] | **string**
+
+Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100. ||
 || levels[] | **enum** (Level)
 
-- `LEVEL_UNSPECIFIED`: Default log level.
+The maximum number of elements is 10.
 
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -1149,7 +1189,9 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 || size | **string** (int64)
 
 Batch size. Trigger will send the batch of messages to the associated function
-when the number of log events reaches this value, or the `cutoff` time has passed. ||
+when the number of log events reaches this value, or the `cutoff` time has passed.
+
+Acceptable values are 1 to 1000, inclusive. ||
 || cutoff | **string** (duration)
 
 Maximum wait time. Trigger will send the batch of messages the time since the last batch
@@ -1162,8 +1204,12 @@ exceeds the `cutoff` value, regardless of the amount of log events. ||
 ||Field | Description ||
 || billingAccountId | **string**
 
-Required field.  ||
-|| budgetId | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| budgetId | **string**
+
+The maximum string length in characters is 50. ||
 || invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
 Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
@@ -1212,7 +1258,9 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 || size | **string** (int64)
 
 Batch size in bytes. Trigger will send the batch of messages to the associated function
-when size of log events reaches this value, or the `cutoff` time has passed. ||
+when size of log events reaches this value, or the `cutoff` time has passed.
+
+Acceptable values are 1 to 65536, inclusive. ||
 || cutoff | **string** (duration)
 
 Maximum wait time. Trigger will send the batch of messages the time since the last batch
@@ -1250,8 +1298,12 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 ||Field | Description ||
 || bucketId | **string**
 
-Bucket for saving. ||
+Bucket for saving.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || serviceAccountId | **string**
 
-Required field. SA which has write permission on storage. ||
+Required field. SA which has write permission on storage.
+
+The maximum string length in characters is 50. ||
 |#

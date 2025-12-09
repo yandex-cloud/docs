@@ -107,7 +107,7 @@ items:
   - name: Подключения
     items:
       - name: Обзор
-        href: concepts/connection.md
+        href: concepts/connection/index.md
       - name: Версионирование
         href: concepts/connection/versioning.md
       - name: Кеширование

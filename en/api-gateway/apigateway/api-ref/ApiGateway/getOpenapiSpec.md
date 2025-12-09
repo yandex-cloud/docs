@@ -21,7 +21,6 @@ apiPlayground:
           description: |-
             **enum** (Format)
             Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](/docs/api-gateway/apigateway/api-ref/ApiGateway/create#yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest).
-            - `FORMAT_UNSPECIFIED`
             - `JSON`
             - `YAML`
           type: string
@@ -62,7 +61,6 @@ Required field. ID of the API gateway to get specification from. ||
 
 Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](/docs/api-gateway/apigateway/api-ref/ApiGateway/create#yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest).
 
-- `FORMAT_UNSPECIFIED`
 - `JSON`
 - `YAML` ||
 |#

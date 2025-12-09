@@ -200,6 +200,7 @@ description: Пошаговые инструкции по работе и упр
 
 * [{#T}](instance-groups/update.md)
 * [{#T}](instance-groups/update-from-yaml.md)
+* [{#T}](instance-groups/disable-enable-zone.md)
 * [{#T}](instance-groups/move-group.md)
 * [{#T}](instance-groups/move-group-with-nlb.md)
 * [{#T}](instance-groups/move-group-with-alb.md)

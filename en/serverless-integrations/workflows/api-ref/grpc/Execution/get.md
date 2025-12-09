@@ -84,7 +84,6 @@ Error details, in case Workflow execution failed. ||
 
 Status of the Workflow execution
 
-- `STATUS_UNSPECIFIED`
 - `QUEUED`: Workflow execution is being queued.
 - `RUNNING`: Workflow execution is running.
 - `PAUSED`: Workflow execution is being paused.

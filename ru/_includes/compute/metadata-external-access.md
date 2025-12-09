@@ -10,8 +10,9 @@
 
   На вкладке:
   * **{{ ui-key.yacloud.common.overview }}** приводится общая информация о ВМ, в том числе [IP-адреса](../../vpc/concepts/address.md), присвоенные ВМ.
-  * **Диски** приводится информация о [дисках](../../compute/concepts/disk.md), подключенных к ВМ.
-  * **Файловые хранилища** приводится информация о подключенных [файловых хранилищах](../../compute/concepts/filesystem.md).
+  * **{{ ui-key.yacloud.compute.storage_uisyT }}** приводится информация о [дисках](../../compute/concepts/disk.md) и [файловых хранилищах](../../compute/concepts/filesystem.md), подключенных к ВМ.
+  * **{{ ui-key.yacloud.compute.instance.switch_backups }}** приводится информация о [резервных копиях](../../backup/concepts/index.md) ВМ.
+  * **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** приводится информация о [правах доступа](../../iam/concepts/access-control/index.md) к ВМ.
   * **{{ ui-key.yacloud.common.operations-key-value }}** приводится список операций с ВМ и подключенными к ней ресурсами, например дисками.
   * **{{ ui-key.yacloud.common.monitoring }}** приводится информация о потреблении ресурсов на ВМ. Эту информацию можно получить только в консоли управления или изнутри ВМ.
   * **{{ ui-key.yacloud.compute.instance.switch_console }}** предоставлен доступ к [серийной консоли](../../compute/operations/serial-console/index.md), если при [создании](../../compute/operations/index.md#vm-create) ВМ вы разрешили к ней доступ.
@@ -21,7 +22,7 @@
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  1. Посмотрите описание команды для получения [вывода последовательного порта](../../compute/operations/vm-info/get-serial-port-output.md):
+  1. Посмотрите описание команды для получения информации о ВМ:
 
      ```bash
      yc compute instance get --help

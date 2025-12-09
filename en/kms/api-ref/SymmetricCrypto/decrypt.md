@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the symmetric KMS key to use for decryption.
+            The maximum string length in characters is 50.
           type: string
       required:
         - keyId
@@ -24,6 +25,7 @@ apiPlayground:
             Additional authenticated data, must be the same as was provided
             in the corresponding [SymmetricEncryptRequest](/docs/kms/api-ref/SymmetricCrypto/encrypt#yandex.cloud.kms.v1.SymmetricEncryptRequest).
             Should be encoded with base64.
+            The maximum string length in characters is 8192.
           type: string
           format: bytes
         ciphertext:
@@ -56,7 +58,9 @@ POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:decrypt
 ||Field | Description ||
 || keyId | **string**
 
-Required field. ID of the symmetric KMS key to use for decryption. ||
+Required field. ID of the symmetric KMS key to use for decryption.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.kms.v1.SymmetricDecryptRequest}
@@ -74,7 +78,9 @@ Required field. ID of the symmetric KMS key to use for decryption. ||
 
 Additional authenticated data, must be the same as was provided
 in the corresponding [SymmetricEncryptRequest](/docs/kms/api-ref/SymmetricCrypto/encrypt#yandex.cloud.kms.v1.SymmetricEncryptRequest).
-Should be encoded with base64. ||
+Should be encoded with base64.
+
+The maximum string length in characters is 8192. ||
 || ciphertext | **string** (bytes)
 
 Required field. Ciphertext to be decrypted.

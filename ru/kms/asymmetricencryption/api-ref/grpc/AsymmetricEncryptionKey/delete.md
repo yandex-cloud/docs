@@ -27,7 +27,9 @@ requests, but can be restored within 72 hours with a request to tech support.
 ||Field | Description ||
 || key_id | **string**
 
-Required field. ID of the key to be deleted. ||
+Required field. ID of the key to be deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -152,7 +154,6 @@ Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
@@ -162,7 +163,6 @@ Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
 
 Asymmetric Encryption Algorithm ID.
 
-- `ASYMMETRIC_ENCRYPTION_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_ENC_OAEP_SHA_256`: RSA-2048 encryption with OAEP padding and SHA-256
 - `RSA_3072_ENC_OAEP_SHA_256`: RSA-3072 encryption with OAEP padding and SHA-256
 - `RSA_4096_ENC_OAEP_SHA_256`: RSA-4096 encryption with OAEP padding and SHA-256 ||

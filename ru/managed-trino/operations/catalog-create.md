@@ -1627,7 +1627,138 @@ description: Следуя этой инструкции, вы создадите
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
+- CLI {#cli}
 
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create mysql <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --connection-manager-connection-id <идентификатор_подключения> \
+      --connection-manager-connection-properties <список_настроек_подключения_{{ MY }}> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ MY }}.
+
+        Чтобы узнать идентификатор подключения:
+        1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+    * `--connection-manager-connection-properties` — список настроек подключения {{ MY }} в формате `ключ=значение`.
+
+       {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
+
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+
+
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "mysql": {
+                        "connection": {
+                          "connectionManager": {
+                            "connectionId": "<идентификатор_подключения>",
+                            "connectionProperties": {
+                              <список_настроек_подключения_{{ MY }}>
+                            }
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `connectionManager` — настройки {{ connection-manager-name }}:
+
+        * `connectionId` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ MY }}.
+
+            Чтобы узнать идентификатор подключения:
+            1. В консоли управления перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+        * `connectionProperties` — список настроек подключения {{ MY }} в формате `"ключ": "значение"`.
+
+           {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "mysql": {
+                    "connection": {
+                      "connection_manager": {
+                        "connection_id": "<идентификатор_подключения>",
+                        "connection_properties": {
+                          <список_настроек_подключения_{{ MY }}>
+                        }
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `connection_manager` — настройки {{ connection-manager-name }}:
+
+        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ MY }}.
+
+            Чтобы узнать идентификатор подключения:
+            1. В консоли управления перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+        * `connection_properties` — список настроек подключения {{ MY }} в формате `"ключ": "значение"`.
+
+           {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -1642,7 +1773,118 @@ description: Следуя этой инструкции, вы создадите
     * **Пароль** — пароль пользователя для подключения к серверу {{ MY }}.
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
+- CLI {#cli}
 
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create mysql <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --on-premise-connection-url <URL_для_подключения> \
+      --on-premise-user-name <имя_пользователя> \
+      --on-premise-password <пароль_пользователя> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url` — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
+    * `--on-premise-user-name` — имя пользователя для подключения к серверу {{ MY }}.
+    * `--on-premise-password` — пароль пользователя для подключения к серверу {{ MY }}.
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+
+
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "mysql": {
+                        "connection": {
+                          "onPremise": {
+                            "connectionUrl": "<URL_для_подключения>",
+                            "userName": "<имя_пользователя>",
+                            "password": "<пароль_пользователя>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `onPremise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connectionUrl` — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
+        * `userName` — имя пользователя для подключения к серверу {{ MY }}.
+        * `password` — пароль пользователя для подключения к серверу {{ MY }}.
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "mysql": {
+                    "connection": {
+                      "on_premise": {
+                        "connection_url": "<URL_для_подключения>",
+                        "user_name": "<имя_пользователя>",
+                        "password": "<пароль_пользователя>"
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
+        * `user_name` — имя пользователя для подключения к серверу {{ MY }}.
+        * `password` — пароль пользователя для подключения к серверу {{ MY }}.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 

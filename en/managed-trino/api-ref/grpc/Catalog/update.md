@@ -21,7 +21,7 @@ Updates the specified Trino Catalog.
   "catalog": {
     "name": "string",
     "connector": {
-      // Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`
+      // Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`
       "hive": {
         "metastore": {
           // Includes only one of the fields `hive`
@@ -177,6 +177,39 @@ Updates the specified Trino Catalog.
           // end of the list of possible fields
         },
         "additional_properties": "map<string, string>"
+      },
+      "mysql": {
+        "connection": {
+          // Includes only one of the fields `on_premise`, `connection_manager`
+          "on_premise": {
+            "connection_url": "string",
+            "user_name": "string",
+            "password": "string"
+          },
+          "connection_manager": {
+            "connection_id": "string",
+            "connection_properties": "map<string, string>"
+          }
+          // end of the list of possible fields
+        },
+        "additional_properties": "map<string, string>"
+      },
+      "greenplum": {
+        "connection": {
+          // Includes only one of the fields `on_premise`, `connection_manager`
+          "on_premise": {
+            "connection_url": "string",
+            "user_name": "string",
+            "password": "string"
+          },
+          "connection_manager": {
+            "connection_id": "string",
+            "database": "string",
+            "connection_properties": "map<string, string>"
+          }
+          // end of the list of possible fields
+        },
+        "additional_properties": "map<string, string>"
       }
       // end of the list of possible fields
     },
@@ -190,10 +223,14 @@ Updates the specified Trino Catalog.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Trino Cluster that contains the catalog to update. ||
+Required field. ID of the Trino Cluster that contains the catalog to update.
+
+The maximum string length in characters is 50. ||
 || catalog_id | **string**
 
-Required field. ID of the catalog to update. ||
+Required field. ID of the catalog to update.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Field mask that specifies which fields of the catalog should be updated. ||
@@ -211,17 +248,23 @@ Fields are optional and only provided fields will be updated.
 ||Field | Description ||
 || name | **string**
 
-New name of the catalog. ||
+New name of the catalog.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connector | **[Connector](#yandex.cloud.trino.v1.Connector)**
 
 Updated connector configuration.
 If specified, replaces the existing connector. ||
 || description | **string**
 
-Description of the catalog. ||
+Description of the catalog.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Labels associated with the catalog. ||
+Labels associated with the catalog.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Connector {#yandex.cloud.trino.v1.Connector}
@@ -234,52 +277,62 @@ Connector configuration. Exactly one connector type must be specified.
 
 Hive connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || iceberg | **[IcebergConnector](#yandex.cloud.trino.v1.IcebergConnector)**
 
 Iceberg connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || delta_lake | **[DeltaLakeConnector](#yandex.cloud.trino.v1.DeltaLakeConnector)**
 
 Delta Lake connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || postgresql | **[PostgresqlConnector](#yandex.cloud.trino.v1.PostgresqlConnector)**
 
 PostgreSQL connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || clickhouse | **[ClickhouseConnector](#yandex.cloud.trino.v1.ClickhouseConnector)**
 
 ClickHouse connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || tpch | **[TPCHConnector](#yandex.cloud.trino.v1.TPCHConnector)**
 
 TPC-H connector for synthetic benchmarking.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || tpcds | **[TPCDSConnector](#yandex.cloud.trino.v1.TPCDSConnector)**
 
 TPC-DS connector for synthetic benchmarking.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || oracle | **[OracleConnector](#yandex.cloud.trino.v1.OracleConnector)**
 
 Oracle connector configuration for connecting to Oracle Database instances.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || sqlserver | **[SQLServerConnector](#yandex.cloud.trino.v1.SQLServerConnector)**
 
 SQLServer connector configuration for connecting to SQLServer Database instances.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || hudi | **[HudiConnector](#yandex.cloud.trino.v1.HudiConnector)**
 
 Hudi connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
+|| mysql | **[MysqlConnector](#yandex.cloud.trino.v1.MysqlConnector)**
+
+MySQL connector configuration for connecting to MySQL Database instances.
+
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
+|| greenplum | **[GreenplumConnector](#yandex.cloud.trino.v1.GreenplumConnector)**
+
+Greenplum connector configuration for connecting to Greenplum or Cloudberry Database instances.
+
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 |#
 
 ## HiveConnector {#yandex.cloud.trino.v1.HiveConnector}
@@ -294,7 +347,9 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## Metastore {#yandex.cloud.trino.v1.Metastore}
@@ -353,16 +408,16 @@ Describes External S3 compatible file system.
 ||Field | Description ||
 || aws_access_key | **string**
 
-Required field.  ||
+Required field. ||
 || aws_secret_key | **string**
 
-Required field.  ||
+Required field. ||
 || aws_endpoint | **string**
 
-Required field.  ||
+Required field. ||
 || aws_region | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## IcebergConnector {#yandex.cloud.trino.v1.IcebergConnector}
@@ -377,7 +432,9 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## DeltaLakeConnector {#yandex.cloud.trino.v1.DeltaLakeConnector}
@@ -392,7 +449,9 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## PostgresqlConnector {#yandex.cloud.trino.v1.PostgresqlConnector}
@@ -404,7 +463,9 @@ Additional properties. ||
 Connection configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## PostgresqlConnection {#yandex.cloud.trino.v1.PostgresqlConnection}
@@ -425,13 +486,19 @@ Includes only one of the fields `on_premise`, `connection_manager`. ||
 ||Field | Description ||
 || connection_url | **string**
 
-Required field. Connection to the Postgresql. ||
+Required field. Connection to the Postgresql.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
 || user_name | **string**
 
-Required field. Name of the Postgresql user. ||
+Required field. Name of the Postgresql user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the Postgresql user. ||
+Required field. Password of the Postgresql user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## ConnectionManager {#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager}
@@ -440,13 +507,19 @@ Required field. Password of the Postgresql user. ||
 ||Field | Description ||
 || connection_id | **string**
 
-Required field. Connection ID. ||
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
 || database | **string**
 
-Required field. Database. ||
+Required field. Database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connection_properties | **object** (map<**string**, **string**>)
 
-Additional connection properties. ||
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `. ||
 |#
 
 ## ClickhouseConnector {#yandex.cloud.trino.v1.ClickhouseConnector}
@@ -458,7 +531,9 @@ Additional connection properties. ||
 Connection configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## ClickhouseConnection {#yandex.cloud.trino.v1.ClickhouseConnection}
@@ -479,13 +554,19 @@ Includes only one of the fields `on_premise`, `connection_manager`. ||
 ||Field | Description ||
 || connection_url | **string**
 
-Required field. Connection to the Clickhouse. ||
+Required field. Connection to the Clickhouse.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
 || user_name | **string**
 
-Required field. Name of the Clickhouse user. ||
+Required field. Name of the Clickhouse user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the Clickhouse user. ||
+Required field. Password of the Clickhouse user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## ConnectionManager {#yandex.cloud.trino.v1.ClickhouseConnection.ConnectionManager}
@@ -494,13 +575,19 @@ Required field. Password of the Clickhouse user. ||
 ||Field | Description ||
 || connection_id | **string**
 
-Required field. Connection ID. ||
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
 || database | **string**
 
-Required field. Database. ||
+Required field. Database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connection_properties | **object** (map<**string**, **string**>)
 
-Additional connection properties. ||
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z_]* `. ||
 |#
 
 ## TPCHConnector {#yandex.cloud.trino.v1.TPCHConnector}
@@ -509,7 +596,9 @@ Additional connection properties. ||
 ||Field | Description ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## TPCDSConnector {#yandex.cloud.trino.v1.TPCDSConnector}
@@ -518,7 +607,9 @@ Additional properties. ||
 ||Field | Description ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## OracleConnector {#yandex.cloud.trino.v1.OracleConnector}
@@ -530,7 +621,9 @@ Additional properties. ||
 Connection configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## OracleConnection {#yandex.cloud.trino.v1.OracleConnection}
@@ -548,13 +641,19 @@ Includes only one of the fields `on_premise`. ||
 ||Field | Description ||
 || connection_url | **string**
 
-Required field. Connection to the Oracle. ||
+Required field. Connection to the Oracle.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+:(?s:.*)$ `. ||
 || user_name | **string**
 
-Required field. Name of the Oracle user. ||
+Required field. Name of the Oracle user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the Oracle user. ||
+Required field. Password of the Oracle user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## SQLServerConnector {#yandex.cloud.trino.v1.SQLServerConnector}
@@ -566,7 +665,9 @@ Required field. Password of the Oracle user. ||
 Connection configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## SQLServerConnection {#yandex.cloud.trino.v1.SQLServerConnection}
@@ -584,13 +685,19 @@ Includes only one of the fields `on_premise`. ||
 ||Field | Description ||
 || connection_url | **string**
 
-Required field. Connection to the SQLServer. ||
+Required field. Connection to the SQLServer.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+:(?s:.*)$ `. ||
 || user_name | **string**
 
-Required field. Name of the SQLServer user. ||
+Required field. Name of the SQLServer user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the SQLServer user. ||
+Required field. Password of the SQLServer user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## HudiConnector {#yandex.cloud.trino.v1.HudiConnector}
@@ -605,7 +712,140 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+|#
+
+## MysqlConnector {#yandex.cloud.trino.v1.MysqlConnector}
+
+#|
+||Field | Description ||
+|| connection | **[MysqlConnection](#yandex.cloud.trino.v1.MysqlConnection)**
+
+Connection configuration. ||
+|| additional_properties | **object** (map<**string**, **string**>)
+
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+|#
+
+## MysqlConnection {#yandex.cloud.trino.v1.MysqlConnection}
+
+#|
+||Field | Description ||
+|| on_premise | **[OnPremise](#yandex.cloud.trino.v1.MysqlConnection.OnPremise)**
+
+Includes only one of the fields `on_premise`, `connection_manager`. ||
+|| connection_manager | **[ConnectionManager](#yandex.cloud.trino.v1.MysqlConnection.ConnectionManager)**
+
+Includes only one of the fields `on_premise`, `connection_manager`. ||
+|#
+
+## OnPremise {#yandex.cloud.trino.v1.MysqlConnection.OnPremise}
+
+#|
+||Field | Description ||
+|| connection_url | **string**
+
+Required field. Connection to the MySQL.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
+|| user_name | **string**
+
+Required field. Name of the MySQL user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| password | **string**
+
+Required field. Password of the MySQL user.
+
+The string length in characters must be 0-128. ||
+|#
+
+## ConnectionManager {#yandex.cloud.trino.v1.MysqlConnection.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
+|| connection_properties | **object** (map<**string**, **string**>)
+
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z_]* `. ||
+|#
+
+## GreenplumConnector {#yandex.cloud.trino.v1.GreenplumConnector}
+
+#|
+||Field | Description ||
+|| connection | **[GreenplumConnection](#yandex.cloud.trino.v1.GreenplumConnection)**
+
+Connection configuration ||
+|| additional_properties | **object** (map<**string**, **string**>)
+
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+|#
+
+## GreenplumConnection {#yandex.cloud.trino.v1.GreenplumConnection}
+
+#|
+||Field | Description ||
+|| on_premise | **[OnPremise](#yandex.cloud.trino.v1.GreenplumConnection.OnPremise)**
+
+Includes only one of the fields `on_premise`, `connection_manager`. ||
+|| connection_manager | **[ConnectionManager](#yandex.cloud.trino.v1.GreenplumConnection.ConnectionManager)**
+
+Includes only one of the fields `on_premise`, `connection_manager`. ||
+|#
+
+## OnPremise {#yandex.cloud.trino.v1.GreenplumConnection.OnPremise}
+
+#|
+||Field | Description ||
+|| connection_url | **string**
+
+Required field. Connection to the Greenplum/Cloudberry.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
+|| user_name | **string**
+
+Required field. Name of the Greenplum/Cloudberry user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| password | **string**
+
+Required field. Password of the Greenplum/Cloudberry user.
+
+The string length in characters must be 0-128. ||
+|#
+
+## ConnectionManager {#yandex.cloud.trino.v1.GreenplumConnection.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
+|| database | **string**
+
+Required field. Database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| connection_properties | **object** (map<**string**, **string**>)
+
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -628,7 +868,7 @@ Additional properties. ||
     "id": "string",
     "name": "string",
     "connector": {
-      // Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`
+      // Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`
       "hive": {
         "metastore": {
           // Includes only one of the fields `hive`
@@ -780,6 +1020,39 @@ Additional properties. ||
             "aws_secret_key": "string",
             "aws_endpoint": "string",
             "aws_region": "string"
+          }
+          // end of the list of possible fields
+        },
+        "additional_properties": "map<string, string>"
+      },
+      "mysql": {
+        "connection": {
+          // Includes only one of the fields `on_premise`, `connection_manager`
+          "on_premise": {
+            "connection_url": "string",
+            "user_name": "string",
+            "password": "string"
+          },
+          "connection_manager": {
+            "connection_id": "string",
+            "connection_properties": "map<string, string>"
+          }
+          // end of the list of possible fields
+        },
+        "additional_properties": "map<string, string>"
+      },
+      "greenplum": {
+        "connection": {
+          // Includes only one of the fields `on_premise`, `connection_manager`
+          "on_premise": {
+            "connection_url": "string",
+            "user_name": "string",
+            "password": "string"
+          },
+          "connection_manager": {
+            "connection_id": "string",
+            "database": "string",
+            "connection_properties": "map<string, string>"
           }
           // end of the list of possible fields
         },
@@ -894,52 +1167,62 @@ Connector configuration. Exactly one connector type must be specified.
 
 Hive connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || iceberg | **[IcebergConnector](#yandex.cloud.trino.v1.IcebergConnector2)**
 
 Iceberg connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || delta_lake | **[DeltaLakeConnector](#yandex.cloud.trino.v1.DeltaLakeConnector2)**
 
 Delta Lake connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || postgresql | **[PostgresqlConnector](#yandex.cloud.trino.v1.PostgresqlConnector2)**
 
 PostgreSQL connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || clickhouse | **[ClickhouseConnector](#yandex.cloud.trino.v1.ClickhouseConnector2)**
 
 ClickHouse connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || tpch | **[TPCHConnector](#yandex.cloud.trino.v1.TPCHConnector2)**
 
 TPC-H connector for synthetic benchmarking.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || tpcds | **[TPCDSConnector](#yandex.cloud.trino.v1.TPCDSConnector2)**
 
 TPC-DS connector for synthetic benchmarking.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || oracle | **[OracleConnector](#yandex.cloud.trino.v1.OracleConnector2)**
 
 Oracle connector configuration for connecting to Oracle Database instances.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || sqlserver | **[SQLServerConnector](#yandex.cloud.trino.v1.SQLServerConnector2)**
 
 SQLServer connector configuration for connecting to SQLServer Database instances.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || hudi | **[HudiConnector](#yandex.cloud.trino.v1.HudiConnector2)**
 
 Hudi connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
+|| mysql | **[MysqlConnector](#yandex.cloud.trino.v1.MysqlConnector2)**
+
+MySQL connector configuration for connecting to MySQL Database instances.
+
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
+|| greenplum | **[GreenplumConnector](#yandex.cloud.trino.v1.GreenplumConnector2)**
+
+Greenplum connector configuration for connecting to Greenplum or Cloudberry Database instances.
+
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 |#
 
 ## HiveConnector {#yandex.cloud.trino.v1.HiveConnector2}
@@ -954,7 +1237,9 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## Metastore {#yandex.cloud.trino.v1.Metastore2}
@@ -1013,16 +1298,16 @@ Describes External S3 compatible file system.
 ||Field | Description ||
 || aws_access_key | **string**
 
-Required field.  ||
+Required field. ||
 || aws_secret_key | **string**
 
-Required field.  ||
+Required field. ||
 || aws_endpoint | **string**
 
-Required field.  ||
+Required field. ||
 || aws_region | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## IcebergConnector {#yandex.cloud.trino.v1.IcebergConnector2}
@@ -1037,7 +1322,9 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## DeltaLakeConnector {#yandex.cloud.trino.v1.DeltaLakeConnector2}
@@ -1052,7 +1339,9 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## PostgresqlConnector {#yandex.cloud.trino.v1.PostgresqlConnector2}
@@ -1064,7 +1353,9 @@ Additional properties. ||
 Connection configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## PostgresqlConnection {#yandex.cloud.trino.v1.PostgresqlConnection2}
@@ -1085,13 +1376,19 @@ Includes only one of the fields `on_premise`, `connection_manager`. ||
 ||Field | Description ||
 || connection_url | **string**
 
-Required field. Connection to the Postgresql. ||
+Required field. Connection to the Postgresql.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
 || user_name | **string**
 
-Required field. Name of the Postgresql user. ||
+Required field. Name of the Postgresql user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the Postgresql user. ||
+Required field. Password of the Postgresql user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## ConnectionManager {#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager2}
@@ -1100,13 +1397,19 @@ Required field. Password of the Postgresql user. ||
 ||Field | Description ||
 || connection_id | **string**
 
-Required field. Connection ID. ||
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
 || database | **string**
 
-Required field. Database. ||
+Required field. Database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connection_properties | **object** (map<**string**, **string**>)
 
-Additional connection properties. ||
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `. ||
 |#
 
 ## ClickhouseConnector {#yandex.cloud.trino.v1.ClickhouseConnector2}
@@ -1118,7 +1421,9 @@ Additional connection properties. ||
 Connection configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## ClickhouseConnection {#yandex.cloud.trino.v1.ClickhouseConnection2}
@@ -1139,13 +1444,19 @@ Includes only one of the fields `on_premise`, `connection_manager`. ||
 ||Field | Description ||
 || connection_url | **string**
 
-Required field. Connection to the Clickhouse. ||
+Required field. Connection to the Clickhouse.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
 || user_name | **string**
 
-Required field. Name of the Clickhouse user. ||
+Required field. Name of the Clickhouse user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the Clickhouse user. ||
+Required field. Password of the Clickhouse user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## ConnectionManager {#yandex.cloud.trino.v1.ClickhouseConnection.ConnectionManager2}
@@ -1154,13 +1465,19 @@ Required field. Password of the Clickhouse user. ||
 ||Field | Description ||
 || connection_id | **string**
 
-Required field. Connection ID. ||
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
 || database | **string**
 
-Required field. Database. ||
+Required field. Database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connection_properties | **object** (map<**string**, **string**>)
 
-Additional connection properties. ||
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z_]* `. ||
 |#
 
 ## TPCHConnector {#yandex.cloud.trino.v1.TPCHConnector2}
@@ -1169,7 +1486,9 @@ Additional connection properties. ||
 ||Field | Description ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## TPCDSConnector {#yandex.cloud.trino.v1.TPCDSConnector2}
@@ -1178,7 +1497,9 @@ Additional properties. ||
 ||Field | Description ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## OracleConnector {#yandex.cloud.trino.v1.OracleConnector2}
@@ -1190,7 +1511,9 @@ Additional properties. ||
 Connection configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## OracleConnection {#yandex.cloud.trino.v1.OracleConnection2}
@@ -1208,13 +1531,19 @@ Includes only one of the fields `on_premise`. ||
 ||Field | Description ||
 || connection_url | **string**
 
-Required field. Connection to the Oracle. ||
+Required field. Connection to the Oracle.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+:(?s:.*)$ `. ||
 || user_name | **string**
 
-Required field. Name of the Oracle user. ||
+Required field. Name of the Oracle user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the Oracle user. ||
+Required field. Password of the Oracle user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## SQLServerConnector {#yandex.cloud.trino.v1.SQLServerConnector2}
@@ -1226,7 +1555,9 @@ Required field. Password of the Oracle user. ||
 Connection configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## SQLServerConnection {#yandex.cloud.trino.v1.SQLServerConnection2}
@@ -1244,13 +1575,19 @@ Includes only one of the fields `on_premise`. ||
 ||Field | Description ||
 || connection_url | **string**
 
-Required field. Connection to the SQLServer. ||
+Required field. Connection to the SQLServer.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+:(?s:.*)$ `. ||
 || user_name | **string**
 
-Required field. Name of the SQLServer user. ||
+Required field. Name of the SQLServer user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the SQLServer user. ||
+Required field. Password of the SQLServer user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## HudiConnector {#yandex.cloud.trino.v1.HudiConnector2}
@@ -1265,5 +1602,138 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+|#
+
+## MysqlConnector {#yandex.cloud.trino.v1.MysqlConnector2}
+
+#|
+||Field | Description ||
+|| connection | **[MysqlConnection](#yandex.cloud.trino.v1.MysqlConnection2)**
+
+Connection configuration. ||
+|| additional_properties | **object** (map<**string**, **string**>)
+
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+|#
+
+## MysqlConnection {#yandex.cloud.trino.v1.MysqlConnection2}
+
+#|
+||Field | Description ||
+|| on_premise | **[OnPremise](#yandex.cloud.trino.v1.MysqlConnection.OnPremise2)**
+
+Includes only one of the fields `on_premise`, `connection_manager`. ||
+|| connection_manager | **[ConnectionManager](#yandex.cloud.trino.v1.MysqlConnection.ConnectionManager2)**
+
+Includes only one of the fields `on_premise`, `connection_manager`. ||
+|#
+
+## OnPremise {#yandex.cloud.trino.v1.MysqlConnection.OnPremise2}
+
+#|
+||Field | Description ||
+|| connection_url | **string**
+
+Required field. Connection to the MySQL.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
+|| user_name | **string**
+
+Required field. Name of the MySQL user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| password | **string**
+
+Required field. Password of the MySQL user.
+
+The string length in characters must be 0-128. ||
+|#
+
+## ConnectionManager {#yandex.cloud.trino.v1.MysqlConnection.ConnectionManager2}
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
+|| connection_properties | **object** (map<**string**, **string**>)
+
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z_]* `. ||
+|#
+
+## GreenplumConnector {#yandex.cloud.trino.v1.GreenplumConnector2}
+
+#|
+||Field | Description ||
+|| connection | **[GreenplumConnection](#yandex.cloud.trino.v1.GreenplumConnection2)**
+
+Connection configuration ||
+|| additional_properties | **object** (map<**string**, **string**>)
+
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+|#
+
+## GreenplumConnection {#yandex.cloud.trino.v1.GreenplumConnection2}
+
+#|
+||Field | Description ||
+|| on_premise | **[OnPremise](#yandex.cloud.trino.v1.GreenplumConnection.OnPremise2)**
+
+Includes only one of the fields `on_premise`, `connection_manager`. ||
+|| connection_manager | **[ConnectionManager](#yandex.cloud.trino.v1.GreenplumConnection.ConnectionManager2)**
+
+Includes only one of the fields `on_premise`, `connection_manager`. ||
+|#
+
+## OnPremise {#yandex.cloud.trino.v1.GreenplumConnection.OnPremise2}
+
+#|
+||Field | Description ||
+|| connection_url | **string**
+
+Required field. Connection to the Greenplum/Cloudberry.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
+|| user_name | **string**
+
+Required field. Name of the Greenplum/Cloudberry user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| password | **string**
+
+Required field. Password of the Greenplum/Cloudberry user.
+
+The string length in characters must be 0-128. ||
+|#
+
+## ConnectionManager {#yandex.cloud.trino.v1.GreenplumConnection.ConnectionManager2}
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
+|| database | **string**
+
+Required field. Database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| connection_properties | **object** (map<**string**, **string**>)
+
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `. ||
 |#

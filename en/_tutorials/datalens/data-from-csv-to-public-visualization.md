@@ -39,7 +39,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Create a connection {#create-connection}
 
-Create a [connection](../../datalens/concepts/connection.md) to the source data file.
+Create a [connection](../../datalens/concepts/connection/index.md) to the source data file.
 
 1. In the top-right corner of the workbook, click **Create** → ![image](../../_assets/console-icons/thunderbolt.svg) **Connection**.
 1. Under **Files and services**, select the **Files** connection.

@@ -16,6 +16,8 @@ A set of methods for managing API gateways.
 || [Create](create.md) | Creates an API gateway in the specified folder. ||
 || [Update](update.md) | Updates the specified API gateway. ||
 || [Delete](delete.md) | Deletes the specified API gateway. ||
+|| [Resume](resume.md) | Resumes the specified API gateway. ||
+|| [Stop](stop.md) | Stops the specified API gateway. ||
 || [AddDomain](addDomain.md) | Attaches domain to the specified API gateway. ||
 || [RemoveDomain](removeDomain.md) | Detaches domain from the specified API gateway. ||
 || [GetOpenapiSpec](getOpenapiSpec.md) | Returns the OpenAPI specification of specified API gateway. ||

@@ -23,7 +23,9 @@ Stops the specified Trino Cluster resource.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Trino cluster that is being stopped. ||
+Required field. ID of the Trino cluster that is being stopped.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -387,6 +389,42 @@ Required field. ID of the Trino cluster that is being stopped. ||
           }
         ]
       },
+      "resource_management": {
+        "resource_groups": {
+          "root_groups": [
+            {
+              "name": "string",
+              "max_queued": "int64",
+              "soft_concurrency_limit": "int64",
+              "hard_concurrency_limit": "int64",
+              "soft_memory_limit": "string",
+              "soft_cpu_limit": "string",
+              "hard_cpu_limit": "string",
+              "scheduling_policy": "SchedulingPolicy",
+              "scheduling_weight": "int64",
+              "sub_groups": [
+                "ResourceGroupConfig"
+              ]
+            }
+          ],
+          "selectors": [
+            {
+              "user": "string",
+              "user_group": "string",
+              "source": "string",
+              "query_type": "QueryType",
+              "client_tags": [
+                "string"
+              ],
+              "group": "string"
+            }
+          ],
+          "cpu_quota_period": "string"
+        },
+        "query": {
+          "properties": "map<string, string>"
+        }
+      },
       "tls": {
         "trusted_certificates": [
           "string"
@@ -558,7 +596,9 @@ Network related configuration options. ||
 Deletion Protection inhibits deletion of the cluster. ||
 || service_account_id | **string**
 
-Service account used to access Cloud resources. ||
+Service account used to access Cloud resources.
+
+The maximum string length in characters is 50. ||
 || logging | **[LoggingConfig](#yandex.cloud.trino.v1.LoggingConfig)**
 
 Cloud logging configuration. ||
@@ -609,6 +649,9 @@ Configuration for retry policy, specifying the spooling storage destination and 
 || access_control | **[AccessControlConfig](#yandex.cloud.trino.v1.AccessControlConfig)**
 
 Configuration for access control, specifying the fine-grained rules of accesses. ||
+|| resource_management | **[ResourceManagementConfig](#yandex.cloud.trino.v1.ResourceManagementConfig)**
+
+Configuration for resource management, specifying the resource groups and other settings. ||
 || tls | **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig)**
 
 Configuration for TLS. ||
@@ -629,7 +672,9 @@ Required field. Configuration for computational resources assigned to the coordi
 ||Field | Description ||
 || resource_preset_id | **string**
 
-Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.). ||
+Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## WorkerConfig {#yandex.cloud.trino.v1.WorkerConfig}
@@ -674,15 +719,21 @@ Only one type of scaling can be specified at a time. ||
 ||Field | Description ||
 || count | **int64**
 
-Specifies the number of worker instances. ||
+Specifies the number of worker instances.
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## AutoScalePolicy {#yandex.cloud.trino.v1.AutoScalePolicy}
 
 #|
 ||Field | Description ||
-|| min_count | **int64** ||
-|| max_count | **int64** ||
+|| min_count | **int64**
+
+Acceptable values are 0 to 512, inclusive. ||
+|| max_count | **int64**
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## RetryPolicyConfig {#yandex.cloud.trino.v1.RetryPolicyConfig}
@@ -693,7 +744,6 @@ Specifies the number of worker instances. ||
 
 Retry policy level.
 
-- `RETRY_POLICY_UNSPECIFIED`
 - `QUERY`
 - `TASK` ||
 || exchange_manager | **[ExchangeManagerConfig](#yandex.cloud.trino.v1.ExchangeManagerConfig)**
@@ -701,7 +751,9 @@ Retry policy level.
 Configuration for exchange manager. ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## ExchangeManagerConfig {#yandex.cloud.trino.v1.ExchangeManagerConfig}
@@ -710,7 +762,9 @@ Additional properties. ||
 ||Field | Description ||
 || additional_properties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 || storage | **[ExchangeManagerStorage](#yandex.cloud.trino.v1.ExchangeManagerStorage)** ||
 |#
 
@@ -768,10 +822,14 @@ Catalog session property access control rules. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -779,13 +837,14 @@ Catalog matcher specifying what catalogs the rule is applied to. ||
 
 Required field. Permission granted by the rule.
 
-- `PERMISSION_UNSPECIFIED`
 - `NONE`: Denies all operations on the catalog entities.
 - `ALL`: Allows all operations on catalog entities.
 - `READ_ONLY`: Allows only read operations on catalog entities. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## CatalogAccessRuleMatcher {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher}
@@ -795,6 +854,8 @@ Rule description. ||
 || name_regexp | **string**
 
 Catalog name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `name_regexp`, `ids`, `names`. ||
 || ids | **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds)**
@@ -813,14 +874,18 @@ Includes only one of the fields `name_regexp`, `ids`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. ||
 |#
 
 ## CatalogNames {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames}
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. ||
 |#
 
 ## SchemaAccessRule {#yandex.cloud.trino.v1.SchemaAccessRule}
@@ -829,10 +894,14 @@ Includes only one of the fields `name_regexp`, `ids`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -843,12 +912,13 @@ Schema matcher specifying what schemas the rule is applied to. ||
 
 Required field. Ownership granted by the rule.
 
-- `OWNER_UNSPECIFIED`
 - `NO`: User is not considered an owner of the schema.
 - `YES`: User is considered an owner of the schema. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## SchemaAccessRuleMatcher {#yandex.cloud.trino.v1.SchemaAccessRuleMatcher}
@@ -858,6 +928,8 @@ Rule description. ||
 || name_regexp | **string**
 
 Schema name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `name_regexp`, `names`. ||
 || names | **[SchemaNames](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher.SchemaNames)**
@@ -871,7 +943,9 @@ Includes only one of the fields `name_regexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## TableAccessRule {#yandex.cloud.trino.v1.TableAccessRule}
@@ -880,10 +954,14 @@ Includes only one of the fields `name_regexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -897,7 +975,6 @@ Table matcher specifying what tables the rule is applied to. ||
 
 Permission granted by the rule.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `SELECT`: Allows SELECT statements on the table.
 - `INSERT`: Allows INSERT statements on the table.
 - `DELETE`: Allows DELETE statements on the table.
@@ -909,10 +986,14 @@ Permission granted by the rule.
 Column rules. ||
 || filter | **string**
 
-Boolean SQL expression to filter table rows for particular user. ||
+Boolean SQL expression to filter table rows for particular user.
+
+The maximum string length in characters is 128. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## TableAccessRuleMatcher {#yandex.cloud.trino.v1.TableAccessRuleMatcher}
@@ -922,6 +1003,8 @@ Rule description. ||
 || name_regexp | **string**
 
 Table name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `name_regexp`, `names`. ||
 || names | **[TableNames](#yandex.cloud.trino.v1.TableAccessRuleMatcher.TableNames)**
@@ -935,7 +1018,9 @@ Includes only one of the fields `name_regexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## Column {#yandex.cloud.trino.v1.TableAccessRule.Column}
@@ -944,18 +1029,21 @@ Includes only one of the fields `name_regexp`, `names`. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Column name. ||
+Required field. Column name.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-z0-9_-]+ `. ||
 || access | enum **AccessMode**
 
 Required field. Column access mode.
 
-- `ACCESS_MODE_UNSPECIFIED`
 - `NONE`: Access to column is denied.
 - `ALL`: Access to column is allowed. ||
 || mask | **string**
 
 SQL expression mask to evaluate instead of original column values.
-Mask should have the same type as original column. ||
+Mask should have the same type as original column.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## FunctionAccessRule {#yandex.cloud.trino.v1.FunctionAccessRule}
@@ -964,10 +1052,14 @@ Mask should have the same type as original column. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -981,13 +1073,14 @@ Function matcher specifying what functions the rule is applied to. ||
 
 Privileges granted by the rule.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `EXECUTE`: Allows to execute the function.
 - `GRANT_EXECUTE`: Allows to use the function while view creation.
 - `OWNERSHIP`: Allows to CREATE and DROP the function. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## FunctionAccessRuleMatcher {#yandex.cloud.trino.v1.FunctionAccessRuleMatcher}
@@ -997,6 +1090,8 @@ Rule description. ||
 || name_regexp | **string**
 
 Function name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `name_regexp`, `names`. ||
 || names | **[FunctionNames](#yandex.cloud.trino.v1.FunctionAccessRuleMatcher.FunctionNames)**
@@ -1010,7 +1105,9 @@ Includes only one of the fields `name_regexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## ProcedureAccessRule {#yandex.cloud.trino.v1.ProcedureAccessRule}
@@ -1019,10 +1116,14 @@ Includes only one of the fields `name_regexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -1036,11 +1137,12 @@ Procedure matcher specifying what functions the rule is applied to. ||
 
 Privileges granted by the rule.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `EXECUTE`: Allows to execute the procedure. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## ProcedureAccessRuleMatcher {#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher}
@@ -1050,6 +1152,8 @@ Rule description. ||
 || name_regexp | **string**
 
 Procedure name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `name_regexp`, `names`. ||
 || names | **[ProcedureNames](#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher.ProcedureNames)**
@@ -1063,7 +1167,9 @@ Includes only one of the fields `name_regexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## QueryAccessRule {#yandex.cloud.trino.v1.QueryAccessRule}
@@ -1072,25 +1178,32 @@ Includes only one of the fields `name_regexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || query_owners[] | **string**
 
 Owners of queries the rule is applied to.
-Cannot be combined with EXECUTE privilege. ||
+Cannot be combined with EXECUTE privilege.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || privileges[] | enum **Privilege**
 
 Privileges granted by the user.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `VIEW`: Allows to view the query.
 - `EXECUTE`: Allows to execute the query.
 - `KILL`: Allows to kill the query. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## SystemSessionPropertyAccessRule {#yandex.cloud.trino.v1.SystemSessionPropertyAccessRule}
@@ -1099,10 +1212,14 @@ Rule description. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || property | **[PropertyAccessRuleMatcher](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher)**
 
 Property matcher specifying what properties the rule is applied to. ||
@@ -1110,12 +1227,13 @@ Property matcher specifying what properties the rule is applied to. ||
 
 Required field. Whether the rule allows setting the property.
 
-- `ALLOW_UNSPECIFIED`
 - `NO`: Denies setting the system session property.
 - `YES`: Allows to set the system session property. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## PropertyAccessRuleMatcher {#yandex.cloud.trino.v1.PropertyAccessRuleMatcher}
@@ -1125,6 +1243,8 @@ Rule description. ||
 || name_regexp | **string**
 
 Property name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `name_regexp`, `names`. ||
 || names | **[PropertyNames](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher.PropertyNames)**
@@ -1138,7 +1258,9 @@ Includes only one of the fields `name_regexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z_]+ `. ||
 |#
 
 ## CatalogSessionPropertyAccessRule {#yandex.cloud.trino.v1.CatalogSessionPropertyAccessRule}
@@ -1147,10 +1269,14 @@ Includes only one of the fields `name_regexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -1161,12 +1287,133 @@ Property matcher specifying what properties the rule is applied to. ||
 
 Required field. Whether the rule allows setting the property.
 
-- `ALLOW_UNSPECIFIED`
 - `NO`: Denies setting the catalog session property.
 - `YES`: Allows to set the catalog session property. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
+|#
+
+## ResourceManagementConfig {#yandex.cloud.trino.v1.ResourceManagementConfig}
+
+#|
+||Field | Description ||
+|| resource_groups | **[ResourceGroupsConfig](#yandex.cloud.trino.v1.ResourceGroupsConfig)**
+
+Resource groups configuration. ||
+|| query | **[QueryConfig](#yandex.cloud.trino.v1.QueryConfig)**
+
+Query management confiugration. ||
+|#
+
+## ResourceGroupsConfig {#yandex.cloud.trino.v1.ResourceGroupsConfig}
+
+#|
+||Field | Description ||
+|| root_groups[] | **[ResourceGroupConfig](#yandex.cloud.trino.v1.ResourceGroupConfig)**
+
+Root resource groups configuration.
+
+The number of elements must be greater than 0. ||
+|| selectors[] | **[SelectorRuleConfig](#yandex.cloud.trino.v1.SelectorRuleConfig)**
+
+Selector rules for routing queries to resource groups.
+
+The number of elements must be greater than 0. ||
+|| cpu_quota_period | **string**
+
+Period for CPU quota calculations. ||
+|#
+
+## ResourceGroupConfig {#yandex.cloud.trino.v1.ResourceGroupConfig}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Resource group name. ||
+|| max_queued | **int64**
+
+Maximum number of queued queries.
+
+Value must be greater than 0. ||
+|| soft_concurrency_limit | **int64**
+
+Number of concurrently running queries after which new queries only run if peer groups are below soft limits. ||
+|| hard_concurrency_limit | **int64**
+
+Maximum number of queries that can run concurrently.
+
+Value must be greater than 0. ||
+|| soft_memory_limit | **string**
+
+Maximum amount of distributed memory this group can use. ||
+|| soft_cpu_limit | **string**
+
+Maximum CPU time per period this group can use before applying penalty to running queries (requires hard_cpu_limit). ||
+|| hard_cpu_limit | **string**
+
+Maximum CPU time per period this group can use. ||
+|| scheduling_policy | enum **SchedulingPolicy**
+
+Policy for selecting queued queries and sub-group eligibility.
+
+- `FAIR`: Queued queries processed first-in-first-out, sub-groups take turns starting queries.
+- `WEIGHTED`: Queries selected stochastically by priority, sub-groups selected by schedulingWeight.
+- `WEIGHTED_FAIR`: Sub-groups selected by schedulingWeight and concurrency relative to their share.
+- `QUERY_PRIORITY`: Queued queries selected strictly by priority. ||
+|| scheduling_weight | **int64**
+
+Weight for weighted and weighted_fair scheduling policies. ||
+|| sub_groups[] | **[ResourceGroupConfig](#yandex.cloud.trino.v1.ResourceGroupConfig)**
+
+List of sub-groups. ||
+|#
+
+## SelectorRuleConfig {#yandex.cloud.trino.v1.SelectorRuleConfig}
+
+#|
+||Field | Description ||
+|| user | **string**
+
+Regex to match against username. ||
+|| user_group | **string**
+
+Regex to match against user groups. ||
+|| source | **string**
+
+Regex to match against query source. ||
+|| query_type | enum **QueryType**
+
+Type of query to match.
+
+- `SELECT`
+- `EXPLAIN`
+- `DESCRIBE`
+- `INSERT`
+- `UPDATE`
+- `MERGE`
+- `DELETE`
+- `ANALYZE`
+- `DATA_DEFINITION`
+- `ALTER_TABLE_EXECUTE` ||
+|| client_tags[] | **string**
+
+Tags that must all be present in the query's client tags. ||
+|| group | **string**
+
+Required field. Target resource group name. ||
+|#
+
+## QueryConfig {#yandex.cloud.trino.v1.QueryConfig}
+
+#|
+||Field | Description ||
+|| properties | **object** (map<**string**, **string**>)
+
+Query properties. ||
 |#
 
 ## TLSConfig {#yandex.cloud.trino.v1.TLSConfig}
@@ -1176,7 +1423,9 @@ Rule description. ||
 || trusted_certificates[] | **string**
 
 Trusted CA-certificates. Each element should contain single self-signed CA-certificate or
-chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root. ||
+chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root.
+
+The maximum number of elements is 8. The maximum string length in characters for each value is 8192. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.trino.v1.NetworkConfig}
@@ -1202,12 +1451,16 @@ Logs generated by the Trino components are delivered to Cloud Logging. ||
 
 Logs should be written to default log group for specified folder.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `folder_id`, `log_group_id`.
 
 Destination of log records. ||
 || log_group_id | **string**
 
 Logs should be written to log group resolved by ID.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folder_id`, `log_group_id`.
 
@@ -1218,9 +1471,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -1266,7 +1516,6 @@ Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 ||Field | Description ||
 || day | enum **WeekDay**
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -1276,14 +1525,18 @@ Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC. ||
+Hour of the day in UTC.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.trino.v1.MaintenanceOperation}
 
 #|
 ||Field | Description ||
-|| info | **string** ||
+|| info | **string**
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || latest_maintenance_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || next_maintenance_window_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||

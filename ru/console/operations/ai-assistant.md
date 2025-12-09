@@ -154,12 +154,12 @@ description: В данной инструкции рассматриваются
 
   1. В [консоли управления]({{ link-console-main }}) на панели слева выберите раздел ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}**.
   1. В левом верхнем углу открывшегося окна AI-ассистента нажмите значок ![bars](../../_assets/console-icons/bars.svg), чтобы открыть страницу управления чатами с ассистентом. На этой странице вы можете посмотреть историю чатов с AI-ассистентом и управлять чатами.
-  1. Чтобы создать новый чат, нажмите кнопку ![pencil-to-square](../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud.components.ChatCommon.ChatsMenuHeader.action_create-chat_97ZqE }}**.
+  1. Чтобы создать новый чат, нажмите кнопку ![pencil-to-square](../../_assets/console-icons/pencil-to-square.svg) **Новый чат**.
   1. Чтобы перейти в определенный чат, нажмите на строку с его именем.
   1. Чтобы удалить определенный чат, наведите курсор на строку с его именем, нажмите появившийся значок ![trash-bin](../../_assets/console-icons/trash-bin.svg) и в открывшемся окне подтвердите удаление.
   1. Чтобы очистить всю историю чатов:
 
-      1. Нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.ChatCommon.ChatsMenuHeader.action_delete-all-chats_awFCg }}**.
+      1. Нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить все чаты**.
       1. В открывшемся окне подтвердите удаление.
 
 {% endlist %}

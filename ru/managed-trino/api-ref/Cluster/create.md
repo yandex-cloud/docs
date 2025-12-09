@@ -12,23 +12,27 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder to create Trino cluster in.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. Name of the Trino cluster. The name must be unique within the folder.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         description:
           description: |-
             **string**
             Description of the Trino cluster.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Custom labels for the Trino cluster as `` key:value `` pairs.
             For example: {"env": "prod"}.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -59,6 +63,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Service account used to access Cloud resources.
+            The maximum string length in characters is 50.
           type: string
         logging:
           description: |-
@@ -110,22 +115,22 @@ apiPlayground:
           awsAccessKey:
             description: |-
               **string**
-              Required field. 
+              Required field.
             type: string
           awsSecretKey:
             description: |-
               **string**
-              Required field. 
+              Required field.
             type: string
           awsEndpoint:
             description: |-
               **string**
-              Required field. 
+              Required field.
             type: string
           awsRegion:
             description: |-
               **string**
-              Required field. 
+              Required field.
             type: string
         required:
           - awsAccessKey
@@ -167,6 +172,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -198,6 +204,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -229,6 +236,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -250,18 +258,21 @@ apiPlayground:
             description: |-
               **string**
               Required field. Connection to the Postgresql.
+              Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `.
             pattern: ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$
             type: string
           userName:
             description: |-
               **string**
               Required field. Name of the Postgresql user.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           password:
             description: |-
               **string**
               Required field. Password of the Postgresql user.
+              The string length in characters must be 0-128.
             type: string
         required:
           - connectionUrl
@@ -274,17 +285,20 @@ apiPlayground:
             description: |-
               **string**
               Required field. Connection ID.
+              The string length in characters must be 1-50.
             type: string
           database:
             description: |-
               **string**
               Required field. Database.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           connectionProperties:
             description: |-
               **object** (map<**string**, **string**>)
               Additional connection properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `.
             type: object
             additionalProperties:
               type: string
@@ -329,6 +343,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -370,6 +385,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -388,6 +404,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -406,6 +423,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -440,6 +458,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -474,6 +493,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -502,6 +522,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -516,6 +537,90 @@ apiPlayground:
         required:
           - metastore
           - filesystem
+      MysqlConnection:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/OnPremise'
+          connectionManager:
+            description: |-
+              **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/ConnectionManager'
+        oneOf:
+          - required:
+              - onPremise
+          - required:
+              - connectionManager
+      MysqlConnector:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[MysqlConnection](#yandex.cloud.trino.v1.MysqlConnection)**
+              Connection configuration.
+            $ref: '#/definitions/MysqlConnection'
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
+            type: object
+            additionalProperties:
+              type: string
+              pattern: '[-_0-9a-zA-Z.,:\/_ ]*'
+              maxLength: 128
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_0-9a-z.]*'
+              maxLength: 128
+              minLength: 1
+            maxProperties: 256
+      GreenplumConnection:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/OnPremise'
+          connectionManager:
+            description: |-
+              **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/ConnectionManager'
+        oneOf:
+          - required:
+              - onPremise
+          - required:
+              - connectionManager
+      GreenplumConnector:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[GreenplumConnection](#yandex.cloud.trino.v1.GreenplumConnection)**
+              Connection configuration
+            $ref: '#/definitions/GreenplumConnection'
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
+            type: object
+            additionalProperties:
+              type: string
+              pattern: '[-_0-9a-zA-Z.,:\/_ ]*'
+              maxLength: 128
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_0-9a-z.]*'
+              maxLength: 128
+              minLength: 1
+            maxProperties: 256
       Connector:
         type: object
         properties:
@@ -523,62 +628,74 @@ apiPlayground:
             description: |-
               **[HiveConnector](#yandex.cloud.trino.v1.HiveConnector)**
               Hive connector configuration.
-              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
             $ref: '#/definitions/HiveConnector'
           iceberg:
             description: |-
               **[IcebergConnector](#yandex.cloud.trino.v1.IcebergConnector)**
               Iceberg connector configuration.
-              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
             $ref: '#/definitions/IcebergConnector'
           deltaLake:
             description: |-
               **[DeltaLakeConnector](#yandex.cloud.trino.v1.DeltaLakeConnector)**
               Delta Lake connector configuration.
-              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
             $ref: '#/definitions/DeltaLakeConnector'
           postgresql:
             description: |-
               **[PostgresqlConnector](#yandex.cloud.trino.v1.PostgresqlConnector)**
               PostgreSQL connector configuration.
-              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
             $ref: '#/definitions/PostgresqlConnector'
           clickhouse:
             description: |-
               **[ClickhouseConnector](#yandex.cloud.trino.v1.ClickhouseConnector)**
               ClickHouse connector configuration.
-              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
             $ref: '#/definitions/ClickhouseConnector'
           tpch:
             description: |-
               **[TPCHConnector](#yandex.cloud.trino.v1.TPCHConnector)**
               TPC-H connector for synthetic benchmarking.
-              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
             $ref: '#/definitions/TPCHConnector'
           tpcds:
             description: |-
               **[TPCDSConnector](#yandex.cloud.trino.v1.TPCDSConnector)**
               TPC-DS connector for synthetic benchmarking.
-              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
             $ref: '#/definitions/TPCDSConnector'
           oracle:
             description: |-
               **[OracleConnector](#yandex.cloud.trino.v1.OracleConnector)**
               Oracle connector configuration for connecting to Oracle Database instances.
-              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
             $ref: '#/definitions/OracleConnector'
           sqlserver:
             description: |-
               **[SQLServerConnector](#yandex.cloud.trino.v1.SQLServerConnector)**
               SQLServer connector configuration for connecting to SQLServer Database instances.
-              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
             $ref: '#/definitions/SQLServerConnector'
           hudi:
             description: |-
               **[HudiConnector](#yandex.cloud.trino.v1.HudiConnector)**
               Hudi connector configuration.
-              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
             $ref: '#/definitions/HudiConnector'
+          mysql:
+            description: |-
+              **[MysqlConnector](#yandex.cloud.trino.v1.MysqlConnector)**
+              MySQL connector configuration for connecting to MySQL Database instances.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
+            $ref: '#/definitions/MysqlConnector'
+          greenplum:
+            description: |-
+              **[GreenplumConnector](#yandex.cloud.trino.v1.GreenplumConnector)**
+              Greenplum connector configuration for connecting to Greenplum or Cloudberry Database instances.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`.
+            $ref: '#/definitions/GreenplumConnector'
         oneOf:
           - required:
               - hive
@@ -600,6 +717,10 @@ apiPlayground:
               - sqlserver
           - required:
               - hudi
+          - required:
+              - mysql
+          - required:
+              - greenplum
       CatalogSpec:
         type: object
         properties:
@@ -608,6 +729,7 @@ apiPlayground:
               **string**
               Required field. Name of the catalog.
               Must be unique within a Trino cluster.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           connector:
@@ -619,11 +741,13 @@ apiPlayground:
             description: |-
               **string**
               Description of the catalog.
+              The maximum string length in characters is 256.
             type: string
           labels:
             description: |-
               **object** (map<**string**, **string**>)
               Labels associated with the catalog.
+              No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
             type: object
             additionalProperties:
               type: string
@@ -645,6 +769,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
+              The maximum string length in characters is 50.
             type: string
         required:
           - resourcePresetId
@@ -665,17 +790,22 @@ apiPlayground:
             description: |-
               **string** (int64)
               Specifies the number of worker instances.
+              Acceptable values are 1 to 512, inclusive.
             type: string
             format: int64
       AutoScalePolicy:
         type: object
         properties:
           minCount:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 512, inclusive.
             type: string
             format: int64
           maxCount:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 512, inclusive.
             type: string
             format: int64
       WorkerScalePolicy:
@@ -742,6 +872,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -763,7 +894,6 @@ apiPlayground:
             description: |-
               **enum** (RetryPolicy)
               Retry policy level.
-              - `RETRY_POLICY_UNSPECIFIED`
               - `QUERY`
               - `TASK`
             type: string
@@ -780,6 +910,7 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional properties.
+              No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `.
             type: object
             additionalProperties:
               type: string
@@ -795,7 +926,9 @@ apiPlayground:
         type: object
         properties:
           any:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63.
             uniqueItems: true
             type: array
             items:
@@ -804,7 +937,9 @@ apiPlayground:
         type: object
         properties:
           any:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63.
             uniqueItems: true
             type: array
             items:
@@ -816,6 +951,7 @@ apiPlayground:
             description: |-
               **string**
               Catalog name regexp the rule is applied to.
+              The maximum string length in characters is 256.
               Includes only one of the fields `nameRegexp`, `ids`, `names`.
             type: string
           ids:
@@ -844,6 +980,7 @@ apiPlayground:
             description: |-
               **string**
               IAM user IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -853,6 +990,7 @@ apiPlayground:
             description: |-
               **string**
               IAM group IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -867,7 +1005,6 @@ apiPlayground:
             description: |-
               **enum** (Permission)
               Required field. Permission granted by the rule.
-              - `PERMISSION_UNSPECIFIED`
               - `NONE`: Denies all operations on the catalog entities.
               - `ALL`: Allows all operations on catalog entities.
               - `READ_ONLY`: Allows only read operations on catalog entities.
@@ -881,6 +1018,7 @@ apiPlayground:
             description: |-
               **string**
               Rule description.
+              The maximum string length in characters is 128.
             type: string
         required:
           - permission
@@ -888,7 +1026,9 @@ apiPlayground:
         type: object
         properties:
           any:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `.
             pattern: '[a-z0-9_-]+'
             uniqueItems: true
             type: array
@@ -901,6 +1041,7 @@ apiPlayground:
             description: |-
               **string**
               Schema name regexp the rule is applied to.
+              The maximum string length in characters is 256.
               Includes only one of the fields `nameRegexp`, `names`.
             type: string
           names:
@@ -921,6 +1062,7 @@ apiPlayground:
             description: |-
               **string**
               IAM user IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -930,6 +1072,7 @@ apiPlayground:
             description: |-
               **string**
               IAM group IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -949,7 +1092,6 @@ apiPlayground:
             description: |-
               **enum** (Owner)
               Required field. Ownership granted by the rule.
-              - `OWNER_UNSPECIFIED`
               - `NO`: User is not considered an owner of the schema.
               - `YES`: User is considered an owner of the schema.
             type: string
@@ -961,6 +1103,7 @@ apiPlayground:
             description: |-
               **string**
               Rule description.
+              The maximum string length in characters is 128.
             type: string
         required:
           - owner
@@ -968,7 +1111,9 @@ apiPlayground:
         type: object
         properties:
           any:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `.
             pattern: '[a-z0-9_-]+'
             uniqueItems: true
             type: array
@@ -981,6 +1126,7 @@ apiPlayground:
             description: |-
               **string**
               Table name regexp the rule is applied to.
+              The maximum string length in characters is 256.
               Includes only one of the fields `nameRegexp`, `names`.
             type: string
           names:
@@ -1001,13 +1147,13 @@ apiPlayground:
             description: |-
               **string**
               Required field. Column name.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-z0-9_-]+ `.
             pattern: '[a-z0-9_-]+'
             type: string
           access:
             description: |-
               **enum** (AccessMode)
               Required field. Column access mode.
-              - `ACCESS_MODE_UNSPECIFIED`
               - `NONE`: Access to column is denied.
               - `ALL`: Access to column is allowed.
             type: string
@@ -1020,6 +1166,7 @@ apiPlayground:
               **string**
               SQL expression mask to evaluate instead of original column values.
               Mask should have the same type as original column.
+              The maximum string length in characters is 128.
             type: string
         required:
           - name
@@ -1031,6 +1178,7 @@ apiPlayground:
             description: |-
               **string**
               IAM user IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1040,6 +1188,7 @@ apiPlayground:
             description: |-
               **string**
               IAM group IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1064,7 +1213,6 @@ apiPlayground:
             description: |-
               **enum** (Privilege)
               Permission granted by the rule.
-              - `PRIVILEGE_UNSPECIFIED`
               - `SELECT`: Allows SELECT statements on the table.
               - `INSERT`: Allows INSERT statements on the table.
               - `DELETE`: Allows DELETE statements on the table.
@@ -1094,17 +1242,21 @@ apiPlayground:
             description: |-
               **string**
               Boolean SQL expression to filter table rows for particular user.
+              The maximum string length in characters is 128.
             type: string
           description:
             description: |-
               **string**
               Rule description.
+              The maximum string length in characters is 128.
             type: string
       FunctionNames:
         type: object
         properties:
           any:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `.
             pattern: '[a-z0-9_-]+'
             uniqueItems: true
             type: array
@@ -1117,6 +1269,7 @@ apiPlayground:
             description: |-
               **string**
               Function name regexp the rule is applied to.
+              The maximum string length in characters is 256.
               Includes only one of the fields `nameRegexp`, `names`.
             type: string
           names:
@@ -1137,6 +1290,7 @@ apiPlayground:
             description: |-
               **string**
               IAM user IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1146,6 +1300,7 @@ apiPlayground:
             description: |-
               **string**
               IAM group IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1170,7 +1325,6 @@ apiPlayground:
             description: |-
               **enum** (Privilege)
               Privileges granted by the rule.
-              - `PRIVILEGE_UNSPECIFIED`
               - `SELECT`: Allows SELECT statements on the table.
               - `INSERT`: Allows INSERT statements on the table.
               - `DELETE`: Allows DELETE statements on the table.
@@ -1193,12 +1347,15 @@ apiPlayground:
             description: |-
               **string**
               Rule description.
+              The maximum string length in characters is 128.
             type: string
       ProcedureNames:
         type: object
         properties:
           any:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `.
             pattern: '[a-z0-9_-]+'
             uniqueItems: true
             type: array
@@ -1211,6 +1368,7 @@ apiPlayground:
             description: |-
               **string**
               Procedure name regexp the rule is applied to.
+              The maximum string length in characters is 256.
               Includes only one of the fields `nameRegexp`, `names`.
             type: string
           names:
@@ -1231,6 +1389,7 @@ apiPlayground:
             description: |-
               **string**
               IAM user IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1240,6 +1399,7 @@ apiPlayground:
             description: |-
               **string**
               IAM group IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1264,7 +1424,6 @@ apiPlayground:
             description: |-
               **enum** (Privilege)
               Privileges granted by the rule.
-              - `PRIVILEGE_UNSPECIFIED`
               - `SELECT`: Allows SELECT statements on the table.
               - `INSERT`: Allows INSERT statements on the table.
               - `DELETE`: Allows DELETE statements on the table.
@@ -1287,6 +1446,7 @@ apiPlayground:
             description: |-
               **string**
               Rule description.
+              The maximum string length in characters is 128.
             type: string
       QueryAccessRule:
         type: object
@@ -1295,6 +1455,7 @@ apiPlayground:
             description: |-
               **string**
               IAM user IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1304,6 +1465,7 @@ apiPlayground:
             description: |-
               **string**
               IAM group IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1314,6 +1476,7 @@ apiPlayground:
               **string**
               Owners of queries the rule is applied to.
               Cannot be combined with EXECUTE privilege.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1323,7 +1486,6 @@ apiPlayground:
             description: |-
               **enum** (Privilege)
               Privileges granted by the user.
-              - `PRIVILEGE_UNSPECIFIED`
               - `SELECT`: Allows SELECT statements on the table.
               - `INSERT`: Allows INSERT statements on the table.
               - `DELETE`: Allows DELETE statements on the table.
@@ -1346,12 +1508,15 @@ apiPlayground:
             description: |-
               **string**
               Rule description.
+              The maximum string length in characters is 128.
             type: string
       PropertyNames:
         type: object
         properties:
           any:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z_]+ `.
             pattern: '[a-z_]+'
             uniqueItems: true
             type: array
@@ -1364,6 +1529,7 @@ apiPlayground:
             description: |-
               **string**
               Property name regexp the rule is applied to.
+              The maximum string length in characters is 256.
               Includes only one of the fields `nameRegexp`, `names`.
             type: string
           names:
@@ -1384,6 +1550,7 @@ apiPlayground:
             description: |-
               **string**
               IAM user IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1393,6 +1560,7 @@ apiPlayground:
             description: |-
               **string**
               IAM group IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1407,7 +1575,6 @@ apiPlayground:
             description: |-
               **enum** (Allow)
               Required field. Whether the rule allows setting the property.
-              - `ALLOW_UNSPECIFIED`
               - `NO`: Denies setting the system session property.
               - `YES`: Allows to set the system session property.
             type: string
@@ -1419,6 +1586,7 @@ apiPlayground:
             description: |-
               **string**
               Rule description.
+              The maximum string length in characters is 128.
             type: string
         required:
           - allow
@@ -1429,6 +1597,7 @@ apiPlayground:
             description: |-
               **string**
               IAM user IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1438,6 +1607,7 @@ apiPlayground:
             description: |-
               **string**
               IAM group IDs the rule is applied to.
+              The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `.
             pattern: '[-_0-9a-z]+'
             uniqueItems: true
             type: array
@@ -1457,7 +1627,6 @@ apiPlayground:
             description: |-
               **enum** (Allow)
               Required field. Whether the rule allows setting the property.
-              - `ALLOW_UNSPECIFIED`
               - `NO`: Denies setting the system session property.
               - `YES`: Allows to set the system session property.
             type: string
@@ -1469,6 +1638,7 @@ apiPlayground:
             description: |-
               **string**
               Rule description.
+              The maximum string length in characters is 128.
             type: string
         required:
           - allow
@@ -1531,6 +1701,185 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/CatalogSessionPropertyAccessRule'
+      ResourceGroupConfig:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Resource group name.
+            type: string
+          maxQueued:
+            description: |-
+              **string** (int64)
+              Maximum number of queued queries.
+              Value must be greater than 0.
+            type: string
+            format: int64
+          softConcurrencyLimit:
+            description: |-
+              **string** (int64)
+              Number of concurrently running queries after which new queries only run if peer groups are below soft limits.
+            type: string
+            format: int64
+          hardConcurrencyLimit:
+            description: |-
+              **string** (int64)
+              Maximum number of queries that can run concurrently.
+              Value must be greater than 0.
+            type: string
+            format: int64
+          softMemoryLimit:
+            description: |-
+              **string**
+              Maximum amount of distributed memory this group can use.
+            type: string
+          softCpuLimit:
+            description: |-
+              **string**
+              Maximum CPU time per period this group can use before applying penalty to running queries (requires hard_cpu_limit).
+            type: string
+          hardCpuLimit:
+            description: |-
+              **string**
+              Maximum CPU time per period this group can use.
+            type: string
+          schedulingPolicy:
+            description: |-
+              **enum** (SchedulingPolicy)
+              Policy for selecting queued queries and sub-group eligibility.
+              - `FAIR`: Queued queries processed first-in-first-out, sub-groups take turns starting queries.
+              - `WEIGHTED`: Queries selected stochastically by priority, sub-groups selected by schedulingWeight.
+              - `WEIGHTED_FAIR`: Sub-groups selected by schedulingWeight and concurrency relative to their share.
+              - `QUERY_PRIORITY`: Queued queries selected strictly by priority.
+            type: string
+            enum:
+              - SCHEDULING_POLICY_UNSPECIFIED
+              - FAIR
+              - WEIGHTED
+              - WEIGHTED_FAIR
+              - QUERY_PRIORITY
+          schedulingWeight:
+            description: |-
+              **string** (int64)
+              Weight for weighted and weighted_fair scheduling policies.
+            type: string
+            format: int64
+          subGroups:
+            description: |-
+              **[ResourceGroupConfig](#yandex.cloud.trino.v1.ResourceGroupConfig)**
+              List of sub-groups.
+            type: array
+            items:
+              $ref: '#/definitions/ResourceGroupConfig'
+        required:
+          - name
+      SelectorRuleConfig:
+        type: object
+        properties:
+          user:
+            description: |-
+              **string**
+              Regex to match against username.
+            type: string
+          userGroup:
+            description: |-
+              **string**
+              Regex to match against user groups.
+            type: string
+          source:
+            description: |-
+              **string**
+              Regex to match against query source.
+            type: string
+          queryType:
+            description: |-
+              **enum** (QueryType)
+              Type of query to match.
+              - `SELECT`
+              - `EXPLAIN`
+              - `DESCRIBE`
+              - `INSERT`
+              - `UPDATE`
+              - `MERGE`
+              - `DELETE`
+              - `ANALYZE`
+              - `DATA_DEFINITION`
+              - `ALTER_TABLE_EXECUTE`
+            type: string
+            enum:
+              - QUERY_TYPE_UNSPECIFIED
+              - SELECT
+              - EXPLAIN
+              - DESCRIBE
+              - INSERT
+              - UPDATE
+              - MERGE
+              - DELETE
+              - ANALYZE
+              - DATA_DEFINITION
+              - ALTER_TABLE_EXECUTE
+          clientTags:
+            description: |-
+              **string**
+              Tags that must all be present in the query's client tags.
+            type: array
+            items:
+              type: string
+          group:
+            description: |-
+              **string**
+              Required field. Target resource group name.
+            type: string
+        required:
+          - group
+      ResourceGroupsConfig:
+        type: object
+        properties:
+          rootGroups:
+            description: |-
+              **[ResourceGroupConfig](#yandex.cloud.trino.v1.ResourceGroupConfig)**
+              Root resource groups configuration.
+              The number of elements must be greater than 0.
+            type: array
+            items:
+              $ref: '#/definitions/ResourceGroupConfig'
+          selectors:
+            description: |-
+              **[SelectorRuleConfig](#yandex.cloud.trino.v1.SelectorRuleConfig)**
+              Selector rules for routing queries to resource groups.
+              The number of elements must be greater than 0.
+            type: array
+            items:
+              $ref: '#/definitions/SelectorRuleConfig'
+          cpuQuotaPeriod:
+            description: |-
+              **string**
+              Period for CPU quota calculations.
+            type: string
+      QueryConfig:
+        type: object
+        properties:
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Query properties.
+            type: object
+            additionalProperties:
+              type: string
+      ResourceManagementConfig:
+        type: object
+        properties:
+          resourceGroups:
+            description: |-
+              **[ResourceGroupsConfig](#yandex.cloud.trino.v1.ResourceGroupsConfig)**
+              Resource groups configuration.
+            $ref: '#/definitions/ResourceGroupsConfig'
+          query:
+            description: |-
+              **[QueryConfig](#yandex.cloud.trino.v1.QueryConfig)**
+              Query management confiugration.
+            $ref: '#/definitions/QueryConfig'
       TLSConfig:
         type: object
         properties:
@@ -1539,6 +1888,7 @@ apiPlayground:
               **string**
               Trusted CA-certificates. Each element should contain single self-signed CA-certificate or
               chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root.
+              The maximum number of elements is 8. The maximum string length in characters for each value is 8192.
             uniqueItems: true
             type: array
             items:
@@ -1580,6 +1930,11 @@ apiPlayground:
               **[AccessControlConfig](#yandex.cloud.trino.v1.AccessControlConfig)**
               Configuration for access control, specifying the fine-grained access rules.
             $ref: '#/definitions/AccessControlConfig'
+          resourceManagement:
+            description: |-
+              **[ResourceManagementConfig](#yandex.cloud.trino.v1.ResourceManagementConfig)**
+              Configuration for cluster resource management, specifying the resource groups.
+            $ref: '#/definitions/ResourceManagementConfig'
           tls:
             description: |-
               **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig)**
@@ -1617,6 +1972,7 @@ apiPlayground:
             description: |-
               **string**
               Logs should be written to default log group for specified folder.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `folderId`, `logGroupId`.
               Destination of log records.
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
@@ -1625,6 +1981,7 @@ apiPlayground:
             description: |-
               **string**
               Logs should be written to log group resolved by ID.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `folderId`, `logGroupId`.
               Destination of log records.
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
@@ -1634,8 +1991,6 @@ apiPlayground:
               **enum** (Level)
               Minimum log entry level.
               See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-              - `LEVEL_UNSPECIFIED`: Default log level.
-                Equivalent to not specifying log level at all.
               - `TRACE`: Trace log level.
                 Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
@@ -1671,7 +2026,6 @@ apiPlayground:
           day:
             description: |-
               **enum** (WeekDay)
-              - `WEEK_DAY_UNSPECIFIED`
               - `MON`
               - `TUE`
               - `WED`
@@ -1693,6 +2047,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Hour of the day in UTC.
+              Acceptable values are 1 to 24, inclusive.
             type: string
             format: int64
       MaintenanceWindow:
@@ -1739,7 +2094,7 @@ POST https://trino.{{ api-host }}/managed-trino/v1/clusters
       {
         "name": "string",
         "connector": {
-          // Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`
+          // Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`
           "hive": {
             "metastore": {
               // Includes only one of the fields `hive`
@@ -1891,6 +2246,39 @@ POST https://trino.{{ api-host }}/managed-trino/v1/clusters
                 "awsSecretKey": "string",
                 "awsEndpoint": "string",
                 "awsRegion": "string"
+              }
+              // end of the list of possible fields
+            },
+            "additionalProperties": "object"
+          },
+          "mysql": {
+            "connection": {
+              // Includes only one of the fields `onPremise`, `connectionManager`
+              "onPremise": {
+                "connectionUrl": "string",
+                "userName": "string",
+                "password": "string"
+              },
+              "connectionManager": {
+                "connectionId": "string",
+                "connectionProperties": "object"
+              }
+              // end of the list of possible fields
+            },
+            "additionalProperties": "object"
+          },
+          "greenplum": {
+            "connection": {
+              // Includes only one of the fields `onPremise`, `connectionManager`
+              "onPremise": {
+                "connectionUrl": "string",
+                "userName": "string",
+                "password": "string"
+              },
+              "connectionManager": {
+                "connectionId": "string",
+                "database": "string",
+                "connectionProperties": "object"
               }
               // end of the list of possible fields
             },
@@ -2233,6 +2621,42 @@ POST https://trino.{{ api-host }}/managed-trino/v1/clusters
         }
       ]
     },
+    "resourceManagement": {
+      "resourceGroups": {
+        "rootGroups": [
+          {
+            "name": "string",
+            "maxQueued": "string",
+            "softConcurrencyLimit": "string",
+            "hardConcurrencyLimit": "string",
+            "softMemoryLimit": "string",
+            "softCpuLimit": "string",
+            "hardCpuLimit": "string",
+            "schedulingPolicy": "string",
+            "schedulingWeight": "string",
+            "subGroups": [
+              "object"
+            ]
+          }
+        ],
+        "selectors": [
+          {
+            "user": "string",
+            "userGroup": "string",
+            "source": "string",
+            "queryType": "string",
+            "clientTags": [
+              "string"
+            ],
+            "group": "string"
+          }
+        ],
+        "cpuQuotaPeriod": "string"
+      },
+      "query": {
+        "properties": "object"
+      }
+    },
     "tls": {
       "trustedCertificates": [
         "string"
@@ -2273,17 +2697,25 @@ POST https://trino.{{ api-host }}/managed-trino/v1/clusters
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to create Trino cluster in. ||
+Required field. ID of the folder to create Trino cluster in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the Trino cluster. The name must be unique within the folder. ||
+Required field. Name of the Trino cluster. The name must be unique within the folder.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-Description of the Trino cluster. ||
+Description of the Trino cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Trino cluster as `` key:value `` pairs.
-For example: {"env": "prod"}. ||
+For example: {"env": "prod"}.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || trino | **[TrinoConfigSpec](#yandex.cloud.trino.v1.TrinoConfigSpec)**
 
 Required field. Configuration of Trino components. ||
@@ -2295,7 +2727,9 @@ Required field. Network related configuration options. ||
 Deletion Protection inhibits deletion of the cluster. ||
 || serviceAccountId | **string**
 
-Required field. Service account used to access Cloud resources. ||
+Required field. Service account used to access Cloud resources.
+
+The maximum string length in characters is 50. ||
 || logging | **[LoggingConfig](#yandex.cloud.trino.v1.LoggingConfig)**
 
 Cloud logging configuration. ||
@@ -2328,6 +2762,9 @@ Format: "Number". ||
 || accessControl | **[AccessControlConfig](#yandex.cloud.trino.v1.AccessControlConfig)**
 
 Configuration for access control, specifying the fine-grained access rules. ||
+|| resourceManagement | **[ResourceManagementConfig](#yandex.cloud.trino.v1.ResourceManagementConfig)**
+
+Configuration for cluster resource management, specifying the resource groups. ||
 || tls | **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig)**
 
 Configuration for TLS. ||
@@ -2342,16 +2779,22 @@ CatalogSpec defines the desired state of a new catalog.
 || name | **string**
 
 Required field. Name of the catalog.
-Must be unique within a Trino cluster. ||
+Must be unique within a Trino cluster.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connector | **[Connector](#yandex.cloud.trino.v1.Connector)**
 
 Required field. Connector backing this catalog. ||
 || description | **string**
 
-Description of the catalog. ||
+Description of the catalog.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Labels associated with the catalog. ||
+Labels associated with the catalog.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Connector {#yandex.cloud.trino.v1.Connector}
@@ -2364,52 +2807,62 @@ Connector configuration. Exactly one connector type must be specified.
 
 Hive connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || iceberg | **[IcebergConnector](#yandex.cloud.trino.v1.IcebergConnector)**
 
 Iceberg connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || deltaLake | **[DeltaLakeConnector](#yandex.cloud.trino.v1.DeltaLakeConnector)**
 
 Delta Lake connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || postgresql | **[PostgresqlConnector](#yandex.cloud.trino.v1.PostgresqlConnector)**
 
 PostgreSQL connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || clickhouse | **[ClickhouseConnector](#yandex.cloud.trino.v1.ClickhouseConnector)**
 
 ClickHouse connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || tpch | **[TPCHConnector](#yandex.cloud.trino.v1.TPCHConnector)**
 
 TPC-H connector for synthetic benchmarking.
 
-Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || tpcds | **[TPCDSConnector](#yandex.cloud.trino.v1.TPCDSConnector)**
 
 TPC-DS connector for synthetic benchmarking.
 
-Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || oracle | **[OracleConnector](#yandex.cloud.trino.v1.OracleConnector)**
 
 Oracle connector configuration for connecting to Oracle Database instances.
 
-Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || sqlserver | **[SQLServerConnector](#yandex.cloud.trino.v1.SQLServerConnector)**
 
 SQLServer connector configuration for connecting to SQLServer Database instances.
 
-Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 || hudi | **[HudiConnector](#yandex.cloud.trino.v1.HudiConnector)**
 
 Hudi connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
+|| mysql | **[MysqlConnector](#yandex.cloud.trino.v1.MysqlConnector)**
+
+MySQL connector configuration for connecting to MySQL Database instances.
+
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
+|| greenplum | **[GreenplumConnector](#yandex.cloud.trino.v1.GreenplumConnector)**
+
+Greenplum connector configuration for connecting to Greenplum or Cloudberry Database instances.
+
+Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`. ||
 |#
 
 ## HiveConnector {#yandex.cloud.trino.v1.HiveConnector}
@@ -2424,7 +2877,9 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## Metastore {#yandex.cloud.trino.v1.Metastore}
@@ -2473,16 +2928,16 @@ Describes External S3 compatible file system.
 ||Field | Description ||
 || awsAccessKey | **string**
 
-Required field.  ||
+Required field. ||
 || awsSecretKey | **string**
 
-Required field.  ||
+Required field. ||
 || awsEndpoint | **string**
 
-Required field.  ||
+Required field. ||
 || awsRegion | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## IcebergConnector {#yandex.cloud.trino.v1.IcebergConnector}
@@ -2497,7 +2952,9 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## DeltaLakeConnector {#yandex.cloud.trino.v1.DeltaLakeConnector}
@@ -2512,7 +2969,9 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## PostgresqlConnector {#yandex.cloud.trino.v1.PostgresqlConnector}
@@ -2524,7 +2983,9 @@ Additional properties. ||
 Connection configuration. ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## PostgresqlConnection {#yandex.cloud.trino.v1.PostgresqlConnection}
@@ -2545,13 +3006,19 @@ Includes only one of the fields `onPremise`, `connectionManager`. ||
 ||Field | Description ||
 || connectionUrl | **string**
 
-Required field. Connection to the Postgresql. ||
+Required field. Connection to the Postgresql.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
 || userName | **string**
 
-Required field. Name of the Postgresql user. ||
+Required field. Name of the Postgresql user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the Postgresql user. ||
+Required field. Password of the Postgresql user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## ConnectionManager {#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager}
@@ -2560,13 +3027,19 @@ Required field. Password of the Postgresql user. ||
 ||Field | Description ||
 || connectionId | **string**
 
-Required field. Connection ID. ||
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
 || database | **string**
 
-Required field. Database. ||
+Required field. Database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connectionProperties | **object** (map<**string**, **string**>)
 
-Additional connection properties. ||
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `. ||
 |#
 
 ## ClickhouseConnector {#yandex.cloud.trino.v1.ClickhouseConnector}
@@ -2578,7 +3051,9 @@ Additional connection properties. ||
 Connection configuration. ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## ClickhouseConnection {#yandex.cloud.trino.v1.ClickhouseConnection}
@@ -2599,13 +3074,19 @@ Includes only one of the fields `onPremise`, `connectionManager`. ||
 ||Field | Description ||
 || connectionUrl | **string**
 
-Required field. Connection to the Clickhouse. ||
+Required field. Connection to the Clickhouse.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
 || userName | **string**
 
-Required field. Name of the Clickhouse user. ||
+Required field. Name of the Clickhouse user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the Clickhouse user. ||
+Required field. Password of the Clickhouse user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## ConnectionManager {#yandex.cloud.trino.v1.ClickhouseConnection.ConnectionManager}
@@ -2614,13 +3095,19 @@ Required field. Password of the Clickhouse user. ||
 ||Field | Description ||
 || connectionId | **string**
 
-Required field. Connection ID. ||
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
 || database | **string**
 
-Required field. Database. ||
+Required field. Database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connectionProperties | **object** (map<**string**, **string**>)
 
-Additional connection properties. ||
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z_]* `. ||
 |#
 
 ## TPCHConnector {#yandex.cloud.trino.v1.TPCHConnector}
@@ -2629,7 +3116,9 @@ Additional connection properties. ||
 ||Field | Description ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## TPCDSConnector {#yandex.cloud.trino.v1.TPCDSConnector}
@@ -2638,7 +3127,9 @@ Additional properties. ||
 ||Field | Description ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## OracleConnector {#yandex.cloud.trino.v1.OracleConnector}
@@ -2650,7 +3141,9 @@ Additional properties. ||
 Connection configuration. ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## OracleConnection {#yandex.cloud.trino.v1.OracleConnection}
@@ -2668,13 +3161,19 @@ Includes only one of the fields `onPremise`. ||
 ||Field | Description ||
 || connectionUrl | **string**
 
-Required field. Connection to the Oracle. ||
+Required field. Connection to the Oracle.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+:(?s:.*)$ `. ||
 || userName | **string**
 
-Required field. Name of the Oracle user. ||
+Required field. Name of the Oracle user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the Oracle user. ||
+Required field. Password of the Oracle user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## SQLServerConnector {#yandex.cloud.trino.v1.SQLServerConnector}
@@ -2686,7 +3185,9 @@ Required field. Password of the Oracle user. ||
 Connection configuration. ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## SQLServerConnection {#yandex.cloud.trino.v1.SQLServerConnection}
@@ -2704,13 +3205,19 @@ Includes only one of the fields `onPremise`. ||
 ||Field | Description ||
 || connectionUrl | **string**
 
-Required field. Connection to the SQLServer. ||
+Required field. Connection to the SQLServer.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+:(?s:.*)$ `. ||
 || userName | **string**
 
-Required field. Name of the SQLServer user. ||
+Required field. Name of the SQLServer user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the SQLServer user. ||
+Required field. Password of the SQLServer user.
+
+The string length in characters must be 0-128. ||
 |#
 
 ## HudiConnector {#yandex.cloud.trino.v1.HudiConnector}
@@ -2725,7 +3232,140 @@ Required field. Metastore configuration. ||
 Required field. File system configuration. ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+|#
+
+## MysqlConnector {#yandex.cloud.trino.v1.MysqlConnector}
+
+#|
+||Field | Description ||
+|| connection | **[MysqlConnection](#yandex.cloud.trino.v1.MysqlConnection)**
+
+Connection configuration. ||
+|| additionalProperties | **object** (map<**string**, **string**>)
+
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+|#
+
+## MysqlConnection {#yandex.cloud.trino.v1.MysqlConnection}
+
+#|
+||Field | Description ||
+|| onPremise | **[OnPremise](#yandex.cloud.trino.v1.MysqlConnection.OnPremise)**
+
+Includes only one of the fields `onPremise`, `connectionManager`. ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.trino.v1.MysqlConnection.ConnectionManager)**
+
+Includes only one of the fields `onPremise`, `connectionManager`. ||
+|#
+
+## OnPremise {#yandex.cloud.trino.v1.MysqlConnection.OnPremise}
+
+#|
+||Field | Description ||
+|| connectionUrl | **string**
+
+Required field. Connection to the MySQL.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
+|| userName | **string**
+
+Required field. Name of the MySQL user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| password | **string**
+
+Required field. Password of the MySQL user.
+
+The string length in characters must be 0-128. ||
+|#
+
+## ConnectionManager {#yandex.cloud.trino.v1.MysqlConnection.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
+|| connectionProperties | **object** (map<**string**, **string**>)
+
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z_]* `. ||
+|#
+
+## GreenplumConnector {#yandex.cloud.trino.v1.GreenplumConnector}
+
+#|
+||Field | Description ||
+|| connection | **[GreenplumConnection](#yandex.cloud.trino.v1.GreenplumConnection)**
+
+Connection configuration ||
+|| additionalProperties | **object** (map<**string**, **string**>)
+
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+|#
+
+## GreenplumConnection {#yandex.cloud.trino.v1.GreenplumConnection}
+
+#|
+||Field | Description ||
+|| onPremise | **[OnPremise](#yandex.cloud.trino.v1.GreenplumConnection.OnPremise)**
+
+Includes only one of the fields `onPremise`, `connectionManager`. ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.trino.v1.GreenplumConnection.ConnectionManager)**
+
+Includes only one of the fields `onPremise`, `connectionManager`. ||
+|#
+
+## OnPremise {#yandex.cloud.trino.v1.GreenplumConnection.OnPremise}
+
+#|
+||Field | Description ||
+|| connectionUrl | **string**
+
+Required field. Connection to the Greenplum/Cloudberry.
+
+Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
+|| userName | **string**
+
+Required field. Name of the Greenplum/Cloudberry user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| password | **string**
+
+Required field. Password of the Greenplum/Cloudberry user.
+
+The string length in characters must be 0-128. ||
+|#
+
+## ConnectionManager {#yandex.cloud.trino.v1.GreenplumConnection.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+Required field. Connection ID.
+
+The string length in characters must be 1-50. ||
+|| database | **string**
+
+Required field. Database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| connectionProperties | **object** (map<**string**, **string**>)
+
+Additional connection properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `. ||
 |#
 
 ## CoordinatorConfig {#yandex.cloud.trino.v1.CoordinatorConfig}
@@ -2743,7 +3383,9 @@ Required field. Configuration for computational resources assigned to the coordi
 ||Field | Description ||
 || resourcePresetId | **string**
 
-Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.). ||
+Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## WorkerConfig {#yandex.cloud.trino.v1.WorkerConfig}
@@ -2788,15 +3430,21 @@ Only one type of scaling can be specified at a time. ||
 ||Field | Description ||
 || count | **string** (int64)
 
-Specifies the number of worker instances. ||
+Specifies the number of worker instances.
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## AutoScalePolicy {#yandex.cloud.trino.v1.AutoScalePolicy}
 
 #|
 ||Field | Description ||
-|| minCount | **string** (int64) ||
-|| maxCount | **string** (int64) ||
+|| minCount | **string** (int64)
+
+Acceptable values are 0 to 512, inclusive. ||
+|| maxCount | **string** (int64)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## RetryPolicyConfig {#yandex.cloud.trino.v1.RetryPolicyConfig}
@@ -2807,7 +3455,6 @@ Specifies the number of worker instances. ||
 
 Retry policy level.
 
-- `RETRY_POLICY_UNSPECIFIED`
 - `QUERY`
 - `TASK` ||
 || exchangeManager | **[ExchangeManagerConfig](#yandex.cloud.trino.v1.ExchangeManagerConfig)**
@@ -2815,7 +3462,9 @@ Retry policy level.
 Configuration for exchange manager. ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## ExchangeManagerConfig {#yandex.cloud.trino.v1.ExchangeManagerConfig}
@@ -2824,7 +3473,9 @@ Additional properties. ||
 ||Field | Description ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 || storage | **[ExchangeManagerStorage](#yandex.cloud.trino.v1.ExchangeManagerStorage)** ||
 |#
 
@@ -2875,10 +3526,14 @@ Catalog session property access control rules. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -2886,13 +3541,14 @@ Catalog matcher specifying what catalogs the rule is applied to. ||
 
 Required field. Permission granted by the rule.
 
-- `PERMISSION_UNSPECIFIED`
 - `NONE`: Denies all operations on the catalog entities.
 - `ALL`: Allows all operations on catalog entities.
 - `READ_ONLY`: Allows only read operations on catalog entities. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## CatalogAccessRuleMatcher {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher}
@@ -2902,6 +3558,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Catalog name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
 || ids | **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds)**
@@ -2920,14 +3578,18 @@ Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. ||
 |#
 
 ## CatalogNames {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames}
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. ||
 |#
 
 ## SchemaAccessRule {#yandex.cloud.trino.v1.SchemaAccessRule}
@@ -2936,10 +3598,14 @@ Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -2950,12 +3616,13 @@ Schema matcher specifying what schemas the rule is applied to. ||
 
 Required field. Ownership granted by the rule.
 
-- `OWNER_UNSPECIFIED`
 - `NO`: User is not considered an owner of the schema.
 - `YES`: User is considered an owner of the schema. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## SchemaAccessRuleMatcher {#yandex.cloud.trino.v1.SchemaAccessRuleMatcher}
@@ -2965,6 +3632,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Schema name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `names`. ||
 || names | **[SchemaNames](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher.SchemaNames)**
@@ -2978,7 +3647,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## TableAccessRule {#yandex.cloud.trino.v1.TableAccessRule}
@@ -2987,10 +3658,14 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -3004,7 +3679,6 @@ Table matcher specifying what tables the rule is applied to. ||
 
 Permission granted by the rule.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `SELECT`: Allows SELECT statements on the table.
 - `INSERT`: Allows INSERT statements on the table.
 - `DELETE`: Allows DELETE statements on the table.
@@ -3016,10 +3690,14 @@ Permission granted by the rule.
 Column rules. ||
 || filter | **string**
 
-Boolean SQL expression to filter table rows for particular user. ||
+Boolean SQL expression to filter table rows for particular user.
+
+The maximum string length in characters is 128. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## TableAccessRuleMatcher {#yandex.cloud.trino.v1.TableAccessRuleMatcher}
@@ -3029,6 +3707,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Table name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `names`. ||
 || names | **[TableNames](#yandex.cloud.trino.v1.TableAccessRuleMatcher.TableNames)**
@@ -3042,7 +3722,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## Column {#yandex.cloud.trino.v1.TableAccessRule.Column}
@@ -3051,18 +3733,21 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Column name. ||
+Required field. Column name.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-z0-9_-]+ `. ||
 || access | **enum** (AccessMode)
 
 Required field. Column access mode.
 
-- `ACCESS_MODE_UNSPECIFIED`
 - `NONE`: Access to column is denied.
 - `ALL`: Access to column is allowed. ||
 || mask | **string**
 
 SQL expression mask to evaluate instead of original column values.
-Mask should have the same type as original column. ||
+Mask should have the same type as original column.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## FunctionAccessRule {#yandex.cloud.trino.v1.FunctionAccessRule}
@@ -3071,10 +3756,14 @@ Mask should have the same type as original column. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -3088,13 +3777,14 @@ Function matcher specifying what functions the rule is applied to. ||
 
 Privileges granted by the rule.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `EXECUTE`: Allows to execute the function.
 - `GRANT_EXECUTE`: Allows to use the function while view creation.
 - `OWNERSHIP`: Allows to CREATE and DROP the function. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## FunctionAccessRuleMatcher {#yandex.cloud.trino.v1.FunctionAccessRuleMatcher}
@@ -3104,6 +3794,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Function name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `names`. ||
 || names | **[FunctionNames](#yandex.cloud.trino.v1.FunctionAccessRuleMatcher.FunctionNames)**
@@ -3117,7 +3809,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## ProcedureAccessRule {#yandex.cloud.trino.v1.ProcedureAccessRule}
@@ -3126,10 +3820,14 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -3143,11 +3841,12 @@ Procedure matcher specifying what functions the rule is applied to. ||
 
 Privileges granted by the rule.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `EXECUTE`: Allows to execute the procedure. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## ProcedureAccessRuleMatcher {#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher}
@@ -3157,6 +3856,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Procedure name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `names`. ||
 || names | **[ProcedureNames](#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher.ProcedureNames)**
@@ -3170,7 +3871,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## QueryAccessRule {#yandex.cloud.trino.v1.QueryAccessRule}
@@ -3179,25 +3882,32 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || queryOwners[] | **string**
 
 Owners of queries the rule is applied to.
-Cannot be combined with EXECUTE privilege. ||
+Cannot be combined with EXECUTE privilege.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || privileges[] | **enum** (Privilege)
 
 Privileges granted by the user.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `VIEW`: Allows to view the query.
 - `EXECUTE`: Allows to execute the query.
 - `KILL`: Allows to kill the query. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## SystemSessionPropertyAccessRule {#yandex.cloud.trino.v1.SystemSessionPropertyAccessRule}
@@ -3206,10 +3916,14 @@ Rule description. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || property | **[PropertyAccessRuleMatcher](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher)**
 
 Property matcher specifying what properties the rule is applied to. ||
@@ -3217,12 +3931,13 @@ Property matcher specifying what properties the rule is applied to. ||
 
 Required field. Whether the rule allows setting the property.
 
-- `ALLOW_UNSPECIFIED`
 - `NO`: Denies setting the system session property.
 - `YES`: Allows to set the system session property. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## PropertyAccessRuleMatcher {#yandex.cloud.trino.v1.PropertyAccessRuleMatcher}
@@ -3232,6 +3947,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Property name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `names`. ||
 || names | **[PropertyNames](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher.PropertyNames)**
@@ -3245,7 +3962,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z_]+ `. ||
 |#
 
 ## CatalogSessionPropertyAccessRule {#yandex.cloud.trino.v1.CatalogSessionPropertyAccessRule}
@@ -3254,10 +3973,14 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -3268,12 +3991,133 @@ Property matcher specifying what properties the rule is applied to. ||
 
 Required field. Whether the rule allows setting the property.
 
-- `ALLOW_UNSPECIFIED`
 - `NO`: Denies setting the catalog session property.
 - `YES`: Allows to set the catalog session property. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
+|#
+
+## ResourceManagementConfig {#yandex.cloud.trino.v1.ResourceManagementConfig}
+
+#|
+||Field | Description ||
+|| resourceGroups | **[ResourceGroupsConfig](#yandex.cloud.trino.v1.ResourceGroupsConfig)**
+
+Resource groups configuration. ||
+|| query | **[QueryConfig](#yandex.cloud.trino.v1.QueryConfig)**
+
+Query management confiugration. ||
+|#
+
+## ResourceGroupsConfig {#yandex.cloud.trino.v1.ResourceGroupsConfig}
+
+#|
+||Field | Description ||
+|| rootGroups[] | **[ResourceGroupConfig](#yandex.cloud.trino.v1.ResourceGroupConfig)**
+
+Root resource groups configuration.
+
+The number of elements must be greater than 0. ||
+|| selectors[] | **[SelectorRuleConfig](#yandex.cloud.trino.v1.SelectorRuleConfig)**
+
+Selector rules for routing queries to resource groups.
+
+The number of elements must be greater than 0. ||
+|| cpuQuotaPeriod | **string**
+
+Period for CPU quota calculations. ||
+|#
+
+## ResourceGroupConfig {#yandex.cloud.trino.v1.ResourceGroupConfig}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Resource group name. ||
+|| maxQueued | **string** (int64)
+
+Maximum number of queued queries.
+
+Value must be greater than 0. ||
+|| softConcurrencyLimit | **string** (int64)
+
+Number of concurrently running queries after which new queries only run if peer groups are below soft limits. ||
+|| hardConcurrencyLimit | **string** (int64)
+
+Maximum number of queries that can run concurrently.
+
+Value must be greater than 0. ||
+|| softMemoryLimit | **string**
+
+Maximum amount of distributed memory this group can use. ||
+|| softCpuLimit | **string**
+
+Maximum CPU time per period this group can use before applying penalty to running queries (requires hard_cpu_limit). ||
+|| hardCpuLimit | **string**
+
+Maximum CPU time per period this group can use. ||
+|| schedulingPolicy | **enum** (SchedulingPolicy)
+
+Policy for selecting queued queries and sub-group eligibility.
+
+- `FAIR`: Queued queries processed first-in-first-out, sub-groups take turns starting queries.
+- `WEIGHTED`: Queries selected stochastically by priority, sub-groups selected by schedulingWeight.
+- `WEIGHTED_FAIR`: Sub-groups selected by schedulingWeight and concurrency relative to their share.
+- `QUERY_PRIORITY`: Queued queries selected strictly by priority. ||
+|| schedulingWeight | **string** (int64)
+
+Weight for weighted and weighted_fair scheduling policies. ||
+|| subGroups[] | **[ResourceGroupConfig](#yandex.cloud.trino.v1.ResourceGroupConfig)**
+
+List of sub-groups. ||
+|#
+
+## SelectorRuleConfig {#yandex.cloud.trino.v1.SelectorRuleConfig}
+
+#|
+||Field | Description ||
+|| user | **string**
+
+Regex to match against username. ||
+|| userGroup | **string**
+
+Regex to match against user groups. ||
+|| source | **string**
+
+Regex to match against query source. ||
+|| queryType | **enum** (QueryType)
+
+Type of query to match.
+
+- `SELECT`
+- `EXPLAIN`
+- `DESCRIBE`
+- `INSERT`
+- `UPDATE`
+- `MERGE`
+- `DELETE`
+- `ANALYZE`
+- `DATA_DEFINITION`
+- `ALTER_TABLE_EXECUTE` ||
+|| clientTags[] | **string**
+
+Tags that must all be present in the query's client tags. ||
+|| group | **string**
+
+Required field. Target resource group name. ||
+|#
+
+## QueryConfig {#yandex.cloud.trino.v1.QueryConfig}
+
+#|
+||Field | Description ||
+|| properties | **object** (map<**string**, **string**>)
+
+Query properties. ||
 |#
 
 ## TLSConfig {#yandex.cloud.trino.v1.TLSConfig}
@@ -3283,7 +4127,9 @@ Rule description. ||
 || trustedCertificates[] | **string**
 
 Trusted CA-certificates. Each element should contain single self-signed CA-certificate or
-chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root. ||
+chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root.
+
+The maximum number of elements is 8. The maximum string length in characters for each value is 8192. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.trino.v1.NetworkConfig}
@@ -3309,12 +4155,16 @@ Logs generated by the Trino components are delivered to Cloud Logging. ||
 
 Logs should be written to default log group for specified folder.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `folderId`, `logGroupId`.
 
 Destination of log records. ||
 || logGroupId | **string**
 
 Logs should be written to log group resolved by ID.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folderId`, `logGroupId`.
 
@@ -3325,9 +4175,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -3366,7 +4213,6 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 ||Field | Description ||
 || day | **enum** (WeekDay)
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -3376,7 +4222,9 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC. ||
+Hour of the day in UTC.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -3748,6 +4596,42 @@ Hour of the day in UTC. ||
           }
         ]
       },
+      "resourceManagement": {
+        "resourceGroups": {
+          "rootGroups": [
+            {
+              "name": "string",
+              "maxQueued": "string",
+              "softConcurrencyLimit": "string",
+              "hardConcurrencyLimit": "string",
+              "softMemoryLimit": "string",
+              "softCpuLimit": "string",
+              "hardCpuLimit": "string",
+              "schedulingPolicy": "string",
+              "schedulingWeight": "string",
+              "subGroups": [
+                "object"
+              ]
+            }
+          ],
+          "selectors": [
+            {
+              "user": "string",
+              "userGroup": "string",
+              "source": "string",
+              "queryType": "string",
+              "clientTags": [
+                "string"
+              ],
+              "group": "string"
+            }
+          ],
+          "cpuQuotaPeriod": "string"
+        },
+        "query": {
+          "properties": "object"
+        }
+      },
       "tls": {
         "trustedCertificates": [
           "string"
@@ -3957,7 +4841,9 @@ Network related configuration options. ||
 Deletion Protection inhibits deletion of the cluster. ||
 || serviceAccountId | **string**
 
-Service account used to access Cloud resources. ||
+Service account used to access Cloud resources.
+
+The maximum string length in characters is 50. ||
 || logging | **[LoggingConfig](#yandex.cloud.trino.v1.LoggingConfig2)**
 
 Cloud logging configuration. ||
@@ -4008,6 +4894,9 @@ Configuration for retry policy, specifying the spooling storage destination and 
 || accessControl | **[AccessControlConfig](#yandex.cloud.trino.v1.AccessControlConfig2)**
 
 Configuration for access control, specifying the fine-grained rules of accesses. ||
+|| resourceManagement | **[ResourceManagementConfig](#yandex.cloud.trino.v1.ResourceManagementConfig2)**
+
+Configuration for resource management, specifying the resource groups and other settings. ||
 || tls | **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig2)**
 
 Configuration for TLS. ||
@@ -4028,7 +4917,9 @@ Required field. Configuration for computational resources assigned to the coordi
 ||Field | Description ||
 || resourcePresetId | **string**
 
-Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.). ||
+Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## WorkerConfig {#yandex.cloud.trino.v1.WorkerConfig2}
@@ -4073,15 +4964,21 @@ Only one type of scaling can be specified at a time. ||
 ||Field | Description ||
 || count | **string** (int64)
 
-Specifies the number of worker instances. ||
+Specifies the number of worker instances.
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## AutoScalePolicy {#yandex.cloud.trino.v1.AutoScalePolicy2}
 
 #|
 ||Field | Description ||
-|| minCount | **string** (int64) ||
-|| maxCount | **string** (int64) ||
+|| minCount | **string** (int64)
+
+Acceptable values are 0 to 512, inclusive. ||
+|| maxCount | **string** (int64)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## RetryPolicyConfig {#yandex.cloud.trino.v1.RetryPolicyConfig2}
@@ -4092,7 +4989,6 @@ Specifies the number of worker instances. ||
 
 Retry policy level.
 
-- `RETRY_POLICY_UNSPECIFIED`
 - `QUERY`
 - `TASK` ||
 || exchangeManager | **[ExchangeManagerConfig](#yandex.cloud.trino.v1.ExchangeManagerConfig2)**
@@ -4100,7 +4996,9 @@ Retry policy level.
 Configuration for exchange manager. ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## ExchangeManagerConfig {#yandex.cloud.trino.v1.ExchangeManagerConfig2}
@@ -4109,7 +5007,9 @@ Additional properties. ||
 ||Field | Description ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-Additional properties. ||
+Additional properties.
+
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 || storage | **[ExchangeManagerStorage](#yandex.cloud.trino.v1.ExchangeManagerStorage2)** ||
 |#
 
@@ -4160,10 +5060,14 @@ Catalog session property access control rules. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher2)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -4171,13 +5075,14 @@ Catalog matcher specifying what catalogs the rule is applied to. ||
 
 Required field. Permission granted by the rule.
 
-- `PERMISSION_UNSPECIFIED`
 - `NONE`: Denies all operations on the catalog entities.
 - `ALL`: Allows all operations on catalog entities.
 - `READ_ONLY`: Allows only read operations on catalog entities. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## CatalogAccessRuleMatcher {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher2}
@@ -4187,6 +5092,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Catalog name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
 || ids | **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds2)**
@@ -4205,14 +5112,18 @@ Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. ||
 |#
 
 ## CatalogNames {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames2}
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. ||
 |#
 
 ## SchemaAccessRule {#yandex.cloud.trino.v1.SchemaAccessRule2}
@@ -4221,10 +5132,14 @@ Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher2)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -4235,12 +5150,13 @@ Schema matcher specifying what schemas the rule is applied to. ||
 
 Required field. Ownership granted by the rule.
 
-- `OWNER_UNSPECIFIED`
 - `NO`: User is not considered an owner of the schema.
 - `YES`: User is considered an owner of the schema. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## SchemaAccessRuleMatcher {#yandex.cloud.trino.v1.SchemaAccessRuleMatcher2}
@@ -4250,6 +5166,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Schema name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `names`. ||
 || names | **[SchemaNames](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher.SchemaNames2)**
@@ -4263,7 +5181,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## TableAccessRule {#yandex.cloud.trino.v1.TableAccessRule2}
@@ -4272,10 +5192,14 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher2)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -4289,7 +5213,6 @@ Table matcher specifying what tables the rule is applied to. ||
 
 Permission granted by the rule.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `SELECT`: Allows SELECT statements on the table.
 - `INSERT`: Allows INSERT statements on the table.
 - `DELETE`: Allows DELETE statements on the table.
@@ -4301,10 +5224,14 @@ Permission granted by the rule.
 Column rules. ||
 || filter | **string**
 
-Boolean SQL expression to filter table rows for particular user. ||
+Boolean SQL expression to filter table rows for particular user.
+
+The maximum string length in characters is 128. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## TableAccessRuleMatcher {#yandex.cloud.trino.v1.TableAccessRuleMatcher2}
@@ -4314,6 +5241,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Table name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `names`. ||
 || names | **[TableNames](#yandex.cloud.trino.v1.TableAccessRuleMatcher.TableNames2)**
@@ -4327,7 +5256,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## Column {#yandex.cloud.trino.v1.TableAccessRule.Column2}
@@ -4336,18 +5267,21 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Column name. ||
+Required field. Column name.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-z0-9_-]+ `. ||
 || access | **enum** (AccessMode)
 
 Required field. Column access mode.
 
-- `ACCESS_MODE_UNSPECIFIED`
 - `NONE`: Access to column is denied.
 - `ALL`: Access to column is allowed. ||
 || mask | **string**
 
 SQL expression mask to evaluate instead of original column values.
-Mask should have the same type as original column. ||
+Mask should have the same type as original column.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## FunctionAccessRule {#yandex.cloud.trino.v1.FunctionAccessRule2}
@@ -4356,10 +5290,14 @@ Mask should have the same type as original column. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher2)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -4373,13 +5311,14 @@ Function matcher specifying what functions the rule is applied to. ||
 
 Privileges granted by the rule.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `EXECUTE`: Allows to execute the function.
 - `GRANT_EXECUTE`: Allows to use the function while view creation.
 - `OWNERSHIP`: Allows to CREATE and DROP the function. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## FunctionAccessRuleMatcher {#yandex.cloud.trino.v1.FunctionAccessRuleMatcher2}
@@ -4389,6 +5328,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Function name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `names`. ||
 || names | **[FunctionNames](#yandex.cloud.trino.v1.FunctionAccessRuleMatcher.FunctionNames2)**
@@ -4402,7 +5343,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## ProcedureAccessRule {#yandex.cloud.trino.v1.ProcedureAccessRule2}
@@ -4411,10 +5354,14 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher2)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -4428,11 +5375,12 @@ Procedure matcher specifying what functions the rule is applied to. ||
 
 Privileges granted by the rule.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `EXECUTE`: Allows to execute the procedure. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## ProcedureAccessRuleMatcher {#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher2}
@@ -4442,6 +5390,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Procedure name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `names`. ||
 || names | **[ProcedureNames](#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher.ProcedureNames2)**
@@ -4455,7 +5405,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
 |#
 
 ## QueryAccessRule {#yandex.cloud.trino.v1.QueryAccessRule2}
@@ -4464,25 +5416,32 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || queryOwners[] | **string**
 
 Owners of queries the rule is applied to.
-Cannot be combined with EXECUTE privilege. ||
+Cannot be combined with EXECUTE privilege.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || privileges[] | **enum** (Privilege)
 
 Privileges granted by the user.
 
-- `PRIVILEGE_UNSPECIFIED`
 - `VIEW`: Allows to view the query.
 - `EXECUTE`: Allows to execute the query.
 - `KILL`: Allows to kill the query. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## SystemSessionPropertyAccessRule {#yandex.cloud.trino.v1.SystemSessionPropertyAccessRule2}
@@ -4491,10 +5450,14 @@ Rule description. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || property | **[PropertyAccessRuleMatcher](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher2)**
 
 Property matcher specifying what properties the rule is applied to. ||
@@ -4502,12 +5465,13 @@ Property matcher specifying what properties the rule is applied to. ||
 
 Required field. Whether the rule allows setting the property.
 
-- `ALLOW_UNSPECIFIED`
 - `NO`: Denies setting the system session property.
 - `YES`: Allows to set the system session property. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
 |#
 
 ## PropertyAccessRuleMatcher {#yandex.cloud.trino.v1.PropertyAccessRuleMatcher2}
@@ -4517,6 +5481,8 @@ Rule description. ||
 || nameRegexp | **string**
 
 Property name regexp the rule is applied to.
+
+The maximum string length in characters is 256.
 
 Includes only one of the fields `nameRegexp`, `names`. ||
 || names | **[PropertyNames](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher.PropertyNames2)**
@@ -4530,7 +5496,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 
 #|
 ||Field | Description ||
-|| any[] | **string** ||
+|| any[] | **string**
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z_]+ `. ||
 |#
 
 ## CatalogSessionPropertyAccessRule {#yandex.cloud.trino.v1.CatalogSessionPropertyAccessRule2}
@@ -4539,10 +5507,14 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || users[] | **string**
 
-IAM user IDs the rule is applied to. ||
+IAM user IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || groups[] | **string**
 
-IAM group IDs the rule is applied to. ||
+IAM group IDs the rule is applied to.
+
+The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher2)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -4553,12 +5525,133 @@ Property matcher specifying what properties the rule is applied to. ||
 
 Required field. Whether the rule allows setting the property.
 
-- `ALLOW_UNSPECIFIED`
 - `NO`: Denies setting the catalog session property.
 - `YES`: Allows to set the catalog session property. ||
 || description | **string**
 
-Rule description. ||
+Rule description.
+
+The maximum string length in characters is 128. ||
+|#
+
+## ResourceManagementConfig {#yandex.cloud.trino.v1.ResourceManagementConfig2}
+
+#|
+||Field | Description ||
+|| resourceGroups | **[ResourceGroupsConfig](#yandex.cloud.trino.v1.ResourceGroupsConfig2)**
+
+Resource groups configuration. ||
+|| query | **[QueryConfig](#yandex.cloud.trino.v1.QueryConfig2)**
+
+Query management confiugration. ||
+|#
+
+## ResourceGroupsConfig {#yandex.cloud.trino.v1.ResourceGroupsConfig2}
+
+#|
+||Field | Description ||
+|| rootGroups[] | **[ResourceGroupConfig](#yandex.cloud.trino.v1.ResourceGroupConfig2)**
+
+Root resource groups configuration.
+
+The number of elements must be greater than 0. ||
+|| selectors[] | **[SelectorRuleConfig](#yandex.cloud.trino.v1.SelectorRuleConfig2)**
+
+Selector rules for routing queries to resource groups.
+
+The number of elements must be greater than 0. ||
+|| cpuQuotaPeriod | **string**
+
+Period for CPU quota calculations. ||
+|#
+
+## ResourceGroupConfig {#yandex.cloud.trino.v1.ResourceGroupConfig2}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Resource group name. ||
+|| maxQueued | **string** (int64)
+
+Maximum number of queued queries.
+
+Value must be greater than 0. ||
+|| softConcurrencyLimit | **string** (int64)
+
+Number of concurrently running queries after which new queries only run if peer groups are below soft limits. ||
+|| hardConcurrencyLimit | **string** (int64)
+
+Maximum number of queries that can run concurrently.
+
+Value must be greater than 0. ||
+|| softMemoryLimit | **string**
+
+Maximum amount of distributed memory this group can use. ||
+|| softCpuLimit | **string**
+
+Maximum CPU time per period this group can use before applying penalty to running queries (requires hard_cpu_limit). ||
+|| hardCpuLimit | **string**
+
+Maximum CPU time per period this group can use. ||
+|| schedulingPolicy | **enum** (SchedulingPolicy)
+
+Policy for selecting queued queries and sub-group eligibility.
+
+- `FAIR`: Queued queries processed first-in-first-out, sub-groups take turns starting queries.
+- `WEIGHTED`: Queries selected stochastically by priority, sub-groups selected by schedulingWeight.
+- `WEIGHTED_FAIR`: Sub-groups selected by schedulingWeight and concurrency relative to their share.
+- `QUERY_PRIORITY`: Queued queries selected strictly by priority. ||
+|| schedulingWeight | **string** (int64)
+
+Weight for weighted and weighted_fair scheduling policies. ||
+|| subGroups[] | **[ResourceGroupConfig](#yandex.cloud.trino.v1.ResourceGroupConfig2)**
+
+List of sub-groups. ||
+|#
+
+## SelectorRuleConfig {#yandex.cloud.trino.v1.SelectorRuleConfig2}
+
+#|
+||Field | Description ||
+|| user | **string**
+
+Regex to match against username. ||
+|| userGroup | **string**
+
+Regex to match against user groups. ||
+|| source | **string**
+
+Regex to match against query source. ||
+|| queryType | **enum** (QueryType)
+
+Type of query to match.
+
+- `SELECT`
+- `EXPLAIN`
+- `DESCRIBE`
+- `INSERT`
+- `UPDATE`
+- `MERGE`
+- `DELETE`
+- `ANALYZE`
+- `DATA_DEFINITION`
+- `ALTER_TABLE_EXECUTE` ||
+|| clientTags[] | **string**
+
+Tags that must all be present in the query's client tags. ||
+|| group | **string**
+
+Required field. Target resource group name. ||
+|#
+
+## QueryConfig {#yandex.cloud.trino.v1.QueryConfig2}
+
+#|
+||Field | Description ||
+|| properties | **object** (map<**string**, **string**>)
+
+Query properties. ||
 |#
 
 ## TLSConfig {#yandex.cloud.trino.v1.TLSConfig2}
@@ -4568,7 +5661,9 @@ Rule description. ||
 || trustedCertificates[] | **string**
 
 Trusted CA-certificates. Each element should contain single self-signed CA-certificate or
-chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root. ||
+chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root.
+
+The maximum number of elements is 8. The maximum string length in characters for each value is 8192. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.trino.v1.NetworkConfig2}
@@ -4594,12 +5689,16 @@ Logs generated by the Trino components are delivered to Cloud Logging. ||
 
 Logs should be written to default log group for specified folder.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `folderId`, `logGroupId`.
 
 Destination of log records. ||
 || logGroupId | **string**
 
 Logs should be written to log group resolved by ID.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folderId`, `logGroupId`.
 
@@ -4610,9 +5709,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -4651,7 +5747,6 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 ||Field | Description ||
 || day | **enum** (WeekDay)
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -4661,14 +5756,18 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC. ||
+Hour of the day in UTC.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.trino.v1.MaintenanceOperation}
 
 #|
 ||Field | Description ||
-|| info | **string** ||
+|| info | **string**
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
