@@ -10,7 +10,7 @@ description: This page describes the Failed to create <object_type> {{ datalens-
 The object already exists. You cannot create two objects with identical names in the same folder.
 Objects include:
 
-* [Connections](../../concepts/connection.md).
+* [Connections](../../concepts/connection/index.md).
 * [Datasets](../../dataset/index.md).
 * [Charts](../../concepts/chart/index.md).
 * [Dashboards](../../concepts/dashboard.md).

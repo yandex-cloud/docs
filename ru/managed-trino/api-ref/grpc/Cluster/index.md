@@ -19,4 +19,7 @@ A set of methods for managing Trino Cluster resources.
 || [Start](start.md) | Start the specified Trino Cluster resource. ||
 || [Stop](stop.md) | Stops the specified Trino Cluster resource. ||
 || [ListOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified Trino cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified Trino cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified Trino cluster. ||
 |#

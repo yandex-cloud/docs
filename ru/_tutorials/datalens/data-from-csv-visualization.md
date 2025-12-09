@@ -39,7 +39,7 @@
 
 ## Создайте подключение {#create-connection}
 
-Создайте [подключение](../../datalens/concepts/connection.md) к файлу с исходными данными.
+Создайте [подключение](../../datalens/concepts/connection/index.md) к файлу с исходными данными.
 
 
 1. В правом верхнем углу воркбука нажмите **Создать** → ![image](../../_assets/console-icons/thunderbolt.svg) **Подключение**.

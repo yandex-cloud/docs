@@ -159,7 +159,9 @@ ID of the version. ||
 ID of the function that the version belongs to. ||
 || description | **string**
 
-Description of the version. ||
+Description of the version.
+
+The string length in characters must be 0-256. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp for the version.
@@ -198,7 +200,6 @@ Final size of the deployment package after unpacking. ||
 
 Status of the version.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Version is being created.
 - `ACTIVE`: Version is ready to use.
 - `OBSOLETE`: Version will be deleted soon.
@@ -232,7 +233,9 @@ Config for asynchronous invocations of the version ||
 Optional size of in-memory mounted /tmp directory in bytes. ||
 || concurrency | **string** (int64)
 
-The maximum number of requests processed by a function instance at the same time ||
+The maximum number of requests processed by a function instance at the same time
+
+Acceptable values are 0 to 16, inclusive. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.functions.v1.Mount)**
 
 Mounts to be used by the version. ||
@@ -249,7 +252,9 @@ Resources allocated to a version.
 ||Field | Description ||
 || memory | **string** (int64)
 
-Amount of memory available to the version, specified in bytes, multiple of 128MB. ||
+Amount of memory available to the version, specified in bytes, multiple of 128MB.
+
+Acceptable values are 134217728 to 8589934592, inclusive. ||
 |#
 
 ## Connectivity {#yandex.cloud.serverless.functions.v1.Connectivity}
@@ -265,7 +270,9 @@ It's essential to specify network with subnets in all availability zones. ||
 || subnetId[] | **string**
 
 Complete list of subnets (from the same network) the version can be attached to.
-It's essential to specify at least one subnet for each availability zones. ||
+It's essential to specify at least one subnet for each availability zones.
+
+The string length in characters for each value must be greater than 0. ||
 |#
 
 ## Secret {#yandex.cloud.serverless.functions.v1.Secret}
@@ -301,12 +308,16 @@ Is logging from function disabled. ||
 
 Entry should be written to log group resolved by ID.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
 || folderId | **string**
 
 Entry should be written to default log group for specified folder.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -317,9 +328,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -346,13 +354,17 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 ||Field | Description ||
 || bucketId | **string**
 
-Required field. S3 bucket name for mounting. ||
+Required field. S3 bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 S3 bucket prefix for mounting. ||
 || mountPointName | **string**
 
-Required field. Mount point directory name (not path) for mounting. ||
+Required field. Mount point directory name (not path) for mounting.
+
+The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `. ||
 || readOnly | **boolean**
 
 Is mount read only. ||
@@ -364,7 +376,9 @@ Is mount read only. ||
 ||Field | Description ||
 || retriesCount | **string** (int64)
 
-Number of retries of version invocation ||
+Number of retries of version invocation
+
+Acceptable values are 0 to 100, inclusive. ||
 || successTarget | **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
 
 Required field. Target for successful result of the version's invocation ||
@@ -403,7 +417,9 @@ Includes only one of the fields `emptyTarget`, `ymqTarget`. ||
 Required field. Queue ARN ||
 || serviceAccountId | **string**
 
-Required field. Service account which has write permission on the queue. ||
+Required field. Service account which has write permission on the queue.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Mount {#yandex.cloud.serverless.functions.v1.Mount}
@@ -414,12 +430,13 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || name | **string**
 
-Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt; ||
+Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt;
+
+The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `. ||
 || mode | **enum** (Mode)
 
 Mount's mode
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`
 - `READ_WRITE` ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
@@ -446,7 +463,9 @@ ObjectStorage as a mount
 ||Field | Description ||
 || bucketId | **string**
 
-Required field. ObjectStorage bucket name for mounting. ||
+Required field. ObjectStorage bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 ObjectStorage bucket prefix for mounting. ||
@@ -460,7 +479,9 @@ Disk as a mount
 ||Field | Description ||
 || size | **string** (int64)
 
-The size of disk for mount in bytes ||
+The size of disk for mount in bytes
+
+Value must be greater than 0. ||
 || blockSize | **string** (int64)
 
 Optional block size of disk for mount in bytes ||
@@ -474,14 +495,12 @@ Optional block size of disk for mount in bytes ||
 
 Enabled access to GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || awsV1HttpEndpoint | **enum** (MetadataOption)
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 |#

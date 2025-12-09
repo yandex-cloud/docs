@@ -19,6 +19,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListExecutionsResponse.nextPageToken](#yandex.cloud.serverless.workflows.v1.ListExecutionsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 2147483647, inclusive.
           default: '100'
           type: string
           format: int64
@@ -69,7 +70,9 @@ The maximum number of results per page that should be returned. If the number of
 results is larger than `pageSize`, the service returns a [ListExecutionsResponse.nextPageToken](#yandex.cloud.serverless.workflows.v1.ListExecutionsResponse)
 that can be used to get the next page of results in subsequent list requests.
 
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
@@ -132,7 +135,6 @@ ID of the Workflow. ||
 
 Status of the Workflow execution
 
-- `STATUS_UNSPECIFIED`
 - `QUEUED`: Workflow execution is being queued.
 - `RUNNING`: Workflow execution is running.
 - `PAUSED`: Workflow execution is being paused.

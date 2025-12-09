@@ -11,7 +11,7 @@ Error loading data.
 
 This error means that a connection to the database could not be established.
 
-To fix the error, check the [connection](../../concepts/connection.md) settings:
+To fix the error, check the [connection](../../concepts/connection/index.md) settings:
 
 * Make sure the data specified in the connection is correct: **Host name**, **HTTP interface port**, **Username**, and **Password**. If required, check them with your administrator.
 * If the specified port only works over HTTP, disable the **HTTPS** connection option.

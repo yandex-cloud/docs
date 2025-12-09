@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the asymmetric KMS key to use for signature.
+            The maximum string length in characters is 50.
           type: string
       required:
         - keyId
@@ -23,6 +24,7 @@ apiPlayground:
             **string** (bytes)
             Required field. Message to sign.
             Should be encoded with base64.
+            The maximum string length in characters is 32768.
           type: string
           format: bytes
       required:
@@ -48,7 +50,9 @@ POST https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}:sign
 ||Field | Description ||
 || keyId | **string**
 
-Required field. ID of the asymmetric KMS key to use for signature. ||
+Required field. ID of the asymmetric KMS key to use for signature.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricSignRequest}
@@ -64,7 +68,9 @@ Required field. ID of the asymmetric KMS key to use for signature. ||
 || message | **string** (bytes)
 
 Required field. Message to sign.
-Should be encoded with base64. ||
+Should be encoded with base64.
+
+The maximum string length in characters is 32768. ||
 |#
 
 ## Response {#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricSignResponse}

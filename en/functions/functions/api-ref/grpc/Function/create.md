@@ -32,13 +32,19 @@ To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/
 || name | **string**
 
 Name of the function.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the function. ||
+Description of the function.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -151,13 +157,19 @@ ID of the folder that the function belongs to. ||
 Creation timestamp for the function. ||
 || name | **string**
 
-Name of the function. The name is unique within the folder. ||
+Name of the function. The name is unique within the folder.
+
+The string length in characters must be 3-63. ||
 || description | **string**
 
-Description of the function. ||
+Description of the function.
+
+The string length in characters must be 0-256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Function labels as `key:value` pairs. ||
+Function labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || http_invoke_url | **string**
 
 URL that needs to be requested to invoke the function. ||
@@ -165,7 +177,6 @@ URL that needs to be requested to invoke the function. ||
 
 Status of the function.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Function is being created.
 - `ACTIVE`: Function is ready to be invoked.
 - `DELETING`: Function is being deleted.

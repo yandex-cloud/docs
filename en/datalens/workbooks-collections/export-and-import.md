@@ -33,7 +33,7 @@ To export a workbook:
 
    * Workbooks are exported to a JSON file.
    * This may take a few minutes.
-   * Sensitive [connection](../concepts/connection.md) data is not saved. During [import](#import-workbook), the user will have to set up connections again, e.g., specify a token or enter a password, and for connections to a [file](../operations/connection/create-file.md), [Yandex Documents](../operations/connection/create-yadocs.md), or [Google Sheets](../operations/connection/create-google-sheets.md), reupload the data.
+   * Sensitive [connection](../concepts/connection/index.md) data is not saved. During [import](#import-workbook), the user will have to set up connections again, e.g., specify a token or enter a password, and for connections to a [file](../operations/connection/create-file.md), [Yandex Documents](../operations/connection/create-yadocs.md), or [Google Sheets](../operations/connection/create-google-sheets.md), reupload the data.
    * Other {{ datalens-short-name }} versions may not support certain connection types. During import, such connection will not work.
    
    If you try to close the indicator window before the export is complete, you will get the cancel export warning. Select:
@@ -82,7 +82,7 @@ When transferring workbooks with connections to a [file](../operations/connectio
 * In a connection to a file, select the data file.
 * In connections to Yandex Documents and Google Sheets, specify a link to the data file.
 
-When transferring workbooks with connections to [managed databases](../concepts/connection.md#db) created in `Select in organization` mode, they will be imported manually (`Specify manually`). If you need to, complete the connection setup manually after import.
+When transferring workbooks with connections to [managed databases](../concepts/connection/index.md#db) created in `Select in organization` mode, they will be imported manually (`Specify manually`). If you need to, complete the connection setup manually after import.
 
 {% endnote %}
 

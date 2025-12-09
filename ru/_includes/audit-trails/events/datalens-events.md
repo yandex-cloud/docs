@@ -8,7 +8,7 @@
 `CreateColorPalette` | Создание [цветовой палитры](../../../datalens/operations/chart/create-palette.md)
 `CreateEmbed` | Создание встраивания
 `CreateEmbeddingSecret` | Создание ключа для [встраивания](../../../datalens/security/embedded-objects.md)
-`CreateEntry`                    | Создание объекта. Объект (`Entry`) — общее обозначение для [подключений](../../../datalens/concepts/connection.md), [датасетов](../../../datalens/dataset/index.md), [чартов](../../../datalens/concepts/chart/index.md), [дашбордов](../../../datalens/concepts/dashboard.md), [отчетов](../../../datalens/reports/index.md) и папок
+`CreateEntry`                    | Создание объекта. Объект (`Entry`) — общее обозначение для [подключений](../../../datalens/concepts/connection/index.md), [датасетов](../../../datalens/dataset/index.md), [чартов](../../../datalens/concepts/chart/index.md), [дашбордов](../../../datalens/concepts/dashboard.md), [отчетов](../../../datalens/reports/index.md) и папок
 `CreateWorkbook`               | Создание воркбука
 `DeleteCollections`              | Удаление коллекций
 `DeleteColorPalette` | Удаление цветовой палитры

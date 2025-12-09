@@ -43,7 +43,7 @@ When using SQL queries in datasets, we recommend:
 * Limiting to `read-only` the permissions of the user stated in the connection.
 * Granting the `Execute` access permission for the connection and associated datasets to users who should have no ad-hoc query privileges.
 
-You can enable or disable the use of subqueries as a source when [creating](../concepts/connection.md) or editing a connection.
+You can enable or disable the use of subqueries as a source when [creating](../concepts/connection/index.md) or editing a connection.
 
 
 ## Parameterization of dataset sources {#parametrization}

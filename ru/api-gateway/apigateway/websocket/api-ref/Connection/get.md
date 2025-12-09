@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the connection to get.
+            The maximum string length in characters is 50.
           type: string
       required:
         - connectionId
@@ -36,7 +37,9 @@ GET https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/conne
 ||Field | Description ||
 || connectionId | **string**
 
-Required field. ID of the connection to get. ||
+Required field. ID of the connection to get.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.serverless.apigateway.websocket.v1.Connection}

@@ -13,6 +13,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Отключить зоны доступности {#disable-zone}
 
+{% include [disable-zone-ig-nlb-alb](../../../_includes/instance-groups/disable-zone-ig-nlb-alb.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -126,6 +128,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Включить зоны доступности {#enable-zone}
 
+{% include [enable-zone-ig-nlb-alb](../../../_includes/instance-groups/enable-zone-ig-nlb-alb.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -207,3 +211,8 @@ description: Следуя данной инструкции, вы сможете
     ```
       
 {% endlist %}
+
+### См. также {#see-also}
+
+* [Отключить и включить зоны доступности для группы ВМ {{ compute-full-name }}](../../../compute/operations/instance-groups/disable-enable-zone.md)
+* [Отключить и включить зоны доступности в {{ alb-full-name }}](../../../application-load-balancer/operations/manage-zone/start-and-cancel-shift.md)

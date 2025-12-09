@@ -499,7 +499,7 @@ Shortly after creating the trigger, you can check how it works.
 
 ## Configure monitoring in {{ datalens-name }} {#configure-datalens}
 
-To monitor the state of your devices, configure a [connection](../../datalens/concepts/connection.md), create a [dataset](../../datalens/dataset/index.md), [charts](../../datalens/concepts/chart/index.md), and a [dashboard](../../datalens/concepts/dashboard.md).
+To monitor the state of your devices, configure a [connection](../../datalens/concepts/connection/index.md), create a [dataset](../../datalens/dataset/index.md), [charts](../../datalens/concepts/chart/index.md), and a [dashboard](../../datalens/concepts/dashboard.md).
 
 ### Set up a connection to {{ mpg-name }} {#connect-mpg}
 
@@ -512,7 +512,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
   1. Click **Create connection**.
   1. Select the **{{ PG }}** connector.
 
-      When connecting to an external data source (which is not a {{ yandex-cloud }} resource), grant access to the source [for the {{ datalens-name }} IP address ranges](../../datalens/concepts/connection.md#changing-connection-ranges).
+      When connecting to an external data source (which is not a {{ yandex-cloud }} resource), grant access to the source [for the {{ datalens-name }} IP address ranges](../../datalens/concepts/connection/index.md#changing-connection-ranges).
 
   1. Select a cloud and folder.
   1. Select the `my-pg-database` cluster and a host.

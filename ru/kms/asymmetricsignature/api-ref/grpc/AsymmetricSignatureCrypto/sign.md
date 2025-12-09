@@ -24,11 +24,15 @@ Signs data specified KMS key.
 ||Field | Description ||
 || key_id | **string**
 
-Required field. ID of the asymmetric KMS key to use for signature. ||
+Required field. ID of the asymmetric KMS key to use for signature.
+
+The maximum string length in characters is 50. ||
 || message | **bytes**
 
 Required field. Message to sign.
-Should be encoded with base64. ||
+Should be encoded with base64.
+
+The maximum string length in characters is 32768. ||
 |#
 
 ## AsymmetricSignResponse {#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricSignResponse}

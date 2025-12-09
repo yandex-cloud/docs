@@ -24,10 +24,14 @@ Deletes the specified Trino Catalog.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Trino Cluster resource which contains the requested catalog. ||
+Required field. ID of the Trino Cluster resource which contains the requested catalog.
+
+The maximum string length in characters is 50. ||
 || catalog_id | **string**
 
-Required field. ID of the Trino Catalog resource. ||
+Required field. ID of the Trino Catalog resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

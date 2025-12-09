@@ -12,7 +12,7 @@ If you create or copy a directory or object, the permissions for them are inheri
 
 You can grant users access to a directory or any service object:
 
-* [Connection](../concepts/connection.md)
+* [Connection](../concepts/connection/index.md)
 * [Dataset](../dataset/index.md)
 * [Chart](../concepts/chart/index.md)
 * [Dashboard](../concepts/dashboard.md)

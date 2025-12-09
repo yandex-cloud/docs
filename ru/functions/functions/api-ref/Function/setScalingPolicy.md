@@ -24,6 +24,7 @@ apiPlayground:
             **string**
             Required field. Version tag.
             To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request.
+            Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
           pattern: '[a-z][-_0-9a-z]*|[$]latest'
           type: string
         provisionedInstancesCount:
@@ -31,6 +32,7 @@ apiPlayground:
             **string** (int64)
             Minimum guaranteed provisioned instances count for all zones in total.
             Billed separately.
+            The minimum value is 0.
           type: string
           format: int64
         zoneInstancesLimit:
@@ -38,6 +40,7 @@ apiPlayground:
             **string** (int64)
             Upper limit for instance count in each zone.
             0 means no limit.
+            The minimum value is 0.
           type: string
           format: int64
         zoneRequestsLimit:
@@ -45,6 +48,7 @@ apiPlayground:
             **string** (int64)
             Upper limit of requests count in each zone.
             0 means no limit.
+            The minimum value is 0.
           type: string
           format: int64
       required:
@@ -92,19 +96,27 @@ To get a function ID, make a [FunctionService.List](/docs/functions/functions/ap
 
 Required field. Version tag.
 
-To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request. ||
+To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request.
+
+Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `. ||
 || provisionedInstancesCount | **string** (int64)
 
 Minimum guaranteed provisioned instances count for all zones in total.
-Billed separately. ||
+Billed separately.
+
+The minimum value is 0. ||
 || zoneInstancesLimit | **string** (int64)
 
 Upper limit for instance count in each zone.
-0 means no limit. ||
+0 means no limit.
+
+The minimum value is 0. ||
 || zoneRequestsLimit | **string** (int64)
 
 Upper limit of requests count in each zone.
-0 means no limit. ||
+0 means no limit.
+
+The minimum value is 0. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -56,7 +56,6 @@ ID of the folder that the network belongs to. ||
 
 Status of the network.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Network is connecting to its first serverless resource.
 - `ACTIVE`: Network is already being used by some serverless resources.
 - `OBSOLETE`: Network is no longer used by any serverless resources.

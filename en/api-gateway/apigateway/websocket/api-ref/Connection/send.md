@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the connection to which send.
+            The maximum string length in characters is 50.
           type: string
       required:
         - connectionId
@@ -22,13 +23,13 @@ apiPlayground:
           description: |-
             **string** (bytes)
             Required field. Data to send.
+            The maximum string length in characters is 131072.
           type: string
           format: bytes
         type:
           description: |-
             **enum** (DataType)
             Type of the sending data.
-            - `DATA_TYPE_UNSPECIFIED`
             - `BINARY`: Binary data.
             - `TEXT`: Text data.
           type: string
@@ -59,7 +60,9 @@ POST https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/conn
 ||Field | Description ||
 || connectionId | **string**
 
-Required field. ID of the connection to which send. ||
+Required field. ID of the connection to which send.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.serverless.apigateway.websocket.v1.SendToConnectionRequest}
@@ -75,12 +78,13 @@ Required field. ID of the connection to which send. ||
 ||Field | Description ||
 || data | **string** (bytes)
 
-Required field. Data to send. ||
+Required field. Data to send.
+
+The maximum string length in characters is 131072. ||
 || type | **enum** (DataType)
 
 Type of the sending data.
 
-- `DATA_TYPE_UNSPECIFIED`
 - `BINARY`: Binary data.
 - `TEXT`: Text data. ||
 |#

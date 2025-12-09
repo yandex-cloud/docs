@@ -28,22 +28,32 @@ Re-encrypts a ciphertext with the specified KMS key.
 ||Field | Description ||
 || key_id | **string**
 
-Required field. ID of the new key to be used for encryption. ||
+Required field. ID of the new key to be used for encryption.
+
+The maximum string length in characters is 50. ||
 || version_id | **string**
 
 ID of the version of the new key to be used for encryption.
-Defaults to the primary version if not specified. ||
+Defaults to the primary version if not specified.
+
+The maximum string length in characters is 50. ||
 || aad_context | **bytes**
 
 Additional authenticated data to be required for decryption.
-Should be encoded with base64. ||
+Should be encoded with base64.
+
+The maximum string length in characters is 8192. ||
 || source_key_id | **string**
 
-Required field. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key. ||
+Required field. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key.
+
+The maximum string length in characters is 50. ||
 || source_aad_context | **bytes**
 
 Additional authenticated data provided with the initial encryption request.
-Should be encoded with base64. ||
+Should be encoded with base64.
+
+The maximum string length in characters is 8192. ||
 || ciphertext | **bytes**
 
 Required field. Ciphertext to re-encrypt.

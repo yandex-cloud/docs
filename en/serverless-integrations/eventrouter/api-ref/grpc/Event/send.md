@@ -29,7 +29,9 @@ Send events to bus.
 Required field. ID of the connector to send events. ||
 || message[] | **string**
 
-Batch of events bodies. ||
+Batch of events bodies.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 262144. ||
 |#
 
 ## google.protobuf.Empty {#google.protobuf.Empty}

@@ -281,6 +281,10 @@ items:
                 href: apigateway/api-ref/grpc/ApiGateway/update.md
               - name: Delete
                 href: apigateway/api-ref/grpc/ApiGateway/delete.md
+              - name: Resume
+                href: apigateway/api-ref/grpc/ApiGateway/resume.md
+              - name: Stop
+                href: apigateway/api-ref/grpc/ApiGateway/stop.md
               - name: AddDomain
                 href: apigateway/api-ref/grpc/ApiGateway/addDomain.md
               - name: RemoveDomain
@@ -321,6 +325,10 @@ items:
                 href: apigateway/api-ref/ApiGateway/update.md
               - name: Delete
                 href: apigateway/api-ref/ApiGateway/delete.md
+              - name: Resume
+                href: apigateway/api-ref/ApiGateway/resume.md
+              - name: Stop
+                href: apigateway/api-ref/ApiGateway/stop.md
               - name: AddDomain
                 href: apigateway/api-ref/ApiGateway/addDomain.md
               - name: RemoveDomain

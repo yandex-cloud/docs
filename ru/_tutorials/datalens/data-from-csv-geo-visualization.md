@@ -9,7 +9,7 @@
 
 
 
-* работать с основными сущностями {{ datalens-short-name }}: [подключения](../../datalens/concepts/connection.md), [датасеты](../../datalens/dataset/index.md), [чарты](../../datalens/concepts/chart/index.md), [дашборды](../../datalens/concepts/dashboard.md);
+* работать с основными сущностями {{ datalens-short-name }}: [подключения](../../datalens/concepts/connection/index.md), [датасеты](../../datalens/dataset/index.md), [чарты](../../datalens/concepts/chart/index.md), [дашборды](../../datalens/concepts/dashboard.md);
 * объединять несколько источников на уровне одного датасета;
 * работать с типом данных `Дата и время`, изменять группировку на уровне чарта;
 * работать с геоданными: геоточками и геополигонами;
@@ -51,7 +51,7 @@
 
 ## Создайте подключение к файлам {#create-connection}
 
-Создайте [подключение](../../datalens/concepts/connection.md) к файлам с исходными данными:
+Создайте [подключение](../../datalens/concepts/connection/index.md) к файлам с исходными данными:
 
 
 1. В правом верхнем углу воркбука нажмите **Создать** → ![image](../../_assets/console-icons/thunderbolt.svg) **Подключение**.

@@ -434,6 +434,12 @@ items:
                 href: workflows/api-ref/grpc/Workflow/list.md
               - name: ListOperations
                 href: workflows/api-ref/grpc/Workflow/listOperations.md
+              - name: ListAccessBindings
+                href: workflows/api-ref/grpc/Workflow/listAccessBindings.md
+              - name: SetAccessBindings
+                href: workflows/api-ref/grpc/Workflow/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: workflows/api-ref/grpc/Workflow/updateAccessBindings.md
       - name: REST
         items:
           - name: Overview
@@ -478,6 +484,12 @@ items:
                 href: workflows/api-ref/Workflow/list.md
               - name: ListOperations
                 href: workflows/api-ref/Workflow/listOperations.md
+              - name: ListAccessBindings
+                href: workflows/api-ref/Workflow/listAccessBindings.md
+              - name: SetAccessBindings
+                href: workflows/api-ref/Workflow/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: workflows/api-ref/Workflow/updateAccessBindings.md
   - name: '{{ er-name }} API reference'
     items:
       - name: API authentication

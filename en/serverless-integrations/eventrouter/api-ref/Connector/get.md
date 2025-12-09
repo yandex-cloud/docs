@@ -126,7 +126,6 @@ Deletion protection. ||
 
 Status of the connector.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`
 - `STOPPED`: disabled by user
 - `RESOURCE_NOT_FOUND`: source does not exist
@@ -186,13 +185,17 @@ Required field. Queue ARN.
 Example: yrn:yc:ymq:ru-central1:aoe***:test ||
 || serviceAccountId | **string**
 
-Required field. Service account which has read access to the queue. ||
+Required field. Service account which has read access to the queue.
+
+The maximum string length in characters is 50. ||
 || visibilityTimeout | **string** (duration)
 
 Queue visibility timeout override. ||
 || batchSize | **string** (int64)
 
-Batch size for polling. ||
+Batch size for polling.
+
+The maximum value is 10. ||
 || pollingTimeout | **string** (duration)
 
 Queue polling timeout. ||
@@ -204,11 +207,15 @@ Queue polling timeout. ||
 ||Field | Description ||
 || cronExpression | **string**
 
-Required field. cron expression, with second precision ||
+Required field. cron expression, with second precision
+
+The maximum string length in characters is 100. ||
 || timeZone | **string**
 
 time zone, e.g. Europe/Moscow ||
 || payload | **string**
 
-payload to send to target ||
+payload to send to target
+
+The maximum string length in characters is 4096. ||
 |#

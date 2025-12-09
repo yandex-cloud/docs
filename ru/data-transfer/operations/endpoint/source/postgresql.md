@@ -388,6 +388,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Не хватает слотов репликации в базе данных источника](#replication-slots)
 * [Перестали переноситься данные после изменения эндпоинта-источника](#no-data-transfer)
 * [Ошибка трансфера при смене хоста-мастера](#master-change)
+* [Не хватает истории в WAL для продолжения репликации при смене хоста-мастера](#no-wal-story)
 * [Ошибка при трансфере вложенных транзакций](#inner-tables)
 * [Ошибка трансфера таблиц с отложенными ограничениями](#deferrable-constr)
 * [Не удается создать слот репликации на стадии активации](#lock-replication)
@@ -421,6 +422,8 @@ description: Из статьи вы узнаете, как задать наст
 {% include [no-data-transfer](../../../../_includes/data-transfer/troubles/postgresql/no-data-transfer.md) %}
 
 {% include [master-change](../../../../_includes/data-transfer/troubles/postgresql/master-change.md) %}
+
+{% include [no-wal-story](../../../../_includes/data-transfer/troubles/postgresql/no-wal-story.md) %}
 
 {% include [inner-tables](../../../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
 

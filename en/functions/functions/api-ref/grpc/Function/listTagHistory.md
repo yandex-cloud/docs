@@ -32,17 +32,23 @@ Required field. ID of the function to retrieve tag history for.
 To get a function ID, make a [FunctionService.List](/docs/functions/functions/api-ref/grpc/Function/list#List) request. ||
 || tag | **string**
 
-Specific tag that history should be limited to. ||
+Specific tag that history should be limited to.
+
+Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token](/docs/functions/functions/api-ref/grpc/Function/listOperations#yandex.cloud.serverless.functions.v1.ListFunctionOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListFunctionOperationsResponse.next_page_token](/docs/functions/functions/api-ref/grpc/Function/listOperations#yandex.cloud.serverless.functions.v1.ListFunctionOperationsResponse) returned by a previous list request. ||
+[ListFunctionOperationsResponse.next_page_token](/docs/functions/functions/api-ref/grpc/Function/listOperations#yandex.cloud.serverless.functions.v1.ListFunctionOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -51,7 +57,9 @@ The expression must specify:
 1. The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effective_from](#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse.FunctionTagHistoryRecord) and [FunctionTagHistoryRecord.effective_to](#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse.FunctionTagHistoryRecord) fields.
 2. An `=` or `>` or `<` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-For example, `effective_to>2021-01-01T12:00:00Z`. ||
+For example, `effective_to>2021-01-01T12:00:00Z`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListFunctionTagHistoryResponse {#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse}

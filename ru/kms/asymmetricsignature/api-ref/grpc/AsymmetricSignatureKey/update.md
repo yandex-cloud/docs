@@ -30,22 +30,27 @@ Updates the specified asymmetric KMS key.
 || key_id | **string**
 
 Required field. ID of the asymmetric KMS key to update.
-To get the ID of a asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/list#List) request. ||
+To get the ID of a asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Field mask that specifies which attributes of the asymmetric KMS key are going to be updated. ||
 || name | **string**
 
-New name for the asymmetric KMS key. ||
+New name for the asymmetric KMS key.
+
+The maximum string length in characters is 100. ||
 || description | **string**
 
-New description for the asymmetric KMS key. ||
+New description for the asymmetric KMS key.
+
+The maximum string length in characters is 1024. ||
 || status | enum **Status**
 
 New status for the asymmetric KMS key.
 Using the [AsymmetricSignatureKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
@@ -53,7 +58,9 @@ Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
 Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key. ||
+Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || deletion_protection | **bool**
 
 Flag that inhibits deletion of the asymmetric KMS key ||
@@ -181,7 +188,6 @@ Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
@@ -191,7 +197,6 @@ Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
 
 Signature Algorithm ID.
 
-- `ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
 - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
 - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512

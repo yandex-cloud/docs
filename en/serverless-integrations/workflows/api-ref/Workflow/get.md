@@ -120,7 +120,6 @@ Workflow labels as `key:value` pairs. ||
 
 Status of the Workflow.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Workflow is being created.
 - `ACTIVE`: Workflow is ready for use.
 - `UPDATING`: Workflow is being updated.
@@ -177,9 +176,6 @@ Minimum logs level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -206,7 +202,9 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 ||Field | Description ||
 || cronExpression | **string**
 
-Required field. Cron expression for the Workflow schedule. ||
+Required field. Cron expression for the Workflow schedule.
+
+The maximum string length in characters is 100. ||
 || timezone | **string**
 
 Required field. Timezone for the Workflow schedule. ||

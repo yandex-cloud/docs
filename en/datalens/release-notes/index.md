@@ -96,7 +96,7 @@ description: Check out {{ datalens-full-name }} release notes for October 2025.
 
 * Fixed the `Minified error` that occurred when using the dashboard in some browsers.
 * Fixed an error that occurred when editing a [calculated field](../concepts/calculations/index.md#how-to-create-calculated-field) formula in a chart with grouping already added.
-* Fixed the display of validation errors when creating a [connection](../concepts/connection.md).
+* Fixed the display of validation errors when creating a [connection](../concepts/connection/index.md).
 
 
 * The error when attempting to create a workbook or collection with an existing name is now displayed more clearly and in the language configured by the user.

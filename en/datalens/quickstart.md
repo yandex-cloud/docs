@@ -21,7 +21,7 @@ This section outlines how you can connect to a data source, create your first [d
 
 ## Create a connection {#create-connection}
 
-[Connections](./concepts/connection.md) contain information about data source access parameters, such as the DB host IP address and port. You can create datasets based on connections.
+[Connections](./concepts/connection/index.md) contain information about data source access parameters, such as the DB host IP address and port. You can create datasets based on connections.
 
 To create a connection:
 

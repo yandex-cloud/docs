@@ -27,17 +27,23 @@ Lists operations for the specified asymmetric KMS key.
 
 Required field. ID of the symmetric KMS key to get operations for.
 
-To get the key ID, use a [AsymmetricKeyEncryptionService.List] request. ||
+To get the key ID, use a [AsymmetricKeyEncryptionService.List] request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListAsymmetricEncryptionKeyOperationsResponse.next_page_token](#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeyOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListAsymmetricKeyOperationsResponse.next_page_token] returned by a previous list request. ||
+[ListAsymmetricKeyOperationsResponse.next_page_token] returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListAsymmetricEncryptionKeyOperationsResponse {#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeyOperationsResponse}

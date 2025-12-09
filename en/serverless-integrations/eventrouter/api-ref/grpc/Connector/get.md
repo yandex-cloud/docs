@@ -104,7 +104,6 @@ Deletion protection. ||
 
 Status of the connector.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`
 - `STOPPED`: disabled by user
 - `RESOURCE_NOT_FOUND`: source does not exist
@@ -164,13 +163,17 @@ Required field. Queue ARN.
 Example: yrn:yc:ymq:ru-central1:aoe***:test ||
 || service_account_id | **string**
 
-Required field. Service account which has read access to the queue. ||
+Required field. Service account which has read access to the queue.
+
+The maximum string length in characters is 50. ||
 || visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Queue visibility timeout override. ||
 || batch_size | **int64**
 
-Batch size for polling. ||
+Batch size for polling.
+
+The maximum value is 10. ||
 || polling_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Queue polling timeout. ||
@@ -182,13 +185,17 @@ Queue polling timeout. ||
 ||Field | Description ||
 || cron_expression | **string**
 
-Required field. cron expression, with second precision ||
+Required field. cron expression, with second precision
+
+The maximum string length in characters is 100. ||
 || time_zone | **string**
 
 time zone, e.g. Europe/Moscow ||
 || payload | **string**
 
-payload to send to target ||
+payload to send to target
+
+The maximum string length in characters is 4096. ||
 |#
 
 ## EventServiceSource {#yandex.cloud.serverless.eventrouter.v1.EventServiceSource}

@@ -23,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             Description of the version
+            The string length in characters must be 0-256.
           type: string
         entrypoint:
           description: |-
@@ -57,6 +58,7 @@ apiPlayground:
           description: |-
             **string** (bytes)
             Content of the deployment package.
+            The maximum string length in characters is 52428800.
             Includes only one of the fields `package`, `content`, `versionId`.
             Source of the deployment package for the version.
           type: string
@@ -73,6 +75,7 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Environment settings for the version.
+            The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
           type: object
           additionalProperties:
             type: string
@@ -84,6 +87,7 @@ apiPlayground:
           description: |-
             **string**
             Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag).
+            Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
           pattern: '[a-z][-_0-9a-z]*'
           type: array
           items:
@@ -136,6 +140,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of requests processed by a function instance at the same time
+            Acceptable values are 0 to 16, inclusive.
           type: string
           format: int64
         mounts:
@@ -172,6 +177,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Amount of memory available to the version, specified in bytes, multiple of 128MB.
+              Acceptable values are 134217728 to 8589934592, inclusive.
             type: string
             format: int64
       Package:
@@ -209,6 +215,7 @@ apiPlayground:
               **string**
               Complete list of subnets (from the same network) the version can be attached to.
               It's essential to specify at least one subnet for each availability zones.
+              The string length in characters for each value must be greater than 0.
             uniqueItems: true
             type: array
             items:
@@ -252,6 +259,7 @@ apiPlayground:
             description: |-
               **string**
               Entry should be written to log group resolved by ID.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `logGroupId`, `folderId`.
               Log entries destination.
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
@@ -260,6 +268,7 @@ apiPlayground:
             description: |-
               **string**
               Entry should be written to default log group for specified folder.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `logGroupId`, `folderId`.
               Log entries destination.
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
@@ -269,8 +278,6 @@ apiPlayground:
               **enum** (Level)
               Minimum log entry level.
               See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-              - `LEVEL_UNSPECIFIED`: Default log level.
-                Equivalent to not specifying log level at all.
               - `TRACE`: Trace log level.
                 Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
@@ -304,6 +311,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. S3 bucket name for mounting.
+              The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
             pattern: '[-.0-9a-zA-Z]*'
             type: string
           prefix:
@@ -315,6 +323,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Mount point directory name (not path) for mounting.
+              The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
             pattern: '[-_0-9a-zA-Z]*'
             type: string
           readOnly:
@@ -340,6 +349,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Service account which has write permission on the queue.
+              The maximum string length in characters is 50.
             type: string
         required:
           - queueArn
@@ -371,6 +381,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Number of retries of version invocation
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
           successTarget:
@@ -398,6 +409,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ObjectStorage bucket name for mounting.
+              The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
             pattern: '[-.0-9a-zA-Z]*'
             type: string
           prefix:
@@ -414,6 +426,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               The size of disk for mount in bytes
+              Value must be greater than 0.
             type: string
             format: int64
           blockSize:
@@ -429,13 +442,13 @@ apiPlayground:
             description: |-
               **string**
               Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt;
+              The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
             pattern: '[-_0-9a-zA-Z]*'
             type: string
           mode:
             description: |-
               **enum** (Mode)
               Mount's mode
-              - `MODE_UNSPECIFIED`
               - `READ_ONLY`
               - `READ_WRITE`
             type: string
@@ -471,7 +484,6 @@ apiPlayground:
             description: |-
               **enum** (MetadataOption)
               Enabled access to GCE flavored metadata
-              - `METADATA_OPTION_UNSPECIFIED`: Option is default
               - `ENABLED`: Option is enabled
               - `DISABLED`: Option is disabled
             type: string
@@ -483,7 +495,6 @@ apiPlayground:
             description: |-
               **enum** (MetadataOption)
               Enabled access to AWS flavored metadata (IMDSv1)
-              - `METADATA_OPTION_UNSPECIFIED`: Option is default
               - `ENABLED`: Option is enabled
               - `DISABLED`: Option is disabled
             type: string
@@ -622,7 +633,9 @@ To get a function ID, make a [FunctionService.List](/docs/functions/functions/ap
 Required field. Runtime environment for the version. ||
 || description | **string**
 
-Description of the version ||
+Description of the version
+
+The string length in characters must be 0-256. ||
 || entrypoint | **string**
 
 Required field. Entrypoint of the version. ||
@@ -648,6 +661,8 @@ Source of the deployment package for the version. ||
 
 Content of the deployment package.
 
+The maximum string length in characters is 52428800.
+
 Includes only one of the fields `package`, `content`, `versionId`.
 
 Source of the deployment package for the version. ||
@@ -661,10 +676,14 @@ Includes only one of the fields `package`, `content`, `versionId`.
 Source of the deployment package for the version. ||
 || environment | **object** (map<**string**, **string**>)
 
-Environment settings for the version. ||
+Environment settings for the version.
+
+The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `. ||
 || tag[] | **string**
 
-Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). ||
+Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag).
+
+Each value must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
 
 Function version connectivity. If specified the version will be attached to specified network/subnet(s). ||
@@ -691,7 +710,9 @@ Available for versions with resources.memory greater or equal to 1024 MiB.
 0 or in range from 512 MiB to 3/4 of resources.memory. ||
 || concurrency | **string** (int64)
 
-The maximum number of requests processed by a function instance at the same time ||
+The maximum number of requests processed by a function instance at the same time
+
+Acceptable values are 0 to 16, inclusive. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.functions.v1.Mount)**
 
 Mounts to be used by the version. ||
@@ -708,7 +729,9 @@ Resources allocated to a version.
 ||Field | Description ||
 || memory | **string** (int64)
 
-Amount of memory available to the version, specified in bytes, multiple of 128MB. ||
+Amount of memory available to the version, specified in bytes, multiple of 128MB.
+
+Acceptable values are 134217728 to 8589934592, inclusive. ||
 |#
 
 ## Package {#yandex.cloud.serverless.functions.v1.Package}
@@ -741,7 +764,9 @@ It's essential to specify network with subnets in all availability zones. ||
 || subnetId[] | **string**
 
 Complete list of subnets (from the same network) the version can be attached to.
-It's essential to specify at least one subnet for each availability zones. ||
+It's essential to specify at least one subnet for each availability zones.
+
+The string length in characters for each value must be greater than 0. ||
 |#
 
 ## Secret {#yandex.cloud.serverless.functions.v1.Secret}
@@ -777,12 +802,16 @@ Is logging from function disabled. ||
 
 Entry should be written to log group resolved by ID.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
 || folderId | **string**
 
 Entry should be written to default log group for specified folder.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -793,9 +822,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -822,13 +848,17 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 ||Field | Description ||
 || bucketId | **string**
 
-Required field. S3 bucket name for mounting. ||
+Required field. S3 bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 S3 bucket prefix for mounting. ||
 || mountPointName | **string**
 
-Required field. Mount point directory name (not path) for mounting. ||
+Required field. Mount point directory name (not path) for mounting.
+
+The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `. ||
 || readOnly | **boolean**
 
 Is mount read only. ||
@@ -840,7 +870,9 @@ Is mount read only. ||
 ||Field | Description ||
 || retriesCount | **string** (int64)
 
-Number of retries of version invocation ||
+Number of retries of version invocation
+
+Acceptable values are 0 to 100, inclusive. ||
 || successTarget | **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
 
 Required field. Target for successful result of the version's invocation ||
@@ -879,7 +911,9 @@ Includes only one of the fields `emptyTarget`, `ymqTarget`. ||
 Required field. Queue ARN ||
 || serviceAccountId | **string**
 
-Required field. Service account which has write permission on the queue. ||
+Required field. Service account which has write permission on the queue.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Mount {#yandex.cloud.serverless.functions.v1.Mount}
@@ -890,12 +924,13 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || name | **string**
 
-Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt; ||
+Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt;
+
+The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `. ||
 || mode | **enum** (Mode)
 
 Mount's mode
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`
 - `READ_WRITE` ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
@@ -922,7 +957,9 @@ ObjectStorage as a mount
 ||Field | Description ||
 || bucketId | **string**
 
-Required field. ObjectStorage bucket name for mounting. ||
+Required field. ObjectStorage bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 ObjectStorage bucket prefix for mounting. ||
@@ -936,7 +973,9 @@ Disk as a mount
 ||Field | Description ||
 || size | **string** (int64)
 
-The size of disk for mount in bytes ||
+The size of disk for mount in bytes
+
+Value must be greater than 0. ||
 || blockSize | **string** (int64)
 
 Optional block size of disk for mount in bytes ||
@@ -950,14 +989,12 @@ Optional block size of disk for mount in bytes ||
 
 Enabled access to GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || awsV1HttpEndpoint | **enum** (MetadataOption)
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 |#
@@ -1194,7 +1231,9 @@ ID of the version. ||
 ID of the function that the version belongs to. ||
 || description | **string**
 
-Description of the version. ||
+Description of the version.
+
+The string length in characters must be 0-256. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp for the version.
@@ -1233,7 +1272,6 @@ Final size of the deployment package after unpacking. ||
 
 Status of the version.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Version is being created.
 - `ACTIVE`: Version is ready to use.
 - `OBSOLETE`: Version will be deleted soon.
@@ -1267,7 +1305,9 @@ Config for asynchronous invocations of the version ||
 Optional size of in-memory mounted /tmp directory in bytes. ||
 || concurrency | **string** (int64)
 
-The maximum number of requests processed by a function instance at the same time ||
+The maximum number of requests processed by a function instance at the same time
+
+Acceptable values are 0 to 16, inclusive. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.functions.v1.Mount2)**
 
 Mounts to be used by the version. ||
@@ -1284,7 +1324,9 @@ Resources allocated to a version.
 ||Field | Description ||
 || memory | **string** (int64)
 
-Amount of memory available to the version, specified in bytes, multiple of 128MB. ||
+Amount of memory available to the version, specified in bytes, multiple of 128MB.
+
+Acceptable values are 134217728 to 8589934592, inclusive. ||
 |#
 
 ## Connectivity {#yandex.cloud.serverless.functions.v1.Connectivity2}
@@ -1300,7 +1342,9 @@ It's essential to specify network with subnets in all availability zones. ||
 || subnetId[] | **string**
 
 Complete list of subnets (from the same network) the version can be attached to.
-It's essential to specify at least one subnet for each availability zones. ||
+It's essential to specify at least one subnet for each availability zones.
+
+The string length in characters for each value must be greater than 0. ||
 |#
 
 ## Secret {#yandex.cloud.serverless.functions.v1.Secret2}
@@ -1336,12 +1380,16 @@ Is logging from function disabled. ||
 
 Entry should be written to log group resolved by ID.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
 || folderId | **string**
 
 Entry should be written to default log group for specified folder.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -1352,9 +1400,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -1381,13 +1426,17 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 ||Field | Description ||
 || bucketId | **string**
 
-Required field. S3 bucket name for mounting. ||
+Required field. S3 bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 S3 bucket prefix for mounting. ||
 || mountPointName | **string**
 
-Required field. Mount point directory name (not path) for mounting. ||
+Required field. Mount point directory name (not path) for mounting.
+
+The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `. ||
 || readOnly | **boolean**
 
 Is mount read only. ||
@@ -1399,7 +1448,9 @@ Is mount read only. ||
 ||Field | Description ||
 || retriesCount | **string** (int64)
 
-Number of retries of version invocation ||
+Number of retries of version invocation
+
+Acceptable values are 0 to 100, inclusive. ||
 || successTarget | **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget2)**
 
 Required field. Target for successful result of the version's invocation ||
@@ -1438,7 +1489,9 @@ Includes only one of the fields `emptyTarget`, `ymqTarget`. ||
 Required field. Queue ARN ||
 || serviceAccountId | **string**
 
-Required field. Service account which has write permission on the queue. ||
+Required field. Service account which has write permission on the queue.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Mount {#yandex.cloud.serverless.functions.v1.Mount2}
@@ -1449,12 +1502,13 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || name | **string**
 
-Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt; ||
+Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt;
+
+The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `. ||
 || mode | **enum** (Mode)
 
 Mount's mode
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`
 - `READ_WRITE` ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage2)**
@@ -1481,7 +1535,9 @@ ObjectStorage as a mount
 ||Field | Description ||
 || bucketId | **string**
 
-Required field. ObjectStorage bucket name for mounting. ||
+Required field. ObjectStorage bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 ObjectStorage bucket prefix for mounting. ||
@@ -1495,7 +1551,9 @@ Disk as a mount
 ||Field | Description ||
 || size | **string** (int64)
 
-The size of disk for mount in bytes ||
+The size of disk for mount in bytes
+
+Value must be greater than 0. ||
 || blockSize | **string** (int64)
 
 Optional block size of disk for mount in bytes ||
@@ -1509,14 +1567,12 @@ Optional block size of disk for mount in bytes ||
 
 Enabled access to GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || awsV1HttpEndpoint | **enum** (MetadataOption)
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 |#

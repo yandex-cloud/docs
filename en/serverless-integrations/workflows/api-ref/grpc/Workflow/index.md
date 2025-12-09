@@ -17,4 +17,7 @@ Set of methods for managing Workflows.
 || [Delete](delete.md) | Deletes specified Workflow. ||
 || [List](list.md) | Retrieves list of Workflows in specified folder. ||
 || [ListOperations](listOperations.md) | Lists operations for specified Workflow. ||
+|| [ListAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified Workflow. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the Workflow. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified Workflow. ||
 |#

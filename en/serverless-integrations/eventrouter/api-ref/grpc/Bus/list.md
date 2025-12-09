@@ -112,7 +112,6 @@ Deletion protection. ||
 
 Status of the bus.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `ACTIVE`
 - `DELETING` ||
@@ -132,12 +131,16 @@ Options for logging from the bus. ||
 
 Entry will be written to log group resolved by ID.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
 || folder_id | **string**
 
 Entry will be written to default log group for specified folder.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
@@ -148,9 +151,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the symmetric KMS key to get operations for.
             To get the key ID, use a [AsymmetricKeyEncryptionService.List] request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - keyId
@@ -25,6 +26,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListAsymmetricEncryptionKeyOperationsResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeyOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -33,6 +35,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListAsymmetricKeyOperationsResponse.next_page_token] returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -58,7 +61,9 @@ GET https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys/{keyId}/operation
 
 Required field. ID of the symmetric KMS key to get operations for.
 
-To get the key ID, use a [AsymmetricKeyEncryptionService.List] request. ||
+To get the key ID, use a [AsymmetricKeyEncryptionService.List] request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeyOperationsRequest}
@@ -70,11 +75,15 @@ To get the key ID, use a [AsymmetricKeyEncryptionService.List] request. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListAsymmetricEncryptionKeyOperationsResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeyOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListAsymmetricKeyOperationsResponse.next_page_token] returned by a previous list request. ||
+[ListAsymmetricKeyOperationsResponse.next_page_token] returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeyOperationsResponse}

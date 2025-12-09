@@ -38,7 +38,7 @@ description: Версионирование датасета в {{ datalens-full
 
 * изменения на вкладке **Источники**:
 
-  * замена [подключения](../concepts/connection.md);
+  * замена [подключения](../concepts/connection/index.md);
   * [добавление данных](../dataset/create-dataset.md#add-data) на рабочую область из таблиц источника или через SQL-запрос;
   * [настройка связей](../dataset/create-dataset.md#links);
   * изменение настроек таблицы данных. Чтобы открыть окно настроек, справа от таблицы нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **Изменить настройки**.
