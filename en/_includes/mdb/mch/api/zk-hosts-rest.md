@@ -1,8 +1,8 @@
-1. [Get an IAM token for API authentication](../../../../managed-clickhouse/api-ref/authentication.md) and put it into the environment variable:
+1. [Get an IAM token for API authentication](../../../../managed-clickhouse/api-ref/authentication.md) and put it in an environment variable:
 
     {% include [api-auth-token](../../api-auth-token.md) %}
 
-1. Use the [Cluster.AddZookeeper](../../../../managed-clickhouse/api-ref/Cluster/addZookeeper.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+1. Call the [Cluster.AddZookeeper](../../../../managed-clickhouse/api-ref/Cluster/addZookeeper.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
     ```bash
     curl \
@@ -35,16 +35,16 @@
     * `resources`: Resources for {{ ZK }} hosts.
 
       * `resourcePresetId`: [Host class](../../../../managed-clickhouse/concepts/instance-types.md) ID.
-      * `diskSize`: Disk size in bytes.
+      * `diskSize`: Disk size, in bytes.
       * `diskTypeId`: [Disk type](../../../../managed-clickhouse/concepts/storage.md).
 
-    * `hostSpecs`: Array with settings for the new hosts. One array element contains settings for a single host and the cluster must have at least three {{ ZK }} hosts. An array element has the following structure:
+    * `hostSpecs`: Array of settings for the new hosts. Each array element contains settings for a single host and the cluster must have at least three {{ ZK }} hosts. An array element has the following structure:
 
-      * `type`: `ZOOKEEPER` host type.
+      * `type`: Host type, `ZOOKEEPER`.
       * `zoneId`: Availability zone.
       * `subnetId`: Subnet ID.
 
-    * `convertTablesToReplicated`: Converting non-replicated tables to [replicated](../../../../managed-clickhouse/concepts/replication.md#replicated-tables) ones, `true` or `false`. Non-replicated [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables will be automatically converted to replicated ones based on [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+    * `convertTablesToReplicated`: Converting non-replicated tables to [replicated](../../../../managed-clickhouse/concepts/replication.md#replicated-tables) ones, `true` or `false`. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
 
       {% note warning %}
 
@@ -52,6 +52,6 @@
 
       {% endnote %}
 
-    You can request the cluster ID with the [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-1. View the [server response](../../../../managed-clickhouse/api-ref/Cluster/addZookeeper.md#responses) to make sure the request was successful.
+1. View the [server response](../../../../managed-clickhouse/api-ref/Cluster/addZookeeper.md#responses) to make sure your request was successful.

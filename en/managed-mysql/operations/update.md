@@ -58,7 +58,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the host class for a cluster:
 
-  1. View the description of the CLI command for updating a cluster:
+  1. See the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -97,7 +97,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      Learn how to create this file in [Creating a cluster](./cluster-create.md).
+      For more information about creating this file, see [this guide](./cluster-create.md).
 
   1. In the {{ mmy-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
 
@@ -119,7 +119,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -157,7 +157,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       * `configSpec.resources.resourcePresetId`: New host class.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -168,7 +168,7 @@ We recommend changing the host class only when your cluster has no active worklo
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -204,7 +204,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       * `config_spec.resources.resource_preset_id`: New host class.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -237,7 +237,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. View the description of the CLI command for updating a cluster:
+  1. See the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -257,7 +257,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      Learn how to create this file in [Creating a cluster](./cluster-create.md).
+      For more information about creating this file, see [this guide](./cluster-create.md).
 
   1. Under `resources`, change the `disk_type_id` and `disk_size` parameter values:
 
@@ -280,7 +280,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -320,7 +320,7 @@ We recommend changing the host class only when your cluster has no active worklo
           * `diskTypeId`: [Disk type](../concepts/storage.md).
           * `diskSize`: New storage size, in bytes.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -331,7 +331,7 @@ We recommend changing the host class only when your cluster has no active worklo
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -370,7 +370,7 @@ We recommend changing the host class only when your cluster has no active worklo
           * `disk_type_id`: [Disk type](../concepts/storage.md).
           * `disk_size`: New storage size, in bytes.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -386,7 +386,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. Change the [{{ MY }}](../concepts/settings-list.md#dbms-cluster-settings) settings by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+  1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -396,7 +396,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To update the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings):
+  To change the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings):
 
   1. See the description of the CLI command for updating a cluster configuration:
 
@@ -406,7 +406,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Set the parameter values as needed.
 
-     All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `mysql_config_5_7` field. To specify a parameter name in the CLI call, convert its name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, convert the `logMinDurationStatement` parameter from an API request to `log_min_duration_statement` for the CLI command:
+     All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `mysql_config_5_7` field. To specify a parameter name in the CLI call, convert its name from <q>lowerCamelCase</q> to <q>snake_case</q> format. For example, convert the `logMinDurationStatement` parameter from an API request to `log_min_duration_statement` for the CLI command:
 
      ```bash
      {{ yc-mdb-my }} cluster update-config <cluster_name>
@@ -419,7 +419,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      Learn how to create this file in [Creating a cluster](./cluster-create.md).
+      For more information about creating this file, see [this guide](./cluster-create.md).
 
   1. In the {{ mmy-name }} cluster description, add or update the [DBMS settings](../concepts/settings-list.md) under `mysql_config`:
 
@@ -441,7 +441,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -484,7 +484,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
           See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -495,7 +495,7 @@ We recommend changing the host class only when your cluster has no active worklo
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -536,7 +536,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
           See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -568,7 +568,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
@@ -584,9 +584,9 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
           --datalens-access=<true_or_false> \
           --websql-access=<true_or_false> \
           --yandexquery-access=<true_or_false> \
-          --disk-size-autoscaling disk-size-limit=<maximum_storage_size_in_GB>,`
-                                 `planned-usage-threshold=<threshold_for_scheduled_increase_in_percent>,`
-                                 `emergency-usage-threshold=<threshold_for_immediate_increase_in_percent> \
+          --disk-size-autoscaling disk-size-limit=<max_storage_size_in_GB>,`
+                                 `planned-usage-threshold=<threshold_for_scheduled_expansion_in_percent>,`
+                                 `emergency-usage-threshold=<threshold_for_immediate_expansion_in_percent> \
           --maintenance-window type=<maintenance_type>,`
                               `day=<day_of_week>,`
                               `hour=<hour> \
@@ -620,7 +620,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    * `performance-diagnostics`: Enables statistics collection for [cluster performance diagnostics](performance-diagnostics.md). For `sessions-sampling-interval` and `statements-sampling-interval`, possible values range from `1` to `86400` seconds.
+    * `performance-diagnostics`: Enables statistics collection for [cluster performance diagnostics](performance-diagnostics.md). For `sessions-sampling-interval` and `statements-sampling-interval`, the valid values range from `1` to `86400` seconds.
 
     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -628,7 +628,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      Learn how to create this file in [Creating a cluster](cluster-create.md).
+      For more information on how to create this file, see [this guide](cluster-create.md).
 
   1. To change the backup start time, add the `backup_window_start` section to the {{ mmy-name }} cluster description:
 
@@ -693,7 +693,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
       }
       ```
 
-      For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
+      For `sessions_sampling_interval` and `statements_sampling_interval`, the valid values range from `1` to `86400` seconds.
 
   1. Make sure the settings are correct.
 
@@ -703,7 +703,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -740,8 +740,8 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
                   "statementsSamplingInterval": "<statement_sampling_interval>"
               },
               "diskSizeAutoscaling": {
-                  "plannedUsageThreshold": "<threshold_for_scheduled_increase_in_percent>",
-                  "emergencyUsageThreshold": "<threshold_for_immediate_increase_in_percent>",
+                  "plannedUsageThreshold": "<threshold_for_scheduled_expansion_in_percent>",
+                  "emergencyUsageThreshold": "<threshold_for_immediate_expansion_in_percent>",
                   "diskSizeLimit": "<maximum_storage_size_in_bytes>"
               }
           },
@@ -776,7 +776,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
             * `dataLens`: Access from {{ datalens-name }}. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
             * `webSql`: [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
-            * `yandexQuery`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md).
+            * `yandexQuery`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
             The possible setting values are `true` or `false`.
@@ -806,13 +806,13 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
           --data "@body.json"
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -854,8 +854,8 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
                   "statements_sampling_interval": "<statement_sampling_interval>"
               },
               "disk_size_autoscaling": {
-                  "planned_usage_threshold": "<threshold_for_scheduled_increase_in_percent>",
-                  "emergency_usage_threshold": "<threshold_for_immediate_increase_in_percent>",
+                  "planned_usage_threshold": "<threshold_for_scheduled_expansion_in_percent>",
+                  "emergency_usage_threshold": "<threshold_for_immediate_expansion_in_percent>",
                   "disk_size_limit": "<maximum_storage_size_in_bytes>"
               }
           },
@@ -890,7 +890,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
               * `data_lens`: Access from {{ datalens-name }}. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
               * `web_sql`: [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
-              * `yandex_query`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md).
+              * `yandex_query`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
               The possible setting values are `true` or `false`.
@@ -909,9 +909,9 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -943,7 +943,7 @@ The following resources will be created for each database user:
 
   The connection and secret will be created for each new database user. To view all connections, open the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
 
-  You need the `connection-manager.viewer` role to view connection info. You can [use {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md) to configure access to connections.
+  You need the `connection-manager.viewer` role to view connection info. You can [use {{ connection-manager-name }} to configure access to connections](../../metadata-hub/operations/connection-access.md).
 
   {% note info %}
 
@@ -954,9 +954,9 @@ The following resources will be created for each database user:
 
 ## Manually switching the master host {#start-manual-failover}
 
-In a [highly available {{ mmy-name }} cluster](../concepts/high-availability.md) with multiple hosts, you can switch the master role from the current master host to one of its replicas. Once you switch the role, the current master host becomes a replica host for the new master.
+In a [highly available {{ mmy-name }} cluster](../concepts/high-availability.md) with multiple hosts, you can perform a failover to switch the master role from the current master host to one of its replicas. After the failover, the current master host becomes a replica for the new master.
 
-Consider these key points when switching the master in {{ mmy-name }}:
+Consider these key points when performing a failover in {{ mmy-name }}:
 
 * You cannot promote a cascading replica to master.
 * If you do not explicitly specify the replica host name, the master will switch to the replica with the highest priority or the lowest lag.
@@ -1012,7 +1012,7 @@ To switch the master:
 
      Where `hostName` is the [FQDN of the replica](connect.md#fqdn) which becomes the master host.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1023,7 +1023,7 @@ To switch the master:
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.StartFailover](../api-ref/grpc/Cluster/startFailover.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService.StartFailover](../api-ref/grpc/Cluster/startFailover.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -1042,7 +1042,7 @@ To switch the master:
 
      Where `host_name` is the [FQDN of the replica](connect.md#fqdn) which becomes the master host.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1087,7 +1087,7 @@ To switch the master:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](./cluster-create.md).
+        For more information about creating this file, see [this guide](./cluster-create.md).
 
     1. In the {{ mmy-name }} cluster description, edit or add the `folder_id` parameter value:
 
@@ -1106,7 +1106,7 @@ To switch the master:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -1129,9 +1129,9 @@ To switch the master:
                   }'
       ```
 
-      Where `destinationFolderId` is the ID of the folder to which you are moving your cluster. You can get this ID with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
+      Where `destinationFolderId` is the ID of the folder to which you are moving your cluster. You can get this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1142,7 +1142,7 @@ To switch the master:
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Move](../api-ref/grpc/Cluster/move.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Move](../api-ref/grpc/Cluster/move.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -1159,9 +1159,9 @@ To switch the master:
           yandex.cloud.mdb.mysql.v1.ClusterService.Move
       ```
 
-      Where `destination_folder_id` is the ID of the folder to which you are moving your cluster. You can get this ID with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
+      Where `destination_folder_id` is the ID of the folder to which you are moving your cluster. You can get this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1186,7 +1186,7 @@ To switch the master:
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
@@ -1203,7 +1203,7 @@ To switch the master:
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      Learn how to create this file in [Creating a cluster](./cluster-create.md).
+      For more information about creating this file, see [this guide](./cluster-create.md).
 
   1. Edit the `security_group_ids` parameter in the {{ mmy-name }} cluster description:
 
@@ -1222,7 +1222,7 @@ To switch the master:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -1261,7 +1261,7 @@ To switch the master:
 
       * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups) provided as array elements.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1272,7 +1272,7 @@ To switch the master:
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1309,7 +1309,7 @@ To switch the master:
 
       * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups) provided as array elements
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

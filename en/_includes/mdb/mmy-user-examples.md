@@ -2,20 +2,20 @@
 
 ### Creating a user with read-only permissions {#user-read-only}
 
-To create a new user named `user2` with the `SecretPassword` password and read-only access to the `db1` database in an existing `cluster1`:
+To create a new user named `user2` with the `SecretPassword` password and read-only access to the `db1` database in the existing `cluster1`:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) named `user2`. When creating a user:
+  [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) named `user2`. When creating the user:
 
-   1. Add the `db1` database to the list of DBs.
-   1. Add the `SELECT` role for the `db1` database.
+  1. Add `db1` to the database list.
+  1. Add the `SELECT` role for `db1`.
 
 - CLI {#cli}
 
-   1. Create a user named `user2`:
+  1. Create a user named `user2`:
 
       ```bash
       yc managed-mysql user create "user2" \
@@ -23,7 +23,7 @@ To create a new user named `user2` with the `SecretPassword` password and read-o
         --password "SecretPassword"
       ```
 
-   1. Add the `SELECT` role for the `db1` database:
+  1. Add the `SELECT` role for `db1`:
 
       ```bash
       yc managed-mysql users grant-permission "user2" \
@@ -34,11 +34,11 @@ To create a new user named `user2` with the `SecretPassword` password and read-o
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about creating this file, see [{#T}](../../managed-mysql/operations/cluster-create.md).
+      For more information on how to create this file, see [this guide](../../managed-mysql/operations/cluster-create.md).
 
-   1. Add the `yandex_mdb_mysql_user` resource:
+  1. Add the `yandex_mdb_mysql_user` resource:
 
       ```hcl
       resource "yandex_mdb_mysql_user" "user2" {
@@ -53,14 +53,14 @@ To create a new user named `user2` with the `SecretPassword` password and read-o
       }
       ```
 
-   1. Make sure the settings are correct.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 {% endlist %}

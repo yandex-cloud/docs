@@ -1,12 +1,12 @@
-To configure [automatic increase of storage size](../../../../managed-mysql/concepts/storage.md#disk-size-autoscaling), add the `disk_size_autoscaling` section to the cluster description:
+To configure [automatic storage expansion](../../../../managed-mysql/concepts/storage.md#disk-size-autoscaling), add the `disk_size_autoscaling` section to the cluster description:
 
 ```hcl
 resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
   ...
   disk_size_autoscaling {
     disk_size_limit           = <maximum_storage_size_in_GB>
-    emergency_usage_threshold = <threshold_for_immediate_increase_in_percent>
-    planned_usage_threshold   = <threshold_for_scheduled_increase_in_percent>
+    emergency_usage_threshold = <threshold_for_immediate_expansion_in_percent>
+    planned_usage_threshold   = <threshold_for_scheduled_expansion_in_percent>
   }
   ...
 }
@@ -14,13 +14,13 @@ resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
 
 Where:
          
-* `disk_size_limit`: Maximum object size after increase, in gibibytes. 
+* `disk_size_limit`: Maximum storage capacity after expansion, in GB. 
 
-* `emergency_usage_threshold`: Storage utilization threshold to trigger a storage increase right away, in percent. This is an optional setting. The default setting is `0` (automatic increase disabled).
+* `emergency_usage_threshold`: Storage usage percentage threshold triggering an immediate storage expansion. This is an optional setting. The default value is `0` (automatic expansion disabled).
            
   The valid values range from `0` to `100`.
   
-* `planned_usage_threshold`: Storage utilization threshold to trigger a storage increase during the next maintenance window, in percent. This is an optional setting. The default setting is `0` (automatic increase disabled).
+* `planned_usage_threshold`: Storage usage percentage threshold triggering a storage expansion during the next maintenance window. This is an optional setting. The default value is `0` (automatic expansion disabled).
            
   The valid values range from `0` to `100`.
 

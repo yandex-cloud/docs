@@ -171,7 +171,7 @@
 
 ## Проверьте работу копирования при повторной активации {#example-check-copy}
 
-1. В [параметрах эндпоинта-приемника](../../../data-transfer/operations/endpoint/target/postgresql#additional-settings) установите политику очистки `DROP` или `TRUNCATE`.
+1. В [параметрах эндпоинта-приемника](../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) установите политику очистки `DROP` или `TRUNCATE`.
 1. [Подключитесь к кластеру {{ GP }}](../../../managed-greenplum/operations/connect.md).
 1. Удалите строку с идентификатором `41` и измените строку с идентификатором `42` в таблице `x_tab`:
 

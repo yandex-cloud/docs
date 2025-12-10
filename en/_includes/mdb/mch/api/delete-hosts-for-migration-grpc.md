@@ -1,4 +1,4 @@
-1. Use the [ClusterService.DeleteHosts](../../../../managed-clickhouse/api-ref/grpc/Cluster/deleteHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+1. Call the [ClusterService.DeleteHosts](../../../../managed-clickhouse/api-ref/grpc/Cluster/deleteHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
     ```bash
     grpcurl \
@@ -17,8 +17,8 @@
        yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteHosts
     ```
 
-    Where `host_names` is the array with the host to delete.
+    Where `host_names` is the array containing the host you want to delete.
 
-    You can provide only one host FQDN in a single request. If you need to delete multiple hosts, make a separate request for each of them.
+    You can only specify one host FQDN per request. If you need to delete multiple hosts, make a separate request for each of them.
 
-1. View the [server response](../../../../managed-clickhouse/api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+1. View the [server response](../../../../managed-clickhouse/api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.

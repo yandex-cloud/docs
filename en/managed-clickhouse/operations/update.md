@@ -9,7 +9,7 @@ After creating a cluster, you can:
 
 * [Change the service account settings](#change-service-account).
 * [Change the host class](#change-resource-preset).
-* [Change the disk type and increase the storage size](#change-disk-size).
+* [Change the disk type and expand the storage](#change-disk-size).
 * [Enable user and database management via SQL](#SQL-management).
 * [Change additional cluster settings](#change-additional-settings).
 * [Move the cluster](#move-cluster) to another folder.
@@ -23,10 +23,10 @@ Learn more about other cluster updates:
 * [Changing {{ CH }} settings at the query level](change-query-level-settings.md).
 
 
-## Changing service account settings {#change-service-account}
+## Changing the service account settings {#change-service-account}
 
 
-To link a service account to a {{ mch-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
+To attach a service account to a {{ mch-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
 
 
 {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
@@ -54,7 +54,7 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
 
 When changing the host class:
 
-* Your single-host cluster will be unavailable for a few minutes with database connections terminated.
+* A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
 * Using a [special FQDN](connect/fqdn.md#auto) does not guarantee a stable database connection: user sessions may be terminated.
 
@@ -88,7 +88,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
      {{ yc-mdb-ch }} cluster update --help
      ```
 
-  1. Get the list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
+  1. Get the list of available host classes. The `ZONE IDS` column lists the availability zones where you can select the appropriate class:
 
      
      ```bash
@@ -104,14 +104,14 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
      ```
 
 
-  1. Run this command, specifying the host class you need:
+  1. Run the cluster update command, specifying the host class you need:
 
      ```bash
      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
         --clickhouse-resource-preset=<class_ID>
      ```
 
-     {{ mch-short-name }} will run the update host class command for the cluster.
+     {{ mch-short-name }} will start updating the host class for your cluster.
 
   1. To change the class of a {{ ZK }} host, provide the value you need in the `--zookeeper-resource-preset` parameter.
 
@@ -149,13 +149,13 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -203,7 +203,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
             Where:
 
-            * `updateMask`: List of parameters to update as a single string, separated by commas.
+            * `updateMask`: Comma-separated string of settings you want to update.
 
                 Specify the relevant parameters:
                 * `configSpec.clickhouse.resources.resourcePresetId`: To change the {{ CH }} host class.
@@ -214,13 +214,13 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
             * `configSpec.clickhouse.resources.resourcePresetId`: {{ CH }} host class ID.
             * `configSpec.zookeeper.resources.resourcePresetId`: {{ ZK }} host class ID.
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -228,7 +228,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
     1. Get the list of available host classes:
 
-        1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -245,7 +245,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
     1. Change the host class as appropriate:
 
-        1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -283,7 +283,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
             Where:
 
-            * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+            * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
                 Specify the relevant parameters:
                 * `config_spec.clickhouse.resources.resource_preset_id`: To change the {{ CH }} host class.
@@ -294,9 +294,9 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
             * `config_spec.clickhouse.resources.resource_preset_id`: {{ CH }} host class ID.
             * `config_spec.zookeeper.resources.resource_preset_id`: {{ ZK }} host class ID.
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
-        1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -356,7 +356,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
      You can get the cluster name and ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-  1. To change the disk type and  increase the storage size for your {{ ZK }} hosts, provide the appropriate values in the `--zookeeper-disk-size` parameter.
+  1. To change the disk type and increase the storage size for your {{ ZK }} hosts, provide the appropriate values in the `--zookeeper-disk-size` parameter.
 
 - {{ TF }} {#tf}
 
@@ -396,13 +396,13 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -437,7 +437,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             Specify the relevant parameters:
 
@@ -457,13 +457,13 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -504,13 +504,13 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
         ```
 
         Where:
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Specify the relevant parameters:
 
-            * `config_spec.clickhouse.resources.disk_size`: To increase the storage size of {{ CH }} hosts.
+            * `config_spec.clickhouse.resources.disk_size`: To expand the storage of {{ CH }} hosts.
             * `config_spec.clickhouse.resources.disk_type_id`: To change the disk type for {{ CH }} hosts.
-            * `config_spec.zookeeper.resources.disk_size`: To increase the storage size of {{ ZK }} hosts.
+            * `config_spec.zookeeper.resources.disk_size`: To expand the storage of {{ ZK }} hosts.
             * `config_spec.zookeeper.resources.disk_type_id`: To change the disk type for {{ ZK }} hosts.
 
             In our request example, we are resizing the storage and updating the disk type for both {{ CH }} and {{ ZK }} hosts.
@@ -522,7 +522,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -564,7 +564,7 @@ You cannot disable settings for user or database management via SQL once they ar
         {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
            ...
            --enable-sql-user-management true \
-           --admin-password "<admin_user_password>"
+           --admin-password "<admin_password>"
         ```
 
     1. To enable [database management via SQL](./databases.md#sql-database-management):
@@ -577,7 +577,7 @@ You cannot disable settings for user or database management via SQL once they ar
            ...
            --enable-sql-user-management true \
            --enable-sql-database-management true \
-           --admin-password "<admin_user_password>"
+           --admin-password "<admin_password>"
         ```
 
 - {{ TF }} {#tf}
@@ -598,13 +598,13 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-mch }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -630,7 +630,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             Specify the relevant parameters:
 
@@ -642,7 +642,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         * `configSpec.adminPassword`: `admin` password.
         * `configSpec.sqlUserManagement`: User management via SQL, `true` or `false`.
-        * `configSpec.sqlDatabaseManagement`: Database management via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
+        * `configSpec.sqlDatabaseManagement`: Database management via SQL, `true` or `false`. For that, you also need to enable user management via SQL.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -650,13 +650,13 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -688,7 +688,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Specify the relevant parameters:
 
@@ -700,11 +700,11 @@ You cannot disable settings for user or database management via SQL once they ar
 
         * `config_spec.admin_password`: `admin` user password.
         * `config_spec.sql_user_management`: User management via SQL, `true` or `false`.
-        * `config_spec.sql_database_management`: Database management via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
+        * `config_spec.sql_database_management`: Database management via SQL, `true` or `false`. For that, you also need to enable user management via SQL.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -718,15 +718,15 @@ You cannot disable settings for user or database management via SQL once they ar
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
-     * Optionally, set [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ CH }} subcluster:
+     * Optionally, configure the [automatic storage expansion](../concepts/storage.md#autoscaling) for a {{ CH }} subcluster:
 
        {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
 
-       Automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. New shards will use the settings of the oldest shard.
+       The automatic storage expansion settings for a {{ CH }} subcluster apply to all existing shards within the subcluster. New shards will use the settings of the oldest shard.
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**:
   
-     * Optionally, set [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ ZK }} subcluster:
+     * Optionally, configure the [automatic storage expansion](../concepts/storage.md#autoscaling) for a {{ ZK }} subcluster:
 
        {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
   
@@ -775,7 +775,7 @@ You cannot disable settings for user or database management via SQL once they ar
         ```
 
 
-    You can change the following settings:
+    You can update the following settings:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
@@ -786,23 +786,23 @@ You cannot disable settings for user or database management via SQL once they ar
     
     * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
-    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more details on configuring access, see [this {{ sf-name }} article](../../functions/operations/database-connection.md).
+    * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
 
-    * `--yandexquery-access=true`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
+    * `--yandexquery-access=true`: Enables access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
 
     * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    * `--disk-size-autoscaling`: Storage autoscaling setting:
+    * `--disk-size-autoscaling`: Automatic storage expansion setting:
         
         {% include [disk-size-autoscaling-cli](../../_includes/mdb/mch/disk-size-autoscaling-cli.md) %}
     
-    * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
+    * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for stopped clusters), where `type` is the maintenance type:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -827,7 +827,7 @@ You cannot disable settings for user or database management via SQL once they ar
         }
         ```
 
-    1. To enable cluster access from other services and allow [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, edit relevant fields in the `access` section:
+    1. To enable cluster access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, edit the values of the appropriate fields in the `access` section:
 
         
         ```hcl
@@ -855,7 +855,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 
         * `yandex_query`: Access from {{ yq-full-name }}, `true` or `false`.
-        * `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
+        * `web_sql`: Running SQL queries from the management console, `true` or `false`.
 
     1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
@@ -878,13 +878,13 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -942,30 +942,30 @@ You cannot disable settings for user or database management via SQL once they ar
 
             Where:
 
-            * `updateMask`: Comma-separated list of settings you want to update.
+            * `updateMask`: Comma-separated string of settings you want to update.
 
             * {% include [backup-windows-start-rest](../../_includes/mdb/api/backup-windows-start-rest.md) %}
 
-            * `configSpec.access`: Settings enabling cluster access from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+            * `configSpec.access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
 
                 {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
 
-            * `configSpec.clickhouse.diskSizeAutoscaling`: Automatic storage size increase settings for a {{ CH }} subcluster:
+            * `configSpec.clickhouse.diskSizeAutoscaling`: Automatic storage expansion settings for a {{ CH }} subcluster:
             
                 {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
             
-            * `configSpec.zookeeper.diskSizeAutoscaling`: Automatic storage size increase settings for a {{ ZK }} subcluster:
+            * `configSpec.zookeeper.diskSizeAutoscaling`: Automatic storage expansion settings for a {{ ZK }} subcluster:
                       
                 {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
             
-            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including those for disabled clusters. Select one of these options:
+            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including those for stopped clusters. Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -986,13 +986,13 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1051,30 +1051,30 @@ You cannot disable settings for user or database management via SQL once they ar
 
             Where:
 
-            * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+            * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             * {% include [backup-windows-start-grpc](../../_includes/mdb/api/backup-windows-start-grpc.md) %}
 
-            * `config_spec.access`: Settings enabling cluster access from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+            * `config_spec.access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
 
                 {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
 
-            * `config_spec.clickhouse.disk_size_autoscaling`: Automatic storage size increase settings for a {{ CH }} subcluster:
+            * `config_spec.clickhouse.disk_size_autoscaling`: Automatic storage expansion settings for a {{ CH }} subcluster:
             
                 {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
 
-            * `config_spec.zookeeper.disk_size_autoscaling`: Automatic storage size increase settings for a {{ ZK }} subcluster:
+            * `config_spec.zookeeper.disk_size_autoscaling`: Automatic storage expansion settings for a {{ ZK }} subcluster:
                       
                 {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 
-            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including those for disabled clusters. Select one of these options:
+            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including those for stopped clusters. Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -1095,20 +1095,20 @@ You cannot disable settings for user or database management via SQL once they ar
               < body.json
             ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 
 ### {{ connection-manager-name }} {#conn-man}
 
-If you cluster has no integration with {{ connection-manager-name }}, enable **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. You can only do this in the [management console]({{ link-console-main }}).
+If you cluster has no integration with {{ connection-manager-name }}, enable **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. You can only do it in the [management console]({{ link-console-main }}).
 
 The following resources will be created for each database user:
 
-* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) with information about the database connection.
+* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) containing database connection details.
 
-* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) with the user password. {{ lockbox-name }} provides secure storage for passwords.
+* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) containing the user password. {{ lockbox-name }} provides secure storage for passwords.
 
   The connection and secret will be created for each new database user. To view all connections, open the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
 
@@ -1128,7 +1128,7 @@ The following resources will be created for each database user:
 - Management console {#console}
 
     1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.common.move }}**.
     1. Select the folder you want to move your cluster to.
     1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
@@ -1141,13 +1141,13 @@ The following resources will be created for each database user:
 
     To move a cluster:
 
-    1. See the description of the CLI command for moving a cluster:
+    1. View the description of the CLI command for moving a cluster:
 
         ```bash
         {{ yc-mdb-ch }} cluster move --help
         ```
 
-    1. Specify the destination folder in that command:
+    1. Run this command, providing the destination folder:
 
         ```bash
         {{ yc-mdb-ch }} cluster move <cluster_name_or_ID> \
@@ -1179,13 +1179,13 @@ The following resources will be created for each database user:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-mch }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1202,7 +1202,7 @@ The following resources will be created for each database user:
                     }'
         ```
 
-        Where `destinationFolderId` is the ID of the destination folder to move your cluster to. You can request this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        Where `destinationFolderId` is the ID of the destination folder to move your cluster to. You can get this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -1210,13 +1210,13 @@ The following resources will be created for each database user:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Move](../api-ref/grpc/Cluster/move.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Move](../api-ref/grpc/Cluster/move.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -1233,7 +1233,7 @@ The following resources will be created for each database user:
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Move
         ```
 
-        Where `destination_folder_id` is the ID of the destination folder to move your cluster to. You can request this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        Where `destination_folder_id` is the ID of the destination folder to move your cluster to. You can get this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -1242,7 +1242,7 @@ The following resources will be created for each database user:
 {% endlist %}
 
 
-## Editing security groups {#change-sg-set}
+## Updating security groups {#change-sg-set}
 
 {% list tabs group=instructions %}
 
@@ -1250,7 +1250,7 @@ The following resources will be created for each database user:
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the security groups for cluster network traffic.
 
 - CLI {#cli}
 
@@ -1266,7 +1266,7 @@ The following resources will be created for each database user:
       {{ yc-mdb-ch }} cluster update --help
       ```
 
-  1. Specify the security groups in that command:
+  1. Run this command, providing the required security groups:
 
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster_name> \
@@ -1296,13 +1296,13 @@ The following resources will be created for each database user:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1326,15 +1326,15 @@ The following resources will be created for each database user:
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
-            Here, we only specified a single parameter, `securityGroupIds`.
+            Here, we only specified a single setting, `securityGroupIds`.
 
         * `securityGroupIds`: Array of strings. Each string is a security group ID.
 
             {% note warning %}
 
-            The list of security groups assigned to the cluster will be completely overwritten by the list in the `securityGroupIds` parameter.
+            The list of security groups assigned to the cluster will be completely overwritten by the list provided in the `securityGroupIds` parameter.
 
             Before running your request, make sure the list includes all the required security group IDs, including existing ones.
 
@@ -1346,13 +1346,13 @@ The following resources will be created for each database user:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1379,15 +1379,15 @@ The following resources will be created for each database user:
         ```
 
         Where:
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-            Here, we only specified a single parameter, `security_group_ids`.
+            Here, we only specified a single setting, `security_group_ids`.
 
         * `security_group_ids`: Array of strings. Each string is a security group ID.
 
             {% note warning %}
 
-            The list of security groups assigned to the cluster will be completely overwritten by the list in the `security_group_ids` parameter.
+            The list of security groups assigned to the cluster will be completely overwritten by the list provided in the `security_group_ids` parameter.
 
             Before running your request, make sure the list includes all the required security group IDs, including existing ones.
 
@@ -1395,13 +1395,13 @@ The following resources will be created for each database user:
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
@@ -1433,7 +1433,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
       {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
-  1. Provide a list of settings to update:
+  1. Provide the list of settings to update:
 
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
@@ -1449,7 +1449,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1470,7 +1470,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                           "enabled": <hybrid_storage_use>,
                           "moveFactor": "<share_of_free_space>",
                           "dataCacheEnabled": <temporary_file_storage>,
-                          "dataCacheMaxSize": "<maximum_cache_size_for_file_storage>",
+                          "dataCacheMaxSize": "<maximum_memory_for_file_storage>",
                           "preferNotToMerge": <disabling_data_part_merging>
                         }
                       }
@@ -1479,7 +1479,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
         * `configSpec.cloudStorage`: Hybrid storage settings:
 
@@ -1491,13 +1491,13 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1520,7 +1520,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                       "enabled": <hybrid_storage_use>,
                       "move_factor": "<share_of_free_space>",
                       "data_cache_enabled": <temporary_file_storage>,
-                      "data_cache_max_size": "<maximum_cache_size_for_file_storage>",
+                      "data_cache_max_size": "<maximum_memory_for_file_storage>",
                       "prefer_not_to_merge": <disabling_data_part_merging>
                     }
                   }
@@ -1530,7 +1530,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
         ```
 
         Where:
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         * `config_spec.cloud_storage`: Hybrid storage settings:
 

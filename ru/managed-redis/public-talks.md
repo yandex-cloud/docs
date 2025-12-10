@@ -7,6 +7,14 @@ description: Видеозаписи конференций и вебинаров
 
 ## Конференции и вебинары {#conf-and-webinars}
 
+
+### 2025: Статьи {#article-2025}
+
+* {{ VLK }} против {{ RD }}®: будущее in‑memory СУБД.
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/valkey-overview).
+
+
 ### 2022: HighLoad++ {#highload-2022}
 
 * Как мы делали отказоустойчивый {{ RD }} в {{ yandex-cloud }}.

@@ -141,6 +141,10 @@
 
 ## Настройте дашборд {#setup-dashboard}
 
+Готовые графики для наблюдения за состоянием трейлов находятся в [консоли управления]({{ link-console-main }}) → сервис **{{ at-name }}** → раздел ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
+
+Чтобы отслеживать не только состояние трейлов, но и состояние хранилища трейлов, создайте комплексный дашборд в сервисе {{ monitoring-name }}.
+
 ### Создайте дашборд {#create-dashboard}
 
 {% list tabs group=instructions %}
@@ -255,6 +259,8 @@
 * **{{ yds-name }}** — см. документацию [{{ ydb-full-name }}](../../ydb/):
   * [{#T}](../../ydb/metrics.md)
   * [{#T}](../../ydb/concepts/limits.md)
+
+Подробнее о решении проблем с записью данных см. в разделе [{#T}](../../data-streams/tutorials/slow-writes-debug.md).
 
 
 

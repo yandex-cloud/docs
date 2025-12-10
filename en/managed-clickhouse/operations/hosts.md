@@ -1,13 +1,13 @@
 ---
 title: Managing {{ CH }} hosts
-description: 'Follow this guide to manage {{ CH }} cluster hosts: get the list of hosts in the cluster, create a host, change {{ CH }} settings for a host, restart a host, and delete a host.'
+description: 'Follow this guide to manage {{ CH }} cluster hosts: get a list of hosts in the cluster, create a host, update {{ CH }} settings for a host, restart a host, and delete a host.'
 ---
 
 # Managing {{ CH }} hosts
 
 You can do the following with {{ CH }} hosts:
 
-* [Get the list of cluster hosts](#list-hosts).
+* [Get a list of cluster hosts](#list-hosts).
 * [Create a host](#add-host).
 * [Update {{ CH }} host settings](#update).
 * [Restart a host](#restart).
@@ -17,7 +17,7 @@ For information about moving {{ CH }} hosts to a different [availability zone](.
 
 {% note warning %}
 
-If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, then before adding new hosts to any of the [shards](../concepts/sharding.md), [add at least three {{ ZK }} hosts](zk-hosts.md#add-zk).
+If you created your cluster without [{{ CK }}](../concepts/replication.md#ck) support, you should [add at least three {{ ZK }} hosts](zk-hosts.md#add-zk) before adding new hosts to any of the [shards](../concepts/sharding.md).
 
 {% endnote %}
 
@@ -27,7 +27,7 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 ## Creating a host {#add-host}
 
-The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources currently in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
+The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quotas allocated to database clusters in your cloud. To check the resources currently in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
 You can create several hosts in a cluster in one go.
 
@@ -39,7 +39,7 @@ You can create several hosts in a cluster in one go.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-clickhouse-hosts }}**.
 
-  1. Specify these host parameters:
+  1. Specify the following host settings:
 
       
       * Availability zone.
@@ -54,7 +54,7 @@ You can create several hosts in a cluster in one go.
   
      * **{{ ui-key.yacloud.clickhouse.hosts.dialog.field_copy_schema }}**: If the data schema is the same on all replica hosts in the cluster, enable this option to copy the schema from a random replica to the new hosts.
 
-  1. Click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_submit }}** to create one or more hosts.
+  1. Click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_submit }}** to create one or multiple hosts.
 
 - CLI {#cli}
 
@@ -62,10 +62,10 @@ You can create several hosts in a cluster in one go.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create one or more hosts:
+  To create one or multiple hosts:
 
   
-  1. Request the list of cluster subnets to select one for the new host:
+  1. To choose a subnet for your new host, get the list of all cluster subnets:
 
      ```bash
      yc vpc subnet list
@@ -87,7 +87,7 @@ You can create several hosts in a cluster in one go.
      If the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md).
 
 
-  1. See the description of the CLI command for creating hosts:
+  1. View the description of the CLI command for creating hosts:
 
      ```bash
      {{ yc-mdb-ch }} hosts add --help
@@ -95,9 +95,9 @@ You can create several hosts in a cluster in one go.
 
   1. Run the command to create hosts.
 
-     Specify one or more `--host` parameters in the command, one for each new host.
+     Specify one or multiple `--host` parameters in the command, one for each new host.
 
-     The command for creating a single host looks like this:
+     The command for creating a single host is as follows:
 
      
      ```bash
@@ -115,7 +115,7 @@ You can create several hosts in a cluster in one go.
 
      To copy the data schema from a random replica to the new host, set the optional `--copy-schema` parameter.
 
-     {{ mch-name }} will run start creating hosts.
+     {{ mch-name }} will start creating hosts.
 
      
      If your availability zone contains multiple subnets, make sure to specify the subnet ID; otherwise, {{ mch-name }} will automatically select the single subnet available. You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -125,10 +125,10 @@ You can create several hosts in a cluster in one go.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create this file, see [Creating a cluster](cluster-create.md).
-  1. Add one or more `host` sections to the {{ mch-name }} cluster description, one for each new host.
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
+  1. Add one or multiple `host` sections to the {{ mch-name }} cluster description, one for each new host.
 
-     A single `host` section looks like this:
+     A single `host` section is as follows:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -144,7 +144,7 @@ You can create several hosts in a cluster in one go.
 
      Where `assign_public_ip` is internet access to the host via a public IP address, `true` or `false`.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -158,11 +158,11 @@ You can create several hosts in a cluster in one go.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -183,13 +183,13 @@ You can create several hosts in a cluster in one go.
                         { ... },
                         { <similar_settings_for_new_host_N> }
                       ],
-                      "copySchema": <data_schema_copying>
+                      "copySchema": <copying_data_schema>
                     }'
         ```
 
         Where:
 
-        * `hostSpecs`: Array of settings for the new hosts. One array element contains settings for a single host and has the following structure:
+        * `hostSpecs`: Array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
 
             * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
             * `zoneId`: Availability zone.
@@ -205,13 +205,13 @@ You can create several hosts in a cluster in one go.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -242,7 +242,7 @@ You can create several hosts in a cluster in one go.
 
         Where:
 
-        * `host_specs`: Array of settings for the new hosts. One array element contains settings for a single host and has the following structure:
+        * `host_specs`: Array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
 
             * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
             * `zone_id`: Availability zone.
@@ -252,7 +252,7 @@ You can create several hosts in a cluster in one go.
 
         * `copy_schema`: Enables or disables copying the data schema from a random replica to the new hosts, `true` or `false`.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -279,10 +279,10 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
 - Management console {#console}
 
-  To change the parameters of a cluster host:
+  To change the cluster host settings:
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the host in question and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the window that opens, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -308,7 +308,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create this file, see [Creating a cluster](cluster-create.md).
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
 
   1. Add or edit the `assign_public_ip` parameter in the relevant `host` section.
 
@@ -325,7 +325,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
      Where `assign_public_ip` is internet access to the host via a public IP address, `true` or `false`.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -337,11 +337,11 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -365,9 +365,9 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
         Where `updateHostSpecs[]` is the list of hosts and their parameters to update. Below is the structure of an individual element:
 
         * `hostName`: Host name which you can get with the [list of hosts in the cluster](#list-hosts).
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
-            Here, we only specified a single parameter, `assignPublicIp`.
+            Here, we only specified a single setting, `assignPublicIp`.
 
         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
@@ -377,13 +377,13 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -414,9 +414,9 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
         Where `update_host_specs[]` is the list of hosts and their parameters to update. Below is the structure of an individual element:
 
         * `host_name`: Host name which you can get with the [list of hosts in the cluster](#list-hosts).
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-            Here, we only specified a single parameter, `assign_public_ip`.
+            Here, we only specified a single setting, `assign_public_ip`.
 
         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
@@ -429,7 +429,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
 {% note warning %}
 
-If you cannot [connect](connect/clients.md) to the host you updated, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host subnet.
+If you cannot [connect](connect/clients.md) to the host after the update, check that the cluster [security group](../concepts/network.md#security-groups) is properly configured for the subnet containing your host.
 
 {% endnote %}
 
@@ -459,10 +459,10 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the host in question and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
-    1. In the window that opens, check **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+    1. In the window that opens, enable **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
-  To delete several hosts in one go:
+  To delete multiple hosts in one go:
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
@@ -475,9 +475,9 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete one or more hosts from a cluster, run the command below, providing the names of the hosts you want to delete. Use the space character as a separator.
+  To delete one or multiple hosts from a cluster, run the command below, providing the names of the hosts you want to delete. Use the space character as a separator.
 
-  The command for deleting a single host looks like this:
+  The command for deleting a single host is as follows:
 
   ```bash
   {{ yc-mdb-ch }} hosts delete --cluster-name=<cluster_name> \
@@ -490,9 +490,9 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create this file, see [Creating a cluster](cluster-create.md).
-  1. In the {{ mch-name }} cluster description, delete one or more `CLICKHOUSE`-type `host` sections.
-  1. Validate your configuration.
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
+  1. In the {{ mch-name }} cluster description, delete one or multiple `CLICKHOUSE` `host` sections.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

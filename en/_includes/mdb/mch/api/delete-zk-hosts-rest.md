@@ -1,8 +1,8 @@
-1. [Get an IAM token for API authentication](../../../../managed-clickhouse/api-ref/authentication.md) and put it into the environment variable:
+1. [Get an IAM token for API authentication](../../../../managed-clickhouse/api-ref/authentication.md) and put it in an environment variable:
 
     {% include [api-auth-token](../../api-auth-token.md) %}
 
-1. Use the [Cluster.DeleteHosts](../../../../managed-clickhouse/api-ref/Cluster/deleteHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+1. Call the [Cluster.DeleteHosts](../../../../managed-clickhouse/api-ref/Cluster/deleteHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
     ```bash
     curl \
@@ -17,8 +17,8 @@
                 }'
     ```
 
-    Where `hostNames` is an array of strings. Each string is the name of a host to delete. You can request host names with a [list of hosts in the cluster](#list-hosts).
+    Where `hostNames` is an array of strings. Each string is the name of a host to delete. You can get the host names with the [list of hosts in the cluster](#list-hosts).
 
-    You can get the cluster ID with a [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-1. View the [server response](../../../../managed-clickhouse/api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+1. View the [server response](../../../../managed-clickhouse/api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.

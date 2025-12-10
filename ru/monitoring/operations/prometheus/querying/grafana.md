@@ -1,12 +1,16 @@
 ---
-title: Как читать и визуализировать метрики при помощи Grafana
-description: Следуя данной инструкции, вы сможете прочитать и визуализировать метрики при помощи Grafana.
+title: Как читать и визуализировать метрики при помощи {{ grafana-name }}
+description: Следуя данной инструкции, вы сможете прочитать и визуализировать метрики при помощи {{ grafana-name }}.
 sourcePath: ru/monitoring_includes/operations/prometheus/querying/grafana.md
 ---
 
-# Чтение и визуализация метрик при помощи Grafana
+# Чтение и визуализация метрик при помощи {{ grafana-name }}
 
 {{ managed-prometheus-name }} поддерживает [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) и позволяет работать с дашбордами, которые созданы вами или сообществом, в {{ grafana-name }}.
+
+Рекомендуемый способ визуализации — графики и дашборды в [{{ monitoring-name }}](monitoring.md).
+
+{% include [grafana-export](../../../../_includes/monitoring/grafana-export.md) %}
 
 ## Подключить data source {#data-source}
 

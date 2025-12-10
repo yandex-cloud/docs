@@ -841,6 +841,7 @@ default:
   t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
+  tag-center: <code><b><small>Cloud Center</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-preview: <code><b><small>Preview</small></b></code>

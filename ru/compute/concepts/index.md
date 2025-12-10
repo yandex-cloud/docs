@@ -46,3 +46,7 @@ description: Из статьи вы узнаете, как связаны меж
 При создании виртуальной машины указывается подсеть, к которой она будет подключена. [Подробнее об облачных сетях](../../vpc/concepts/network.md).
 
 Все ресурсы {{ compute-short-name }} создаются внутри каталогов. [Подробнее об иерархии ресурсов в {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
+
+#### См. также {#see-also}
+
+* [Облачный сервер: архитектура и возможности](https://yandex.cloud/ru/blog/cloud-server)

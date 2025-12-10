@@ -7,7 +7,7 @@ description: Follow this guide to connect to a database in a {{ CH }} cluster us
 
 This section provides settings for connecting to {{ mch-name }} cluster hosts using [command line tools](#command-line-tools), [graphical IDEs](#ide), [browser](#browser), and [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
 
-You can connect to public {{ CH }} cluster hosts only if using [SSL certificates](index.md#get-ssl-cert). The examples below assume that `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
+You can only connect to public {{ CH }} cluster hosts using [SSL certificates](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
 
 * Located in the `{{ crt-local-dir }}` directory (for Ubuntu).
 * Imported to the trusted root certificate store (for Windows).
@@ -35,7 +35,7 @@ The examples for Windows were tested in the following environment:
 
 **Before connecting**:
 
-1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) to your system:
+1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
     ```bash
     sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -74,9 +74,9 @@ The examples for Windows were tested in the following environment:
 
 {% endlist %}
 
-For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
+Learn how to get a host FQDN in [this guide](fqdn.md).
 
-After you run the command, enter the user password to complete the connection process.
+After you run this command, enter the user password to complete the connection process.
 
 Once connected to the DBMS, run the `SELECT version();` command.
 
@@ -84,11 +84,11 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
 {% note warning %}
 
-Use the {{ MY }} client connection interface only if using the standard {{ CH }} interfaces is not possible for any reason.
+You should only use the {{ MY }} client connection interface if you cannot use standard {{ CH }} interfaces.
 
 {% endnote %}
 
-Before connecting, install `mysql`:
+Before connecting, install the `mysql` utility:
 
 ```bash
 sudo apt update && sudo apt install --yes mysql-client
@@ -123,9 +123,9 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% endlist %}
 
-For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
+Learn how to get a host FQDN in [this guide](fqdn.md).
 
-After you run the command, enter the user password to complete the connection process.
+After you run this command, enter the user password to complete the connection process.
 
 Once connected to the DBMS, run the `SELECT version();` command.
 
@@ -139,7 +139,7 @@ Once connected to the DBMS, run the `SELECT version();` command.
 - Connecting without SSL {#without-ssl}
 
     ```bash
-    curl --header "X-ClickHouse-User: <DB_username>" \
+    curl --header "X-ClickHouse-User: <DB_user_name>" \
          --header "X-ClickHouse-Key: <DB_user_password>" \
          'http://<FQDN_of_any_{{ CH }}_host>:8123/?database=<DB_name>&query=SELECT%20version()'
     ```
@@ -149,14 +149,14 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
     ```bash
     curl --cacert {{ crt-local-dir }}{{ crt-local-file-root }} \
-         --header "X-ClickHouse-User: <DB_username>" \
+         --header "X-ClickHouse-User: <DB_user_name>" \
          --header "X-ClickHouse-Key: <DB_user_password>" \
          'https://<FQDN_of_any_{{ CH }}_host>:8443/?database=<DB_name>&query=SELECT%20version()'
     ```
 
 {% endlist %}
 
-For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
+Learn how to get a host FQDN in [this guide](fqdn.md).
 
 #### Windows (PowerShell) {#curl-powershell}
 
@@ -167,7 +167,7 @@ For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
 
     ```powershell
     curl.exe `
-        --header "X-ClickHouse-User: <DB_username>" `
+        --header "X-ClickHouse-User: <DB_user_name>" `
         --header "X-ClickHouse-Key: <DB_user_password>" `
         'http://<FQDN_of_any_{{ CH }}_host>:8123/?database=<DB_name>&query=SELECT+version()'
     ```
@@ -177,20 +177,20 @@ For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
 
     ```powershell
     curl.exe `
-        --header "X-ClickHouse-User: <DB_username>" `
+        --header "X-ClickHouse-User: <DB_user_name>" `
         --header "X-ClickHouse-Key: <DB_user_password>" `
         'https://<FQDN_of_any_{{ CH }}_host>:8443/?database=<DB_name>&query=SELECT+version()'
     ```
 
 {% endlist %}
 
-For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
+Learn how to get a host FQDN in [this guide](fqdn.md).
 
 ## Connecting from graphical IDEs {#ide}
 
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts with an SSL certificate.
+From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -200,14 +200,14 @@ You can only use graphical IDEs to connect to public cluster hosts with an SSL c
     1. Select **File** → **New** → **Data Source** → **{{ CH }}**.
     1. On the **General** tab:
         1. Configure the connection as follows:
-            * **Host**: [FQDN of any {{ CH }}](fqdn.md) host or a [special FQDN](fqdn.md#auto).
+            * **Host**: [FQDN of any {{ CH }} host](fqdn.md) or a [special FQDN](fqdn.md#auto).
             * **Port**: `{{ port-mch-http }}`.
-            * **User**, **Password**: DB user name and password.
-            * **Database**: Name of the DB to connect to.
+            * **User**, **Password**: Database user name and password.
+            * **Database**: Name of the database to connect to.
         1. Click **Download** to download the connection driver.
     1. On the **SSH/SSL** tab:
         1. Enable **Use SSL**.
-        1. Specify the path to the directory that contains the file with the downloaded [SSL certificate for the connection](index.md#get-ssl-cert).
+        1. Specify the directory that contains the file with the downloaded [SSL certificate for the connection](index.md#get-ssl-cert).
 1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **OK** to save the data source.
 
@@ -218,13 +218,13 @@ You can only use graphical IDEs to connect to public cluster hosts with an SSL c
     1. Select **{{ CH }}** from the database list.
     1. Click **Next**.
     1. Specify the connection settings on the **Main** tab:
-        * **Host**: [FQDN of any {{ CH }}](fqdn.md) host or a [special FQDN](fqdn.md#auto).
+        * **Host**: [FQDN of any {{ CH }} host](fqdn.md) or a [special FQDN](fqdn.md#auto).
         * **Port**: `{{ port-mch-http }}`.
-        * **DB/Schema**: Name of the DB to connect to.
+        * **DB/Schema**: Name of the database to connect to.
         * Under **Authentication**, specify the DB user name and password.
     1. On the **Driver properties** tab:
-        1. Click **Download** in the new window where the system prompts you to download the driver files.
-        1. Specify the [SSL connection](index.md#get-ssl-cert) parameters in the driver property list:
+        1. Click **Download** in the new window that prompts you to download the driver files.
+        1. Specify the [SSL connection](index.md#get-ssl-cert) settings in the driver property list:
             * `ssl:true`
             * `sslrootcert:<path_to_saved_SSL_certificate_file>`.
 1. Click **Test connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
@@ -237,7 +237,7 @@ You can only use graphical IDEs to connect to public cluster hosts with an SSL c
 To run SQL queries from your browser, use:
 
 
-* [{{ CH }}](#inline-editor) built-in SQL editor
+* [{{ CH }} built-in SQL editor](#inline-editor)
 
 
 * [{{ websql-full-name }}](#websql)
@@ -253,14 +253,14 @@ To connect to a cluster host from the built-in SQL editor, specify the following
 https://<FQDN_of_any_{{ CH }}_host>:8443/play
 ```
 
-You can only connect to public cluster hosts. For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
+You can only connect to public cluster hosts. Learn how to get a host FQDN in [this guide](fqdn.md).
 
 To connect to a cluster with [automatic selection of an available host](fqdn.md#auto), use the following URL:
 
 * `https://c-<cluster_ID>.rw.{{ dns-zone }}:8443/play`: To connect to an available cluster host.
 * `https://<shard_name>.c-<cluster_ID>.rw.{{ dns-zone }}:8443/play`: To connect to an available [shard](../../concepts/sharding.md) host.
 
-To run database queries, enter your username and password in the top right corner of the page.
+To run database queries, enter your username and password in the top-right corner of the page.
 
 
 When you connect from the built-in editor, SQL queries run separately without creating a shared session with the {{ CH }} server. Therefore, queries running within the session, such as `USE` or `SET`, have no effect.
@@ -288,16 +288,16 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
 - Connecting without SSL {#without-ssl}
 
    ```bash
-   # Connecting the DEB repository
+   # Add the DEB repository.
    RUN apt-get update && \
        apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
        apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
        echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
        /etc/apt/sources.list.d/clickhouse.list && \
-       # Installing dependencies
+       # Install the dependencies.
        apt-get update && \
        apt-get install wget clickhouse-client --yes && \
-       # Downloading the configuration file for clickhouse-client
+       # Download the clickhouse-client configuration file.
        mkdir --parents ~/.clickhouse-client && \
        wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml
@@ -307,20 +307,20 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
 - Connecting with SSL {#with-ssl}
 
    ```bash
-   # Connecting the DEB repository
+   # Add the DEB repository.
    RUN apt-get update && \
        apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
        apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
        echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
        /etc/apt/sources.list.d/clickhouse.list && \
-       # Installing dependencies
+       # Install the dependencies.
        apt-get update && \
        apt-get install wget clickhouse-client --yes && \
-       # Downloading the configuration file for clickhouse-client
+       # Download the clickhouse-client configuration file.
        mkdir --parents ~/.clickhouse-client && \
        wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml && \
-       # Getting SSL certificates
+       # Get SSL certificates.
        mkdir --parents {{ crt-local-dir }} && \
        wget "{{ crt-web-path-root }}" \
             --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \

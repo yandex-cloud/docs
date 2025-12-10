@@ -10,7 +10,7 @@ You can connect to {{ mch-short-name }} cluster hosts:
 {% include [cluster-connect-note](../../../_includes/mdb/mch/cluster-connect-note.md) %}
 
 
-You can connect to a cluster either with (via ports `{{ port-mch-cli }}` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `{{ port-mch-http }}` for the [HTTP interface]({{ ch.docs }}/interfaces/http/)) or without encryption (via ports `9000` and `8123`, respectively).
+You can connect to a cluster either with encryption (on ports `{{ port-mch-cli }}` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `{{ port-mch-http }}` for the [HTTP interface]({{ ch.docs }}/interfaces/http/)) or without it (on ports `9000` and `8123`, respectively).
 
 
 
@@ -18,7 +18,7 @@ You can connect to a cluster either with (via ports `{{ port-mch-cli }}` for [cl
 
 {% include [sg-rules](../../../_includes/mdb/sg-rules-connect.md) %}
 
-Rule settings depend on the chosen connection method:
+Rule settings depend on the connection method you select:
 
 {% list tabs group=connection_method %}
 
@@ -41,7 +41,7 @@ Rule settings depend on the chosen connection method:
 
 - From a {{ yandex-cloud }} VM {#cloud}
 
-    1. [Configure all cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from your VM's security group on ports 8123, 8443, 9000, and 9440. To do this, create the following rules for incoming traffic in these security groups:
+    1. [Configure all the cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from your VM's security group on ports 8123, 8443, 9000, and 9440. To do this, create the following rules for incoming traffic in these security groups:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8123` (or any of the other ports listed).
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -50,9 +50,9 @@ Rule settings depend on the chosen connection method:
 
        Create a separate rule for each port.
 
-    1. [Configure the VM's security group](../../../vpc/operations/security-group-add-rule.md) to allow VM connections and traffic between the VM and the cluster hosts.
+    1. [Configure the VM security group](../../../vpc/operations/security-group-add-rule.md) to allow VM connections and traffic between the VM and cluster hosts.
 
-       For example, you can set the following rules for a VM:
+       For example, you can set the following rules for your VM:
 
         * For incoming traffic:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
@@ -60,7 +60,7 @@ Rule settings depend on the chosen connection method:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-          This rule permits inbound VM [connections](../../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
+          This rule allows inbound VM [connections](../../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 
         * For outgoing traffic:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
@@ -68,19 +68,19 @@ Rule settings depend on the chosen connection method:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-          This rule permits all outbound traffic, allowing you to install on your VM certificates and utilities necessary for public access to the cluster.
+          This rule allows all outgoing traffic, so that you can connect to the cluster as well as install the certificates and utilities your VM needs for connection.
 
 {% endlist %}
 
 {% note info %}
 
-You can define more granular security group rules, for example, allowing traffic only from specific subnets.
+You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
 
-You must configure security groups correctly for all subnets where the cluster hosts will reside. If security groups are misconfigured or not fully set up, you may lose access to the cluster.
+Make sure to configure the security groups properly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster.
 
 {% endnote %}
 
-For more information about security groups, see [Network and DB clusters](../../concepts/network.md#security-groups).
+For more information about security groups, see [Network and database clusters](../../concepts/network.md#security-groups).
 
 
 ## Getting SSL certificates {#get-ssl-cert}
