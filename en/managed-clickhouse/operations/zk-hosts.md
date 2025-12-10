@@ -14,7 +14,7 @@ For more information about {{ ZK }} hosts, see [{#T}](../concepts/replication.md
 
 You can do the following with {{ ZK }} hosts:
 
-* [Get the list of cluster hosts](#list-hosts).
+* [Get a list of cluster hosts](#list-hosts).
 * [Add {{ ZK }} hosts](#add-zk).
 * [Update {{ ZK }} host settings](#update-zk-settings).
 * [Restart a host](#restart).
@@ -39,12 +39,12 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
   1. Specify the [host class](../concepts/instance-types.md).
   1. Configure the storage.
   1. Change the {{ ZK }} host settings, if required. To do this, hover over the relevant host row and click ![image](../../_assets/console-icons/pencil.svg).
-  1. To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. This will convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+  1. To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
 
      {% note warning %}
 
@@ -61,7 +61,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To add {{ ZK }} hosts to a cluster:
-  1. See the description of the CLI command for adding {{ ZK }} hosts:
+  1. View the description of the CLI command for adding {{ ZK }} hosts:
 
      ```bash
      {{ yc-mdb-ch }} cluster add-zookeeper --help
@@ -78,7 +78,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      If the cluster network contains exactly three subnets, one per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} will automatically distribute hosts across these subnets.
 
-     To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), add the `--convert-tables-to-replicated` parameter to the command. This will convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+     To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), add the `--convert-tables-to-replicated` parameter to the command. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
 
      {% note warning %}
 
@@ -94,9 +94,9 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
   To add {{ ZK }} hosts to a cluster:
 
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more information about creating this file, see [this guide](cluster-create.md).
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
 
   1. Make sure the configuration file describes three subnets, one per availability zone. Add the missing ones, if required:
 
@@ -166,7 +166,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      Where `resource_preset_id` is the host class, `b1.medium` or higher.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -174,7 +174,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-mch }}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -234,7 +234,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
      {{ yc-mdb-ch }} cluster update --help
      ```
 
-  1. Get the list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
+  1. Get the list of available host classes. The `ZONE IDS` column lists the availability zones where you can select the appropriate class:
 
      ```bash
      {{ yc-mdb-ch }} resource-preset list
@@ -248,7 +248,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
      +-----------+--------------------------------+-------+----------+
      ```
 
-  1. In the update cluster command, specify the new class, disk type, and storage size for your {{ ZK }} host:
+  1. In the update cluster command, provide the new class, disk type, and storage size for your {{ ZK }} host:
 
      ```bash
      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
@@ -257,7 +257,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
         --zookeeper-disk-type=<disk_type>
      ```
 
-     You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -265,9 +265,9 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   To change the {{ ZK }} host settings:
 
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more information about creating this file, see [this guide](cluster-create.md).
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
 
   1. In the {{ ZK }} configuration section, specify the new host class, disk type, and storage size.
 
@@ -297,19 +297,19 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-mch }}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. Get the list of available host classes:
 
-      1. Use the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+      1. Call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
           ```bash
           curl \
@@ -322,7 +322,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   1. Update the host class, disk type, and storage size:
 
-      1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+      1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
           {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -348,7 +348,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
           Where:
 
-          * `updateMask`: List of parameters to update as a single string, separated by commas.
+          * `updateMask`: Comma-separated string of settings you want to update.
 
               Specify the relevant parameters:
               * `configSpec.zookeeper.resources.resourcePresetId`: To change the {{ ZK }} host class.
@@ -365,7 +365,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -373,7 +373,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   1. Get the list of available host classes:
 
-      1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Call the [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
           ```bash
           grpcurl \
@@ -390,7 +390,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   1. Update the host class, disk type, and storage size:
 
-      1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
           {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -426,7 +426,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
           Where:
 
-          * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+          * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
               Specify the relevant parameters:
               * `config_spec.zookeeper.resources.resource_preset_id`: To change the {{ ZK }} host class.
@@ -447,11 +447,11 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 {% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
 
-## Converting non-replicated tables to replicated {#replicated-tables}
+## Converting non-replicated tables to replicated ones {#replicated-tables}
 
 To automatically convert non-replicated [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables to [replicated](../concepts/replication.md#replicated-tables) [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) tables, add {{ ZK }} hosts with table conversion enabled.
 
-For more information, see [Adding {{ ZK }} hosts](#add-zk) and [this {{ CH }} help article]({{ ch.docs }}/development/architecture#replication).
+For more information, see [Adding {{ ZK }} hosts](#add-zk) and [this {{ CH }} guide]({{ ch.docs }}/development/architecture#replication).
 
 ## Deleting a {{ ZK }} host {#delete-zk-host}
 
@@ -466,7 +466,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Hover over the relevant host row and click ![image](../../_assets/console-icons/xmark.svg).
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -476,7 +476,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete a host from the cluster, run this command:
+  To delete a host from a cluster, run this command:
 
   ```bash
   {{ yc-mdb-ch }} hosts delete <host_name> \
@@ -491,11 +491,11 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 
    To delete a {{ ZK }} host:
 
-   1. Open the current {{ TF }} configuration file that defines your infrastructure.
+   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about creating this file, see [this guide](cluster-create.md).
+      Learn how to create this file in [Creating a cluster](cluster-create.md).
    1. Delete the `ZOOKEEPER`-type `host` section from the {{ mch-name }} cluster description.
-   1. Validate your configuration.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -503,7 +503,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

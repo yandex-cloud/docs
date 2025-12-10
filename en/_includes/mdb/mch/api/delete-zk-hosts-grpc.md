@@ -1,10 +1,10 @@
-1. [Get an IAM token for API authentication](../../../../managed-clickhouse/api-ref/authentication.md) and put it into the environment variable:
+1. [Get an IAM token for API authentication](../../../../managed-clickhouse/api-ref/authentication.md) and put it in an environment variable:
 
     {% include [api-auth-token](../../api-auth-token.md) %}
 
 1. {% include [grpc-api-setup-repo](../../grpc-api-setup-repo.md) %}
 
-1. Use the [ClusterService.DeleteHosts](../../../../managed-clickhouse/api-ref/grpc/Cluster/deleteHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+1. Call the [ClusterService.DeleteHosts](../../../../managed-clickhouse/api-ref/grpc/Cluster/deleteHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
     ```bash
     grpcurl \
@@ -23,8 +23,8 @@
         yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteHosts
     ```
 
-    Where `host_names` is an array of strings. Each string is the name of a host to delete. You can request host names with a [list of hosts in the cluster](#list-hosts).
+    Where `host_names` is an array of strings. Each string is the name of a host to delete. You can get the host names with the [list of hosts in the cluster](#list-hosts).
 
-    You can get the cluster ID with a [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-1. View the [server response](../../../../managed-clickhouse/api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+1. View the [server response](../../../../managed-clickhouse/api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.

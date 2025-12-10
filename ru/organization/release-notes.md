@@ -8,6 +8,23 @@ description: В разделе представлена история изме�
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## Ноябрь 2025 {#november-2025}
+
+* Добавлена возможность управления SAML-приложениями с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/application/saml/). {{ tag-cli }}
+* Добавлена возможность управления OAuth-приложениями с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/application/oauth/) и [API](idp/application/oauth/api-ref/Application/). {{ tag-cli }} {{ tag-api }}
+* Добавлена поддержка управления доменами с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/domain/) и [API](idp/api-ref/Userpool/addDomain.md). {{ tag-cli }} {{ tag-api }}
+* Добавлена возможность [активации](operations/user-pools/activate-user.md) и [деактивации](operations/user-pools/deactivate-user.md) федеративных пользователей с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/suspend.md) и [API](idp/api-ref/User/suspend.md). {{ tag-cli }} {{ tag-api }}
+* Реализована возможность [сброса пароля](operations/user-pools/reset-user-password.md) пользователя с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/reset-password.md). {{ tag-cli }}
+* Добавлена возможность автоматической генерации пароля при создании пользователя через [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/create.md) и [API](idp/api-ref/User/create.md). {{ tag-cli }} {{ tag-api }}
+* Добавлены тарифы для {{ org-name }}. {{ tag-center }}
+* Добавлена функциональность [синхронизации пользователей и групп с {{ microsoft-idp.ad-short }}](operations/sync-ad.md).
+* Реализован портал [Мой аккаунт](concepts/my-account.md) для управления учетной записью пользователя. {{ tag-con }}
+* Обновлены поля политики качества паролей в командах управления пулами пользователей в [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/). {{ tag-cli }}
+* Добавлена поддержка ресурсов и источников данных для SAML-приложений в {{ TF }}: `yandex_organizationmanager_idp_saml_application`. {{ tag-tf }}
+* Добавлена поддержка ресурсов и источников данных для OAuth-приложений в {{ TF }}: `yandex_organizationmanager_idp_oauth_application`. {{ tag-tf }}
+* Добавлена поддержка ресурсов и источников данных для пулов пользователей в {{ TF }}: `yandex_organizationmanager_idp_userpool`. {{ tag-tf }}
+* Добавлена поддержка ресурсов и источников данных для пользователей в {{ TF }}: `yandex_organizationmanager_idp_user`. {{ tag-tf }}
+
 ## Октябрь 2025 {#october-2025}
 
 * Реализовано управление [политикой MFA](./concepts/mfa.md#mfa-policies) в организации с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/) и [API](./api-ref/grpc/MfaEnforcement/). {{ tag-cli }} {{ tag-api }}

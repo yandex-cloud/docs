@@ -1,20 +1,20 @@
-* `clickhouse-disk-size-limit`: Maximum storage size for a {{ CH }} subcluster, GB.
+* `clickhouse-disk-size-limit`: Maximum storage size for a {{ CH }} subcluster, in GB.
 
-* `clickhouse-planned-usage-threshold`: {{ CH }} subcluster storage utilization threshold for storage to be increased during the next maintenance window, in percent. The default value is `0` (automatic increase disabled).
+* `clickhouse-planned-usage-threshold`: {{ CH }} subcluster storage utilization threshold to trigger a storage expansion during the next maintenance window, in percent. The default value is `0` (automatic expansion disabled).
            
   The valid values range from `0` to `100`.
          
-* `clickhouse-emergency-usage-threshold`: {{ CH }} subcluster storage utilization threshold for storage to be increased right away, in percent. The default value is `0` (automatic increase disabled).
+* `clickhouse-emergency-usage-threshold`: {{ CH }} subcluster storage utilization threshold to trigger an immediate storage expansion, in percent. The default value is `0` (automatic expansion disabled).
            
   The valid values range from `0` to `100`.
 
-* `zookeeper-disk-size-limit`: Maximum storage size for a {{ ZK }} subcluster, GB.
+* `zookeeper-disk-size-limit`: Maximum storage size for a {{ ZK }} subcluster, in GB.
 
-* `zookeeper-planned-usage-threshold`: {{ ZK }} subcluster storage utilization threshold for storage to be increased during the next maintenance window, in percent. The default value is `0` (automatic increase disabled).
+* `zookeeper-planned-usage-threshold`: {{ ZK }} subcluster storage utilization threshold to trigger a storage expansion during the next maintenance window, in percent. The default value is `0` (automatic expansion disabled).
            
   The valid values range from `0` to `100`.
 
-* `zookeeper-emergency-usage-threshold`: {{ ZK }} subcluster storage utilization threshold for storage to be increased right away, in percent. The default value is `0` (automatic increase disabled).
+* `zookeeper-emergency-usage-threshold`: {{ ZK }} subcluster storage utilization threshold to trigger an immediate storage expansion, in percent. The default value is `0` (automatic expansion disabled).
 
   The valid values range from `0` to `100`.
 
@@ -28,7 +28,7 @@
 
 {% endnote %}
 
-Autoscaling settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. When adding a new shard, the settings ​​are taken from the oldest shard. These values are not saved in the subcluster configuration and are not displayed in the `{{ yc-mdb-ch }} cluster get` command output. 
+Autoscaling settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. If you add a new shard, it will use the settings of the oldest shard. These values are not saved in the subcluster configuration and are not displayed in the `{{ yc-mdb-ch }} cluster get` command output. 
          
 To view information about a specific shard, including its autoscaling settings, use this command: 
          

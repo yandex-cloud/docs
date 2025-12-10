@@ -1,6 +1,6 @@
 # Viewing {{ MY }} cluster logs
 
-{{ mmy-name }} allows you to [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
+{{ mmy-name }} allows you to [get a cluster log snippet](#get-log) for the selected period and to [view logs in real time](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -10,15 +10,15 @@
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab.
-    1. Specify the time period you want the log info for: enter it manually or select in the calendar using the date input field.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab.
+    1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
     1. Select the type of events to display. The default type is `MYSQL_ERROR`.
-    1. Specify the hosts and logging level in the line with the date input field if needed.
+    1. Specify the hosts and logging level in the row with the date input field, if required.
 
-    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
+    You will see the list of log entries for the selected time period. To view detailed information about an event, click the relevant entry in the list.
 
-    If there are too many records and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
+    If there are too many entries and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
 
 - CLI {#cli}
 
@@ -26,13 +26,13 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View the description of the CLI command to view cluster logs:
+    1. See the description of the CLI command for viewing cluster logs:
 
         ```bash
         {{ yc-mdb-my }} cluster list-logs --help
         ```
 
-    1. Run the following command to get cluster logs (our example does not contain a complete list of available parameters):
+    1. Run the following command to get cluster logs (our example only shows some of the available parameters):
 
         ```bash
         {{ yc-mdb-my }} cluster list-logs <cluster_name_or_ID> \
@@ -41,25 +41,25 @@
            --service-type <service_type> \
            --columns <column_list> \
            --filter <filter_settings> \
-           --since <time_range_left_boundary> \
-           --until <time_range_right_boundary>
+           --since <time_range_start> \
+           --until <time_range_end>
         ```
 
         Where:
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * {% include [logs output format](../../_includes/cli/logs/format.md) %}
-        * `--service-type`: Type of the service for which you want to output records (`mysql-error`, `mysql-general`, `mysql-slow-query`, or `mysql-audit`).
-        * `--columns`: List of columns for data output:
+        * `--service-type`: Type of the service for which you want to output entries (`mysql-error`, `mysql-general`, `mysql-slow-query`, or `mysql-audit`).
+        * `--columns`: List of data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
-            * `id`: Request ID.
+            * `id`: Query ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
 
             {% note info %}
 
-            The example only contains the main columns. A list of columns to output depends on the selected `--service-type`.
+            This example includes only the essential columns. The complete list of columns depends on the selected `--service-type`.
 
             {% endnote %}
 
@@ -69,15 +69,15 @@
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.listLogs](../api-ref/Cluster/listLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.listLogs](../api-ref/Cluster/listLogs.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -86,17 +86,17 @@
             --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>:logs' \
             --url-query serviceType=<service_type> \
             --url-query columnFilter=<column_list> \
-            --url-query fromTime=<time_range_left_boundary> \
-            --url-query toTime=<time_range_right_boundary>
+            --url-query fromTime=<time_range_start> \
+            --url-query toTime=<time_range_end>
         ```
 
         Where:
 
-        * `serviceType`: Type of the service to get logs for:
+        * `serviceType`: Type of the service for which you want to get logs:
 
             {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
 
-        * `columnFilter`: List of columns for data output:
+        * `columnFilter`: List of data columns:
 
             * `hostname`: [Host name](hosts.md#list).
             * `id`: Request ID.
@@ -106,25 +106,25 @@
 
             {% note info %}
 
-            The example only contains the main columns. A list of columns to output depends on the selected `serviceType`.
+            This example includes only the essential columns. The complete list of columns depends on the selected `serviceType`.
 
             {% endnote %}
 
-        * `fromTime`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, Example: `2024-09-18T15:04:05Z`.
-        * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
+        * `fromTime`: Start of the time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
+        * `toTime`: End of the time range in the same format as `fromTime`.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -139,8 +139,8 @@
                 "column_filter": [
                   "<column_1>", "<column_2>", ..., "<column_N>"
                 ],
-                "from_time": "<time_range_left_boundary>",
-                "to_time": "<time_range_right_boundary>"
+                "from_time": "<time_range_start>",
+                "to_time": "<time_range_end>"
               }' \
           {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.mysql.v1.ClusterService.ListLogs
@@ -148,30 +148,30 @@
 
         Where:
 
-        * `service_type`: Type of the service to get logs for:
+        * `service_type`: Type of the service for which you want to get logs:
 
             {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
 
-        * `column_filter`: List of columns for data output:
+        * `column_filter`: List of data columns:
 
             * `hostname`: [Host name](hosts.md#list).
-            * `id`: Request ID.
+            * `id`: Query ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
             * `raw`: Raw data for all columns.
 
             {% note info %}
 
-            The example only contains the main columns. A list of columns to output depends on the selected `service_type`.
+            This example includes only the essential columns. The complete list of columns depends on the selected `service_type`.
 
             {% endnote %}
 
-        * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
-        * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
+        * `from_time`: Start of the time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
+        * `to_time`: End of the time range in the same format as `from_time`.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -187,21 +187,21 @@ This method allows you to get cluster logs in real time.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To view cluster logs as they become available, run this command:
+    To view cluster logs in real time, run this command:
 
     ```bash
     {{ yc-mdb-my }} cluster list-logs <cluster_name_or_ID> --follow
     ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -214,38 +214,38 @@ This method allows you to get cluster logs in real time.
 
         Where:
 
-        * `serviceType`: Type of the service to get logs for:
+        * `serviceType`: Type of the service for which you want to get logs:
 
             {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
 
-        * `columnFilter`: List of columns for data output:
+        * `columnFilter`: List of data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
-            * `id`: Request ID.
+            * `id`: Query ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
             * `raw`: Raw data for all columns.
 
             {% note info %}
 
-            The example only contains the main columns. A list of columns to output depends on the selected `serviceType`.
+            This example includes only the essential columns. The complete list of columns depends on the selected `serviceType`.
 
             {% endnote %}
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mysql.v1.StreamLogRecord) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mysql.v1.StreamLogRecord) to make sure your request was successful.
 
-        Once you run the command, it does not terminate. The command output displays new logs in real time.
+        The command continues running after execution, displaying new logs in its output in real time.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -267,31 +267,31 @@ This method allows you to get cluster logs in real time.
 
         Where:
 
-        * `service_type`: Type of the service to get logs for:
+        * `service_type`: Type of the service for which you want to get logs:
 
             {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
 
-        * `column_filter`: List of columns for data output:
+        * `column_filter`: List of data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
-            * `id`: Request ID.
+            * `id`: Query ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
             * `raw`: Raw data for all columns.
 
             {% note info %}
 
-            The example only contains the main columns. A list of columns to output depends on the selected `service_type`.
+            This example includes only the essential columns. The complete list of columns depends on the selected `service_type`.
 
             {% endnote %}
 
-        * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
-        * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
+        * `from_time`: Start of the time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
+        * `to_time`: End of the time range in the same format as `from_time`.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.mysql.v1.StreamLogRecord) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.mysql.v1.StreamLogRecord) to make sure your request was successful.
 
-        Once you run the command, it does not terminate. The command output displays new logs in real time.
+        The command continues running after execution, displaying new logs in its output in real time.
 
 {% endlist %}

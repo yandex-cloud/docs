@@ -1,11 +1,11 @@
-* [What {{ MY }} versions does {{ mmy-short-name }} support?](#supported-version)
+* [Which {{ MY }} versions does {{ mmy-short-name }} support?](#supported-version)
 
 * [Is database cluster backup enabled by default?](#backup)
 
-* [Are {{ MY }} database cluster connections encrypted?](#encryption)
+* [Is encryption enabled for {{ MY }} database cluster connections?](#encryption)
 
 * [What is a read-only replica in {{ MY }}?](#read-only-instance)
 
-* [What limitations are imposed on {{ MY }} database clusters?](#instance-limitations)
+* [What restrictions are placed on {{ MY }} database clusters?](#instance-limitations)
 
-* [Why is the cluster slow even though the computing resources are not used fully?](#throttling)
+* [Why is my cluster slow even though the computing resources are not fully utilized?](#throttling)

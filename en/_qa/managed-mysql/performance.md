@@ -1,39 +1,39 @@
-#### How do I figure out the cause of performance degradation at peak loads? {#degradation-at-peak}
+#### How do I find out what is causing performance degradation at peak loads? {#degradation-at-peak}
 
 Review the slow query log:
 1. In the [{{ MY }} cluster settings](../../managed-mysql/operations/update.md#change-mysql-config), set **Long query time** to a value greater than zero.
 1. In the [management console]({{ link-console-main }}), select the **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab on the cluster page.
 1. In the top-left corner, select `MYSQL_SLOW_QUERY` from the drop-down list.
 
-#### How do I figure out the cause of general performance degradation? {#general-degradation}
+#### How do I find out what is causing overall performance degradation? {#general-degradation}
 
 Check host monitoring charts:
-1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page:
-   * We recommend upgrading the host class:
-      * If the `Steal` value in the **CPU usage** chart is stable high.
-      * If the `Free` value in the **Memory usage** chart is stable low.
-   * If `iowait` on the **CPU usage** chart is high, the disk storage IOPS limits may be exceeded. We recommend increasing the value to the next [allocation unit](../../compute/concepts/limits.md#compute-limits-disks) threshold, at least, or using faster disks. For more information about disk limits and performance, see the [{{ compute-full-name }} documentation](../../compute/concepts/disk.md).
+   * We recommend upgrading your host class:
+      * If the `Steal` value in the **CPU usage** chart remains consistently high.
+      * If the `Free` value in the **Memory usage** chart remains consistently low.
+   * High `iowait` values in the **CPU usage** chart may signal that the disk storage is hitting its IOPS limits. We recommend increasing the value to at least the next [allocation unit](../../compute/concepts/limits.md#compute-limits-disks) threshold or using higher-speed disks. For more information about disk limits and performance, see [this {{ compute-full-name }} article](../../compute/concepts/disk.md).
 
 {% include [qa-replica-lagging](../../_includes/mdb/mmy/qa-replica-lagging.md) %}
 
-#### How do I figure out why resources take long to load? {#long-load}
+#### How do I find out why resources take long to load? {#long-load}
 
 Check host monitoring charts:
-1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page.
-1. Find the problem resource: its chart will be approaching or will have crossed the boundary.
+1. Find the resource in question: its chart will be approaching or crossing the limit.
 1. Select the other hosts from the drop-down list and check them as well.
 
-If the charts do not show overload in the cluster's resources, refer to the recommendations under [Locking mechanisms](#locks) and [Query optimization](#query-optimization).
+If the charts do not show overloading of the cluster resources, follow the recommendations under [Causes of locks](#locks) and [Query optimization](#query-optimization).
 
-#### How do I figure out why the CPU resource is utilized? {#high-cpu}
+#### How do I find out what is causing high CPU usage? {#high-cpu}
 
-You can retrieve information on the use of the CPU resource with the help of system views. To access them, you need the `PROCESS` cluster-level [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
+To get data on CPU usage, use system views. To access these views, you need the `PROCESS` [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) for the cluster.
 
-1. Grant a user the `PROCESS` privilege by running the [CLI](../../cli/) command below:
+1. Grant the `PROCESS` privilege to the user by running this [CLI](../../cli/) command:
 
    ```bash
    {{ yc-mdb-my }} user update \
@@ -41,19 +41,19 @@ You can retrieve information on the use of the CPU resource with the help of sys
        --cluster-id <cluster_ID>
    ```
 
-1. Retrieve a list of longest-running database queries by executing the following query:
+1. Use the following query to get the list of longest-running database queries:
 
    ```sql
    SELECT * FROM sys.statement_analysis LIMIT 10;
    ```
 
-Note the queries with high `rows_examined`, `rows_sorted`, or the `full_scan` flag since it is highly likely that these are taking up CPU resources. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+Pay attention to queries with high values for `rows_examined` and `rows_sorted`, or those with the `full_scan` flag, as they are likely to use the most CPU. For more information, see [this {{ MY }} article](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
-#### How do I figure out why the IO resource is utilized? {#high-io}
+#### How do I find out what is causing high I/O usage? {#high-io}
 
-Approximate IO usage by {{ MY }} threads is available from system views. To access them, you need the `PROCESS` cluster-level [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
+To get approximate I/O usage by {{ MY }} threads, use system views. To access these views, you need the `PROCESS` [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) for the cluster.
 
-1. Grant a user the `PROCESS` privilege by running the [CLI](../../cli/) command below:
+1. Grant the `PROCESS` privilege to the user by running this [CLI](../../cli/) command:
 
    ```bash
    {{ yc-mdb-my }} user update \
@@ -61,7 +61,7 @@ Approximate IO usage by {{ MY }} threads is available from system views. To acce
        --cluster-id <cluster_ID>
    ```
 
-1. Retrieve a list of threads using the query below:
+1. Get the list of threads using the following query:
 
    ```sql
    SELECT   t.name             AS thread_name,
@@ -81,15 +81,15 @@ Approximate IO usage by {{ MY }} threads is available from system views. To acce
    ORDER BY io.bytes DESC;
    ```
 
-The threads supporting the buffer pool and replication are generally higher in the table. This is normal.
+Typically, the threads at the top of the table are those handling the buffer pool and replication, which is normal.
 
-#### How do I figure out why the network resource is utilized? {#high-network}
+#### How do I find out what is causing high network usage? {#high-network}
 
-High network load may result: from a `SELECT` that returns many rows, an `INSERT` of large amounts of data, or an `UPDATE` that modifies many records. In the event of a write operation, updates will copy over to the replicated hosts, which will create additional traffic.
+High network load may result from a `SELECT` returning a large number of rows, an `INSERT` of large amounts of data, or an `UPDATE` affecting many rows. Writes will replicate changes to replica hosts, generating extra traffic.
 
-Approximate network usage by {{ MY }} threads is available from system views. To access them, you need the `PROCESS` cluster-level [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
+To get approximate network usage by {{ MY }} threads, use system views. To access these views, you need the `PROCESS` [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) for the cluster.
 
-1. Grant a user the `PROCESS` privilege by running the [CLI](../../cli/) command below:
+1. Grant the `PROCESS` privilege to the user by running this [CLI](../../cli/) command:
 
    ```bash
    {{ yc-mdb-my }} user update \
@@ -97,7 +97,7 @@ Approximate network usage by {{ MY }} threads is available from system views. To
        --cluster-id <cluster_ID>
    ```
 
-1. Retrieve a list of threads using the query below:
+1. Get the list of threads using the following query:
 
    ```sql
    SELECT   t.name                       AS thread_name,
@@ -120,13 +120,13 @@ Approximate network usage by {{ MY }} threads is available from system views. To
    ORDER BY net.bytes DESC;
    ```
 
-   This query returns statistics from the thread launch, so long-lived connections (such as those used for replication) will be closer to the top.
+   This query returns statistics since the threads were started, so long-lived connections, such as those used for replication, will be closer to the top.
 
-#### How do I figure out why locks are put in place? {#locks}
+#### How do I find out the causes of locks? {#locks}
 
-If there is no unusual load on the cluster's resources, and queries still take too long to run, use system views to retrieve information on lock waits. To access them, you need the `PROCESS` cluster-level [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
+If the cluster resources are not overloaded yet queries run slowly, use system views to retrieve information on lock waits. To access these views, you need the `PROCESS` [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) for the cluster.
 
-1. Grant a user the `PROCESS` privilege by running the [CLI](../../cli/) command below:
+1. Grant the `PROCESS` privilege to the user by running this [CLI](../../cli/) command:
 
    ```bash
    {{ yc-mdb-my }} user update \
@@ -146,9 +146,9 @@ If there is no unusual load on the cluster's resources, and queries still take t
    SELECT * FROM sys.innodb_lock_waits
    ```
 
-For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/sys-schema-table-lock-waits.html).
+For more information, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/sys-schema-table-lock-waits.html).
 
-#### How do I optimize problem queries? {#query-optimization}
+#### How do I optimize queries with performance issues? {#query-optimization}
 
 See the official {{ MY }} documentation:
 

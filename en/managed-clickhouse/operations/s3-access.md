@@ -6,8 +6,8 @@ description: Follow this guide to configure access to {{ objstorage-full-name }}
 # Configuring access to {{ objstorage-name }} from a {{ CH }} cluster
 
 {{ mch-name }} supports using {{ objstorage-full-name }} to:
-* Add [ML models](ml-models.md), [data format schemas](format-schemas.md), and your [own geobase](geobase.md).
-* Process data in an object storage if this data is in any of the [{{ CH }}-supported formats]({{ ch.docs }}/interfaces/formats/).
+* Add [ML models](ml-models.md), [data format schemas](format-schemas.md), and [custom geobases](geobase.md).
+* Process data in an object storage if this data is in any [format {{ CH }} supports]({{ ch.docs }}/interfaces/formats/).
 
 To access {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) data from a cluster, set up password-free access to the bucket using a [service account](../../iam/concepts/users/service-accounts.md):
 
@@ -31,8 +31,8 @@ See also [Examples of working with objects](#examples).
 Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role in the following cases:
 
 
-* To create or update a cluster and link it to a service account.
-* To restore a cluster linked to a service account from its backup.
+* To create or update a cluster and attach it to a service account.
+* To restore a cluster attached to a service account from its backup.
 
 ## Attach the service account to the cluster {#connect-service-account}
 
@@ -42,7 +42,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
 
 {% note tip %}
 
-To link {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using dedicated service accounts. This allows you to work with any buckets, including those to which public access cannot or should not be granted.  
+To connect {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using dedicated service accounts. This allows you to work with any buckets, including those to which public access cannot or should not be granted.  
 
 {% endnote %}
 
@@ -52,7 +52,7 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using ded
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your bucket. If you have no bucket, [create](../../storage/operations/buckets/create.md) one and [populate](../../storage/operations/objects/upload.md) it with the data you need.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your bucket. If you have no bucket, [create](../../storage/operations/buckets/create.md) one and [upload](../../storage/operations/objects/upload.md) the data you need to it.
 
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 
@@ -60,7 +60,7 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using ded
 
       1. In the list of buckets or objects, select the item in question and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.storage.buckets.button_permissions }}** or **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
-      1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [assigned to the cluster](#connect-service-account).
+      1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [attached to the cluster](#connect-service-account).
       1. Set the required permissions for the service account from the drop-down list.
       1. Click **{{ ui-key.yacloud.common.add }}** and **{{ ui-key.yacloud.common.save }}**.
 
@@ -78,11 +78,11 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using ded
 
 ## Examples of working with objects {#examples}
 
-You can get a [link](../../storage/concepts/object.md#object-url) to a bucket object in `https://{{ s3-storage-host }}/<bucket_name>/<object_name>` format to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.
+You can get a bucket object [URL](../../storage/concepts/object.md#object-url) in `https://{{ s3-storage-host }}/<bucket_name>/<object_name>` format to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.
 
-The `S3` table engine is similar to [File]({{ ch.docs }}/engines/table-engines/special/file/) and [URL]({{ ch.docs }}/engines/table-engines/special/url/) engines, except that data is stored in an S3-compatible storage, such as {{ objstorage-full-name }}, rather than a file system or remote HTTP/HTTPS server. This engine allows reading data from or writing data to the storage using standard SQL queries, such as `SELECT` and `INSERT`.
+The `S3` table engine is similar to [File]({{ ch.docs }}/engines/table-engines/special/file/) and [URL]({{ ch.docs }}/engines/table-engines/special/url/) engines, except that data is stored in an S3-compatible storage, such as {{ objstorage-full-name }}, rather than a file system or remote HTTP/HTTPS server. This engine allows data reads and writes to the storage using standard SQL queries, such as `SELECT` and `INSERT`.
 
-The `s3` table function offers the same features as the `S3` table engine, without the need to pre-create a table.
+The `s3` table function offers the same features as the `S3` table engine, without the need to create a table first.
 
 For example, if your {{ objstorage-name }} bucket contains a file named `table.tsv` that stores table data in TSV format, you can create either a table or a function to access this file. You need to set up password-free access and get a link to `table.tsv` first.
 
@@ -90,7 +90,7 @@ For example, if your {{ objstorage-name }} bucket contains a file named `table.t
 
 - S3 table
 
-  1. Assign the `{{ roles.mch.editor }}` and `storage.uploader` roles to the service account linked to the {{ mch-name }} cluster.
+  1. Assign the `{{ roles.mch.editor }}` and `storage.uploader` roles to the service account attached to the {{ mch-name }} cluster.
   1. Create a table:
   
      ```sql
@@ -108,9 +108,9 @@ For example, if your {{ objstorage-name }} bucket contains a file named `table.t
      └───┘
      ```
 
-- S3 function
+- s3 function
 
-  1. Assign the `{{ roles.mch.editor }}` and `storage.uploader` roles to the service account linked to the {{ mch-name }} cluster.
+  1. Assign the `{{ roles.mch.editor }}` and `storage.uploader` roles to the service account attached to the {{ mch-name }} cluster.
   1. Insert data:
      
      ```sql

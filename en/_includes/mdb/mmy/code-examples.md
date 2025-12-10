@@ -1,6 +1,6 @@
 ### Bash
 
-Before connecting, install the `mysql` utility:
+Before connecting, install `mysql`:
 
 ```bash
 sudo apt update && sudo apt install --yes mysql-client
@@ -8,7 +8,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   {% include [default-connstring](default-connstring.md) %}
 
@@ -27,15 +27,15 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% include [see-fqdn](fqdn-host.md) %}
 
-When running any command, enter the DB user password.
+When running any command, enter the database user password.
 
-After connecting to the DBMS, run the `SELECT version();` command.
+Once connected to the DBMS, run the `SELECT version();` command.
 
 {% include [Successful connection](successful-connect.md) %}
 
 ### Go
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes golang git && \
@@ -44,7 +44,7 @@ go get github.com/go-sql-driver/mysql
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   `connect.go`
 
@@ -174,7 +174,7 @@ Before connecting:
     sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
-1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MY }} driver can use this certificate for secure connections to the cluster hosts. Set a password in the `-storepass` parameter for storage protection:
+1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MY }} driver can use this certificate for secure connections to the cluster hosts. Set a password in the `-storepass` parameter to protect the store:
 
     ```bash
     cd ~/.mysql && \
@@ -186,9 +186,9 @@ Before connecting:
                  --noprompt
     ```
 
-    Where `storepass` is your certificate store password, a minimum of 6 characters.
+    Where `storepass` is your certificate store password, including a minimum of six characters.
 
-1. Create a folder for the Maven project:
+1. Create a directory for the Maven project:
 
     ```bash
     cd ~/ && mkdir -p project/src/java/com/example && cd project/
@@ -274,7 +274,7 @@ Before connecting:
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   `src/java/com/example/App.java`
 
@@ -352,7 +352,7 @@ java -jar target/app-0.1.0-jar-with-dependencies.jar
 
 ### Node.js
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes nodejs npm && \
@@ -361,7 +361,7 @@ npm install mysql2
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   `app.js`
 
@@ -432,7 +432,7 @@ node app.js
 
 ### ODBC
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes unixodbc && \
@@ -442,11 +442,11 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
 
 The {{ MY }} Connector/ODBC driver will be registered automatically in `/etc/odbcinst.ini`. Current version of the driver: [mysql-connector-odbc](https://dev.mysql.com/downloads/connector/odbc/).
 
-Set the connection parameters in `/etc/odbc.ini`.
+Configure the connection settings in the `/etc/odbc.ini` file.
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   `odbc.ini`
 
@@ -488,13 +488,13 @@ Connecting:
 isql -v mysql
 ```
 
-After connecting to the DBMS, run the `SELECT version();` command.
+Once connected to the DBMS, run the `SELECT version();` command.
 
 {% include [Successful connection](successful-connect.md) %}
 
 ### PHP
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && apt install --yes php php-mysql
@@ -502,7 +502,7 @@ sudo apt update && apt install --yes php php-mysql
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   `connect.php`
 
@@ -563,7 +563,7 @@ Before connecting, [download](https://dev.mysql.com/downloads/shell/) and instal
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   ```PowerShell
   mysqlsh --host=<FQDN_of_any_{{ MY }}_host> `
@@ -591,15 +591,15 @@ Before connecting, [download](https://dev.mysql.com/downloads/shell/) and instal
 
 {% include [see-fqdn](fqdn-host.md) %}
 
-When running any command, enter the DB user password.
+When running any command, enter the database user password.
 
-After connecting to the DBMS, run the `SELECT version();` command.
+Once connected to the DBMS, run the `SELECT version();` command.
 
 {% include [Successful connection](successful-connect.md) %}
 
 ### Python
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes python3 python3-pip libmysqlclient-dev && \
@@ -608,7 +608,7 @@ pip3 install mysqlclient
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   `connect.py`
 
@@ -667,7 +667,7 @@ python3 connect.py
 
 ### Ruby
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes ruby ruby-mysql2
@@ -675,7 +675,7 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   `connect.rb`
 

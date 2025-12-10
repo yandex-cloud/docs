@@ -2,21 +2,21 @@
 
 * [What is {{ CH }} used for? Which DBMS should I select?](#why-ch)
 
-* [What part of database management and maintenance is {{ mch-short-name }} responsible for?](#services)
+* [What is the role of {{ mch-short-name }} in database management and maintenance?](#services)
 
-* [Which tasks are best addressed using {{ mch-short-name }}, and which using VMs with databases?](#mdb-advantage)
+* [Not sure whether to use {{ mch-short-name }} or VMs running databases?](#mdb-advantage)
 
 * [What is a database host and database cluster?](#what-is-cluster)
 
 * [How do I get started with {{ mch-short-name }}?](#quickstart})
 
-* [How many database hosts can there be in one cluster?](#how-many-hosts)
+* [How many database hosts can be in a cluster?](#how-many-hosts)
 
-* [How can I access a running DB host?](#db-access)
+* [How can I access a running database host?](#db-access)
 
 * [How many clusters can I create within a single cloud?](#db-limit)
 
-* [How are DB clusters maintained?](#service-window)
+* [How are database clusters maintained?](#service-window)
 
 * [How do I edit external dictionaries?](#external-dict)
 
@@ -34,6 +34,6 @@
 
 * [How can I change the computing resources and storage size for a database cluster?](#resources-change)
 
-* [How can I fix the no permission error when connecting a service account to the cluster?](#attach-service-account)
+* [How can I fix the no permission error when attaching a service account to a cluster?](#attach-service-account)
 
-* [How do I get the logs of my actions in the services?](#logs)
+* [How do I get the logs of my activity in the {{ yandex-cloud }} services?](#logs)

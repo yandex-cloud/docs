@@ -5,13 +5,19 @@
 
 ### 2025 год {#2025}
 
+
+* Как ученые ускорили обработку зашифрованных данных в 30 раз. [Статья](https://yandex.cloud/ru/blog/homomorphic-encryption).
+
 * Основы машинного обучения: задачи, методы, этапы и инструменты. [Статья](https://yandex.cloud/ru/blog/machine-learning-guide).
 
 * Инновации в международном страховании: что будет полезно российскому рынку. [Статья](https://yandex.cloud/ru/blog/innovations-in-insurance).
 
+
 * Нейросеть и рентгеновские спектры: как ускорить анализ катализаторов. [Статья](https://yandex.cloud/ru/blog/analysis-of-catalysts).
 
+
 * ИИ для анализа данных: возможности для бизнеса. [Статья](https://yandex.cloud/ru/blog/ai-data-analytics-guide).
+
 
 ### 2024 год {#2024}
 

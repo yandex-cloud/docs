@@ -1,38 +1,38 @@
 ---
 title: How to create a {{ CH }} cluster
-description: Follow this guide to create a {{ CH }} cluster with one or more database hosts.
+description: Follow this guide to create a {{ CH }} cluster with one or multiple database hosts.
 ---
 
 # Creating a {{ CH }} cluster
 
 
-A {{ CH }} cluster consists of one or more database hosts with replication support.
+A {{ CH }} cluster consists of one or more database hosts with configurable replication across them.
 
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mch.editor }}](../security.md#managed-clickhouse-editor) roles or higher.
+To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mch.editor }}](../security.md#managed-clickhouse-editor) roles or higher.
 
-To link a service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+To attach your service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
 For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
 
 
 ## Creating a cluster {#create-cluster}
 
-* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
+* The available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
-* The number of hosts you can create along with a {{ CH }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create in a {{ CH }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 
 * When using [{{ CK }}](../concepts/replication.md#ck), a cluster must consist of three or more hosts. You do not need separate hosts to run {{ CK }}. You can only create this kind of cluster using the [{{ yandex-cloud }} CLI](../../cli) or API.
 
-* When using [{{ ZK }}](../concepts/replication.md#zk), a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
+* When using [{{ ZK }}](../concepts/replication.md#zk), a cluster may consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
 
   The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. To learn more, see [Replication](../concepts/replication.md#zk).
 
   {% note warning %}
 
-  {{ ZK }} hosts count against the cloud resource usage [quota]({{ link-console-quotas }}) and contribute to the cluster [cost](../pricing.md#prices-zookeeper).
+  {{ ZK }} hosts are counted towards the cloud [resource quota]({{ link-console-quotas }}) and the [cluster cost](../pricing.md#prices-zookeeper).
 
   {% endnote %}
 
@@ -48,13 +48,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
   To create a {{ mch-name }} cluster:
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. Specify the cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
-  1. Select the environment where you want to create your cluster (the environment cannot be changed after cluster creation):
-      * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+  1. Specify the cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
+  1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
+      * `PRODUCTION`: For stable versions of your applications.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list, select the {{ CH }} version the {{ mch-name }} cluster will use. For most clusters, we recommend selecting the latest LTS version.
 
   
@@ -63,7 +63,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
   1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
-      * Select the platform, VM type, and host class. The latter determines the technical specifications of the VMs the DB hosts will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the specifications of all existing instances also change.
+      * Select the platform, VM type, and host class. The latter determines the technical specifications of the VMs the database hosts will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the specifications of all existing instances also change.
 
       
       * Select the [disk type](../concepts/storage.md).
@@ -75,11 +75,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * Select the size of your data and backup disk. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
-      * Optionally, set [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ CH }} subcluster:
+      * Optionally, configure the [automatic storage expansion](../concepts/storage.md#autoscaling) for a {{ CH }} subcluster:
 
         {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
 
-        Automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. When adding a new shard, the settings ​are taken from the oldest one.
+        The automatic storage expansion settings for a {{ CH }} subcluster apply to all existing shards within the subcluster. If you add a new shard, it will use the settings of the oldest shard.
 
       
       * Optionally, select **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
@@ -94,7 +94,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**:
   
-      * Optionally, set [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ ZK }} subcluster:
+      * Optionally, configure the [automatic storage expansion](../concepts/storage.md#autoscaling) for a {{ ZK }} subcluster:
 
         {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
   
@@ -118,23 +118,23 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       
       * Specify a user password:
 
-        * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select this option to set your own password. The password must be from 8 to 128 characters long.
+        * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select this option to set your own password. It must be from 8 to 128 characters long.
 
         * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Select this option to generate a password using {{ connection-manager-name }}.
 
-        To view the password after cluster creation, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
+        To view the password after creating a cluster, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-      * Specify the DB name. The DB name may contain Latin letters, numbers, and underscores. It can be up to 63 characters long. You cannot create a database named `default`.
+      * Specify a DB name. The database name may contain Latin letters, numbers, and underscores. It may be up to 63 characters long. You cannot create a database named `default`.
 
       * Select the database engine: 
       
-        * By default, `Atomic` supports the non-blocking `DROP TABLE` and `RENAME TABLE` operations and the atomic `EXCHANGE TABLES` operations.
+        * By default, `Atomic` supports the non-blocking `DROP TABLE` and `RENAME TABLE` operations and atomic `EXCHANGE TABLES` operations.
         * `Replicated` supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
 
           It is only available in [replicated](../concepts/replication.md) clusters.
 
-        You set the engine when creating the database and cannot change it for this database.
+        You set the engine when creating a database and cannot change it for this database.
 
       * Enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster, if required.
 
@@ -144,18 +144,18 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% endnote %}
 
-      * [Configure the DBMS](../concepts/settings-list.md#server-level-settings), if required. You can specify them later.
+      * [Configure the DBMS](../concepts/settings-list.md#server-level-settings), if required. You can do it later.
 
         Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
 
   
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a cloud network to host your cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able to connect to the cluster.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host your cluster and security groups for cluster network traffic. You may need to [set up security groups](connect/index.md#configuring-security-groups) to be able to connect to the cluster.
 
 
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters of database hosts created along with the cluster. To change host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host number:
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters of database hosts created along with the cluster. To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host number:
 
-      * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
-      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+      * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
+      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Specify the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
 
       
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect/index.md) to the host from the internet.
@@ -165,7 +165,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       To add hosts to your cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
-  1. Configure cluster service settings, if required:
+  1. Specify the cluster service settings, if required:
 
       {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
 
@@ -189,13 +189,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-  1. See the description of the CLI command for creating a cluster:
+  1. View the description of the CLI command for creating a cluster:
 
       ```bash
       {{ yc-mdb-ch }} cluster create --help
       ```
 
-  1. Specify cluster parameters in that command (our example does not use all available parameters):
+  1. In this command, specify the cluster properties (our example does not use all available parameters):
 
       
       ```bash
@@ -224,7 +224,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * `--environment`: Cluster environment, `prestable` or `production`.
       * `--host`: Host settings:
-        * `type`: Host type: `clickhouse` or `zookeeper`.
+        * `type`: Host type, `clickhouse` or `zookeeper`.
         * `zone-id`: Availability zone.
 
         
@@ -248,7 +248,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         
         {% note info %}
 
-        You can also generate a password using {{ connection-manager-name }}. To do this, modify the command, specifying user parameters as follows:
+        You can also generate a password using {{ connection-manager-name }}. To do this, edit the command, specifying user properties as follows:
 
         ```bash
           --user name=<username>,generate-password=true
@@ -278,7 +278,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          {{ yc-mdb-ch }} cluster create \
            ...
            --enable-sql-user-management true \
-           --admin-password "<admin_user_password>"
+           --admin-password "<admin_password>"
          ```
 
 
@@ -300,7 +300,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-      1. To enable access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), use the `--serverless-access` flag. For more information about setting up access, see this [{{ sf-name }} guide](../../functions/operations/database-connection.md).
+      1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information about setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
 
       1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
@@ -316,9 +316,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
-      1. To configure [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
+      1. To [configure hybrid storage](../concepts/storage.md#hybrid-storage-settings):
 
-         * Set the `--cloud-storage` parameter to `true` to enable hybrid storage.
+         * Set `--cloud-storage` to `true` to enable hybrid storage.
 
             {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
@@ -338,10 +338,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          ```
 
          Where:
-         * `--cloud-storage-data-cache`: Defines whether to store files in a cluster storage, `true` or `false`.
+         * `--cloud-storage-data-cache`: Set to store files in a cluster storage, `true` or `false`.
          * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in a cluster and object storage, `true` or `false`.
 
-      1. To set up automatic increase of storage size for {{ CH }} and {{ ZK }} subclusters, use the `--disk-size-autoscaling` flag:
+      1. To set up automatic storage expansion for {{ CH }} and {{ ZK }} subclusters, use the `--disk-size-autoscaling` flag:
         
          ```bash
          {{ yc-mdb-ch }} cluster create \
@@ -355,7 +355,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            ...
          ```
 
-         Where `--disk-size-autoscaling` represents automatic storage size increase settings:
+         Where `--disk-size-autoscaling` defines the automatic storage expansion settings:
          
          {% include [disk-size-autoscaling-cli](../../_includes/mdb/mch/disk-size-autoscaling-cli.md) %}
       
@@ -370,15 +370,15 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            ...
          ```
          
-         Where `--maintenance-window` represents maintenance window settings:
+         Where `--maintenance-window` defines the maintenance window settings:
 
          * `type`: Maintenance window type. Valid values:
            
            * `anytime`: Any time (default).
-           * `weekly`: On a schedule. To use this value, you need to provide `hour` and `day`.
+           * `weekly`: On schedule. To use this value, you need to provide `hour` and `day`.
         
          * `hour`: Time of day (UTC). The valid values range from `1` to `24`.
-         * `day`: Day of week. Valid values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+         * `day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
 
 - {{ TF }} {#tf}
 
@@ -386,16 +386,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
   To create a {{ mch-name }} cluster:
 
-    1. In the command line, navigate to the directory that contains the {{ TF }} configuration files with the infrastructure plan. If there is no such directory, create one.
+    1. In the command line, navigate to the directory that will contain the {{ TF }} configuration files with the infrastructure plan. If there is no such directory, create one.
 
     
     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
     1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
-        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) to host the cluster. If you already have a suitable network, you do not need to describe it again.
-        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
+        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) to host the cluster. If you already have a network in place, you do not need to describe it again.
+        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have subnets in place, you do not need to describe them again.
 
-       Below is a sample structure of a configuration file describing a single-subnet cloud network:
+       Below is an example of a configuration file describing a single-subnet cloud network:
 
        ```hcl
        resource "yandex_vpc_network" "<network_name_in_{{ TF }}>" { name = "<network_name>" }
@@ -417,12 +417,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
              {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-       * Database: Cluster DB description.
+       * Database: Cluster database description.
        * User: Cluster user description. Optionally, specify the [DBMS user-level settings](../concepts/settings-list.md#dbms-user-settings) here. You can also provide them later.
 
           Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
 
-       Below is an example structure of a configuration file describing a cluster with a single host:
+       Below is an example structure of a configuration file describing a single-host cluster:
 
        
        ```hcl
@@ -476,7 +476,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        Where:
 
-       * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+       * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
 
        
        * `assign_public_ip`: Public access to the host, `true` or `false`.
@@ -486,7 +486,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        * `lifecycle.ignore_changes`: Eliminates resource conflicts in operations with users and databases created through individual resources.
 
-       For a user, specify as follows:
+       For a user, specify the following:
 
        * `name` and `password`: {{ CH }} username and password, respectively.
 
@@ -504,7 +504,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           {% endnote %}
 
 
-       1. To enable access from other services and allow [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, add a section named `access` configured as needed:
+       1. To enable access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, add the `access` section with the settings you need:
 
           
           ```hcl
@@ -532,7 +532,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 
           * `yandex_query`: Access from {{ yq-full-name }}, `true` or `false`.
-          * `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
+          * `web_sql`: Running SQL queries from the management console, `true` or `false`.
 
        1. You can manage cluster users and databases via SQL.
 
@@ -557,13 +557,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
-       For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-mch }}).
+       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mch }}).
 
     1. Make sure the {{ TF }} configuration files are correct:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Create your cluster:
+    1. Create a cluster:
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -573,7 +573,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -601,11 +601,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 "<security_group_N_ID>"
               ],
               "configSpec": {
-                "version": "<{{ CH }}>_version",
-                "embeddedKeeper": <using_ClickHouse®_Keeper>,
+                "version": "<{{ CH }}_version>",
+                "embeddedKeeper": <use_ClickHouse®_Keeper>,
                 "clickhouse": {
                   "resources": {
-                    "resourcePresetId": "<{{ CH }}>_host_class",
+                    "resourcePresetId": "<{{ CH }}_host_class>",
                     "diskSize": "<storage_size_in_bytes>",
                     "diskTypeId": "<disk_type>"
                   },
@@ -617,7 +617,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 },
                 "zookeeper": {
                   "resources": {
-                    "resourcePresetId": "<{{ ZK }}>_host_class",
+                    "resourcePresetId": "<{{ ZK }}_host_class>",
                     "diskSize": "<storage_size_in_bytes>",
                     "diskTypeId": "<disk_type>"
                   },
@@ -639,8 +639,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   "enabled": <hybrid_storage_use>,
                   "moveFactor": "<share_of_free_space>",
                   "dataCacheEnabled": <temporary_file_storage>,
-                  "dataCacheMaxSize": "<maximum_cache_size_for_file_storage>",
-                  "preferNotToMerge": <disabling_merge_of_data_parts>
+                  "dataCacheMaxSize": "<maximum_memory_for_file_storage>",
+                  "preferNotToMerge": <disabling_data_part_merging>
                 },
                 "adminPassword": "<admin_password>",
                 "sqlUserManagement": <user_management_via_SQL>,
@@ -696,7 +696,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `name`: Cluster name.
             * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-            * `networkId`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
+            * `networkId`: ID of the [network](../../vpc/concepts/network.md) to host the cluster.
 
             
             * `securityGroupIds`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
@@ -715,7 +715,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
 
-                    * `diskSizeAutoscaling`: Automatic storage size increase settings for a {{ CH }} subcluster:
+                    * `diskSizeAutoscaling`: Automatic storage expansion settings for a {{ CH }} subcluster:
                       
                       {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
 
@@ -723,19 +723,19 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                     {% note warning %}
                     
-                    If you enable {{ CK }} through the `embeddedKeeper: true` setting, the {{ ZK }} configuration in `configSpec` will not be applied.
+                    If you enabled {{ CK }} by setting `embeddedKeeper: true`, the {{ ZK }} configuration in `configSpec` will not be applied.
                     
                     {% endnote %}
 
-                    * `resources.resourcePresetId`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
-                    * `resources.diskSize`: Disk size in bytes.
+                    * `resources.resourcePresetId`: Host class ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: Disk type.
 
-                    * `diskSizeAutoscaling`: Automatic storage size increase settings for a {{ ZK }} subcluster:
+                    * `diskSizeAutoscaling`: Automatic storage expansion settings for a {{ ZK }} subcluster:
                       
                       {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
 
-                * `access`: Settings enabling cluster access from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+                * `access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
 
                     {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
 
@@ -747,7 +747,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                     * `adminPassword`: `admin` password.
                     * `sqlUserManagement`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
-                    * `sqlDatabaseManagement`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management through SQL.
+                    * `sqlDatabaseManagement`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management via SQL.
 
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
@@ -759,19 +759,19 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
-            * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
+            * `userSpecs`: User settings as an array of elements, one per user. Each element has the following structure:
 
                 {% include [rest-user-specs](../../_includes/mdb/mch/api/rest-user-specs.md) %}
 
-            * `hostSpecs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+            * `hostSpecs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
                 * `type`: Host type, `CLICKHOUSE` or `ZOOKEEPER`.
 
                     If you enabled {{ CK }} by setting `embeddedKeeper: true`, specify only {{ CH }} host settings in `hostSpecs`.
 
                 * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
-                * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-                * `shardName`: [Shard](../concepts/sharding.md) name. This setting is only relevant for hosts of the `CLICKHOUSE` type.
+                * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+                * `shardName`: [Shard](../concepts/sharding.md) name. This setting is only relevant for `CLICKHOUSE` hosts.
 
                 
                 * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
@@ -781,20 +781,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
-            * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             * `maintenanceWindow`: Maintenance window settings:
               
-                * `weeklyMaintenanceWindow.day`: Day of week. Valid values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+                * `weeklyMaintenanceWindow.day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
                 * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The valid values range from `1` to `24`.
               
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. Run this request:
+        1. Run this query:
 
             ```bash
             curl \
@@ -809,13 +809,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         1. Create a file named `body.json` and paste the following code into it:
 
@@ -840,10 +840,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               ],
               "config_spec": {
                 "version": "<{{ CH }}_version>",
-                "embedded_keeper": <{{ CK }}_usage>,
+                "embedded_keeper": <use_{{ CK }}>,
                 "clickhouse": {
                   "resources": {
-                    "resource_preset_id": "<{{ CH }}>_host_class",
+                    "resource_preset_id": "<{{ CH }}_host_class>",
                     "disk_size": "<storage_size_in_bytes>",
                     "disk_type_id": "<disk_type>"
                   },
@@ -877,8 +877,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   "enabled": <hybrid_storage_use>,
                   "move_factor": "<share_of_free_space>",
                   "data_cache_enabled": <temporary_file_storage>,
-                  "data_cache_max_size": "<maximum_cache_size_for_file_storage>",
-                  "prefer_not_to_merge": <disabling_merge_of_data_parts>
+                  "data_cache_max_size": "<maximum_memory_for_file_storage>",
+                  "prefer_not_to_merge": <disabling_data_part_merging>
                 },
                 "admin_password": "<admin_password>",
                 "sql_user_management": <user_management_via_SQL>,
@@ -934,7 +934,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `name`: Cluster name.
             * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
 
-            * `network_id`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
+            * `network_id`: ID of the [network](../../vpc/concepts/network.md) to host the cluster.
 
             
             * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
@@ -954,7 +954,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: [Disk type](../concepts/storage.md).
 
-                    * `disk_size_autoscaling`: Automatic storage size increase settings for a {{ CH }} subcluster:
+                    * `disk_size_autoscaling`: Automatic storage expansion settings for a {{ CH }} subcluster:
                       
                         {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
 
@@ -962,7 +962,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                     {% note warning %}
                     
-                    If you enable {{ CK }} through the `embeddedKeeper: true` setting, the {{ ZK }} configuration in `configSpec` will not be applied.
+                    If you enabled {{ CK }} by setting `embeddedKeeper: true`, the {{ ZK }} configuration in `configSpec` will not be applied.
                     
                     {% endnote %}
                     
@@ -970,11 +970,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: Disk type.
 
-                    * `disk_size_autoscaling`: Automatic storage size increase settings for a {{ ZK }} subcluster:
+                    * `disk_size_autoscaling`: Automatic storage expansion settings for a {{ ZK }} subcluster:
                       
                         {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 
-                * `access`: Settings enabling cluster access from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+                * `access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
 
                     {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
 
@@ -986,7 +986,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                     * `admin_password`: `admin` password.
                     * `sql_user_management`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
-                    * `sql_database_management`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management through SQL.
+                    * `sql_database_management`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management via SQL.
 
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
@@ -1009,8 +1009,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     If you enabled {{ CK }} by setting `embedded_keeper: true`, specify only {{ CH }} host settings in `host_specs`.
 
                 * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
-                * `subnet_id`: Subnet [ID](../../vpc/concepts/network.md#subnet).
-                * `shard_name`: [Shard](../concepts/sharding.md) name. This setting is only relevant for hosts of the `CLICKHOUSE` type.
+                * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+                * `shard_name`: [Shard](../concepts/sharding.md) name. This setting is only relevant for `CLICKHOUSE` hosts.
 
                 
                 * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
@@ -1020,13 +1020,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
-            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             * `maintenance_window`: Maintenance window settings:
               
-              * `weekly_maintenance_window.day`: Day of week. Valid values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+              * `weekly_maintenance_window.day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
               * `weekly_maintenance_window.hour`: Time of day (UTC). The valid values range from `1` to `24`.
 
             
@@ -1055,14 +1055,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to additionally [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a cluster, you may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ CH }} cluster that uses the settings of another one created earlier. To do so, import the {{ CH }} source cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when a {{ CH }} source cluster has a lot of settings and you need to create a similar one.
+You can create a {{ CH }} cluster with the settings of another one created earlier. To do this, import the {{ CH }} source cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when a {{ CH }} source cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ CH }} cluster copy:
 
@@ -1081,15 +1081,15 @@ To create a {{ CH }} cluster copy:
         resource "yandex_mdb_clickhouse_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ CH }} cluster to the environment variable:
+    1. Save the ID of the {{ CH }} source cluster to an environment variable:
 
         ```bash
         export CLICKHOUSE_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ CH }} cluster into the {{ TF }} configuration:
+    1. Import the {{ CH }} source cluster settings to the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_clickhouse_cluster.old ${CLICKHOUSE_CLUSTER_ID}
@@ -1105,23 +1105,23 @@ To create a {{ CH }} cluster copy:
     1. Place the file in the new `imported-cluster` directory.
     1. Edit the copied configuration so that you can create a new cluster from it:
 
-        * Specify a name for the new cluster in the `resource` string and the `name` parameter.
+        * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
         * In the `host` sections, delete `fqdn`.
-        * Under `clickhouse.config.merge_tree`, if `max_bytes_to_merge_at_max_space_in_pool`, `max_parts_in_total`, and `number_of_free_entries_in_pool_to_execute_mutation` are set to `0`, delete these parameters.
+        * Under `clickhouse.config.merge_tree`, if the `max_bytes_to_merge_at_max_space_in_pool`, `max_parts_in_total`, and `number_of_free_entries_in_pool_to_execute_mutation` parameters are set to `0`, delete them.
         * Under `clickhouse.config.kafka`, set `sasl_password` or delete this parameter.
         * Under `clickhouse.config.rabbitmq`, set `password` or delete this parameter.
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
         * Delete all `user` sections (if any). You can add database users with a separate `yandex_mdb_clickhouse_user` resource.
-        * Optionally, make further changes if you need to customize the configuration.
+        * Optionally, make further changes if you need a customized configuration.
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with the provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
-    1. Validate your {{ TF }} configuration files:
+    1. Make sure the {{ TF }} configuration files are correct:
 
         ```bash
         terraform validate
@@ -1161,7 +1161,7 @@ To create a {{ CH }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
   * User: `user1`, password: `user1user1`.
   * Database: `db1`.
-  * Cluster protection from accidental deletion: Enabled.
+  * Cluster protection against accidental deletion: Enabled.
 
 
   Run this command:
@@ -1186,7 +1186,7 @@ To create a {{ CH }} cluster copy:
 
 - {{ TF }} {#tf}
 
-  Create a {{ mch-name }} cluster and a network for it with the following test specifications:
+  Create a {{ mch-name }} cluster and its network with the following test specifications:
 
   * Name: `mych`.
   * Environment: `PRESTABLE`.
@@ -1209,9 +1209,9 @@ To create a {{ CH }} cluster copy:
   * Database name: `db1`.
   * User: `user1`, password: `user1user1`.
 
-  The configuration files for this cluster look like this:
+  The configuration files for this cluster are as follows:
 
-  1. Configuration file with a description of provider settings:
+  1. Configuration file with a description of the provider settings:
 
       {% include [terraform-provider](../../_includes/mdb/terraform-provider.md) %}
 
@@ -1225,7 +1225,7 @@ To create a {{ CH }} cluster copy:
       {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
 
 
-  1. Configuration file with a description of the cluster and cluster host:
+  1. Configuration file with a description of the cluster and its host:
 
       {% include [terraform-mch-single-host-single-shard](../../_includes/mdb/mch/terraform/single-host-single-shard.md) %}
 
@@ -1259,14 +1259,14 @@ To create a {{ CH }} cluster copy:
   * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
 
 
-  * Local SSD storage (`{{ disk-type-example }}`) for each of the {{ CH }}cluster hosts: 32 GB.
-  * Local SSD storage (`{{ disk-type-example }}`) for each of the {{ ZK }} cluster hosts: 10 GB.
+  * Network SSD storage (`{{ disk-type-example }}`) for each of the {{ CH }} cluster hosts: 32 GB.
+  * Network SSD storage (`{{ disk-type-example }}`) for each of the {{ ZK }} cluster hosts: 10 GB.
   * Database name: `db1`.
   * User: `user1`, password: `user1user1`.
 
-  The configuration files for this cluster look like this:
+  The configuration files for this cluster are as follows:
 
-  1. Configuration file with a description of provider settings:
+  1. Configuration file with a description of the provider settings:
 
       {% include [terraform-provider](../../_includes/mdb/terraform-provider.md) %}
 
@@ -1280,7 +1280,7 @@ To create a {{ CH }} cluster copy:
       {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
 
 
-  1. Configuration file with a description of the cluster and cluster hosts:
+  1. Configuration file with a description of the cluster and its hosts:
 
       {% include [terraform-mch-multiple-hosts-single-shard](../../_includes/mdb/mch/terraform/multiple-hosts-single-shard.md) %}
 

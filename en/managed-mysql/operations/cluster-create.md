@@ -21,7 +21,7 @@ For more information on the {{ mmy-name }} cluster structure, see [Resource rela
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mmy.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see this [{{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mmy.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 
@@ -55,7 +55,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% note info %}
 
-       If the database storage reaches 95% capacity, the {{ mmy-name }} cluster will switch to read-only mode. Make sure to increase the storage size in advance.
+       If the database storage reaches 95% capacity, the {{ mmy-name }} cluster will switch to read-only mode. Make sure to expand the storage in advance.
 
        {% endnote %}
 
@@ -235,8 +235,8 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                                 `sessions-sampling-interval=<session_sampling_interval>,`
                                 `statements-sampling-interval=<statement_sampling_interval>
        --disk-size-autoscaling disk-size-limit=<max_storage_size_in_GB>,`
-                              `planned-usage-threshold=<threshold_for_scheduled_increase_in_percent>,`
-                              `emergency-usage-threshold=<threshold_for_immediate_increase_in_percent> \
+                              `planned-usage-threshold=<threshold_for_scheduled_expansion_in_percent>,`
+                              `emergency-usage-threshold=<threshold_for_immediate_expansion_in_percent> \
        --maintenance-window type=<maintenance_type>,`
                            `day=<day_of_week>,`
                            `hour=<hour>
@@ -249,7 +249,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `--backup-retain-period-days`: Automatic backup retention period, in days.
 
      
-     * `--disk-encryption-key-id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md).
+     * `--disk-encryption-key-id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
 
        To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
@@ -280,7 +280,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To create a {{ mmy-name }} cluster:
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
      * Database cluster: Description of the cluster and its hosts.
      * Database: Cluster database description.
 
@@ -440,7 +440,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        For `sessions_sampling_interval` and `statements_sampling_interval`, the valid values range from `1` to `86400` seconds.
 
-     For more information about the resources you can create with {{ TF }}, see this [provider article]({{ tf-provider-mmy }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mmy }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -491,8 +491,8 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "statementsSamplingInterval": "<statement_sampling_interval>"
               },
               "diskSizeAutoscaling": {
-                  "plannedUsageThreshold": "<threshold_for_scheduled_increase_in_percent>",
-                  "emergencyUsageThreshold": "<threshold_for_immediate_increase_in_percent>",
+                  "plannedUsageThreshold": "<threshold_for_scheduled_expansion_in_percent>",
+                  "emergencyUsageThreshold": "<threshold_for_immediate_expansion_in_percent>",
                   "diskSizeLimit": "<maximum_storage_size_in_bytes>"
               }
           },
@@ -569,7 +569,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             * `dataLens`: Access from {{ datalens-full-name }}. For more information about setting up a connection, see [{#T}](datalens-connect.md).
             * `webSql`: [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
-            * `yandexQuery`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md).
+            * `yandexQuery`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
             The possible setting values are `true` or `false`.
@@ -628,7 +628,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -667,8 +667,8 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "statements_sampling_interval": "<statement_sampling_interval>"
               },
               "disk_size_autoscaling": {
-                  "planned_usage_threshold": "<threshold_for_scheduled_increase_in_percent>",
-                  "emergency_usage_threshold": "<threshold_for_immediate_increase_in_percent>",
+                  "planned_usage_threshold": "<threshold_for_scheduled_expansion_in_percent>",
+                  "emergency_usage_threshold": "<threshold_for_immediate_expansion_in_percent>",
                   "disk_size_limit": "<maximum_storage_size_in_bytes>"
               }
           },
@@ -713,7 +713,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       Where:
 
-      * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
@@ -739,7 +739,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             * `data_lens`: Access from {{ datalens-full-name }}. For more information about setting up a connection, see [{#T}](datalens-connect.md).
             * `web_sql`: [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
-            * `yandex_query`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md).
+            * `yandex_query`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
             The possible setting values are `true` or `false`.
@@ -772,7 +772,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
               For each database, add a separate element with permission settings to the `permissions` array.
 
-      * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+      * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
@@ -780,7 +780,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}    
 
-  1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -864,7 +864,7 @@ To create a {{ MY }} cluster copy:
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
-    1. Validate your {{ TF }} configuration files:
+    1. Make sure the {{ TF }} configuration files are correct:
 
         ```bash
         terraform validate
@@ -938,7 +938,7 @@ To create a {{ MY }} cluster copy:
 
 - {{ TF }} {#tf}
 
-  Create a {{ mmy-name }} cluster and a network for it with the following test specifications:
+  Create a {{ mmy-name }} cluster and its network with the following test specifications:
 
     * Name: `my-mysql`.
     * Version: `{{ versions.tf.latest }}`.
@@ -1093,14 +1093,14 @@ To create a {{ MY }} cluster copy:
 
 - {{ TF }} {#tf}
 
-  Create a {{ mmy-name }} cluster and a network for it with the following test specifications:
+  Create a {{ mmy-name }} cluster and its network with the following test specifications:
 
     * Name: `my-mysql-3`.
     * Version: `{{ versions.tf.latest }}`.
     * Environment: `PRESTABLE`.
     * Cloud ID: `{{ tf-cloud-id }}`.
     * Folder ID: `{{ tf-folder-id }}`.
-    * New network: `mynet`.
+    * Network: `mynet` (new one).
     * `{{ host-class }}` public hosts: 3.
 
       One host will be added to each new subnet:
@@ -1113,7 +1113,7 @@ To create a {{ MY }} cluster copy:
       The host residing in `mysubnet-b` will have the backup priority. If this host is not acting as the master, backups will be created from its data.
 
     
-    * New security group: `mysql-sg`, allowing connections to {{ mmy-name }} clusters from the Internet through port `{{ port-mmy }}`.
+    * Security group: `mysql-sg` (new one), allowing internet access to the {{ mmy-name }} cluster on port `{{ port-mmy }}`.
 
 
     * Network SSD storage (`{{ disk-type-example }}`): 32 GB.

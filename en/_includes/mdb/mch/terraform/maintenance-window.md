@@ -1,4 +1,4 @@
-To set up the [maintenance window](../../../../managed-clickhouse/concepts/maintenance.md) (for disabled clusters as well), add the `maintenance_window` block to the cluster description:
+To set up the [maintenance window](../../../../managed-clickhouse/concepts/maintenance.md) that will also apply to disabled clusters, add the `maintenance_window` section to the cluster description:
 
 ```hcl
 resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {

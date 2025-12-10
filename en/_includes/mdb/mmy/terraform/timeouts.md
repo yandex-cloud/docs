@@ -1,16 +1,16 @@
-{% note warning "Time limits" %}
+{% note warning "Timeouts" %}
 
-A {{ TF }} provider sets the timeout for {{ mmy-name }} cluster operations:
+The {{ TF }} provider sets the following timeouts for {{ mmy-name }} cluster operations:
 
-* Creating a cluster, including by restoring one from a backup: 15 minutes.
-* Editing a cluster, including the {{ MY }} version update: 60 minutes.
+* Creating a cluster, including by restoring it from a backup: 15 minutes.
+* Updating a cluster, including the {{ MY }} version update: 60 minutes.
 * Deleting a cluster: 15 minutes.
 
-Operations exceeding the set timeout are interrupted.
+Operations exceeding the timeout are aborted.
 
 {% cut "How do I change these limits?" %}
 
-Add the `timeouts` block to the cluster description, for example:
+Add the `timeouts` section to the cluster description, such as the following:
 
 ```hcl
 resource "yandex_mdb_mysql_cluster" "<cluster_name>" {

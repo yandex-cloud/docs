@@ -74,6 +74,7 @@
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
+  * Serverless GitLab Runner в {{ yandex-cloud }}: как работает и зачем нужен, 2025 — [Статья](https://yandex.cloud/ru/blog/serverless-gitlab-runner-guide).
   * Запускаем контейнерные приложения в {{ serverless-containers-full-name }}, 2023 — Видео на [YouTube](https://youtu.be/OVFAjzGDU5w) и [Яндекс](https://runtime.strm.yandex.ru/player/video/vplvb2sbdl54xhhbrmkw), [Статья](https://yandex.cloud/ru/blog/posts/2023/09/applications-in-serverless-containers).
   * <code><b><small>Внешний ресурс</small></b></code> Запуск контейнера {{ serverless-containers-name }} по триггеру, 2022 — [Статья](https://nikolaymatrosov.ru/2022-07-24-Use-Trigger-with-Serverless-Container).
   * {{ serverless-containers-name }} и другие новинки serverless, 2021 — Видео на [YouTube](https://youtu.be/cwi8hvYSDFI) и [Яндекс](https://runtime.strm.yandex.ru/player/video/vplvfleteamx53wtdmhr).

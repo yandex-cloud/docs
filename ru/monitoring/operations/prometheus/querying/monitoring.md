@@ -11,6 +11,11 @@ sourcePath: ru/monitoring_includes/operations/prometheus/querying/monitoring.md
 * В разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** — для быстрого просмотра состояния ресурсов.
 * В разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** — для периодического мониторинга определенных показателей.
 
+{% note tip %}
+
+{% include [grafana-export](../../../../_includes/monitoring/grafana-export.md) %}
+
+{% endnote %}
 
 ## Добавление графиков в {{ monitoring-name }} {#prometheus-metrics}
 

@@ -3,6 +3,15 @@ title: История изменений в {{ metadata-hub-full-name }}
 description: В разделе представлена история изменений сервиса {{ metadata-hub-name }}.
 ---
 
+<!-- Changelog begin -->
+
+
+
+
+
+
+<!-- Changelog end -->
+
 # История изменений {{ metadata-hub-full-name }}
 
 ## 2025 год {#2025}
@@ -49,7 +58,7 @@ description: В разделе представлена история изме�
 * [{{ data-catalog-name }}](../concepts/data-catalog.md) перешел в стадию [стадию Public Preview](../../overview/concepts/launch-stages.md); реализована [AI-разметка](../operations/data-catalog/markup-metadata.md) метаданных и [AI-поиск](../operations/data-catalog/search-metadata.md).
 
 
-### Август {#august25}
+### Август
 
 #### Новые возможности {#new-features-august25}
 

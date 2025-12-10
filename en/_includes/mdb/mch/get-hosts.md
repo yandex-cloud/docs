@@ -4,7 +4,7 @@
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI {#cli}
@@ -13,7 +13,7 @@
 
   {% include [default-catalogue](../../default-catalogue.md) %}
 
-  To get a list of cluster hosts, run the command:
+  To get a list of cluster hosts, run this command:
 
   ```bash
   {{ yc-mdb-ch }} host list \
@@ -29,15 +29,15 @@
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.ListHosts](../../../managed-clickhouse/api-ref/Cluster/listHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.ListHosts](../../../managed-clickhouse/api-ref/Cluster/listHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -46,19 +46,19 @@
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/hosts'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-    1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/listHosts.md#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse) to make sure the request was successful.
+    1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/listHosts.md#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.ListHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.ListHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -74,8 +74,8 @@
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListHosts
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-    1. View the [server response](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse) to make sure the request was successful.
+    1. View the [server response](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
 title: Deleting a {{ MY }} cluster
-description: After you delete a {{ MY }} cluster, its backups are kept for seven days for recovery purposes. To restore a deleted cluster from a backup you will need its ID; therefore, make sure the cluster ID is secure before deleting the cluster.
+description: After you delete a {{ MY }} cluster, its backups are retained for seven days for recovery purposes. To restore a deleted cluster from a backup, you will need its ID, so make sure to securely save the cluster ID before deleting the cluster.
 ---
 
 # Deleting a {{ MY }} cluster
@@ -18,9 +18,9 @@ description: After you delete a {{ MY }} cluster, its backups are kept for seven
 
 - Management console {#console}
   
-  1. Open the [folder page]({{ link-console-main }}) in the management console.
+  1. Open the [folder dashboard]({{ link-console-main }}) in the management console.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster you need and select ![image](../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
   
@@ -28,13 +28,13 @@ description: After you delete a {{ MY }} cluster, its backups are kept for seven
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To delete a cluster, run the command:
+  To delete a cluster, run this command:
   
   ```bash
   {{ yc-mdb-my }} cluster delete <cluster_name_or_ID>
   ```
 
-  You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -44,11 +44,11 @@ description: After you delete a {{ MY }} cluster, its backups are kept for seven
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.delete](../api-ref/Cluster/delete.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.delete](../api-ref/Cluster/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -57,18 +57,18 @@ description: After you delete a {{ MY }} cluster, its backups are kept for seven
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>'
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -84,8 +84,8 @@ description: After you delete a {{ MY }} cluster, its backups are kept for seven
           yandex.cloud.mdb.mysql.v1.ClusterService.Delete
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
