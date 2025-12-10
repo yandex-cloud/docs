@@ -21,11 +21,11 @@ To view detailed information on the state of a {{ mch-name }} cluster:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab. 
 
-      The page that opens will display the performance charts for the cluster and {{ CH }} hosts.
+      The page that opens will display the performance charts for your {{ CH }} cluster and its hosts.
 
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -35,12 +35,12 @@ To view detailed information on the state of a {{ mch-name }} cluster:
 
 If the cluster consists of {{ CH }} and [{{ ZK }}](../concepts/replication.md#zk) hosts, the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** page will have the following tabs:
 
-* **{{ ui-key.yacloud.clickhouse.title_clickhouse }}**: State information for whole cluster and {{ CH }} hosts.
+* **{{ ui-key.yacloud.clickhouse.title_clickhouse }}**: State information for whole {{ CH }} cluster and its hosts.
 * **{{ ui-key.yacloud.clickhouse.title_zookeeper }}**: State information for {{ ZK }} hosts.
 
 If the cluster consists of only {{ CH }} hosts, the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** page will have the **{{ ui-key.yacloud.clickhouse.switch_list }}** tab with information aligned with the **{{ ui-key.yacloud.clickhouse.title_clickhouse }}** tab.
 
-Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** page also has the **Hosts** tab for [detailed host status information](#monitoring-hosts).
+Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** page also has the **Hosts** tab for [detailed host state information](#monitoring-hosts).
 
 {% list tabs %}
 
@@ -62,9 +62,9 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
 
   * Under **Queries**:
 
-    * **Select queries per host**: Number of select queries per second per cluster host.
-    * **Insert queries per host**: Number of insert queries per second per cluster host.
-    * **Total queries per host**: Total number of queries per second per cluster host.
+    * **Select queries per host**: Number of select queries per second for each cluster host.
+    * **Insert queries per host**: Number of insert queries per second for each cluster host.
+    * **Total queries per host**: Total number of queries per second for each host.
     * **Failed select queries per host**: Percentage of failed select queries per {{ CH }} subcluster host.
     * **Failed insert queries per host**: Percentage of failed insert queries per {{ CH }} subcluster host.
     * **Failed queries per host**: Percentage of failed queries per {{ CH }} subcluster host.
@@ -83,15 +83,15 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
     * **Read data per host**: Data read rate per cluster host.
     * **Inserted data per host**: Data insertion rate per cluster host.
     * **Merged data per host**: Data merge rate per cluster host.
-    * **Read rows per host**: Data read rate per second per cluster host.
-    * **Inserted rows per host**: Row insertion rate per second per cluster host.
-    * **Merged rows per host**: Row merge rate per second per cluster host.
+    * **Read rows per host**: Row read rate per second for each cluster host.
+    * **Inserted rows per host**: Row insertion rate per second for each cluster host.
+    * **Merged rows per host**: Row merge rate per second for each cluster host.
 
   * Under **Storage**:
     
-    * **Disk space usage per host, bytes**: The disk space used per {{ CH }} subcluster host.
+    * **Disk space usage per host, bytes**: Disk space used per {{ CH }} subcluster host.
     * **Disk space usage per host, %**: Percentage of the disk space used per {{ CH }} subcluster host.
-    * **Inode usage, %**: Number of inodes used per {{ CH }} subcluster host.
+    * **Inode usage, %**: Percentage of inodes used per {{ CH }} subcluster host.
     * **Databases**: Number of databases per cluster host.
     * **Tables**: Number of tables per cluster host.
     * **Rows of MergeTree tables**: Number of rows in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables per cluster host.
@@ -102,7 +102,7 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
 
     * **Max replication delay across tables**: Maximum table replication delay per cluster host. Values greater than a few seconds may indicate excessive load or replication issues.
     * **Replication queue**: Replication queue size per cluster host.
-    * **Max data parts per partition**: Maximum number of data parts per partition per cluster host. This value is limited by the [DBMS settings](../concepts/settings-list.md#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
+    * **Max data parts per partition**: Maximum number of data parts per partition for each cluster host. This value is limited by the [DBMS settings](../concepts/settings-list.md#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
     * **Merges and mutations pool tasks**: Number of active merge and mutation tasks in the background pool per {{ CH }} subcluster host.
     * **Fetches pool tasks**: Number of active fetch tasks in the background pool per {{ CH }} subcluster host.
     * **Move pool tasks**: Number of active move tasks in the background pool per {{ CH }} subcluster host.
@@ -127,16 +127,16 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
   * **Transactions**: Number of transactions per second.
   * **Outstanding requests per {{ ZK }} host**: Number of requests being processed per {{ ZK }} host.
   * **Connections per {{ ZK }} host**: Number of connections per {{ ZK }} host.
-  * **Transactions per {{ CH }} host**: Number of transactions per second per {{ CH }} host.
-  * **Average transaction time per {{ CH }} host**: Average transaction time per {{ CH }} host. Shows the time {{ CH }} spends to access {{ ZK }}.
-  * **Average latency per {{ ZK }} host**: Average latency per {{ ZK }}.
+  * **Transactions per {{ CH }} host**: Number of transactions per second for each {{ CH }} host.
+  * **Average transaction time per {{ CH }} host**: Average transaction time per {{ CH }} host. It shows the time {{ CH }} spends to access {{ ZK }}.
+  * **Average latency per {{ ZK }} host**: Average response latency per {{ ZK }} host.
   * **Znodes**: Number of znodes.
   * **Ephemeral nodes**: Number of ephemeral nodes.
   * **Watches**: Number of watches.
   
   {% note info %}
 
-  For more information about znodes, ephemeral nodes, and watches, see this [{{ ZK }} guide](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
+  For more information about znodes, ephemeral nodes, and watches, see [this {{ ZK }} guide](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
 
   {% endnote %}
 
@@ -168,7 +168,7 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab.
 
@@ -214,8 +214,8 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 
   * **Availability**: Host availability.
   * **Role**: Host role, Leader or Follower, in a {{ ZK }} subcluster.
-  * **Objects**: Number of Znode, Ephemeral node, and Watch objects.
-  * **Connections**: Number of active DB connections to the host.
+  * **Objects**: Number of znodes, ephemeral nodes, and watches.
+  * **Connections**: Number of active database connections to the host.
   * **Outstanding requests**: Number of outstanding requests to {{ ZK }}.
   * **Request time**: Read and write operation processing time.
   * **CPU usage, %**: CPU core usage percentage.
@@ -231,20 +231,20 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 {% endlist %}
 
 
-## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
+## Setting up alerts in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to set up alerts for.
   1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
-      * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.
-      * **{{ mch-name }} — ZooKeeper** to configure ZooKeeper host alerts.
-      * **{{ mch-name }} — Host Overview** to configure host alerts.
+      * **{{ mch-name }} — Cluster Overview** to set up cluster alerts.
+      * **{{ mch-name }} — ZooKeeper** to set up ZooKeeper host alerts.
+      * **{{ mch-name }} — Host Overview** to set up host alerts.
   1. In the relevant metrics chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see this [{{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
+  1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` thresholds to trigger the alert.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
@@ -252,37 +252,37 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-The recommended thresholds are as follows:
+Below are the recommended thresholds for some metrics:
 
-| Metric                                      | Parameter                                        | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`                      | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`                    |
+| Metric                                      | Internal metric name                                        | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`                      | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`                    |
 |----------------------------------------------|:--------------------------------------------------:|:----------------------------:|:----------------------------:|
 | Maximum number of data parts per partition   | `ch_system_async_metrics_MaxPartCountForPartition` | `250`                        | `150`                        |
 | Number of failed queries | `ch_system_events_FailedQuery_rate`                | 20% of the total number of queries | 10% of the total number of queries |
 | Storage space used             | `disk.used_bytes`                                  | 95% of the storage size     | 80% of the storage size     |
 | Number of healthy hosts            | `is_alive`                                         | `<number_of_hosts> - 2`    | `<number_of_hosts> - 1`    |
 
-To determine the threshold values for the `ch_system_events_FailedQuery_rate` metric, use `Total queries` for the [cluster](#monitoring-cluster).
+To determine the thresholds for the `ch_system_events_FailedQuery_rate` metric, use `Total queries` for the [cluster](#monitoring-cluster).
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`: `102,005,473,280` bytes (95%)
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`: `85,899,345,920` bytes (80%)
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see this [{{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
+You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To view a state and status of a cluster:
+To check the cluster’s state and status:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.common.availability }}** column.
+  1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 {% endlist %}
 

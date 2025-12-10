@@ -1,12 +1,15 @@
 # Симметричное шифрование в {{ kms-short-name }}
 
-Одна из доступных схем шифрования в {{ kms-short-name }} — _симметричное шифрование_. В этой схеме и для шифрования, и для расшифрования используется один и тот же (симметричный) ключ. В {{ kms-short-name }} применяется [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) с длиной ключа 128, 192 или 256 бит в режиме [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
+Одна из доступных схем шифрования в {{ kms-short-name }} — _симметричное шифрование_. В этой схеме для шифрования и расшифрования используется один и тот же (симметричный) ключ. В {{ kms-short-name }} применяется несколько симметричных алгоритмов:
+  * [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) с длиной ключа 128, 192 или 256 бит в режиме [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode). 
+  * [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) с длиной ключа 256 бит в режиме [CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) с имитозащитой [HMAC](https://en.wikipedia.org/wiki/HMAC).
+  * [Кузнечик](https://ru.wikipedia.org/wiki/Кузнечик_(шифр)) по [ГОСТ Р 34.12-2015](https://protect.gost.ru/v.aspx?control=7&id=200990) с длиной ключа 256 бит и имитозащитой [OMAC](https://ru.wikipedia.org/wiki/CBC-MAC#OMAC).
 
 Важное условие безопасного шифрования — это использование криптографически стойкого генератора псевдослучайных чисел (необходим для генерации ключей шифрования, векторов инициализации). В {{ kms-short-name }} используется собственная реализация алгоритма [Fortuna](https://en.wikipedia.org/wiki/Fortuna_(PRNG)), агрегирующая энтропию с различных источников (RDSEED и RDRAND, /dev/urandom, энтропия с хостов).
 
 В случае использования [аппаратного модуля безопасности (HSM)](hsm.md) ключи шифрования генерируются внутри модуля HSM, используя встроенный в HSM надежный генератор энтропии.
 
-Криптоматериал, содержащийся в версиях ключей, недоступен в открытом виде вне сервиса {{ kms-short-name }}. Шифрование и расшифрование в {{ kms-short-name }} осуществляется посредством двух криптографических операций: [encrypt](../api-ref/SymmetricCrypto/encrypt) и [decrypt](../api-ref/SymmetricCrypto/decrypt).
+Криптоматериал, содержащийся в версиях ключей, недоступен в открытом виде вне сервиса {{ kms-short-name }}. Шифрование и расшифрование в {{ kms-short-name }} выполняются с помощью криптографических операций [encrypt](../api-ref/SymmetricCrypto/encrypt) и [decrypt](../api-ref/SymmetricCrypto/decrypt).
 
 ## Операция Encrypt {#encryption}
 

@@ -1,10 +1,10 @@
-* [What is the backup procedure for a {{ CH }} database?](#backup-overview)
+* [How are {{ CH }} databases backed up?](#backup-overview)
 
-* [Is database host backup enabled by default?](#default-backup)
+* [Are database host backups enabled by default?](#default-backup)
 
-* [When are backups performed? Is a database cluster available during a backup?](#backup-window)
+* [When does a backup run? Is a database cluster available during backups?](#backup-window)
 
-* [How many backups are stored in {{ mch-name }}? For how long?](#how-many-backups)
+* [How many backups does {{ mch-name }} store? For how long?](#how-many-backups)
 
 * [Can I delete a backup?](#delete-backup)
 

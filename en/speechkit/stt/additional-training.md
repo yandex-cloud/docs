@@ -49,4 +49,4 @@ For tuning you will need a list of terms (words or phrases) and at least three f
 Tuning is available for the Russian language only.
 
 
-Tuning takes about two months from when you [submit the data archive to the support team](upload-data-for-training.md).
+Tuning takes about two months from when you submit the data archive to the support team.

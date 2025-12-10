@@ -1,7 +1,7 @@
-* [Why are cluster writes failing?](#write-failure)
+* [Why do cluster writes fail?](#write-failure)
 
 * [What causes a replica to lag?](#replica-lagging)
 
-* [Why is the cluster size much greater than the amount of data stored?](#cluster-greater-data)
+* [Why is the cluster size a lot larger than the amount of data it stores?](#cluster-greater-data)
 
-* [What should I do if I encounter any other application error?](#application-error)
+* [What should I do in case of an application error?](#application-error)

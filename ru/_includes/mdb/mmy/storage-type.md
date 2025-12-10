@@ -15,7 +15,7 @@
 
   Объем такого хранилища можно увеличивать:
   * для платформ **Intel Broadwell** и **Intel Cascade Lake** — только с шагом 100 ГБ;
-  * для платформы **Intel Ice Lake** — только с шагом {{ local-ssd-v3-step }}.
+  * для платформ **Intel Ice Lake** и **AMD Zen 4** — только с шагом {{ local-ssd-v3-step }}.
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %} 
 

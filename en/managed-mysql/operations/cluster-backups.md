@@ -48,7 +48,7 @@ Additionally, {{ mmy-name }} creates automatic daily backups. You can [set the b
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -63,7 +63,7 @@ Additionally, {{ mmy-name }} creates automatic daily backups. You can [set the b
               --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/backups'
           ```
 
-          You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+          You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -87,14 +87,14 @@ Additionally, {{ mmy-name }} creates automatic daily backups. You can [set the b
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. To get the list of cluster backups:
 
-      1. Use the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Call the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
           ```bash
           grpcurl \
@@ -110,13 +110,13 @@ Additionally, {{ mmy-name }} creates automatic daily backups. You can [set the b
               yandex.cloud.mdb.mysql.v1.ClusterService.ListBackups
           ```
 
-          You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+          You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
   1. To get the list of backups for all clusters in the folder:
 
-      1. Use the [BackupService/List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Call the [BackupService/List](../api-ref/grpc/Backup/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
           ```bash
           grpcurl \
@@ -194,7 +194,7 @@ Additionally, {{ mmy-name }} creates automatic daily backups. You can [set the b
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [BackupService/Get](../api-ref/grpc/Backup/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [BackupService/Get](../api-ref/grpc/Backup/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -210,7 +210,7 @@ Additionally, {{ mmy-name }} creates automatic daily backups. You can [set the b
           yandex.cloud.mdb.mysql.v1.BackupService.Get
       ```
 
-      You can request the backup ID with the [list of backups](#list-backups).
+      You can get the backup ID with the [list of backups](#list-backups).
 
   1. Check the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.mysql.v1.Backup) to make sure your request was successful.
 
@@ -266,7 +266,7 @@ Additionally, {{ mmy-name }} creates automatic daily backups. You can [set the b
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>:backup'
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -277,7 +277,7 @@ Additionally, {{ mmy-name }} creates automatic daily backups. You can [set the b
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -293,7 +293,7 @@ Additionally, {{ mmy-name }} creates automatic daily backups. You can [set the b
           yandex.cloud.mdb.mysql.v1.ClusterService.Backup
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -308,7 +308,7 @@ In single-host clusters, backups are created by reading data from the master hos
 For a new cluster, make sure to set all the required parameters except for the cluster type.
 
 
-Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yandex-cloud }} account the [managed-mysql.restorer](../../iam/roles-reference.md#managed-mysql-restorer) role or higher for the backup folder and the new cluster folder.
+Before you begin, [assign](../../iam/operations/roles/grant.md) your {{ yandex-cloud }} account the [managed-mysql.restorer](../../iam/roles-reference.md#managed-mysql-restorer) role or higher for both the backup folder and the folder where the new cluster will be deployed.
 
 
 {% list tabs group=instructions %}
@@ -318,7 +318,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
   To restore an existing cluster from a backup:
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
+  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
   1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. To restore the cluster state [to a specific point in time](../concepts/backup.md) after the backup was created, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly.
@@ -330,7 +330,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup at hand and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
   1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. To restore the cluster state to a specific point in time after the backup was created, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can either enter the date manually or select it from the drop-down calendar.
 
@@ -407,7 +407,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
           * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
           
-          * `subnet-name`: [Subnet](../../vpc/concepts/network.md#subnet) name. Specify it if the selected availability zone has two or more subnets.
+          * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
           * `assign-public-ip`: Flag to set if [public access](../concepts/network.md#public-access-to-host) to the host is required, `true` or `false`.
 
 
@@ -449,7 +449,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   **To restore an existing cluster from a backup:**
 
-  1. Create a [{{ TF }}](cluster-create.md#create-cluster) configuration file for the new cluster.
+  1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for the new cluster.
 
       Do not specify database (`yandex_mdb_mysql_database`) and user (`yandex_mdb_mysql_user`) resources as they will be restored from the backup.
 
@@ -473,7 +473,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       {% endnote %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -487,7 +487,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   **To restore a previously deleted cluster from a backup:**
 
-  1. Create a [{{ TF }}](cluster-create.md#create-cluster) configuration file for the new cluster.
+  1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for the new cluster.
 
       Do not specify database (`yandex_mdb_mysql_database`) and user (`yandex_mdb_mysql_user`) resources as they will be restored from the backup.
 
@@ -512,7 +512,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   {{ TF }} will create the new cluster. The databases and users will be deployed from the backup.
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -592,7 +592,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -629,7 +629,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it with the [list of backups](#list-backups).
       * `time`: Point in time to restore the {{ MY }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format.
-      * `folder_id`: ID of the folder where you want to restore the cluster. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folder_id`: ID of the folder where you want to restore the cluster. You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Environment:
 
@@ -646,13 +646,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
               * `disk_size`: Disk size, in bytes.
               * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-      * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+      * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
           * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
-  1. Use the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -700,7 +700,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For information on how to create this file, see [Creating a cluster](cluster-create.md).
+      For more information on how to create this file, see [this guide](cluster-create.md).
 
   1. Add the `backup_window_start` section to the {{ mmy-name }} cluster description:
 
@@ -727,13 +727,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -768,14 +768,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       * `configSpec.backupWindowStart`: [Backup](../concepts/backup.md) window settings.
 
-          In this setting, specify the backup start time. Allowed values:
+          Here, specify the backup start time, with the following possible values:
 
           * `hours`: Between `0` and `23` hours.
           * `minutes`: Between `0` and `59` minutes.
           * `seconds`: Between `0` and `59` seconds.
           * `nanos`: Between `0` and `999999999` nanoseconds.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -786,7 +786,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -825,14 +825,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       * `config_spec.backup_window_start`: [Backup](../concepts/backup.md) window settings.
 
-          In this setting, specify the backup start time. Allowed values:
+          Here, specify the backup start time, with the following possible values:
 
           * `hours`: Between `0` and `23` hours.
           * `minutes`: Between `0` and `59` minutes.
           * `seconds`: Between `0` and `59` seconds.
           * `nanos`: Between `0` and `999999999` nanoseconds.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.mysql.v1.Cluster) to make sure your request was successful.
 
@@ -867,9 +867,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more information on how to create this file, see [this guide](cluster-create.md).
 
-        For a complete list of {{ mmy-name }} cluster configuration fields you can update, see this [{{ TF }} provider article]({{ tf-provider-mpg }}).
+        For a complete list of {{ mmy-name }} cluster configuration fields you can update, see [this {{ TF }} provider article]({{ tf-provider-mpg }}).
 
     1. To set the retention period for automatic backups, add the `backup_retain_period_days` section to the {{ mmy-name }} cluster description:
 
@@ -888,13 +888,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -926,7 +926,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
           The valid values range from `7` to `60`. The default value is `7`.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -939,7 +939,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -975,7 +975,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
           The valid values range from `7` to `60`. The default value is `7`.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.mysql.v1.Cluster) to make sure your request was successful.
 
@@ -1040,7 +1040,7 @@ The minimum value of the host's backup priority is `0`, and the maximum, `100`. 
       * `hostName`: [FQDN of the host you are updating](connect.md#fqdn).
       * `backupPriority`: [Host's backup priority](../concepts/backup.md#size), between `0` and `100`.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1051,7 +1051,7 @@ The minimum value of the host's backup priority is `0`, and the maximum, `100`. 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -1084,7 +1084,7 @@ The minimum value of the host's backup priority is `0`, and the maximum, `100`. 
       * `host_name`: [FQDN of the host you are updating](connect.md#fqdn).
       * `backup_priority`: [Host's backup priority](../concepts/backup.md#size), between `0` and `100`.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

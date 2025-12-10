@@ -7,7 +7,7 @@ description: Follow this guide to change a {{ CH }} cluster version.
 
 You can change the {{ CH }} version used by your cluster to any of the [versions supported by {{ mch-name }}](../concepts/update-policy.md#versioning-policy).
 
-To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+Learn more about minor version updates and host maintenance in [Maintenance](../concepts/maintenance.md).
 
 ## List of available versions
 
@@ -31,7 +31,7 @@ To learn more about updates within a single version and host maintenance, see [M
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -48,13 +48,13 @@ To learn more about updates within a single version and host maintenance, see [M
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [VersionsService.List](../api-ref/grpc/Versions/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [VersionsService.List](../api-ref/grpc/Versions/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -73,11 +73,11 @@ To learn more about updates within a single version and host maintenance, see [M
 
 ## Before upgrading a version {#before-update}
 
-Make sure the upgrade does not disrupt your applications:
+Make sure the upgrade will not disrupt your applications:
 
-1. Look up {{ CH }} [release notes](https://clickhouse.com/docs/category/changelog) for info on how upgrades may affect your applications.
+1. Check the {{ CH }} [release notes](https://clickhouse.com/docs/category/changelog) to learn how upgrades may affect your applications.
 1. Try upgrading a test cluster. You can deploy it from a backup of the main cluster. In this case, you will only restore MergeTree tables.
-1. [Back up](cluster-backups.md) the main cluster immediately before upgrading.
+1. [Create a backup](cluster-backups.md) of the main cluster immediately before upgrading.
 
 ## Upgrading the version {#start-update}
 
@@ -85,7 +85,7 @@ Make sure the upgrade does not disrupt your applications:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** page in the folder where you want to change the {{ CH }} version.
+    1. In the [management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** page in the folder where you want to upgrade the {{ CH }} version.
     1. In the list of clusters, select the one to update.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the version in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
@@ -125,7 +125,7 @@ Make sure the upgrade does not disrupt your applications:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create this file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Add the `version` field to the {{ mch-name }} cluster description or edit its value if it is already there:
 
@@ -146,13 +146,13 @@ Make sure the upgrade does not disrupt your applications:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -169,32 +169,32 @@ Make sure the upgrade does not disrupt your applications:
             --data '{
                       "updateMask": "configSpec.version",
                       "configSpec": {
-                        "version": "<{{ CH }}>_version"
+                        "version": "<{{ CH }}_version>"
                       }
                     }'
         ```
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
-            Here, we only specified a single parameter, `configSpec.version`.
+            Here, we only specified a single setting, `configSpec.version`.
 
-        * `configSpec.version`: target {{ CH }} version, {{ versions.api.str }}.
+        * `configSpec.version`: Target {{ CH }} version, {{ versions.api.str }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -213,7 +213,7 @@ Make sure the upgrade does not disrupt your applications:
                     ]
                   },
                   "config_spec": {
-                    "version": "<{{ CH }}>_version"
+                    "version": "<{{ CH }}_version>"
                   }
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
@@ -222,13 +222,13 @@ Make sure the upgrade does not disrupt your applications:
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-            Here, we only specified a single parameter, `config_spec.version`.
+            Here, we only specified a single setting, `config_spec.version`.
 
-        * `config_spec.version`: target {{ CH }} version, {{ versions.api.str }}.
+        * `config_spec.version`: Target {{ CH }} version, {{ versions.api.str }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

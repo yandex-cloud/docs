@@ -1,6 +1,6 @@
 # Performance diagnostics in {{ mmy-name }}
 
-{{ mmy-name }} has a built-in tool for collecting session and query statistics. These metrics can be useful when [analyzing the performance and optimizing the settings](../tutorials/profiling-mmy.md) of a cluster.
+{{ mmy-name }} has a built-in tool for collecting session and query statistics. These metrics can be useful when [analyzing the cluster’s performance and optimizing its settings](../tutorials/profiling-mmy.md).
 
 ## Enabling statistics collection {#activate-stats-collector}
 
@@ -11,7 +11,7 @@
     When [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings):
 
     1. Enable **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** (disabled by default).
-    1. Configure **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** and **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. The value range is from `1` to `86400` seconds.
+    1. Set the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** and **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. The possible values range from `1` to `86400` seconds.
 
 - CLI {#cli}
 
@@ -19,7 +19,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To enable and configure statistics collection, provide the `--performance-diagnostics` parameter in the update cluster command:
+    To enable and configure statistics collection, provide the `--performance-diagnostics` parameter in the `cluster update` command:
 
     ```bash
     {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
@@ -30,13 +30,13 @@
         ...
     ```
 
-    For `sessions-sampling-interval` and `statements-sampling-interval`, possible values range from `1` to `86400` seconds.
+    For `sessions-sampling-interval` and `statements-sampling-interval`, the valid values range from `1` to `86400` seconds.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        For more information on how to create this file, see [this guide](cluster-create.md).
 
     1. To enable and configure statistics collection, add the `performance_diagnostics` section to the cluster configuration:
 
@@ -52,7 +52,7 @@
         }
         ```
 
-        For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
+        For `sessions_sampling_interval` and `statements_sampling_interval`, the valid values range from `1` to `86400` seconds.
 
     1. Make sure the settings are correct.
 
@@ -66,13 +66,13 @@
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. To enable statistics collection when creating a cluster:
 
-        1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and add the `configSpec.performanceDiagnostics` parameter to the [cURL command for cluster creation](cluster-create.md#create-cluster):
+        1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and add the `configSpec.performanceDiagnostics` parameter to the [cURL cluster creation command](cluster-create.md#create-cluster):
 
             ```bash
             curl \
@@ -93,17 +93,17 @@
                         }'
             ```
 
-            Where `configSpec.performanceDiagnostics` represents the statistics collection settings:
+            Where `configSpec.performanceDiagnostics` is the statistics collection settings:
 
             * `enabled`: Enables statistics collection, `true` or `false`.
             * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
             * `statementsSamplingInterval`: Statement sampling interval, from `60` to `86400` seconds.
 
-        1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+        1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     1. To enable statistics collection when updating an existing cluster:
 
-        1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Cluster.update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -125,17 +125,17 @@
                         }'
             ```
 
-            Where `configSpec.performanceDiagnostics` represents the statistics collection settings:
+            Where `configSpec.performanceDiagnostics` is the statistics collection settings:
 
             * `enabled`: Enables statistics collection, `true` or `false`.
             * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
             * `statementsSamplingInterval`: Statement sampling interval, from `60` to `86400` seconds.
 
-        1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+        1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -166,17 +166,17 @@
                 yandex.cloud.mdb.mysql.v1.ClusterService.Create
             ```
 
-            Where `config_spec.performance_diagnostics` represents the statistics collection settings:
+            Where `config_spec.performance_diagnostics` is the statistics collection settings:
 
             * `enabled`: Enables statistics collection, `true` or `false`.
             * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
             * `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
 
-        1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+        1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     1. To enable statistics collection when updating an existing cluster:
 
-        1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -206,22 +206,22 @@
                 yandex.cloud.mdb.mysql.v1.ClusterService.Update
             ```
 
-            Where `config_spec.performance_diagnostics` represents the statistics collection settings:
+            Where `config_spec.performance_diagnostics` is the statistics collection settings:
 
             * `enabled`: Enables statistics collection, `true` or `false`.
             * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
             * `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
 
-        1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+        1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 ## Getting session statistics {#get-sessions}
 
-1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** tab.
+1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the name of your cluster and select **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
 
-    To view session statistics or the history of queries executed within a session, select the appropriate tab.
+    To view session statistics or the history of queries run within a session, select the relevant tab.
 
     {% list tabs %}
 
@@ -229,27 +229,27 @@
 
         To view session statistics:
 
-        1. Specify the required time interval.
+        1. Specify the time interval.
         1. Optionally, set filters.
-        1. Select the required [data segment](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-quick-start.html).
+        1. Select the [data slice](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-quick-start.html).
 
         To show or hide individual categories, click the category name in the chart legend.
 
     - History
 
-        To view the history of queries run during a session:
+        To view the history of queries run within a session:
 
-        1. Specify the required time interval.
+        1. Specify the time interval.
         1. Optionally, set filters.
 
     {% endlist %}
 
 ## Getting query statistics {#get-queries}
 
-1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}** tab.
+1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the name of your cluster and select **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
-    To view query statistics or compare them in two time intervals, select the appropriate tab.
+    To view query statistics or compare them across two time intervals, select the relevant tab.
 
     {% list tabs %}
 
@@ -257,18 +257,18 @@
 
         To view query statistics:
 
-        1. Select the time interval you need.
-        1. Optionally, configure filters.
+        1. Select the time interval.
+        1. Optionally, set filters.
 
     - Two intervals
 
-        To get information about the relative change in the query statistics:
+        To get information about the relative changes in query statistics:
 
-        1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** field, select the time interval to be used as a calculation basis for statistics.
-        1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** field, select the time interval to compare the statistics for interval 1 with.
-        1. Optionally, configure filters.
+        1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** field, select the time interval whose statistics will serve as the basis for calculations.
+        1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** field, select the time interval whose statistics will be compared with those of the first interval.
+        1. Optionally, set filters.
 
-        Let’s assume, 10 `SELECT * FROM cities` queries were made in the first interval and 20 in the second. When comparing statistics, the difference in the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.
+        Let’s assume, 10 `SELECT * FROM cities` queries were made in the first interval and 20, in the second one. When comparing statistics, the difference in the number of queries (the `Calls` column in the table) will be `+100%`.
 
     {% endlist %}
 
@@ -276,7 +276,7 @@
 
 This section lists metrics used to collect query statistics and the associated {{ mmy-name }} metrics in [{{ monitoring-name }}](../../monitoring/).
 
-Statistical metric | Metrica {{ monitoring-name }} | Description
+Statistic metric | {{ monitoring-name }} metric | Description
 ----- | ----- | -----
 **Total query latency** | - | Total query execution time
 **Total lock latency** | - | Total lock wait time
@@ -288,17 +288,17 @@ Statistical metric | Metrica {{ monitoring-name }} | Description
 **Rows affected** | - | Number of rows changed, deleted, added, or returned
 **Tmp tables** | `mysql_Created_tmp_tables_rate`<br/>`DGAUGE`, tables per second | Rate of temporary tables created during query processing
 **Tmp disk tables** | `mysql_Created_tmp_disk_tables_rate`<br/>`DGAUGE`, tables per second | Rate of temporary tables created on the disk during query processing
-**Select full join** | `mysql_Select_full_join_rate`<br/>`DGAUGE`, requests per second | Number of joins using table scans instead of indexes
-**Select full range join** | `mysql_Select_full_range_join_rate`<br/>`DGAUGE`, requests per second | Number of joins searching by range in the reference table
-**Select range** | - | Number of selections by interval
-**Select scan** | - | Number of selections using table scans
-**Sort merge passes** | - | Number of sortings by table merge
-**Sort range** | `mysql_Sort_range_rate`<br/>`DGAUGE`, requests per second | Number of sortings by range per unit of time
-**Sort rows** | `mysql_Sort_rows_rate`<br/>`DGAUGE`, requests per second | Number of rows sorted per unit of time
-**Sort scan** | `mysql_Sort_scan_rate`<br/>`DGAUGE`, requests per second | Number of sortings using table scans per unit of time
+**Select full join** | `mysql_Select_full_join_rate`<br/>`DGAUGE`, queries per second | Rate of joins using table scans rather than indexes
+**Select full range join** | `mysql_Select_full_range_join_rate`<br/>`DGAUGE`, queries per second | Rate of joins searching by range in the reference table
+**Select range** | - | Number of range selects
+**Select scan** | - | Number of selects using table scans
+**Sort merge passes** | - | Number of merge sorts on tables
+**Sort range** | `mysql_Sort_range_rate`<br/>`DGAUGE`, queries per second | Number of range sorts per unit of time
+**Sort rows** | `mysql_Sort_rows_rate`<br/>`DGAUGE`, queries per second | Number of rows sorted per unit of time
+**Sort scan** | `mysql_Sort_scan_rate`<br/>`DGAUGE`, queries per second | Number of sorts using table scans per unit of time
 **No index used** | - | `1` if no index was used for the table scan, `0` otherwise
 **No good index used** | - | `1` if no suitable index was found for the query, `0` otherwise
 **Errors** | - | Number of query execution errors
 **Warnings** | - | Number of query execution warnings
 
-For more information about the statistics you can get, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html).
+For more information about the statistics you can get, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html).

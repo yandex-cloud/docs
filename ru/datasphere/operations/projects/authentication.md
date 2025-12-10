@@ -21,7 +21,7 @@ description: В статье описаны способы аутентифик�
      * С помощью [{{ ds-cli }}](../../concepts/jobs/cli.md) и опции `-t`, например:
 
        ```bash
-       datasphere -t <OAuth_токен> project job get --id <идентификатор_проекта>
+       datasphere -t <OAuth_токен> project job list -p <идентификатор_проекта>
        ```
 
        {% include [get-project-id](../../../_includes/datasphere/get-project-id.md) %}

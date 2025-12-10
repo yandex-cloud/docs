@@ -1,12 +1,12 @@
-* `name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter or underscore. The name can be up to 32 characters long.
+* `name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter or underscore. The name may be up to 32 characters long.
 * `password`: User password. The password must be from 8 to 128 characters long.
 
   
-  You can also generate a password with {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
+  You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
 
-  To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
+  To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-* `permissions`: List of DBs the user should have access to.
+* `permissions`: List of databases the user should have access to.
 
     The list appears as an array of `database_name` parameters. Each parameter contains the name of a separate database.

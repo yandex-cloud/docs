@@ -29,6 +29,6 @@
   1. {% include [section-additional](../../_includes/compute/create/section-additional.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-  Виртуальная машина появится в списке. При создании виртуальной машине назначаются [IP-адрес](../../vpc/concepts/address) и [имя хоста](../../vpc/concepts/address.md#fqdn) (FQDN).
+  Виртуальная машина появится в списке. При создании виртуальной машине назначаются [IP-адрес](../../vpc/concepts/address.md) и [имя хоста](../../vpc/concepts/address.md#fqdn) (FQDN).
 
 {% endlist %}

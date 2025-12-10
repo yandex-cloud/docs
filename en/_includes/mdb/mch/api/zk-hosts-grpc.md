@@ -1,9 +1,9 @@
-1. [Get an IAM token for API authentication](../../../../managed-clickhouse/api-ref/authentication.md) and put it into the environment variable:
+1. [Get an IAM token for API authentication](../../../../managed-clickhouse/api-ref/authentication.md) and put it in an environment variable:
 
     {% include [api-auth-token](../../api-auth-token.md) %}
 
 1. {% include [grpc-api-setup-repo](../../grpc-api-setup-repo.md) %}
-1. Use the [ClusterService.AddZookeeper](../../../../managed-clickhouse/api-ref/grpc/Cluster/addZookeeper.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+1. Call the [ClusterService.AddZookeeper](../../../../managed-clickhouse/api-ref/grpc/Cluster/addZookeeper.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -40,18 +40,18 @@
     * `resources`: Resources for {{ ZK }} hosts.
 
       * `resource_preset_id`: [Host class](../../../../managed-clickhouse/concepts/instance-types.md) ID.
-      * `disk_size`: Disk size in bytes.
+      * `disk_size`: Disk size, in bytes.
       * `disk_type_id`: [Disk type](../../../../managed-clickhouse/concepts/storage.md).
 
-    * `host_specs`: Array with settings for the new hosts. One array element contains settings for a single host and the cluster must have at least three {{ ZK }} hosts.
+    * `host_specs`: Array of settings for the new hosts. Each array element contains settings for a single host and the cluster must have at least three {{ ZK }} hosts.
 
       An array element has the following structure:
 
-      * `type`: `ZOOKEEPER` host type.
+      * `type`: Host type, `ZOOKEEPER`.
       * `zone_id`: Availability zone.
       * `subnet_id`: Subnet ID.
 
-    * `convert_tables_to_replicated`: Converting non-replicated tables to [replicated](../../../../managed-clickhouse/concepts/replication.md#replicated-tables) ones, `true` or `false`. Non-replicated [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables will be automatically converted to replicated ones based on [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+    * `convert_tables_to_replicated`: Converting non-replicated tables to [replicated](../../../../managed-clickhouse/concepts/replication.md#replicated-tables) ones, `true` or `false`. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
 
       {% note warning %}
 
@@ -59,6 +59,6 @@
 
       {% endnote %}
 
-    You can request the cluster ID with the [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-1. View the [server response](../../../../managed-clickhouse/api-ref/grpc/Cluster/addZookeeper.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+1. View the [server response](../../../../managed-clickhouse/api-ref/grpc/Cluster/addZookeeper.md#yandex.cloud.operation.Operation) to make sure your request was successful.

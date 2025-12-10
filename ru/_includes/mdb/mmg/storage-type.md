@@ -16,7 +16,7 @@
 
   Объем такого хранилища можно увеличивать:
   * для платформ **Intel Broadwell** и **Intel Cascade Lake** — только с шагом 100 ГБ;
-  * для платформы **Intel Ice Lake** — только с шагом {{ local-ssd-v3-step }}.
+  * для платформ **Intel Ice Lake** и **AMD Zen 4** — только с шагом {{ local-ssd-v3-step }}.
 
   Список классов хостов и соответствующих им платформ см. в разделе [Классы хостов](../../../storedoc/concepts/instance-types.md).
 

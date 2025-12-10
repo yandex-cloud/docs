@@ -1,5 +1,5 @@
 {% note info %}
 
-Once enabled, hybrid storage cannot be disabled.
+Once hybrid storage is enabled, you cannot disable it.
 
 {% endnote %}

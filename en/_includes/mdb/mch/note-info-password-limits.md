@@ -1,6 +1,7 @@
 {% note info %}
 
-The password must be between 8 and 128 characters.
+
+The password must be from 8 to 128 characters long.
+
 
 {% endnote %}
-

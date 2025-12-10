@@ -15,7 +15,7 @@ You cannot directly increase the size of non-replicated SSD [storage](../../mana
 
 If you need it increased, [restore the cluster from a backup](../../managed-mysql/operations/cluster-backups.md#restore) and set the appropriate size.
 
-You can check the disk type in the [management console]({{ link-console-main }}). To do this, find the **{{ ui-key.yacloud.mdb.cluster.overview.label_hdd }}** parameter under **{{ ui-key.yacloud.mdb.cluster.overview.section_resource }}** on the cluster page.
+You can check the disk type in the [management console]({{ link-console-main }}). To do this, find the **{{ ui-key.yacloud.mdb.cluster.overview.label_hdd }}** setting under **{{ ui-key.yacloud.mdb.cluster.overview.section_resource }}** on the cluster page.
 
 
 #### How do I change the disk type? {#modify-type}

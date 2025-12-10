@@ -1,4 +1,4 @@
-1. Use the [Cluster.DeleteHosts](../../../../managed-clickhouse/api-ref/Cluster/deleteHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+1. Call the [Cluster.DeleteHosts](../../../../managed-clickhouse/api-ref/Cluster/deleteHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
     ```bash
     curl \
@@ -13,8 +13,8 @@
                }'
     ```
 
-    Where `hostNames` is the array with the host to delete.
+    Where `hostNames` is the array containing the host you want to delete.
 
-    You can provide only one host FQDN in a single request. If you need to delete multiple hosts, make a separate request for each of them.
+    You can only specify one host FQDN per request. If you need to delete multiple hosts, make a separate request for each of them.
 
-1. View the [server response](../../../../managed-clickhouse/api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+1. View the [server response](../../../../managed-clickhouse/api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.

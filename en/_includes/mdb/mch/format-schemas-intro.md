@@ -1,19 +1,19 @@
-{{ mch-name }} lets you `INSERT` and `SELECT` data in different formats. Most of those formats are _self-descriptive_. This means that they already contain a _format schema_ that describes acceptable data types, their order, and representation in this format. For example, it lets you directly insert data from a file.
+In {{ mch-name }}, you can `INSERT` and `SELECT` data in different formats. Most of these formats are _self-descriptive_. This means that they already contain a _format schema_ that describes valid data types, their order, and representation in this format. Thus, for example, you can insert data directly from a file.
 
 {% note info %}
 
-_Format schema_ describes the format of data input or output and the _data schema_ describes the structure and layout of the {{ CH }} databases and tables that store this data. These concepts are not interchangeable.
+A _format schema_ describes the format of data input or output, while a _data schema_ describes the structure and layout of {{ CH }} databases and tables storing this data. These concepts are not interchangeable.
 
 {% endnote %}
 
-The [Cap'n Proto](https://capnproto.org/) and the [Protobuf](https://developers.google.com/protocol-buffers/) data formats (including [ProtobufSingle](https://{{ ch-domain }}/docs/ru/interfaces/formats/#protobufsingle)) do not contain the format schema, and data is stored in binary format without any structure information. Before you begin processing data in these formats (for example, before inserting data in a table), add a format schema to the {{ mch-name }} cluster. It will help you correctly interpret the number, order, and type of values when processing binary data.
+[Cap'n Proto](https://capnproto.org/) and [Protobuf](https://developers.google.com/protocol-buffers/) (including [ProtobufSingle]({{ ch.docs }}/interfaces/formats/#protobufsingle)) data formats do not contain a format schema: data is presented in binary format without any structural details. Before using data in these formats, e.g., inserting data into a table, add a format schema to your {{ mch-name }} cluster. Thus you will be able to correctly interpret the number, order, and type of values when processing binary data.
 
-You can add one or more such format schemas to a {{ mch-name }} cluster and use them to input and output data in the relevant formats.
+You can add one or multiple format schemas to your {{ mch-name }} cluster and use them to input and output data in the relevant formats.
 
 {% note warning %}
 
-To use the format schemas you added, insert the data into {{ mch-name }} using the [HTTP interface](https://{{ ch-domain }}/docs/en/interfaces/http/), in this case, data serialization and deserialization is performed on the server side based on the schemas you added.
+To use the format schemas you added, insert the data into {{ mch-name }} via the [HTTP interface]({{ ch.docs }}/interfaces/http/). In this case, data serialization and deserialization is performed on the server side based on the schemas you added.
 
 {% endnote %}
 
-For more information about data formats, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/interfaces/formats/).
+For more information about data formats, see [this {{ CH }} guide]({{ ch.docs }}/interfaces/formats/).

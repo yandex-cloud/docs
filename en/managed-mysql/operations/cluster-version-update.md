@@ -1,20 +1,20 @@
-# {{ MY }} version upgrade
+# Upgrading {{ MY }} version
 
 You can upgrade a {{ mmy-name }} cluster to any supported minor or major version.
 
-In single-host clusters, only the master host is taken offline for upgrades. Unlike multi-host clusters, these clusters are not available for reads and writes during an upgrade. After the DBMS resumes operation, it will take time to _warm up_ the buffer pool, which may temporarily affect the request performance: this is especially prominent for large databases with active use of indexes.
+In single-host clusters, only the master host is taken offline for upgrades. Unlike multi-host clusters, these clusters are not available for reads and writes during an upgrade. After the DBMS resumes operation, it will take time to warm up the buffer pool, which may temporarily affect the query performance, particularly for large, heavily indexed databases.
 
-In multi-host clusters, upgrades follow the procedure below:
+In multi-host clusters, upgrades proceed in this sequence:
 
-1. The replicas are withdrawn from service one by one for an upgrade. The replicas are queued randomly. Following the upgrade, the replicas get back online. Read performance may temporarily decrease at this stage because some replicas will be unavailable.
+1. Replicas are taken offline for an upgrade and stopped, one by one. The replicas are queued randomly. Following the upgrade, the replicas get back online. Read performance may temporarily degrade at this stage, as some replicas will be unavailable.
 
-1. A master host is closed for writes. A [new master host is selected](../concepts/replication.md#master-failover) from among the replicas and opened for writes. As a result, the cluster is upgraded with minimal downtime.
+1. The master becomes read-only. One of the replicas is [promoted to master](../concepts/replication.md#master-failover) and becomes write-enabled. This ensures the cluster is upgraded with minimal downtime.
 
-1. The original master host is shut down, upgraded, and resumes its operation as a replica. The master does not switch back in order to minimize the risks of additional switching.
+1. The original master is taken offline, upgraded, and then brought online as a replica. The master does not switch back to avoid the risk of extra failovers.
 
 {% note info %}
 
-In {{ MY }} 8.0, replica switching is more reliable and efficient due to improved metadata processing.
+In {{ MY }} 8.0, replica failover is more reliable and efficient due to improved metadata processing.
 
 {% endnote %}
 
@@ -22,24 +22,24 @@ For information on minor version upgrades and host maintenance, see [Maintenance
 
 {% note alert %}
 
-* After the DBMS upgrade, you cannot revert a cluster to the previous version.
-* Update your cluster during low load periods to reduce risks and the impact on users.
-* The success of {{ MY }} version upgrade depends on many factors, such as:
+* After the DBMS upgrade, you cannot revert the cluster to the previous version.
+* Upgrade your cluster during low load periods to reduce risks and minimize the impact on users.
+* Whether a {{ MY }} version upgrade succeeds depends on many factors, such as the following:
 
    * Cluster settings and specific configurations.
    * Nature and structure of stored data.
    * {{ MY }} features deployed (especially JSON functionality and full-text search).
    * App compatibility with the new version.
    * Correctness of stored procedures and triggers.
-   * Current database condition and data quality.
+   * Current database state and data quality.
 
-   We recommend you first [upgrade a test cluster](#before-update) with the same data and configuration.
+   We recommend that you start with [upgrading a test cluster](#before-update) with the same data and configuration.
 
 {% endnote %}
 
-## Pre-upgrade steps {#before-update}
+## Before upgrading a version {#before-update}
 
-When getting ready for an upgrade, a comprehensive approach to testing and compatibility analysis is of particular importance. Our experience shows that most upgrade issues can be prevented at the preparation stage:
+When getting ready for an upgrade, a comprehensive approach to testing and compatibility analysis is of particular importance. Our experience shows that most upgrade issues can be prevented in advance:
 
 1. Look up {{ MY }} [release notes](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html) for info on how upgrades may affect your applications.
 
@@ -48,7 +48,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
    * Changes in the behavior of SQL functions and query optimizer:
 
       ```sql
-      -- Example of query for execution plan analysis
+      -- Example of a command for analyzing a query execution plan
       EXPLAIN ANALYZE
       SELECT * FROM <table_name>
       WHERE complex_condition
@@ -81,9 +81,9 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 1. Try upgrading a test cluster.
    
    1. Deploy a test cluster from a backup of the main cluster using the `PRESTABLE` environment and upgrade it to the required version.
-   1. Check the operation of critical queries and stored procedures.
-   1. Check the functionality that uses JSON and full-text search.
-   1. Perform load testing:
+   1. Make sure critical queries and stored procedures work as expected.
+   1. Check the features that use JSON and full-text search.
+   1. Run a load test:
 
       ```sql
       -- Monitoring performance during tests
@@ -94,18 +94,18 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
       LIMIT 10;
       ```
 
-1. [Create a backup](cluster-backups.md) of the main cluster just before the upgrade.
+1. [Create a backup](cluster-backups.md) of the main cluster immediately before upgrading.
 
 1. Ensure [high availability](../concepts/high-availability.md) of the cluster:
    
    1. Make sure the main and test clusters have at least one master and one replica. [Add hosts](hosts.md#add) as needed.
-   1. Optionally, check replication status and latency:
+   1. Optionally, check the replication status and lag:
 
      ```sql
-     -- Checking replication status
+     -- Checking the replication status
      SHOW SLAVE STATUS\G
 
-     -- Checking replication latency
+     -- Checking the replication lag
      SELECT
        SUBSTRING_INDEX(HOST, ':', 1) AS slave_host,
        SUBSTRING_INDEX(HOST, ':', -1) AS slave_port,
@@ -129,7 +129,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
    As soon as you run the upgrade, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
 
-   The upgrade time depends on multiple factors, e.g., the amount of data or the number of databases in the cluster. The upgrade usually takes several minutes, and 10 minutes or more for large databases.
+   The time required for an upgrade depends on multiple factors, such as the amount of data or the number of databases in your cluster. Usually, an upgrade takes a few minutes; for large databases, it can take 10 minutes or more.
 
 - CLI {#cli}
 
@@ -137,15 +137,15 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To update the {{ MY }} version:
+   To upgrade a {{ MY }} version:
 
-   1. Get a list of your {{ MY }} clusters using this command:
+   1. Get the list of your {{ MY }} clusters using this command:
 
       ```bash
       {{ yc-mdb-my }} cluster list
       ```
 
-   1. Get the target cluster details and check its {{ MY }} version in the `config.version` setting:
+   1. Get the details of the cluster in question and check its {{ MY }} version in the `config.version` setting:
 
       ```bash
       {{ yc-mdb-my }} cluster get <cluster_name_or_ID>
@@ -158,13 +158,13 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
          --mysql-version <new_version_number>
       ```
 
-   The upgrade time depends on multiple factors, e.g., the amount of data or the number of databases in the cluster. The upgrade usually takes several minutes, and 10 minutes or more for large databases.
+   The time required for an upgrade depends on multiple factors, such as the amount of data or the number of databases in your cluster. Usually, an upgrade takes a few minutes; for large databases, it can take 10 minutes or more.
 
 - {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For information on how to create this file, see [this guide](cluster-create.md).
+      For more information on how to create this file, see [this guide](cluster-create.md).
 
    1. Add the `version` field to the `yandex_mdb_mysql_cluster` resource or change the field value if it already exists:
 
@@ -184,17 +184,17 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+   For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-   1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+   1. Call the [Cluster.update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -222,16 +222,16 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-   1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+   1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -271,17 +271,17 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
 {% endlist %}
 
-The upgrade time depends on multiple factors, e.g., the amount of data or the number of databases in the cluster. The upgrade usually takes several minutes, and 10 minutes or more for large databases.
+The time required for an upgrade depends on multiple factors, such as the amount of data or the number of databases in your cluster. Usually, an upgrade takes a few minutes; for large databases, it can take 10 minutes or more.
 
 ## Examples {#examples}
 
-Let's look at a case where a cluster is upgraded from version 5.7 to 8.0. This scenario is particularly interesting because it covers the most significant changes in the {{ MY }} architecture.
+Let's consider the following example showing how to upgrade a cluster from version 5.7 to 8.0. This use case is particularly interesting as it covers the most significant changes in the {{ MY }} architecture.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-   1. Get a list of clusters and find out their IDs and names:
+   1. Get the list of clusters with their IDs and names:
 
       ```bash
       {{ yc-mdb-my }} cluster list
@@ -303,7 +303,7 @@ Let's look at a case where a cluster is upgraded from version 5.7 to 8.0. This s
       {{ yc-mdb-my }} cluster get mysql406
       ```
 
-      The output will show the current version of {{ MY }}:
+      The output will show the current {{ MY }} version:
 
       ```text
         id: c9q8p8j2gaih********
@@ -319,12 +319,12 @@ Let's look at a case where a cluster is upgraded from version 5.7 to 8.0. This s
       {{ yc-mdb-my }} cluster update mysql406 --mysql-version 8.0
       ```
 
-      Once you execute this command, the upgrade process will start, which will take anywhere from a few minutes to an hour depending on database size and cluster configuration.
+      As soon as you run this command, the system will start upgrading your cluster. It may take anywhere from a few minutes to an hour depending on the database size and cluster configuration.
 
 - {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file describing your infrastructure.
-   1. In the `version` field, specify the `8.0` value in the `yandex_mdb_mysql_cluster` resource:
+   1. Set the `version` field to `8.0` in the `yandex_mdb_mysql_cluster` resource:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -342,7 +342,7 @@ Let's look at a case where a cluster is upgraded from version 5.7 to 8.0. This s
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   {{ TF }} will automatically detect the need to upgrade the version and start the process.
+   {{ TF }} will automatically detect the need for version upgrade and start the process.
 
 {% endlist %}
 
@@ -351,18 +351,18 @@ After a successful upgrade:
 1. Check the status of all critical components:
 
    ```sql
-   -- Checking InnoDB status
+   -- Checking the InnoDB status
    SHOW ENGINE INNODB STATUS\G
 
-   -- Checking replication status
+   -- Checking the replication status
    SHOW SLAVE STATUS\G
    ```
 
-1. Make sure the applications work correctly:
+1. Make sure your applications work correctly:
 
-   * Check the execution time of critical requests.
+   * Check the execution time of critical queries.
    * Check error statistics.
-   * Track resource usage.
+   * Monitor resource usage.
 
 1. Optimize your configuration for the new version:
 

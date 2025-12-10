@@ -31,7 +31,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 
 * [{#T}](web-sql-query.md)
 * [Managing databases](databases.md)
-* [User management](cluster-users.md)
+* [Managing users](cluster-users.md)
 
 ## Storing and processing data {#data-storage-and-processing}
 
@@ -41,7 +41,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 * [Managing machine learning models](ml-models.md)
 
 
-* [Setting up access to {{ objstorage-name }}](s3-access.md)
+* [Configuring access to {{ objstorage-name }}](s3-access.md)
 
 
 ## Sharding {#sharding}
@@ -52,7 +52,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 ## Logs and monitoring {#monitoring-and-logs}
 
 * [Viewing cluster logs](cluster-logs.md)
-* [Monitoring the state of clusters and hosts](monitoring.md)
+* [Monitoring the state of a cluster and its hosts](monitoring.md)
 * [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md)
 
 

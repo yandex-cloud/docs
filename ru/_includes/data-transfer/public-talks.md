@@ -3,6 +3,14 @@
 
 ## Конференции и вебинары {#conf-and-webinars}
 
+
+### 2025: Статьи {#article-2025}
+
+* Репликация данных: разбираем преимущества и лучшие практики.
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/data-replication-guide).
+
+
 ### 2024: Webinar {#webinar-2024}
 
 * Как оптимизировать поставку данных в {{ data-transfer-name }}.

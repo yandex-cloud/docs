@@ -50,7 +50,6 @@ description: В этой инструкции вы научитесь созда
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите имя кластера.
 1. Выберите окружение `PRODUCTION`.
-
 1. Выберите версию {{ PG }}.
 1. Выберите [класс хостов](concepts/instance-types.md). Он определяет технические характеристики [виртуальных машин](../compute/concepts/vm.md), на которых будут развернуты [хосты](concepts/index.md) кластера.
 1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:

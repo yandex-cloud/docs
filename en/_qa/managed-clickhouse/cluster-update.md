@@ -16,11 +16,11 @@ For more information, see [this guide](../../managed-clickhouse/operations/clust
 
 #### Will my cluster be unavailable during an update? {#update-availability}
 
-If it your cluster has more than one host, there is no downtime while updating it, since the hosts are updated one by one. Only individual hosts are unavailable when the cluster is being restarted.
+If your cluster has more than one host, there is no downtime while updating it, since the hosts are updated one by one. Only individual hosts are unavailable when the cluster is being restarted.
 
 #### How do I change the time zone? {#timezone}
 
-Change the {{ CH }} [timezone]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) or [session_timezone]({{ ch.docs }}/operations/settings/settings#session_timezone) setting. Learn how to do this in [this guide](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces).
+Change the {{ CH }} [timezone]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) or [session_timezone]({{ ch.docs }}/operations/settings/settings#session_timezone) setting by following [this guide](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces).
 
 #### Will my cluster be unavailable when adding replicas? {#add-replica-availability}
 

@@ -1,4 +1,4 @@
-{% cut "Query with full schema" %}
+{% cut "Query with a populated schema" %}
 
 ```sql
 CREATE TABLE tutorial.hits_v1
