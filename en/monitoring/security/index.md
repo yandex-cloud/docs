@@ -29,6 +29,8 @@ To assign a role to a user:
 
 The list below shows all roles used for access control in {{ monitoring-full-name }}.
 
+{% include [monitoring](../../_mermaid/roles/monitoring.md) %}
+
 ### Service roles {#service-roles}
 
 #### monitoring.viewer {#monitoring-viewer}

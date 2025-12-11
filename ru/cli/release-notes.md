@@ -7,19 +7,83 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.181.0 (11.12.25) {#version0.181.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.181.0}
+
+##### {{ api-gw-name }} {#api-gw-name-0.181.0}
+
+Добавлены команды для остановки и возобновления работы API-шлюза:
+* `yc serverless api-gateway stop`;
+* `yc serverless api-gateway resume`.
+
+##### {{ baremetal-name }} {#baremetal-name-0.181.0}
+
+В команды `yc baremetal server create` и `yc baremetal server update` для параметра `--network-interfaces` добавлена опция `ephemeral-public-subnet` для явного указания эфемерной публичной подсети, также добавлена валидация числа передаваемых подсетей.
+
+##### {{ interconnect-name }} {#interconnect-name-0.181.0}
+
+В команде `yc cic private-connection update` исправлено обновление составных полей.
+
+##### {{ cloud-registry-name }} {#cloud-registry-name-0.181.0}
+
+Добавлены команды для управления политиками жизненного цикла артефактов в реестрах:
+* `yc cloud-registry registry lifecycle-policy get`;
+* `yc cloud-registry registry lifecycle-policy list`;
+* `yc cloud-registry registry lifecycle-policy create`;
+* `yc cloud-registry registry lifecycle-policy update`;
+* `yc cloud-registry registry lifecycle-policy delete`;
+* `yc cloud-registry registry lifecycle-policy change-state`.
+
+##### {{ iam-name }} {#iam-name-0.181.0}
+
+Добавлена команда `yc iam access-key issue-ephemeral` для выпуска эфемерных статических ключей доступа.
+
+##### {{ org-name }} {#org-name-0.181.0}
+
+В командах `yc organization-manager mfa-enforcement create` и `yc organization-manager mfa-enforcement update` добавлен список поддерживаемых значений для параметра `--acr-id`.
+
+##### {{ maf-name }} {#maf-name-0.181.0}
+
+В команды `yc managed-airflow cluster create` и `yc managed-airflow cluster update` добавлен параметр `--gitsync` для использования git-репозитория в качестве источника для DAG.
+
+##### {{ msp-name }} {#msp-name-0.181.0}
+
+В команды `yc managed-spark cluster create` и `yc managed-spark cluster update` добавлен параметр `--spark-version` для выбора конкретной версии {{ SPRK }} при создании и изменении кластера.
+
+##### {{ mspqr-name }} {#mspqr-name-0.181.0}
+
+В команде `yc managed-sharded-postgresql cluster update-config` исправлена ошибка при обновлении конфигурации роутера.
+
+##### {{ mtr-name }} {#mtr-name-0.181.0}
+
+Для управления конфигурацией ресурсных групп и параметров запросов:
+* добавлены команды:
+  * `yc managed-trino cluster get-resource-groups`;
+  * `yc managed-trino cluster set-resource-groups`;
+  * `yc managed-trino cluster remove-resource-groups`;
+* в команду `yc managed-trino cluster create` добавлен параметр `--resource-groups-from-file`;
+* в команды `yc managed-trino cluster create` и `yc managed-trino cluster update` добавлен параметр `--query-properties`.
+
+##### {{ mmg-name }} {#mmg-name-0.181.0}
+
+В команду `yc managed-mongodb cluster restore` добавлены параметры `--whitelist` и `--blacklist` для частичного восстановления кластера.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.180.0 (04.12.25) {#version0.180.0}
 
 ##### {{ mtr-short-name }}
+
 * Добавлены команды для создания и обновления каталога {{ TR }} с коннектором {{ MY }} для {{ mtr-name }}:
   * `yc managed trino catalog create mysql`;
   * `yc managed trino catalog update mysql`.
 
 ##### {{ org-name }}
+
 * Убрали часть парольных политик из команд по управлению пулами пользователей:
   * `yc organization-manager idp userpool create`;
   * `yc organization-manager idp userpool update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.179.0 (02.12.25) {#version0.179.0}
 

@@ -9,6 +9,9 @@ links:
   - title: Концепции
     description: Узнайте про концепции и ресурсы сервиса
     href: concepts/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing
 meta:
   title: '{{ gost-gateway-name }}'
   description: >-

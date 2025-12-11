@@ -14,7 +14,7 @@ The chart update period is 15 seconds.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the log group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the log group whose monitoring charts you want to view.
   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
   1. The following charts will appear on the page:

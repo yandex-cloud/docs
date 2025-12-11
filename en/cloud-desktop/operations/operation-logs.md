@@ -1,6 +1,6 @@
 # Viewing {{ cloud-desktop-name }} resource operations
 
-The system logs all actions with {{ cloud-desktop-name }} resources in an operation list. Each operation gets its own unique ID.
+The system logs all actions with {{ cloud-desktop-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -11,7 +11,7 @@ The system logs all actions with {{ cloud-desktop-name }} resources in an operat
   You can get a list of operations for a specific resource. The steps below explain how to do this for a [desktop](../concepts/desktops-and-groups.md). The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the desktop.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
   1. Select the desktop you need.
   1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected desktop.
@@ -49,7 +49,7 @@ The system logs all actions with {{ cloud-desktop-name }} resources in an operat
   +----------------------+---------------------+----------------------+---------------------+---------+-----------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc desktops desktop list-operations e3v7nfkhn0q4******** --format yaml
@@ -87,7 +87,7 @@ The system logs all actions with {{ cloud-desktop-name }} resources in an operat
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

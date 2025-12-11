@@ -11,6 +11,7 @@ description: Страница содержит все инструкции дл�
 * [{#T}](generation/create-prompt.md)
 * [{#T}](generation/create-chat.md)
 * [{#T}](generation/async-request.md)
+* [{#T}](generation/background-request.md)
 * [{#T}](generation/function-call.md)
 * [{#T}](./batch/create.md)
 * [{#T}](./generation/yandexart-request.md)
@@ -58,6 +59,7 @@ description: Страница содержит все инструкции дл�
 * [{#T}](./resources/create-dataset.md)
 * [{#T}](./resources/create-dataset-gpt.md)
 * [{#T}](./resources/create-dataset-classifier.md)
+* [{#T}](./resources/delete-dataset.md)
 
 ### Управление инстансами {#instances}
 

@@ -21,7 +21,7 @@ The [video player](../../concepts/player.md) supports three _types of videos_:
     A user can rewind or fast forward to any point on the video timeline, from the beginning to what is now its right edge. If a user’s playback position matches the right edge, this user is considered to be online. At some point, the right edge may stop crawling, in which case the video type will change to `VOD`.
 
     An example of such a video is a soccer game live stream.
-* `LIVE`: Live stream where the right and left edges of its timeline continiously change over time.
+* `LIVE`: Live stream where the right and left edges of its timeline continuously change over time.
 
     A user can only rewind or fast forward between the current left and right timeline edges. As with `EVENT` videos, if a user’s playback position matches the right timeline edge, this user is considered to be online.
 
@@ -92,7 +92,7 @@ The playback status may take one of the following values:
 
 * `idle`: Player is waiting for content to play.
 * `init`: Initializing the player after the first playable content is set.
-* `buffering`: Player is in buffering state and cannot play the video, e.g., due to lack of data.
+* `buffering`: Player is buffering and cannot play the video, e.g., due to lack of data.
 * `play`: Video playback is in progress.
 * `pause`: Player is paused.
 * `end`: Current video playback ended at the right edge of the timeline. 
@@ -229,6 +229,11 @@ Array elements define the timeline ranges for which there is buffered data for p
 
 The default value is an empty array (`[]`).
 
+#### isFullscreen {#state-isFullscreen}
+
+Fullscreen mode status. If `true`, full screen is on; if `false`, full screen is off.
+
+The default value is `false`.
 
 #### See also {#see-also}
 

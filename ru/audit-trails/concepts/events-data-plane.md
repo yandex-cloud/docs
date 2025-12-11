@@ -125,7 +125,13 @@ description: В данном разделе приведены описания 
 
 Имя сервиса — `accesstransparency`.
 
-{% include [sd-events-dp](../../_includes/audit-trails/events/sd-events-dp.md) %}
+{% include [sd-at-events-dp](../../_includes/audit-trails/events/sd-at-events-dp.md) %}
+
+### Модуль Контроль {{ k8s }}® (KSPM) {#sd-kspm}
+
+Имя сервиса — `kspm`.
+
+{% include [sd-kspm-events-dp](../../_includes/audit-trails/events/sd-kspm-events-dp.md) %}
 
 ## {{ speechkit-full-name }} {#speechkit}
 

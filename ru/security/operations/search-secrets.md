@@ -18,10 +18,155 @@ description: Следуя данной инструкции, вы сможете
 
 {{ yandex-cloud }} подключен к следующим программам поиска секретов:
 
+* [Партнерская программа поиска секретов {{ yandex-cloud }}](#leak-detection-affiliate-program).
 * [GitHub Secret scanning partner program](#github-secret-scanning).
 * [GitLab Secret Detection](#gitlab-secret-detection).
 * [Поисковый индекс Яндекс](#secret-is-leaked).
 * [Helm-чарты в {{ marketplace-full-name }}](#helm-charts).
+
+## Партнерская программа поиска секретов {{ yandex-cloud }} {#leak-detection-affiliate-program}
+
+В {{ yandex-cloud }} действует собственная партнерская программа поиска скомпрометированных секретов в публичных репозиториях и других открытых источниках.
+
+Вы можете присоединиться к партнерской программе поиска секретов {{ yandex-cloud }}, чтобы повысить безопасность ваших сервисов.
+
+Для работы с партнерской программой вам потребуется [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud). Рекомендуем [создать](../../organization/operations/enable-org.md#create-additional-org) отдельную организацию и [отдельное облако](../../resource-manager/operations/cloud/create.md) в ней для работы с партнерской программой. Так вы не потеряете доступ к партнерской программе, даже если ваше основное облако окажется заблокировано или удалено.
+
+### Механизм работы партнерской программы {#program-roadmap}
+
+Для взаимодействия с {{ yandex-cloud }} в рамках партнерской программы используется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). При регистрации в программе вы передадите {{ yandex-cloud }} идентификатор вашего сервисного аккаунта и получите уникальный идентификатор `leak_source`, который будете использовать для взаимодействия с API.
+
+Участвуя в партнерской программе поиска секретов {{ yandex-cloud }}, вы выполняете сканирование публичных репозиториев и других источников на наличие скомпрометированных секретов и передаете в {{ yandex-cloud }} данные о найденных ключах и токенах. {{ yandex-cloud }} проверяет полученные от вас секреты.
+
+Взаимодействие с API {{ yandex-cloud }} происходит в два этапа:
+
+1. Вы регулярно запрашиваете в {{ yandex-cloud }} актуальный список [регулярных выражений](#regex), соответствующих известным типам секретов:
+
+    * Эндпоинт запроса: `https://leak-detector.yandexcloud.net/secret-types`.
+    * Метод запроса: `GET`.
+    * Пример запроса:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer <IAM-токен>" \
+          "https://leak-detector.yandexcloud.net/secret-types?leak_source_id=<идентификатор_leak_source>"
+        ```
+
+        Где:
+        * `<IAM-токен>` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), полученный для зарегистрированного в партнерской программе сервисного аккаунта.
+        * `<идентификатор_leak_source>` — уникальный идентификатор, полученный при регистрации в партнерской программе.
+
+    {% cut "Пример ответа:" %}
+
+    ```json
+    [
+      {
+        "type": "yandex_cloud_api_key_v1",
+        "regex_matcher": "AQW9[A-Za-z0-9_-]{35,38}"
+      },
+      {
+        "type": "yandex_cloud_iam_access_secret",
+        "regex_matcher": "YC[a-zA-Z0-9_\\-]{38}"
+      },
+      {
+        "type": "yandex_cloud_iam_cookie_v1",
+        "regex_matcher": "c1\\.[A-Z0-9a-z_-]{200,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,910}[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}"
+      },
+      {
+        "type": "yandex_cloud_iam_key_v1",
+        "regex_matcher": "PLEASE DO NOT REMOVE THIS LINE\\! Yandex\\.Cloud SA Key ID (<|(\\\\u003[cC]))([0-9a-zA-Z+/=]*)(>|(\\\\u003[eE]))(\\s+)(-----BEGIN PRIVATE KEY-----(\\s+)([0-9a-zA-Z+/=]{64}(\\s+))*([0-9a-zA-Z+/=]{1,63}(\\s+))?-----END PRIVATE KEY-----\\s?)"
+      },
+      {
+        "type": "yandex_cloud_iam_refresh_token_v1",
+        "regex_matcher": "rt1\\.[A-Z0-9a-z_-]{200,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,910}[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}"
+      },
+      {
+        "type": "yandex_cloud_iam_token_v1",
+        "regex_matcher": "t1\\.[A-Z0-9a-z_-]{200,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,910}[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}"
+      },
+      {
+        "type": "yandex_cloud_lockbox_secret_v1",
+        "regex_matcher": "(yc|YC)[!-~]{18,254}"
+      },
+      {
+        "type": "yandex_cloud_smartcaptcha_server_key",
+        "regex_matcher": "ysc2_[a-zA-Z0-9]{40}[0-9a-f]{8}"
+      },
+      {
+        "type": "yandex_passport_oauth_token",
+        "regex_matcher": "y[0-6]_[-_A-Za-z0-9]{55,199}"
+      }
+    ]
+    ```
+
+    {% endcut %}
+
+1. Вы сканируете ваши данные на предмет поиска соответствий полученному списку регулярных выражений. При обнаружении таких соответствий вы отправляете данные о них в {{ yandex-cloud }} для проверки:
+
+    * Эндпоинт запроса: `https://leak-detector.yandexcloud.net/suspects`.
+    * Метод запроса: `POST`.
+    * Пример запроса:
+
+        ```bash
+        curl \
+          --request POST \
+          --header "Content-Type: application/json" \
+          --header "Authorization: Bearer <IAM-токен>" \
+          --data \
+                  '''
+                  {
+                    "leak_source_id": "my_leak_source",
+                    "suspects": [
+                      {
+                        "data_type": "yandex_cloud_lockbox_secret_v1",
+                        "uri": "https://www.example.com/vcs/sources/project1/my_data.yaml",
+                        "payload": "ycBHKGefu78t^%RD3gre387HO"
+                      },
+                      {
+                        "data_type": "yandex_cloud_iam_token_v1",
+                        "uri": "https://www.example.com/vcs/sources/project2/my_data.yaml",
+                        "payload": "t1.Aga0BCD123efGhIjkLmNoPqRsTuVwXyZ1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                      }
+                    ]
+                  }
+                  ''' \
+          "https://leak-detector.yandexcloud.net/suspects"
+        ```
+
+        Где:
+        * `<IAM-токен>` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), полученный для зарегистрированного в партнерской программе сервисного аккаунта.
+        * `<идентификатор_leak_source>` — уникальный идентификатор, полученный при регистрации в партнерской программе.
+        * `suspects` — список объектов, каждый из которых содержит информацию об одном найденном соответствии регулярному выражению.
+        * `data_type` — тип секрета, как он указан в ответе на GET-запрос при получении списка регулярных выражений.
+        * `uri` — [URI](../../glossary/url.md#uri) ресурса, на котором обнаружена потенциальная утечка.
+        * `payload` — тело (содержимое) найденного секрета.
+
+    * Пример ответа:
+
+        ```json
+        ["NOT_CONFIRMED","CONFIRMED"]
+        ```
+
+        Ответ содержит список статусов. Количество и порядок возвращенных в ответе статусов соответствует количеству и порядку секретов, отправленных в GET-запросе в объекте `suspects`.
+
+        Возможные статусы:
+
+        * `NOT_CONFIRMED` — обнаруженный случай соответствия регулярному выражению не является секретом.
+        * `CONFIRMED` — обнаруженный случай соответствия регулярному выражению является секретом.
+        * `TEMPORARILY_UNAVAILABLE` — провайдер секретов недоступен. Повторите запрос в отношении данного секрета позднее с применением алгоритма [экспоненциальной выдержки](https://ru.wikipedia.org/wiki/Экспоненциальная_выдержка).
+
+### Условия участия в программе {#conditions}
+
+Партнерская программа поиска секретов {{ yandex-cloud }} действует в течение периода, установленного при вашем присоединении к ней. При отсутствии с вашей стороны заявления о выходе из программы ее действие продлевается на один год. Количество таких продлений не ограничено.
+
+Сотрудничество с {{ yandex-cloud }} в рамках партнерской программы поиска секретов не предполагает материального вознаграждения и нацелено на совместное принятие мер по повышению уровня информационной безопасности.
+
+{% note info "Как присоединиться к программе" %}
+
+Чтобы присоединиться к программе, воспользуйтесь [формой обратной связи](https://forms.yandex.ru/surveys/13806106.25404433c712687b0fff48ef01ba08bbcf89ffb2) и передайте в ней идентификатор вашего сервисного аккаунта, информацию о ваших сервисах и ваши контактные данные. Мы свяжемся с вами и подробно расскажем об условиях участия в нашей партнерской программе.
+
+{% endnote %}
 
 ## GitHub {#github-secret-scanning}
 

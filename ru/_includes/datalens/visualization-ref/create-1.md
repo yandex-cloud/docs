@@ -1,0 +1,1 @@
+Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
