@@ -11,7 +11,7 @@ sourcePath: en/logging_includes/operations/create-group.md
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [log group](../concepts/log-group.md).
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
     1. Optionally, enter a name and description for the log group. Follow these naming requirements:
 
@@ -41,11 +41,11 @@ sourcePath: en/logging_includes/operations/create-group.md
 
     Where:
     * `--name`: Log group name.
-    * `--retention-period`: Retention period for log group records. This is an optional parameter.
+    * `--retention-period`: Retention period for log group records. This is an optional setting.
 
         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-    * `--data-stream`: [Data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID in {{ yds-full-name }}. This is an optional parameter. The specified stream will automatically receive the records added to your log group. A stream ID comprises the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
+    * `--data-stream`: [Data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID in {{ yds-full-name }}. This is an optional setting. The specified stream will automatically receive the records added to your log group. A stream ID comprises the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
         >For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
         >* `aws_stream`: Stream name.
@@ -76,17 +76,17 @@ sourcePath: en/logging_includes/operations/create-group.md
 
   1. In the configuration file, describe the resources you want to create:
 
-     * `name`: [Log group](../concepts/log-group.md) name. This is an optional parameter. Use the following name format:
+     * `name`: [Log group](../concepts/log-group.md) name. This is an optional setting. Use the following name format:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. It defaults to the value defined by the provider.
+     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value defined by the provider.
 
-     * `retention_period`: Retention period for log group records. This is an optional parameter.
+     * `retention_period`: Retention period for log group records. This is an optional setting.
 
          {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```hcl
      provider "yandex" {

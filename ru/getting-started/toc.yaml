@@ -17,22 +17,18 @@ items:
         href: individuals/what-is-next.md
   - name: Юридическим лицам
     items:
-      - name: Шаг 1. Регистрация
+      - name: Начало работы для юридических лиц
+        href: legal-entity/index.md
+      - name: Шаг 1. Создание платежного аккаунта
         href: legal-entity/registration.md
-      - name: Шаг 2. Оплата
+      - name: Шаг 2. Пополнение счета и контроль расходов
         href: legal-entity/payments.md
-      - name: Шаг 3. Создание организации
-        href: legal-entity/create-organization.md
-      - name: Шаг 4. Выбор тарифного плана
+      - name: Шаг 3. Выбор тарифного плана поддержки
         href: legal-entity/service-plan.md
-      - name: Шаг 5. Управление пользователями
-        href: legal-entity/manage-users.md
-      - name: Шаг 6. Иерархия ресурсов
-        href: legal-entity/resources-hierarchy.md
-      - name: Шаг 7. Настройка безопасной сетевой конфигурации
-        href: legal-entity/configure-network.md
-      - name: Шаг 8. Логирование
-        href: legal-entity/logs.md
+      - name: Шаг 4. Создание виртуальной машины и подключение к ней
+        href: legal-entity/create-vm.md
+      - name: Что дальше?
+        href: legal-entity/what-is-next.md
   - name: Стартовый грант
     href: usage-grant.md
   - name: Пробный период

@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to reset a {{ cloud-desktop-fu
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your desktop.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
   1. Select the desktop to connect to.
   1. Under **{{ ui-key.yacloud.vdi.section_access }}**, next to the user account, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vdi.button_reset-password }}**.

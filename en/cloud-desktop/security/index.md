@@ -21,6 +21,8 @@ You can assign a role for a [desktop group](../concepts/desktops-and-groups.md) 
 
 ## Roles existing in this service {#roles-list}
 
+{% include [cloud-desktop](../../_mermaid/roles/cloud-desktop.md) %}
+
 ### Service roles {#service-roles}
 
 #### vdi.viewer {#vdi-viewer}

@@ -5,29 +5,34 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 
 # Индикатор ![](../../_assets/datalens/indicator.svg) в {{ datalens-full-name }}
 
-Индикатор отражает значение одного ключевого показателя. Чтобы сделать индикатор более [сложным](#markup-indicator) и информативным, можно использовать несколько показателей.
+Индикатор отражает значение одного ключевого показателя. Чтобы сделать индикатор более [сложным](#markup-indicator) и информативным, берите несколько показателей.
 
-Индикатор используется, когда на дашборде есть значения, за которыми нужно регулярно следить для понимания общей ситуации. Это может быть, например, количество инцидентов за прошлый день, процент выполнения плана или прирост продаж год к году.
+* Индикатор используется, когда на дашборде есть значения, за которыми нужно регулярно следить для понимания общей ситуации. Это может быть, например, количество инцидентов за прошлый день, процент выполнения плана или прирост продаж год к году.
 
-Чаще всего индикаторы располагаются сверху или в правой части дашборда. Чтобы индикаторы не теряли акцент и не путали пользователя, их должно быть не больше шести на одном экране. С помощью индикаторов разного размера можно выстроить иерархию важности разных метрик.
+* Чаще всего индикаторы располагаются сверху или в правой части дашборда. Чтобы индикаторы не терялись и не путали пользователя, их должно быть не больше шести на одном экране. Меняйте размеры виджетов, чтобы показать разную важность метрик.
 
-![indicator-chart](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart.png)
+  ![indicator-chart](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart.png)
 
-Размер и цвет индикатора можно настраивать.
+* Размер и цвет индикатора можно настраивать.
 
-![indicator-chart-red](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-red.png)
+  {% list tabs %}
 
-{% cut "Исходная таблица" %}
+  - Представление
 
-Год |	Продажа|	
------|---------| 
-2022|	6М |	
-2021|	28М |	
-2020|	18М |	
-2019|	9М | 
-2018|	1М |
+    ![indicator-chart-red](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-red.png)
 
-{% endcut %}
+  - Исходная таблица
+
+    Год |	Продажа|	
+    -----|---------| 
+    2022|	6М |	
+    2021|	28М |	
+    2020|	18М |	
+    2019|	9М | 
+    2018|	1М |
+
+  {% endlist %}
+
 
 ## Секции в визарде {#wizard-sections}
 
@@ -44,10 +49,10 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. На панели слева выберите ![chart](../../_assets/console-icons/chart-column.svg) **Чарты**.
-1. Нажмите кнопку **Создать чарт** → **Чарт**.
-1. Слева вверху нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и укажите датасет для визуализации.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Выберите тип чарта **Индикатор**.
 1. Перетащите измерение или показатель из датасета в секцию **Показатель**. Значение отобразится в виде числа.
 
@@ -186,8 +191,4 @@ COLOR(SIZE('Tableau', '20px'), '#4D5DAB')
 
   ![indicator-chart-context](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-context.png)
 
-#### См. также {#see-also}
-
-* [{#T}](../operations/dashboard/create.md)
-* [{#T}](../operations/dashboard/add-chart.md)
-* [{#T}](../operations/dashboard/add-selector.md)
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

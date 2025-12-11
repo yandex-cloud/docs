@@ -73,7 +73,7 @@ Maximum retention period for [expired metrics](../../concepts/ttl.md) ^1^ | 60 d
 Here is what you can do in **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** > Workspace > **General information**:
 
 * View the number of written metrics.
-* Go to the page with service [dashboards](../../concepts/visualization/dashboard) and view the number of requests, errors, and HTTP status codes per second for various endpoints.
+* Go to the page with service [dashboards](../../concepts/visualization/dashboard.md) and view the number of requests, errors, and HTTP status codes per second for various endpoints.
 
 ### Limits per endpoint {#limits-per-endpoint}
 

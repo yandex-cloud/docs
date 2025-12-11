@@ -12,7 +12,7 @@ description: In this tutorial, we will update a desktop group.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your desktop group.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Next to the desktop group you want to update, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Select the **{{ ui-key.yacloud.vdi.section_type }}**: **{{ ui-key.yacloud.vdi.value_type-personal }}** or **{{ ui-key.yacloud.vdi.value_type-session }}**.
   1. Under **{{ ui-key.yacloud.vdi.section_desktop }}**, change these values:

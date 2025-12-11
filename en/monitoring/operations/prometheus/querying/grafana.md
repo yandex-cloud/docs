@@ -30,7 +30,7 @@ sourcePath: en/monitoring_includes/operations/prometheus/querying/grafana.md
 | `401` | Service account not found. Make sure the configuration specifies the correct [API key](../../../../iam/concepts/authorization/api-key.md). | ```auth: cannot authenticate by either token or api-key, cause: UNAUTHENTICATED: The token is invalid``` |
 | `403` | No read permissions. Make sure the service account has the `{{ roles-monitoring-viewer }}` role for the selected folder. | ```auth: PERMISSION_DENIED: Permission denied```|
 | `429` | [Number of HTTP API read requests per second](../index.md#limits) quota exceeded | ```execution: too many requests: monb1piptmdo********``` |
-| `400` | Too many lines returned in the response. Try refining your query. | ```bad_data: Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 10000``` |
+| `400` | Too many lines returned in the response. Try refining your query. | ```bad_data: Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 20000``` |
 
 ## Current limitations {#restrictions}
 

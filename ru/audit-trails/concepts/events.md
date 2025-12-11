@@ -338,6 +338,14 @@ description: В данном разделе приведены описания 
 
 {% include [searchapi-events](../../_includes/audit-trails/events/searchapi-events.md) %}
 
+## {{ sd-full-name }} {#security-deck}
+
+### Модуль Контроль {{ k8s }}® (KSPM) {#sd-kspm}
+
+Имя сервиса — `kspm`.
+
+{% include [sd-kspm-events](../../_includes/audit-trails/events/sd-kspm-events.md) %}
+
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
 Имя сервиса — `serverless.containers`.

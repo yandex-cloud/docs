@@ -17,7 +17,7 @@ To start log export, the user or service account must have the `logging.editor` 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder containing your log group and log sink.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Select the log group from which you want to export logs.
     1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab.
     1. To the right of the **{{ ui-key.yacloud.logging.button_execute }}** button, click ![image](../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud.logging.label_export }}**.

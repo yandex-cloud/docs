@@ -1,7 +1,10 @@
 Чтобы создать платежный аккаунт:
 
-1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 1. {% include [create-ba-step2](../../billing/_includes/create-ba-step2.md) %}
+
+   При создании организации укажите ее имя — `Example organization`. В организации будет автоматически создан новый каталог с именем `default`.
+   
+1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 1. {% include [create-ba-step3](../../billing/_includes/create-ba-step3.md) %}
 
    {% include [create-additional-ba-ui-notice](../../billing/_includes/create-additional-ba-ui-notice.md) %}

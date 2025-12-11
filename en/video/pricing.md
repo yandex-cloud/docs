@@ -23,6 +23,8 @@ When using {{ video-name }}, you are charged for the following:
 
 The video content is stored in {{ objstorage-name }}. The data amount is measured in GBs per month. The size of video content per month is calculated as the average value based on granular per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
+{% include [free-neuro](../_includes/video/free-neuro.md) %}
+
 ## Prices for the Russia region {#prices}
 
 

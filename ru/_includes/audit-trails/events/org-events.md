@@ -3,6 +3,7 @@
 `AcceptInvitation` | Принятие приглашения
 `ActivateMfaEnforcement` | Активация политики [MFA](../../../organization/concepts/mfa.md)
 `AttachRegion` | Подключение региона
+`BindOrganizationAccessPolicy` | Привязка политики авторизации в организации
 `CreateGroup` | Создание группы пользователей
 `CreateGroupMapping` | Настройка сопоставления групп федеративных пользователей
 `CreateInvitations` | Создание приглашения
@@ -70,6 +71,7 @@
 `saml.UpdateFederation` | Изменение федерации удостоверений
 `saml.UpdateSignatureCertificate` | Изменение сертификата для подписи
 `saml.ValidateFederationDomain` | Валидация домена, привязываемого к федерации 
+`UnbindOrganizationAccessPolicy` | Отмена привязки политики авторизации в организации
 `UpdateGroup` | Изменение группы пользователей
 `UpdateGroupAccessBindings` | Изменение прав доступа к группе пользователей
 `UpdateGroupMapping` | Изменение сопоставления групп федеративных пользователей
@@ -78,6 +80,7 @@
 `UpdateMfaEnforcementAudience` | Изменение целевых пользователей политики MFA
 `UpdateOrganization` | Изменение организации
 `UpdateOrganizationAccessBindings` | Изменение прав доступа к организации
+`UpdateOrganizationAccessPolicyBindingParameters` | Изменение параметров политики авторизации в организации
 `UpdateOsLoginProfile` | Изменение профиля {{ oslogin }}
 `UpdateOsLoginSettings` | Изменение настроек {{ oslogin }}
 `UpdateSubscribers` | Изменение списка подписчиков
