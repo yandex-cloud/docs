@@ -1711,6 +1711,23 @@ default:
         cpu|string: "12,69\_₸"
         ram|month|string: "2\_449,44\_₸"
         ram|string: "3,4020\_₸"
+  sku|KZT|gost_gateway:
+    hw100_c:
+      subscription:
+        monthly_usage:
+          v1|string: "250\_000,00\_₸"
+    hw1000_d:
+      subscription:
+        monthly_usage:
+          v1|string: "875\_000,00\_₸"
+    hw2000_q5:
+      subscription:
+        monthly_usage:
+          v1|string: "1\_175\_000,00\_₸"
+    hw5000_q2:
+      subscription:
+        monthly_usage:
+          v1|string: "1\_425\_000,00\_₸"
   sku|KZT|interconnect:
     trunk:
       direct:
@@ -4096,6 +4113,23 @@ default:
         cpu|string: "2,5380\_₽"
         ram|month|string: "489,8880\_₽"
         ram|string: "0,6804\_₽"
+  sku|RUB|gost_gateway:
+    hw100_c:
+      subscription:
+        monthly_usage:
+          v1|string: "50\_000,00\_₽"
+    hw1000_d:
+      subscription:
+        monthly_usage:
+          v1|string: "175\_000,00\_₽"
+    hw2000_q5:
+      subscription:
+        monthly_usage:
+          v1|string: "235\_000,00\_₽"
+    hw5000_q2:
+      subscription:
+        monthly_usage:
+          v1|string: "285\_000,00\_₽"
   sku|RUB|interconnect:
     trunk:
       direct:

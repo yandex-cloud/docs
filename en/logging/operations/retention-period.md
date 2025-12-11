@@ -11,7 +11,7 @@ sourcePath: en/logging_includes/operations/retention-period.md
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your [log group](../concepts/log-group.md).
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Next to the log group, click ![image](../../_assets/console-icons/ellipsis.svg).
     1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
     1. Update the log group settings.
@@ -70,8 +70,8 @@ sourcePath: en/logging_includes/operations/retention-period.md
 
      Where:
 
-     * `name`: Log group name. This is an optional parameter.
-     * `folder_id`: Folder ID. This is an optional parameter. It defaults to the value specified in the provider settings.
+     * `name`: Log group name. This is an optional setting.
+     * `folder_id`: Folder ID. This is an optional setting. It defaults to the value specified in the provider settings.
      * `retention_period`: New retention period for log group records.
 
         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}

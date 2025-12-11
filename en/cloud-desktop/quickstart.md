@@ -78,7 +78,7 @@ Follow this guide to create a desktop group based on pre-installed `Ubuntu 20.04
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your desktop group.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Click **{{ ui-key.yacloud.vdi.button_empty-create-desktop-group }}**.
   1. Enter a name for the desktop group.
   1. Select **{{ ui-key.yacloud.vdi.section_type }}**: **{{ ui-key.yacloud.vdi.value_type-personal }}**. Desktops are assigned to users on their first sign-in and remain reserved for them.

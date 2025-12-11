@@ -5,6 +5,15 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ mkf-full-name }}
 
+## Ноябрь 2025 {#november-2025}
+
+Для Kafka UI теперь используется [kafbat UI](https://ui.docs.kafbat.io/).
+
+## Октябрь 2025 {#october-2025}
+
+* Добавлены [метрики](metrics.md): `can_read`, `can_write`, `kafka_topic_partition_low_water_mark`, `kafka_topic_partition_high_water_mark`.
+* Добавлены новые [классы хостов](concepts/instance-types.md): AMD Zen 4 и AMD Zen 4 HighFreq.
+
 ## Сентябрь 2025 {#september-2025}
 
 * Добавлена новая [сервисная роль](security/index.md#managed-kafka-interface-user) `managed-kafka.interfaceUser`, которая позволяет использовать веб-интерфейс {{ kafka-ui }}.

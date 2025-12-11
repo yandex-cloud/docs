@@ -5,3 +5,5 @@ items:
     items:
       - name: О сервисе {{ gost-gateway-name }}
         href: concepts/index.md
+  - name: Правила тарификации
+    href: pricing.md

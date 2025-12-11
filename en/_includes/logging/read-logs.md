@@ -5,9 +5,9 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the log group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Click the row with the log group whose records you want to view.
-  1. The page that opens will show the log group records.
+  1. The page that opens will show the log group entries.
 
 - CLI {#cli}
 
@@ -27,13 +27,13 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
   You can use one of these time formats:
 
   * `HH:MM:SS`, e.g., `15:04:05`.
-  * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), e.g., `2006-01-02T15:04:05Z`, `2h`, or `3h30m ago`.
+  * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt). For example, `2006-01-02T15:04:05Z`, `2h`, or `3h30m ago`.
 
   To access a log group, use its name or unique ID. To find them out, [get](../../logging/operations/list.md) a list of log groups in the folder. If you do not specify the name or ID, the output will contain records from the [default log group](../../logging/concepts/log-group.md) in the current folder. You can skip the `--group-name` and `--group-id` parameters and specify the group name or ID directly.
 
   To limit the number of output records, use the `--limit` parameter. The values may range from 1 to 1,000.
 
-  To view the records in JSON format, run this command:
+  To view the entries in JSON format, run this command:
 
   ```bash
   yc logging read --group-name=default --format=json
@@ -68,7 +68,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
 - SDK {#sdk}
 
-  You can read records in {{ cloud-logging-name }} using the [{{ yandex-cloud }} SDK](../../overview/sdk/quickstart), which is available for various languages. Below are examples of using the Python SDK. You can work with code in your infrastructure or in [{{ sf-full-name }}](../../functions/).
+  You can read {{ cloud-logging-name }} records using the [{{ yandex-cloud }} SDK](../../overview/sdk/quickstart.md), which is available for various languages. Below are examples of using the Python SDK. You can work with code in your infrastructure or in [{{ sf-full-name }}](../../functions/).
 
   **Locally**
 
@@ -123,7 +123,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
 - API {#api}
 
-  To view [log group](../../logging/concepts/log-group.md) records, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+  To view [log group](../../logging/concepts/log-group.md) entries, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
   **Example**
 
@@ -142,7 +142,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
       ONE_HOUR_AGO=$(date -u -d "1 hour ago" +"%Y-%m-%dT%H:%M:%SZ")
       ```
 
-      You can specify a different period instead of 1 hour: `"1 hour ago"`. For example, an interval such as `1 month, 2 weeks, 3 days, and 4 hours` would look like this:
+      You can specify a different period instead of 1 hour: `"1 hour ago"`. For example, an interval of `1 month, 2 weeks, 3 days, and 4 hours` will look like this:
 
       ```text
       "1 month ago 2 weeks ago 3 days ago 4 hours ago"
@@ -159,7 +159,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
       {% endcut %}
 
-  1. Write the ID of the required log group to the variable:
+  1. Write the log group ID into the variable:
 
       ```bash
       LOG_GROUP_ID="<log_group_ID>"

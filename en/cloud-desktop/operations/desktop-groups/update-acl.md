@@ -12,7 +12,7 @@ description: In this tutorial, you will learn how to change access permissions f
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the desktop group.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Select the desktop group to update access permissions for.
   1. In the left-hand panel, select ![persons](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
   1. Click **{{ ui-key.yacloud_org.common.resource-acl.button_new-bindings }}**.

@@ -99,10 +99,12 @@ items:
             items:
               - name: Оценить запрос в токенах
                 href: operations/generation/evaluate-request.md
-              - name: Отправить запрос в промт-режиме
+              - name: Отправить запрос в синхронном режиме
                 href: operations/generation/create-prompt.md
               - name: Отправить серию запросов в режиме чата
                 href: operations/generation/create-chat.md
+              - name: Отправить запрос в фоновом режиме
+                href: operations/generation/background-request.md
               - name: Отправить асинхронный запрос
                 href: operations/generation/async-request.md
               - name: Вызвать функцию из модели
@@ -147,6 +149,8 @@ items:
                 href: operations/resources/create-dataset-gpt.md
               - name: Создать датасет для дообучения классификации текста
                 href: operations/resources/create-dataset-classifier.md
+              - name: Удалить датасет
+                href: operations/resources/delete-dataset.md
           - name: Дообучение моделей
             items:
               - name: Дообучить модель генерации текста

@@ -53,6 +53,8 @@
 `instancegroup.CreateInstanceGroup` | Создание группы ВМ
 `instancegroup.DeleteInstanceGroup` | Удаление группы ВМ
 `instancegroup.DeleteInstanceGroupInstances` | Удаление ВМ из группы
+`instancegroup.DisableZones` | [Временное отключение](../../../compute/concepts/instance-groups/disable-enable-zone.md) зон доступности
+`instancegroup.EnableZones` | Включение зон доступности
 `instancegroup.PauseInstanceGroup` | Приостановка процессов управления группой ВМ
 `instancegroup.ResumeInstanceGroup` | Возобновление процессов управления группой ВМ
 `instancegroup.RollingRestartInstanceGroupInstances` | Поочередная перезагрузка ВМ из группы

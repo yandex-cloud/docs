@@ -11,7 +11,7 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
-  1. On the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, in the row with the video you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. On the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, in the row with the video, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
   1. Edit the name of your video.
   1. Optionally, under **{{ ui-key.yacloud_video.videos.label_description }}**, specify the timecodes for your video in the following format:
    
@@ -31,22 +31,21 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
           {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
   1. Enable or disable [summarization](../../concepts/videos.md#summarization).
-  1. To edit [subtitles](../../concepts/videos.md#subtitles), delete and add them as needed:
+  
+  1. To add [subtitles](../../concepts/videos.md#subtitles), click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.common.action_add }}** and choose how to add subtitles:
 
-      1. Click ![image](../../../_assets/console-icons/xmark.svg) to the right of the name of the subtitle file you want to update.
-      1. In the **{{ ui-key.yacloud_video.videos.label_subtitles }}** field, click **{{ ui-key.yacloud_video.common.action_add }}**.
-      1. In the window that opens, select the subtitle language.
-      1. Click **Select file** and select a subtitle file.
-      1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
+     * ![image](../../../_assets/console-icons/magic-wand.svg) **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}**: To generate subtitles automatically based on the video analysis. In the window that opens, specify the original language of the video and the subtitle languages and click **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}**.
 
-          Wait for the file to upload.
+     * ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud_video.common.upload }}**: To upload subtitles from a file. In the window that opens, specify the subtitle language, select the file with the subtitles, and wait for it to upload. Click **{{ ui-key.yacloud_video.common.action_create }}**.
+
+  1. To delete subtitles, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
 
   1. To edit [neural translation](../../concepts/videos.md#translation), delete the old languages and add the new ones:
       
       1. Under **{{ ui-key.yacloud_video.videos.label_neuro-translation }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of neural translation language.
       1. Click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_video.common.action_delete }}**.
       1. Click **{{ ui-key.yacloud_video.common.action_add }}**.
-      1. In the window that opens, select the language of the video.
+      1. In the window that opens, select the video language.
       1. Select languages for translation. 
       1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
 

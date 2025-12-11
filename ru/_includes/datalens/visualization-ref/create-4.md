@@ -1,0 +1,1 @@
+Слева вверху нажмите ![image](../../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и укажите датасет для визуализации. Если у вас нет датасета, [создайте его](../../../datalens/dataset/create-dataset.md#create).

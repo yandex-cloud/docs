@@ -11,7 +11,7 @@ sourcePath: en/logging_includes/operations/create-sink.md
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a log sink.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Navigate to the **{{ ui-key.yacloud.logging.label_sinks }}** tab.
     1. Click **{{ ui-key.yacloud.logging.button_create-sink }}**.
     1. Optionally, enter a name and description for your sink. Follow these naming requirements:

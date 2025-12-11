@@ -1,13 +1,13 @@
 ---
 title: Access management in {{ alb-full-name }}
-description: Access management in {{ alb-full-name }}, a service for distributing requests across network application backends and for terminating TLS encryption. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ alb-full-name }}, a service for distributing requests across network application backends and for terminating TLS encryption. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ alb-name }}
 
 In this section, you will learn:
-* [What resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 * [What roles are required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
@@ -18,7 +18,7 @@ In this section, you will learn:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Available service roles {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 

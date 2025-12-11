@@ -1,8 +1,6 @@
 title: Обзор платформы
 href: index.yaml
 items:
-  - name: Начало работы
-    href: quickstart.md
   - name: Платформа {{ yandex-cloud }}
     expanded: true
     items:

@@ -1,17 +1,39 @@
 ---
-title: Как отправить запрос к модели в {{ foundation-models-full-name }}
-description: Следуя данной инструкции, вы научитесь использовать {{ responses-api }} в {{ foundation-models-full-name }}, чтобы отправить запрос к {{ gpt-lite }}.
+title: Как отправить запрос к модели в {{ foundation-models-full-name }} в синхронном режиме
+description: Следуя данной инструкции, вы научитесь использовать {{ responses-api }} в {{ foundation-models-full-name }}, чтобы отправить запрос к {{ gpt-lite }} в синхронном режиме.
 ---
 
-# Отправить запрос в промпт-режиме
+# Отправить запрос в синхронном режиме
+
+При выполнении задач генерации текста, которые предусматривают короткий ответ или использование модели генерации текста [в режиме чата](./create-chat.md), наиболее эффективным является _синхронный режим запросов_.
+
+Если у вас объемная задача по генерации текста, в которой требуется, например, обработка больших документов, более удобным может оказаться [фоновый режим запросов](./background-request.md).
 
 ## Перед началом работы {#before-begin}
+
+Чтобы воспользоваться примером:
 
 {% list tabs group=programming_language %}
 
 - Python {#python}
 
-  {% include notitle [ai-before-beginning](../../../_includes/ai-studio/yandexgpt/ai-before-beginning.md) %}
+  1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../../security/index.md#languageModels-user) `ai.languageModels.user`.
+  1. [Получите](../get-api-key.md#run-client) и сохраните [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта.
+  
+        {% note info %}
+        
+        Если вы используете ОС [Windows](https://ru.wikipedia.org/wiki/Windows), рекомендуем предварительно [установить](https://learn.microsoft.com/ru-ru/windows/wsl/install) оболочку [WSL](https://ru.wikipedia.org/wiki/Windows_Subsystem_for_Linux) и выполнять дальнейшие действия в этой оболочке.
+        
+        {% endnote %}
+
+  1. {% include [sdk-before-begin-step3](../../../_includes/ai-studio/sdk-before-begin-step3.md) %}
+  1. {% include [sdk-before-begin-step4](../../../_includes/ai-studio/sdk-before-begin-step4.md) %}
+  1. {% include [sdk-before-begin-step5](../../../_includes/ai-studio/sdk-before-begin-step5.md) %}
+  1. Установите [библиотеку](https://github.com/openai/openai-python) OpenAI для Python:
+
+      ```bash
+      pip install openai
+      ```
 
 {% endlist %}
 
@@ -73,5 +95,6 @@ description: Следуя данной инструкции, вы научите
 
 #### См. также {#see-also}
 
+* [{#T}](./background-request.md)
 * [{#T}](../../concepts/generation/index.md)
 * Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)
