@@ -1,5 +1,5 @@
 ---
-title: Creating an {{ AF }} cluster
+title: Creating a {{ AF }} cluster
 description: Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which may have multiple instances. These instances may reside in different availability zones.
 keywords:
   - creating an {{ AF }} cluster
@@ -74,7 +74,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-  1. Set the number of instances and a [computing resource configuration](../concepts/index.md#presets) for the {{ maf-name }} [components](../concepts/index.md#components):
+  1. Set the number of instances and a [computing resource configuration](../concepts/instance-types.md) for the {{ maf-name }} [components](../concepts/index.md#components):
 
       * Web server
       * Scheduler
@@ -152,7 +152,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
     To create a {{ maf-name }} cluster:
 
-    1. View the description of the CLI command for creating a cluster:
+    1. View the description of the CLI command to create a cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster create --help
@@ -227,7 +227,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters-part-2.md) %}
 
-    1. Check if the settings are correct.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -237,7 +237,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         This will create all the resources you need in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-maf }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-maf }}).
 
 - REST API {#api}
 
@@ -615,7 +615,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             {% endnote %}
 
-    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -630,7 +630,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             < body.json
         ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

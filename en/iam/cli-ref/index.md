@@ -25,6 +25,7 @@ Syntax:
 	- [yc iam access-key create](access-key/create.md) — Create an access key for the specified service account
 	- [yc iam access-key delete](access-key/delete.md) — Delete the specified access key
 	- [yc iam access-key get](access-key/get.md) — Show information about the specified access key
+	- [yc iam access-key issue-ephemeral](access-key/issue-ephemeral.md) — Issue ephemeral access key
 	- [yc iam access-key list](access-key/list.md) — List access keys for the specified service account
 - [yc iam access-policy-template](access-policy-template/index.md) — Manage access policy templates
 	- [yc iam access-policy-template list](access-policy-template/list.md) — List available access policy templates

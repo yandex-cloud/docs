@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--certificate-id`|<b>`string`</b><br/>ID of the certificate to list versions for.|
-|`--page-size`|<b>`int`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListCertificatesResponse.next_page_token] returned by a previous list request.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListCertificatesResponse.next_page_token] returned by a previous list request.|
+|`--page-size`|<b>`int`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListCertificatesResponse.next_page_token] returned by a previous list request.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListCertificatesResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

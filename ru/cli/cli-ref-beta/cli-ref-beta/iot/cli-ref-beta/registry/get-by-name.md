@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to list registries in.<br/><br/>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--registry-name`|<b>`string`</b><br/>Name of the registry to return.<br/><br/>To get a registry Name make a [RegistryService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to list registries in. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--registry-name`|<b>`string`</b><br/>Name of the registry to return. To get a registry Name make a [RegistryService.List] request.|
 
 #### Global Flags
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--load-balancer-id`|<b>`string`</b><br/>ID of the application load balancer to return.<br/><br/>To get the application load balancer ID, make a [LoadBalancerService.List] request.|
+|`--load-balancer-id`|<b>`string`</b><br/>ID of the application load balancer to return. To get the application load balancer ID, make a [LoadBalancerService.List] request.|
 
 #### Global Flags
 

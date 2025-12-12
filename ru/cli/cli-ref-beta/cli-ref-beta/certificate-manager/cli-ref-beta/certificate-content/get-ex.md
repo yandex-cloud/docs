@@ -21,8 +21,7 @@ Syntax:
 |`--private-key-format`|<b>`enum`</b><br/>Possible Values: 'pkcs1', 'pkcs8'|
 |`--version-id`|<b>`string`</b><br/>|
 |`--certificate-id`|<b>`string`</b><br/>|
-|`--folder-and-name`|<b>`shorthand/json`</b><br/><br/><br/>Example:|
-|`--folder-and-name`|<b>`certificate-name=value,`</b><br/>folder-id=value<br/><br/>Shorthand Syntax:<br/>{certificate-name=str, folder-id=str}<br/>Fields:<br/>certificate-name  string  required  —<br/>folder-id         string  required  —|
+|`--folder-and-name`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>certificate-name = str,<br/>folder-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"certificate-name": "str",<br/>"folder-id": "str"<br/>}"<br/>Fields:<br/>certificate-name -> (string)<br/>folder-id -> (string)|
 
 #### Global Flags
 

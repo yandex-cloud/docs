@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--private-cloud-connection-id`|<b>`string`</b><br/>ID of the private cloud connection to update.<br/><br/>To get the private cloud connection ID, use a [PrivateCloudConnectionService.List] request.|
+|`--private-cloud-connection-id`|<b>`string`</b><br/>ID of the private cloud connection to update. To get the private cloud connection ID, use a [PrivateCloudConnectionService.List] request.|
 |`--routing-instance-id`|<b>`string`</b><br/>ID of Cloud Router Routing Instance.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

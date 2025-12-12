@@ -17,8 +17,8 @@ Warning  FailedGetResourceMetric  horizontal-pod-autoscaler  failed to get cpu u
 
 Выполните следующие действия для решения проблемы:
 
+1. Убедитесь, что группы безопасности разрешают доступ к подам  Metrics server. Для этого воспользуйтесь руководством по настройке групп безопасности в кластерах {{ managed-k8s-name }} [по этой ссылке](../../../managed-kubernetes/operations/connect/security-groups.md#apply).
 1. Вручную перенесите под с сервером метрик на другой, менее загруженный узел кластера {{ managed-k8s-name }}.
-1. Если это не поможет, измените конфигурацию пода с сервером метрик [по этой инструкции](../../../managed-kubernetes/tutorials/metrics-server.md).
 
 ## Если проблема осталась {#if-issue-still-persists}
 

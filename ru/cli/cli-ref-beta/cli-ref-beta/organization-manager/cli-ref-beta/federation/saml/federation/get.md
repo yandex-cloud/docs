@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--federation-id`|<b>`string`</b><br/>ID of the federation to return.<br/>To get the federation ID, make a [FederationService.List] request.|
+|`--federation-id`|<b>`string`</b><br/>ID of the federation to return. To get the federation ID, make a [FederationService.List] request.|
 
 #### Global Flags
 

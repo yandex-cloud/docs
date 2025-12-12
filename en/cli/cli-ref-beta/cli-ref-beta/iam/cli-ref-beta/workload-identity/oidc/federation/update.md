@@ -20,11 +20,11 @@ Syntax:
 |----|----|
 |`--audiences`|<b>`strings`</b><br/>List of trusted values for aud claim.|
 |`--description`|<b>`string`</b><br/>Description of the OIDC workload identity federation.|
-|`--disabled`|True - the OIDC workload identity federation is disabled and cannot be used for authentication.<br/>False - the OIDC workload identity federation is enabled and can be used for authentication.|
-|`--federation-id`|<b>`string`</b><br/>ID of the OIDC workload identity federation to update.<br/>To get the OIDC workload identity federation ID, make a [FederationService.List] request.|
+|`--disabled`|True - the OIDC workload identity federation is disabled and cannot be used for authentication. False - the OIDC workload identity federation is enabled and can be used for authentication.|
+|`--federation-id`|<b>`string`</b><br/>ID of the OIDC workload identity federation to update. To get the OIDC workload identity federation ID, make a [FederationService.List] request.|
 |`--jwks-url`|<b>`string`</b><br/>URL reference to trusted keys in format of JSON Web Key Set.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs|
-|`--name`|<b>`string`</b><br/>Name of the OIDC workload identity federation.<br/>The name must be unique within the folder.|
+|`--name`|<b>`string`</b><br/>Name of the OIDC workload identity federation. The name must be unique within the folder.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

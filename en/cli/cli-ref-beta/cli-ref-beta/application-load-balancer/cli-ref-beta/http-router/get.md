@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--http-router-id`|<b>`string`</b><br/>ID of the HTTP router to return.<br/><br/>To get the HTTP router ID, make a [HttpRouterService.List] request.|
+|`--http-router-id`|<b>`string`</b><br/>ID of the HTTP router to return. To get the HTTP router ID, make a [HttpRouterService.List] request.|
 
 #### Global Flags
 

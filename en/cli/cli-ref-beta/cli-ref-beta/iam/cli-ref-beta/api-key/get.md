@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--api-key-id`|<b>`string`</b><br/>ID of the API key to return.<br/>To get the API key ID, use a [ApiKeyService.List] request.|
+|`--api-key-id`|<b>`string`</b><br/>ID of the API key to return. To get the API key ID, use a [ApiKeyService.List] request.|
 
 #### Global Flags
 

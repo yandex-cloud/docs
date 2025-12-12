@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--group-id`|<b>`string`</b><br/>ID of the Group resource to list operations for.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListGroupOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. Set [page_token]<br/>to the [ListGroupOperationsResponse.next_page_token]<br/>returned by a previous list request to get the next page of results.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListGroupOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. Set [page_token] to the [ListGroupOperationsResponse.next_page_token] returned by a previous list request to get the next page of results.|
 
 #### Global Flags
 

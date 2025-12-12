@@ -18,11 +18,11 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters snapshot schedules listed in the response.<br/><br/>The expression must specify:<br/>1. The field name. Currently you can use filtering only on [SnapshotSchedule.name] field.<br/>2. An operator. Can be either '=' or '!=' for single values, 'IN' or 'NOT IN' for lists of values.<br/>3. The value. Must be 3-63 characters long and match the regular expression '^[a-z][-a-z0-9]{1,61}[a-z0-9]'.<br/>Example of a filter: 'name=my-schedule'.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to list snapshot schedules in.<br/><br/>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--order-by`|<b>`string`</b><br/>A sorting expression that sorts snapshot schedules listed in the response.<br/><br/>The expression must specify the field name from [SnapshotSchedule] and 'asc'ending or 'desc'ending order,<br/>e.g. 'createdAt desc'.<br/><br/>Default value: 'id asc'.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than 'page_size', the service returns a [ListSnapshotSchedulesResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListSnapshotSchedulesResponse.next_page_token] returned by a previous list request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters snapshot schedules listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [SnapshotSchedule.name] field. 2. An operator. Can be either '=' or '!=' for single values, 'IN' or 'NOT IN' for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression '^[a-z][-a-z0-9]{1,61}[a-z0-9]'. Example of a filter: 'name=my-schedule'.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to list snapshot schedules in. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--order-by`|<b>`string`</b><br/>A sorting expression that sorts snapshot schedules listed in the response. The expression must specify the field name from [SnapshotSchedule] and 'asc'ending or 'desc'ending order, e.g. 'createdAt desc'. Default value: 'id asc'.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than 'page_size', the service returns a [ListSnapshotSchedulesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListSnapshotSchedulesResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

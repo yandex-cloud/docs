@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the cluster that the shard belongs to.<br/>To get the cluster ID, use a [ClusterService.List] request.<br/>To get the name of the database, use a [ClusterService.List] request.|
-|`--shard-name`|<b>`string`</b><br/>Name of the shard to request information about.<br/>To get the name of a shard, use a [ClusterService.ListShards] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the cluster that the shard belongs to. To get the cluster ID, use a [ClusterService.List] request. To get the name of the database, use a [ClusterService.List] request.|
+|`--shard-name`|<b>`string`</b><br/>Name of the shard to request information about. To get the name of a shard, use a [ClusterService.ListShards] request.|
 
 #### Global Flags
 

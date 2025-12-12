@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>The expression must specify:<br/>1. The field name. Currently you can use filtering only on [Vulnerability.severity] and [PackageVulnerability.name] fields.<br/>2. An '=' operator.<br/>3. The value in double quotes ('"').|
-|`--order-by`|<b>`string`</b><br/>An order expression that orders resources listed in the response.<br/>The expression must specify:<br/>1. The field name. Currently you can use filtering only on [Vulnerability.severity] and [PackageVulnerability.name] fields.<br/>2. Order selector. Currently you can use ordering only on 'Vulnerability.severity' field (recent first).|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListRegistriesResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListRegistriesResponse.next_page_token] returned by a previous list request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Vulnerability.severity] and [PackageVulnerability.name] fields. 2. An '=' operator. 3. The value in double quotes ('"').|
+|`--order-by`|<b>`string`</b><br/>An order expression that orders resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Vulnerability.severity] and [PackageVulnerability.name] fields. 2. Order selector. Currently you can use ordering only on 'Vulnerability.severity' field (recent first).|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListRegistriesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListRegistriesResponse.next_page_token] returned by a previous list request.|
 |`--scan-result-id`|<b>`string`</b><br/>ID of the ScanResult to get list of vulnerabilities for.|
 
 #### Global Flags

@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--name`|<b>`string`</b><br/>Name of the oauth client.<br/>The name must be unique within folder.|
-|`--oauth-client-id`|<b>`string`</b><br/>ID of the OAuthClient resource to update.<br/>To get the oauth client ID, use a [OAuthClientService.List] request.|
+|`--name`|<b>`string`</b><br/>Name of the oauth client. The name must be unique within folder.|
+|`--oauth-client-id`|<b>`string`</b><br/>ID of the OAuthClient resource to update. To get the oauth client ID, use a [OAuthClientService.List] request.|
 |`--redirect-uris`|<b>`strings`</b><br/>List of redirect uries allowed for the oauth client.|
 |`--scopes`|<b>`strings`</b><br/>List of oauth scopes requested by the oauth client.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

@@ -19,11 +19,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--maintenance-id`|<b>`string`</b><br/>Required. ID of the maintenance.|
-|`--reschedule-type`|<b>`enum`</b><br/>Required. If 'reschedule_type' is "SPECIFIC_TIME",<br/>must set up 'schedule_time' as well. Possible Values: 'immediate', 'next-available-window', 'specific-time'|
-|`--scheduled-at`|<b>`time`</b><br/>Optional. Timestamp the maintenance shall be rescheduled to,<br/>if 'reschedule_type' = "SPECIFIC_TIME".<br/>Must be in RFC 3339 format (e.g. "2025-11-15T16:19:00.094Z"). (RFC3339)|
+|`--reschedule-type`|<b>`enum`</b><br/>Required. If 'reschedule_type' is "SPECIFIC_TIME", must set up 'schedule_time' as well. Possible Values: 'immediate', 'next-available-window', 'specific-time'|
+|`--scheduled-at`|<b>`time`</b><br/>Optional. Timestamp the maintenance shall be rescheduled to, if 'reschedule_type' = "SPECIFIC_TIME". Must be in RFC 3339 format (e.g. "2025-11-15T16:19:00.094Z"). (RFC3339)|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

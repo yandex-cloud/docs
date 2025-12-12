@@ -19,11 +19,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--add-segments-per-host-count`|<b>`int`</b><br/>Number of segments per host to add|
 |`--close-cluster`|Deny all client connections during the expand operation|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Greenplum Cluster resource to update.<br/>To get the Greenplum cluster ID, use a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Greenplum Cluster resource to update. To get the Greenplum cluster ID, use a [ClusterService.List] request.|
 |`--delay-redistribution`|Perform redistribution process by small chunks as background activity|
 |`--duration`|<b>`int`</b><br/>Redistribute duration, in seconds|
 |`--parallel`|<b>`int`</b><br/>Redistribute process parallelism, 0 - for automatic detection|

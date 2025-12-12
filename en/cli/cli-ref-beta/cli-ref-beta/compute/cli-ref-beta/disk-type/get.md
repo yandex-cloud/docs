@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--disk-type-id`|<b>`string`</b><br/>ID of the disk type to return information about.<br/>To get the disk type ID use a [DiskTypeService.List] request.|
+|`--disk-type-id`|<b>`string`</b><br/>ID of the disk type to return information about. To get the disk type ID use a [DiskTypeService.List] request.|
 
 #### Global Flags
 

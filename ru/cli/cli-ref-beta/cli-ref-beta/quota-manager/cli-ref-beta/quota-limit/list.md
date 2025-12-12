@@ -20,8 +20,7 @@ Syntax:
 |----|----|
 |`--page-size`|<b>`int`</b><br/>The maximum number of quota limits to return per response.|
 |`--page-token`|<b>`string`</b><br/>Token to retrieve the next page of results. Omitted on the first request.|
-|`--resource`|<b>`shorthand/json`</b><br/>The resource for which quota limits are being listed.<br/><br/>Example:|
-|`--resource`|<b>`id=value,`</b><br/>type=value<br/><br/>Shorthand Syntax:<br/>{id=str, type=str}<br/>Fields:<br/>id    string  required  — The id if the resource.<br/>type  string  required  — The type of the resource, e.g. resource-manager.cloud, billing.account.<br/>|
+|`--resource`|<b>`shorthand/json`</b><br/>The resource for which quota limits are being listed.<br/>Shorthand Syntax:<br/>{<br/>id = str,<br/>type = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"id": "str",<br/>"type": "str"<br/>}"<br/>Fields:<br/>id -> (string)<br/>The id if the resource.<br/>type -> (string)<br/>The type of the resource, e.g. resource-manager.cloud, billing.account.|
 |`--service`|<b>`string`</b><br/>The service for which quota limits are being requested.|
 
 #### Global Flags

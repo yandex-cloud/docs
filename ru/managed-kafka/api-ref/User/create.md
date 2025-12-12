@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Apache Kafka® cluster to create a user in.
             To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -42,7 +43,6 @@ apiPlayground:
             description: |-
               **enum** (AccessRole)
               Access role type to grant to the user.
-              - `ACCESS_ROLE_UNSPECIFIED`
               - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
               - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
               - `ACCESS_ROLE_ADMIN`: Admin role for the user.
@@ -81,12 +81,14 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the Kafka user.
+              The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_]* `.
             pattern: '[a-zA-Z0-9_]*'
             type: string
           password:
             description: |-
               **string**
               Required field. Password of the Kafka user.
+              The string length in characters must be 8-128.
             type: string
           permissions:
             description: |-
@@ -119,7 +121,9 @@ POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users
 
 Required field. ID of the Apache Kafka® cluster to create a user in.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.kafka.v1.CreateUserRequest}
@@ -155,10 +159,14 @@ Required field. Configuration of the user to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the Kafka user. ||
+Required field. Name of the Kafka user.
+
+The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 || password | **string**
 
-Required field. Password of the Kafka user. ||
+Required field. Password of the Kafka user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.kafka.v1.Permission)**
 
 Set of permissions granted to the user. ||
@@ -178,7 +186,6 @@ To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/To
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.
@@ -371,7 +378,6 @@ To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/To
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.

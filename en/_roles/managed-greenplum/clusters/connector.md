@@ -1,0 +1,1 @@
+The `managed-greenplum.clusters.connector` enables Yandex Cloud [users](../../../iam/concepts/users/accounts.md) to connect to databases in [Greenplum® clusters](../../../managed-mysql/concepts/index.md) via [Yandex Identity and Access Management](../../../iam/index.yaml).

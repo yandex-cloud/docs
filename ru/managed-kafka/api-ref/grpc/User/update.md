@@ -37,16 +37,22 @@ Updates the specified Kafka user.
 
 Required field. ID of the Apache Kafka® cluster the user belongs to.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the user to be updated.
 
-To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/grpc/User/list#List) request. ||
+To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/grpc/User/list#List) request.
+
+The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || password | **string**
 
-New password for the user. ||
+New password for the user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.kafka.v1.Permission)**
 
 New set of permissions for the user. ||
@@ -66,7 +72,6 @@ To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/gr
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.
@@ -220,7 +225,6 @@ To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/gr
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.

@@ -20,10 +20,10 @@ Syntax:
 |----|----|
 |`--deletion-protection`|Flag that inhibits deletion of the asymmetric KMS key|
 |`--description`|<b>`string`</b><br/>New description for the asymmetric KMS key.|
-|`--key-id`|<b>`string`</b><br/>ID of the asymmetric KMS key to update.<br/>To get the ID of a asymmetric KMS key use a [AsymmetricEncryptionKeyService.List] request.|
+|`--key-id`|<b>`string`</b><br/>ID of the asymmetric KMS key to update. To get the ID of a asymmetric KMS key use a [AsymmetricEncryptionKeyService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>Custom labels for the asymmetric KMS key as 'key:value' pairs. Maximum 64 per key.|
 |`--name`|<b>`string`</b><br/>New name for the asymmetric KMS key.|
-|`--status`|<b>`enum`</b><br/>New status for the asymmetric KMS key.<br/>Using the [AsymmetricEncryptionKeyService.Update] method you can only set ACTIVE or INACTIVE status. Possible Values: 'creating', 'active', 'inactive'|
+|`--status`|<b>`enum`</b><br/>New status for the asymmetric KMS key. Using the [AsymmetricEncryptionKeyService.Update] method you can only set ACTIVE or INACTIVE status. Possible Values: 'creating', 'active', 'inactive'|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

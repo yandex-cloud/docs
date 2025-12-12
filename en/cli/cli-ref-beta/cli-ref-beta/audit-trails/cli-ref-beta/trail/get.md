@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--trail-id`|<b>`string`</b><br/>ID of the trail to return.<br/><br/>To get a trail ID make a [List] request.|
+|`--trail-id`|<b>`string`</b><br/>ID of the trail to return. To get a trail ID make a [List] request.|
 
 #### Global Flags
 

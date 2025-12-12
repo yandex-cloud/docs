@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of<br/>available results is larger than [page_size], the service returns a<br/>[ListPrivateEndpointOperationsResponse.next_page_token] that can be used to<br/>get the next page of results in subsequent list requests. Default value:<br/>100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListPrivateEndpointOperationsResponse.next_page_token] returned by a<br/>previous list request.|
-|`--private-endpoint-id`|<b>`string`</b><br/>ID of the private endpoint to list operations for.<br/><br/>To get a private endpoint ID make a [PrivateEndpointService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListPrivateEndpointOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListPrivateEndpointOperationsResponse.next_page_token] returned by a previous list request.|
+|`--private-endpoint-id`|<b>`string`</b><br/>ID of the private endpoint to list operations for. To get a private endpoint ID make a [PrivateEndpointService.List] request.|
 
 #### Global Flags
 

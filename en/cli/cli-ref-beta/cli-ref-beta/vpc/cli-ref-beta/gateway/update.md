@@ -19,10 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>New description of the gateway.|
-|`--gateway-id`|<b>`string`</b><br/>ID of the gateway to update.<br/><br/>To get the gateway ID make a [GatewayService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>Gateway labels as 'key:value' pairs.<br/><br/>Existing set of labels is completely replaced by the provided set, so if you just want<br/>to add or remove a label:<br/>1. Get the current set of labels with a [GatewayService.Get] request.<br/>2. Add or remove a label in this set.<br/>3. Send the new set in this field.|
-|`--name`|<b>`string`</b><br/>New name for the gateway.<br/>The name must be unique within the folder.|
-|`--shared-egress-gateway-spec`|<b>`shorthand/json`</b><br/><br/><br/>Example:<br/>--shared-egress-gateway-spec<br/><br/>Shorthand Syntax:<br/>{}|
+|`--gateway-id`|<b>`string`</b><br/>ID of the gateway to update. To get the gateway ID make a [GatewayService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>Gateway labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [GatewayService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field.|
+|`--name`|<b>`string`</b><br/>New name for the gateway. The name must be unique within the folder.|
+|`--shared-egress-gateway-spec`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{}<br/>JSON Syntax:<br/>"{}"|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

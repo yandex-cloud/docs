@@ -20,8 +20,8 @@ Syntax:
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the network.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the network.<br/>The name must be unique within the folder.|
-|`--network-id`|<b>`string`</b><br/>ID of the Network resource to update.<br/>To get the network ID use a [NetworkService.List] request.|
+|`--name`|<b>`string`</b><br/>Name of the network. The name must be unique within the folder.|
+|`--network-id`|<b>`string`</b><br/>ID of the Network resource to update. To get the network ID use a [NetworkService.List] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

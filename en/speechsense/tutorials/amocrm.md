@@ -1,7 +1,8 @@
 ---
-canonical: '{{ link-docs }}/tutorials/speechsense/amocrm'
+noIndex: true
+canonical: '{{ link-docs }}/tutorials/ml-ai/speechsense/amocrm'
 ---
 
 # Integration with {{ amocrm-name }}
 
-{% include [speechsense-amocrm](../../_tutorials/speechsense/amocrm.md) %}
+{% include [speechsense-amocrm](../../_tutorials/ml-ai/speechsense/amocrm.md) %}

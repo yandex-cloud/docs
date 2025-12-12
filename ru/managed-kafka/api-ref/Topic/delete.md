@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the Apache Kafka® cluster to delete a topic in.
             To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         topicName:
           description: |-
             **string**
             Required field. Name of the topic to delete.
             To get the name of the topic, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request.
+            The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -47,12 +49,16 @@ DELETE https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/topics/{
 
 Required field. ID of the Apache Kafka® cluster to delete a topic in.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || topicName | **string**
 
 Required field. Name of the topic to delete.
 
-To get the name of the topic, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request. ||
+To get the name of the topic, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request.
+
+The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

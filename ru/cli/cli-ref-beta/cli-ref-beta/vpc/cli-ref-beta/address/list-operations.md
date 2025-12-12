@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--address-id`|<b>`string`</b><br/>ID of the address to list operations for.<br/><br/>To get a address ID make a [AddressService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListAddressOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListAddressOperationsResponse.next_page_token] returned by a previous list request.|
+|`--address-id`|<b>`string`</b><br/>ID of the address to list operations for. To get a address ID make a [AddressService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListAddressOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListAddressOperationsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

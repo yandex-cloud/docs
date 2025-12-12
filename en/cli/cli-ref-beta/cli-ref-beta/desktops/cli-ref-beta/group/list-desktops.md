@@ -19,10 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--desktop-group-id`|<b>`string`</b><br/>ID of the desktop group.|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>The expression must specify:<br/>1. The field name. Currently you can use filtering only on [Desktop.name] field.<br/>2. An operator. Can be either '=' or '!=' for single values, 'IN' or 'NOT IN' for lists of values.<br/>3. Value or a list of values to compare against the values of the field.|
-|`--order-by`|<b>`string`</b><br/>Sorting the list by [Desktop.name], [Desktop.created_at] and [Desktop.status] fields.<br/>The default sorting order is ascending.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListDesktopGroupDesktopsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListDesktopGroupDesktopsResponse.next_page_token] returned by a previous list request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Desktop.name] field. 2. An operator. Can be either '=' or '!=' for single values, 'IN' or 'NOT IN' for lists of values. 3. Value or a list of values to compare against the values of the field.|
+|`--order-by`|<b>`string`</b><br/>Sorting the list by [Desktop.name], [Desktop.created_at] and [Desktop.status] fields. The default sorting order is ascending.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListDesktopGroupDesktopsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListDesktopGroupDesktopsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

@@ -19,7 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--format`|<b>`enum`</b><br/>Output format of the key. Possible Values: 'pem-file'|
-|`--key-id`|<b>`string`</b><br/>ID of the Key resource to return.<br/>To get the ID use a [KeyService.List] request.|
+|`--key-id`|<b>`string`</b><br/>ID of the Key resource to return. To get the ID use a [KeyService.List] request.|
 
 #### Global Flags
 

@@ -48,6 +48,14 @@
 
 ### Создайте группу узлов {{ managed-k8s-name }} {#create-node-groups}
 
+{% note warning %}
+
+Для доступа к {{ container-registry-name }} узлам кластера должен быть назначен публичный IP-адрес. Либо в подсети узлов должен быть настроен [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md).
+
+Подробнее см. в разделе [{#T}](../../managed-kubernetes/concepts/network.md#nodes-internet).
+
+{% endnote %}
+
 1. Проверьте, что создание кластера {{ managed-k8s-name }} успешно завершено.
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был создан кластер {{ managed-k8s-name }}.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.

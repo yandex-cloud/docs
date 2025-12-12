@@ -19,12 +19,12 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--duration`|<b>`duration`</b><br/>Duration, which specifies the duration of the temporary security credentials. (duration, e.g. 30s, 5m10s)|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--duration`|<b>`duration`</b><br/>Duration, which specifies the duration of the ephemeral access key, but duration won't be longer than the lifetime of the authentication token that made the request (duration, e.g. 30s, 5m10s)|
 |`--policy`|<b>`string`</b><br/>AWS-compatible policy in JSON format that you want to use as an inline session policy.|
-|`--session-name`|<b>`string`</b><br/>Use the session name to uniquely identify a session when the same SA is impersonated by different principals or for different reasons<br/>Pattern: [\w+=,.@-]*|
-|`--subject-id`|<b>`string`</b><br/>The subject identifier for whom the ephemeral access key will be created.<br/>If not specified, it defaults to the subject that made the request.|
+|`--session-name`|<b>`string`</b><br/>Use the session name to uniquely identify a session when the same SA is impersonated by different principals or for different reasons Pattern: [\w+=,.@-]*|
+|`--subject-id`|<b>`string`</b><br/>The subject identifier for whom the ephemeral access key will be created. If not specified, it defaults to the subject that made the request.|
 
 #### Global Flags
 

@@ -11,7 +11,10 @@ description: Управление доступом в сервисе {{ si-full-
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-Кроме того, роли на [шину](../concepts/eventrouter/bus.md), [коннектор](../concepts/eventrouter/connector.md) и [правило](../concepts/eventrouter/rule.md) {{ er-name }} может назначить пользователь, у которого на эти ресурсы есть роль `serverless.eventrouter.admin`.
+Кроме того:
+
+* Роли на [шину](../concepts/eventrouter/bus.md), [коннектор](../concepts/eventrouter/connector.md) и [правило](../concepts/eventrouter/rule.md) {{ er-name }} может назначить пользователь, у которого на эти ресурсы есть роль `serverless.eventrouter.admin`.
+* Роли на [рабочий процесс](../concepts/workflows/workflow.md) {{ sw-name }} может назначить пользователь, у которого на этот ресурс есть роль `serverless.workflows.admin`.
 
 ## На какие ресурсы можно назначить роль {#resources}
 
@@ -20,7 +23,8 @@ description: Управление доступом в сервисе {{ si-full-
 С помощью {{ yandex-cloud }} [CLI](../../cli/index.yaml) и [API](../../api-design-guide/index.yaml) роль можно назначить на отдельные ресурсы сервиса:
 * [шина](../concepts/eventrouter/bus.md);
 * [коннектор](../concepts/eventrouter/connector.md);
-* [правило](../concepts/eventrouter/rule.md).
+* [правило](../concepts/eventrouter/rule.md);
+* [рабочий процесс](../concepts/workflows/workflow.md).
 
 ## Какие роли действуют в сервисе {{ si-name }} {#roles-list}
 

@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--log-group-id`|<b>`string`</b><br/>ID of the log group to list resources for.<br/><br/>To get a log group ID make a [LogGroupService.List] request.|
-|`--type`|<b>`string`</b><br/>Resource type to return resources for.<br/><br/>If not specified, [ListResourcesResponse] will contain information about all resource types.|
+|`--log-group-id`|<b>`string`</b><br/>ID of the log group to list resources for. To get a log group ID make a [LogGroupService.List] request.|
+|`--type`|<b>`string`</b><br/>Resource type to return resources for. If not specified, [ListResourcesResponse] will contain information about all resource types.|
 
 #### Global Flags
 

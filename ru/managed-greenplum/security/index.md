@@ -37,6 +37,10 @@ keywords:
 
 ### Сервисные роли {#service-roles}
 
+#### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
+
+{% include [managed-greenplum.clusters.connector](../../_roles/managed-greenplum/clusters/connector.md) %}
+
 #### managed-greenplum.auditor {#managed-greenplum-auditor}
 
 {% include [managed-greenplum.auditor](../../_roles/managed-greenplum/auditor.md) %}

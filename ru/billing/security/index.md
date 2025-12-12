@@ -22,6 +22,8 @@ description: Доступ к платежному аккаунту предос�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [billing](../../_mermaid/roles/billing.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### billing.accounts.member {#billing-accounts-member}

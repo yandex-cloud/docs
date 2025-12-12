@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--snapshot-id`|<b>`string`</b><br/>ID of the Snapshot resource to return.<br/>To get the snapshot ID, use a [SnapshotService.List] request.|
+|`--snapshot-id`|<b>`string`</b><br/>ID of the Snapshot resource to return. To get the snapshot ID, use a [SnapshotService.List] request.|
 
 #### Global Flags
 

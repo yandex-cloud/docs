@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListPlacementGroupInstancesResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results,<br/>set [page_token] to the [ListPlacementGroupInstancesResponse.next_page_token]<br/>returned by a previous list request.|
-|`--placement-group-id`|<b>`string`</b><br/>ID of the placement group to list instances for.<br/><br/>To get the placement group ID, use [PlacementGroupService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListPlacementGroupInstancesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListPlacementGroupInstancesResponse.next_page_token] returned by a previous list request.|
+|`--placement-group-id`|<b>`string`</b><br/>ID of the placement group to list instances for. To get the placement group ID, use [PlacementGroupService.List] request.|
 
 #### Global Flags
 

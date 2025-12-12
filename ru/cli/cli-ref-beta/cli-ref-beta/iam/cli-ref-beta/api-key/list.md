@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListApiKeysResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token]<br/>to the [ListApiKeysResponse.next_page_token]<br/>returned by a previous list request.|
-|`--service-account-id`|<b>`string`</b><br/>ID of the service account to list API keys for.<br/>To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.<br/>If not specified, it defaults to the subject that made the request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListApiKeysResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListApiKeysResponse.next_page_token] returned by a previous list request.|
+|`--service-account-id`|<b>`string`</b><br/>ID of the service account to list API keys for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request. If not specified, it defaults to the subject that made the request.|
 
 #### Global Flags
 

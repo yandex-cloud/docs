@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--function-id`|<b>`string`</b><br/>ID of the function to return.<br/><br/>To get a function ID make a [FunctionService.List] request.|
+|`--function-id`|<b>`string`</b><br/>ID of the function to return. To get a function ID make a [FunctionService.List] request.|
 
 #### Global Flags
 

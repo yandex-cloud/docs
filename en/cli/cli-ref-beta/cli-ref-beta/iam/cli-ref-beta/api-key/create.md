@@ -19,13 +19,13 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--description`|<b>`string`</b><br/>Description of the API key.|
 |`--expires-at`|<b>`time`</b><br/>API key expiration timestamp, if not specified, then the API key doesn't expire (RFC3339)|
-|`--scope`|<b>`string`</b><br/>Draft<br/>Scope of the API key.|
+|`--scope`|<b>`string`</b><br/>Draft Scope of the API key.|
 |`--scopes`|<b>`strings`</b><br/>Scopes of the API key.|
-|`--service-account-id`|<b>`string`</b><br/>ID of the service account to create an API key for.<br/>To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.<br/>If not specified, it defaults to the subject that made the request.|
+|`--service-account-id`|<b>`string`</b><br/>ID of the service account to create an API key for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request. If not specified, it defaults to the subject that made the request.|
 
 #### Global Flags
 

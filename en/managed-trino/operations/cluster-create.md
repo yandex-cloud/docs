@@ -21,7 +21,7 @@ To create a {{ mtr-name }} cluster, your {{ yandex-cloud }} account needs the fo
 
 Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the cluster's [service account](../../iam/concepts/users/service-accounts.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
-For more information about assigning roles, see the [{{ iam-full-name }} documentation](../../iam/operations/roles/grant.md).
+For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
 
 ## Creating a cluster {#create-cluster}
 
@@ -66,6 +66,36 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
         1. Optionally, select cluster [maintenance](../concepts/maintenance.md) time:
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+        
+        1. Optionally, set the TLS properties.
+        
+           {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+           
+           Upload one or more user certificates in PEM format:
+           * Self-signed certificate.
+           * Certificate issued by a third-party certification authority with a chain of intermediate certificates. You must upload the certificate together with its certificate chain in one field.
+
+              {% cut "Example" %}
+              
+              ```text
+              -----BEGIN CERTIFICATE-----
+              <certificate>
+              -----END CERTIFICATE-----
+              -----BEGIN CERTIFICATE-----
+              <intermediate_certificate_1>
+              -----END CERTIFICATE-----
+              ...
+              -----BEGIN CERTIFICATE-----
+              <intermediate_certificate_N>
+              -----END CERTIFICATE-----
+              -----BEGIN CERTIFICATE-----
+              <root_certificate>
+              -----END CERTIFICATE-----
+              ```
+              
+              {% endcut %}
+
+           {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
         1. Optionally, configure logging:
 
@@ -85,7 +115,6 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
     To create a {{ mtr-name }} cluster:
 
-    
     1. Check whether the folder has any subnets for the cluster hosts:
 
         ```bash
@@ -94,14 +123,13 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-
-    1. View the description of the CLI command to create a cluster:
+    1. See the description of the CLI command for creating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster create --help
         ```
 
-    1. Specify cluster parameters in that command (our example does not use all available parameters):
+    1. Specify the cluster properties in this command (the example does not show all that are available):
 
         ```bash
         {{ yc-mdb-tr }} cluster create \
@@ -112,7 +140,8 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
            --security-group-ids <list_of_security_group_IDs> \
            --coordinator resource-preset-id=<class_of_computing_resources> \
            --worker resource-preset-id=<class_of_computing_resources>,count=<number_of_workers> \
-           --deletion-protection
+           --deletion-protection \
+           --trusted-certs-from-files <list_of_certificate_paths>
         ```
 
         Where:
@@ -141,8 +170,16 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
         * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
             Even if it is enabled, one can still connect to the cluster manually and delete it.
+        
+        * `--trusted-certs-from-files`: List of certificate paths, separated by commas.
 
-    1. To enable sending of {{ TR }} logs to [{{ cloud-logging-full-name }}](../../logging/), specify logging parameters:
+           {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+        
+           {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
+           
+           {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
+
+    1. Set these logging parameters to activate sending {{ TR }} logs to [{{ cloud-logging-full-name }}](../../logging/):
 
         ```bash
         {{ yc-mdb-tr }} cluster create <cluster_name> \
@@ -230,11 +267,15 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
 
-    1. To set up the maintenance window (for disabled clusters as well), add the `maintenance_window` section to the cluster description:
+    1. To set up the maintenance window that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
-    1. Validate your configuration.
+    1. To set the TLS parameters:
+
+       {% include [tls description](../../_includes/managed-trino/terraform/tls.md) %}
+
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -242,11 +283,11 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
         
-    For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mtr }}).
+    For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mtr }}).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -291,7 +332,10 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
               },
               "additionalProperties": {<additional_retry_parameters>}
             },
-            "version": "<version>"
+            "version": "<version>",
+            "tls": {
+              "trustedCertificates": [ <list_of_certificates> ]
+            }
           },
           "network": {
             "subnetIds": [ <list_of_subnet_IDs> ],
@@ -351,6 +395,16 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
+            * `tls`: TLS parameters.
+
+               {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+
+               * `trustedCertificates`: Comma-separated list of certificates.
+
+                  {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
+               
+               {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
+
         * `network`: Network settings:
 
             * `subnetIds`: List of subnet IDs.
@@ -370,7 +424,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
             Specify either `folderId` or `logGroupId`.
 
-    1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -384,7 +438,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -431,7 +485,10 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
               },
               "additional_properties": {<additional_retry_parameters>}
             },
-            "version": "<version>"
+            "version": "<version>",
+            "tls": {
+              "trusted_certificates": [ <list_of_certificates> ]
+            }
           },
           "network": {
             "subnet_ids": [ <list_of_subnet_IDs> ],
@@ -491,6 +548,16 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
+            * `tls`: TLS parameters.
+
+               {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+
+               * `trusted_certificates`: Comma-separated list of certificates.
+
+                  {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
+               
+               {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
+
         * `network`: Network settings:
 
             * `subnet_ids`: List of subnet IDs.
@@ -543,7 +610,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
     * Security group: `{{ security-group }}`.
     * Coordinator with [computing resource class](../concepts/instance-types.md) `c4-m16`.
     * Four workers with [computing resource class](../concepts/instance-types.md) `c4-m16`.
-    * Cluster protection from accidental deletion.
+    * Cluster protection against accidental deletion: Enabled.
 
     Run this command:
 
@@ -560,7 +627,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
 - {{ TF }} {#tf}
 
-    Create a {{ mtr-name }} cluster and a network for it with the following test specifications:
+    Create a {{ mtr-name }} cluster and its network with the following test specifications:
 
     * Name: `mytr`.
     * Service account: `ajev56jp96ji********`.
@@ -568,9 +635,9 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
     * Subnet: `mtr-subnet`. The subnet availability zone is `ru-central1-a`; the range is `10.1.0.0/16`.
     * Coordinator with [computing resource class](../concepts/instance-types.md) `c4-m16`.
     * Four workers with [computing resource class](../concepts/instance-types.md) `c4-m16`.
-    * Cluster protection from accidental deletion.
+    * Cluster protection against accidental deletion: Enabled.
 
-    The configuration file for this cluster is as follows:
+    The configuration file for this cluster looks like this:
 
     ```hcl
     resource "yandex_trino_cluster" "mytr" {

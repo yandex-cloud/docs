@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--route-table-id`|<b>`string`</b><br/>ID of the RouteTable resource to return.<br/>To get the route table ID use a [RouteTableService.List] request.|
+|`--route-table-id`|<b>`string`</b><br/>ID of the RouteTable resource to return. To get the route table ID use a [RouteTableService.List] request.|
 
 #### Global Flags
 

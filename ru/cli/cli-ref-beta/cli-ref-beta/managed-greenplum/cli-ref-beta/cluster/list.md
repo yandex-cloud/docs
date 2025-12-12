@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/><br/>The expression must specify:<br/><br/>1. The field name. Currently you can only use filtering with the [Cluster.name] field.<br/><br/>2. An '=' operator.<br/><br/>3. The value in double quotes ('"'). Must be 1-63 characters long and match the regular expression '[a-zA-Z0-9_-]+'.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to list Greenplum® clusters in.<br/><br/>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return.<br/><br/>If the number of available results is larger than [page_size], the service returns a [ListClustersResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can only use filtering with the [Cluster.name] field. 2. An '=' operator. 3. The value in double quotes ('"'). Must be 1-63 characters long and match the regular expression '[a-zA-Z0-9_-]+'.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to list Greenplum® clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListClustersResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
 |`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListClustersResponse.next_page_token] returned by the previous list request.|
 
 #### Global Flags

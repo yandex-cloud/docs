@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--organization-id`|<b>`string`</b><br/>ID of the Organization resource to return.<br/>To get the organization ID, use a [OrganizationService.List] request.|
+|`--organization-id`|<b>`string`</b><br/>ID of the Organization resource to return. To get the organization ID, use a [OrganizationService.List] request.|
 
 #### Global Flags
 

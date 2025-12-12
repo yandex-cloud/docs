@@ -19,20 +19,19 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--auto-create-account-on-login`|Add new users automatically on successful authentication.<br/>The user becomes member of the organization automatically,<br/>but you need to grant other roles to them.<br/><br/>If the value is 'false', users who aren't added to the organization<br/>can't log in, even if they have authenticated on your server.|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--auto-create-account-on-login`|Add new users automatically on successful authentication. The user becomes member of the organization automatically, but you need to grant other roles to them. If the value is 'false', users who aren't added to the organization can't log in, even if they have authenticated on your server.|
 |`--case-insensitive-name-ids`|Use case insensitive Name IDs.|
-|`--cookie-max-age`|<b>`duration`</b><br/>Browser cookie lifetime in seconds.<br/>If the cookie is still valid, the management console<br/>authenticates the user immediately and redirects them to the home page.<br/>The default value is '8h'. (duration, e.g. 30s, 5m10s)|
+|`--cookie-max-age`|<b>`duration`</b><br/>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. The default value is '8h'. (duration, e.g. 30s, 5m10s)|
 |`--description`|<b>`string`</b><br/>Description of the federation.|
-|`--issuer`|<b>`string`</b><br/>ID of the IdP server to be used for authentication.<br/>The IdP server also responds to IAM with this ID after the user authenticates.|
+|`--issuer`|<b>`string`</b><br/>ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the federation.<br/>The name must be unique within the organization.|
-|`--organization-id`|<b>`string`</b><br/>ID of the organization to create a federation in.<br/>To get the organization ID, make a [yandex.cloud.organizationmanager.v1.OrganizationService.List] request.|
-|`--security-settings`|<b>`shorthand/json`</b><br/>Federation security settings.<br/><br/>Example:|
-|`--security-settings`|<b>`encrypted-assertions=true,`</b><br/>force-authn=true<br/><br/>Shorthand Syntax:<br/>{encrypted-assertions=bool, force-authn=bool}<br/>Fields:<br/>encrypted-assertions  bool  — Enable encrypted assertions.<br/>force-authn           bool  — Value parameter ForceAuthn in SAMLRequest.<br/>|
-|`--sso-binding`|<b>`enum`</b><br/>Single sign-on endpoint binding type. Most Identity Providers support the 'POST' binding type.<br/><br/>SAML Binding is a mapping of a SAML protocol message onto standard messaging<br/>formats and/or communications protocols. Possible Values: 'post', 'redirect', 'artifact'|
-|`--sso-url`|<b>`string`</b><br/>Single sign-on endpoint URL.<br/>Specify the link to the IdP login page here.|
+|`--name`|<b>`string`</b><br/>Name of the federation. The name must be unique within the organization.|
+|`--organization-id`|<b>`string`</b><br/>ID of the organization to create a federation in. To get the organization ID, make a [yandex.cloud.organizationmanager.v1.OrganizationService.List] request.|
+|`--security-settings`|<b>`shorthand/json`</b><br/>Federation security settings.<br/>Shorthand Syntax:<br/>{<br/>encrypted-assertions = bool,<br/>force-authn = bool<br/>}<br/>JSON Syntax:<br/>"{<br/>"encrypted-assertions": "bool",<br/>"force-authn": "bool"<br/>}"<br/>Fields:<br/>encrypted-assertions -> (bool)<br/>Enable encrypted assertions.<br/>force-authn -> (bool)<br/>Value parameter ForceAuthn in SAMLRequest.|
+|`--sso-binding`|<b>`enum`</b><br/>Single sign-on endpoint binding type. Most Identity Providers support the 'POST' binding type. SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols. Possible Values: 'post', 'redirect', 'artifact'|
+|`--sso-url`|<b>`string`</b><br/>Single sign-on endpoint URL. Specify the link to the IdP login page here.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

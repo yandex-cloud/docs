@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--application-id`|<b>`string`</b><br/>ID of the OAuth application to return.<br/>To get the OAuth application ID, make a [ApplicationService.List] request.|
+|`--application-id`|<b>`string`</b><br/>ID of the OAuth application to return. To get the OAuth application ID, make a [ApplicationService.List] request.|
 
 #### Global Flags
 

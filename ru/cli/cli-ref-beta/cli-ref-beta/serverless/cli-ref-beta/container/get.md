@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--container-id`|<b>`string`</b><br/>ID of the container to return.<br/><br/>To get a container ID make a [ContainerService.List] request.|
+|`--container-id`|<b>`string`</b><br/>ID of the container to return. To get a container ID make a [ContainerService.List] request.|
 
 #### Global Flags
 

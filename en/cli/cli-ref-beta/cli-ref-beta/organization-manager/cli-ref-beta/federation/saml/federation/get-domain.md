@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--domain`|<b>`string`</b><br/>Domain name to get information for.<br/>Must be a valid domain name (1-253 characters).|
-|`--federation-id`|<b>`string`</b><br/>ID of the federation to get domain information for.<br/>To get the federation ID, make a [FederationService.List] request.|
+|`--domain`|<b>`string`</b><br/>Domain name to get information for. Must be a valid domain name (1-253 characters).|
+|`--federation-id`|<b>`string`</b><br/>ID of the federation to get domain information for. To get the federation ID, make a [FederationService.List] request.|
 
 #### Global Flags
 

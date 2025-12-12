@@ -74,95 +74,91 @@
 
   1. Посмотрите описание команды CLI для создания ВМ:
 
-     ```bash
-     yc compute instance create --help
-     ```
-
+      ```bash
+      yc compute instance create --help
+      ```
   1. Получите список образов в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
 
-     ```bash
-     yc compute image list
-     ```
+      ```bash
+      yc compute image list
+      ```
 
-     Результат:
+      Результат:
 
-     ```text
-     +----------------------+-----------------+--------+-------------+--------+
-     |          ID          |      NAME       | FAMILY | PRODUCT IDS | STATUS |
-     +----------------------+-----------------+--------+-------------+--------+
-     |         ...          |        ...      |        |             |  ...   |
-     | fd8gkcd3l6ov******** | your-test-image |        |             | READY  |
-     |         ...          |        ...      |        |             |  ...   |
-     +----------------------+-----------------+--------+-------------+--------+
-     ```
-
+      ```text
+      +----------------------+-----------------+--------+-------------+--------+
+      |          ID          |      NAME       | FAMILY | PRODUCT IDS | STATUS |
+      +----------------------+-----------------+--------+-------------+--------+
+      |         ...          |        ...      |        |             |  ...   |
+      | fd8gkcd3l6ov******** | your-test-image |        |             | READY  |
+      |         ...          |        ...      |        |             |  ...   |
+      +----------------------+-----------------+--------+-------------+--------+
+      ```
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного образа.
-
   1. Выберите [подсеть](../../../vpc/concepts/network.md#subnet):
 
-     ```bash
-     yc vpc subnet list
-     ```
+      ```bash
+      yc vpc subnet list
+      ```
 
-     Результат:
+      Результат:
 
-     ```text
-     +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-     |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
-     +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-     | e9bnlm18l70a******** |   default-{{ region-id }}-a   | enpe3m3fa00u******** |                |   {{ region-id }}-a   | [10.128.0.0/24] |
-     +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-     ```
-
+      ```text
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      | e9bnlm18l70a******** |   default-{{ region-id }}-a   | enpe3m3fa00u******** |                |   {{ region-id }}-a   | [10.128.0.0/24] |
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      ```
   1. Создайте ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
 
-     ```bash
-     yc compute instance create \
-       --name <имя_ВМ> \
-       --zone <зона_доступности> \
-       --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
-       --create-boot-disk name=<имя_диска>,size=<размер_диска_ГБ>,image-id=<идентификатор_пользовательского_образа>,kms-key-id=<идентификатор_ключа> \
-       --ssh-key <путь_к_файлу_открытого_ключа>
-     ```
+      ```bash
+      yc compute instance create \
+        --name <имя_ВМ> \
+        --zone <зона_доступности> \
+        --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
+        --create-boot-disk name=<имя_диска>,size=<размер_диска_ГБ>,image-id=<идентификатор_пользовательского_образа>,kms-key-id=<идентификатор_ключа> \
+        --ssh-key <путь_к_файлу_открытого_ключа>
+      ```
 
-     Где:
-     * `--name` — имя ВМ. Требования к имени:
+      Где:
+      * `--name` — имя ВМ. Требования к имени:
 
-       {% include [name-format](../../../_includes/name-format.md) %}
+        {% include [name-format](../../../_includes/name-format.md) %}
 
-       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
-     * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
-         * `subnet-name` — имя выбранной подсети.
-         * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адреса, исключите параметр.
+      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
+      * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
+          * `subnet-name` — имя выбранной подсети.
+          * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адреса, исключите параметр.
 
-         {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
+          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
-     * `--create-boot-disk` — настройки загрузочного диска ВМ:
-         * `name` — имя загрузочного диска. Требования к имени:
+      * `--create-boot-disk` — настройки загрузочного диска ВМ:
+          * `name` — имя загрузочного диска. Требования к имени:
 
-             {% include [name-format](../../../_includes/name-format.md) %}
+              {% include [name-format](../../../_includes/name-format.md) %}
 
-         * `size` — размер диска в ГБ.
-         * `image-id` — идентификатор пользовательского образа для ВМ. Укажите идентификатор [загруженного](../image-create/upload.md) образа.
-         * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
+          * `size` — размер диска в ГБ.
+          * `image-id` — идентификатор пользовательского образа для ВМ. Укажите идентификатор [загруженного](../image-create/upload.md) образа.
+          * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
 
-           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
-           
-           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+            {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
 
-           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
-           
-     * `--ssh-key` — путь к файлу с [публичным SSH-ключом](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
+            {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
 
-         {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
+            {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
-         Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/metadata/sending-metadata.md) данные этих пользователей с помощью параметра `--metadata-from-file`.
+      * `--ssh-key` — путь к файлу с [публичным SSH-ключом](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 
-  {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-     Результат:
+          Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/metadata/sending-metadata.md) данные этих пользователей с помощью параметра `--metadata-from-file`.
+
+    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+
+      Результат:
 
       ```text
       id: fhmue131en37********
@@ -210,95 +206,95 @@
   Чтобы создать ВМ из пользовательского образа:
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     ```hcl
-     resource "yandex_compute_disk" "boot-disk" {
-       name     = "<имя_диска>"
-       type     = "<тип_диска>"
-       zone     = "<зона_доступности>"
-       size     = "<размер_диска>"
-       image_id = "<идентификатор_пользовательского_образа>"
-     }
+      ```hcl
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "<имя_диска>"
+        type     = "<тип_диска>"
+        zone     = "<зона_доступности>"
+        size     = "<размер_диска>"
+        image_id = "<идентификатор_пользовательского_образа>"
+      }
 
-     resource "yandex_compute_instance" "vm-1" {
-       name                      = "vm-from-image"
-       allow_stopping_for_update = true
-       platform_id               = "standard-v3"
-       zone                      = "<зона_доступности>"
+      resource "yandex_compute_instance" "vm-1" {
+        name                      = "vm-from-image"
+        allow_stopping_for_update = true
+        platform_id               = "standard-v3"
+        zone                      = "<зона_доступности>"
 
-       resources {
-         cores  = <количество_ядер_vCPU>
-         memory = <объем_RAM_ГБ>
-       }
+        resources {
+          cores  = <количество_ядер_vCPU>
+          memory = <объем_RAM_ГБ>
+        }
 
-       boot_disk {
-         disk_id = yandex_compute_disk.boot-disk.id
-       }
+        boot_disk {
+          disk_id = yandex_compute_disk.boot-disk.id
+        }
 
-       network_interface {
-         subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
-         nat       = true
-       }
+        network_interface {
+          subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+          nat       = true
+        }
 
-       metadata = {
-         ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
-       }
-     }
+        metadata = {
+          ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
+        }
+      }
 
-     resource "yandex_vpc_network" "network-1" {
-       name = "network1"
-     }
+      resource "yandex_vpc_network" "network-1" {
+        name = "network1"
+      }
 
-     resource "yandex_vpc_subnet" "subnet-1" {
-       name       = "subnet1"
-       zone       = "<зона_доступности>"
-       network_id = "${yandex_vpc_network.network-1.id}"
-     }
-     ```
+      resource "yandex_vpc_subnet" "subnet-1" {
+        name       = "subnet1"
+        zone       = "<зона_доступности>"
+        network_id = "${yandex_vpc_network.network-1.id}"
+      }
+      ```
 
-     Где:
+      Где:
 
-     * `yandex_compute_disk` — описание загрузочного [диска](../../concepts/disk.md):
-       * `name` — имя диска. Требования к имени:
+      * `yandex_compute_disk` — описание загрузочного [диска](../../concepts/disk.md):
+          * `name` — имя диска. Требования к имени:
 
-          {% include [name-format](../../../_includes/name-format.md) %}
+              {% include [name-format](../../../_includes/name-format.md) %}
 
-       * `type` — тип создаваемого диска.
-       * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
-       * `size` — размер диска в ГБ.
-       * `image_id` — идентификатор пользовательского образа для ВМ. Укажите идентификатор [загруженного](../image-create/upload.md) образа.
-     * `yandex_compute_instance` — описание ВМ:
-       * `name` — имя ВМ. Требования к имени:
+          * `type` — тип создаваемого диска.
+          * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
+          * `size` — размер диска в ГБ.
+          * `image_id` — идентификатор пользовательского образа для ВМ. Укажите идентификатор [загруженного](../image-create/upload.md) образа.
+      * `yandex_compute_instance` — описание ВМ:
+          * `name` — имя ВМ. Требования к имени:
 
-          {% include [name-format](../../../_includes/name-format.md) %}
+              {% include [name-format](../../../_includes/name-format.md) %}
 
-          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+              {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-       * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
-       * `platform_id` — [платформа](../../concepts/vm-platforms.md).
-       * `zone` — зона доступности, в которой будет находиться ВМ.
-       * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска.
-       * `network_interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ. Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
+          * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
+          * `platform_id` — [платформа](../../concepts/vm-platforms.md).
+          * `zone` — зона доступности, в которой будет находиться ВМ.
+          * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
+          * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска.
+          * `network_interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ. Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
 
-           {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
+              {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
-       * `metadata` — в метаданных необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
-     * `yandex_vpc_network` — описание облачной сети.
-     * `yandex_vpc_subnet` — описание подсети, к которой будет подключена ВМ.
+          * `metadata` — в метаданных необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
+      * `yandex_vpc_network` — описание облачной сети.
+      * `yandex_vpc_subnet` — описание подсети, к которой будет подключена ВМ.
 
-     {% note info %}
+      {% note info %}
 
-     Если у вас уже есть подходящие ресурсы (облачная сеть и подсеть), описывать их повторно не нужно. Используйте их имена и идентификаторы в соответствующих параметрах.
+      Если у вас уже есть подходящие ресурсы (облачная сеть и подсеть), описывать их повторно не нужно. Используйте их имена и идентификаторы в соответствующих параметрах.
 
-     {% endnote %}
+      {% endnote %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
 
   1. Создайте ресурсы:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

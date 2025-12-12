@@ -19,13 +19,13 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--description`|<b>`string`</b><br/>Description of the gateway.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a gateway in.<br/><br/>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a gateway in. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>Gateway labels as 'key:value' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the gateway.<br/>The name must be unique within the folder.|
-|`--shared-egress-gateway-spec`|<b>`shorthand/json`</b><br/><br/><br/>Example:<br/>--shared-egress-gateway-spec<br/><br/>Shorthand Syntax:<br/>{}|
+|`--name`|<b>`string`</b><br/>Name of the gateway. The name must be unique within the folder.|
+|`--shared-egress-gateway-spec`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{}<br/>JSON Syntax:<br/>"{}"|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

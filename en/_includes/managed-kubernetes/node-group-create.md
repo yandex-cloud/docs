@@ -10,10 +10,10 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, add the [node cloud labels](../../managed-kubernetes/concepts/index.md#node-labels).
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**, select its type:
-   * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}`: Number of {{ managed-k8s-name }} nodes in the group remains constant. Specify the number of {{ managed-k8s-name }} nodes in the group.
+   * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}`: To keep a fixed number of {{ managed-k8s-name }} nodes in the group. Specify the number of {{ managed-k8s-name }} nodes in the group.
 
      The **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-size }}** setting will become available.
-   * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`: To control the number of group nodes via the [{{ managed-k8s-name }} cluster autoscaling](../../managed-kubernetes/concepts/autoscale.md#ca).
+   * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`: To manage the number of group nodes using the [{{ managed-k8s-name }} cluster autoscaling](../../managed-kubernetes/concepts/autoscale.md#ca).
 
      The following settings will become available:
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**.
@@ -22,7 +22,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
    {% note warning %}
 
-   You cannot change the scaling type after you create your {{ managed-k8s-name }} node group.
+   You cannot change the scaling type after creating a {{ managed-k8s-name }} node group.
 
    {% endnote %}
 
@@ -44,8 +44,8 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
    {% endnote %}
 
-1. (Optional) Under **{{ ui-key.yacloud.k8s.node-groups.create.section_gpu-settings }}**, specify if the {{ managed-k8s-name }} node group should have no pre-installed NVIDIA® drivers and CUDA® libraries for [GPU acceleration](../../compute/concepts/gpus.md).
-1. (Optional) Under **{{ ui-key.yacloud.k8s.node-group.overview.section_placement-policy }}**, enter a name for the {{ managed-k8s-name }} node [placement group](../../compute/concepts/placement-groups.md). This setting cannot be changed after the {{ managed-k8s-name }} node group is created.
+1. Optionally, under **{{ ui-key.yacloud.k8s.node-groups.create.section_gpu-settings }}**, specify whether the {{ managed-k8s-name }} node group should have no pre-installed NVIDIA® drivers and CUDA® libraries for [GPU acceleration](../../compute/concepts/gpus.md).
+1. Optionally, under **{{ ui-key.yacloud.k8s.node-group.overview.section_placement-policy }}**, enter a name for the {{ managed-k8s-name }} node [placement group](../../compute/concepts/placement-groups.md). You will not be able to edit this setting after creating the {{ managed-k8s-name }} node group.
 
     {% include [placement-groups](placement-groups.md) %}
 
@@ -70,19 +70,19 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**:
    * Select the [availability zone](../../overview/concepts/geo-scope.md) and [subnet](../../vpc/concepts/network.md#subnet) to place the group nodes in.
-   * (Optional) You can place nodes of a group with the fixed scaling type in multiple availability zones. To do this, click **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** and specify an additional availability zone and subnet.
+   * Optionally, you can place nodes of a group with the fixed scaling type across multiple availability zones. To do this, click **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** and specify an additional availability zone and subnet.
 
    {% include [autoscaled-node-group-restriction](autoscaled-node-group-restriction.md) %}
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, configure one of the methods of connecting to nodes in a {{ managed-k8s-name }} node group:
 
-    * To connect to nodes via {{ oslogin }}, select the **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}** option.
+    * To connect to nodes via {{ oslogin }}, select **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.
 
-        If you select this option, you will be unable to specify SSH keys because these connection methods are mutually exclusive.
+        In this case, you will not be able to specify SSH keys because these connection methods are mutually exclusive.
 
         For more information on how to configure and use {{ oslogin }}, see [{#T}](../../managed-kubernetes/operations/node-connect-oslogin.md).
 
-    * To connect to nodes using SSH keys, specify the required details:
+    * To connect to nodes using SSH keys, specify the required credentials:
 
         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
 
@@ -100,10 +100,10 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}** field.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
    * To be able to edit [unsafe kernel parameters](../../managed-kubernetes/concepts/index.md#node-group) on the {{ managed-k8s-name }} group nodes, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-sysctl }}**. To enter the name of each kernel parameter, create a separate field.
-   * To set up [taints for {{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#taints-tolerations), click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-taint }}**. Enter the key, value, and effect of each taint in a separate set of fields.
-   * To set up [{{ k8s }} labels](../../managed-kubernetes/concepts/index.md#node-labels) for group nodes, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}**. Enter the key and value of each {{ k8s }} label in a separate set of fields.
+   * To set up [taints for {{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#taints-tolerations), click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-taint }}**. Enter the key, value, and effect for each taint in a separate set of fields.
+   * To set up [{{ k8s }} labels](../../managed-kubernetes/concepts/index.md#node-labels) for group nodes, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}**. Enter the key and value for each {{ k8s }} label in a separate set of fields.
 
-1. (Optional) Open the **{{ ui-key.yacloud.common.metadata }}** block and add metadata for the nodes.
+1. Optionally, expand the **{{ ui-key.yacloud.common.metadata }}** section and add metadata for the nodes.
 
     {% note warning %}
 

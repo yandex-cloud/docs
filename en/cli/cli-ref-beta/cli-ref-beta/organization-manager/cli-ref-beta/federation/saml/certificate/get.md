@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--certificate-id`|<b>`string`</b><br/>ID of the certificate to return.<br/>To get the certificate ID, make a [CertificateService.List] request.|
+|`--certificate-id`|<b>`string`</b><br/>ID of the certificate to return. To get the certificate ID, make a [CertificateService.List] request.|
 
 #### Global Flags
 

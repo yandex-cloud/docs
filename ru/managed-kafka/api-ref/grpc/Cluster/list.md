@@ -28,20 +28,28 @@ Retrieves the list of Apache Kafka® clusters that belong to the specified folde
 
 Required field. ID of the folder to list Apache Kafka® clusters in.
 
-To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token.
 
-To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClustersResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClustersResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
-Filter support is not currently implemented. Any filters are ignored. ||
+Filter support is not currently implemented. Any filters are ignored.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListClustersResponse {#yandex.cloud.mdb.kafka.v1.ListClustersResponse}
@@ -72,7 +80,7 @@ Filter support is not currently implemented. Any filters are ignored. ||
             "disk_size": "int64",
             "disk_type_id": "string"
           },
-          // Includes only one of the fields `kafka_config_2_8`, `kafka_config_3`
+          // Includes only one of the fields `kafka_config_2_8`, `kafka_config_3`, `kafka_config_4`
           "kafka_config_2_8": {
             "compression_type": "CompressionType",
             "log_flush_interval_messages": "google.protobuf.Int64Value",
@@ -110,6 +118,31 @@ Filter support is not currently implemented. Any filters are ignored. ||
             "log_retention_ms": "google.protobuf.Int64Value",
             "log_segment_bytes": "google.protobuf.Int64Value",
             "log_preallocate": "google.protobuf.BoolValue",
+            "socket_send_buffer_bytes": "google.protobuf.Int64Value",
+            "socket_receive_buffer_bytes": "google.protobuf.Int64Value",
+            "auto_create_topics_enable": "google.protobuf.BoolValue",
+            "num_partitions": "google.protobuf.Int64Value",
+            "default_replication_factor": "google.protobuf.Int64Value",
+            "message_max_bytes": "google.protobuf.Int64Value",
+            "replica_fetch_max_bytes": "google.protobuf.Int64Value",
+            "ssl_cipher_suites": [
+              "string"
+            ],
+            "offsets_retention_minutes": "google.protobuf.Int64Value",
+            "sasl_enabled_mechanisms": [
+              "SaslMechanism"
+            ]
+          },
+          "kafka_config_4": {
+            "compression_type": "CompressionType",
+            "log_flush_interval_messages": "google.protobuf.Int64Value",
+            "log_flush_interval_ms": "google.protobuf.Int64Value",
+            "log_flush_scheduler_interval_ms": "google.protobuf.Int64Value",
+            "log_retention_bytes": "google.protobuf.Int64Value",
+            "log_retention_hours": "google.protobuf.Int64Value",
+            "log_retention_minutes": "google.protobuf.Int64Value",
+            "log_retention_ms": "google.protobuf.Int64Value",
+            "log_segment_bytes": "google.protobuf.Int64Value",
             "socket_send_buffer_bytes": "google.protobuf.Int64Value",
             "socket_receive_buffer_bytes": "google.protobuf.Int64Value",
             "auto_create_topics_enable": "google.protobuf.BoolValue",
@@ -189,7 +222,8 @@ Filter support is not currently implemented. Any filters are ignored. ||
       },
       "kafka_ui": {
         "url": "string"
-      }
+      },
+      "disk_encryption_key_id": "google.protobuf.StringValue"
     }
   ],
   "next_page_token": "string"
@@ -241,7 +275,6 @@ A maximum of 64 labels per resource is allowed. ||
 
 Deployment environment of the Apache Kafka® cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.mdb.kafka.v1.Monitoring)**
@@ -293,6 +326,9 @@ Scheduled maintenance operation. ||
 || kafka_ui | **[KafkaUI](#yandex.cloud.mdb.kafka.v1.Cluster.KafkaUI)**
 
 KafkaUI state. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.kafka.v1.Monitoring}
@@ -371,12 +407,23 @@ Patch or release version ex. 3.9.1, 4.0.1 etc ||
 Resources allocated to Kafka brokers. ||
 || kafka_config_2_8 | **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
 
-Includes only one of the fields `kafka_config_2_8`, `kafka_config_3`.
+Configuration of an Apache Kafka® 2.8 broker.
+
+Includes only one of the fields `kafka_config_2_8`, `kafka_config_3`, `kafka_config_4`.
 
 Kafka broker configuration. ||
 || kafka_config_3 | **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
 
-Includes only one of the fields `kafka_config_2_8`, `kafka_config_3`.
+Configuration of an Apache Kafka® 3.x broker.
+
+Includes only one of the fields `kafka_config_2_8`, `kafka_config_3`, `kafka_config_4`.
+
+Kafka broker configuration. ||
+|| kafka_config_4 | **[KafkaConfig4](#yandex.cloud.mdb.kafka.v1.KafkaConfig4)**
+
+Configuration of an Apache Kafka® 4.x broker.
+
+Includes only one of the fields `kafka_config_2_8`, `kafka_config_3`, `kafka_config_4`.
 
 Kafka broker configuration. ||
 |#
@@ -407,7 +454,6 @@ Kafka version 2.8 broker configuration.
 
 Cluster topics compression type.
 
-- `COMPRESSION_TYPE_UNSPECIFIED`
 - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
 - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
 - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -492,7 +538,6 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_UNSPECIFIED`
 - `SASL_MECHANISM_SCRAM_SHA_256`
 - `SASL_MECHANISM_SCRAM_SHA_512` ||
 |#
@@ -507,7 +552,6 @@ Kafka version 3.x broker configuration.
 
 Cluster topics compression type.
 
-- `COMPRESSION_TYPE_UNSPECIFIED`
 - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
 - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
 - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -592,7 +636,98 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_UNSPECIFIED`
+- `SASL_MECHANISM_SCRAM_SHA_256`
+- `SASL_MECHANISM_SCRAM_SHA_512` ||
+|#
+
+## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
+
+Kafka version 4.x broker configuration.
+
+#|
+||Field | Description ||
+|| compression_type | enum **CompressionType**
+
+Cluster topics compression type.
+
+- `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+- `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+- `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+- `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+- `COMPRESSION_TYPE_GZIP`: GZip codec.
+- `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
+|| log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of messages accumulated on a log partition before messages are flushed to disk.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+If not set, the value of `log_flush_scheduler_interval_ms` is used.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.flush_ms](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
+|| log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+This check is done by the log flusher. ||
+|| log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig4.cleanup_policy](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) is in effect.
+This setting is helpful if you need to control the size of a log due to limited disk space.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of hours to keep a log segment file before deleting it. ||
+|| log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of minutes to keep a log segment file before deleting it.
+
+If not set, the value of `log_retention_hours` is used. ||
+|| log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of milliseconds to keep a log segment file before deleting it.
+
+If not set, the value of `log_retention_minutes` is used.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.retention_ms](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
+|| log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum size of a single log file.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segment_bytes](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
+|| socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
+|| socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
+|| auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable auto creation of topic on the server ||
+|| num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Default number of partitions per topic on the whole cluster ||
+|| default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Default replication factor of the topic on the whole cluster ||
+|| message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The largest record batch size allowed by Kafka. Default value: 1048588. ||
+|| replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. ||
+|| ssl_cipher_suites[] | **string**
+
+A list of cipher suites. ||
+|| offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Offset storage time after a consumer group loses all its consumers. Default: 10080. ||
+|| sasl_enabled_mechanisms[] | enum **SaslMechanism**
+
+The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+
 - `SASL_MECHANISM_SCRAM_SHA_256`
 - `SASL_MECHANISM_SCRAM_SHA_512` ||
 |#
@@ -630,10 +765,14 @@ Is REST API enabled for this cluster. ||
 ||Field | Description ||
 || planned_usage_threshold | **int64**
 
-Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **int64**
 
-Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
@@ -682,7 +821,6 @@ Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 ||Field | Description ||
 || day | enum **WeekDay**
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -692,14 +830,18 @@ Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC. ||
+Hour of the day in UTC.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.kafka.v1.MaintenanceOperation}
 
 #|
 ||Field | Description ||
-|| info | **string** ||
+|| info | **string**
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#
 

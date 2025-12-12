@@ -349,7 +349,6 @@ _Пространство имен_ — абстракция, которая л�
 * [{#T}](../tutorials/k8s-cluster-with-no-internet.md)
 * [{#T}](../tutorials/kubernetes-backup.md)
 * [{#T}](../tutorials/prometheus-grafana-monitoring.md)
-* [{#T}](../tutorials/metrics-server.md)
 * [{#T}](../tutorials/driverless-gpu.md)
 
 #### См. также {#see-also}

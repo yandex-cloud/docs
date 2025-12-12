@@ -1,6 +1,8 @@
 ```mermaid
 %%{init: { "flowchart": { "padding": 4 } } }%%
 flowchart BT
+    managed-postgresql.clusters.connector["`managed-postgresql.
+    clusters.connector`"] ~~~ mdb.auditor
     vpc.publicAdmin ~~~ mdb.admin
     mdb.viewer --> mdb.admin
     mdb.auditor --> mdb.viewer

@@ -20,8 +20,8 @@ Syntax:
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the service account.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the service account.<br/>The name must be unique within the cloud.|
-|`--service-account-id`|<b>`string`</b><br/>ID of the ServiceAccount resource to update.<br/>To get the service account ID, use a [ServiceAccountService.List] request.|
+|`--name`|<b>`string`</b><br/>Name of the service account. The name must be unique within the cloud.|
+|`--service-account-id`|<b>`string`</b><br/>ID of the ServiceAccount resource to update. To get the service account ID, use a [ServiceAccountService.List] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

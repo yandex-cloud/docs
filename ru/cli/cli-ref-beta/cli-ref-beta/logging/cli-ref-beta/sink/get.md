@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--sink-id`|<b>`string`</b><br/>ID of the sink to return.<br/><br/>To get a sink ID make a [SinkService.List] request.|
+|`--sink-id`|<b>`string`</b><br/>ID of the sink to return. To get a sink ID make a [SinkService.List] request.|
 
 #### Global Flags
 

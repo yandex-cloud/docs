@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--disk-placement-group-id`|<b>`string`</b><br/>ID of the placement group to list operations for.<br/>To get the placement group ID, use [DiskPlacementGroupService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListDiskPlacementGroupOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListDiskPlacementGroupOperationsResponse.next_page_token] returned by a previous list request.|
+|`--disk-placement-group-id`|<b>`string`</b><br/>ID of the placement group to list operations for. To get the placement group ID, use [DiskPlacementGroupService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListDiskPlacementGroupOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListDiskPlacementGroupOperationsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

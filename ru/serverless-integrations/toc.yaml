@@ -136,6 +136,14 @@ items:
                 href: operations/workflows/execution/stop.md
               - name: Прекратить запуск рабочего процесса
                 href: operations/workflows/execution/terminate.md
+          - name: Управление правами доступа к рабочим процессам
+            items:
+              - name: Посмотреть роли, назначенные на рабочий процесс
+                href: operations/workflows/access-rights/role-list.md
+              - name: Назначить роли на рабочий процесс
+                href: operations/workflows/access-rights/role-add.md
+              - name: Отозвать роли, назначенные на рабочий процесс
+                href: operations/workflows/access-rights/role-revoke.md
       - name: '{{ er-name }}'
         items:
           - name: Получение информации о шине

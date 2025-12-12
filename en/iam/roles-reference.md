@@ -1530,6 +1530,10 @@ For more information, see [{#T}](../managed-gitlab/security/index.md).
 
 ## {{ mgp-full-name }} {#managed-greenplum-roles}
 
+#### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
+
+{% include [managed-greenplum.clusters.connector](../_roles/managed-greenplum/clusters/connector.md) %}
+
 #### managed-greenplum.auditor {#managed-greenplum-auditor}
 
 {% include [managed-greenplum.auditor](../_roles/managed-greenplum/auditor.md) %}
@@ -1617,6 +1621,10 @@ For more information, see [{#T}](../storedoc/security/index.md).
 
 ## {{ mmy-full-name }} {#managed-mysql-roles}
 
+#### managed-mysql.clusters.connector {#managed-mysql-clusters-connector}
+
+{% include [managed-mysql.clusters.connector](../_roles/managed-mysql/clusters/connector.md) %}
+
 #### managed-mysql.auditor {#managed-mysql-auditor}
 
 {% include [managed-mysql.auditor](../_roles/managed-mysql/auditor.md) %}
@@ -1666,6 +1674,10 @@ For more information, see [{#T}](../managed-opensearch/security/index.md).
 
 
 ## {{ mpg-full-name }} {#mpg-roles}
+
+#### managed-postgresql.clusters.connector {#managed-postgresql-clusters-connector}
+
+{% include [managed-postgresql.clusters.connector](../_roles/managed-postgresql/clusters/connector.md) %}
 
 #### managed-postgresql.auditor {#managed-postgresql-auditor}
 

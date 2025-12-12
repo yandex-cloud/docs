@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--device-id`|<b>`string`</b><br/>ID of the registry to list passwords in.<br/><br/>To get a registry ID make a [RegistryService.List] request.|
+|`--device-id`|<b>`string`</b><br/>ID of the registry to list passwords in. To get a registry ID make a [RegistryService.List] request.|
 
 #### Global Flags
 

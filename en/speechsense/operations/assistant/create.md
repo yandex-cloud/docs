@@ -5,7 +5,7 @@ description: Follow this guide to create an assistant for your project.
 
 # Creating an assistant
 
-You can only create an [assistant](../../concepts/assistants.md) in a project. To do this, you need the `{{ roles-speechsense-admin }}` or `{{ roles-speechsense-editor }}` role in the project.
+You can only create an [assistant](../../concepts/assistants.md) in a [project](../../concepts/resources-hierarchy.md#project). To do this, you need the `{{ roles-speechsense-admin }}` or `{{ roles-speechsense-editor }}` role in the project.
 
 ## Creating an assistant {#new-assistant}
 
@@ -36,8 +36,8 @@ You can only create an [assistant](../../concepts/assistants.md) in a project. T
 
    {% note warning %}
 
-    [Charges](../../pricing.md) for using the assistant will apply as soon as you enable it. Assistant usage can only be enabled manually in the project.
-   
+   [Charges](../../pricing.md) for using the assistant will apply as soon as you enable it. Assistant usage can only be enabled manually in the project. To get analyzed, dialogs must be uploaded after activating the assistant.
+
    {% endnote %}
 
    Select the conversations for the assistant to analyze:

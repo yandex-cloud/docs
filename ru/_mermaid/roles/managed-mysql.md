@@ -1,6 +1,8 @@
 ```mermaid
 flowchart BT
-    vpc.publicAdmin ~~~ mdb.admin    
+    managed-mysql.clusters.connector["`managed-mysql.
+    clusters.connector`"] ~~~ mdb.auditor 
+    vpc.publicAdmin ~~~ mdb.admin 
     mdb.viewer --> mdb.admin    
     mdb.auditor --> mdb.viewer
     mdb.viewer --> mdb.restorer

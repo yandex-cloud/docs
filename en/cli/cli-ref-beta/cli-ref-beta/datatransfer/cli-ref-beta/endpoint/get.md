@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--endpoint-id`|<b>`string`</b><br/>Identifier of the endpoint to return.<br/><br/>To get the endpoint ID, make an [EndpointService.List] request.|
+|`--endpoint-id`|<b>`string`</b><br/>Identifier of the endpoint to return. To get the endpoint ID, make an [EndpointService.List] request.|
 
 #### Global Flags
 

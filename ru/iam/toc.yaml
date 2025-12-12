@@ -200,6 +200,8 @@ items:
             href: cli-ref/access-key/delete.md
           - name: get
             href: cli-ref/access-key/get.md
+          - name: issue-ephemeral
+            href: cli-ref/access-key/issue-ephemeral.md
           - name: list
             href: cli-ref/access-key/list.md
       - name: access-policy-template

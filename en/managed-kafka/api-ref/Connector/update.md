@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the Apache Kafka® cluster to update the connector in.
             To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         connectorName:
           description: |-
             **string**
             Required field. Name of the connector to update.
             To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Connector/list#List) request.
+            The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `.
           pattern: '[-_.a-zA-Z0-9]*'
           type: string
       required:
@@ -244,12 +246,16 @@ PATCH https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connector
 
 Required field. ID of the Apache Kafka® cluster to update the connector in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || connectorName | **string**
 
 Required field. Name of the connector to update.
 
-To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Connector/list#List) request. ||
+To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Connector/list#List) request.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.kafka.v1.UpdateConnectorRequest}
@@ -624,10 +630,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Apache Kafka® cluster the connector is being updated in. ||
+Required field. ID of the Apache Kafka® cluster the connector is being updated in.
+
+The maximum string length in characters is 50. ||
 || connectorName | **string**
 
-Required field. Name of the Apache Kafka® connector that is being updated. ||
+Required field. Name of the Apache Kafka® connector that is being updated.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 |#
 
 ## Status {#google.rpc.Status}

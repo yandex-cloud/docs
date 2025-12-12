@@ -5,6 +5,28 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.175.0 (December 12, 2025)
+##### FEATURES:
+* OrganizationManager: added idp saml signature certificate resource and datasource
+* trino_catalog: add MySQL connector support
+* mongodb: support new options in mongodb config
+* IAM: added new resource iam_oauth_client_secret
+* alb: added field `path` to resource_yandex_alb_backend_group resource
+* airflow: gitsync configuration support for airflow dags source
+* mdb: add `mdb_greenplum_cluster_v2` resource and data-source
+* spark: `spark_version` resource added
+##### BUG FIXES:
+* iam: fixed docs example for yandex_iam_oauth_client.scopes
+* iam: yandex_iam_oauth_client fields `scopes` and `redirect_uris` are now of type set to prevent comparison collision
+##### ENHANCEMENTS:
+* compute: add `reserved_instance_pool_id` option to instance template
+* mongodb: take update mask recursively in `mdb_mongodb_cluster`
+* ytsaurus: add `cidr_blocks_whitelist` option
+* CloudOrganization: fixed examples in Idp Saml Applications docs
+##### WARNING:
+* mdb_greenplum: deprecate `6_22` config version, use `6` instead
+* iam: deprecate `scope`, use `scopes` instead
+
 ## 0.174.0 (December 4, 2025)
 ##### FEATURES:
 * clickhouse: added field `engine` to yandex_mdb_clickhouse_database resources.

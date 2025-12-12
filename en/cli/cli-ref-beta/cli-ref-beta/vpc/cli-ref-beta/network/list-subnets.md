@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--network-id`|<b>`string`</b><br/>ID of the Network resource to list subnets for.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListNetworkSubnetsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests. Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. Set [page_token]<br/>to the [ListNetworkSubnetsResponse.next_page_token]<br/>returned by a previous list request to get the next page of results.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available results is larger than [page_size], the service returns a [ListNetworkSubnetsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. Set [page_token] to the [ListNetworkSubnetsResponse.next_page_token] returned by a previous list request to get the next page of results.|
 
 #### Global Flags
 

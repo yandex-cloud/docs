@@ -20,7 +20,7 @@ Syntax:
 |----|----|
 |`--folder-id`|<b>`string`</b><br/>The folder in which CA would be listed.|
 |`--page-size`|<b>`int`</b><br/>The maximum number of results to return per page. Couldn't exceed 100, default value is 100|
-|`--page-token`|<b>`string`</b><br/>Token to retrieve the next page of results.<br/>This is returned from a previous call to ListCertificateAuthorities.|
+|`--page-token`|<b>`string`</b><br/>Token to retrieve the next page of results. This is returned from a previous call to ListCertificateAuthorities.|
 
 #### Global Flags
 

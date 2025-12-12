@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned.<br/>If the number of available results is larger than [page_size], the service returns a<br/>[ListAccessPolicyBindingsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. Set [page_token] to the<br/>[ListAccessPolicyBindingsResponse.next_page_token]<br/>returned by a previous list request to get the next page of results.|
-|`--resource-id`|<b>`string`</b><br/>ID of the resource to list access policy bindings for.<br/><br/>To get the resource ID, use a corresponding List request.<br/>For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List] request to get the Cloud resource ID.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available results is larger than [page_size], the service returns a [ListAccessPolicyBindingsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. Set [page_token] to the [ListAccessPolicyBindingsResponse.next_page_token] returned by a previous list request to get the next page of results.|
+|`--resource-id`|<b>`string`</b><br/>ID of the resource to list access policy bindings for. To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List] request to get the Cloud resource ID.|
 
 #### Global Flags
 

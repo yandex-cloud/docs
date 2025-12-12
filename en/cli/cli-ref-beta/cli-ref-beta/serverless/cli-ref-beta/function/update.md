@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>New description for the function.|
-|`--function-id`|<b>`string`</b><br/>ID of the function to update.<br/><br/>To get a function ID make a [FunctionService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>Function labels as 'key:value' pairs.<br/><br/>Existing set of labels is completely replaced by the provided set, so if you just want<br/>to add or remove a label, request the current set of labels with a [FunctionService.Get] request.|
-|`--name`|<b>`string`</b><br/>New name for the function.<br/>The name must be unique within the folder.|
+|`--function-id`|<b>`string`</b><br/>ID of the function to update. To get a function ID make a [FunctionService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>Function labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [FunctionService.Get] request.|
+|`--name`|<b>`string`</b><br/>New name for the function. The name must be unique within the folder.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

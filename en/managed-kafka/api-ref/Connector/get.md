@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the Apache Kafka® cluster the connector belongs to.
             To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         connectorName:
           description: |-
             **string**
             Required field. Name of the Apache Kafka® connector to return information about.
             To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Connector/list#List) request.
+            The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `.
           pattern: '[-_.a-zA-Z0-9]*'
           type: string
       required:
@@ -47,12 +49,16 @@ GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors/
 
 Required field. ID of the Apache Kafka® cluster the connector belongs to.
 
-To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || connectorName | **string**
 
 Required field. Name of the Apache Kafka® connector to return information about.
 
-To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Connector/list#List) request. ||
+To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Connector/list#List) request.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.kafka.v1.Connector}

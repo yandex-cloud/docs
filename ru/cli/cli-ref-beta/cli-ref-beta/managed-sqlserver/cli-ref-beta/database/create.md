@@ -19,10 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster to create a database in.<br/><br/>To get the cluster ID, use a [ClusterService.List] request.|
-|`--database-spec`|<b>`shorthand/json`</b><br/>Configuration of the database to create.<br/><br/>Example:<br/>--database-spec name=value<br/><br/>Shorthand Syntax:<br/>{name=str}<br/>Fields:<br/>name  string  required  — Name of the database.<br/>|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster to create a database in. To get the cluster ID, use a [ClusterService.List] request.|
+|`--database-spec`|<b>`shorthand/json`</b><br/>Configuration of the database to create.<br/>Shorthand Syntax:<br/>{<br/>name = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"name": "str"<br/>}"<br/>Fields:<br/>name -> (string)<br/>Name of the database.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

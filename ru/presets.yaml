@@ -10443,6 +10443,8 @@ default:
         component:
           instance-storage-dialog:
             button_add-disk: Добавить диск
+            value_disk-attach-type-attach-existing: Подключить существующий
+            value_disk-attach-type-create-new: Создать
         components:
           PlatformField:
             value_platform-tab-gpu_hGyQ8: Есть GPU
@@ -10569,6 +10571,7 @@ default:
           label_title: Образы
           popup-confirm_button_delete: Удалить
           popup-upload_field_pooled: Оптимизация
+          popup-upload_field_url: Ссылка на образ в Object Storage
         instance-groups_hx3kX: Группы виртуальных машин
         instance:
           access-method:
@@ -12681,7 +12684,6 @@ default:
           label_button_playback: Синтезировать и воспроизвести
           label_synthesis-settings: Настройки синтеза
         speech-to-text-v2:
-          label_button_copy-text: Скопировать
           label_button_start-recognition: Распознать
           recognition-params-section_title_1EDuy: Параметры распознавания
         speech-to-text:

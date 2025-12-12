@@ -34,7 +34,6 @@ Syntax:
 |`--lockbox-secrets-backend`|Whether the Lockbox Secret Backend will be allowed for the cluster.|
 |`--subnet-ids`|<b>`value[,value]`</b><br/>List of IDs of VPC network subnets where instances of the cluster are attached.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Airflow cluster.|
-|`--dags-bucket`|<b>`string`</b><br/>A name of the s3 bucket to store dags.|
 |`--service-account-id`|<b>`string`</b><br/>A service account id used to access Cloud resources.|
 |`--admin-password`|<b>`string`</b><br/>A password of user 'admin' in Airflow.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
@@ -43,6 +42,8 @@ Syntax:
 |`--log-group-id`|<b>`string`</b><br/>Logs will be written to log group resolved by ID.|
 |`--log-min-level`|<b>`string`</b><br/>Minimum log entry level. Possible values: TRACE, DEBUG, INFO, WARN, ERROR, FATAL|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--gitsync`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configuration of gitsync.<br/><br/>Possible property names:<br/><ul> <li><code>repo</code>:     Git repository URL.</li> <li><code>branch</code>:     Git branch.</li> <li><code>subpath</code>:     Subpath in the repository.</li> <li><code>ssh-key</code>:     SSH private key.</li> <li><code>ssh-key-path</code>:     Path to SSH private key.</li> </ul>|
+|`--dags-bucket`|<b>`string`</b><br/>A name of the s3 bucket to store dags.|
 
 #### Global Flags
 

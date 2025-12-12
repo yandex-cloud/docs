@@ -3,15 +3,10 @@ To get authenticated using a [user pool](../../organization/concepts/user-pools.
 1. Get your user pool ID from your administrator.
 1. Launch the profile creation wizard:
 
-   
-
       
    ```bash
-   yc init \
-      --federation-endpoint auth.cloud.yandex.com \
-      --federation-id <user_pool_ID>
+   yc init --federation-id=<user_pool_ID>
    ```
-
 
 
 

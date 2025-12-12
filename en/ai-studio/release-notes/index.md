@@ -5,6 +5,10 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 25/11/2025 {#251125}
+
+{{ alice-ai }} is now available in the [common instance](../concepts/generation/models.md#generation) for all {{ ai-studio-name }} users. Same as {{ gpt-pro }}, Yandex's new model is really good with RAG scenarios, but it is by far a much better free dialog partner, which makes it a model of choice for AI agents.
+
 ## Release as of 10/11/2025 {#101125}
 
 You can no longer deploy the gpt-oss-20b and gpt-oss-120b models in dedicated instances. These models remain available in the [common instance](../concepts/generation/models.md#generation).

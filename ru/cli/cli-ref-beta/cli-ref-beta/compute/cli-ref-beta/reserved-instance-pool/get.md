@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--reserved-instance-pool-id`|<b>`string`</b><br/>ID of the reserved instance pool resource to return.<br/>To get the reserved instance pool ID, use a [ReservedInstancePoolService.List] request.|
+|`--reserved-instance-pool-id`|<b>`string`</b><br/>ID of the reserved instance pool resource to return. To get the reserved instance pool ID, use a [ReservedInstancePoolService.List] request.|
 
 #### Global Flags
 

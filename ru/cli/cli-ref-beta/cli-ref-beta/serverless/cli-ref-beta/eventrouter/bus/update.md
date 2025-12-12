@@ -22,8 +22,7 @@ Syntax:
 |`--deletion-protection`|New flag that disallow deletion of the bus.|
 |`--description`|<b>`string`</b><br/>New description of the bus.|
 |`--labels`|<b>`stringToString`</b><br/>New labels of the bus.|
-|`--log-options`|<b>`shorthand/json`</b><br/>New options for logging from the bus.<br/><br/>Example:|
-|`--log-options`|<b>`destination={folder-id=value},`</b><br/>min-level=TRACE<br/><br/>Shorthand Syntax:<br/>{destination={folder-id=str \| log-group-id=str}, min-level=TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL}<br/>Fields:<br/>min-level    enum<DEBUG\|ERROR\|FATAL\|INFO\|TRACE\|WARN>  — Minimum log entry level.<br/><br/>See [LogLevel.Level] for details.<br/>destination  oneof<folder-id\|log-group-id>            — Oneof destination field<br/>log-group-id  string  — Entry will be written to log group resolved by ID.<br/>folder-id     string  — Entry will be written to default log group for specified folder.<br/>|
+|`--log-options`|<b>`shorthand/json`</b><br/>New options for logging from the bus.<br/>Shorthand Syntax:<br/>{<br/>destination = folder-id=str \| log-group-id=str,<br/>min-level = TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL<br/>}<br/>JSON Syntax:<br/>"{<br/>"destination": {<br/>"folder-id": "str",<br/>"log-group-id": "str"<br/>},<br/>"min-level": "TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL"<br/>}"<br/>Fields:<br/>min-level -> (enum<DEBUG\|ERROR\|FATAL\|INFO\|TRACE\|WARN>)<br/>Minimum log entry level. See [LogLevel.Level] for details.<br/>destination -> (oneof<folder-id\|log-group-id>)<br/>Oneof destination field<br/>log-group-id -> (string)<br/>Entry will be written to log group resolved by ID.<br/>folder-id -> (string)<br/>Entry will be written to default log group for specified folder.|
 |`--logging-enabled`|Is logging from the bus enabled.|
 |`--name`|<b>`string`</b><br/>New name of the bus.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

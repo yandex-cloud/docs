@@ -18,11 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB cluster the user belongs to.<br/>To get the cluster ID, use a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List] request.|
 |`--password`|<b>`string`</b><br/>New password for the user.|
-|`--permissions`|<b>`shorthand/json`</b><br/>New set of permissions for the user.<br/><br/>Example:|
-|`--permissions`|<b>`[{database-name=value,`</b><br/>roles=value}]<br/><br/>Shorthand Syntax:<br/>[{database-name=str, roles=str,...},...]<br/>Fields:<br/>database-name  string    — Name of the database that the permission grants access to.<br/>roles          []string  — MongoDB roles for the [database_name] database that the permission grants.<br/>|
-|`--user-name`|<b>`string`</b><br/>Name of the user to be updated.<br/>To get the name of the user, use a [UserService.List] request.|
+|`--permissions`|<b>`shorthand/json`</b><br/>New set of permissions for the user.<br/>Shorthand Syntax:<br/>[<br/>{<br/>database-name = str,<br/>roles = str,...<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"database-name": "str",<br/>"roles": [<br/>"str", ...<br/>]<br/>}, ...<br/>]"<br/>Fields:<br/>database-name -> (string)<br/>Name of the database that the permission grants access to.<br/>roles -> ([]string)<br/>MongoDB roles for the [database_name] database that the permission grants.|
+|`--user-name`|<b>`string`</b><br/>Name of the user to be updated. To get the name of the user, use a [UserService.List] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

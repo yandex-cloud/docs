@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Apache Kafka® cluster.
             To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -55,6 +56,7 @@ apiPlayground:
             **string**
             Record token.
             Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.kafka.v1.StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -65,6 +67,7 @@ apiPlayground:
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -90,7 +93,9 @@ GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}:stream_logs
 
 Required field. ID of the Apache Kafka® cluster.
 
-To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.kafka.v1.StreamClusterLogsRequest}
@@ -129,7 +134,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Record token.
 
-Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.kafka.v1.StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record. ||
+Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.kafka.v1.StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -139,7 +146,9 @@ The expression must specify:
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 
-Example of a filter: `message.hostname='node1.db.cloud.yandex.net'` ||
+Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.mdb.kafka.v1.StreamLogRecord}

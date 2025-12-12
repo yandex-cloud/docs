@@ -1,3 +1,3 @@
-Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](../../../serverless-integrations/concepts/workflows/workflow.md) и историю их [запусков](../../../serverless-integrations/concepts/workflows/execution.md), а также информацию о [квотах](../../../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](../../../serverless-integrations/concepts/workflows/workflow.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, просматривать историю [запусков](../../../serverless-integrations/concepts/workflows/execution.md) рабочих процессов, а также информацию о [квотах](../../../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
 
 Включает разрешения, предоставляемые ролью `serverless.workflows.auditor`.

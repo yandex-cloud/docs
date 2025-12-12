@@ -26,7 +26,9 @@ Syntax:
 	- [yc beta serverless api-gateway list-access-bindings](api-gateway/list-access-bindings.md) — Lists existing access bindings for the specified API gateway.
 	- [yc beta serverless api-gateway list-operations](api-gateway/list-operations.md) — Lists operations for the specified API gateway.
 	- [yc beta serverless api-gateway remove-domain](api-gateway/remove-domain.md) — Detaches domain from the specified API gateway.
+	- [yc beta serverless api-gateway resume](api-gateway/resume.md) — Resumes the specified API gateway.
 	- [yc beta serverless api-gateway set-access-bindings](api-gateway/set-access-bindings.md) — Sets access bindings for the specified API gateway.
+	- [yc beta serverless api-gateway stop](api-gateway/stop.md) — Stops the specified API gateway.
 	- [yc beta serverless api-gateway update](api-gateway/update.md) — Updates the specified API gateway.
 	- [yc beta serverless api-gateway update-access-bindings](api-gateway/update-access-bindings.md) — Updates access bindings for the specified API gateway.
 - [yc beta serverless container](container/index.md) — A set of methods for managing serverless containers.

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ClickHouse cluster ID.<br/><br/>To get a ClickHouse cluster ID, use the [ClusterService.List] method.|
+|`--cluster-id`|<b>`string`</b><br/>ClickHouse cluster ID. To get a ClickHouse cluster ID, use the [ClusterService.List] method.|
 |`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of the results is larger than [page_size], the service returns [ListFormatSchemasResponse.next_page_token]. You can use it to get the next page of the results in subsequent requests of a format schema list.|
 |`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListFormatSchemasResponse.next_page_token] returned by the previous format schema list request.|
 

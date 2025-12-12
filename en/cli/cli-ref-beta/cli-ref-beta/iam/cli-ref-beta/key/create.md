@@ -19,12 +19,12 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--description`|<b>`string`</b><br/>Description of the key pair.|
 |`--format`|<b>`enum`</b><br/>Output format of the key. Possible Values: 'pem-file'|
 |`--key-algorithm`|<b>`enum`</b><br/>An algorithm used to generate a key pair of the Key resource. Possible Values: 'rsa-2048', 'rsa-4096'|
-|`--service-account-id`|<b>`string`</b><br/>ID of the service account to create a key pair for.<br/>To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.<br/>If not specified, it defaults to the subject that made the request.|
+|`--service-account-id`|<b>`string`</b><br/>ID of the service account to create a key pair for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request. If not specified, it defaults to the subject that made the request.|
 
 #### Global Flags
 

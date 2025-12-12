@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--dns-zone-id`|<b>`string`</b><br/>ID of the DNS zone to list operations for.<br/><br/>To get a DNS zone ID, make a [DnsZoneService.List] request.|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters DNS zones listed in the response.<br/><br/>The expression must specify:<br/>1. The field name. Currently you can use filtering only on the [DnsZone.name] field.<br/>2. An '=' operator.<br/>3. The value in double quotes ('"'). Must be 3-63 characters long and match the regular expression '[a-z][-a-z0-9]{1,61}[a-z0-9]'.<br/>Example of a filter: 'name=my-dns-zone'.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListDnsZoneOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListDnsZoneOperationsResponse.next_page_token] returned by a previous list request.|
+|`--dns-zone-id`|<b>`string`</b><br/>ID of the DNS zone to list operations for. To get a DNS zone ID, make a [DnsZoneService.List] request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters DNS zones listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on the [DnsZone.name] field. 2. An '=' operator. 3. The value in double quotes ('"'). Must be 3-63 characters long and match the regular expression '[a-z][-a-z0-9]{1,61}[a-z0-9]'. Example of a filter: 'name=my-dns-zone'.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListDnsZoneOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListDnsZoneOperationsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

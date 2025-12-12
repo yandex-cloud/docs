@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--snapshot-schedule-id`|<b>`string`</b><br/>ID of the snapshot schedule to return.<br/><br/>To get a schedule ID, make a [SnapshotScheduleService.List] request.|
+|`--snapshot-schedule-id`|<b>`string`</b><br/>ID of the snapshot schedule to return. To get a schedule ID, make a [SnapshotScheduleService.List] request.|
 
 #### Global Flags
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--key-id`|<b>`string`</b><br/>ID of the asymmetric KMS key to return.<br/>To get the ID of an asymmetric KMS key use a [AsymmetricEncryptionKeyService.List] request.|
+|`--key-id`|<b>`string`</b><br/>ID of the asymmetric KMS key to return. To get the ID of an asymmetric KMS key use a [AsymmetricEncryptionKeyService.List] request.|
 
 #### Global Flags
 

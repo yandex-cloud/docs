@@ -1,6 +1,6 @@
 # Updating {{ k8s }}
 
-For {{ managed-k8s-name }}, both automatic and manual updates are available for [clusters](../concepts/index.md#kubernetes-cluster) and [node groups](../concepts/index.md#node-group). You can request a manual update of your {{ managed-k8s-name }} cluster or its nodes to the latest supported [version](../concepts/release-channels-and-updates.md) at any time. Manual updates bypass any pre-configured maintenance windows and maintenance exceptions.
+In {{ managed-k8s-name }}, both automatic and manual updates are available for [clusters](../concepts/index.md#kubernetes-cluster) and [node groups](../concepts/index.md#node-group). You can request a manual update of your {{ managed-k8s-name }} cluster or its nodes to the latest supported [version](../concepts/release-channels-and-updates.md) at any time. Manual updates bypass any pre-configured maintenance windows and maintenance exceptions.
 
 When updating the {{ k8s }} major version, first update the {{ managed-k8s-name }} cluster and then its node group.
 
@@ -204,7 +204,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
   {% include [updateMask warning](../../_includes/note-api-updatemask.md) %}
 
-  To disable auto updates, provide the `false` value in the `masterSpec.maintenancePolicy.autoUpgrade` parameter.
+  To disable auto updates, provide `false` in the `masterSpec.maintenancePolicy.autoUpgrade` parameter.
 
   To enable and configure the update window, provide one of the allowed values of the `maintenanceWindow` parameter:
   * For a {{ managed-k8s-name }} cluster to update at a random time, provide the `"anytime": {}` value.
@@ -226,7 +226,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
     * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
     * `nanos`: Fraction of a second of the update start, in nanoseconds.
-    * `duration`: Duration of update period, in hours.
+    * `duration`: Duration of the update period, in hours.
 
   * For updates to take place on selected days, add the `weeklyMaintenanceWindow` section:
 
@@ -254,13 +254,13 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
     * `days`: List of days, e.g., `monday`, `tuesday`.
     * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
     * `nanos`: Fraction of a second of the update start, in nanoseconds.
-    * `duration`: Duration of update period, in hours.
+    * `duration`: Duration of the update period, in hours.
 
 {% endlist %}
 
-### Manually updating the cluster version {#cluster-manual-upgrade}
+### Manually upgrading the cluster version {#cluster-manual-upgrade}
 
-You can update the {{ managed-k8s-name }} cluster version manually. You can only update your {{ managed-k8s-name }} cluster in a single step to the next minor version from the current one. Upgrading to newer versions is done in multiple steps, e.g., 1.19 → 1.20 → 1.21.
+You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step, you can only upgrade your {{ managed-k8s-name }} cluster to the next minor version from the current one. Upgrading to newer versions is done in multiple steps, e.g., 1.19 → 1.20 → 1.21.
 
 {% list tabs group=instructions %}
 
@@ -287,7 +287,7 @@ You can update the {{ managed-k8s-name }} cluster version manually. You can only
 
   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
-     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+     Learn how to create this file in [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
   1. Change the version in the {{ managed-k8s-name }} cluster description:
 
      ```hcl
@@ -308,7 +308,7 @@ You can update the {{ managed-k8s-name }} cluster version manually. You can only
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-cluster}}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster}}).
 
 - API {#api}
 
@@ -335,7 +335,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   You can specify update settings when [creating a {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-create.md) or [updating its settings](../../managed-kubernetes/operations/node-group/node-group-update.md).
 
-  In the **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** field, specify scaling settings for your {{ managed-k8s-name }} node group:
+  In the **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** field, specify the scaling settings for your {{ managed-k8s-name }} node group:
   * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-expansion }}**: Specify the maximum number of nodes by which you can exceed the size of the group when updating it.
 
     {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
@@ -355,8 +355,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
   ```bash
   {{ yc-k8s }} node-group <create_or_update> <node_group_name_or_ID> \
   ...
-    --max-expansion <increasing_group_size_when_updating> \
-    --max-unavailable <number_of_unavailable_nodes_when_updating> \
+    --max-expansion <expanding_group_during_update> \
+    --max-unavailable <number_of_unavailable_nodes_during_update> \
     --auto-upgrade <auto_update_mode> \
     --auto-repair <recreation_mode> \
     --anytime-maintenance-window \
@@ -366,7 +366,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   Where:
 
-  * `--max-expansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+  * `--max-expansion`: Maximum number of nodes by which you can expand the group when updating it.
 
     {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
@@ -393,7 +393,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   * `--weekly-maintenance-window`: Auto update on specified days.
 
-    Example of updating a {{ managed-k8s-name }} node group on Mondays and Tuesdays from 22:00 UTC, with a duration of up to 10 hours:
+    Example of updating a {{ managed-k8s-name }} node group on Mondays and Tuesdays starting at 22:00 UTC, with a duration of up to 10 hours:
 
     ```bash
     --weekly-maintenance-window 'days=[monday,tuesday],start=22:00,duration=10h'
@@ -415,7 +415,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     Learn how to create this file in [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change auto update settings in the {{ managed-k8s-name }} node group description.
 
      {% note info %}
@@ -481,14 +481,14 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
          name = <node_group_name>
          ...
          deploy_policy {
-           max_expansion   = <expanding_group_size_when_updating>
-           max_unavailable = <number_of_unavailable_nodes_when_updating>
+           max_expansion   = <expanding_group_during_update>
+           max_unavailable = <number_of_unavailable_nodes_during_update>
          }
        }
        ```
 
        Where:
-       * `max_expansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+       * `max_expansion`: Maximum number of nodes by which you can expand the group when updating it.
 
          {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
@@ -523,7 +523,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
@@ -536,7 +536,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-  To disable auto updates, provide the `false` value in the `maintenancePolicy.autoUpgrade` parameter.
+  To disable auto updates, provide `false` in the `maintenancePolicy.autoUpgrade` parameter.
 
   To enable and configure the update window, provide one of the allowed values of the `maintenanceWindow` parameter:
   * For a {{ managed-k8s-name }} node group to update at a random time, provide the `"anytime": {}` value.
@@ -558,7 +558,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
     * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
     * `nanos`: Fraction of a second of the update start, in nanoseconds.
-    * `duration`: Duration of update period, in hours.
+    * `duration`: Duration of the update period, in hours.
 
   * For updates to take place on selected days, add the `weeklyMaintenanceWindow` section:
 
@@ -586,33 +586,33 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
     * `days`: List of days, e.g., `monday`, `tuesday`.
     * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
     * `nanos`: Fraction of a second of the update start, in nanoseconds.
-    * `duration`: Duration of update period, in hours.
+    * `duration`: Duration of the update period, in hours.
 
   To configure the settings for {{ managed-k8s-name }} node group deployment during updates, add the `deployPolicy` section:
 
   ```json
   "deployPolicy": {
-    "maxUnavailable": "<number_of_unavailable_nodes_when_updating>",
-    "maxExpansion": "<expanding_group_size_when_updating>"
+    "maxUnavailable": "<number_of_unavailable_nodes_during_update>",
+    "maxExpansion": "<expanding_group_during_update>"
   }
   ```
 
   Where:
 
   * `maxUnavailable`: Maximum number of unavailable nodes in the group when updating it.
-  * `maxExpansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+  * `maxExpansion`: Maximum number of nodes by which you can expand the group when updating it.
 
     {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
 {% endlist %}
 
-### Manually updating a node group version {#node-group-manual-upgrade}
+### Manually upgrading a node group version {#node-group-manual-upgrade}
 
-You can update the {{ managed-k8s-name }} node group version manually. You can only update to the next minor version. Updating to newer versions is done in steps, e.g., 1.19 → 1.20 → 1.21.
+You can upgrade the {{ managed-k8s-name }} node group version manually. You can only upgrade to the next minor version. Upgrading to newer versions is done in multiple steps, e.g., 1.19 → 1.20 → 1.21.
 
 {% note warning %}
 
-Update the {{ managed-k8s-name }} cluster version before updating the node group.
+Upgrade the {{ managed-k8s-name }} cluster version before updating the node group.
 
 {% endnote %}
 
@@ -644,7 +644,7 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     Learn how to create this file in [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change the version in the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -665,7 +665,7 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
@@ -682,7 +682,7 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
 
 You can update a {{ managed-k8s-name }} cluster and node group within the same {{ k8s }} version. When installing the update, the major version of {{ k8s }} does not change.
 
-This update enables you to:
+Such an update enables you to:
 * Install new packages.
 * Update the {{ k8s }} image.
 * Updating the {{ k8s }} patch version.

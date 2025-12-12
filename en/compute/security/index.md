@@ -152,10 +152,10 @@ Creating a VM with a [public IP address](../../vpc/concepts/address.md#public-ad
 [Modifying](../operations/vm-control/vm-update.md) and [deleting](../operations/vm-control/vm-delete.md) a virtual machine | `compute.editor` for the VM instance
 [Linking](../operations/vm-control/vm-connect-sa.md) a service account to a VM | `compute.editor` for the VM instance
 [Changing VM metadata](../operations/vm-metadata/update-vm-metadata.md) | `compute.editor` for the VM instance
-[Attaching](../operations/vm-control/vm-attach-disk.md)/[detaching](../operations/vm-control/vm-detach-disk.md) a disk to/from a VM | `compute.editor` for the VM instance
+[Attaching](../operations/vm-control/vm-attach-disk.md)/[detaching](../operations/vm-control/vm-detach-disk.md) a disk to/from a VM | `compute.editor` for the instance
 [Attaching](../operations/filesystem/attach-to-vm.md)/[detaching](../operations/filesystem/detach-from-vm.md) a [file storage](../concepts/filesystem.md) to/from a VM | `compute.editor` for the VM instance
-[Adding](../operations/vm-control/attach-network-interface.md) a [network interface](../concepts/network.md) to a VM and [deleting](../operations/vm-control/detach-network-interface.md) it from a VM, modifying a VM network interface | `compute.editor` for the VM instance
-[Assigning](../operations/vm-control/vm-attach-public-ip.md) a [public IP address](../../vpc/concepts/address.md#public-addresses) to a VM and [unassigning](../operations/vm-control/vm-detach-public-ip.md) it from a VM | `compute.editor` for the VM instance
+[Adding](../operations/vm-control/attach-network-interface.md) a [network interface](../concepts/network.md) to a VM and [deleting](../operations/vm-control/detach-network-interface.md) it from a VM, modifying a VM network interface | `compute.editor` for the instance
+[Assigning](../operations/vm-control/vm-attach-public-ip.md) a [public IP address](../../vpc/concepts/address.md#public-addresses) to a VM and [unassigning](../operations/vm-control/vm-detach-public-ip.md) it from a VM | `compute.editor` for the instance
 [Assigning](../operations/vm-control/vm-change-security-groups-set.md) [security groups](../../vpc/concepts/security-groups.md) to a VM | `compute.editor` for the VM instance
 Moving a VM [to another cloud folder](../operations/vm-control/vm-change-folder.md) | `compute.editor` for the VM instance
 [Simulating](../operations/vm-control/vm-update-policies.md#simulate) an instance maintenance event | `compute.editor` for the VM instance

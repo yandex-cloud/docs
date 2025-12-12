@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--vrf-id`|<b>`string`</b><br/>ID of the VRF to return.<br/><br/>To get the VRF ID, use a [VrfService.List] request.|
+|`--vrf-id`|<b>`string`</b><br/>ID of the VRF to return. To get the VRF ID, use a [VrfService.List] request.|
 
 #### Global Flags
 

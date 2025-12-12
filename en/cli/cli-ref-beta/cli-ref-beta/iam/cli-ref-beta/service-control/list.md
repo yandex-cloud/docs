@@ -18,10 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListServicesResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token]<br/>to the [ListServicesResponse.next_page_token]<br/>returned by a previous list request.|
-|`--resource`|<b>`shorthand/json`</b><br/>Resource container to list a services.<br/><br/>It is supported only resource-manager.cloud resource container now.<br/><br/>Example:|
-|`--resource`|<b>`id=value,`</b><br/>type=value<br/><br/>Shorthand Syntax:<br/>{id=str, type=str}<br/>Fields:<br/>id    string  required  — ID of the resource.<br/>type  string  required  — The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListServicesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListServicesResponse.next_page_token] returned by a previous list request.|
+|`--resource`|<b>`shorthand/json`</b><br/>Resource container to list a services. It is supported only resource-manager.cloud resource container now.<br/>Shorthand Syntax:<br/>{<br/>id = str,<br/>type = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"id": "str",<br/>"type": "str"<br/>}"<br/>Fields:<br/>id -> (string)<br/>ID of the resource.<br/>type -> (string)<br/>The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.|
 
 #### Global Flags
 

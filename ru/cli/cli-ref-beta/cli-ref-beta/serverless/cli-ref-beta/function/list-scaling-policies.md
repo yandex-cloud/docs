@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--function-id`|<b>`string`</b><br/>ID of the function to retrieve scaling policies for.<br/><br/>To get a function ID, make a [FunctionService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available<br/>results is larger than 'pageSize', the service returns a [ListScalingPoliciesResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/><br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'pageToken' to the<br/>[ListScalingPoliciesResponse.next_page_token] returned by a previous list request.|
+|`--function-id`|<b>`string`</b><br/>ID of the function to retrieve scaling policies for. To get a function ID, make a [FunctionService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available results is larger than 'pageSize', the service returns a [ListScalingPoliciesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'pageToken' to the [ListScalingPoliciesResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

@@ -10,8 +10,8 @@
 
   Here is a description of the available tabs:
   * **{{ ui-key.yacloud.common.overview }}** shows general information about the VM, including the [IP addresses](../../vpc/concepts/address.md) assigned to it.
-  * **Disks** gives information about the [disks](../../compute/concepts/disk.md) attached to the VM.
-  * **File storages** provides information about the connected [file storages](../../compute/concepts/filesystem.md).
+  * **Disks** provides information about the [disks](../../compute/concepts/disk.md) attached to the VM.
+  * **File storage** provides information about the [file storage](../../compute/concepts/filesystem.md) attached.
   * **{{ ui-key.yacloud.common.operations-key-value }}** lists operations on the VM and its resources, such as disks.
   * **{{ ui-key.yacloud.common.monitoring }}** shows information about VM resource consumption. You can only get this info from the management console or from within the VM.
   * **{{ ui-key.yacloud.compute.instance.switch_console }}** provides access to the [serial console](../../compute/operations/serial-console/index.md) if enabled when [creating](../../compute/operations/index.md#vm-create) the VM.
@@ -65,14 +65,14 @@
      * `data "yandex_compute_instance"`: Description of the data source to get VM information from:
        * `instance_id`: VM ID.
      * `output "instance_external_ip"`: [Public IP address](../../vpc/concepts/address.md#public-addresses) of the VM to return in the output:
-       * `value`: Returned value.
+       * `value`: Return value.
 
      For more information about the `yandex_compute_instance` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_instance).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output instance_external_ip

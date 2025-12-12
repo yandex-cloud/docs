@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>Currently you can use filtering only on the [InstanceGroup.name] field.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to list instance groups in.<br/>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListInstanceGroupsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results,<br/>set [page_token] to the [ListInstanceGroupsResponse.next_page_token]<br/>returned by a previous list request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name] field.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to list instance groups in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListInstanceGroupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListInstanceGroupsResponse.next_page_token] returned by a previous list request.|
 |`--view`|<b>`enum`</b><br/>Defines which information about the Instance template should be returned in the server response. Possible Values: 'basic', 'full'|
 
 #### Global Flags

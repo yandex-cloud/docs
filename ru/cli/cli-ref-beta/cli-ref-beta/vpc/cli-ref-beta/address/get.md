@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--address-id`|<b>`string`</b><br/>ID of the Address resource to return.<br/><br/>To get Address resource ID make a [AddressService.List] request.|
+|`--address-id`|<b>`string`</b><br/>ID of the Address resource to return. To get Address resource ID make a [AddressService.List] request.|
 
 #### Global Flags
 

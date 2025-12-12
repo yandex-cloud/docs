@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--container-revision-id`|<b>`string`</b><br/>ID of the revision to return.<br/><br/>To get a revision ID make a [ContainerService.ListRevisions] request.|
+|`--container-revision-id`|<b>`string`</b><br/>ID of the revision to return. To get a revision ID make a [ContainerService.ListRevisions] request.|
 
 #### Global Flags
 

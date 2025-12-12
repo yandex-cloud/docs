@@ -38,7 +38,9 @@ Creates a Kafka user in the specified cluster.
 
 Required field. ID of the Apache Kafka® cluster to create a user in.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user_spec | **[UserSpec](#yandex.cloud.mdb.kafka.v1.UserSpec)**
 
 Required field. Configuration of the user to create. ||
@@ -50,10 +52,14 @@ Required field. Configuration of the user to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the Kafka user. ||
+Required field. Name of the Kafka user.
+
+The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 || password | **string**
 
-Required field. Password of the Kafka user. ||
+Required field. Password of the Kafka user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.kafka.v1.Permission)**
 
 Set of permissions granted to the user. ||
@@ -73,7 +79,6 @@ To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/gr
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.
@@ -227,7 +232,6 @@ To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/gr
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.

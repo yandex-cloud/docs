@@ -166,7 +166,7 @@
       ```bash
       export ORG_ID=<ID_организации>
       for FED in $(yc organization-manager federation saml list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do yc organization-manager federation saml get --id bpfdshe1skaqcjp6uc50 --format=json | jq -r '. | select(.cookie_max_age>"21600s")'
+      do yc organization-manager federation saml get --id $FED --format=json | jq -r '. | select(.cookie_max_age>"21600s")'
       done
       ```
 

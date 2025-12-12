@@ -49,6 +49,7 @@ output "network_id" {
 
 - `created_at` (String) The creation timestamp of the resource.
 - `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the KMS key to encrypt cluster disks.
 - `environment` (String) Deployment environment of the Kafka cluster. Can be either `PRESTABLE` or `PRODUCTION`. The default is `PRODUCTION`.
 - `health` (String) Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](https://yandex.cloud/docs/managed-kafka/api-ref/Cluster/).
 - `host` (Set of Object) A host of the Kafka cluster. (see [below for nested schema](#nestedatt--host))

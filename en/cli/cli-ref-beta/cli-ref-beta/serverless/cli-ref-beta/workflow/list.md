@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters functions listed in the response.<br/><br/>The expression must specify:<br/>1. The field name. Currently filtering can only be applied to following fields: name, created_at.<br/>2. An '=' operator.<br/>3. The value in double quotes ('"'). Must be 3-63 characters long and match the regular expression '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'.<br/>Example of a filter: 'name=my-workflow'.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters functions listed in the response. The expression must specify: 1. The field name. Currently filtering can only be applied to following fields: name, created_at. 2. An '=' operator. 3. The value in double quotes ('"'). Must be 3-63 characters long and match the regular expression 'a-z?'. Example of a filter: 'name=my-workflow'.|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder to list Workflows in.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than 'pageSize', the service returns a [ListWorkflowsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/><br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'pageToken' to the<br/>[ListWorkflowsResponse.next_page_token] returned by a previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than 'pageSize', the service returns a [ListWorkflowsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'pageToken' to the [ListWorkflowsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

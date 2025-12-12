@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--deadline-at`|<b>`time`</b><br/>The date and time when this host will be automatically freed of instances.<br/>Timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. (RFC3339)|
+|`--deadline-at`|<b>`time`</b><br/>The date and time when this host will be automatically freed of instances. Timestamp in RFC3339 text format. (RFC3339)|
 |`--host-group-id`|<b>`string`</b><br/>ID of the host group to update.|
 |`--host-id`|<b>`string`</b><br/>ID of the host to update.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

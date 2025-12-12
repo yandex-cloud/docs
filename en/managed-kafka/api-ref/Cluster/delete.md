@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Apache Kafka® cluster to delete.
             To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -39,7 +40,9 @@ DELETE https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}
 
 Required field. ID of the Apache Kafka® cluster to delete.
 
-To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

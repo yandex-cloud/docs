@@ -181,6 +181,7 @@ If not set, default name is used: `{instance_group.id}-{instance.short_id}`. It 
 - `network_settings` (Block List) Network acceleration type for instance. (see [below for nested schema](#nestedblock--instance_template--network_settings))
 - `placement_policy` (Block List, Max: 1) The placement policy configuration. (see [below for nested schema](#nestedblock--instance_template--placement_policy))
 - `platform_id` (String) The ID of the hardware platform configuration for the instance.
+- `reserved_instance_pool_id` (String) ID of the reserved instance pool that the instance should belong to.
 - `scheduling_policy` (Block List, Max: 1) The scheduling policy configuration. (see [below for nested schema](#nestedblock--instance_template--scheduling_policy))
 - `secondary_disk` (Block List) A list of disks to attach to the instance. (see [below for nested schema](#nestedblock--instance_template--secondary_disk))
 - `service_account_id` (String) The ID of the service account authorized for this instance.

@@ -19,11 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--cluster-id`|<b>`string`</b><br/>|
-|`--user`|<b>`shorthand/json`</b><br/><br/>Example:|
-|`--user`|<b>`name=value,`</b><br/>password=value, resource-group=value<br/><br/>Shorthand Syntax:<br/>{name=str, password=str, resource-group=str}<br/>Fields:<br/>name            string  required  — User name<br/>password        string            — User password. Used only in create and update requests<br/>resource-group  string            — Resource group for user's queries<br/>|
+|`--user`|<b>`shorthand/json`</b><br/>Shorthand Syntax:<br/>{<br/>name = str,<br/>password = str,<br/>resource-group = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"name": "str",<br/>"password": "str",<br/>"resource-group": "str"<br/>}"<br/>Fields:<br/>name -> (string)<br/>User name<br/>password -> (string)<br/>User password. Used only in create and update requests<br/>resource-group -> (string)<br/>Resource group for user's queries|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

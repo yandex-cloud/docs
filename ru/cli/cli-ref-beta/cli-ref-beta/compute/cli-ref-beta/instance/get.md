@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--instance-id`|<b>`string`</b><br/>ID of the Instance resource to return.<br/>To get the instance ID, use a [InstanceService.List] request.|
+|`--instance-id`|<b>`string`</b><br/>ID of the Instance resource to return. To get the instance ID, use a [InstanceService.List] request.|
 |`--view`|<b>`enum`</b><br/>Defines which information about the Instance resource should be returned in the server response. Possible Values: 'basic', 'full'|
 
 #### Global Flags

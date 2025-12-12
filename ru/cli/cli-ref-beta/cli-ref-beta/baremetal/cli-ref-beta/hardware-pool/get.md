@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--hardware-pool-id`|<b>`string`</b><br/>ID of the HardwarePool resource to return.<br/><br/>To get the hardware pool ID, use a [HardwarePoolService.List] request.|
+|`--hardware-pool-id`|<b>`string`</b><br/>ID of the HardwarePool resource to return. To get the hardware pool ID, use a [HardwarePoolService.List] request.|
 
 #### Global Flags
 

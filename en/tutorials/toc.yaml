@@ -244,8 +244,8 @@ items:
         hidden: true
         href: security/trails-logs-opensearch.md
       - name: >-
-          Transferring {{ mgp-name }} cluster logs to {{ cloud-logging-full-name
-          }}
+          Transferring a {{ mgp-name }} cluster's logs to {{
+          cloud-logging-full-name }}
         href: security/mgp-to-cloud-logging.md
   - name: Storing and recovering data
     items:
@@ -575,8 +575,6 @@ items:
                 href: container-infrastructure/autoscaling.md
               - name: Vertical scaling of an application in a cluster
                 href: container-infrastructure/vpa-autoscaling.md
-              - name: Updating the Metrics Server parameters
-                href: container-infrastructure/metrics-server.md
               - name: Deploying and load testing a scalable gRPC service
                 href: container-infrastructure/loadtesting-grpc-autoscaling.md
           - name: Installing NGINX
@@ -634,7 +632,7 @@ items:
               - name: Syncing {{ lockbox-name }} and {{ managed-k8s-name }} secrets
                 href: container-infrastructure/kubernetes-lockbox-secrets.md
               - name: >-
-                  Transferring {{ managed-k8s-name }} cluster logs to {{
+                  Transferring a {{ managed-k8s-name }} cluster's logs to {{
                   cloud-logging-name }}
                 href: container-infrastructure/k8s-fluent-bit-logging.md
               - name: Setting up the Gateway API
@@ -813,10 +811,6 @@ items:
             href: infrastructure/gta-v-server.md
           - name: Converting a video to a GIF in Python
             href: serverless/video-converting-queue.md
-          - name: '{{ speechsense-name }} integration with {{ bitrix24-name }}'
-            href: speechsense/bitrix24.md
-          - name: '{{ speechsense-name }} integration with {{ amocrm-name }}'
-            href: speechsense/amocrm.md
   - name: Building a data platform
     items:
       - name: All tutorials
@@ -836,59 +830,59 @@ items:
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
+          Transferring data from {{ mmy-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mmy.md
-      - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
+      - name: Transferring data from {{ mmy-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/debezium-mmy.md
       - name: >-
-          Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
+          Transferring data from {{ mpg-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mpg.md
-      - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
+      - name: Transferring data from {{ mpg-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/debezium-mpg.md
       - name: >-
-          Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
+          Transferring data from {{ ydb-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/ydb-mkf-replication.md
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
+          Transferring data from {{ mkf-name }} to {{ mch-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mch.md
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ mgp-name }} using {{
+          Transferring data from {{ mkf-name }} to {{ mgp-name }} using {{
           data-transfer-name }}
         href: dataplatform/managed-kafka-to-greenplum.md
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ mmg-name }} using {{
+          Transferring data from {{ mkf-name }} to {{ mmg-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mmg.md
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ mmy-name }} using {{
+          Transferring data from {{ mkf-name }} to {{ mmy-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mmy.md
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ mos-name }} using {{
+          Transferring data from {{ mkf-name }} to {{ mos-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mos.md
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ mpg-name }} using {{
+          Transferring data from {{ mkf-name }} to {{ mpg-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-to-mpg.md
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
+          Transferring data from {{ mkf-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-ydb-stream.md
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ yds-name }} using {{
+          Transferring data from {{ mkf-name }} to {{ yds-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
       - name: >-
-          Delivering data from {{ yds-name }} to {{ ydb-name }} using {{
+          Transferring data from {{ yds-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-ydb.md
       - name: >-
-          Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
+          Transferring data from {{ yds-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md
       - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
@@ -926,7 +920,7 @@ items:
       - name: Migrating data to {{ mch-name }} using {{ data-transfer-name }}
         href: dataplatform/ch-to-mch-migration.md
       - name: >-
-          Delivering data from {{ mmy-name }} to {{ mch-name }} using {{
+          Transferring data from {{ mmy-name }} to {{ mch-name }} using {{
           data-transfer-name }}
         href: dataplatform/mysql-to-clickhouse.md
       - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
@@ -940,7 +934,7 @@ items:
       - name: Fetching data from {{ mkf-name }} to ksqlDB
         href: dataplatform/use-ksqldb-with-mkf.md
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
+          Transferring data from {{ mkf-name }} to {{ mch-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mch.md
         hidden: true
@@ -967,8 +961,8 @@ items:
           data-transfer-name }}
         href: dataplatform/object-storage-to-clickhouse.md
       - name: >-
-          Migrating data with change of storage from {{ mos-name }} to {{
-          mch-name }} using {{ data-transfer-name }}
+          Migrating data from {{ mos-name }} to {{ mch-name }} with a storage
+          change using {{ data-transfer-name }}
         href: dataplatform/opensearch-to-clickhouse.md
       - name: >-
           Loading data from {{ ydb-name }} to {{ mch-name }} using {{
@@ -1072,10 +1066,10 @@ items:
         href: dataplatform/sqoop-mmy.md
         hidden: true
       - name: >-
-          Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
+          Transferring data from {{ mmy-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/./data-transfer-mmy.md
-      - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
+      - name: Transferring data from {{ mmy-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/./debezium-mmy.md
       - name: >-
           Migrating a database from {{ mmy-name }} to {{ ydb-name }} using {{
@@ -1141,16 +1135,16 @@ items:
         href: dataplatform/rdbms-to-clickhouse.md
         hidden: true
       - name: >-
-          Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
+          Transferring data from {{ mpg-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/./data-transfer-mpg.md
-      - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
+      - name: Transferring data from {{ mpg-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/./debezium-mpg.md
       - name: Importing data from {{ mpg-name }} to {{ dataproc-name }} using Sqoop
         href: dataplatform/sqoop-mpg.md
         hidden: true
       - name: >-
-          Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
+          Transferring data from {{ mpg-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
       - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
@@ -1198,12 +1192,12 @@ items:
       - name: Using a {{ mrd-name }} cluster as a PHP session storage
         href: dataplatform/redis-as-php-sessions-storage.md
       - name: >-
-          Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
+          Transferring data from {{ ydb-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/ydb-mkf-replication.md
         hidden: true
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
+          Transferring data from {{ mkf-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-ydb-stream.md
         hidden: true
@@ -1213,7 +1207,7 @@ items:
         href: dataplatform/mmy-ydb-migration.md
         hidden: true
       - name: >-
-          Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
+          Transferring data from {{ mpg-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
         hidden: true
@@ -1651,6 +1645,18 @@ items:
               Regular recognition of images and PDF documents from an {{
               objstorage-name }} bucket
             href: ml-ai/vision-ocrrecognizer-storage.md
+      - name: Speech analytics
+        items:
+          - name: >-
+              Automatic data upload to {{ speechsense-full-name }} using {{
+              sw-full-name }}
+            href: ml-ai/speechsense/auto-upload.md
+          - name: '{{ speechsense-name }} integration with {{ amocrm-name }}'
+            href: ml-ai/speechsense/amocrm.md
+          - name: '{{ speechsense-name }} integration with {{ bitrix24-name }}'
+            href: ml-ai/speechsense/bitrix24.md
+          - name: Working with an AI assistant in {{ speechsense-name }}
+            href: ml-ai/speechsense/ai-assistant.md
       - name: Using {{ foundation-models-full-name }} generative models
         items:
           - name: >-

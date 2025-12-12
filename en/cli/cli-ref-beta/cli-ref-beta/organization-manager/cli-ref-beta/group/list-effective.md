@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>The expression supports the following operations:<br/>- '=' for exact match: 'name = 'example-name''<br/>- 'IN' for multiple values: 'id IN ('id1', 'id2')'<br/>- 'contains' for domain substring search: 'name contains 'example''<br/>- 'AND' for combining conditions: 'name contains 'my-group' AND name contains 'name''<br/><br/>Available fields for filtering:<br/>- 'id' - group ID<br/>- 'name' - group name<br/><br/>Must be 1-1000 characters long.|
-|`--organization-id`|<b>`string`</b><br/>The ID of the organization to scope the group search to.<br/>If omitted and the subject belongs to a single organization,<br/>that organization's ID will be used automatically.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListEffectiveResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Acceptable values are 0 to 1000, inclusive. Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. Set [page_token]<br/>to the [ListEffectiveResponse.next_page_token]<br/>returned by a previous list request to get the next page of results.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression supports the following operations: - '=' for exact match: 'name = 'example-name'' - 'IN' for multiple values: 'id IN ('id1', 'id2')' - 'contains' for domain substring search: 'name contains 'example'' - 'AND' for combining conditions: 'name contains 'my-group' AND name contains 'name'' Available fields for filtering: - 'id' - group ID - 'name' - group name Must be 1-1000 characters long.|
+|`--organization-id`|<b>`string`</b><br/>The ID of the organization to scope the group search to. If omitted and the subject belongs to a single organization, that organization's ID will be used automatically.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListEffectiveResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. Set [page_token] to the [ListEffectiveResponse.next_page_token] returned by a previous list request to get the next page of results.|
 |`--subject-id`|<b>`string`</b><br/>ID of the subject to list groups for.|
 
 #### Global Flags

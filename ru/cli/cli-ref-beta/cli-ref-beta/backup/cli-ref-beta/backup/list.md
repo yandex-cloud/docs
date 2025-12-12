@@ -18,21 +18,18 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>Filter list by various parameters.<br/>Supported parameters are:<br/>* created_at<br/><br/>Supported logic operators:<br/>* AND|
-|`--order-by`|<b>`string`</b><br/>By which column the listing should be ordered and in which direction,<br/>format is "createdAt desc". "createdAt desc" if omitted.|
+|`--filter`|<b>`string`</b><br/>Filter list by various parameters. Supported parameters are: * created_at Supported logic operators: * AND|
+|`--order-by`|<b>`string`</b><br/>By which column the listing should be ordered and in which direction, format is "createdAt desc". "createdAt desc" if omitted.|
 |`--page-size`|<b>`int`</b><br/>Number of results per page.|
 |`--page-token`|<b>`string`</b><br/>Token for the results page. Not allowed to use if listing is performed by specific policy ID.|
 |`--type`|<b>`enum`</b><br/>Type of resource. Could be compute VM or baremetal server. Possible Values: 'compute', 'bms', 'external-vm', 'external-server'|
 |`--compute-instance-id`|<b>`string`</b><br/>List backups that belongs to specific Compute Cloud instance.|
-|`--archive`|<b>`shorthand/json`</b><br/>List backups that belongs to specific archive of specific folder.<br/><br/>Example:|
-|`--archive`|<b>`archive-id=value,`</b><br/>folder-id=value<br/><br/>Shorthand Syntax:<br/>{archive-id=str, folder-id=str}<br/>Fields:<br/>archive-id  string  required  — Archive ID.<br/>folder-id   string  required  — Folder ID.<br/>|
+|`--archive`|<b>`shorthand/json`</b><br/>List backups that belongs to specific archive of specific folder.<br/>Shorthand Syntax:<br/>{<br/>archive-id = str,<br/>folder-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"archive-id": "str",<br/>"folder-id": "str"<br/>}"<br/>Fields:<br/>archive-id -> (string)<br/>Archive ID.<br/>folder-id -> (string)<br/>Folder ID.|
 |`--folder-id`|<b>`string`</b><br/>List backups that belongs to specific folder.|
-|`--instance-policy`|<b>`shorthand/json`</b><br/>List backups that belongs to specific instance and policy at the same time.<br/><br/>Example:|
-|`--instance-policy`|<b>`compute-instance-id=value,`</b><br/>policy-id=value<br/><br/>Shorthand Syntax:<br/>{compute-instance-id=str, policy-id=str}<br/>Fields:<br/>compute-instance-id  string  — Compute Cloud instance ID.<br/>policy-id            string  — Policy ID.<br/>|
+|`--instance-policy`|<b>`shorthand/json`</b><br/>List backups that belongs to specific instance and policy at the same time.<br/>Shorthand Syntax:<br/>{<br/>compute-instance-id = str,<br/>policy-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"compute-instance-id": "str",<br/>"policy-id": "str"<br/>}"<br/>Fields:<br/>compute-instance-id -> (string)<br/>Compute Cloud instance ID.<br/>policy-id -> (string)<br/>Policy ID.|
 |`--resource-id`|<b>`string`</b><br/>List backups by specific resource ID.|
 |`--policy-id`|<b>`string`</b><br/>List backups by specific policy ID.|
-|`--backup`|<b>`shorthand/json`</b><br/>List backups by specific backup ID.<br/><br/>Example:|
-|`--backup`|<b>`backup-id=value,`</b><br/>folder-id=value<br/><br/>Shorthand Syntax:<br/>{backup-id=str, folder-id=str}<br/>Fields:<br/>backup-id  string  required  —<br/>folder-id  string  required  —|
+|`--backup`|<b>`shorthand/json`</b><br/>List backups by specific backup ID.<br/>Shorthand Syntax:<br/>{<br/>backup-id = str,<br/>folder-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"backup-id": "str",<br/>"folder-id": "str"<br/>}"<br/>Fields:<br/>backup-id -> (string)<br/>folder-id -> (string)|
 
 #### Global Flags
 

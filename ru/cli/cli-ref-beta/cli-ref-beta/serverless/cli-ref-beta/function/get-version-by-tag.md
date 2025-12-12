@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--function-id`|<b>`string`</b><br/>ID of the function whose versions should be listed.<br/><br/>To get a function ID use a [FunctionService.List] request.|
-|`--tag`|<b>`string`</b><br/>Version tag.<br/><br/>To get the history of version tags make a [FunctionService.ListTagHistory] request.|
+|`--function-id`|<b>`string`</b><br/>ID of the function whose versions should be listed. To get a function ID use a [FunctionService.List] request.|
+|`--tag`|<b>`string`</b><br/>Version tag. To get the history of version tags make a [FunctionService.ListTagHistory] request.|
 
 #### Global Flags
 

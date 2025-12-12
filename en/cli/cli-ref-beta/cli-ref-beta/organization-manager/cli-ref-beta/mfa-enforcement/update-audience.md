@@ -19,10 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--audience-deltas`|<b>`shorthand/json`</b><br/>MFA enforcement's audience to update<br/><br/>Example:|
-|`--audience-deltas`|<b>`[{action=ACTION_ADD,`</b><br/>subject-id=value}]<br/><br/>Shorthand Syntax:<br/>[{action=ACTION_ADD\|ACTION_REMOVE, subject-id=str},...]<br/>Fields:<br/>action      enum<ACTION_ADD\|ACTION_REMOVE>  required  — action to perform<br/>subject-id  string                          required  — subject id<br/>|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--audience-deltas`|<b>`shorthand/json`</b><br/>MFA enforcement's audience to update<br/>Shorthand Syntax:<br/>[<br/>{<br/>action = ACTION_ADD\|ACTION_REMOVE,<br/>subject-id = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"action": "ACTION_ADD\|ACTION_REMOVE",<br/>"subject-id": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>action -> (enum<ACTION_ADD\|ACTION_REMOVE>)<br/>action to perform<br/>subject-id -> (string)<br/>subject id|
 |`--mfa-enforcement-id`|<b>`string`</b><br/>id of the MFA enforcement|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

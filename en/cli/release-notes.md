@@ -7,6 +7,76 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.177.0 (20/11/25) {#version0.177.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ cr-name }}
+
+* Added commands to move PublicConnection, PrivateConnection, TrunkConnection, and RoutingInstance:
+  * `yc cic public-connection move`
+  * `yc cic private-connection move`
+  * `yc cic trunk-connection move`
+  * `yc cloudrouter routing-instance move`
+
+##### {{ iam-name }}
+
+* Added automatic saving of SubjectID when initializing the `yc init` profile.
+
+##### {{ maf-name }}, {{ mch-name }}, {{ mgp-name }}, {{ mkf-name }}, {{ metastore-name }}, {{ mmy-name }}, {{ mos-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ msp-name }}, {{ mtr-name }}, {{ mmg-name }}
+
+* Added commands to manage access bindings:
+  * `yc managed-airflow cluster list-access-bindings`
+  * `yc managed-airflow cluster set-access-bindings`
+  * `yc managed-airflow cluster add-access-bindings`
+  * `yc managed-airflow cluster remove-access-bindings`
+  * `yc managed-clickhouse cluster list-access-bindings`
+  * `yc managed-clickhouse cluster set-access-bindings`
+  * `yc managed-clickhouse cluster add-access-bindings`
+  * `yc managed-clickhouse cluster remove-access-bindings`
+  * `yc managed-greenplum cluster list-access-bindings`
+  * `yc managed-greenplum cluster set-access-bindings`
+  * `yc managed-greenplum cluster add-access-bindings`
+  * `yc managed-greenplum cluster remove-access-bindings`
+  * `yc managed-kafka cluster list-access-bindings`
+  * `yc managed-kafka cluster set-access-bindings`
+  * `yc managed-kafka cluster add-access-bindings`
+  * `yc managed-kafka cluster remove-access-bindings`
+  * `yc managed-metastore cluster list-access-bindings`
+  * `yc managed-metastore cluster set-access-bindings`
+  * `yc managed-metastore cluster add-access-bindings`
+  * `yc managed-metastore cluster remove-access-bindings`
+  * `yc managed-mongodb cluster list-access-bindings`
+  * `yc managed-mongodb cluster set-access-bindings`
+  * `yc managed-mongodb cluster add-access-bindings`
+  * `yc managed-mongodb cluster remove-access-bindings`
+  * `yc managed-mysql cluster list-access-bindings`
+  * `yc managed-mysql cluster set-access-bindings`
+  * `yc managed-mysql cluster add-access-bindings`
+  * `yc managed-mysql cluster remove-access-bindings`
+  * `yc managed-opensearch cluster list-access-bindings`
+  * `yc managed-opensearch cluster set-access-bindings`
+  * `yc managed-opensearch cluster add-access-bindings`
+  * `yc managed-opensearch cluster remove-access-bindings`
+  * `yc managed-postgresql cluster list-access-bindings`
+  * `yc managed-postgresql cluster set-access-bindings`
+  * `yc managed-postgresql cluster add-access-bindings`
+  * `yc managed-postgresql cluster remove-access-bindings`
+  * `yc managed-redis cluster list-access-bindings`
+  * `yc managed-redis cluster set-access-bindings`
+  * `yc managed-redis cluster add-access-bindings`
+  * `yc managed-redis cluster remove-access-bindings`
+  * `yc managed-spark cluster list-access-bindings`
+  * `yc managed-spark cluster set-access-bindings`
+  * `yc managed-spark cluster add-access-bindings`
+  * `yc managed-spark cluster remove-access-bindings`
+  * `yc managed-trino cluster list-access-bindings`
+  * `yc managed-trino cluster set-access-bindings`
+  * `yc managed-trino cluster add-access-bindings`
+  * `yc managed-trino cluster remove-access-bindings`
+
+## Previous releases {#previous-release}
+
 ### Version 0.176.0 (20/11/25) {#version0.176.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -40,8 +110,6 @@ Added commands for {{ mcp-hub-name }}:
 * `serverless mcp-gateway remove-access-binding`
 * `serverless mcp-gateway allow-unauthenticated-invoke`
 * `serverless mcp-gateway deny-unauthenticated-invoke`
-
-## Previous releases {#previous-release}
 
 ### Version 0.175.0 (10/11/25) {#version0.175.0}
 

@@ -33,7 +33,6 @@ description: Различные сценарии использования ко
 
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
-* [{#T}](metrics-server.md)
 * [{#T}](loadtesting-grpc-autoscaling.md)
 
 ### Установка NGINX {#nginx}

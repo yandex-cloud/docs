@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--registry-id`|<b>`string`</b><br/>ID of the Registry resource to return.<br/><br/>To get the registry ID use a [RegistryService.List] request.|
+|`--registry-id`|<b>`string`</b><br/>ID of the Registry resource to return. To get the registry ID use a [RegistryService.List] request.|
 
 #### Global Flags
 

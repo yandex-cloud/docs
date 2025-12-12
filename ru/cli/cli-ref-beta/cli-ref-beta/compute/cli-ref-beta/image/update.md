@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the image.|
-|`--image-id`|<b>`string`</b><br/>ID of the Image resource to update.<br/>To get the image ID, use a [ImageService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.<br/><br/>Existing set of 'labels' is completely replaced by the provided set.|
-|`--min-disk-size`|<b>`int`</b><br/>Minimum size of the disk that can be created from this image.<br/>Specified in bytes. Should be more than the volume of source data and more than the virtual disk size.|
+|`--image-id`|<b>`string`</b><br/>ID of the Image resource to update. To get the image ID, use a [ImageService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set.|
+|`--min-disk-size`|<b>`int`</b><br/>Minimum size of the disk that can be created from this image. Specified in bytes. Should be more than the volume of source data and more than the virtual disk size.|
 |`--name`|<b>`string`</b><br/>Name of the image.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

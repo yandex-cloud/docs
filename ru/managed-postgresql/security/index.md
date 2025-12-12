@@ -34,6 +34,10 @@ description: Управление доступом в сервисе по соз
 
 ### Сервисные роли {#service-roles}
 
+#### managed-postgresql.clusters.connector {#managed-postgresql-clusters-connector}
+
+{% include [managed-postgresql.clusters.connector](../../_roles/managed-postgresql/clusters/connector.md) %}
+
 #### managed-postgresql.auditor {#managed-postgresql-auditor}
 
 {% include [managed-postgresql.auditor](../../_roles/managed-postgresql/auditor.md) %}

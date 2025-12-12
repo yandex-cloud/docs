@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--network-id`|<b>`string`</b><br/>ID of the Network resource to return.<br/>To get the network ID, use a [NetworkService.List] request.|
+|`--network-id`|<b>`string`</b><br/>ID of the Network resource to return. To get the network ID, use a [NetworkService.List] request.|
 
 #### Global Flags
 

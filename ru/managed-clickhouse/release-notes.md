@@ -3,6 +3,12 @@ title: История изменений в {{ mch-full-name }}
 description: В разделе представлена история изменений сервиса {{ mch-name }}.
 ---
 
+<!-- Changelog begin -->
+
+
+<!-- Changelog end -->
+
+
 # История изменений в {{ mch-full-name }}
 
 ## Июль 2025 {#jul-2025}

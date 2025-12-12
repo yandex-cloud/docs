@@ -18,7 +18,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
-|`--acr-id`|<b>`string`</b><br/>|
+|`--acr-id`|<b>`any-mfa`</b><br/>Supported values:<br/>any-mfa - any MFA factors<br/>`phr` - phishing-resistant MFA factors|
 |`--ttl`|<b>`duration`</b><br/>|
 |`--status`|<b>`string`</b><br/>Values: 'status-active', 'status-inactive'|
 |`--apply-at`|<b>`timestamp`</b><br/>|

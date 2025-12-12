@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListSnapshotScheduleOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/><br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListSnapshotScheduleOperationsResponse.next_page_token] returned by a previous list request.|
-|`--snapshot-schedule-id`|<b>`string`</b><br/>ID of the snapshot schedule to list operations for.<br/><br/>To get a snapshot schedule ID, make a [SnapshotScheduleService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListSnapshotScheduleOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListSnapshotScheduleOperationsResponse.next_page_token] returned by a previous list request.|
+|`--snapshot-schedule-id`|<b>`string`</b><br/>ID of the snapshot schedule to list operations for. To get a snapshot schedule ID, make a [SnapshotScheduleService.List] request.|
 
 #### Global Flags
 

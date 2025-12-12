@@ -220,8 +220,6 @@ items:
             href: tutorials/autoscaling.md
           - name: Vertical scaling of an application in a cluster
             href: tutorials/vpa-autoscaling.md
-          - name: Updating the Metrics Server parameters
-            href: tutorials/metrics-server.md
           - name: Deploying and load testing a scalable gRPC service
             href: tutorials/load-testing-grpc-autoscaling.md
       - name: Installing NGINX

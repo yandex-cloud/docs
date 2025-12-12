@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--point-of-presence-id`|<b>`string`</b><br/>ID of the PointOfPresence resource to return.<br/>To get the pointOfPresence ID use a [PointOfPresenceService.List] request.|
+|`--point-of-presence-id`|<b>`string`</b><br/>ID of the PointOfPresence resource to return. To get the pointOfPresence ID use a [PointOfPresenceService.List] request.|
 
 #### Global Flags
 

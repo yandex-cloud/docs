@@ -19,11 +19,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--capacity`|<b>`enum`</b><br/>Capacity of the trunkConnection Possible Values: 'capacity-50-mbps', 'capacity-100-mbps', 'capacity-200-mbps', 'capacity-300-mbps', 'capacity-400-mbps', 'capacity-500-mbps', 'capacity-1-gbps', 'capacity-2-gbps', 'capacity-3-gbps', 'capacity-4-gbps', 'capacity-5-gbps', 'capacity-10-gbps', 'capacity-20-gbps', 'capacity-30-gbps', 'capacity-40-gbps', 'capacity-50-gbps', 'capacity-100-gbps', 'capacity-200-gbps'|
-|`--deletion-protection`|Deletion protection flag.<br/>Optional.<br/>If set prohibits deletion of the trunkConnection.|
+|`--deletion-protection`|Deletion protection flag. Optional. If set prohibits deletion of the trunkConnection.|
 |`--description`|<b>`string`</b><br/>Optional description of the trunkConnection. 0-256 characters long.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels, 'key:value' pairs.<br/>No more than 64 per resource.<br/>The maximum string length in characters for each value is 63.<br/>Each value must match the regular expression '[-_0-9a-z]*'.<br/>The string length in characters for each key must be 1-63.<br/>Each key must match the regular expression '[a-z][-_0-9a-z]*'.|
-|`--name`|<b>`string`</b><br/>Name of the trunkConnection.<br/>The name must be unique within the folder.<br/>Value must match the regular expression ''\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?''.|
-|`--point-of-presence-id`|<b>`string`</b><br/>ID of pointOfPresence that the trunkConnection is deployed on.<br/>Optional.<br/>If is not set scheduler selects it by himself.|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels, 'key:value' pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression '[-_0-9a-z]*'. The string length in characters for each key must be 1-63. Each key must match the regular expression '[a-z][-_0-9a-z]*'.|
+|`--name`|<b>`string`</b><br/>Name of the trunkConnection. The name must be unique within the folder. Value must match the regular expression ''\\|a-zA-Z?''.|
+|`--point-of-presence-id`|<b>`string`</b><br/>ID of pointOfPresence that the trunkConnection is deployed on. Optional. If is not set scheduler selects it by himself.|
 |`--region-id`|<b>`string`</b><br/>ID of the region that the trunkConnection belongs to.|
 |`--trunk-connection-id`|<b>`string`</b><br/>ID of the TrunkConnection resource to return.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

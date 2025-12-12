@@ -19,10 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--certificate-authority-id`|<b>`string`</b><br/>The ID of the Certificate Authority to update.|
-|`--deletion-protection`|Update the deletion protection flag.<br/>Protects the Certificate Authority from accidental deletion.|
-|`--description`|<b>`string`</b><br/>New description of the Certificate Authority (if applicable).<br/>Allows adding or updating the description to clarify the CA's purpose.|
+|`--deletion-protection`|Update the deletion protection flag. Protects the Certificate Authority from accidental deletion.|
+|`--description`|<b>`string`</b><br/>New description of the Certificate Authority (if applicable). Allows adding or updating the description to clarify the CA's purpose.|
 |`--end-entities-ttl-limit-days`|<b>`int`</b><br/>Update the end-entity TTL limit for certificates issued by this Certificate Authority.|
-|`--name`|<b>`string`</b><br/>New name of the Certificate Authority (if applicable).<br/>This field is optional and will only be applied if included in the update mask.|
+|`--name`|<b>`string`</b><br/>New name of the Certificate Authority (if applicable). This field is optional and will only be applied if included in the update mask.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

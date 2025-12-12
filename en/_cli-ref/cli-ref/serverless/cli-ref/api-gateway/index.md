@@ -32,8 +32,10 @@ Aliases:
 - [yc serverless api-gateway release-canary](release-canary.md) — Set gateway specification variables to canary values and delete canary settings
 - [yc serverless api-gateway remove-access-binding](remove-access-binding.md) — Remove access binding for the specified API Gateway
 - [yc serverless api-gateway remove-domain](remove-domain.md) — Detach domain from the specified API Gateway
+- [yc serverless api-gateway resume](resume.md) — Resume API Gateway
 - [yc serverless api-gateway rollback-canary](rollback-canary.md) — Suspend sending requests to canary release(set canary weight to zero)
 - [yc serverless api-gateway set-access-bindings](set-access-bindings.md) — Set access bindings for the specified API Gateway and delete all existing access bindings if there were any
+- [yc serverless api-gateway stop](stop.md) — Stop API Gateway
 - [yc serverless api-gateway update](update.md) — Update API Gateway
 - [yc serverless api-gateway websocket](websocket/index.md) — Manage websocket connections
 	- [yc serverless api-gateway websocket disconnect](websocket/disconnect.md) — Close connection

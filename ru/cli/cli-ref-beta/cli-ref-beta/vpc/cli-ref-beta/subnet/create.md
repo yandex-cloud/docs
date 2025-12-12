@@ -19,18 +19,17 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--description`|<b>`string`</b><br/>Description of the subnet.|
-|`--dhcp-options`|<b>`shorthand/json`</b><br/><br/>Example:|
-|`--dhcp-options`|<b>`domain-name=value,`</b><br/>domain-name-servers=value, ntp-servers=value<br/><br/>Shorthand Syntax:<br/>{domain-name=str, domain-name-servers=str,..., ntp-servers=str,...}<br/>Fields:<br/>domain-name          string    — A domain name to us as a suffix when resolving host names in this subnet.<br/>domain-name-servers  []string  — A list of DHCP servers for this subnet.<br/>ntp-servers          []string  — List of NTP servers for this subnet.<br/>|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a subnet in.<br/>To get folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--dhcp-options`|<b>`shorthand/json`</b><br/>Shorthand Syntax:<br/>{<br/>domain-name = str,<br/>domain-name-servers = str,...,<br/>ntp-servers = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"domain-name": "str",<br/>"domain-name-servers": [<br/>"str", ...<br/>],<br/>"ntp-servers": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>domain-name -> (string)<br/>A domain name to us as a suffix when resolving host names in this subnet.<br/>domain-name-servers -> ([]string)<br/>A list of DHCP servers for this subnet.<br/>ntp-servers -> ([]string)<br/>List of NTP servers for this subnet.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a subnet in. To get folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels, '' key:value '' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the subnet.<br/>The name must be unique within the folder.|
+|`--name`|<b>`string`</b><br/>Name of the subnet. The name must be unique within the folder.|
 |`--network-id`|<b>`string`</b><br/>ID of the network to create subnet in.|
 |`--route-table-id`|<b>`string`</b><br/>ID of route table the subnet is linked to.|
-|`--v4-cidr-blocks`|<b>`strings`</b><br/>CIDR block.<br/>The range of internal addresses that are defined for this subnet.<br/>For example, 10.0.0.0/22 or 192.168.0.0/24.<br/>Minimum subnet size is /28, maximum subnet size is /16.|
-|`--zone-id`|<b>`string`</b><br/>ID of the availability zone where the subnet resides.<br/>To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.|
+|`--v4-cidr-blocks`|<b>`strings`</b><br/>CIDR block. The range of internal addresses that are defined for this subnet. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16.|
+|`--zone-id`|<b>`string`</b><br/>ID of the availability zone where the subnet resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

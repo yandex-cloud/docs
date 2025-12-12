@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--image-id`|<b>`string`</b><br/>ID of the Docker image resource to return.<br/><br/>To get the Docker image ID use a [ImageService.List] request.|
+|`--image-id`|<b>`string`</b><br/>ID of the Docker image resource to return. To get the Docker image ID use a [ImageService.List] request.|
 
 #### Global Flags
 

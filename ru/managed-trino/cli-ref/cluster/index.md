@@ -24,13 +24,16 @@ Aliases:
 - [yc managed-trino cluster delete](delete.md) — Delete the specified Trino cluster
 - [yc managed-trino cluster get](get.md) — Show information about the specified Trino cluster
 - [yc managed-trino cluster get-access-control](get-access-control.md) — Get Trino cluster access control configuration
+- [yc managed-trino cluster get-resource-groups](get-resource-groups.md) — Get Trino cluster resource groups configuration
 - [yc managed-trino cluster list](list.md) — List Trino clusters
 - [yc managed-trino cluster list-access-bindings](list-access-bindings.md) — List access bindings for the specified Trino cluster
 - [yc managed-trino cluster list-operations](list-operations.md) — List operations for the specified Trino cluster
 - [yc managed-trino cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified Trino cluster
 - [yc managed-trino cluster remove-access-control](remove-access-control.md) — Remove access control from Trino cluster configuration
+- [yc managed-trino cluster remove-resource-groups](remove-resource-groups.md) — Remove resource groups from Trino cluster configuration
 - [yc managed-trino cluster set-access-bindings](set-access-bindings.md) — Set access bindings for the specified Trino cluster and delete all existing access bindings if there were any
 - [yc managed-trino cluster set-access-control](set-access-control.md) — Set Trino cluster access control configuration
+- [yc managed-trino cluster set-resource-groups](set-resource-groups.md) — Set Trino cluster resource groups configuration from YAML file
 - [yc managed-trino cluster start](start.md) — Start the specified Trino cluster
 - [yc managed-trino cluster stop](stop.md) — Stop the specified Trino cluster
 - [yc managed-trino cluster update](update.md) — Update the specified Trino cluster

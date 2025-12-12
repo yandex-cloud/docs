@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--folder-id`|<b>`string`</b><br/>ID of the Folder resource to return.<br/>To get the folder ID, use a [FolderService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the Folder resource to return. To get the folder ID, use a [FolderService.List] request.|
 
 #### Global Flags
 

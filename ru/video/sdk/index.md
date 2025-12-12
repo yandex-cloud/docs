@@ -6,7 +6,7 @@ description: Из статьи вы узнаете про SDK видеоплее
 # SDK видеоплеера
 
 Для встраивания [видеоплеера](../concepts/player.md) с контентом из {{ video-name }} на сайт или в приложение предусмотрены следующие SDK:
-* [SDK видеоплеера для IFrame](../iframe-sdk.md)
+* [SDK видеоплеера для IFrame](./iframe/index.md)
 * [SDK видеоплеера для iOS](./ios-sdk.md)
 * [SDK видеоплеера для JavaScript](./javascript/index.md)
 

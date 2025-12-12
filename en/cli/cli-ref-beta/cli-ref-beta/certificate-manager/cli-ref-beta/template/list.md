@@ -20,7 +20,7 @@ Syntax:
 |----|----|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder into which list templates.|
 |`--page-size`|<b>`int`</b><br/>The maximum number of results to return per page. Couldn't exceed 100, default value is 100|
-|`--page-token`|<b>`string`</b><br/>Token to retrieve specific pages of results.<br/>If this is set, the service will return the next page of results based on this token.|
+|`--page-token`|<b>`string`</b><br/>Token to retrieve specific pages of results. If this is set, the service will return the next page of results based on this token.|
 
 #### Global Flags
 

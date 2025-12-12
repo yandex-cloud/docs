@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the VRF.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.<br/><br/>Existing set of labels is completely replaced by the provided set.|
-|`--name`|<b>`string`</b><br/>Name of the VRF.<br/>The name must be unique within the folder.|
-|`--vrf-id`|<b>`string`</b><br/>ID of the VRF to update.<br/><br/>To get the VRF ID, use a [VrfService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set.|
+|`--name`|<b>`string`</b><br/>Name of the VRF. The name must be unique within the folder.|
+|`--vrf-id`|<b>`string`</b><br/>ID of the VRF to update. To get the VRF ID, use a [VrfService.List] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

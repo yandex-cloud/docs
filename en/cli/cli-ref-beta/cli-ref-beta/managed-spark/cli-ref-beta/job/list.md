@@ -20,8 +20,8 @@ Syntax:
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>ID of the cluster to list Spark jobs of.|
 |`--filter`|<b>`string`</b><br/>String that describes a display filter.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available<br/>results is larger than 'page_size', the service returns a 'next_page_token' that can be used<br/>to get the next page of results in subsequent ListJobs requests.<br/>Acceptable values are 0 to 1000, inclusive. Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. Set 'page_token' to the 'next_page_token' returned by a previous ListJobs<br/>request to get the next page of results.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available results is larger than 'page_size', the service returns a 'next_page_token' that can be used to get the next page of results in subsequent ListJobs requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. Set 'page_token' to the 'next_page_token' returned by a previous ListJobs request to get the next page of results.|
 
 #### Global Flags
 

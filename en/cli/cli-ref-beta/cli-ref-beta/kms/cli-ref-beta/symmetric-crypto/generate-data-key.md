@@ -19,13 +19,13 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--aad-context`|<b>`uints`</b><br/>Additional authenticated data (AAD context), optional.<br/>If specified, this data will be required for decryption with the [SymmetricDecryptRequest].<br/>Should be encoded with base64.|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--aad-context`|<b>`uints`</b><br/>Additional authenticated data (AAD context), optional. If specified, this data will be required for decryption with the [SymmetricDecryptRequest]. Should be encoded with base64.|
 |`--data-key-spec`|<b>`enum`</b><br/>Encryption algorithm and key length for the generated data key. Possible Values: 'aes-128', 'aes-192', 'aes-256', 'aes-256-hsm', 'gost-r-3412-2015-k'|
 |`--key-id`|<b>`string`</b><br/>ID of the symmetric KMS key that the generated data key should be encrypted with.|
-|`--skip-plaintext`|If 'true', the method won't return the data key as plaintext.<br/>Default value is 'false'.|
-|`--version-id`|<b>`string`</b><br/>ID of the key version to encrypt the generated data key with.<br/>Defaults to the primary version if not specified.|
+|`--skip-plaintext`|If 'true', the method won't return the data key as plaintext. Default value is 'false'.|
+|`--version-id`|<b>`string`</b><br/>ID of the key version to encrypt the generated data key with. Defaults to the primary version if not specified.|
 
 #### Global Flags
 

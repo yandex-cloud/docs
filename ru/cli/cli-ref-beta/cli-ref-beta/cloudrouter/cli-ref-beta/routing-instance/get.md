@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--routing-instance-id`|<b>`string`</b><br/>ID of the RoutingInstance resource to return.<br/>To get the routingInstance ID use a [RoutingInstanceService.List] request.|
+|`--routing-instance-id`|<b>`string`</b><br/>ID of the RoutingInstance resource to return. To get the routingInstance ID use a [RoutingInstanceService.List] request.|
 
 #### Global Flags
 

@@ -18,11 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the PostgreSQL cluster to update a database in.<br/>To get the cluster ID use a [ClusterService.List] request.|
-|`--database-name`|<b>`string`</b><br/>Name of the database to update.<br/>To get the name of the database use a [DatabaseService.List] request.|
-|`--deletion-protection`|Deletion Protection inhibits deletion of the database<br/><br/>Default value: 'unspecified' (inherits cluster's deletion_protection)|
-|`--extensions`|<b>`shorthand/json`</b><br/>PostgreSQL extensions that should be enabled for the database.<br/><br/>If the field is sent, the list of enabled extensions is rewritten entirely.<br/>Therefore, to disable an active extension you should simply send the list omitting this extension.<br/><br/>Example:|
-|`--extensions`|<b>`[{name=value,`</b><br/>version=value}]<br/><br/>Shorthand Syntax:<br/>[{name=str, version=str},...]<br/>Fields:<br/>name     string  — Name of the extension, e.g. 'pg_trgm' or 'pg_btree'.<br/>Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](https://yandex.cloud/ru/docs/managed-postgresql/operations/extensions/cluster-extensions).<br/>version  string  — Version of the extension. The setting is deprecated and has no effect.<br/>|
+|`--cluster-id`|<b>`string`</b><br/>ID of the PostgreSQL cluster to update a database in. To get the cluster ID use a [ClusterService.List] request.|
+|`--database-name`|<b>`string`</b><br/>Name of the database to update. To get the name of the database use a [DatabaseService.List] request.|
+|`--deletion-protection`|Deletion Protection inhibits deletion of the database Default value: 'unspecified' (inherits cluster's deletion_protection)|
+|`--extensions`|<b>`shorthand/json`</b><br/>PostgreSQL extensions that should be enabled for the database. If the field is sent, the list of enabled extensions is rewritten entirely. Therefore, to disable an active extension you should simply send the list omitting this extension.<br/>Shorthand Syntax:<br/>[<br/>{<br/>name = str,<br/>version = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"name": "str",<br/>"version": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>name -> (string)<br/>Name of the extension, e.g. 'pg_trgm' or 'pg_btree'. Extensions supported by Managed Service for PostgreSQL are documentation.<br/>version -> (string)<br/>Version of the extension. The setting is deprecated and has no effect.|
 |`--new-database-name`|<b>`string`</b><br/>Optional. New name of the database.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
