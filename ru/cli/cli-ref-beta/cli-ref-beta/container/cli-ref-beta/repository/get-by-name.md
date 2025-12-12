@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--repository-name`|<b>`string`</b><br/>Name of the Repository resource to return.<br/><br/>To get the repository name use a [RepositoryService.List] request.|
+|`--repository-name`|<b>`string`</b><br/>Name of the Repository resource to return. To get the repository name use a [RepositoryService.List] request.|
 
 #### Global Flags
 

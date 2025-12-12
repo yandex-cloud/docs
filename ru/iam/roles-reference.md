@@ -1558,6 +1558,10 @@ description: В статье приведен полный справочник 
 
 ## {{ mgp-full-name }} {#managed-greenplum-roles}
 
+#### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
+
+{% include [managed-greenplum.clusters.connector](../_roles/managed-greenplum/clusters/connector.md) %}
+
 #### managed-greenplum.auditor {#managed-greenplum-auditor}
 
 {% include [managed-greenplum.auditor](../_roles/managed-greenplum/auditor.md) %}
@@ -1645,6 +1649,10 @@ description: В статье приведен полный справочник 
 
 ## {{ mmy-full-name }} {#managed-mysql-roles}
 
+#### managed-mysql.clusters.connector {#managed-mysql-clusters-connector}
+
+{% include [managed-mysql.clusters.connector](../_roles/managed-mysql/clusters/connector.md) %}
+
 #### managed-mysql.auditor {#managed-mysql-auditor}
 
 {% include [managed-mysql.auditor](../_roles/managed-mysql/auditor.md) %}
@@ -1694,6 +1702,10 @@ description: В статье приведен полный справочник 
 
 
 ## {{ mpg-full-name }} {#mpg-roles}
+
+#### managed-postgresql.clusters.connector {#managed-postgresql-clusters-connector}
+
+{% include [managed-postgresql.clusters.connector](../_roles/managed-postgresql/clusters/connector.md) %}
 
 #### managed-postgresql.auditor {#managed-postgresql-auditor}
 

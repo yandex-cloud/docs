@@ -3,15 +3,36 @@ description:
   - >-
     <em>Сервис Yandex Security Deck находится на <a
     href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - ''
   - >-
     Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
-    модули {{ atr-name }}, Контроль данных (Data Security Posture Management),
-    Диагностика доступов (Cloud Infrastructure Entitlement Management) и Портал
-    соответствия требованиям.
+    модули:
   - >-
-    Предоставляемые сервисом инструменты позволяют обнаруживать уязвимости,
-    отслеживать и защищать доступ к данным, а также контролировать соблюдение
-    нормативных актов и отраслевых стандартов.
+    <ul><li><a
+    href="/docs/security-deck/concepts/access-transparency">Отслеживания
+    действий команды {{ yandex-cloud }} с ресурсами пользователя</a> ({{
+    atr-name }}).</li> <li><a href="/docs/security-deck/concepts/dspm">Контроля
+    данных</a> ({{ dspm-name }}).</li> <li><a
+    href="/docs/security-deck/concepts/cspm">Контроля конфигурации</a> ({{
+    cspm-name }}).</li> <li><a href="/docs/security-deck/concepts/kspm">Контроля
+    {{ k8s }}</a> (KSPM).</li> <li><a
+    href="/docs/security-deck/concepts/ciem">Диагностики доступов</a> ({{
+    ciem-name }}).</li> <li><a
+    href="/docs/security-deck/concepts/alerts">Просмотра алертов</a>.</li>
+    <li><a href="/docs/security-deck/concepts/compliance">Портал соответствия
+    требованиям</a>.</li></ul>
+  - >-
+    Сервис также предоставляет <a
+    href="/docs/security-deck/concepts/ai-assistant">AI-ассистента</a> на базе
+    {{ yagpt-name }} для получения рекомендаций по безопасности.
+  - >-
+    Предоставляемые сервисом инструменты позволяют вести мониторинг и
+    реагировать на инциденты, обнаруживать уязвимости, контролировать
+    конфигурацию облачной инфраструктуры и безопасность контейнеризованных
+    приложений, отслеживать и защищать доступ к данным, а также контролировать
+    соблюдение нормативных актов и отраслевых стандартов. Управление настройками
+    и ресурсами модулей осуществляется через <a
+    href="/docs/security-deck/concepts/workspace">окружения</a> (Workspaces).
 links:
   - title: Начало работы
     description: Начало работы с сервисом Yandex Security Deck
@@ -35,11 +56,11 @@ meta:
   title: Yandex Security Deck
   description: >-
     Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
-    модули {{ atr-name }}, Контроль данных ({{ dspm-name }}), Диагностику
-    доступов ({{ ciem-name }}) и Портал соответствия требованиям.
-    Предоставляемые сервисом инструменты позволяют обнаруживать уязвимости,
-    отслеживать и защищать доступ к данным, а также контролировать соблюдение
-    нормативных актов и отраслевых стандартов.
+    модули мониторинга инцидентов ({{ ycdr-name }}), контроля данных ({{
+    dspm-name }}), контроля конфигурации ({{ cspm-name }}), контроля {{ k8s }}
+    (KSPM), диагностики доступов ({{ ciem-name }}), {{ alerts-name }}, {{
+    atr-name }}, AI-ассистентом для обеспечения безопасности облачной
+    инфраструктуры и Порталом соответствия требованиям.
   keywords:
     - '{{ sd-name }}'
     - '{{ sd-full-name }}'
@@ -55,5 +76,23 @@ meta:
     - диагностика доступа в {{ yandex-cloud }}
     - уязвимости {{ yandex-cloud }}
     - защита данных в {{ yandex-cloud }}
-    - '{{ ycdr-name }}'
     - '{{ ycdr-full-name }}'
+    - мониторинг инцидентов {{ yandex-cloud }}
+    - реагирование на инциденты {{ yandex-cloud }}
+    - SOC {{ yandex-cloud }}
+    - контроль конфигурации {{ cspm-name }}
+    - '{{ cspm-name }}'
+    - Cloud Security Posture Management
+    - контроль {{ k8s }} KSPM
+    - KSPM {{ yandex-cloud }}
+    - Kubernetes Security Posture Management
+    - безопасность контейнеров {{ yandex-cloud }}
+    - '{{ alerts-name }}'
+    - алерты безопасности {{ yandex-cloud }}
+    - уведомления безопасности {{ yandex-cloud }}
+    - AI-ассистент безопасности
+    - '{{ yagpt-name }} безопасность'
+    - рекомендации по безопасности {{ yandex-cloud }}
+    - окружения {{ sd-name }}
+    - Workspaces {{ sd-name }}
+    - управление окружениями безопасности

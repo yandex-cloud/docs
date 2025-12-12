@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--private-cloud-connection-id`|<b>`string`</b><br/>ID of the Private cloud connection resource to return.<br/><br/>To get the server ID, use a [PrivateCloudConnectionService.List] request.|
+|`--private-cloud-connection-id`|<b>`string`</b><br/>ID of the Private cloud connection resource to return. To get the server ID, use a [PrivateCloudConnectionService.List] request.|
 
 #### Global Flags
 

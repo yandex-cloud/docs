@@ -24,6 +24,8 @@ items:
         href: concepts/index.md
       - name: Шардирование
         href: concepts/sharding.md
+      - name: Ключи шардирования
+        href: concepts/sharding-keys.md
       - name: Классы хостов
         href: concepts/instance-types.md
       - name: Хранилище в {{ SPQR }}

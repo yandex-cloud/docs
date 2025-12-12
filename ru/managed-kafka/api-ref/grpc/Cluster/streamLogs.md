@@ -32,7 +32,9 @@ Same as [ListLogs](/docs/managed-kafka/api-ref/grpc/Cluster/listLogs#ListLogs) b
 
 Required field. ID of the Apache Kafka® cluster.
 
-To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from logs table to get in the response.
@@ -51,7 +53,9 @@ In essence it has `tail -f` semantics. ||
 
 Record token.
 
-Set `record_token` to the [StreamLogRecord.next_record_token](#yandex.cloud.mdb.kafka.v1.StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record. ||
+Set `record_token` to the [StreamLogRecord.next_record_token](#yandex.cloud.mdb.kafka.v1.StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -61,7 +65,9 @@ The expression must specify:
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 
-Example of a filter: `message.hostname='node1.db.cloud.yandex.net'` ||
+Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## StreamLogRecord {#yandex.cloud.mdb.kafka.v1.StreamLogRecord}

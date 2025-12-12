@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ClickHouse cluster ID.<br/><br/>To get a ClickHouse cluster ID, use the [ClusterService.List] method.|
-|`--format-schema-name`|<b>`string`</b><br/>Format schema name.<br/><br/>To get a format schema name, use the [FormatSchemaService.List] method.|
+|`--cluster-id`|<b>`string`</b><br/>ClickHouse cluster ID. To get a ClickHouse cluster ID, use the [ClusterService.List] method.|
+|`--format-schema-name`|<b>`string`</b><br/>Format schema name. To get a format schema name, use the [FormatSchemaService.List] method.|
 
 #### Global Flags
 

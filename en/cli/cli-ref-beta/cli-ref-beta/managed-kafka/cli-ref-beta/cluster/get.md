@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® Cluster resource to return.<br/><br/>To get the cluster ID, make a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® Cluster resource to return. To get the cluster ID, make a [ClusterService.List] request.|
 
 #### Global Flags
 

@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--certificate-id`|<b>`string`</b><br/>ID of the certificate to update.<br/>To get the certificate ID, make a [CertificateService.List] request.|
+|`--certificate-id`|<b>`string`</b><br/>ID of the certificate to update. To get the certificate ID, make a [CertificateService.List] request.|
 |`--data`|<b>`string`</b><br/>Certificate data in PEM format.|
 |`--description`|<b>`string`</b><br/>Description of the certificate.|
-|`--name`|<b>`string`</b><br/>Name of the certificate.<br/>The name must be unique within the federation.|
+|`--name`|<b>`string`</b><br/>Name of the certificate. The name must be unique within the federation.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

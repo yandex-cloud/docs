@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--secret-id`|<b>`string`</b><br/>ID of the secret to return.<br/><br/>To get a secret ID make a [List] request.|
+|`--secret-id`|<b>`string`</b><br/>ID of the secret to return. To get a secret ID make a [List] request.|
 
 #### Global Flags
 

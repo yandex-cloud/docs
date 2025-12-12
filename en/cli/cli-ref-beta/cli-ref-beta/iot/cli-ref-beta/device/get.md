@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--device-id`|<b>`string`</b><br/>ID of the device to return.<br/><br/>To get a device ID make a [DeviceService.List] request.|
-|`--device-view`|<b>`enum`</b><br/>Specifies which parts of the device resource should be returned<br/>in the response. Possible Values: 'basic', 'full'|
+|`--device-id`|<b>`string`</b><br/>ID of the device to return. To get a device ID make a [DeviceService.List] request.|
+|`--device-view`|<b>`enum`</b><br/>Specifies which parts of the device resource should be returned in the response. Possible Values: 'basic', 'full'|
 
 #### Global Flags
 

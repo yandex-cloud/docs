@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the cluster to return information about.<br/><br/>To get this ID, make a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the cluster to return information about. To get this ID, make a [ClusterService.List] request.|
 
 #### Global Flags
 

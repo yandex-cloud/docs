@@ -25,7 +25,9 @@ Syntax:
 - [yc beta serverless api-gateway list-access-bindings](list-access-bindings.md) — Lists existing access bindings for the specified API gateway.
 - [yc beta serverless api-gateway list-operations](list-operations.md) — Lists operations for the specified API gateway.
 - [yc beta serverless api-gateway remove-domain](remove-domain.md) — Detaches domain from the specified API gateway.
+- [yc beta serverless api-gateway resume](resume.md) — Resumes the specified API gateway.
 - [yc beta serverless api-gateway set-access-bindings](set-access-bindings.md) — Sets access bindings for the specified API gateway.
+- [yc beta serverless api-gateway stop](stop.md) — Stops the specified API gateway.
 - [yc beta serverless api-gateway update](update.md) — Updates the specified API gateway.
 - [yc beta serverless api-gateway update-access-bindings](update-access-bindings.md) — Updates access bindings for the specified API gateway.
 

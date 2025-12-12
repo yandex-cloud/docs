@@ -19,10 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the disk.|
-|`--disk-id`|<b>`string`</b><br/>ID of the Disk resource to update.<br/>To get the disk ID use a [DiskService.List] request.|
-|`--disk-placement-policy`|<b>`shorthand/json`</b><br/>Placement policy configuration.<br/><br/>Example:|
-|`--disk-placement-policy`|<b>`placement-group-id=value,`</b><br/>placement-group-partition=1<br/><br/>Shorthand Syntax:<br/>{placement-group-id=str, placement-group-partition=int}<br/>Fields:<br/>placement-group-id         string  — Placement group ID.<br/>placement-group-partition  int     —<br/>|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.<br/><br/>Existing set of 'labels' is completely replaced by the provided set.|
+|`--disk-id`|<b>`string`</b><br/>ID of the Disk resource to update. To get the disk ID use a [DiskService.List] request.|
+|`--disk-placement-policy`|<b>`shorthand/json`</b><br/>Placement policy configuration.<br/>Shorthand Syntax:<br/>{<br/>placement-group-id = str,<br/>placement-group-partition = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"placement-group-id": "str",<br/>"placement-group-partition": "int"<br/>}"<br/>Fields:<br/>placement-group-id -> (string)<br/>Placement group ID.<br/>placement-group-partition -> (int)|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set.|
 |`--name`|<b>`string`</b><br/>Name of the disk.|
 |`--size`|<b>`int`</b><br/>Size of the disk, specified in bytes.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

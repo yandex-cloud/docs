@@ -18,8 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--resource`|<b>`shorthand/json`</b><br/>Resource container to get a service information in.<br/><br/>It is supported only resource-manager.cloud resource container now.<br/><br/>Example:|
-|`--resource`|<b>`id=value,`</b><br/>type=value<br/><br/>Shorthand Syntax:<br/>{id=str, type=str}<br/>Fields:<br/>id    string  required  — ID of the resource.<br/>type  string  required  — The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.<br/>|
+|`--resource`|<b>`shorthand/json`</b><br/>Resource container to get a service information in. It is supported only resource-manager.cloud resource container now.<br/>Shorthand Syntax:<br/>{<br/>id = str,<br/>type = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"id": "str",<br/>"type": "str"<br/>}"<br/>Fields:<br/>id -> (string)<br/>ID of the resource.<br/>type -> (string)<br/>The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.|
 |`--service-id`|<b>`string`</b><br/>ID of the Service.|
 
 #### Global Flags

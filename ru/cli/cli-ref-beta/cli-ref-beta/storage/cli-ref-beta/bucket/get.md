@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--name`|<b>`string`</b><br/>Name of the bucket to return.<br/><br/>To get the bucket name, make a [BucketService.List] request.|
-|`--view`|<b>`enum`</b><br/>Scope of information about the bucket to return.<br/><br/>Access to scopes is managed via [Identity and Access Management roles](https://yandex.cloud/ru/docs/storage/security),<br/>bucket [ACL](https://yandex.cloud/ru/docs/storage/concepts/acl) and [policies](https://yandex.cloud/ru/docs/storage/concepts/policy). Possible Values: 'view-basic', 'view-acl', 'view-full'|
+|`--name`|<b>`string`</b><br/>Name of the bucket to return. To get the bucket name, make a [BucketService.List] request.|
+|`--view`|<b>`enum`</b><br/>Scope of information about the bucket to return. Access to scopes is managed via documentation, bucket documentation and documentation. Possible Values: 'view-basic', 'view-acl', 'view-full'|
 
 #### Global Flags
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--server-id`|<b>`string`</b><br/>ID of the Server resource to return.<br/><br/>To get the server ID, use a [ServerService.List] request.|
+|`--server-id`|<b>`string`</b><br/>ID of the Server resource to return. To get the server ID, use a [ServerService.List] request.|
 
 #### Global Flags
 

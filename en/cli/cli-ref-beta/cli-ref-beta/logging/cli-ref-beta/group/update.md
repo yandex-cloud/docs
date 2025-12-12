@@ -21,9 +21,9 @@ Syntax:
 |`--data-stream`|<b>`string`</b><br/>If specified, log records will be written to this data stream|
 |`--description`|<b>`string`</b><br/>New Description of the log group.|
 |`--labels`|<b>`stringToString`</b><br/>New log group labels as 'key:value' pairs.|
-|`--log-group-id`|<b>`string`</b><br/>ID of the log group to update.<br/><br/>To get a log group ID make a [LogGroupService.List] request.|
-|`--name`|<b>`string`</b><br/>New name of the log group.<br/>The name must be unique within the folder.|
-|`--retention-period`|<b>`duration`</b><br/>New log group entry retention period.<br/><br/>Entries will be present in group during this period.<br/>If specified, must be non-negative.<br/>Empty or zero value is treated as no limit. (duration, e.g. 30s, 5m10s)|
+|`--log-group-id`|<b>`string`</b><br/>ID of the log group to update. To get a log group ID make a [LogGroupService.List] request.|
+|`--name`|<b>`string`</b><br/>New name of the log group. The name must be unique within the folder.|
+|`--retention-period`|<b>`duration`</b><br/>New log group entry retention period. Entries will be present in group during this period. If specified, must be non-negative. Empty or zero value is treated as no limit. (duration, e.g. 30s, 5m10s)|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

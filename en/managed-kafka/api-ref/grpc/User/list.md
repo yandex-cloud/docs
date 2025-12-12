@@ -27,17 +27,23 @@ Retrieves the list of Kafka users in the specified cluster.
 
 Required field. ID of the Apache Kafka® cluster to list Kafka users in.
 
-To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token.
 
-To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListUsersResponse {#yandex.cloud.mdb.kafka.v1.ListUsersResponse}
@@ -110,7 +116,6 @@ To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/gr
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.

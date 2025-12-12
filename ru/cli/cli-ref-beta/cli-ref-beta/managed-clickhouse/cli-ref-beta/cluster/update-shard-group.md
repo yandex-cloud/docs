@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster that contains the shard group to update.<br/><br/>To get the cluster ID, make a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster that contains the shard group to update. To get the cluster ID, make a [ClusterService.List] request.|
 |`--description`|<b>`string`</b><br/>Updated description of the shard group. 0-256 characters long.|
-|`--shard-group-name`|<b>`string`</b><br/>Name of the shard group that should be updated.<br/><br/>To get the name, make a [ClusterService.ListShardGroups] request.|
+|`--shard-group-name`|<b>`string`</b><br/>Name of the shard group that should be updated. To get the name, make a [ClusterService.ListShardGroups] request.|
 |`--shard-names`|<b>`strings`</b><br/>Updated list of shard names that belongs to the shard group.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

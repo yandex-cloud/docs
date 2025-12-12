@@ -26,12 +26,16 @@ Resumes an Apache Kafka® connector.
 
 Required field. ID of the Apache Kafka® cluster to resume the connector in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || connector_name | **string**
 
 Required field. Name of the Apache Kafka® connector to resume.
 
-To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/grpc/Connector/list#List) request. ||
+To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/grpc/Connector/list#List) request.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -171,7 +175,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ID of the Apache Kafka® cluster the connector is being resumed in. ||
 || connector_name | **string**
 
-Required field. Name of the Apache Kafka® connector that is beign resumed. ||
+Required field. Name of the Apache Kafka® connector that is beign resumed.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 |#
 
 ## Connector {#yandex.cloud.mdb.kafka.v1.Connector}

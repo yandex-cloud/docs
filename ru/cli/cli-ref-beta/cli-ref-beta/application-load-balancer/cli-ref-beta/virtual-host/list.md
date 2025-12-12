@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--http-router-id`|<b>`string`</b><br/>ID of the HTTP router to list virtual hosts in.<br/><br/>To get the HTTP router ID, make a [HttpRouterService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than 'page_size', the service returns a [ListVirtualHostsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListVirtualHostsResponse.next_page_token] returned by a previous list request.|
+|`--http-router-id`|<b>`string`</b><br/>ID of the HTTP router to list virtual hosts in. To get the HTTP router ID, make a [HttpRouterService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than 'page_size', the service returns a [ListVirtualHostsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListVirtualHostsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

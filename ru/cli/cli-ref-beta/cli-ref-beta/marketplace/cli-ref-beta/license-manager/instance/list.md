@@ -18,11 +18,11 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters subscription instances listed in the response.<br/><br/>The expression must specify:<br/>1. The field name. Currently you can use filtering only on [Instance.name] field.<br/>2. An operator. Can be either '=' or '!=' for single values, 'IN' or 'NOT IN' for lists of values.<br/>3. The value. Must be in double quotes '""'. Must be 3-63 characters long and match the regular expression '^[a-z][-a-z0-9]{1,61}[a-z0-9]'.<br/>Example of a filter: 'name="my-subscription-instance"'.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters subscription instances listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Instance.name] field. 2. An operator. Can be either '=' or '!=' for single values, 'IN' or 'NOT IN' for lists of values. 3. The value. Must be in double quotes '""'. Must be 3-63 characters long and match the regular expression '^[a-z][-a-z0-9]{1,61}[a-z0-9]'. Example of a filter: 'name="my-subscription-instance"'.|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder that the subscription instance belongs to.|
 |`--order-by`|<b>`string`</b><br/>Sorting order for the list of subscription instances.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than 'page_size', the service returns a [ListInstancesResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListInstancesResponse.next_page_token] returned by a previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than 'page_size', the service returns a [ListInstancesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListInstancesResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

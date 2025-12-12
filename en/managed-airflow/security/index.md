@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ maf-full-name }}
-description: Access management in {{ AF }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ AF }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ maf-name }}
@@ -24,6 +24,8 @@ To assign a role for a resource, a user should have the `managed-airflow.admin` 
 To allow access to {{ maf-name }} resources, assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 
 ## What roles exist in this service {#roles-list}
+
+{% include [roles-managed-airflow](../../_mermaid/roles/managed-airflow.md) %}
 
 ### Service roles {#service-roles}
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--trigger-id`|<b>`string`</b><br/>ID of the trigger to return.<br/><br/>To get a trigger ID make a [TriggerService.List] request.|
+|`--trigger-id`|<b>`string`</b><br/>ID of the trigger to return. To get a trigger ID make a [TriggerService.List] request.|
 
 #### Global Flags
 

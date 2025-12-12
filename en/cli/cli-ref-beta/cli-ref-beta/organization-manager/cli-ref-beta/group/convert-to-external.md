@@ -19,12 +19,12 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--external-id`|<b>`string`</b><br/>Id of the group from external system.<br/>Combination of subject_container_id and external_id must be unique|
-|`--group-id`|<b>`string`</b><br/>ID of the Group resource to convert to external.<br/>To get the group ID, use a [GroupService.List] request.|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--external-id`|<b>`string`</b><br/>Id of the group from external system. Combination of subject_container_id and external_id must be unique|
+|`--group-id`|<b>`string`</b><br/>ID of the Group resource to convert to external. To get the group ID, use a [GroupService.List] request.|
 |`--make-editor`|If true, then subject that performs conversion of group will be assigned to role that allows modification of group as external group.|
-|`--subject-container-id`|<b>`string`</b><br/>Id of the subject container that external group belongs to.<br/>Combination of subject_container_id and external_id must be unique.<br/>To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List] request<br/>or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List] request.|
+|`--subject-container-id`|<b>`string`</b><br/>Id of the subject container that external group belongs to. Combination of subject_container_id and external_id must be unique. To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List] request or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

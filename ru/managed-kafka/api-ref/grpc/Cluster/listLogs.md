@@ -36,7 +36,9 @@ For more information about logs, see the [Logs](/docs/managed-kafka/operations/c
 
 Required field. ID of the Apache Kafka® cluster to request logs for.
 
-To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from the logs table to request.
@@ -52,12 +54,16 @@ End timestamp for the logs request. ||
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token.
 
-To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || always_next_page_token | **bool**
 
 The flag that defines behavior of providing the next page token.
@@ -72,7 +78,9 @@ The expression must specify:
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
 
-Example of a filter: `message.hostname='node1.db.cloud.yandex.net'` ||
+Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListClusterLogsResponse {#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse}

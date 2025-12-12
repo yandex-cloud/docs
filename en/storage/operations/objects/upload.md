@@ -393,7 +393,7 @@ You can use [conditions](../../concepts/object.md#conditional-writes) when uploa
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--body`: Path to the file you need to upload to the bucket, e.g., `./my-folder/my-file.txt`.
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket, e.g., `my-folder/my-file.txt`.
+      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket. For example: `my-folder/my-file.txt`.
       * `--if-match`: Current object `ETag`, e.g., `\"d41d8cd98f00b204e9800998********\"`. The write will only be performed if an object already exists for the specified key and its current `ETag` matches.
 
 - API {#api}
@@ -427,7 +427,7 @@ You can use [conditions](../../concepts/object.md#conditional-writes) when uploa
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--body`: Path to the file you need to upload to the bucket, e.g., `./my-folder/my-file.txt`.
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket, e.g., `my-folder/my-file.txt`.
+      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket. For example: `my-folder/my-file.txt`.
       * `--if-none-match`: Type `"*"` to perform the write only if there is no object with the specified key yet.
 
 - API {#api}

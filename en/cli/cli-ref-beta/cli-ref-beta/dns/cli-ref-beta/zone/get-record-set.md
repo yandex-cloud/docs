@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--dns-zone-id`|<b>`string`</b><br/>ID of the DNS zone to get record set from.<br/><br/>To get a DNS zone ID, make a [DnsZoneService.List] request.|
+|`--dns-zone-id`|<b>`string`</b><br/>ID of the DNS zone to get record set from. To get a DNS zone ID, make a [DnsZoneService.List] request.|
 |`--name`|<b>`string`</b><br/>Name of the record set.|
 |`--type`|<b>`string`</b><br/>Type of the record set.|
 

@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>Filter list by various fields.<br/>Supported fields: ["status", "resource_type", "resource_id"]|
-|`--order-by`|<b>`string`</b><br/>By which field the listing should be ordered and in which direction,<br/>format is "created_at desc". The default sorting order is ascending.<br/>Supported fields: ["created_at", "start_scheduled_at", "started_at"].|
+|`--filter`|<b>`string`</b><br/>Filter list by various fields. Supported fields: ["status", "resource_type", "resource_id"]|
+|`--order-by`|<b>`string`</b><br/>By which field the listing should be ordered and in which direction, format is "created_at desc". The default sorting order is ascending. Supported fields: ["created_at", "start_scheduled_at", "started_at"].|
 |`--page-size`|<b>`int`</b><br/>The maximum number of maintenances to return per response.|
 |`--page-token`|<b>`string`</b><br/>Token to retrieve the next page of results. Omitted on the first request.|
 |`--cloud-id`|<b>`string`</b><br/>Cloud ID for the resources.|

@@ -37,7 +37,7 @@
       Например, назначьте пользователю роль администратора на каталог с идентификатором `b1gmit33ngp3********`:
 
       ```bash
-      yc recource-manager folder add-access-binding b1gmit33ngp3******** \
+      yc resource-manager folder add-access-binding b1gmit33ngp3******** \
         --role resource-manager.admin \
         --subject userAccount:aje6o61dvog2********
       ```

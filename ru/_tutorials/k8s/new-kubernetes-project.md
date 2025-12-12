@@ -303,6 +303,8 @@
 
 {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
+Для доступа к {{ container-registry-name }} в группе безопасности узлов [добавьте правило](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-nodegroup) для исходящего трафика, разрешающее узлам подключаться к внешним ресурсам.
+
 {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
 
 {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}

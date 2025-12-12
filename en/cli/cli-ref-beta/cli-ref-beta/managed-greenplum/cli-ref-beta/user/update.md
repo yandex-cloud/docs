@@ -19,8 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>|
-|`--user`|<b>`shorthand/json`</b><br/><br/>Example:|
-|`--user`|<b>`name=value,`</b><br/>password=value, resource-group=value<br/><br/>Shorthand Syntax:<br/>{name=str, password=str, resource-group=str}<br/>Fields:<br/>name            string  required  — User name<br/>password        string            — User password. Used only in create and update requests<br/>resource-group  string            — Resource group for user's queries<br/>|
+|`--user`|<b>`shorthand/json`</b><br/>Shorthand Syntax:<br/>{<br/>name = str,<br/>password = str,<br/>resource-group = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"name": "str",<br/>"password": "str",<br/>"resource-group": "str"<br/>}"<br/>Fields:<br/>name -> (string)<br/>User name<br/>password -> (string)<br/>User password. Used only in create and update requests<br/>resource-group -> (string)<br/>Resource group for user's queries|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

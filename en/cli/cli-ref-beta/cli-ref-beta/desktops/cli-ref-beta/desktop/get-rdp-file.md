@@ -18,9 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--desktop-id`|<b>`string`</b><br/>ID of the desktop resource to return.<br/><br/>To get the desktop ID use a [DesktopService.List] request.|
-|`--user`|<b>`shorthand/json`</b><br/>User of the desktop.<br/><br/>Example:|
-|`--user`|<b>`subject-id=value,`</b><br/>subject-type=value<br/><br/>Shorthand Syntax:<br/>{subject-id=str, subject-type=str}<br/>Fields:<br/>subject-id    string  required  — Identity of the access binding.<br/>subject-type  string  required  — Type of the access binding, e.g. userAccount, serviceAccount, system.|
+|`--desktop-id`|<b>`string`</b><br/>ID of the desktop resource to return. To get the desktop ID use a [DesktopService.List] request.|
+|`--user`|<b>`shorthand/json`</b><br/>User of the desktop.<br/>Shorthand Syntax:<br/>{<br/>subject-id = str,<br/>subject-type = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"subject-id": "str",<br/>"subject-type": "str"<br/>}"<br/>Fields:<br/>subject-id -> (string)<br/>Identity of the access binding.<br/>subject-type -> (string)<br/>Type of the access binding, e.g. userAccount, serviceAccount, system.|
 
 #### Global Flags
 

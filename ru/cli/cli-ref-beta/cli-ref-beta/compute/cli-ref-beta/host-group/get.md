@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--host-group-id`|<b>`string`</b><br/>ID of the host group to return.<br/>To get the host group ID, use [HostGroupService.List] request.|
+|`--host-group-id`|<b>`string`</b><br/>ID of the host group to return. To get the host group ID, use [HostGroupService.List] request.|
 
 #### Global Flags
 

@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--configuration-id`|<b>`string`</b><br/>ID of the Configuration resource to return.<br/><br/>To get the configuration ID, use a [ConfigurationService.List] request.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to return a Configuration resource for.<br/><br/>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--configuration-id`|<b>`string`</b><br/>ID of the Configuration resource to return. To get the configuration ID, use a [ConfigurationService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to return a Configuration resource for. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 
 #### Global Flags
 

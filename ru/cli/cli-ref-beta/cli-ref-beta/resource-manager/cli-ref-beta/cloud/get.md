@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cloud-id`|<b>`string`</b><br/>ID of the Cloud resource to return.<br/>To get the cloud ID, use a [CloudService.List] request.|
+|`--cloud-id`|<b>`string`</b><br/>ID of the Cloud resource to return. To get the cloud ID, use a [CloudService.List] request.|
 
 #### Global Flags
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--subnet-id`|<b>`string`</b><br/>ID of the Subnet resource to return.<br/>To get the subnet ID use a [SubnetService.List] request.|
+|`--subnet-id`|<b>`string`</b><br/>ID of the Subnet resource to return. To get the subnet ID use a [SubnetService.List] request.|
 
 #### Global Flags
 

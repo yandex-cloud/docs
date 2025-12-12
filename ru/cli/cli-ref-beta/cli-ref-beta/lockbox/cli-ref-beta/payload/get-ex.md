@@ -20,8 +20,7 @@ Syntax:
 |----|----|
 |`--version-id`|<b>`string`</b><br/>|
 |`--secret-id`|<b>`string`</b><br/>|
-|`--folder-and-name`|<b>`shorthand/json`</b><br/><br/><br/>Example:|
-|`--folder-and-name`|<b>`folder-id=value,`</b><br/>secret-name=value<br/><br/>Shorthand Syntax:<br/>{folder-id=str, secret-name=str}<br/>Fields:<br/>folder-id    string  required  —<br/>secret-name  string  required  —|
+|`--folder-and-name`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>folder-id = str,<br/>secret-name = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"folder-id": "str",<br/>"secret-name": "str"<br/>}"<br/>Fields:<br/>folder-id -> (string)<br/>secret-name -> (string)|
 
 #### Global Flags
 

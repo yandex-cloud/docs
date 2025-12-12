@@ -34,6 +34,10 @@ description: Управление доступом в сервисе по соз
 
 ### Сервисные роли {#service-roles}
 
+#### managed-mysql.clusters.connector {#managed-mysql-clusters-connector}
+
+{% include [managed-mysql.clusters.connector](../../_roles/managed-mysql/clusters/connector.md) %}
+
 #### managed-mysql.auditor {#managed-mysql-auditor}
 
 {% include [managed-mysql.auditor](../../_roles/managed-mysql/auditor.md) %}

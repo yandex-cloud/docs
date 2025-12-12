@@ -19,10 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the subnet.|
-|`--dhcp-options`|<b>`shorthand/json`</b><br/><br/>Example:|
-|`--dhcp-options`|<b>`domain-name=value,`</b><br/>domain-name-servers=value, ntp-servers=value<br/><br/>Shorthand Syntax:<br/>{domain-name=str, domain-name-servers=str,..., ntp-servers=str,...}<br/>Fields:<br/>domain-name          string    — A domain name to us as a suffix when resolving host names in this subnet.<br/>domain-name-servers  []string  — A list of DHCP servers for this subnet.<br/>ntp-servers          []string  — List of NTP servers for this subnet.<br/>|
+|`--dhcp-options`|<b>`shorthand/json`</b><br/>Shorthand Syntax:<br/>{<br/>domain-name = str,<br/>domain-name-servers = str,...,<br/>ntp-servers = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"domain-name": "str",<br/>"domain-name-servers": [<br/>"str", ...<br/>],<br/>"ntp-servers": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>domain-name -> (string)<br/>A domain name to us as a suffix when resolving host names in this subnet.<br/>domain-name-servers -> ([]string)<br/>A list of DHCP servers for this subnet.<br/>ntp-servers -> ([]string)<br/>List of NTP servers for this subnet.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the subnet.<br/>The name must be unique within the folder.|
+|`--name`|<b>`string`</b><br/>Name of the subnet. The name must be unique within the folder.|
 |`--route-table-id`|<b>`string`</b><br/>ID of route table the subnet is linked to.|
 |`--subnet-id`|<b>`string`</b><br/>ID of the Subnet resource to update.|
 |`--v4-cidr-blocks`|<b>`strings`</b><br/>New CIDR blocks which will overwrite the existing ones.|

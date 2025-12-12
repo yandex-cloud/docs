@@ -26,7 +26,7 @@ After you create a cluster, you can update its settings:
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, change the cluster's name and description.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -36,7 +36,7 @@ After you create a cluster, you can update its settings:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change cluster name and description:
+    To change the cluster name and description:
 
     1. View the description of the CLI command for updating a cluster:
 
@@ -69,7 +69,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
         
     1. Edit the `description` parameter in the cluster's description:
       
@@ -83,17 +83,17 @@ After you create a cluster, you can update its settings:
 
         Where `description` is the cluster's description.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -120,7 +120,7 @@ After you create a cluster, you can update its settings:
         * `name`: Cluster name, unique within the cloud.
         * `description`: Cluster description.
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -136,7 +136,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -149,7 +149,7 @@ After you create a cluster, you can update its settings:
           "cluster_id": "<cluster_ID>",
           "update_mask": {
             "paths": [
-              <list_of_parameters_to_update>
+              <list_of_settings_to_update>
             ]
           },
           "name": "<cluster_name>",
@@ -163,7 +163,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -189,7 +189,7 @@ After you create a cluster, you can update its settings:
         * `name`: Cluster name, unique within the cloud.
         * `description`: Cluster description.
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -204,7 +204,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -215,7 +215,7 @@ After you create a cluster, you can update its settings:
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `managed-trino.integrationProvider` and `storage.editor` roles. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
         To change your service account in a {{ mtr-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
@@ -253,7 +253,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `service_account_id` parameter in the cluster's description:
       
@@ -267,17 +267,17 @@ After you create a cluster, you can update its settings:
 
         Where `service_account_id` is the service account ID.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -302,7 +302,7 @@ After you create a cluster, you can update its settings:
 
         * `serviceAccountId`: Service account ID.
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -318,7 +318,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -344,7 +344,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -369,7 +369,7 @@ After you create a cluster, you can update its settings:
 
         * `service_account_id`: Service account ID.
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -384,7 +384,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -395,7 +395,7 @@ After you create a cluster, you can update its settings:
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select {{ TR }}. You can either upgrade or downgrade the version.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -428,7 +428,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
         
     1. Edit the `version` parameter in the cluster's description:
       
@@ -442,17 +442,17 @@ After you create a cluster, you can update its settings:
 
         Where `version` is the {{ TR }} version. You can either upgrade or downgrade the version.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -479,7 +479,7 @@ After you create a cluster, you can update its settings:
 
         * `version`: {{ TR }} version. You can either upgrade or downgrade the version.
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -495,7 +495,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -523,7 +523,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -548,7 +548,7 @@ After you create a cluster, you can update its settings:
 
         * `version`: {{ TR }} version. You can either upgrade or downgrade the version.
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -563,18 +563,18 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Changing security groups {#change-sg}
+## Updating security groups {#change-sg}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for the cluster.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -607,7 +607,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `security_group_ids` parameter in the cluster's description:
       
@@ -621,17 +621,17 @@ After you create a cluster, you can update its settings:
 
         Where `security_group_ids` is the list of security group IDs.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -662,7 +662,7 @@ After you create a cluster, you can update its settings:
           
             * `securityGroupIds`: List of security group IDs.
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -678,7 +678,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -706,7 +706,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -733,7 +733,7 @@ After you create a cluster, you can update its settings:
 
             * `security_group_ids`: List of security group IDs.
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -748,7 +748,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -759,7 +759,7 @@ After you create a cluster, you can update its settings:
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **Retry policy**, update the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
         
         * Change the **Retry object type**.
@@ -799,7 +799,7 @@ After you create a cluster, you can update its settings:
 
         * `--retry-policy-enabled`: Enables the retry policy.
           
-        * `--retry-policy`: Query retry method. The allowed values are:
+        * `--retry-policy`: Query retry method. The possible values are:
 
             * `query`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
             * `task`: Retries the intermediate task within the query that caused worker failure.
@@ -816,23 +816,23 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. To enable a [fault-tolerant query execution](../concepts/retry-policy.md) policy, add a `retry_policy` section to the cluster description:
       
         {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -840,7 +840,7 @@ After you create a cluster, you can update its settings:
 
         ```json
         {
-          "updateMask": "<list_of_parameters_to_update>",
+          "updateMask": "<list_of_settings_to_update>",
           "trino": {
             "retryPolicy": {
               "policy": "<object_type_for_retry>",
@@ -868,7 +868,7 @@ After you create a cluster, you can update its settings:
 
         * `trino.retryPolicy`: [Fault-tolerant query execution](../concepts/retry-policy.md) parameters.
 
-            * `policy`: Query retry method. The allowed values are:
+            * `policy`: Query retry method. The possible values are:
 
                 * `TASK`: Retries the intermediate task within the query that caused worker failure.
                 * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
@@ -877,7 +877,7 @@ After you create a cluster, you can update its settings:
 
             * `additionalProperties`: Additional parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -893,7 +893,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -906,7 +906,7 @@ After you create a cluster, you can update its settings:
           "cluster_id": "<cluster_ID>",
           "update_mask": {
             "paths": [
-              <list_of_parameters_to_update>
+              <list_of_settings_to_update>
             ]
           },
           "trino": {
@@ -930,7 +930,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -955,7 +955,7 @@ After you create a cluster, you can update its settings:
 
         * `trino.retry_policy`: [Fault-tolerant query execution](../concepts/retry-policy.md) parameters.
 
-            * `policy`: Query retry method. The allowed values are:
+            * `policy`: Query retry method. The possible values are:
 
                 * `TASK`: Retries the intermediate task within the query that caused worker failure.
                 * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
@@ -964,7 +964,7 @@ After you create a cluster, you can update its settings:
 
             * `additional_properties`: Additional parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -979,7 +979,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -990,7 +990,7 @@ After you create a cluster, you can update its settings:
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change the configuration of the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -1040,7 +1040,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the [coordinator](../concepts/index.md#coordinator) and [worker](../concepts/index.md#workers) configuration under `coordinator` and `worker`, respectively:
       
@@ -1086,17 +1086,17 @@ After you create a cluster, you can update its settings:
             
             For worker count to automatically vary based on load, use the `auto_scale` section and set the minimum and maximum values. For a fixed number of workers, use the `fixed_scale` section and specify the required value.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1104,7 +1104,7 @@ After you create a cluster, you can update its settings:
 
         ```json
         {
-          "updateMask": "<list_of_parameters_to_update>",
+          "updateMask": "<list_of_settings_to_update>",
           "trino": {
             "coordinatorConfig": {
               "resources": {
@@ -1158,7 +1158,7 @@ After you create a cluster, you can update its settings:
 
             For worker count to automatically vary based on load, use the `scalePolicy.autoScale` setting to set the minimum and maximum values. For a fixed number of workers, use the `scalePolicy.fixedScale` setting to set the required value.
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -1174,7 +1174,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1187,7 +1187,7 @@ After you create a cluster, you can update its settings:
           "cluster_id": "<cluster_ID>",
           "update_mask": {
             "paths": [
-              <list_of_parameters_to_update>
+              <list_of_settings_to_update>
             ]
           },
           "trino": {
@@ -1220,7 +1220,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -1262,7 +1262,7 @@ After you create a cluster, you can update its settings:
 
             For worker count to automatically vary based on load, use the `scale_policy.auto_scale` setting to set the minimum and maximum values. For a fixed number of workers, use the `scale_policy.fixed_scale` setting to set the required value.
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -1277,7 +1277,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1288,7 +1288,7 @@ After you create a cluster, you can update its settings:
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change additional cluster settings:
         
         * **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Cluster protection from accidental deletion by a user.
@@ -1301,13 +1301,14 @@ After you create a cluster, you can update its settings:
 
         * **{{ ui-key.yacloud.logging.field_logging }}**: Enables logging. 
         
-            * Select the log destination:
+          * Select the log destination:
+            * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list. Logs will be written to the selected folder's default log group.
                 
-              * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list. Logs will be written to the selected folder's default log group.
-                
-              * **{{ ui-key.yacloud.logging.label_group }}**: Select a [log group](../../logging/concepts/log-group.md) from the list or create a new one.
+            * **{{ ui-key.yacloud.logging.label_group }}**: Select a [log group](../../logging/concepts/log-group.md) from the list or create a new one.
             
-            * Select **{{ ui-key.yacloud.logging.label_minlevel }}** from the list.
+          * Select **{{ ui-key.yacloud.logging.label_minlevel }}** from the list.
+    
+    1. Change the TLS settings. You can update, add, or delete certificates.
 
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -1336,7 +1337,8 @@ After you create a cluster, you can update its settings:
           --log-enabled \
           --log-folder-id <folder_ID> \
           --log-group-id <log_group_ID> \
-          --log-min-level <logging_level>
+          --log-min-level <logging_level> \
+          --trusted-certs-from-files <list_of_paths_to_certificate_files>
         ```
 
         Where:
@@ -1355,9 +1357,13 @@ After you create a cluster, you can update its settings:
             * `--log-folder-id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `--log-group-id`: Custom [log group](../../logging/concepts/log-group.md) ID.
 
-                You can specify only one of the parameters: `--log-folder-id` or `--log-group-id`.
+              You can specify only one of the parameters: `--log-folder-id` or `--log-group-id`.
 
             * `--log-min-level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
+        
+        * `--trusted-certs-from-files`: List of paths to files with trusted certificates. 
+        
+          If you want to delete all certificates, provide `--remove-trusted-certs`.
 
         You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.   
 
@@ -1365,7 +1371,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. To enable cluster protection against accidental deletion, add the `deletion_protection = true` parameter:
         
@@ -1377,7 +1383,7 @@ After you create a cluster, you can update its settings:
         }
         ```
 
-        Where `deletion_protection` is protection against accidental cluster deletion: `true` or `false`.
+        Where `deletion_protection` is the cluster protection from accidental deletion: `true` or `false`.
 
         Even with deletion protection enabled, one can still connect to the cluster manually and delete the data.
 
@@ -1389,17 +1395,21 @@ After you create a cluster, you can update its settings:
 
         {% include [Terraform logging parameters description](../../_includes/managed-trino/terraform/logging-parameters.md) %}
 
-    1. Validate your configuration.
+    1. To change the TLS settings:
+
+       {% include [tls description](../../_includes/managed-trino/terraform/tls.md) %}
+
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1407,7 +1417,7 @@ After you create a cluster, you can update its settings:
 
         ```json
         {
-          "updateMask": "<list_of_parameters_to_update>",
+          "updateMask": "<list_of_settings_to_update>",
           "deletionProtection": "<deletion_protection>",
           "logging": {
             "enabled": "<use_of_logging>",
@@ -1420,6 +1430,9 @@ After you create a cluster, you can update its settings:
               "day": "<day_of_week>",
               "hour": "<hour>"
             }
+          },
+          "tls": {
+            "trustedCertificates": [ <list_of_certificates> ]
           }
         }
         ```
@@ -1434,7 +1447,7 @@ After you create a cluster, you can update its settings:
 
             {% endnote %}
 
-        * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
+        * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`.
 
             Even if it is enabled, one can still connect to the cluster manually and delete it.
 
@@ -1448,16 +1461,24 @@ After you create a cluster, you can update its settings:
 
             * `minLevel`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the two parameters:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the following:
 
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
             
               * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
               * `hour`: Time of day (UTC) for the `WEEKLY` type, from `1` to `24`.
+        * `tls`: TLS parameters.
 
+           {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+           * `trustedCertificates`: Comma-separated list of certificates.
+
+              {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
+               
+           {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
+
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -1473,7 +1494,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1486,7 +1507,7 @@ After you create a cluster, you can update its settings:
           "cluster_id": "<cluster_ID>",
           "update_mask": {
             "paths": [
-              <list_of_parameters_to_update>
+              <list_of_settings_to_update>
             ]
           },
           "deletion_protection": "<deletion_protection>",
@@ -1501,6 +1522,9 @@ After you create a cluster, you can update its settings:
               "day": "<day_of_week>",
               "hour": "<hour>"
             }
+          },
+          "tls": {
+            "trusted_certificates": [ <list_of_certificates> ]
           }
         }
         ```
@@ -1511,7 +1535,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -1534,7 +1558,7 @@ After you create a cluster, you can update its settings:
 
             {% endnote %}
 
-        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+        * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
 
             Even with deletion protection enabled, one can still connect to the cluster manually and delete the data.
 
@@ -1548,15 +1572,25 @@ After you create a cluster, you can update its settings:
 
             * `min_level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the two parameters:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the following:
 
             * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
             
               * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
               * `hour`: Time of day (UTC) for the `WEEKLY` type, from `1` to `24`.
+        
+        * `tls`: TLS parameters.
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+          {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+
+          * `trusted_certificates`: Comma-separated list of certificates.
+
+            {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
+               
+          {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
+
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -1571,6 +1605,6 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

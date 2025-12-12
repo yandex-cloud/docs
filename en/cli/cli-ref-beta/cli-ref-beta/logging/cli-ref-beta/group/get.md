@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--log-group-id`|<b>`string`</b><br/>ID of the log group to return.<br/><br/>To get a log group ID make a [LogGroupService.List] request.|
+|`--log-group-id`|<b>`string`</b><br/>ID of the log group to return. To get a log group ID make a [LogGroupService.List] request.|
 
 #### Global Flags
 

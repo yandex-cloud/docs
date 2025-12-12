@@ -26,12 +26,16 @@ Deletes an Apache Kafka® connector.
 
 Required field. ID of the Apache Kafka® cluster to delete the connector from.
 
-To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || connector_name | **string**
 
 Required field. Name of the connector to delete.
 
-To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/grpc/Connector/list#List) request. ||
+To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/grpc/Connector/list#List) request.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

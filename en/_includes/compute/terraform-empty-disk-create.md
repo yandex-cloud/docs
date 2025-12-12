@@ -21,10 +21,10 @@ To create an empty disk:
         {% include [name-format](../../_includes/name-format.md) %}
 
    * `type`: Disk type.
-   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md). The availability zone for your disk must match the zone of the placement group where you want to create it. We recommend creating disks in the `{{ region-id }}-a` or `{{ region-id }}-b` availability zone.
+   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md). The availability zone for your disk must match the zone of the placement group where you want to create it.
    * `size`: Disk size in GB. The maximum disk size depends on the specified block size.
    * `block_size`: Block size in bytes (minimum storage unit on the disk). By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB. For more information, see [{#T}](../../compute/operations/disk-create/empty-disk-blocksize.md).
-   * `kms_key_id`: ID of the [{{ kms-short-name }} symmetric key](../../kms/concepts/key.md) to create an [encrypted](../../compute/concepts/encryption.md) disk. This is an optional parameter.
+   * `kms_key_id`: ID of the [{{ kms-short-name }} symmetric key](../../kms/concepts/key.md) to create an [encrypted](../../compute/concepts/encryption.md) disk. This is an optional setting.
 
         {% include [encryption-role](encryption-role.md) %}
 

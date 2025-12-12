@@ -19,11 +19,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--folder-id`|<b>`string`</b><br/>Activate provider for Folder iD.|
 |`--instance-registration-id`|<b>`string`</b><br/>instance registration token for authorization|
-|`--name`|<b>`string`</b><br/>Activate specific provider by name.<br/><br/>For more information, please see [activate-provider](https://yandex.cloud/ru/docs/backup/quickstart#activate-provider)|
+|`--name`|<b>`string`</b><br/>Activate specific provider by name. For more information, please see documentation|
 |`--skip-default-policy`|Don't create default policies while activating the provider.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

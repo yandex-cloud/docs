@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster that the topic belongs to.<br/><br/>To get the cluster ID, make a [ClusterService.List] request.|
-|`--topic-name`|<b>`string`</b><br/>Name of the Kafka topic resource to return.<br/><br/>To get the name of the topic, make a [TopicService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster that the topic belongs to. To get the cluster ID, make a [ClusterService.List] request.|
+|`--topic-name`|<b>`string`</b><br/>Name of the Kafka topic resource to return. To get the name of the topic, make a [TopicService.List] request.|
 
 #### Global Flags
 

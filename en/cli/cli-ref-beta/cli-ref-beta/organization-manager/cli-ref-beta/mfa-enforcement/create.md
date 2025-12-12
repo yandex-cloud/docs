@@ -19,16 +19,16 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--acr-id`|<b>`string`</b><br/>acr id for the MFA enforcement. one of 'any-mfa' or 'phr',<br/>specification https://yandex.cloud/en/docs/organization/concepts/mfa?utm_referrer=https%3A%2F%2Fa.yandex-team.ru%2F#mfa-factors|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--acr-id`|<b>`string`</b><br/>acr id for the MFA enforcement. one of 'any-mfa' or 'phr', specification https://yandex.cloud/en/docs/organization/concepts/mfa?utm_referrer=https%3A%2F%2Fa.yandex-team.ru%2F#mfa-factors|
 |`--apply-at`|<b>`time`</b><br/>the MFA enforcement application start time (RFC3339)|
 |`--description`|<b>`string`</b><br/>the MFA enforcement description|
 |`--enroll-window`|<b>`duration`</b><br/>the MFA enforcement enroll window (duration, e.g. 30s, 5m10s)|
 |`--name`|<b>`string`</b><br/>the MFA enforcement name|
 |`--organization-id`|<b>`string`</b><br/>organization id of the MFA enforcement|
 |`--status`|<b>`enum`</b><br/>the MFA enforcement status Possible Values: 'status-active', 'status-inactive'|
-|`--ttl`|<b>`duration`</b><br/>the period during which the entered MFA factor will be considered valid and the<br/>corresponding acr will be regarded as satisfied (duration, e.g. 30s, 5m10s)|
+|`--ttl`|<b>`duration`</b><br/>the period during which the entered MFA factor will be considered valid and the corresponding acr will be regarded as satisfied (duration, e.g. 30s, 5m10s)|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

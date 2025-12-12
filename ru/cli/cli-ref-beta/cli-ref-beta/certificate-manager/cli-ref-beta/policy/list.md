@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--certificate-authority-id`|<b>`string`</b><br/>ID of the certificate authority to list policies for.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return.<br/>If the number of available results is larger than 'page_size',<br/>the service returns a next_page_token.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListPolicyResponse.next_page_token] returned by a previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than 'page_size', the service returns a next_page_token. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListPolicyResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

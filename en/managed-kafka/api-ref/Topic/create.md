@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Apache Kafka® cluster to create a topic in.
             To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -35,7 +36,6 @@ apiPlayground:
             description: |-
               **enum** (CleanupPolicy)
               Retention policy to use on old log messages.
-              - `CLEANUP_POLICY_UNSPECIFIED`
               - `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_8.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) and other similar parameters.
               - `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
               - `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments.
@@ -49,7 +49,6 @@ apiPlayground:
             description: |-
               **enum** (CompressionType)
               The compression type for a given topic.
-              - `COMPRESSION_TYPE_UNSPECIFIED`
               - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
               - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
               - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -138,8 +137,6 @@ apiPlayground:
               **boolean**
               True if we should preallocate the file on disk when creating a new log segment.
               This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level.
-              Deprecated. Feature useless for Yandex Cloud.
-            deprecated: true
             type: boolean
       TopicConfig3:
         type: object
@@ -148,7 +145,6 @@ apiPlayground:
             description: |-
               **enum** (CleanupPolicy)
               Retention policy to use on old log messages.
-              - `CLEANUP_POLICY_UNSPECIFIED`
               - `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_8.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) and other similar parameters.
               - `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
               - `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments.
@@ -162,7 +158,6 @@ apiPlayground:
             description: |-
               **enum** (CompressionType)
               The compression type for a given topic.
-              - `COMPRESSION_TYPE_UNSPECIFIED`
               - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
               - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
               - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -251,8 +246,115 @@ apiPlayground:
               **boolean**
               True if we should preallocate the file on disk when creating a new log segment.
               This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level.
-              Deprecated. Feature useless for Yandex Cloud.
-            deprecated: true
+            type: boolean
+      TopicConfig4:
+        type: object
+        properties:
+          cleanupPolicy:
+            description: |-
+              **enum** (CleanupPolicy)
+              Retention policy to use on old log messages.
+              - `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_8.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) and other similar parameters.
+              - `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
+              - `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments.
+            type: string
+            enum:
+              - CLEANUP_POLICY_UNSPECIFIED
+              - CLEANUP_POLICY_DELETE
+              - CLEANUP_POLICY_COMPACT
+              - CLEANUP_POLICY_COMPACT_AND_DELETE
+          compressionType:
+            description: |-
+              **enum** (CompressionType)
+              The compression type for a given topic.
+              - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+              - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+              - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+              - `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+              - `COMPRESSION_TYPE_GZIP`: GZip codec.
+              - `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
+            type: string
+            enum:
+              - COMPRESSION_TYPE_UNSPECIFIED
+              - COMPRESSION_TYPE_UNCOMPRESSED
+              - COMPRESSION_TYPE_ZSTD
+              - COMPRESSION_TYPE_LZ4
+              - COMPRESSION_TYPE_SNAPPY
+              - COMPRESSION_TYPE_GZIP
+              - COMPRESSION_TYPE_PRODUCER
+          deleteRetentionMs:
+            description: |-
+              **string** (int64)
+              The amount of time in milliseconds to retain delete tombstone markers for log compacted topics.
+            type: string
+            format: int64
+          fileDeleteDelayMs:
+            description: |-
+              **string** (int64)
+              The time to wait before deleting a file from the filesystem.
+            type: string
+            format: int64
+          flushMessages:
+            description: |-
+              **string** (int64)
+              The number of messages accumulated on a log partition before messages are flushed to disk.
+              This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMessages](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level.
+            type: string
+            format: int64
+          flushMs:
+            description: |-
+              **string** (int64)
+              The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
+              This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level.
+            type: string
+            format: int64
+          minCompactionLagMs:
+            description: |-
+              **string** (int64)
+              The minimum time in milliseconds a message will remain uncompacted in the log.
+            type: string
+            format: int64
+          retentionBytes:
+            description: |-
+              **string** (int64)
+              The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` [cleanupPolicy](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
+              It is helpful if you need to control the size of log due to limited disk space.
+              This setting overrides the cluster-level [KafkaConfig4.logRetentionBytes](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level.
+            type: string
+            format: int64
+          retentionMs:
+            description: |-
+              **string** (int64)
+              The number of milliseconds to keep a log segment's file before deleting it.
+              This setting overrides the cluster-level [KafkaConfig4.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level.
+            type: string
+            format: int64
+          maxMessageBytes:
+            description: |-
+              **string** (int64)
+              The largest record batch size allowed in topic.
+            type: string
+            format: int64
+          minInsyncReplicas:
+            description: |-
+              **string** (int64)
+              This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
+              to be considered successful (when a producer sets acks to "all").
+            type: string
+            format: int64
+          segmentBytes:
+            description: |-
+              **string** (int64)
+              This configuration controls the segment file size for the log. Retention and cleaning is always done a file
+              at a time so a larger segment size means fewer files but less granular control over retention.
+              This setting overrides the cluster-level [KafkaConfig4.logSegmentBytes](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level.
+            type: string
+            format: int64
+          preallocate:
+            description: |-
+              **boolean**
+              True if we should preallocate the file on disk when creating a new log segment.
+              This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level.
             type: boolean
       TopicSpec:
         type: object
@@ -277,20 +379,28 @@ apiPlayground:
           topicConfig_2_8:
             description: |-
               **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
-              Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
+              Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
               User-defined settings for the topic.
             $ref: '#/definitions/TopicConfig2_8'
           topicConfig_3:
             description: |-
               **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
-              Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
+              Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
               User-defined settings for the topic.
             $ref: '#/definitions/TopicConfig3'
+          topicConfig_4:
+            description: |-
+              **[TopicConfig4](#yandex.cloud.mdb.kafka.v1.TopicConfig4)**
+              Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
+              User-defined settings for the topic.
+            $ref: '#/definitions/TopicConfig4'
         oneOf:
           - required:
               - topicConfig_2_8
           - required:
               - topicConfig_3
+          - required:
+              - topicConfig_4
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Topic/create.md
 ---
 
@@ -312,7 +422,9 @@ POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/topics
 
 Required field. ID of the Apache Kafka® cluster to create a topic in.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.kafka.v1.CreateTopicRequest}
@@ -323,7 +435,7 @@ To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/
     "name": "string",
     "partitions": "string",
     "replicationFactor": "string",
-    // Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`
+    // Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`
     "topicConfig_2_8": {
       "cleanupPolicy": "string",
       "compressionType": "string",
@@ -340,6 +452,21 @@ To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/
       "preallocate": "boolean"
     },
     "topicConfig_3": {
+      "cleanupPolicy": "string",
+      "compressionType": "string",
+      "deleteRetentionMs": "string",
+      "fileDeleteDelayMs": "string",
+      "flushMessages": "string",
+      "flushMs": "string",
+      "minCompactionLagMs": "string",
+      "retentionBytes": "string",
+      "retentionMs": "string",
+      "maxMessageBytes": "string",
+      "minInsyncReplicas": "string",
+      "segmentBytes": "string",
+      "preallocate": "boolean"
+    },
+    "topicConfig_4": {
       "cleanupPolicy": "string",
       "compressionType": "string",
       "deleteRetentionMs": "string",
@@ -381,19 +508,24 @@ The number of the topic's partitions. ||
 Amount of copies of a topic data kept in the cluster. ||
 || topicConfig_2_8 | **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
 
-Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
+Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
 
 User-defined settings for the topic. ||
 || topicConfig_3 | **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
 
-Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
+Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
+
+User-defined settings for the topic. ||
+|| topicConfig_4 | **[TopicConfig4](#yandex.cloud.mdb.kafka.v1.TopicConfig4)**
+
+Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
 
 User-defined settings for the topic. ||
 |#
 
 ## TopicConfig2_8 {#yandex.cloud.mdb.kafka.v1.TopicConfig2_8}
 
-A topic settings for 2.8
+Topic settings for 2.8
 
 #|
 ||Field | Description ||
@@ -401,7 +533,6 @@ A topic settings for 2.8
 
 Retention policy to use on old log messages.
 
-- `CLEANUP_POLICY_UNSPECIFIED`
 - `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_8.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) and other similar parameters.
 - `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
 - `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments. ||
@@ -409,7 +540,6 @@ Retention policy to use on old log messages.
 
 The compression type for a given topic.
 
-- `COMPRESSION_TYPE_UNSPECIFIED`
 - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
 - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
 - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -463,13 +593,12 @@ This setting overrides the cluster-level [KafkaConfig2_8.logSegmentBytes](/docs/
 
 True if we should preallocate the file on disk when creating a new log segment.
 
-This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level.
-Deprecated. Feature useless for Yandex Cloud. ||
+This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 |#
 
 ## TopicConfig3 {#yandex.cloud.mdb.kafka.v1.TopicConfig3}
 
-A topic settings for 3.x
+Topic settings for 3.x
 
 #|
 ||Field | Description ||
@@ -477,7 +606,6 @@ A topic settings for 3.x
 
 Retention policy to use on old log messages.
 
-- `CLEANUP_POLICY_UNSPECIFIED`
 - `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig3.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) and other similar parameters.
 - `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
 - `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments. ||
@@ -485,7 +613,6 @@ Retention policy to use on old log messages.
 
 The compression type for a given topic.
 
-- `COMPRESSION_TYPE_UNSPECIFIED`
 - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
 - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
 - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -539,8 +666,80 @@ This setting overrides the cluster-level [KafkaConfig3.logSegmentBytes](/docs/ma
 
 True if we should preallocate the file on disk when creating a new log segment.
 
-This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level.
-Deprecated. Feature useless for Yandex Cloud. ||
+This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
+|#
+
+## TopicConfig4 {#yandex.cloud.mdb.kafka.v1.TopicConfig4}
+
+Topic settings for 4.x
+
+#|
+||Field | Description ||
+|| cleanupPolicy | **enum** (CleanupPolicy)
+
+Retention policy to use on old log messages.
+
+- `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig4.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) and other similar parameters.
+- `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
+- `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments. ||
+|| compressionType | **enum** (CompressionType)
+
+The compression type for a given topic.
+
+- `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+- `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+- `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+- `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+- `COMPRESSION_TYPE_GZIP`: GZip codec.
+- `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
+|| deleteRetentionMs | **string** (int64)
+
+The amount of time in milliseconds to retain delete tombstone markers for log compacted topics. ||
+|| fileDeleteDelayMs | **string** (int64)
+
+The time to wait before deleting a file from the filesystem. ||
+|| flushMessages | **string** (int64)
+
+The number of messages accumulated on a log partition before messages are flushed to disk.
+
+This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMessages](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+|| flushMs | **string** (int64)
+
+The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
+
+This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+|| minCompactionLagMs | **string** (int64)
+
+The minimum time in milliseconds a message will remain uncompacted in the log. ||
+|| retentionBytes | **string** (int64)
+
+The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
+It is helpful if you need to control the size of log due to limited disk space.
+
+This setting overrides the cluster-level [KafkaConfig4.logRetentionBytes](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+|| retentionMs | **string** (int64)
+
+The number of milliseconds to keep a log segment's file before deleting it.
+
+This setting overrides the cluster-level [KafkaConfig4.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+|| maxMessageBytes | **string** (int64)
+
+The largest record batch size allowed in topic. ||
+|| minInsyncReplicas | **string** (int64)
+
+This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
+to be considered successful (when a producer sets acks to "all"). ||
+|| segmentBytes | **string** (int64)
+
+This configuration controls the segment file size for the log. Retention and cleaning is always done a file
+at a time so a larger segment size means fewer files but less granular control over retention.
+
+This setting overrides the cluster-level [KafkaConfig4.logSegmentBytes](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+|| preallocate | **boolean**
+
+True if we should preallocate the file on disk when creating a new log segment.
+
+This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -572,7 +771,7 @@ Deprecated. Feature useless for Yandex Cloud. ||
     "clusterId": "string",
     "partitions": "string",
     "replicationFactor": "string",
-    // Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`
+    // Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`
     "topicConfig_2_8": {
       "cleanupPolicy": "string",
       "compressionType": "string",
@@ -589,6 +788,21 @@ Deprecated. Feature useless for Yandex Cloud. ||
       "preallocate": "boolean"
     },
     "topicConfig_3": {
+      "cleanupPolicy": "string",
+      "compressionType": "string",
+      "deleteRetentionMs": "string",
+      "fileDeleteDelayMs": "string",
+      "flushMessages": "string",
+      "flushMs": "string",
+      "minCompactionLagMs": "string",
+      "retentionBytes": "string",
+      "retentionMs": "string",
+      "maxMessageBytes": "string",
+      "minInsyncReplicas": "string",
+      "segmentBytes": "string",
+      "preallocate": "boolean"
+    },
+    "topicConfig_4": {
       "cleanupPolicy": "string",
       "compressionType": "string",
       "deleteRetentionMs": "string",
@@ -687,7 +901,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ID of the Apache Kafka® cluster where a topic is being created. ||
 || topicName | **string**
 
-Required field. Name of the Kafka topic that is being created. ||
+Required field. Name of the Kafka topic that is being created.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -730,19 +946,24 @@ The number of the topic's partitions. ||
 Amount of data copies (replicas) for the topic in the cluster. ||
 || topicConfig_2_8 | **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_82)**
 
-Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
+Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
 
 User-defined settings for the topic. ||
 || topicConfig_3 | **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig32)**
 
-Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
+Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
+
+User-defined settings for the topic. ||
+|| topicConfig_4 | **[TopicConfig4](#yandex.cloud.mdb.kafka.v1.TopicConfig42)**
+
+Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
 
 User-defined settings for the topic. ||
 |#
 
 ## TopicConfig2_8 {#yandex.cloud.mdb.kafka.v1.TopicConfig2_82}
 
-A topic settings for 2.8
+Topic settings for 2.8
 
 #|
 ||Field | Description ||
@@ -750,7 +971,6 @@ A topic settings for 2.8
 
 Retention policy to use on old log messages.
 
-- `CLEANUP_POLICY_UNSPECIFIED`
 - `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_8.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) and other similar parameters.
 - `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
 - `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments. ||
@@ -758,7 +978,6 @@ Retention policy to use on old log messages.
 
 The compression type for a given topic.
 
-- `COMPRESSION_TYPE_UNSPECIFIED`
 - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
 - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
 - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -812,13 +1031,12 @@ This setting overrides the cluster-level [KafkaConfig2_8.logSegmentBytes](/docs/
 
 True if we should preallocate the file on disk when creating a new log segment.
 
-This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level.
-Deprecated. Feature useless for Yandex Cloud. ||
+This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 |#
 
 ## TopicConfig3 {#yandex.cloud.mdb.kafka.v1.TopicConfig32}
 
-A topic settings for 3.x
+Topic settings for 3.x
 
 #|
 ||Field | Description ||
@@ -826,7 +1044,6 @@ A topic settings for 3.x
 
 Retention policy to use on old log messages.
 
-- `CLEANUP_POLICY_UNSPECIFIED`
 - `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig3.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) and other similar parameters.
 - `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
 - `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments. ||
@@ -834,7 +1051,6 @@ Retention policy to use on old log messages.
 
 The compression type for a given topic.
 
-- `COMPRESSION_TYPE_UNSPECIFIED`
 - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
 - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
 - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -888,6 +1104,78 @@ This setting overrides the cluster-level [KafkaConfig3.logSegmentBytes](/docs/ma
 
 True if we should preallocate the file on disk when creating a new log segment.
 
-This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level.
-Deprecated. Feature useless for Yandex Cloud. ||
+This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
+|#
+
+## TopicConfig4 {#yandex.cloud.mdb.kafka.v1.TopicConfig42}
+
+Topic settings for 4.x
+
+#|
+||Field | Description ||
+|| cleanupPolicy | **enum** (CleanupPolicy)
+
+Retention policy to use on old log messages.
+
+- `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig4.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) and other similar parameters.
+- `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
+- `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments. ||
+|| compressionType | **enum** (CompressionType)
+
+The compression type for a given topic.
+
+- `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+- `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+- `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+- `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+- `COMPRESSION_TYPE_GZIP`: GZip codec.
+- `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
+|| deleteRetentionMs | **string** (int64)
+
+The amount of time in milliseconds to retain delete tombstone markers for log compacted topics. ||
+|| fileDeleteDelayMs | **string** (int64)
+
+The time to wait before deleting a file from the filesystem. ||
+|| flushMessages | **string** (int64)
+
+The number of messages accumulated on a log partition before messages are flushed to disk.
+
+This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMessages](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+|| flushMs | **string** (int64)
+
+The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
+
+This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+|| minCompactionLagMs | **string** (int64)
+
+The minimum time in milliseconds a message will remain uncompacted in the log. ||
+|| retentionBytes | **string** (int64)
+
+The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
+It is helpful if you need to control the size of log due to limited disk space.
+
+This setting overrides the cluster-level [KafkaConfig4.logRetentionBytes](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+|| retentionMs | **string** (int64)
+
+The number of milliseconds to keep a log segment's file before deleting it.
+
+This setting overrides the cluster-level [KafkaConfig4.logRetentionMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+|| maxMessageBytes | **string** (int64)
+
+The largest record batch size allowed in topic. ||
+|| minInsyncReplicas | **string** (int64)
+
+This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
+to be considered successful (when a producer sets acks to "all"). ||
+|| segmentBytes | **string** (int64)
+
+This configuration controls the segment file size for the log. Retention and cleaning is always done a file
+at a time so a larger segment size means fewer files but less granular control over retention.
+
+This setting overrides the cluster-level [KafkaConfig4.logSegmentBytes](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+|| preallocate | **boolean**
+
+True if we should preallocate the file on disk when creating a new log segment.
+
+This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level. ||
 |#

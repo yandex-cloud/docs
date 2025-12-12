@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--placement-group-id`|<b>`string`</b><br/>ID of the placement group to return.<br/><br/>To get a placement group ID make a [PlacementGroupService.List] request.|
+|`--placement-group-id`|<b>`string`</b><br/>ID of the placement group to return. To get a placement group ID make a [PlacementGroupService.List] request.|
 
 #### Global Flags
 

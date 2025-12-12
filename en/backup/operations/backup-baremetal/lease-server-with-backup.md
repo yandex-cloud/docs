@@ -22,12 +22,13 @@ You can back up your {{ baremetal-name }} [servers](../../../baremetal/concepts/
   1. {% include [server-lease-step4](../../../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
   1. {% include [server-lease-step5](../../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
   1. {% include [server-lease-step6](../../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
+  1. {% include [server-lease-step7-backup](../../../_includes/baremetal/instruction-steps/server-lease-step7-backup.md) %}
+  1. {% include [server-lease-step8](../../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
 
       {% include [server-lease-backup-partitioning-notice](../../../_includes/baremetal/instruction-steps/server-lease-backup-partitioning-notice.md) %}
 
-  1. {% include [server-lease-step7-backup](../../../_includes/baremetal/instruction-steps/server-lease-step7-backup.md) %}
-  1. {% include [server-lease-step8](../../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
-  1. {% include [server-lease-step9-backup](../../../_includes/baremetal/instruction-steps/server-lease-step9-backup.md) %}
+  1. {% include [server-lease-step9-bm](../../../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
+  1. {% include [server-lease-step10-backup](../../../_includes/baremetal/instruction-steps/server-lease-step10-backup.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
@@ -41,7 +42,7 @@ You can back up your {{ baremetal-name }} [servers](../../../baremetal/concepts/
 
 {% endlist %}
 
-For more information on leasing a server, see the [{{ baremetal-name }} documentation](../../../baremetal/operations/servers/server-lease.md).
+For more information on leasing a server, see [this {{ baremetal-name }} guide](../../../baremetal/operations/servers/server-lease.md).
 
 {% note info %}
 

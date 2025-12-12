@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--federation-id`|<b>`string`</b><br/>ID of the federation to list domains for.<br/>To get the federation ID, make a [FederationService.List] request.|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>The expression supports the following operations:<br/>- '=' for exact match: 'domain = 'domain-1.com''<br/>- 'IN' for multiple values: 'status IN ('NEED_TO_VALIDATE', 'VALID')'<br/>- 'contains' for domain substring search: 'domain contains '3''<br/>- 'AND' for combining conditions: 'status = 'INVALID' AND domain contains '3''<br/><br/>Available fields for filtering:<br/>- 'domain' - domain name<br/>- 'status' - domain validation status<br/><br/>Must be 1-1000 characters long.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListFederationDomainsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token]<br/>to the [ListFederationDomainsResponse.next_page_token]<br/>returned by a previous list request.|
+|`--federation-id`|<b>`string`</b><br/>ID of the federation to list domains for. To get the federation ID, make a [FederationService.List] request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression supports the following operations: - '=' for exact match: 'domain = 'domain-1.com'' - 'IN' for multiple values: 'status IN ('NEED_TO_VALIDATE', 'VALID')' - 'contains' for domain substring search: 'domain contains '3'' - 'AND' for combining conditions: 'status = 'INVALID' AND domain contains '3'' Available fields for filtering: - 'domain' - domain name - 'status' - domain validation status Must be 1-1000 characters long.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListFederationDomainsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListFederationDomainsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

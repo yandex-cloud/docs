@@ -18,11 +18,11 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>The expression consists of one or more conditions united by 'AND' operator: '\<condition1\> [AND \<condition2\> [<...> AND \<conditionN\>]]'.<br/><br/>Each condition has the form '\<field\> \<operator\> \<value\>', where:<br/>1. '\<field\>' is the field name. Currently you can use filtering only on the limited number of fields.<br/>2. '\<operator\>' is a logical operator, one of '=', '!=', 'IN', 'NOT IN'.<br/>3. '\<value\>' represents a value.<br/>String values should be written in double ('"') or single (''') quotes. C-style escape sequences are supported ('\"' turns to '"', '\'' to ''', '\\' to backslash).|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to list host groups in.<br/>To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--order-by`|<b>`string`</b><br/>By which column the listing should be ordered and in which direction,<br/>format is "createdAt desc". "id asc" if omitted.<br/>The default sorting order is ascending|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListHostGroupsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results,<br/>set [page_token] to the [ListHostGroupsResponse.next_page_token]<br/>returned by a previous list request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression consists of one or more conditions united by 'AND' operator: '\<condition1\> [AND \<condition2\> [<...> AND \<conditionN\>]]'. Each condition has the form '\<field\> \<operator\> \<value\>', where: 1. '\<field\>' is the field name. Currently you can use filtering only on the limited number of fields. 2. '\<operator\>' is a logical operator, one of '=', '!=', 'IN', 'NOT IN'. 3. '\<value\>' represents a value. String values should be written in double ('"') or single (''') quotes. C-style escape sequences are supported ('\"' turns to '"', '\'' to ''', '\\' to backslash).|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to list host groups in. To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--order-by`|<b>`string`</b><br/>By which column the listing should be ordered and in which direction, format is "createdAt desc". "id asc" if omitted. The default sorting order is ascending|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListHostGroupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListHostGroupsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

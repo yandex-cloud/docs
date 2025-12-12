@@ -80,12 +80,16 @@ Updates an Apache Kafka® connector.
 
 Required field. ID of the Apache Kafka® cluster to update the connector in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || connector_name | **string**
 
 Required field. Name of the connector to update.
 
-To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/grpc/Connector/list#List) request. ||
+To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/grpc/Connector/list#List) request.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which settings of the connector should be updated. ||
@@ -373,10 +377,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Apache Kafka® cluster the connector is being updated in. ||
+Required field. ID of the Apache Kafka® cluster the connector is being updated in.
+
+The maximum string length in characters is 50. ||
 || connector_name | **string**
 
-Required field. Name of the Apache Kafka® connector that is being updated. ||
+Required field. Name of the Apache Kafka® connector that is being updated.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 |#
 
 ## Connector {#yandex.cloud.mdb.kafka.v1.Connector}

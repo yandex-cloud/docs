@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--resource-preset-id`|<b>`string`</b><br/>ID of the resource preset to return.<br/><br/>To get the resource preset ID, use a [ResourcePresetService.List] request.|
+|`--resource-preset-id`|<b>`string`</b><br/>ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List] request.|
 |`--type`|<b>`enum`</b><br/>Required. ResourcePreset type - master or segment. Possible Values: 'master', 'segment'|
 
 #### Global Flags

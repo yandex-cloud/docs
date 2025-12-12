@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the cluster to list backups for.<br/><br/>To get this ID, make a [ClusterService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return.<br/><br/>If the number of available results is larger than [page_size], the API returns a [ListClusterBackupsResponse.next_page_token] that can be used to get the next page of results in the subsequent [ClusterService.ListBackups] requests.|
-|`--page-token`|<b>`string`</b><br/>Page token that can be used to iterate through multiple pages of results.<br/><br/>To get the next page of results, set [page_token] to the [ListClusterBackupsResponse.next_page_token] returned by the previous [ClusterService.ListBackups] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the cluster to list backups for. To get this ID, make a [ClusterService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the API returns a [ListClusterBackupsResponse.next_page_token] that can be used to get the next page of results in the subsequent [ClusterService.ListBackups] requests.|
+|`--page-token`|<b>`string`</b><br/>Page token that can be used to iterate through multiple pages of results. To get the next page of results, set [page_token] to the [ListClusterBackupsResponse.next_page_token] returned by the previous [ClusterService.ListBackups] request.|
 
 #### Global Flags
 

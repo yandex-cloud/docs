@@ -95,6 +95,8 @@ items:
         href: concepts/limits.md
       - name: Impersonation
         href: concepts/impersonation.md
+      - name: Host classes
+        href: concepts/instance-types.md
       - name: Maintenance
         href: concepts/maintenance.md
   - name: Access management

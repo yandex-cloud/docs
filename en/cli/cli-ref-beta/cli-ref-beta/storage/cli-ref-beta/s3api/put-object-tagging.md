@@ -19,13 +19,12 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--bucket`|<b>`string`</b><br/>Bucket name|
 |`--key`|<b>`string`</b><br/>Object key|
 |`--version-id`|<b>`string`</b><br/>Version ID used to reference a specific version of the object.|
-|`--tagging`|<b>`shorthand/json`</b><br/>Set of tags for the object. Syntax: TagSet=[{Key=string,Value=string},{Key=string,Value=string}]<br/><br/>Example:|
-|`--tagging`|<b>`tag-set=[{key=value,`</b><br/>value=value}]<br/><br/>Shorthand Syntax:<br/>{tag-set=[{key=str, value=str},...]}<br/>Fields:<br/>tag-set  []struct  — Set of tags for the object.<br/>key    string  — Tag key<br/>value  string  — Tag value|
+|`--tagging`|<b>`shorthand/json`</b><br/>Set of tags for the object. Syntax: TagSet=[{Key=string,Value=string},{Key=string,Value=string}]<br/>Shorthand Syntax:<br/>{<br/>tag-set = [<br/>{<br/>key = str,<br/>value = str<br/>}, ...<br/>]<br/>}<br/>JSON Syntax:<br/>"{<br/>"tag-set": [<br/>{<br/>"key": "str",<br/>"value": "str"<br/>}, ...<br/>]<br/>}"<br/>Fields:<br/>tag-set -> ([]struct)<br/>Set of tags for the object.<br/>key -> (string)<br/>Tag key<br/>value -> (string)<br/>Tag value|
 
 #### Global Flags
 

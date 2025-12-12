@@ -38,7 +38,7 @@ data "yandex_alb_backend_group" "my_alb_bg" {
 - `description` (String) The resource description.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `grpc_backend` (Block List) (see [below for nested schema](#nestedblock--grpc_backend))
-- `http_backend` (Block List) (see [below for nested schema](#nestedblock--http_backend))
+- `http_backend` (Block List) HTTP backend specification that will be used by the ALB Backend Group (see [below for nested schema](#nestedblock--http_backend))
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `name` (String) The resource name.
 - `session_affinity` (Block List, Max: 1) (see [below for nested schema](#nestedblock--session_affinity))
@@ -160,7 +160,8 @@ Optional:
 
 - `sni` (String) [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) string for TLS connections.
 
-- `validation_context` (Block List, Max: 1) (see [below for nested schema](#nestedblock--grpc_backend--tls--validation_context))
+- `validation_context` (Block List, Max: 1) Validation context (see [below for nested schema](#nestedblock--grpc_backend--tls--validation_context))
+
 
 <a id="nestedblock--grpc_backend--tls--validation_context"></a>
 ### Nested Schema for `grpc_backend.tls.validation_context`
@@ -182,24 +183,24 @@ Optional:
 
 - `healthcheck` (Block List, Max: 1) Healthcheck specification that will be used by this backend. (see [below for nested schema](#nestedblock--http_backend--healthcheck))
 
-- `http2` (Boolean) Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default.
+- `http2` (Boolean) Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default.
 
 - `load_balancing_config` (Block List, Max: 1) Load Balancing Config specification that will be used by this backend. (see [below for nested schema](#nestedblock--http_backend--load_balancing_config))
 
-- `port` (Number) Port for incoming traffic.
+- `port` (Number) Port for incoming traffic. Port for incoming traffic.
 
-- `storage_bucket` (String) Name of bucket which should be used as a backend.
+- `storage_bucket` (String) Name of bucket which should be used as a backend. Name of bucket which should be used as a backend.
 
-- `target_group_ids` (List of String) References target groups for the backend.
+- `target_group_ids` (List of String) References target groups for the backend. References target groups for the backend.
 
 - `tls` (Block List, Max: 1) TLS specification that will be used by this backend. (see [below for nested schema](#nestedblock--http_backend--tls))
 
-- `weight` (Number) Weight of the backend. Traffic will be split between backends of the same BackendGroup according to their weights.
+- `weight` (Number) Weight of the backend. Weight of the backend. Traffic will be split between backends of the same BackendGroup according to their weights.
 
 
 Read-Only:
 
-- `name` (String) Name of the backend.
+- `name` (String) Name of the backend. Name of the backend.
 
 
 <a id="nestedblock--http_backend--healthcheck"></a>
@@ -290,7 +291,8 @@ Optional:
 
 - `sni` (String) [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) string for TLS connections.
 
-- `validation_context` (Block List, Max: 1) (see [below for nested schema](#nestedblock--http_backend--tls--validation_context))
+- `validation_context` (Block List, Max: 1) Validation context (see [below for nested schema](#nestedblock--http_backend--tls--validation_context))
+
 
 <a id="nestedblock--http_backend--tls--validation_context"></a>
 ### Nested Schema for `http_backend.tls.validation_context`
@@ -331,6 +333,8 @@ Optional:
 
 Optional:
 
+- `path` (String) Path of the HTTP cookie Path of the HTTP cookie to use with affinity.
+
 - `ttl` (String) TTL for the cookie (if not set, session cookie will be used) TTL for the cookie (if not set, session cookie will be used).
 
 
@@ -355,7 +359,8 @@ Optional:
 
 Optional:
 
-- `enable_proxy_protocol` (Boolean)
+- `enable_proxy_protocol` (Boolean) Enables TCP proxy protocol support for upstream backend
+
 - `healthcheck` (Block List, Max: 1) Healthcheck specification that will be used by this backend. (see [below for nested schema](#nestedblock--stream_backend--healthcheck))
 
 - `keep_connections_on_host_health_failure` (Boolean) If set, when a backend host becomes unhealthy (as determined by the configured health checks), keep connections to the failed host.
@@ -464,7 +469,8 @@ Optional:
 
 - `sni` (String) [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) string for TLS connections.
 
-- `validation_context` (Block List, Max: 1) (see [below for nested schema](#nestedblock--stream_backend--tls--validation_context))
+- `validation_context` (Block List, Max: 1) Validation context (see [below for nested schema](#nestedblock--stream_backend--tls--validation_context))
+
 
 <a id="nestedblock--stream_backend--tls--validation_context"></a>
 ### Nested Schema for `stream_backend.tls.validation_context`

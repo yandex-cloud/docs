@@ -80,7 +80,9 @@ Creates a new Apache Kafka® connector in a cluster.
 
 Required field. ID of the Apache Kafka® cluster to create the connector in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || connector_spec | **[ConnectorSpec](#yandex.cloud.mdb.kafka.v1.ConnectorSpec)**
 
 Required field. Configuration of the connector to create. ||
@@ -380,7 +382,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ID of the Apache Kafka® cluster the connector is being created in. ||
 || connector_name | **string**
 
-Required field. Name of the Apache Kafka® connector that is being created. ||
+Required field. Name of the Apache Kafka® connector that is being created.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 |#
 
 ## Connector {#yandex.cloud.mdb.kafka.v1.Connector}

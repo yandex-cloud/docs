@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--backup-id`|<b>`string`</b><br/>Required. ID of the YDB backup.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available<br/>results is larger than 'page_size', the service returns a 'next_page_token' that can be used<br/>to get the next page of results in subsequent ListPaths requests.<br/>Acceptable values are 0 to 1000, inclusive. Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. Set 'page_token' to the 'next_page_token' returned by a previous ListPaths<br/>request to get the next page of results.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available results is larger than 'page_size', the service returns a 'next_page_token' that can be used to get the next page of results in subsequent ListPaths requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. Set 'page_token' to the 'next_page_token' returned by a previous ListPaths request to get the next page of results.|
 
 #### Global Flags
 

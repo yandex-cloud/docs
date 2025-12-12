@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--userpool-id`|<b>`string`</b><br/>ID of the userpool to return.<br/>To get the userpool ID, make a [UserpoolService.List] request.|
+|`--userpool-id`|<b>`string`</b><br/>ID of the userpool to return. To get the userpool ID, make a [UserpoolService.List] request.|
 
 #### Global Flags
 

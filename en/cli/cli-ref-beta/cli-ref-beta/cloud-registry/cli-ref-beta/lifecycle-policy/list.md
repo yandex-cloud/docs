@@ -19,7 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set page_token to the<br/>ListLifecyclePolicyResponse.next_page_token returned by a previous list request.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set page_token to the ListLifecyclePolicyResponse.next_page_token returned by a previous list request.|
 |`--registry-id`|<b>`string`</b><br/>ID of the registry to list lifecycle policies in.|
 
 #### Global Flags

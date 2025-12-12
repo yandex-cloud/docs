@@ -12,18 +12,20 @@ In a common instance, model resources are available to all {{ yandex-cloud }} us
 Common instance models are subject to the update rules described in [Model lifecycle](#model-lifecycle). When updating models, generations available in different branches (`/latest`, `/rc`, and `/deprecated` segments) may change. Modified models share usage [quotas](../limits.md#quotas) with their basic models.
 
 #|
-|| **Model and URI** | **Generation** | **Context** | **[Operating modes](./index.md#working-mode)** ||
-|| **{{ gpt-lite }}** </br>`gpt://<folder_ID>/yandexgpt-lite`	| Deprecated 5</br>Latest 5</br>RC 5 | 32,000 | Asynchronous, synchronous ||
-|| **{{ gpt-pro }}** </br>`gpt://<folder_ID>/yandexgpt` | Deprecated 5</br>Latest 5</br>RC 5.1 | 32,000 | Asynchronous, synchronous ||
-|| **Qwen3 235B** </br>`gpt://<folder_ID>/qwen3-235b-a22b-fp8/latest` | — | 256,000 | [{{ openai }} API](../openai-compatibility.md) ||
-|| **gpt-oss-120b** </br>`gpt://<folder_ID>/gpt-oss-120b/latest` | — | 128,000 | [{{ openai }} API](../openai-compatibility.md) ||
-|| **gpt-oss-20b** </br>`gpt://<folder_ID>/gpt-oss-20b/latest` | — | 128,000 | [{{ openai }} API](../openai-compatibility.md) ||  
-|| [**Fine-tuned text models**](../tuning/index.md) </br>`gpt://<folder_ID>/<basic_model>/<version>@<suffix>` | Depends on the basic model | Depends on the basic model | Asynchronous, synchronous ||
+|| **Model and URI** | **Context** | **Available APIs** ||
+|| **{{ alice-ai }}** </br>`gpt://<folder_ID>/aliceai-llm`       | 32,768 | Text generation APIs, {{ openai }}-compatible APIs ||
+|| **{{ gpt-pro }} 5.1** </br>`gpt://<folder_ID>/yandexgpt/rc`   | 32,768 | Text generation APIs, {{ openai }}-compatible APIs ||
+|| **{{ gpt-pro }} 5** </br>`gpt://<folder_ID>/yandexgpt/latest` | 32,768 | Text generation APIs, {{ openai }}-compatible APIs ||
+|| **{{ gpt-lite }} 5** </br>`gpt://<folder_ID>/yandexgpt-lite`	| 32,768 | Text generation APIs, {{ openai }}-compatible APIs ||
+|| **Qwen3 235B** </br>`gpt://<folder_ID>/qwen3-235b-a22b-fp8/latest` | 262 144 | {{ openai }}-compatible APIs ||
+|| **gpt-oss-120b** </br>`gpt://<folder_ID>/gpt-oss-120b/latest` | 131,072 | {{ openai }}-compatible APIs ||
+|| **gpt-oss-20b** </br>`gpt://<folder_ID>/gpt-oss-20b/latest` | 131,072 | {{ openai }}-compatible APIs ||  
+|| [**Fine-tuned {{ gpt-lite }}**](../tuning/index.md) </br>`gpt://<folder_ID>/yandexgpt-lite/latest@<suffix>` | 32,768 | Text generation APIs, {{ openai }}-compatible APIs ||
 || **Gemma 3 27B**
 `gpt://<folder_ID>/gemma-3-27b-it/latest`
-[Gemma Terms of Use]({{ license-gemma }}) | — | 128 000 | [{{ openai }} API](../openai-compatibility.md) ||
-|| **{{ yandexart-name }}** </br>`art://<folder_ID>/yandex-art/latest` | — | — | Asynchronous ||
-|#
+[Gemma Terms of Use]({{ license-gemma }}) | 131,072 | {{ openai }}-compatible APIs ||
+|| **{{ yandexart-name }}** </br>`art://<folder_ID>/yandex-art/latest` | 500 characters | Image generation APIs ||
+|#  
 
 Gemma 3 27B works with Base64-encoded images. The model can handle images of any aspect ratio thanks to an adaptive algorithm that scales the longer side of the image to 896 pixels while preserving important visual details. Each image uses 256 context [tokens](./tokens.md).
 
@@ -47,7 +49,7 @@ You can access text generation models of different versions in a number of ways.
       sdk.models.completions("yandexgpt")
     )
 
-    # Image generation
+    # Image generation 
     model = (
       sdk.models.image_generation("yandex-art")
     )
@@ -61,7 +63,7 @@ You can access text generation models of different versions in a number of ways.
       sdk.models.completions(model_name="yandexgpt-lite", model_version="rc")
     )
 
-    # Image generation
+    # Image generation 
     model = (
       sdk.models.image_generation(model_name="yandex-art", model_version="latest")
     )
@@ -77,7 +79,7 @@ You can access text generation models of different versions in a number of ways.
       sdk.models.completions("gpt://b1gt6g8ht345********/yandexgpt/deprecated")
     )
 
-    # Image generation
+    # Image generation 
     model = (
       sdk.models.image_generation("art://b1gt6g8ht345********/yandex-art/latest")
     )

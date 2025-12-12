@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--proxy-id`|<b>`string`</b><br/>ID of the proxy to return.<br/><br/>To get a proxy ID make a [ProxyService.List] request.|
+|`--proxy-id`|<b>`string`</b><br/>ID of the proxy to return. To get a proxy ID make a [ProxyService.List] request.|
 
 #### Global Flags
 

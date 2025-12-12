@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--certificate-id`|<b>`string`</b><br/>ID of the certificate to return.<br/><br/>To get the ID of a certificate use a [CertificateService.List] request.|
+|`--certificate-id`|<b>`string`</b><br/>ID of the certificate to return. To get the ID of a certificate use a [CertificateService.List] request.|
 |`--view`|<b>`enum`</b><br/>The output type of the certificate. Possible Values: 'basic', 'full'|
 
 #### Global Flags

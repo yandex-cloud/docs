@@ -19,13 +19,13 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--description`|<b>`string`</b><br/>Description of the registry. 0-1024 characters long.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a registry in.<br/><br/>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a registry in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 |`--kind`|<b>`enum`</b><br/>Kind of the registry. Possible Values: 'maven', 'npm', 'docker', 'nuget', 'debian', 'pypi', 'binary'|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the registry.<br/><br/>There may be only one registry per folder.|
+|`--name`|<b>`string`</b><br/>Name of the registry. There may be only one registry per folder.|
 |`--properties`|<b>`stringToString`</b><br/>Property names and values.|
 |`--type`|<b>`enum`</b><br/>Type of the registry. Possible Values: 'local', 'remote', 'virtual'|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

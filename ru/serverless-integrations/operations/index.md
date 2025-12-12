@@ -70,6 +70,12 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](workflows/execution/stop.md)
 * [{#T}](workflows/execution/terminate.md)
 
+### Управление правами доступа к рабочим процессам {#sw-access-rights}
+
+* [{#T}](workflows/access-rights/role-list.md)
+* [{#T}](workflows/access-rights/role-add.md)
+* [{#T}](workflows/access-rights/role-revoke.md)
+
 ### Получение дополнительной информации {#get-additional-info}
 
 * [Просмотр операций с ресурсами сервиса](operation-logs.md)
@@ -140,7 +146,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](eventrouter/rule/disable.md)
 * [{#T}](eventrouter/rule/delete.md)
 
-### Управление правами доступа к ресурсам {#access-rights}
+### Управление правами доступа к ресурсам {#er-access-rights}
 
 * [{#T}](eventrouter/access-rights/role-list.md)
 * [{#T}](eventrouter/access-rights/role-add.md)

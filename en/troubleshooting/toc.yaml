@@ -250,9 +250,6 @@ items:
           compute/known-issues/permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md
       - name: No nested virtualization support
         href: compute/known-issues/nested-virtualisation-is-not-supported.md
-      - name: "UEFI support and\_data import from GPT-formatted disks"
-        href: >-
-          compute/known-issues/uefi-support-and-booting-from-disks-with-gpt-layout.md
       - name: Fixing the "Not enough resources" error on launching a virtual machine
         href: compute/known-issues/not-enough-resources.md
       - name: Recovering access to a VM with a lost SSH key

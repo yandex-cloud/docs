@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--partner-id`|<b>`string`</b><br/>ID of the Partner resource to return.<br/>To get the partner ID use a [PartnerService.List] request.|
+|`--partner-id`|<b>`string`</b><br/>ID of the Partner resource to return. To get the partner ID use a [PartnerService.List] request.|
 
 #### Global Flags
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--image-id`|<b>`string`</b><br/>ID of the Image resource to return.<br/><br/>To get the image ID, use a [ImageService.List] request.|
+|`--image-id`|<b>`string`</b><br/>ID of the Image resource to return. To get the image ID, use a [ImageService.List] request.|
 
 #### Global Flags
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--network-load-balancer-id`|<b>`string`</b><br/>ID of the NetworkLoadBalancer resource to return.<br/>To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.|
+|`--network-load-balancer-id`|<b>`string`</b><br/>ID of the NetworkLoadBalancer resource to return. To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.|
 
 #### Global Flags
 

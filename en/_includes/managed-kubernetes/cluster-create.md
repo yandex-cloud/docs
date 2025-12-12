@@ -8,7 +8,7 @@
 
    {% include [write-once-settings](write-once-setting.md) %}
 
-1. Specify a [release channel](../../managed-kubernetes/concepts/release-channels-and-updates.md).
+1. Specify the [release channel](../../managed-kubernetes/concepts/release-channels-and-updates.md).
 
    {% include [write-once-settings](write-once-setting.md) %}
 
@@ -21,9 +21,9 @@
 
      {% include [master-default-config](master-default-config.md) %}
 
-   * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the {{ k8s }} version to be installed on the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master.
+   * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the {{ k8s }} version to install on the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master.
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** field, select an [IP address](../../vpc/concepts/address.md) assignment method:
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
+     * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool.
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Do not assign a public IP address.
 
      {% include [nat-instance-restriction](nat-instance-restriction.md) %}
@@ -31,7 +31,7 @@
      {% include [write-once-settings](write-once-setting.md) %}
 
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** field, select the {{ managed-k8s-name }} master type:
-     * `Basic`: Contains one master host in one availability zone. This type of master is cheaper, but it is not fault-tolerant. Its former name is _zonal_.
+     * `Base`: Contains one master host in a single availability zone. This type of master is cheaper but not fault-tolerant. Its former name is _zonal_.
 
        {% note warning %}
 
@@ -39,7 +39,7 @@
 
        {% endnote %}
 
-     * `Highly available`: Contains three master hosts. It's former name was _regional_.
+     * `Highly available`: Contains three master hosts. Its former name is _regional_.
 
        {% note warning %}
 
@@ -47,23 +47,23 @@
 
        {% endnote %}
 
-   * In the **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** field, select the [network](../../vpc/concepts/network.md#network) to create a {{ managed-k8s-name }} master in. If there are no networks available, [create one](../../vpc/operations/network-create.md).
+   * In the **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** field, select the [network](../../vpc/concepts/network.md#network) to create a {{ managed-k8s-name }} master in. If you do not have a network yet, [create one](../../vpc/operations/network-create.md).
 
       {% include [note-another-catalog-network](note-another-catalog-network.md) %}
 
-   * For a highly available master, select master host placement in the **Distribution of masters by availability zone** field:
-     * `One zone`: In one availability zone and one subnet. This is a good choice of master if you want to ensure high availability of the cluster and reduce network latency within it.
-     * `Different zones`: In three different availability zones. This master ensures the greatest fault tolerance: if one zone becomes unavailable, the master will remain operational.
+   * For a highly available master, select the master host placement in the **Distribution of masters across availability zones** field:
+     * `One zone`: In one availability zone and one subnet. Choose this type if you want to ensure high availability of the cluster and reduce its internal network latency.
+     * `Different zones`: In three different availability zones. This master ensures the best fault tolerance: if one zone becomes unavailable, the master will continue to function.
 
    * Depending on the type of master you select:
-     * For a basic or highly available master in a single zone, specify the availability zone and subnet. 
+     * For a base or highly available master in a single zone, specify the availability zone and subnet. 
      * For a highly available master in different zones, specify subnets in each zone. 
 
      If there are no subnets, [create](../../vpc/operations/subnet-create.md) them.
 
      {% note warning %}
 
-     You cannot change the master type and location after you create a cluster.
+     You cannot change the master type and placement after you create a cluster.
 
      {% endnote %}
 
@@ -78,7 +78,7 @@
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}** field.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}** field.
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
-   * (Optional) Select [the network policy controller](../../managed-kubernetes/concepts/network-policy.md#policy-controllers):
+   * Optionally, select the [network policy controller](../../managed-kubernetes/concepts/network-policy.md#policy-controllers):
 
      {% include [write-once-setting](write-once-setting.md) %}
 
@@ -88,7 +88,7 @@
      * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}** to use Cilium.
 
 
-   * Specify the **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**, which is a range of IP addresses to allocate [pod](../../managed-kubernetes/concepts/index.md#pod) IPs from.
-   * Specify the **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}**, which is a range of IP addresses to allocate [service](../../managed-kubernetes/concepts/index.md#service) IPs from.
+   * Specify the **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**, which is a range of IP addresses to allocate [pod](../../managed-kubernetes/concepts/index.md#pod) IP addresses from.
+   * Specify the **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}**, which is a range of IP addresses to allocate [service](../../managed-kubernetes/concepts/index.md#service) IP addresses from.
    * Set the subnet mask for the {{ managed-k8s-name }} nodes and the maximum number of pods per node.
 1. Click **{{ ui-key.yacloud.common.create }}**.

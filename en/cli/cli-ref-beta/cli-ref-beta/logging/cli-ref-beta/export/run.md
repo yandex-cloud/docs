@@ -19,11 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--group-id`|<b>`string`</b><br/>|
-|`--params`|<b>`shorthand/json`</b><br/><br/>Example:|
-|`--params`|<b>`filter=value,`</b><br/>levels=TRACE, resource-ids=value, resource-types=value, stream-names=value<br/><br/>Shorthand Syntax:<br/>{filter=str, levels=TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL,..., resource-ids=str,..., resource-types=str,..., stream-names=str,...}<br/>Fields:<br/>filter          string    —<br/>levels          []int     —<br/>resource-ids    []string  —<br/>resource-types  []string  —<br/>stream-names    []string  —<br/>|
+|`--params`|<b>`shorthand/json`</b><br/>Shorthand Syntax:<br/>{<br/>filter = str,<br/>levels = TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL,...,<br/>resource-ids = str,...,<br/>resource-types = str,...,<br/>stream-names = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"filter": "str",<br/>"levels": [<br/>"TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL", ...<br/>],<br/>"resource-ids": [<br/>"str", ...<br/>],<br/>"resource-types": [<br/>"str", ...<br/>],<br/>"stream-names": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>filter -> (string)<br/>levels -> ([]int)<br/>resource-ids -> ([]string)<br/>resource-types -> ([]string)<br/>stream-names -> ([]string)|
 |`--result-filename`|<b>`string`</b><br/>|
 |`--since`|<b>`time`</b><br/>(RFC3339)|
 |`--sink-id`|<b>`string`</b><br/>|

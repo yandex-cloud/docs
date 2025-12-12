@@ -1841,6 +1841,8 @@ items:
                 href: cli-ref/iam/cli-ref/access-key/delete.md
               - name: get
                 href: cli-ref/iam/cli-ref/access-key/get.md
+              - name: issue-ephemeral
+                href: cli-ref/iam/cli-ref/access-key/issue-ephemeral.md
               - name: list
                 href: cli-ref/iam/cli-ref/access-key/list.md
           - name: access-policy-template
@@ -4180,6 +4182,8 @@ items:
                 href: cli-ref/managed-trino/cli-ref/cluster/get.md
               - name: get-access-control
                 href: cli-ref/managed-trino/cli-ref/cluster/get-access-control.md
+              - name: get-resource-groups
+                href: cli-ref/managed-trino/cli-ref/cluster/get-resource-groups.md
               - name: list
                 href: cli-ref/managed-trino/cli-ref/cluster/list.md
               - name: list-access-bindings
@@ -4190,10 +4194,15 @@ items:
                 href: cli-ref/managed-trino/cli-ref/cluster/remove-access-binding.md
               - name: remove-access-control
                 href: cli-ref/managed-trino/cli-ref/cluster/remove-access-control.md
+              - name: remove-resource-groups
+                href: >-
+                  cli-ref/managed-trino/cli-ref/cluster/remove-resource-groups.md
               - name: set-access-bindings
                 href: cli-ref/managed-trino/cli-ref/cluster/set-access-bindings.md
               - name: set-access-control
                 href: cli-ref/managed-trino/cli-ref/cluster/set-access-control.md
+              - name: set-resource-groups
+                href: cli-ref/managed-trino/cli-ref/cluster/set-resource-groups.md
               - name: start
                 href: cli-ref/managed-trino/cli-ref/cluster/start.md
               - name: stop
@@ -4988,10 +4997,14 @@ items:
                   cli-ref/serverless/cli-ref/api-gateway/remove-access-binding.md
               - name: remove-domain
                 href: cli-ref/serverless/cli-ref/api-gateway/remove-domain.md
+              - name: resume
+                href: cli-ref/serverless/cli-ref/api-gateway/resume.md
               - name: rollback-canary
                 href: cli-ref/serverless/cli-ref/api-gateway/rollback-canary.md
               - name: set-access-bindings
                 href: cli-ref/serverless/cli-ref/api-gateway/set-access-bindings.md
+              - name: stop
+                href: cli-ref/serverless/cli-ref/api-gateway/stop.md
               - name: update
                 href: cli-ref/serverless/cli-ref/api-gateway/update.md
               - name: websocket

@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the image.|
-|`--image-id`|<b>`string`</b><br/>ID of the Image resource to update.<br/><br/>To get the image ID, use a [ImageService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.<br/><br/>Existing set of 'labels' is completely replaced by the provided set.|
-|`--name`|<b>`string`</b><br/>Name of the image.<br/>The name must be unique within the folder.|
+|`--image-id`|<b>`string`</b><br/>ID of the Image resource to update. To get the image ID, use a [ImageService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set.|
+|`--name`|<b>`string`</b><br/>Name of the image. The name must be unique within the folder.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

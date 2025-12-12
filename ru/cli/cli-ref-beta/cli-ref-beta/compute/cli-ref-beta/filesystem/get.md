@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filesystem-id`|<b>`string`</b><br/>ID of the filesystem to return.<br/><br/>To get the filesystem ID, make a [FilesystemService.List] request.|
+|`--filesystem-id`|<b>`string`</b><br/>ID of the filesystem to return. To get the filesystem ID, make a [FilesystemService.List] request.|
 
 #### Global Flags
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--disk-id`|<b>`string`</b><br/>ID of the Disk resource to return.<br/>To get the disk ID use a [DiskService.List] request.|
+|`--disk-id`|<b>`string`</b><br/>ID of the Disk resource to return. To get the disk ID use a [DiskService.List] request.|
 
 #### Global Flags
 

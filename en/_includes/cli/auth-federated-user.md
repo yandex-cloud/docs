@@ -3,15 +3,10 @@ To authenticate using a [SAML-compatible identity federation](../../organization
 1. Get your federation ID from your administrator.
 1. Launch the profile creation wizard:
 
-   
-
-   
+      
    ```bash
-   yc init \
-      --federation-endpoint auth.cloud.yandex.com \
-      --federation-id <federation_ID>
+   yc init --federation-id=<federation_ID>
    ```
-
 
 
 

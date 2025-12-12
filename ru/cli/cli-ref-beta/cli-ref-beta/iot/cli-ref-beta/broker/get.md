@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--broker-id`|<b>`string`</b><br/>ID of the broker to return.<br/><br/>To get a broker ID make a [BrokerService.List] request.|
+|`--broker-id`|<b>`string`</b><br/>ID of the broker to return. To get a broker ID make a [BrokerService.List] request.|
 
 #### Global Flags
 

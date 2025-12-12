@@ -21,11 +21,11 @@ Syntax:
 |`--default-algorithm`|<b>`enum`</b><br/>Default encryption algorithm to be used with new versions of the symmetric KMS key. Possible Values: 'aes-128', 'aes-192', 'aes-256', 'aes-256-hsm', 'gost-r-3412-2015-k'|
 |`--deletion-protection`|Flag that inhibits deletion of the symmetric KMS key|
 |`--description`|<b>`string`</b><br/>New description for the symmetric KMS key.|
-|`--key-id`|<b>`string`</b><br/>ID of the symmetric KMS key to update.<br/>To get the ID of a symmetric KMS key use a [SymmetricKeyService.List] request.|
+|`--key-id`|<b>`string`</b><br/>ID of the symmetric KMS key to update. To get the ID of a symmetric KMS key use a [SymmetricKeyService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>Custom labels for the symmetric KMS key as 'key:value' pairs. Maximum 64 per key.|
 |`--name`|<b>`string`</b><br/>New name for the symmetric KMS key.|
 |`--rotation-period`|<b>`duration`</b><br/>Time period between automatic symmetric KMS key rotations. (duration, e.g. 30s, 5m10s)|
-|`--status`|<b>`enum`</b><br/>New status for the symmetric KMS key.<br/>Using the [SymmetricKeyService.Update] method you can only set ACTIVE or INACTIVE status. Possible Values: 'creating', 'active', 'inactive'|
+|`--status`|<b>`enum`</b><br/>New status for the symmetric KMS key. Using the [SymmetricKeyService.Update] method you can only set ACTIVE or INACTIVE status. Possible Values: 'creating', 'active', 'inactive'|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

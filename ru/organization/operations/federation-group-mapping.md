@@ -67,7 +67,7 @@
           resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item" {
             federation_id     = "<идентификатор_федерации>"
             internal_group_id = "<группа_Cloud_Organization>"
-            external_group_id = "<группа_поставщика_удостоверений"
+            external_group_id = "<группа_поставщика_удостоверений>"
 
           depends_on = [yandex_organizationmanager_group_mapping.my_group_map]
           }

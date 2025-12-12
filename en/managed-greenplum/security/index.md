@@ -39,6 +39,10 @@ The chart below shows the roles existing in the service and their permission inh
 
 ### Service roles {#service-roles}
 
+#### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
+
+{% include [managed-greenplum.clusters.connector](../../_roles/managed-greenplum/clusters/connector.md) %}
+
 #### managed-greenplum.auditor {#managed-greenplum-auditor}
 
 {% include [managed-greenplum.auditor](../../_roles/managed-greenplum/auditor.md) %}

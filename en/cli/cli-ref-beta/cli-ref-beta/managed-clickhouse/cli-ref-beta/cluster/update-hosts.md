@@ -19,11 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster to update hosts in.<br/>To get the ClickHouse cluster ID, use a [ClusterService.List] request.|
-|`--update-host-specs`|<b>`shorthand/json`</b><br/>New configurations to apply to hosts.<br/><br/>Example:|
-|`--update-host-specs`|<b>`[{assign-public-ip=true,`</b><br/>host-name=value}]<br/><br/>Shorthand Syntax:<br/>[{assign-public-ip=bool, host-name=str},...]<br/>Fields:<br/>assign-public-ip  bool              — Whether the host should get a public IP address on creation.<br/>host-name         string  required  — Name of the host to update.<br/>To get the ClickHouse host name, use a [ClusterService.ListHosts] request.<br/>|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster to update hosts in. To get the ClickHouse cluster ID, use a [ClusterService.List] request.|
+|`--update-host-specs`|<b>`shorthand/json`</b><br/>New configurations to apply to hosts.<br/>Shorthand Syntax:<br/>[<br/>{<br/>assign-public-ip = bool,<br/>host-name = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"assign-public-ip": "bool",<br/>"host-name": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>assign-public-ip -> (bool)<br/>Whether the host should get a public IP address on creation.<br/>host-name -> (string)<br/>Name of the host to update. To get the ClickHouse host name, use a [ClusterService.ListHosts] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

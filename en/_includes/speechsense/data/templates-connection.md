@@ -1,0 +1,3 @@
+* **{{ ui-key.yc-ui-talkanalytics.connections.template.default.name }}**: Connection that allows adding your own keys for metadata.
+* **{{ ui-key.yc-ui-talkanalytics.connections.template.bitrix24.name }}**: Connection with a pre-installed set of keys for {{ bitrix24-name }}. Additionally, you can add your own keys.
+* **{{ ui-key.yc-ui-talkanalytics.connections.template.amo-crm.name }}**: Connection with a pre-installed set of keys for {{ amocrm-name }}. Additionally, you can add your own keys. 

@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--application-id`|<b>`string`</b><br/>ID of the OAuth application to update.<br/>To get the OAuth application ID, make a [ApplicationService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return.<br/>If the number of available results is larger than [page_size],<br/>the service returns a [ListAssignmentsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token]<br/>to the [ListAssignmentsResponse.next_page_token]<br/>returned by a previous list request.|
+|`--application-id`|<b>`string`</b><br/>ID of the OAuth application to update. To get the OAuth application ID, make a [ApplicationService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListAssignmentsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListAssignmentsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

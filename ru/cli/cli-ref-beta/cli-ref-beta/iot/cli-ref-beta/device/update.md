@@ -19,10 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the device.|
-|`--device-id`|<b>`string`</b><br/>ID of the device to update.<br/><br/>To get a device ID make a [DeviceService.List] request.|
+|`--device-id`|<b>`string`</b><br/>ID of the device to update. To get a device ID make a [DeviceService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.|
 |`--name`|<b>`string`</b><br/>Name of the device. The name must be unique within the registry.|
-|`--topic-aliases`|<b>`stringToString`</b><br/>Alias of a device topic.<br/><br/>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. 'my/custom/alias' match to '\$device/{id}/events'.|
+|`--topic-aliases`|<b>`stringToString`</b><br/>Alias of a device topic. Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. 'my/custom/alias' match to '\$device/{id}/events'.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

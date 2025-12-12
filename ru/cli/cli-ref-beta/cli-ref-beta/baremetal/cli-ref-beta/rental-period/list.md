@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--configuration-id`|<b>`string`</b><br/>ID of the Configuration resource to return a Rental Period for.<br/><br/>To get the configuration ID, use a [ConfigurationService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is greater than 'page_size',<br/>the service returns a [ListRentalPeriodsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value is 20.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListRentalPeriodsResponse.next_page_token] returned by a previous list request.|
+|`--configuration-id`|<b>`string`</b><br/>ID of the Configuration resource to return a Rental Period for. To get the configuration ID, use a [ConfigurationService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is greater than 'page_size', the service returns a [ListRentalPeriodsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value is 20.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListRentalPeriodsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

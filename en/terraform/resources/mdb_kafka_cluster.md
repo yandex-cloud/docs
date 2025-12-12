@@ -370,6 +370,7 @@ resource "yandex_vpc_subnet" "baz" {
 
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the KMS key to encrypt cluster disks.
 - `environment` (String) Deployment environment of the Kafka cluster. Can be either `PRESTABLE` or `PRODUCTION`. The default is `PRODUCTION`.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `host_group_ids` (Set of String) A list of IDs of the host groups to place VMs of the cluster on.

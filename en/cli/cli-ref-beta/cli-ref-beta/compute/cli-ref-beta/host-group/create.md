@@ -19,14 +19,14 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--description`|<b>`string`</b><br/>Description of the group.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a host group in.<br/>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a host group in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.|
 |`--maintenance-policy`|<b>`enum`</b><br/>Behaviour on maintenance events. Possible Values: 'restart', 'migrate'|
 |`--name`|<b>`string`</b><br/>Name of the group.|
-|`--scale-policy`|<b>`shorthand/json`</b><br/>Scale policy. Only fixed number of hosts are supported at this moment.<br/><br/>Example:<br/>--scale-policy scale-type={fixed-scale={size=1}}<br/><br/>Shorthand Syntax:<br/>{scale-type={fixed-scale={size=int}}}<br/>Fields:<br/>scale-type  oneof\<fixed-scale\>  — Oneof scale-type field<br/>fixed-scale  struct  —<br/>size  int  —<br/>|
+|`--scale-policy`|<b>`shorthand/json`</b><br/>Scale policy. Only fixed number of hosts are supported at this moment.<br/>Shorthand Syntax:<br/>{<br/>scale-type = fixed-scale={<br/>size = int<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"scale-type": {<br/>"fixed-scale": {<br/>"size": "int"<br/>}<br/>}<br/>}"<br/>Fields:<br/>scale-type -> (oneof\<fixed-scale\>)<br/>Oneof scale-type field<br/>fixed-scale -> (struct)<br/>size -> (int)|
 |`--type-id`|<b>`string`</b><br/>ID of host type. Resources provided by each host of the group.|
 |`--zone-id`|<b>`string`</b><br/>Availability zone where all dedicated hosts will be allocated.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

@@ -123,6 +123,8 @@ items:
         href: tutorials/amocrm.md
       - name: Integration with {{ bitrix24-name }}
         href: tutorials/bitrix24.md
+      - name: Working with an AI assistant
+        href: tutorials/ai-assistant.md
   - name: Concepts
     items:
       - name: Resource hierarchy

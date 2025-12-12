@@ -18,11 +18,11 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--device-view`|<b>`enum`</b><br/>Specifies which parts of the device resource should be returned<br/>in the response. Possible Values: 'basic', 'full'|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than 'page_size', the service returns a [ListDevicesResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListDevicesResponse.next_page_token] returned by a previous list request.|
-|`--registry-id`|<b>`string`</b><br/>ID of the registry to list devices in.<br/><br/>To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List] request.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to list devices in.<br/><br/>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--device-view`|<b>`enum`</b><br/>Specifies which parts of the device resource should be returned in the response. Possible Values: 'basic', 'full'|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than 'page_size', the service returns a [ListDevicesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListDevicesResponse.next_page_token] returned by a previous list request.|
+|`--registry-id`|<b>`string`</b><br/>ID of the registry to list devices in. To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to list devices in. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 
 #### Global Flags
 

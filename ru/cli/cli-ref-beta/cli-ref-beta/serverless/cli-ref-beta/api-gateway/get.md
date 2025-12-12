@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--api-gateway-id`|<b>`string`</b><br/>ID of the API gateway to return.<br/><br/>To get a API gateway ID make a [ApiGatewayService.List] request.|
+|`--api-gateway-id`|<b>`string`</b><br/>ID of the API gateway to return. To get a API gateway ID make a [ApiGatewayService.List] request.|
 
 #### Global Flags
 

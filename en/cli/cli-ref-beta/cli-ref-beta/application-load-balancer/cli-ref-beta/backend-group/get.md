@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--backend-group-id`|<b>`string`</b><br/>ID of the backend group to return.<br/><br/>To get the backend group ID, make a [BackendGroupService.List] request.|
+|`--backend-group-id`|<b>`string`</b><br/>ID of the backend group to return. To get the backend group ID, make a [BackendGroupService.List] request.|
 
 #### Global Flags
 

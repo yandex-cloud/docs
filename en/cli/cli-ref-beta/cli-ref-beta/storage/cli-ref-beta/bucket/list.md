@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to list buckets in.<br/><br/>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to list buckets in. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 
 #### Global Flags
 

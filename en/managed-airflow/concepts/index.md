@@ -74,21 +74,10 @@ For workers, you can also set the minimum and maximum number of instances while 
 
 ### {{ AF }} component configurations {#presets}
 
-A configuration decides the computing power allocated for the web server, scheduler, workers, and the Triggerer service. There are two available configuration types: 
+A configuration decides the computing power allocated for the web server, scheduler, workers, and the Triggerer service. The available [configuration types](instance-types.md) are as follows:
 
  * **standard**: With 4:1 RAM GB to vCPU ratio.
-
-      * 1 vCPU, 4 GB RAM
-      * 2 vCPUs, 8 GB RAM
-      * 4 vCPUs, 16 GB RAM
-      * 8 vCPUs, 32 GB RAM
-
  * **cpu-optimized**: With reduced RAM to vCPU ratio (2:1). These configurations may be useful for clusters with higher processor performance requirements.
-
-      * 1 vCPU, 2 GB RAM
-      * 2 vCPUs, 4 GB RAM
-      * 4 vCPUs, 8 GB RAM
-      * 8 vCPUs, 16 GB RAM
 
 You can select configurations when [creating a cluster](../operations/cluster-create.md) or change them while [editing it](../operations/cluster-update.md).
 

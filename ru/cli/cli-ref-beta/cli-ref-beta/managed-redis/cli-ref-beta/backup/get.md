@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--backup-id`|<b>`string`</b><br/>ID of the Redis backup to return.<br/>To get the backup ID, use a [ClusterService.ListBackups] request.|
+|`--backup-id`|<b>`string`</b><br/>ID of the Redis backup to return. To get the backup ID, use a [ClusterService.ListBackups] request.|
 
 #### Global Flags
 

@@ -19,7 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>ID of the Yandex Data Processing cluster that the subcluster belongs to.|
-|`--subcluster-id`|<b>`string`</b><br/>ID of the subcluster to return.<br/><br/>To get a subcluster ID make a [SubclusterService.List] request.|
+|`--subcluster-id`|<b>`string`</b><br/>ID of the subcluster to return. To get a subcluster ID make a [SubclusterService.List] request.|
 
 #### Global Flags
 

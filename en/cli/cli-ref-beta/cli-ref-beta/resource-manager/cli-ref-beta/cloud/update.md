@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cloud-id`|<b>`string`</b><br/>ID of the cloud to update.<br/>To get the cloud ID, use a [CloudService.List] request.|
+|`--cloud-id`|<b>`string`</b><br/>ID of the cloud to update. To get the cloud ID, use a [CloudService.List] request.|
 |`--description`|<b>`string`</b><br/>Description of the cloud.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.|
 |`--name`|<b>`string`</b><br/>Name of the cloud.|

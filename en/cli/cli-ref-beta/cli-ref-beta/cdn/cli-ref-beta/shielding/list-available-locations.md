@@ -20,7 +20,7 @@ Syntax:
 |----|----|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder for which to request a list of locations where shielding can be activated.|
 |`--page-size`|<b>`int`</b><br/>Maximum number of results per page.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results,<br/>set [page_token] to the [ListShieldingLocationsResponse.next_page_token]<br/>returned by a previous list response.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListShieldingLocationsResponse.next_page_token] returned by a previous list response.|
 |`--resource-id`|<b>`string`</b><br/>ID of the resource for which to request a list of locations where shielding can be activated.|
 
 #### Global Flags

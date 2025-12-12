@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--device-name`|<b>`string`</b><br/>Name of the device to return.<br/><br/>To get a device name make a [DeviceService.List] request.|
-|`--device-view`|<b>`enum`</b><br/>Specifies which parts of the device resource should be returned<br/>in the response. Possible Values: 'basic', 'full'|
-|`--registry-id`|<b>`string`</b><br/>ID of the registry to get device.<br/><br/>To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List] request.|
+|`--device-name`|<b>`string`</b><br/>Name of the device to return. To get a device name make a [DeviceService.List] request.|
+|`--device-view`|<b>`enum`</b><br/>Specifies which parts of the device resource should be returned in the response. Possible Values: 'basic', 'full'|
+|`--registry-id`|<b>`string`</b><br/>ID of the registry to get device. To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List] request.|
 
 #### Global Flags
 

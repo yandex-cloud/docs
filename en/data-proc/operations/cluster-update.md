@@ -1,15 +1,15 @@
 ---
-title: Updating an {{ dataproc-name }} cluster
+title: Updating a {{ dataproc-name }} cluster
 description: After creating an {{ dataproc-name }} cluster, you can edit its basic and advanced settings.
 ---
 
-# Updating an {{ dataproc-name }} cluster
+# Updating a {{ dataproc-name }} cluster
 
 After creating a cluster, you can edit its basic and advanced settings.
 
 You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more information, see [Working with logs](logging.md#disable-logs).
 
-You can also move an {{ dataproc-name }} cluster to a different availability zone. This process depends on the cluster type:
+You can also move a {{ dataproc-name }} cluster to a different availability zone. This process depends on the cluster type:
 
 * [Migrating a lightweight cluster to a different availability zone](migration-to-an-availability-zone.md).
 * [Migrating an HDFS cluster to a different availability zone](../tutorials/hdfs-cluster-migration.md).
@@ -18,7 +18,7 @@ You can also move an {{ dataproc-name }} cluster to a different availability zon
 
 - Management console {#console}
 
-    To change an {{ dataproc-name }} cluster’s settings:
+    To change a {{ dataproc-name }} cluster’s settings:
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
@@ -26,7 +26,7 @@ You can also move an {{ dataproc-name }} cluster to a different availability zon
     1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md) in the **{{ ui-key.yacloud.component.label-set.label_labels }}** field:
     1. Update cluster settings:
 
-        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: [Service account](../../iam/concepts/users/service-accounts.md) to which you need to grant access to the {{ dataproc-full-name }} cluster.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: [Service account](../../iam/concepts/users/service-accounts.md) of the {{ dataproc-full-name }} cluster.
 
             Select an existing service account or [create a new one](../../iam/operations/sa/create.md).
 
@@ -56,7 +56,7 @@ You can also move an {{ dataproc-name }} cluster to a different availability zon
 
             {% note warning %}
 
-            Incorrect security group settings may cause performance issues in an {{ dataproc-full-name }} cluster. For more information on setting up security groups, see [this guide](security-groups.md).
+            Incorrect security group settings may cause performance issues in a {{ dataproc-full-name }} cluster. For more information on setting up security groups, see [this guide](security-groups.md).
 
             {% endnote %}
 
@@ -84,12 +84,26 @@ You can also move an {{ dataproc-name }} cluster to a different availability zon
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change an {{ dataproc-name }} cluster’s settings:
+    To change a {{ dataproc-name }} cluster’s settings:
 
-    1. View the description of the CLI command for updating the cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-dp }} cluster update --help
+        ```
+
+    1. To update the cluster's service account, provide the name or ID of the service account in the `--service-account-name` or `--service-account-id` parameter.
+
+        ```bash
+        {{ yc-dp }} cluster update <cluster_name_or_ID> \
+           --service-account-id=<service_account_ID>
+        ```
+
+    1. To add or update the service account of [auto-scalable subclusters](../concepts/autoscaling.md), provide the name or ID of the service account in the `--autoscaling-service-account-name` or `--autoscaling-service-account-id` parameter.
+
+        ```bash
+        {{ yc-dp }} cluster update <cluster_name_or_ID> \
+           --autoscaling-service-account-id=<service_account_ID>
         ```
 
     1. To edit the [log group](../../logging/concepts/log-group.md) the cluster logs go to, provide the log group ID in the `--log-group-id` parameter:
@@ -119,7 +133,7 @@ You can also move an {{ dataproc-name }} cluster to a different availability zon
 
         {% note warning %}
 
-        Using the `--property` parameter will reset all component properties that were not explicitly provided in the parameter to their defaults. To save the properties you updated, list them in your request along with the ones you want to update.
+        The `--property` option will reset all component properties that were not explicitly provided, to their default values. To save the properties you updated, list them in your request along with the ones you want to update.
 
         {% endnote %}
 
@@ -127,11 +141,11 @@ You can also move an {{ dataproc-name }} cluster to a different availability zon
 
 - {{ TF }} {#tf}
 
-    To change an {{ dataproc-name }} cluster’s settings:
+    To change a {{ dataproc-name }} cluster’s settings:
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. To activate cluster deletion protection and access to the [web interfaces](../concepts/interfaces.md) of the {{ dataproc-name }} components, update the values in the appropriate fields of the {{ dataproc-name }} cluster description:
 
@@ -144,6 +158,26 @@ You can also move an {{ dataproc-name }} cluster to a different availability zon
         }
         ```
 
+    1. To update the service account of the {{ dataproc-name }} cluster, edit the `service_account_id` value in the {{ dataproc-name }} cluster description:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "data_cluster" {
+          ...
+          service_account_id = "<service_account_ID>"
+          ...
+        }
+        ```
+
+    1. To add or update a service account to manage [auto-scalable subclusters](../concepts/autoscaling.md), use the `autoscaling_service_account_id` argument in the {{ dataproc-name }} cluster description:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "data_cluster" {
+          ...
+          autoscaling_service_account_id = "<service_account_ID>"
+          ...
+        }
+        ```
+
     1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -152,6 +186,6 @@ You can also move an {{ dataproc-name }} cluster to a different availability zon
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
+    For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}

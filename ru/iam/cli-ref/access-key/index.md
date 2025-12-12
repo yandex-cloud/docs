@@ -22,6 +22,7 @@ Aliases:
 - [yc iam access-key create](create.md) — Create an access key for the specified service account
 - [yc iam access-key delete](delete.md) — Delete the specified access key
 - [yc iam access-key get](get.md) — Show information about the specified access key
+- [yc iam access-key issue-ephemeral](issue-ephemeral.md) — Issue ephemeral access key
 - [yc iam access-key list](list.md) — List access keys for the specified service account
 
 #### Global Flags

@@ -20,10 +20,9 @@ Syntax:
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the route table.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the route table.<br/>The name must be unique within the folder.|
+|`--name`|<b>`string`</b><br/>Name of the route table. The name must be unique within the folder.|
 |`--route-table-id`|<b>`string`</b><br/>ID of the RouteTable resource to update.|
-|`--static-routes`|<b>`shorthand/json`</b><br/>List of static routes.<br/><br/>Example:|
-|`--static-routes`|<b>`[{destination={destination-prefix=value},`</b><br/>labels={key=value}, next-hop={gateway-id=value}}]<br/><br/>Shorthand Syntax:<br/>[{destination={destination-prefix=str}, labels={key=str, key=...}, next-hop={gateway-id=str \| next-hop-address=str}},...]<br/>Fields:<br/>labels       map[string,string]                  — Resource labels as '' key:value '' pairs. Maximum of 64 per resource.<br/>destination  oneof\<destination-prefix\>           — Oneof destination field<br/>destination-prefix  string  — Destination subnet in CIDR notation<br/>next-hop     oneof<gateway-id\|next-hop-address>  — Oneof next-hop field<br/>next-hop-address  string  — Next hop IP address<br/>gateway-id        string  — Next hop gateway id<br/>|
+|`--static-routes`|<b>`shorthand/json`</b><br/>List of static routes.<br/>Shorthand Syntax:<br/>[<br/>{<br/>destination = destination-prefix=str,<br/>labels = {key=str, key=...},<br/>next-hop = gateway-id=str \| next-hop-address=str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"destination": {<br/>"destination-prefix": "str"<br/>},<br/>"labels": {<br/>"\<key\>": "str", ...<br/>},<br/>"next-hop": {<br/>"gateway-id": "str",<br/>"next-hop-address": "str"<br/>}<br/>}, ...<br/>]"<br/>Fields:<br/>labels -> (map[string,string])<br/>Resource labels as '' key:value '' pairs. Maximum of 64 per resource.<br/>destination -> (oneof\<destination-prefix\>)<br/>Oneof destination field<br/>destination-prefix -> (string)<br/>Destination subnet in CIDR notation<br/>next-hop -> (oneof<gateway-id\|next-hop-address>)<br/>Oneof next-hop field<br/>next-hop-address -> (string)<br/>Next hop IP address<br/>gateway-id -> (string)<br/>Next hop gateway id|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

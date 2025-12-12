@@ -163,9 +163,21 @@ Optional:
 
 Optional:
 
+- `audit_log` (Block List, Max: 1) A set of audit log settings (see the [auditLog](https://www.mongodb.com/docs/manual/reference/configuration-options/#auditlog-options) option). Available only in enterprise edition. (see [below for nested schema](#nestedblock--cluster_config--mongocfg--audit_log))
+- `chaining_allowed` (Boolean) Chained replication setting. For more information, see the [chainingAllowed](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-chainingAllowed) description in the official documentation.
 - `net` (Block List, Max: 1) A set of network settings (see the [net](https://www.mongodb.com/docs/manual/reference/configuration-options/#net-options) option). (see [below for nested schema](#nestedblock--cluster_config--mongocfg--net))
 - `operation_profiling` (Block List, Max: 1) A set of profiling settings (see the [operationProfiling](https://www.mongodb.com/docs/manual/reference/configuration-options/#operationprofiling-options) option). (see [below for nested schema](#nestedblock--cluster_config--mongocfg--operation_profiling))
+- `oplog` (Block List, Max: 1) A set of oplog settings (see the [oplog](https://www.mongodb.com/docs/manual/core/replica-set-oplog) option). (see [below for nested schema](#nestedblock--cluster_config--mongocfg--oplog))
+- `set_parameter` (Block List) A set of MongoDB Server Parameters (see the [setParameter](https://www.mongodb.com/docs/manual/reference/configuration-options/#setparameter-option) option). (see [below for nested schema](#nestedblock--cluster_config--mongocfg--set_parameter))
 - `storage` (Block List, Max: 1) A set of storage settings (see the [storage](https://www.mongodb.com/docs/manual/reference/configuration-options/#storage-options) option). (see [below for nested schema](#nestedblock--cluster_config--mongocfg--storage))
+
+<a id="nestedblock--cluster_config--mongocfg--audit_log"></a>
+### Nested Schema for `cluster_config.mongocfg.audit_log`
+
+Optional:
+
+- `filter` (String) Configuration of the audit log filter in JSON format. For more information see [auditLog.filter](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-auditLog.filter) description in the official documentation. Available only in enterprise edition.
+
 
 <a id="nestedblock--cluster_config--mongocfg--net"></a>
 ### Nested Schema for `cluster_config.mongocfg.net`
@@ -184,6 +196,24 @@ Optional:
 - `slow_op_threshold` (Number) The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow. For more information, see the [operationProfiling.slowOpThresholdMs](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs) description in the official documentation.
 
 
+<a id="nestedblock--cluster_config--mongocfg--oplog"></a>
+### Nested Schema for `cluster_config.mongocfg.oplog`
+
+Optional:
+
+- `max_size_percent` (Number) The maximum size of the oplog, as a percentage of the total storage size. For more information, see the [oplog.oplogSizeMB](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-replication.oplogSizeMB) description in the official documentation.
+- `min_retention_hours` (Number) The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. For more information, see the [oplog.minRetentionHours](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-replication.oplogSizeMB) description in the official documentation.
+
+
+<a id="nestedblock--cluster_config--mongocfg--set_parameter"></a>
+### Nested Schema for `cluster_config.mongocfg.set_parameter`
+
+Optional:
+
+- `audit_authorization_success` (Boolean) Enables the auditing of authorization successes. Can be either true or false. For more information, see the [auditAuthorizationSuccess](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess) description in the official documentation. Available only in enterprise edition.
+- `enable_flow_control` (Boolean) Enables the flow control. Can be either true or false. For more information, see the [enableFlowControl](https://www.mongodb.com/docs/rapid/reference/parameters/#mongodb-parameter-param.enableFlowControl) description in the official documentation.
+
+
 <a id="nestedblock--cluster_config--mongocfg--storage"></a>
 ### Nested Schema for `cluster_config.mongocfg.storage`
 
@@ -196,6 +226,7 @@ Optional:
 
 Optional:
 
+- `cache_size` (Number) Defines the maximum size of the internal cache that WiredTiger will use for all data in percents. For more information, see the [storage.wiredTiger.engineConfig.cacheSize](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizePct) description in the official documentation.
 - `cache_size_gb` (Number) Defines the maximum size of the internal cache that WiredTiger will use for all data. For more information, see the [storage.wiredTiger.engineConfig.cacheSizeGB](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB) description in the official documentation.
 
 
@@ -207,8 +238,10 @@ Optional:
 Optional:
 
 - `audit_log` (Block List, Max: 1) A set of audit log settings (see the [auditLog](https://www.mongodb.com/docs/manual/reference/configuration-options/#auditlog-options) option). Available only in enterprise edition. (see [below for nested schema](#nestedblock--cluster_config--mongod--audit_log))
+- `chaining_allowed` (Boolean) Chained replication setting. For more information, see the [chainingAllowed](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-chainingAllowed) description in the official documentation.
 - `net` (Block List, Max: 1) A set of network settings (see the [net](https://www.mongodb.com/docs/manual/reference/configuration-options/#net-options) option). (see [below for nested schema](#nestedblock--cluster_config--mongod--net))
 - `operation_profiling` (Block List, Max: 1) A set of profiling settings (see the [operationProfiling](https://www.mongodb.com/docs/manual/reference/configuration-options/#operationprofiling-options) option). (see [below for nested schema](#nestedblock--cluster_config--mongod--operation_profiling))
+- `oplog` (Block List, Max: 1) A set of oplog settings (see the [oplog](https://www.mongodb.com/docs/manual/core/replica-set-oplog) option). (see [below for nested schema](#nestedblock--cluster_config--mongod--oplog))
 - `security` (Block List, Max: 1) A set of MongoDB Security settings (see the [security](https://www.mongodb.com/docs/manual/reference/configuration-options/#security-options) option). Available only in enterprise edition. (see [below for nested schema](#nestedblock--cluster_config--mongod--security))
 - `set_parameter` (Block List, Max: 1) A set of MongoDB Server Parameters (see the [setParameter](https://www.mongodb.com/docs/manual/reference/configuration-options/#setparameter-option) option). (see [below for nested schema](#nestedblock--cluster_config--mongod--set_parameter))
 - `storage` (Block List, Max: 1) A set of storage settings (see the [storage](https://www.mongodb.com/docs/manual/reference/configuration-options/#storage-options) option). (see [below for nested schema](#nestedblock--cluster_config--mongod--storage))
@@ -241,6 +274,15 @@ Optional:
 - `slow_op_threshold` (Number) The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow. For more information, see the [operationProfiling.slowOpThresholdMs](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs) description in the official documentation.
 
 
+<a id="nestedblock--cluster_config--mongod--oplog"></a>
+### Nested Schema for `cluster_config.mongod.oplog`
+
+Optional:
+
+- `max_size_percent` (Number) The maximum size of the oplog, as a percentage of the total storage size. For more information, see the [oplog.oplogSizeMB](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-replication.oplogSizeMB) description in the official documentation.
+- `min_retention_hours` (Number) The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. For more information, see the [oplog.minRetentionHours](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-replication.oplogSizeMB) description in the official documentation.
+
+
 <a id="nestedblock--cluster_config--mongod--security"></a>
 ### Nested Schema for `cluster_config.mongod.security`
 
@@ -269,7 +311,25 @@ Optional:
 
 - `audit_authorization_success` (Boolean) Enables the auditing of authorization successes. Can be either true or false. For more information, see the [auditAuthorizationSuccess](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess) description in the official documentation. Available only in enterprise edition.
 - `enable_flow_control` (Boolean) Enables the flow control. Can be either true or false. For more information, see the [enableFlowControl](https://www.mongodb.com/docs/rapid/reference/parameters/#mongodb-parameter-param.enableFlowControl) description in the official documentation.
+- `flow_control_target_lag_seconds` (Number) The target maximum majority committed lag when running with flow control. For more information, see the [flowControlTargetLagSeconds](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.flowControlTargetLagSeconds) description in the official documentation.
+- `flow_control_warn_threshold_seconds` (Number) The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved. For more information, see the [flowControlWarnThresholdSeconds](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.flowControlWarnThresholdSeconds) description in the official documentation.
+- `migrate_clone_insertion_batch_delay_ms` (Number) Time in milliseconds to wait between batches of insertions during cloning step of the migration process. For more information, see the [migrateCloneInsertionBatchDelayMs](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.migrateCloneInsertionBatchDelayMS) description in the official documentation.
+- `migrate_clone_insertion_batch_size` (Number) The maximum number of documents to insert in a single batch during the cloning step of the migration process. For more information, see the [migrateCloneInsertionBatchSize](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.migrateCloneInsertionBatchSize) description in the official documentation.
 - `min_snapshot_history_window_in_seconds` (Number) The minimum time window in seconds for which the storage engine keeps the snapshot history. For more information, see the [minSnapshotHistoryWindowInSeconds](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.minSnapshotHistoryWindowInSeconds) description in the official documentation.
+- `mirror_reads` (Block List, Max: 1) A set of MongoDB Mirror Reads settings (see the [mirrorReads](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.mirrorReads) option). (see [below for nested schema](#nestedblock--cluster_config--mongod--set_parameter--mirror_reads))
+- `orphan_cleanup_delay_secs` (Number) Minimum delay before a migrated chunk is deleted from the source shard. For more information, see the [orphanCleanupDelaySecs](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.orphanCleanupDelaySecs) description in the official documentation.
+- `persisted_chunk_cache_update_max_batch_size` (Number) Specifies the maximum batch size used for updating the persisted chunk cache. For more information, see the [persistedChunkCacheUpdateMaxBatchSize](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.persistedChunkCacheUpdateMaxBatchSize) description in the official documentation.
+- `range_deleter_batch_delay_ms` (Number) The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command). For more information, see the [rangeDeleterBatchDelayMS](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.rangeDeleterBatchDelayMS) description in the official documentation.
+- `range_deleter_batch_size` (Number) The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command). For more information, see the [rangeDeleterBatchSize](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.rangeDeleterBatchSize) description in the official documentation.
+
+<a id="nestedblock--cluster_config--mongod--set_parameter--mirror_reads"></a>
+### Nested Schema for `cluster_config.mongod.set_parameter.mirror_reads`
+
+Optional:
+
+- `max_time_ms` (Number) The maximum time in milliseconds for the mirrored reads. For more information see [mirrorReads.maxTimeMS](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.mirrorReads) description in the official documentation
+- `sampling_rate` (Number) The sampling rate used to mirror a subset of operations that support mirroring. For more information see [mirrorReads.samplingRate](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.mirrorReads) description in the official documentation
+
 
 
 <a id="nestedblock--cluster_config--mongod--storage"></a>
@@ -294,6 +354,7 @@ Optional:
 Optional:
 
 - `block_compressor` (String) Specifies the default compression for collection data. You can override this on a per-collection basis when creating collections. Available compressors are: none, snappy, zlib, zstd. This setting available only on `mongod` hosts. For more information, see the [storage.wiredTiger.collectionConfig.blockCompressor](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.collectionConfig.blockCompressor) description in the official documentation.
+- `cache_size` (Number) Defines the maximum size of the internal cache that WiredTiger will use for all data in percents. For more information, see the [storage.wiredTiger.engineConfig.cacheSize](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizePct) description in the official documentation.
 - `cache_size_gb` (Number) Defines the maximum size of the internal cache that WiredTiger will use for all data. For more information, see the [storage.wiredTiger.engineConfig.cacheSizeGB](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB) description in the official documentation.
 - `prefix_compression` (Boolean) Enables or disables prefix compression for index data. Сan be either true or false. For more information, see the [storage.wiredTiger.indexConfig.prefixCompression](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.indexConfig.prefixCompression) description in the official documentation.
 
@@ -305,7 +366,18 @@ Optional:
 
 Optional:
 
+- `audit_log` (Block List, Max: 1) A set of audit log settings (see the [auditLog](https://www.mongodb.com/docs/manual/reference/configuration-options/#auditlog-options) option). Available only in enterprise edition. (see [below for nested schema](#nestedblock--cluster_config--mongos--audit_log))
+- `chunk_size` (Number) The size of the chunk, in bytes. For more information, see the [chunkSize](https://www.mongodb.com/docs/manual/tutorial/modify-chunk-size-in-sharded-cluster) description in the official documentation.
 - `net` (Block List, Max: 1) A set of network settings (see the [net](https://www.mongodb.com/docs/manual/reference/configuration-options/#net-options) option). (see [below for nested schema](#nestedblock--cluster_config--mongos--net))
+- `set_parameter` (Block List, Max: 1) A set of MongoDB Server Parameters (see the [setParameter](https://www.mongodb.com/docs/manual/reference/configuration-options/#setparameter-option) option). (see [below for nested schema](#nestedblock--cluster_config--mongos--set_parameter))
+
+<a id="nestedblock--cluster_config--mongos--audit_log"></a>
+### Nested Schema for `cluster_config.mongos.audit_log`
+
+Optional:
+
+- `filter` (String) Configuration of the audit log filter in JSON format. For more information see [auditLog.filter](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-auditLog.filter) description in the official documentation. Available only in enterprise edition.
+
 
 <a id="nestedblock--cluster_config--mongos--net"></a>
 ### Nested Schema for `cluster_config.mongos.net`
@@ -314,6 +386,26 @@ Optional:
 
 - `compressors` (List of String) Specifies the default compressor(s) to use for communication between this mongod or mongos. Accepts array of compressors. Order matters. Available compressors: snappy, zlib, zstd, disabled. To disable network compression, make `disabled` the only value. For more information, see the [net.Compression.Compressors](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors) description in the official documentation.
 - `max_incoming_connections` (Number) The maximum number of simultaneous connections that host will accept. For more information, see the [net.maxIncomingConnections](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) description in the official documentation.
+
+
+<a id="nestedblock--cluster_config--mongos--set_parameter"></a>
+### Nested Schema for `cluster_config.mongos.set_parameter`
+
+Optional:
+
+- `audit_authorization_success` (Boolean) Enables the auditing of authorization successes. Can be either true or false. For more information, see the [auditAuthorizationSuccess](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess) description in the official documentation. Available only in enterprise edition.
+- `read_hedging_mode` (String) Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. For more information, see the [readHedgingMode](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.readHedgingMode) description in the official documentation.
+- `sharding_task_executor_pool_host_timeout_ms` (Number) Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. For more information, see the [shardingTaskExecutorPoolHostTimeoutMS](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ShardingTaskExecutorPoolHostTimeoutMS) description in the official documentation.
+- `sharding_task_executor_pool_max_connecting` (Number) Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. For more information, see the [shardingTaskExecutorPoolMaxConnecting](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ShardingTaskExecutorPoolMaxConnecting) description in the official documentation.
+- `sharding_task_executor_pool_max_size` (Number) Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. For more information, see the [shardingTaskExecutorPoolMaxSize](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ShardingTaskExecutorPoolMaxSize) description in the official documentation.
+- `sharding_task_executor_pool_max_size_for_config_servers` (Number) Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. For more information, see the [shardingTaskExecutorPoolMaxSizeForConfigServers](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ShardingTaskExecutorPoolMaxSizeForConfigServers) description in the official documentation.
+- `sharding_task_executor_pool_min_size` (Number) Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. For more information, see the [shardingTaskExecutorPoolMinSize](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ShardingTaskExecutorPoolMinSize) description in the official documentation.
+- `sharding_task_executor_pool_min_size_for_config_servers` (Number) Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. For more information, see the [shardingTaskExecutorPoolMinSizeForConfigServers](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ShardingTaskExecutorPoolMinSizeForConfigServers) description in the official documentation.
+- `sharding_task_executor_pool_refresh_requirement_ms` (Number) Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. For more information, see the [shardingTaskExecutorPoolRefreshRequirementMS](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ShardingTaskExecutorPoolRefreshRequirementMS) description in the official documentation.
+- `sharding_task_executor_pool_refresh_timeout_ms` (Number) Maximum time the mongos waits for a heartbeat before timing out the heartbeat. For more information, see the [shardingTaskExecutorPoolRefreshTimeoutMS](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ShardingTaskExecutorPoolRefreshTimeoutMS) description in the official documentation.
+- `sharding_task_executor_pool_replica_set_matching` (String) On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. For more information, see the [shardingTaskExecutorPoolReplicaSetMatching](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ShardingTaskExecutorPoolReplicaSetMatching) description in the official documentation.
+- `warm_min_connections_in_sharding_task_executor_pool_on_startup` (Boolean) Configures a mongos instance to prewarm its connection pool on startup. For more information, see the [warmMinConnectionsInShardingTaskExecutorPoolOnStartup](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.warmMinConnectionsInShardingTaskExecutorPoolOnStartup) description in the official documentation.
+- `warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms` (Number) Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. For more information, see the [warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMS](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMS) description in the official documentation.
 
 
 

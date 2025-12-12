@@ -19,10 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--hash`|<b>`shorthand/json`</b><br/>Password hash to set.<br/><br/>Example:|
-|`--hash`|<b>`password-hash=value,`</b><br/>password-hash-type=AD_MD4<br/><br/>Shorthand Syntax:<br/>{password-hash=str, password-hash-type=AD_MD4}<br/>Fields:<br/>password-hash       string        required  — The password hash string.<br/>password-hash-type  enum<AD_MD4>  required  — Type of the password hash.<br/>|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--hash`|<b>`shorthand/json`</b><br/>Password hash to set.<br/>Shorthand Syntax:<br/>{<br/>password-hash = str,<br/>password-hash-type = AD_MD4<br/>}<br/>JSON Syntax:<br/>"{<br/>"password-hash": "str",<br/>"password-hash-type": "AD_MD4"<br/>}"<br/>Fields:<br/>password-hash -> (string)<br/>The password hash string.<br/>password-hash-type -> (enum<AD_MD4>)<br/>Type of the password hash.|
 |`--user-id`|<b>`string`</b><br/>ID of the user to set the password hash for.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>New description of the filesystem.|
-|`--filesystem-id`|<b>`string`</b><br/>ID of the filesystem to update.<br/><br/>To get the filesystem ID, make a [FilesystemService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>New filesystem labels as 'key:value' pairs.<br/>For details about the concept, see [documentation](/docs/overview/concepts/services#labels).<br/><br/>Existing set of labels is completely replaced by the provided set, so if you just want<br/>to add or remove a label:<br/>1. Get the current set of labels with a [FilesystemService.Get] request.<br/>2. Add or remove a label in this set.<br/>3. Send the new set in this field.|
+|`--filesystem-id`|<b>`string`</b><br/>ID of the filesystem to update. To get the filesystem ID, make a [FilesystemService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>New filesystem labels as 'key:value' pairs. For details about the concept, see documentation. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [FilesystemService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field.|
 |`--name`|<b>`string`</b><br/>New name of the filesystem. The name must be unique within the folder.|
 |`--size`|<b>`int`</b><br/>Size of the filesystem, specified in bytes.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

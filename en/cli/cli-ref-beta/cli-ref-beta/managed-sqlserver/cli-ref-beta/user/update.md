@@ -18,12 +18,11 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster the user belongs to.<br/><br/>To get the cluster ID, use a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster the user belongs to. To get the cluster ID, use a [ClusterService.List] request.|
 |`--password`|<b>`string`</b><br/>New password for the user.|
-|`--permissions`|<b>`shorthand/json`</b><br/>New set of permissions for the user.<br/><br/>Example:|
-|`--permissions`|<b>`[{database-name=value,`</b><br/>roles=DB_OWNER}]<br/><br/>Shorthand Syntax:<br/>[{database-name=str, roles=DB_OWNER\|DB_SECURITYADMIN\|DB_ACCESSADMIN\|DB_BACKUPOPERATOR\|DB_DDLADMIN\|DB_DATAWRITER\|DB_DATAREADER\|DB_DENYDATAWRITER\|DB_DENYDATAREADER,...},...]<br/>Fields:<br/>database-name  string  — Name of the database the permission grants access to.<br/>roles          []int   — Roles granted to the user within the database.<br/>|
+|`--permissions`|<b>`shorthand/json`</b><br/>New set of permissions for the user.<br/>Shorthand Syntax:<br/>[<br/>{<br/>database-name = str,<br/>roles = DB_OWNER\|DB_SECURITYADMIN\|DB_ACCESSADMIN\|DB_BACKUPOPERATOR\|DB_DDLADMIN\|DB_DATAWRITER\|DB_DATAREADER\|DB_DENYDATAWRITER\|DB_DENYDATAREADER,...<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"database-name": "str",<br/>"roles": [<br/>"DB_OWNER\|DB_SECURITYADMIN\|DB_ACCESSADMIN\|DB_BACKUPOPERATOR\|DB_DDLADMIN\|DB_DATAWRITER\|DB_DATAREADER\|DB_DENYDATAWRITER\|DB_DENYDATAREADER", ...<br/>]<br/>}, ...<br/>]"<br/>Fields:<br/>database-name -> (string)<br/>Name of the database the permission grants access to.<br/>roles -> ([]int)<br/>Roles granted to the user within the database.|
 |`--server-roles`|<b>`int32Slice`</b><br/>New set of server roles granted to the login.|
-|`--user-name`|<b>`string`</b><br/>Name of the user to be updated.<br/><br/>To get the name of the user use a [UserService.List] request.|
+|`--user-name`|<b>`string`</b><br/>Name of the user to be updated. To get the name of the user use a [UserService.List] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

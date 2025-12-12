@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the cluster the user belongs to.<br/><br/>To get this ID, make a [ClusterService.List] request.|
-|`--user-name`|<b>`string`</b><br/>Name of the user to return information about.<br/><br/>To get this name, make a [UserService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the cluster the user belongs to. To get this ID, make a [ClusterService.List] request.|
+|`--user-name`|<b>`string`</b><br/>Name of the user to return information about. To get this name, make a [UserService.List] request.|
 
 #### Global Flags
 

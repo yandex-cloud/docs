@@ -24,7 +24,6 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
-* [{#T}](metrics-server.md)
 * [{#T}](load-testing-grpc-autoscaling.md)
 
 ## Installing NGINX {#nginx}

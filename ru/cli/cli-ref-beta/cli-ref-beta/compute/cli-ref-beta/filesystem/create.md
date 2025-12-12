@@ -19,16 +19,16 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--block-size`|<b>`int`</b><br/>Block size used for the filesystem, specified in bytes.<br/><br/>The block size cannot be updated after the filesystem creation.<br/><br/>Default value: 4096.|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--block-size`|<b>`int`</b><br/>Block size used for the filesystem, specified in bytes. The block size cannot be updated after the filesystem creation. Default value: 4096.|
 |`--description`|<b>`string`</b><br/>Description of the filesystem.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a filesystem in.<br/><br/>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>Filesystem labels as 'key:value' pairs.<br/>For details about the concept, see [documentation](/docs/overview/concepts/services#labels).|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a filesystem in. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>Filesystem labels as 'key:value' pairs. For details about the concept, see documentation.|
 |`--name`|<b>`string`</b><br/>Name of the filesystem. The name must be unique within the folder.|
-|`--size`|<b>`int`</b><br/>Size of the filesystem, specified in bytes.<br/><br/>The size of the filesystem cannot be updated after the filesystem creation.|
-|`--type-id`|<b>`string`</b><br/>ID of the filesystem type.<br/><br/>To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List] request.<br/><br/>The filesystem type cannot be updated after the filesystem creation.|
-|`--zone-id`|<b>`string`</b><br/>ID of the availability zone where the filesystem resides.<br/><br/>To get a list of available zones, make a [yandex.cloud.compute.v1.ZoneService.List] request.<br/><br/>A filesystem can be attached only to virtual machines residing in the same availability zone.<br/>The filesystem availability zone cannot be updated after the filesystem creation.|
+|`--size`|<b>`int`</b><br/>Size of the filesystem, specified in bytes. The size of the filesystem cannot be updated after the filesystem creation.|
+|`--type-id`|<b>`string`</b><br/>ID of the filesystem type. To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List] request. The filesystem type cannot be updated after the filesystem creation.|
+|`--zone-id`|<b>`string`</b><br/>ID of the availability zone where the filesystem resides. To get a list of available zones, make a [yandex.cloud.compute.v1.ZoneService.List] request. A filesystem can be attached only to virtual machines residing in the same availability zone. The filesystem availability zone cannot be updated after the filesystem creation.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 
 Доступность функциональности портала [Мой аккаунт](../concepts/my-account.md) зависит от типа аккаунта:
 
-| | [Аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport) | [Федеративный аккаунт](../../iam/concepts/users/accounts.md#local) | [Локальный аккаунт](../../iam/concepts/users/accounts.md#saml-federation) |
+| | [Аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport) | [Федеративный аккаунт](../../iam/concepts/users/accounts.md#saml-federation) | [Локальный аккаунт](../../iam/concepts/users/accounts.md#local) |
 ---|---|---|---
 [Просмотр атрибутов](#view-profile) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Изменение атрибутов](#edit-profile) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/yes.svg) |

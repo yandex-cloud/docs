@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--role-id`|<b>`string`</b><br/>ID of the Role resource to return.<br/>To get the role ID, use a [RoleService.List] request.|
+|`--role-id`|<b>`string`</b><br/>ID of the Role resource to return. To get the role ID, use a [RoleService.List] request.|
 
 #### Global Flags
 

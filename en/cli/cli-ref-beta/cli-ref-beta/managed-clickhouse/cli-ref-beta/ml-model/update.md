@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the cluster to update the model in.<br/><br/>To get a cluster ID make a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the cluster to update the model in. To get a cluster ID make a [ClusterService.List] request.|
 |`--ml-model-name`|<b>`string`</b><br/>Name of the the model to update.|
 |`--uri`|<b>`string`</b><br/>The new model file URL. You can only use models stored in Object Storage.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

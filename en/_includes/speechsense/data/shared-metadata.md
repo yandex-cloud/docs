@@ -1,4 +1,4 @@
-By default, connections include required keys with the date, direction, and language of the call. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}. You can also add a description, if required.
+By default, connections include required keys as per the template you select. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}. You can also add a description, if required.
 
 To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**. Make sure to enter the new key name and select a [metadata type](../../../speechsense/concepts/resources-hierarchy.md#connection).
 

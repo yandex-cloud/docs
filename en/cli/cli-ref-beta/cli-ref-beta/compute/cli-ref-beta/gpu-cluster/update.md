@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>New description of the GPU cluster.|
-|`--gpu-cluster-id`|<b>`string`</b><br/>ID of the GPU cluster to update.<br/><br/>To get the GPU cluster ID, make a [GpuClusterService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>New GPU cluster labels as 'key:value' pairs.<br/><br/>Existing set of labels is completely replaced by the provided set, so if you just want<br/>to add or remove a label:<br/>1. Get the current set of labels with a [GpuClusterService.Get] request.<br/>2. Add or remove a label in this set.<br/>3. Send the new set in this field.|
-|`--name`|<b>`string`</b><br/>New name for the GPU cluster.<br/><br/>The name must be unique within the folder.|
+|`--gpu-cluster-id`|<b>`string`</b><br/>ID of the GPU cluster to update. To get the GPU cluster ID, make a [GpuClusterService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>New GPU cluster labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [GpuClusterService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field.|
+|`--name`|<b>`string`</b><br/>New name for the GPU cluster. The name must be unique within the folder.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

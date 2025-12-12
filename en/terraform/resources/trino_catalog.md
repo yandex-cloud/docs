@@ -49,6 +49,7 @@ resource "yandex_trino_catalog" "catalog" {
 - `hudi` (Attributes) Configuration for Hudi connector. (see [below for nested schema](#nestedatt--hudi))
 - `iceberg` (Attributes) Configuration for Iceberg connector. (see [below for nested schema](#nestedatt--iceberg))
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
+- `mysql` (Attributes) Configuration for MySQL connector. (see [below for nested schema](#nestedatt--mysql))
 - `oracle` (Attributes) Configuration for Oracle connector. (see [below for nested schema](#nestedatt--oracle))
 - `postgresql` (Attributes) Configuration for Postgresql connector. (see [below for nested schema](#nestedatt--postgresql))
 - `sqlserver` (Attributes) Configuration for SQLServer connector. (see [below for nested schema](#nestedatt--sqlserver))
@@ -270,6 +271,38 @@ Required:
 Required:
 
 - `uri` (String) The resource description.
+
+
+
+<a id="nestedatt--mysql"></a>
+### Nested Schema for `mysql`
+
+Optional:
+
+- `additional_properties` (Map of String) Additional properties.
+- `connection_manager` (Attributes) Configuration for MySQL connection manager connection. (see [below for nested schema](#nestedatt--mysql--connection_manager))
+- `on_premise` (Attributes) Configuration for on-premise connection. (see [below for nested schema](#nestedatt--mysql--on_premise))
+
+<a id="nestedatt--mysql--connection_manager"></a>
+### Nested Schema for `mysql.connection_manager`
+
+Required:
+
+- `connection_id` (String) Connection ID.
+
+Optional:
+
+- `connection_properties` (Map of String) Additional connection properties.
+
+
+<a id="nestedatt--mysql--on_premise"></a>
+### Nested Schema for `mysql.on_premise`
+
+Required:
+
+- `connection_url` (String) Connection to the clickhouse.
+- `password` (String) Password of the clickhouse user.
+- `user_name` (String) Name of the clickhouse user.
 
 
 

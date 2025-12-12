@@ -18,11 +18,11 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of a PostgreSQL cluster to request session statistics for.<br/><br/>To get a PostgreSQL cluster ID, use the [ClusterService.List] request.|
-|`--from-time`|<b>`time`</b><br/>Beginning of the period for which you need to request data (in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format). (RFC3339)|
+|`--cluster-id`|<b>`string`</b><br/>ID of a PostgreSQL cluster to request session statistics for. To get a PostgreSQL cluster ID, use the [ClusterService.List] request.|
+|`--from-time`|<b>`time`</b><br/>Beginning of the period for which you need to request data (in the RFC3339 text format). (RFC3339)|
 |`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of the results is larger than [page_size], the service returns [ListRawSessionStatesResponse.next_page_token]. You can use it to get the next page of the results in subsequent requests.|
 |`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListRawSessionStatesResponse.next_page_token] returned by the previous PostgreSQL session list request.|
-|`--to-time`|<b>`time`</b><br/>End of the period for which you need to request data (in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format). (RFC3339)|
+|`--to-time`|<b>`time`</b><br/>End of the period for which you need to request data (in the RFC3339 text format). (RFC3339)|
 
 #### Global Flags
 

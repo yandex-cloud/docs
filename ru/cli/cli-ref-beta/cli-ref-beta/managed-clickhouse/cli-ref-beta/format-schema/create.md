@@ -19,12 +19,12 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--cluster-id`|<b>`string`</b><br/>ClickHouse cluster ID.<br/><br/>To get a ClickHouse cluster ID, use the [ClusterService.List] method.|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--cluster-id`|<b>`string`</b><br/>ClickHouse cluster ID. To get a ClickHouse cluster ID, use the [ClusterService.List] method.|
 |`--format-schema-name`|<b>`string`</b><br/>Format schema name.|
-|`--type`|<b>`enum`</b><br/>Schema type. Possible values are the following:<br/><br/>* FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).<br/>* FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format. Possible Values: 'format-schema-type-protobuf', 'format-schema-type-capnproto'|
-|`--uri`|<b>`string`</b><br/>[Link to the file](https://yandex.cloud/ru/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage.|
+|`--type`|<b>`enum`</b><br/>Schema type. Possible values are the following: * FORMAT_SCHEMA_TYPE_PROTOBUF - Protobuf data format (including ProtobufSingle). * FORMAT_SCHEMA_TYPE_CAPNPROTO - Cap'n Proto data format. Possible Values: 'format-schema-type-protobuf', 'format-schema-type-capnproto'|
+|`--uri`|<b>`string`</b><br/>documentation of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

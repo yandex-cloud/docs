@@ -1,5 +1,5 @@
 ---
-title: Updating an {{ AF }} cluster
+title: Updating a {{ AF }} cluster
 description: After creating an {{ AF }} cluster, you can edit its basic and advanced settings.
 keywords:
   - Updating an {{ AF }} cluster
@@ -8,7 +8,7 @@ keywords:
   - Airflow
 ---
 
-# Updating an {{ AF }} cluster
+# Updating a {{ AF }} cluster
 
 After creating a cluster, you can edit its basic and advanced settings.
 
@@ -20,7 +20,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, edit the cluster name and description, delete labels, or add new ones.
 
@@ -34,7 +34,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-    1. In the settings sections of the {{ maf-name }} [components](../concepts/index.md#components), i.e., **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, **{{ ui-key.yacloud.airflow.section_workers }}**, and **{{ ui-key.yacloud.airflow.section_dag_processor }}** specify the number of instances and [computing resource configuration](../concepts/index.md#presets).
+    1. In the settings sections of the {{ maf-name }} [components](../concepts/index.md#components), i.e., **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, **{{ ui-key.yacloud.airflow.section_workers }}**, and **{{ ui-key.yacloud.airflow.section_dag_processor }}** specify the number of instances and [computing resource configuration](../concepts/instance-types.md).
 
        {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
@@ -71,7 +71,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. View the description of the CLI command to update a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster update --help
@@ -120,7 +120,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -144,7 +144,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters-part-2.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -152,13 +152,13 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-maf }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-maf }}).
 
 - REST API {#api}
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -239,7 +239,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             {% note warning %}
 
@@ -325,7 +325,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                 Specify either `folderId` or `logGroupId`.
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -337,13 +337,13 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -354,7 +354,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         ```json
         {
           "cluster_id": "<cluster_ID>",
-          "update_mask": "<list_of_parameters_to_update>",
+          "update_mask": "<list_of_settings_to_update>",
           "name": "<cluster_name>",
           "description": "<cluster_description>",
           "labels": { <label_list> },
@@ -428,7 +428,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         Where:
 
         * `cluster_id`: Cluster ID. You can get it with the [list of clusters in a folder](cluster-list.md#list-clusters).
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -529,7 +529,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                 Specify either `folder_id` or `log_group_id`.
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -544,6 +544,6 @@ After creating a cluster, you can edit its basic and advanced settings.
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

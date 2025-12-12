@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>Supported fields for filter:<br/>name<br/>created_at|
+|`--filter`|<b>`string`</b><br/>Supported fields for filter: name created_at|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder to list buses in.|
 |`--page-size`|<b>`int`</b><br/>Maximum number of buses to return.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListBusesResponse.next_page_token] returned by a previous list request.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListBusesResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

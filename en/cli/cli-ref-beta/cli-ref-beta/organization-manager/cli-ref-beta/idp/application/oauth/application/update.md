@@ -18,13 +18,12 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--application-id`|<b>`string`</b><br/>ID of the OAuth application to update.<br/>To get the OAuth application ID, make a [ApplicationService.List] request.|
-|`--client-grant`|<b>`shorthand/json`</b><br/>Connection to the OAuth client with specified scopes<br/><br/>Example:|
-|`--client-grant`|<b>`authorized-scopes=value,`</b><br/>client-id=value<br/><br/>Shorthand Syntax:<br/>{authorized-scopes=str,..., client-id=str}<br/>Fields:<br/>authorized-scopes  []string            — List of authorized client scopes by the application<br/>client-id          string    required  — OAuth client id<br/>|
+|`--application-id`|<b>`string`</b><br/>ID of the OAuth application to update. To get the OAuth application ID, make a [ApplicationService.List] request.|
+|`--client-grant`|<b>`shorthand/json`</b><br/>Connection to the OAuth client with specified scopes<br/>Shorthand Syntax:<br/>{<br/>authorized-scopes = str,...,<br/>client-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"authorized-scopes": [<br/>"str", ...<br/>],<br/>"client-id": "str"<br/>}"<br/>Fields:<br/>authorized-scopes -> ([]string)<br/>List of authorized client scopes by the application<br/>client-id -> (string)<br/>OAuth client id|
 |`--description`|<b>`string`</b><br/>Description of the OAuth application.|
-|`--group-claims-settings`|<b>`shorthand/json`</b><br/>Settings of the group claims<br/><br/>Example:<br/>--group-claims-settings group-distribution-type=NONE<br/><br/>Shorthand Syntax:<br/>{group-distribution-type=NONE\|ASSIGNED_GROUPS\|ALL_GROUPS}<br/>Fields:<br/>group-distribution-type  enum<ALL_GROUPS\|ASSIGNED_GROUPS\|NONE>  — Represents current distribution type of the groups. I.e. which groups are visible for the application users.<br/>|
+|`--group-claims-settings`|<b>`shorthand/json`</b><br/>Settings of the group claims<br/>Shorthand Syntax:<br/>{<br/>group-distribution-type = NONE\|ASSIGNED_GROUPS\|ALL_GROUPS<br/>}<br/>JSON Syntax:<br/>"{<br/>"group-distribution-type": "NONE\|ASSIGNED_GROUPS\|ALL_GROUPS"<br/>}"<br/>Fields:<br/>group-distribution-type -> (enum<ALL_GROUPS\|ASSIGNED_GROUPS\|NONE>)<br/>Represents current distribution type of the groups. I.e. which groups are visible for the application users.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as key:value pairs.|
-|`--name`|<b>`string`</b><br/>Name of the OAuth application.<br/>The name must be unique within the organization.|
+|`--name`|<b>`string`</b><br/>Name of the OAuth application. The name must be unique within the organization.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

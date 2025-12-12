@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>Currently you can use filtering only on the [InstanceGroup.name] field.|
-|`--instance-group-id`|<b>`string`</b><br/>ID of the InstanceGroup resource to list operations for.<br/>To get the instance group ID, use a [InstanceGroupService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is more than [page_size], the service returns a [ListInstanceGroupOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListInstanceGroupOperationsResponse.next_page_token] returned by a previous list request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name] field.|
+|`--instance-group-id`|<b>`string`</b><br/>ID of the InstanceGroup resource to list operations for. To get the instance group ID, use a [InstanceGroupService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is more than [page_size], the service returns a [ListInstanceGroupOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListInstanceGroupOperationsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

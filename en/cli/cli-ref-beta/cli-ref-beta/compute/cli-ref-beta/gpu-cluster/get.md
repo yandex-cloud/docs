@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--gpu-cluster-id`|<b>`string`</b><br/>ID of the GPU cluster to return.<br/><br/>To get a GPU cluster ID, make a [GpuClusterService.List] request.|
+|`--gpu-cluster-id`|<b>`string`</b><br/>ID of the GPU cluster to return. To get a GPU cluster ID, make a [GpuClusterService.List] request.|
 
 #### Global Flags
 

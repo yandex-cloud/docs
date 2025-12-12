@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--security-group-id`|<b>`string`</b><br/>ID of the Security Group resource to return.<br/>To get the security group ID, use a [SecurityGroup.List] request.|
+|`--security-group-id`|<b>`string`</b><br/>ID of the Security Group resource to return. To get the security group ID, use a [SecurityGroup.List] request.|
 
 #### Global Flags
 

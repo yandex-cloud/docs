@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--key-id`|<b>`string`</b><br/>ID of the symmetric KMS key to return.<br/>To get the ID of a symmetric KMS key use a [SymmetricKeyService.List] request.|
+|`--key-id`|<b>`string`</b><br/>ID of the symmetric KMS key to return. To get the ID of a symmetric KMS key use a [SymmetricKeyService.List] request.|
 
 #### Global Flags
 

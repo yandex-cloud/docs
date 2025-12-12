@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--federated-credential-id`|<b>`string`</b><br/>ID of the federated credential to return.<br/>To get the federated credential ID, make a [FederatedCredentialService.List] request.|
+|`--federated-credential-id`|<b>`string`</b><br/>ID of the federated credential to return. To get the federated credential ID, make a [FederatedCredentialService.List] request.|
 
 #### Global Flags
 
