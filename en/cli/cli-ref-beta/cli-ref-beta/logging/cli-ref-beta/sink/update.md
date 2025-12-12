@@ -20,12 +20,11 @@ Syntax:
 |----|----|
 |`--description`|<b>`string`</b><br/>New Description of the sink.|
 |`--labels`|<b>`stringToString`</b><br/>New sink labels as 'key:value' pairs.|
-|`--name`|<b>`string`</b><br/>New name of the sink.<br/>The name must be unique within the folder.|
+|`--name`|<b>`string`</b><br/>New name of the sink. The name must be unique within the folder.|
 |`--service-account-id`|<b>`string`</b><br/>new service account to use for logs writing to the sink.|
-|`--sink-id`|<b>`string`</b><br/>ID of the sink to update.<br/><br/>To get a sink ID make a [SinkService.List] request.|
-|`--yds`|<b>`shorthand/json`</b><br/>Yandex data stream<br/><br/>Example:<br/>--yds stream-name=value<br/><br/>Shorthand Syntax:<br/>{stream-name=str}<br/>Fields:<br/>stream-name  string  — Fully qualified name of data stream<br/>|
-|`--s3`|<b>`shorthand/json`</b><br/>Object storage<br/><br/>Example:|
-|`--s3`|<b>`bucket=value,`</b><br/>prefix=value<br/><br/>Shorthand Syntax:<br/>{bucket=str, prefix=str}<br/>Fields:<br/>bucket  string  — Object storage bucket<br/>prefix  string  — Prefix to use for saved log object names<br/>|
+|`--sink-id`|<b>`string`</b><br/>ID of the sink to update. To get a sink ID make a [SinkService.List] request.|
+|`--yds`|<b>`shorthand/json`</b><br/>Yandex data stream<br/>Shorthand Syntax:<br/>{<br/>stream-name = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"stream-name": "str"<br/>}"<br/>Fields:<br/>stream-name -> (string)<br/>Fully qualified name of data stream|
+|`--s3`|<b>`shorthand/json`</b><br/>Object storage<br/>Shorthand Syntax:<br/>{<br/>bucket = str,<br/>prefix = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"bucket": "str",<br/>"prefix": "str"<br/>}"<br/>Fields:<br/>bucket -> (string)<br/>Object storage bucket<br/>prefix -> (string)<br/>Prefix to use for saved log object names|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

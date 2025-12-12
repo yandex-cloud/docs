@@ -18,13 +18,13 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--always-next-page-token`|The flag that defines behavior of providing the next page token.<br/><br/>If this flag is set to 'true', this API method will always return [ListClusterLogsResponse.next_page_token], even if current page is empty.|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster to request logs for.<br/><br/>To get the Apache Kafka® cluster ID, make a [ClusterService.List] request.|
-|`--column-filter`|<b>`strings`</b><br/>Columns from the logs table to request.<br/><br/>If no columns are specified, full log records are returned.|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/><br/>The expression must specify:<br/>1. The field name to filter by. Currently filtering can be applied to the 'hostname' field.<br/>2. An '=' operator.<br/>3. The value in double quotes ('"'). Must be 1-63 characters long and match the regular expression '[a-z0-9.-]{1,61}'.<br/><br/>Example of a filter: 'message.hostname='node1.db.cloud.yandex.net''|
+|`--always-next-page-token`|The flag that defines behavior of providing the next page token. If this flag is set to 'true', this API method will always return [ListClusterLogsResponse.next_page_token], even if current page is empty.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster to request logs for. To get the Apache Kafka® cluster ID, make a [ClusterService.List] request.|
+|`--column-filter`|<b>`strings`</b><br/>Columns from the logs table to request. If no columns are specified, full log records are returned.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression must specify: 1. The field name to filter by. Currently filtering can be applied to the 'hostname' field. 2. An '=' operator. 3. The value in double quotes ('"'). Must be 1-63 characters long and match the regular expression '[a-z0-9.-]{1,61}'. Example of a filter: 'message.hostname='node1.db.cloud.yandex.net''|
 |`--from-time`|<b>`time`</b><br/>Start timestamp for the logs request. (RFC3339)|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return.<br/><br/>If the number of available results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token.<br/><br/>To get the next page of results, set [page_token] to the [ListClusterLogsResponse.next_page_token] returned by the previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListClusterLogsResponse.next_page_token] returned by the previous list request.|
 |`--to-time`|<b>`time`</b><br/>End timestamp for the logs request. (RFC3339)|
 
 #### Global Flags

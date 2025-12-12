@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse Cluster resource to list operations for.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListClusterOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token.  To get the next page of results, set [page_token] to the [ListClusterOperationsResponse.next_page_token]<br/>returned by the previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListClusterOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListClusterOperationsResponse.next_page_token] returned by the previous list request.|
 
 #### Global Flags
 

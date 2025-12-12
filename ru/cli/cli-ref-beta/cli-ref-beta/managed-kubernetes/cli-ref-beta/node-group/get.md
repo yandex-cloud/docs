@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--node-group-id`|<b>`string`</b><br/>ID of the node group to return.<br/>To get the node group ID use a [NodeGroupService.List] request.|
+|`--node-group-id`|<b>`string`</b><br/>ID of the node group to return. To get the node group ID use a [NodeGroupService.List] request.|
 
 #### Global Flags
 

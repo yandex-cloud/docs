@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--oauth-client-id`|<b>`string`</b><br/>ID of the OAuthClient resource to list OAuthClientSecret resources for.<br/>To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListOAuthClientSecretsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListOAuthClientSecretsResponse.next_page_token] returned by a previous list request.|
+|`--oauth-client-id`|<b>`string`</b><br/>ID of the OAuthClient resource to list OAuthClientSecret resources for. To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListOAuthClientSecretsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListOAuthClientSecretsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

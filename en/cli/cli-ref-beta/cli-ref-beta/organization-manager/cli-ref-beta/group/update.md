@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the group.|
-|`--group-id`|<b>`string`</b><br/>ID of the Group resource to update.<br/>To get the group ID, use a [GroupService.List] request.|
-|`--name`|<b>`string`</b><br/>Name of the group.<br/>The name must be unique within the organization.|
+|`--group-id`|<b>`string`</b><br/>ID of the Group resource to update. To get the group ID, use a [GroupService.List] request.|
+|`--name`|<b>`string`</b><br/>Name of the group. The name must be unique within the organization.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

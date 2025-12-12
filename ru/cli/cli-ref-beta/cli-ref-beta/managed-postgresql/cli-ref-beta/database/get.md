@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the PostgreSQL cluster that the database belongs to.<br/>To get the cluster ID use a [ClusterService.List] request.|
-|`--database-name`|<b>`string`</b><br/>Name of the PostgreSQL Database resource to return.<br/>To get the name of the database use a [DatabaseService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the PostgreSQL cluster that the database belongs to. To get the cluster ID use a [ClusterService.List] request.|
+|`--database-name`|<b>`string`</b><br/>Name of the PostgreSQL Database resource to return. To get the name of the database use a [DatabaseService.List] request.|
 
 #### Global Flags
 

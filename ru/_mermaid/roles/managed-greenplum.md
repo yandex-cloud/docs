@@ -1,6 +1,8 @@
 ```mermaid
 %%{init: { "flowchart": { "padding": 4 } } }%%
 flowchart BT
+    managed-greenplum.clusters.connector["`managed-greenplum.
+    clusters.connector`"] ~~~ mdb.auditor
     vpc.publicAdmin ~~~ mdb.admin
     mdb.auditor --> mdb.viewer
     mdb.viewer --> mdb.restorer   

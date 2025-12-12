@@ -19,7 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>ID of the cluster to request a job from.|
-|`--job-id`|<b>`string`</b><br/>ID of the job to return.<br/><br/>To get a job ID make a [JobService.List] request.|
+|`--job-id`|<b>`string`</b><br/>ID of the job to return. To get a job ID make a [JobService.List] request.|
 
 #### Global Flags
 

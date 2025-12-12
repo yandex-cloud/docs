@@ -137,7 +137,15 @@ items:
           - name: Обзор
             href: sdk/index.md
           - name: IFrame
-            href: iframe-sdk.md
+            items:
+              - name: Начало работы
+                href: sdk/iframe/index.md
+              - name: Параметры инициализации плеера
+                href: sdk/iframe/initialization.md
+              - name: Методы плеера
+                href: sdk/iframe/player-methods.md
+              - name: События плеера
+                href: sdk/iframe/player-events.md
           - name: iOS
             href: sdk/ios-sdk.md
           - name: JavaScript

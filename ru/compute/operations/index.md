@@ -15,6 +15,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](vm-create/create-with-env-variables.md)
 * [{#T}](vm-create/create-with-lockbox-secret.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
+* [{#T}](vm-create/create-gen2-vm.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
 ## DSVM {#dsvm}

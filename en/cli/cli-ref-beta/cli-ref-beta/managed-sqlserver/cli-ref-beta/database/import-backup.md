@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster to import a database in.<br/><br/>To get the cluster ID, use a [ClusterService.List] request.|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster to import a database in. To get the cluster ID, use a [ClusterService.List] request.|
 |`--database-name`|<b>`string`</b><br/>Name of the SQL Server database that is being imported.|
 |`--files`|<b>`strings`</b><br/>List of .bak files in bucket containing database backup.|
 |`--s3-bucket`|<b>`string`</b><br/>Name of object storage bucket to import backups from.|

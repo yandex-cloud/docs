@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster to list connectors in.<br/><br/>To get this ID, make a [ClusterService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return.<br/><br/>If the number of available results is larger than [page_size], the API returns a [ListConnectorsResponse.next_page_token] that can be used to get the next page of results in the subsequent [ConnectorService.List] requests.|
-|`--page-token`|<b>`string`</b><br/>Page token that can be used to iterate through multiple pages of results.<br/><br/>To get the next page of results, set [page_token] to the [ListConnectorsResponse.next_page_token] returned by the previous [ConnectorService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster to list connectors in. To get this ID, make a [ClusterService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the API returns a [ListConnectorsResponse.next_page_token] that can be used to get the next page of results in the subsequent [ConnectorService.List] requests.|
+|`--page-token`|<b>`string`</b><br/>Page token that can be used to iterate through multiple pages of results. To get the next page of results, set [page_token] to the [ListConnectorsResponse.next_page_token] returned by the previous [ConnectorService.List] request.|
 
 #### Global Flags
 

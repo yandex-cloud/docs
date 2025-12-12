@@ -19,12 +19,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--desktop-group-id`|<b>`string`</b><br/>ID of the desktop group.|
 |`--subnet-id`|<b>`string`</b><br/>ID of the subnet for desktop.|
-|`--users`|<b>`shorthand/json`</b><br/>List of users.<br/><br/>Example:|
-|`--users`|<b>`[{subject-id=value,`</b><br/>subject-type=value}]<br/><br/>Shorthand Syntax:<br/>[{subject-id=str, subject-type=str},...]<br/>Fields:<br/>subject-id    string  required  — Identity of the access binding.<br/>subject-type  string  required  — Type of the access binding, e.g. userAccount, serviceAccount, system.<br/>|
+|`--users`|<b>`shorthand/json`</b><br/>List of users.<br/>Shorthand Syntax:<br/>[<br/>{<br/>subject-id = str,<br/>subject-type = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"subject-id": "str",<br/>"subject-type": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>subject-id -> (string)<br/>Identity of the access binding.<br/>subject-type -> (string)<br/>Type of the access binding, e.g. userAccount, serviceAccount, system.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

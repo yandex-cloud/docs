@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--bus-id`|<b>`string`</b><br/>ID of the bus to list operations for.|
-|`--filter`|<b>`string`</b><br/>Supported attributes for filter:<br/>description<br/>created_at<br/>modified_at<br/>created_by<br/>done|
+|`--filter`|<b>`string`</b><br/>Supported attributes for filter: description created_at modified_at created_by done|
 |`--page-size`|<b>`int`</b><br/>Maximum number of operations to return.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListBusesResponse.next_page_token] returned by a previous list request.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListBusesResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

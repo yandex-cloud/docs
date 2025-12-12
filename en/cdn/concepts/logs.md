@@ -22,4 +22,5 @@ Log export is a paid feature. See [{#T}](../pricing.md) for billing information.
 
 #### See also {#see-also}
 
-* [Export setup instructions](../operations/resources/configure-logs.md).
+* [Query log reference](../logs-ref.md)
+* [Export setup guide](../operations/resources/configure-logs.md)

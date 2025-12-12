@@ -19,12 +19,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>New Description of the export.|
-|`--export-id`|<b>`string`</b><br/>ID of the export to update.<br/><br/>To get a export ID make a [ExportService.List] request.|
+|`--export-id`|<b>`string`</b><br/>ID of the export to update. To get a export ID make a [ExportService.List] request.|
 |`--group-id`|<b>`string`</b><br/>New logging Group ID logs exported from|
 |`--labels`|<b>`stringToString`</b><br/>New export labels as 'key:value' pairs.|
-|`--name`|<b>`string`</b><br/>New name of the export.<br/>The name must be unique within the folder.|
-|`--params`|<b>`shorthand/json`</b><br/>New parameters for logs filtration<br/><br/>Example:|
-|`--params`|<b>`filter=value,`</b><br/>levels=TRACE, resource-ids=value, resource-types=value, stream-names=value<br/><br/>Shorthand Syntax:<br/>{filter=str, levels=TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL,..., resource-ids=str,..., resource-types=str,..., stream-names=str,...}<br/>Fields:<br/>filter          string    —<br/>levels          []int     —<br/>resource-ids    []string  —<br/>resource-types  []string  —<br/>stream-names    []string  —<br/>|
+|`--name`|<b>`string`</b><br/>New name of the export. The name must be unique within the folder.|
+|`--params`|<b>`shorthand/json`</b><br/>New parameters for logs filtration<br/>Shorthand Syntax:<br/>{<br/>filter = str,<br/>levels = TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL,...,<br/>resource-ids = str,...,<br/>resource-types = str,...,<br/>stream-names = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"filter": "str",<br/>"levels": [<br/>"TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL", ...<br/>],<br/>"resource-ids": [<br/>"str", ...<br/>],<br/>"resource-types": [<br/>"str", ...<br/>],<br/>"stream-names": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>filter -> (string)<br/>levels -> ([]int)<br/>resource-ids -> ([]string)<br/>resource-types -> ([]string)<br/>stream-names -> ([]string)|
 |`--sink-id`|<b>`string`</b><br/>New logging Sink ID logs exported to|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

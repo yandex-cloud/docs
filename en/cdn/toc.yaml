@@ -431,6 +431,8 @@ items:
     href: metrics.md
   - name: '{{ monitoring-name }} metrics for the {{ cdn-full-name }} provider'
     href: metrics-yc.md
+  - name: Request logs
+    href: logs-ref.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

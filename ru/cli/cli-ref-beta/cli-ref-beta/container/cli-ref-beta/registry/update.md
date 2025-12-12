@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.<br/><br/>Existing set of 'labels' is completely replaced by the provided set.|
-|`--name`|<b>`string`</b><br/>Name of the registry.<br/><br/>There may be only one registry per folder.|
-|`--registry-id`|<b>`string`</b><br/>ID of the Registry resource to update.<br/><br/>To get the registry ID use a [RegistryService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set.|
+|`--name`|<b>`string`</b><br/>Name of the registry. There may be only one registry per folder.|
+|`--registry-id`|<b>`string`</b><br/>ID of the Registry resource to update. To get the registry ID use a [RegistryService.List] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

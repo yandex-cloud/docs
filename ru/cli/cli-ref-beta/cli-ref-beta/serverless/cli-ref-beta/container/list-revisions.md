@@ -18,11 +18,11 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/><br/>The expression must specify:<br/>1. The field name. Currently filtering can only be applied to the [Revision.status] and [Revision.runtime] fields.<br/>2. An '=' operator.<br/>3. The value in double quotes ('"'). Must be 3-63 characters long and match the regular expression '[a-z][-a-z0-9]{1,61}[a-z0-9]'.<br/>Example of a filter: 'status="ACTIVE"'.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results<br/>is larger than 'pageSize', the service returns a [ListContainersRevisionsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/><br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'pageToken' to the<br/>[ListContainersRevisionsResponse.next_page_token] returned by a previous list request.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to list container revisions for.<br/>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--container-id`|<b>`string`</b><br/>ID of the container to list revisions for.<br/>To get a container ID use a [ContainerService.List] request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently filtering can only be applied to the [Revision.status] and [Revision.runtime] fields. 2. An '=' operator. 3. The value in double quotes ('"'). Must be 3-63 characters long and match the regular expression '[a-z][-a-z0-9]{1,61}[a-z0-9]'. Example of a filter: 'status="ACTIVE"'.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than 'pageSize', the service returns a [ListContainersRevisionsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'pageToken' to the [ListContainersRevisionsResponse.next_page_token] returned by a previous list request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to list container revisions for. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--container-id`|<b>`string`</b><br/>ID of the container to list revisions for. To get a container ID use a [ContainerService.List] request.|
 
 #### Global Flags
 

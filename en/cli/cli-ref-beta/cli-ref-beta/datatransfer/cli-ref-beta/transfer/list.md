@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--folder-id`|<b>`string`</b><br/>Identifier of the folder containing the transfers to be listed.<br/><br/>To get the folder ID, make a<br/>[yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of transfers to be sent in the response message. If the<br/>folder contains more transfers than 'page_size', 'next_page_token' will be<br/>included<br/>in the response message. Include it into the subsequent 'ListTransfersRequest'<br/>to<br/>fetch the next page. Defaults to '100' if not specified. The maximum allowed<br/>value<br/>for this field is '1000'.|
-|`--page-token`|<b>`string`</b><br/>Opaque value identifying the transfers page to be fetched. Should be empty in<br/>the first 'ListTransfersRequest'. Subsequent requests should have this field<br/>filled<br/>with the 'next_page_token' from the previous 'ListTransfersResponse'.|
+|`--folder-id`|<b>`string`</b><br/>Identifier of the folder containing the transfers to be listed. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of transfers to be sent in the response message. If the folder contains more transfers than 'page_size', 'next_page_token' will be included in the response message. Include it into the subsequent 'ListTransfersRequest' to fetch the next page. Defaults to '100' if not specified. The maximum allowed value for this field is '1000'.|
+|`--page-token`|<b>`string`</b><br/>Opaque value identifying the transfers page to be fetched. Should be empty in the first 'ListTransfersRequest'. Subsequent requests should have this field filled with the 'next_page_token' from the previous 'ListTransfersResponse'.|
 
 #### Global Flags
 

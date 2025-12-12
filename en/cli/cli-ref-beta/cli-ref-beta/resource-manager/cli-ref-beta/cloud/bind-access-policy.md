@@ -19,11 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--access-policy-binding`|<b>`shorthand/json`</b><br/><br/><br/>Example:|
-|`--access-policy-binding`|<b>`access-policy-template-id=value,`</b><br/>parameters={key=value}<br/><br/>Shorthand Syntax:<br/>{access-policy-template-id=str, parameters={key=str, key=...}}<br/>Fields:<br/>access-policy-template-id  string              required  — ID of the access policy template being applied.<br/>parameters                 map[string,string]            —<br/>|
-|`--resource-id`|<b>`string`</b><br/>ID of the resource for which access policy bindings are being set.<br/><br/>To get the resource ID, use a corresponding List request.|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--access-policy-binding`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>access-policy-template-id = str,<br/>parameters = {key=str, key=...}<br/>}<br/>JSON Syntax:<br/>"{<br/>"access-policy-template-id": "str",<br/>"parameters": {<br/>"\<key\>": "str", ...<br/>}<br/>}"<br/>Fields:<br/>access-policy-template-id -> (string)<br/>ID of the access policy template being applied.<br/>parameters -> (map[string,string])|
+|`--resource-id`|<b>`string`</b><br/>ID of the resource for which access policy bindings are being set. To get the resource ID, use a corresponding List request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

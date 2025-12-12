@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--private-connection-id`|<b>`string`</b><br/>ID of the PrivateConnection resource to return.<br/>To get the privateConnection ID use a [PrivateConnectionService.List] request.|
+|`--private-connection-id`|<b>`string`</b><br/>ID of the PrivateConnection resource to return. To get the privateConnection ID use a [PrivateConnectionService.List] request.|
 
 #### Global Flags
 

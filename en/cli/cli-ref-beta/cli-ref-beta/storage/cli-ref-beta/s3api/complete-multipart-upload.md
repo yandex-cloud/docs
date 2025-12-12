@@ -19,13 +19,12 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--bucket`|<b>`string`</b><br/>Bucket name|
 |`--key`|<b>`string`</b><br/>Object key|
 |`--upload-id`|<b>`string`</b><br/>Upload ID is used to reference a specific upload.|
-|`--multipart-upload`|<b>`shorthand/json`</b><br/>The list of parts to coalesce into a single object.<br/><br/>Example:|
-|`--multipart-upload`|<b>`parts=[{etag=value,`</b><br/>part-number=1}]<br/><br/>Shorthand Syntax:<br/>{parts=[{etag=str, part-number=int},...]}<br/>Fields:<br/>parts  []struct  — List of parts to coalesce into a single object.<br/>etag         string            — Part ETag.<br/>part-number  int     required  — Part number of the object being uploaded.|
+|`--multipart-upload`|<b>`shorthand/json`</b><br/>The list of parts to coalesce into a single object.<br/>Shorthand Syntax:<br/>{<br/>parts = [<br/>{<br/>etag = str,<br/>part-number = int<br/>}, ...<br/>]<br/>}<br/>JSON Syntax:<br/>"{<br/>"parts": [<br/>{<br/>"etag": "str",<br/>"part-number": "int"<br/>}, ...<br/>]<br/>}"<br/>Fields:<br/>parts -> ([]struct)<br/>List of parts to coalesce into a single object.<br/>etag -> (string)<br/>Part ETag.<br/>part-number -> (int)<br/>Part number of the object being uploaded.|
 
 #### Global Flags
 

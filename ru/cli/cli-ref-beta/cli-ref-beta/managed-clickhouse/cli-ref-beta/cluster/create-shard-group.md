@@ -19,12 +19,12 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster to add a shard group to.<br/><br/>To get the cluster ID, make a [ClusterService.List] request.|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster to add a shard group to. To get the cluster ID, make a [ClusterService.List] request.|
 |`--description`|<b>`string`</b><br/>Description of the new shard group. 0-256 characters long.|
 |`--shard-group-name`|<b>`string`</b><br/>Name for the new shard group.|
-|`--shard-names`|<b>`strings`</b><br/>List of shard names that should be put into the new group.<br/><br/>To get the list, make a [ClusterService.ListShardGroups] request.|
+|`--shard-names`|<b>`strings`</b><br/>List of shard names that should be put into the new group. To get the list, make a [ClusterService.ListShardGroups] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

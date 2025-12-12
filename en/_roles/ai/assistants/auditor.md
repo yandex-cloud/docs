@@ -1,9 +1,1 @@
-The `ai.assistants.auditor` role enables viewing information on AI assistants, their users and threads, as well as on the uploaded files and their indexes.
-
-Users with this role can:
-* View info on [AI assistants](../../../ai-studio/concepts/assistant/index.md).
-* View info on AI assistant users and their threads.
-* View info on uploaded files and their search indexes.
-* View info on [quotas](../../../ai-studio/concepts/limits.md#yandexgpt-quotas) for Yandex AI Studio.
-* View info on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
-* View info on the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+The `ai.assistants.auditor` role enables viewing info on uploaded [files](../../../ai-studio/concepts/search/vectorstore.md#file-uploading), Vector Store [search indexes](../../../ai-studio/concepts/search/vectorstore.md), Yandex AI Studio [quotas](../../../ai-studio/concepts/limits.md#yandexgpt-quotas), as well as on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).

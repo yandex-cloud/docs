@@ -18,12 +18,12 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--allow-oversubscription`|Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).<br/>While running instances are still limited by available slots, stopped instances can exceed this limit.<br/>Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error.|
-|`--allow-pending-slots`|This field affects only the current request and allows size-increasing operation to complete successfully even when there are not enough resources.<br/>In such cases, some of the new pool slots become "pending", meaning they cannot be used until resources become available.<br/>Pending slots automatically convert to normal slots when sufficient resources are available.|
+|`--allow-oversubscription`|Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots). While running instances are still limited by available slots, stopped instances can exceed this limit. Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error.|
+|`--allow-pending-slots`|This field affects only the current request and allows size-increasing operation to complete successfully even when there are not enough resources. In such cases, some of the new pool slots become "pending", meaning they cannot be used until resources become available. Pending slots automatically convert to normal slots when sufficient resources are available.|
 |`--description`|<b>`string`</b><br/>Description of the reserved instance pool.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.<br/><br/>Existing set of 'labels' is completely replaced by the provided set.|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set.|
 |`--name`|<b>`string`</b><br/>New name for the reserved instance pool.|
-|`--reserved-instance-pool-id`|<b>`string`</b><br/>ID of the reserved instance pool to update.<br/>To get the reserved instance pool ID, use a [ReservedInstancePoolService.List] request.|
+|`--reserved-instance-pool-id`|<b>`string`</b><br/>ID of the reserved instance pool to update. To get the reserved instance pool ID, use a [ReservedInstancePoolService.List] request.|
 |`--size`|<b>`int`</b><br/>Desired size of the pool.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

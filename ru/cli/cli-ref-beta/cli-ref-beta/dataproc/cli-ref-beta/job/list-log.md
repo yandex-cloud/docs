@@ -20,8 +20,8 @@ Syntax:
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>ID of the cluster that the job is being created for.|
 |`--job-id`|<b>`string`</b><br/>ID of the job being created.|
-|`--page-size`|<b>`int`</b><br/>The maximum bytes of job log per response to return. If the number of available<br/>bytes is larger than [page_size], the service returns a [ListJobLogResponse.next_page_token]<br/>that can be used to get the next page of output in subsequent list requests.<br/>Default value: 1048576.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListJobLogResponse.next_page_token] returned by a previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum bytes of job log per response to return. If the number of available bytes is larger than [page_size], the service returns a [ListJobLogResponse.next_page_token] that can be used to get the next page of output in subsequent list requests. Default value: 1048576.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListJobLogResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--export-id`|<b>`string`</b><br/>ID of the export to return.<br/><br/>To get a export ID make a [ExportService.List] request.|
+|`--export-id`|<b>`string`</b><br/>ID of the export to return. To get a export ID make a [ExportService.List] request.|
 
 #### Global Flags
 

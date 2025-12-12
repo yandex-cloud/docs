@@ -19,12 +19,12 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--deletion-protection`|Flag that inhibits deletion of the symmetric KMS key|
 |`--description`|<b>`string`</b><br/>Description of the key.|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder to create a asymmetric KMS key in.|
-|`--labels`|<b>`stringToString`</b><br/>Custom labels for the asymmetric KMS key as 'key:value' pairs. Maximum 64 per key.<br/>For example, '"project": "mvp"' or '"source": "dictionary"'.|
+|`--labels`|<b>`stringToString`</b><br/>Custom labels for the asymmetric KMS key as 'key:value' pairs. Maximum 64 per key. For example, '"project": "mvp"' or '"source": "dictionary"'.|
 |`--name`|<b>`string`</b><br/>Name of the key.|
 |`--signature-algorithm`|<b>`enum`</b><br/>Asymmetric signature algorithm. Possible Values: 'rsa-2048-sign-pss-sha-256', 'rsa-2048-sign-pss-sha-384', 'rsa-2048-sign-pss-sha-512', 'rsa-3072-sign-pss-sha-256', 'rsa-3072-sign-pss-sha-384', 'rsa-3072-sign-pss-sha-512', 'rsa-4096-sign-pss-sha-256', 'rsa-4096-sign-pss-sha-384', 'rsa-4096-sign-pss-sha-512', 'ecdsa-nist-p256-sha-256', 'ecdsa-nist-p384-sha-384', 'ecdsa-nist-p521-sha-512', 'ecdsa-secp256-k1-sha-256'|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

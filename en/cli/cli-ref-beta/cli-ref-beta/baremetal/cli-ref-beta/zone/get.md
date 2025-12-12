@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--zone-id`|<b>`string`</b><br/>ID of the Zone resource to return.<br/><br/>To get the zone ID, use a [ZoneService.List] request.|
+|`--zone-id`|<b>`string`</b><br/>ID of the Zone resource to return. To get the zone ID, use a [ZoneService.List] request.|
 
 #### Global Flags
 

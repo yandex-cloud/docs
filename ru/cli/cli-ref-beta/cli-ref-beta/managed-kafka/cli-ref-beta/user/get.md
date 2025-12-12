@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster the user belongs to.<br/><br/>To get the cluster ID, make a [ClusterService.List] request.|
-|`--user-name`|<b>`string`</b><br/>Name of the Kafka user to return.<br/><br/>To get the name of the user, make a [UserService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster the user belongs to. To get the cluster ID, make a [ClusterService.List] request.|
+|`--user-name`|<b>`string`</b><br/>Name of the Kafka user to return. To get the name of the user, make a [UserService.List] request.|
 
 #### Global Flags
 

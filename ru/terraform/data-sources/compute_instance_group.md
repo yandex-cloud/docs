@@ -194,6 +194,8 @@ Read-Only:
 
 - `platform_id` (String) The ID of the hardware platform configuration for the instance.
 
+- `reserved_instance_pool_id` (String) ID of the reserved instance pool that the instance should belong to.
+
 - `resources` (Block List, Min: 1, Max: 1) Compute resource specifications for the instance. (see [below for nested schema](#nestedobjatt--instance_template--resources))
 
 - `scheduling_policy` (Block List, Max: 1) The scheduling policy configuration. (see [below for nested schema](#nestedobjatt--instance_template--scheduling_policy))

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--host-type-id`|<b>`string`</b><br/>ID of the host type to return.<br/><br/>To get a host type ID make a [HostTypeService.List] request.|
+|`--host-type-id`|<b>`string`</b><br/>ID of the host type to return. To get a host type ID make a [HostTypeService.List] request.|
 
 #### Global Flags
 

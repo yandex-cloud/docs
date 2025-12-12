@@ -25,9 +25,9 @@ editable: false
 
 The cost of using {{ model-gallery-name }} models depends on:
 * [Model's operating mode](concepts/generation/index.md#working-mode).
-* Number of input and output [tokens](concepts/generation/tokens.md). The [token](concepts/generation/tokens.md) count of the same text may vary from one model to the next.
+* Number of input and output [tokens](concepts/generation/tokens.md). The [token](concepts/generation/tokens.md) count of the same text may vary from one model to the next. An [example calculation](#example-generating) of the cost of processing the same text in synchronous mode using different models.
 
-[{{ billing-name }} represents](../billing/operations/check-charges.md) the use of {{ model-gallery-name }} models in _billing units_. The total number of billing units is rounded up to an integer.
+[{{ billing-name }} breaks down](../billing/operations/check-charges.md) the use of {{ model-gallery-name }} models in _billing units_. The total number of billing units is rounded up to an integer.
 
 
 
@@ -43,20 +43,20 @@ The cost of using {{ model-gallery-name }} models depends on:
 
 {#example-generating}
 
-{% cut "Cost calculation for a model in synchronous mode" %}
+{% cut "Example of cost calculation for a model in synchronous mode" %}
 
 > Request parameters:
-> * Number of prompt tokens: 225
-> * Number of response tokens: 525
-> * Model: {{ gpt-lite }}
-> * Model operating mode: Synchronous
+> * Instruction: «Проанализируй предоставленный текст и выполни его комплексную грамотную редактуру. Твоя задача — устранить любые грамматические, орфографические, стилистические и пунктуационные ошибки, не изменяя при этом исходного смысла и структуры высказывания. Сохраняй оригинальный порядок слов и не вноси дополнительных уточнений, пояснений или переформулировок, которые могут изменить тон или содержание текста. Внесённые правки должны быть минимально необходимыми для того, чтобы предложение стало корректным с точки зрения русского языка. Также убедись, что все слова употреблены в нормативной форме, а знаки препинания соответствуют литературным стандартам»
+> * Request text: «Нейрасети оптемезируют бизнес-працесы розгружают техпадержку ускаряют праверку документов аналис и абработку данных генирируют отчёты за минуты и прогназируют спрос.»
+> * The model's response: «Нейросети оптимизируют бизнес‑процессы: разгружают техподдержку, ускоряют проверку документов, анализ и обработку данных, генерируют отчёты за минуты и прогнозируют спрос.»
+> Количество символов на вход: 782
 
 
-{% include [usd-generating-lite](../_pricing_examples/ai-studio/usd-generating-lite.md) %}
+{% include [usd-generating-sync](../_pricing_examples/ai-studio/usd-generating-sync.md) %}
 
 {% endcut %}
 
-{% cut "Cost calculation for a model in asynchronous mode" %}
+{% cut "Example of cost calculation for a model in asynchronous mode" %}
 
 > Request parameters:
 > * Number of prompt tokens: 115

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cic-private-connection-id`|<b>`string`</b><br/>ID of the PrivateConnection resource to return by.<br/>To get the routingInstance ID use a [RoutingInstanceService.List] request.|
+|`--cic-private-connection-id`|<b>`string`</b><br/>ID of the PrivateConnection resource to return by. To get the routingInstance ID use a [RoutingInstanceService.List] request.|
 
 #### Global Flags
 

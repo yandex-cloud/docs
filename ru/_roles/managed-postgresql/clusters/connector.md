@@ -1,0 +1,1 @@
+Роль `managed-postgresql.clusters.connector` позволяет [пользователям](../../../iam/concepts/users/accounts.md) Yandex Cloud подключаться к базам данных в [кластерах PostgreSQL](../../../managed-postgresql/concepts/index.md) с помощью механизмов сервиса [Yandex Identity and Access Management](../../../iam/index.yaml).

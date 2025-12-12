@@ -19,7 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>ID of the cluster that the model belongs to.|
-|`--ml-model-name`|<b>`string`</b><br/>Name of the model to return.<br/><br/>To get a model name make a [MlModelService.List] request.|
+|`--ml-model-name`|<b>`string`</b><br/>Name of the model to return. To get a model name make a [MlModelService.List] request.|
 
 #### Global Flags
 

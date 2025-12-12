@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the Apache Kafka® cluster the user belongs to.
             To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         userName:
           description: |-
             **string**
             Required field. Name of the Kafka user to return.
             To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request.
+            The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
           pattern: '[a-zA-Z0-9_]*'
           type: string
       required:
@@ -49,12 +51,16 @@ GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{user
 
 Required field. ID of the Apache Kafka® cluster the user belongs to.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the Kafka user to return.
 
-To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request. ||
+To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request.
+
+The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.kafka.v1.User}
@@ -109,7 +115,6 @@ To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/To
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.

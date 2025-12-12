@@ -33,6 +33,8 @@ items:
             href: operations/vm-create/create-with-lockbox-secret.md
           - name: Создать ВМ с GPU
             href: operations/vm-create/create-vm-with-gpu.md
+          - name: Создать ВМ с оборудованием поколения Gen 2
+            href: operations/vm-create/create-gen2-vm.md
           - name: Сделать ВМ прерываемой
             href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM

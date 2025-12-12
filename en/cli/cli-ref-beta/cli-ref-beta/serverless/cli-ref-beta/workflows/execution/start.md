@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--input`|<b>`shorthand/json`</b><br/>Input for the Workflow execution<br/><br/>Example:<br/>--input input={input-json=value}<br/><br/>Shorthand Syntax:<br/>{input={input-json=str}}<br/>Fields:<br/>input  oneof\<input-json\>  — Oneof input field<br/>input-json  string  — JSON input data for the Workflow execution.<br/>|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--input`|<b>`shorthand/json`</b><br/>Input for the Workflow execution<br/>Shorthand Syntax:<br/>{<br/>input = input-json=str<br/>}<br/>JSON Syntax:<br/>"{<br/>"input": {<br/>"input-json": "str"<br/>}<br/>}"<br/>Fields:<br/>input -> (oneof\<input-json\>)<br/>Oneof input field<br/>input-json -> (string)<br/>JSON input data for the Workflow execution.|
 |`--workflow-id`|<b>`string`</b><br/>ID of the Workflow.|
 
 #### Global Flags

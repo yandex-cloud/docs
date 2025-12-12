@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--instance-group-id`|<b>`string`</b><br/>ID of the InstanceGroup resource to return.<br/>To get the instance group ID, use a [InstanceGroupService.List] request.|
+|`--instance-group-id`|<b>`string`</b><br/>ID of the InstanceGroup resource to return. To get the instance group ID, use a [InstanceGroupService.List] request.|
 |`--view`|<b>`enum`</b><br/>Defines which information about the Instance template should be returned in the server response. Possible Values: 'basic', 'full'|
 
 #### Global Flags

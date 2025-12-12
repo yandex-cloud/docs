@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>Supported attributes for filter:<br/>description<br/>created_at<br/>modified_at<br/>created_by<br/>done|
+|`--filter`|<b>`string`</b><br/>Supported attributes for filter: description created_at modified_at created_by done|
 |`--page-size`|<b>`int`</b><br/>The maximum number of results per response.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>'next_page_token' returned by a previous list request.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the 'next_page_token' returned by a previous list request.|
 |`--rule-id`|<b>`string`</b><br/>ID of the rule to list operations for.|
 
 #### Global Flags

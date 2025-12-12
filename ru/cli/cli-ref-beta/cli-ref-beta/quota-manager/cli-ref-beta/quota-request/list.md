@@ -18,11 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>The expression must specify:<br/>1. The field name. Currently you can use filtering only on the [quotaRequest.status] field.<br/>2. An '=' operator.<br/>3. The value in double quotes ('"'). Must be 3-63 characters long and match the regular expression '[a-z][-a-z0-9]{1,61}[a-z0-9]'.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListQuotaRequestsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token]<br/>to the [ListQuotaRequestsResponse.next_page_token]<br/>returned by a previous list request.|
-|`--resource`|<b>`shorthand/json`</b><br/>Resource to list quota requests in.<br/><br/>Example:|
-|`--resource`|<b>`id=value,`</b><br/>type=value<br/><br/>Shorthand Syntax:<br/>{id=str, type=str}<br/>Fields:<br/>id    string  required  — The id if the resource.<br/>type  string  required  — The type of the resource, e.g. resource-manager.cloud, billing.account.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on the [quotaRequest.status] field. 2. An '=' operator. 3. The value in double quotes ('"'). Must be 3-63 characters long and match the regular expression '[a-z][-a-z0-9]{1,61}[a-z0-9]'.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListQuotaRequestsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListQuotaRequestsResponse.next_page_token] returned by a previous list request.|
+|`--resource`|<b>`shorthand/json`</b><br/>Resource to list quota requests in.<br/>Shorthand Syntax:<br/>{<br/>id = str,<br/>type = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"id": "str",<br/>"type": "str"<br/>}"<br/>Fields:<br/>id -> (string)<br/>The id if the resource.<br/>type -> (string)<br/>The type of the resource, e.g. resource-manager.cloud, billing.account.|
 
 #### Global Flags
 

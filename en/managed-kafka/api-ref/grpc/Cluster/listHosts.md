@@ -27,17 +27,23 @@ Retrieves a list of hosts for the specified Apache Kafka® cluster.
 
 Required field. ID of the Apache Kafka® cluster.
 
-To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token.
 
-To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListClusterHostsResponse {#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse}
@@ -96,7 +102,6 @@ ID of the availability zone where the host resides. ||
 
 Host role. If the field has default value, it is not returned in the response.
 
-- `ROLE_UNSPECIFIED`: Role of the host is unspecified. Default value.
 - `KAFKA`: The host is a Kafka broker.
 - `ZOOKEEPER`: The host is a ZooKeeper server.
 - `KRAFT`: The host is a Kafka KRaft controller broker. ||

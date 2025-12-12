@@ -102,15 +102,12 @@ If you are already leasing a server with an [appropriate OS](#os-support), proce
   1. {% include [server-lease-step3](../../_includes/baremetal/instruction-steps/server-lease-step3.md) %}
   1. {% include [server-lease-step4](../../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
-  1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
-
-      {% include [server-lease-backup-partitioning-notice](../../_includes/baremetal/instruction-steps/server-lease-backup-partitioning-notice.md) %}
-
+  1. In the **{{ ui-key.yacloud.baremetal.field_server-count }}** field, keep `1`.
   1. {% include [server-lease-step7-backup](../../_includes/baremetal/instruction-steps/server-lease-step7-backup.md) %}
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**:
+  1. {% include [server-lease-step8](../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
 
-      1. In the **{{ ui-key.yacloud.baremetal.field_server-count }}** field, specify `1`.
-      1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
+        {% include [server-lease-backup-partitioning-notice](../../_includes/baremetal/instruction-steps/server-lease-backup-partitioning-notice.md) %}
+
   1. {% include [server-lease-step9-bm](../../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
   1. {% include [server-lease-step10-backup](../../_includes/baremetal/instruction-steps/server-lease-step10-backup.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:

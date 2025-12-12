@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder to list backups in.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned.<br/><br/>If the number of available results is larger than [page_size], the service returns<br/>a [ListBackupsResponse.next_page_token] that can be used to get the next page of results<br/>in subsequent list requests.<br/><br/>Default value is 100.|
-|`--page-token`|<b>`string`</b><br/>The page token. To get the next page of results, set [page_token] to the [ListBackupsResponse.next_page_token]<br/>returned by the previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available results is larger than [page_size], the service returns a [ListBackupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value is 100.|
+|`--page-token`|<b>`string`</b><br/>The page token. To get the next page of results, set [page_token] to the [ListBackupsResponse.next_page_token] returned by the previous list request.|
 
 #### Global Flags
 

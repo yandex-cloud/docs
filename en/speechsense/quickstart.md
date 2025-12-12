@@ -20,12 +20,14 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
 ## Set up your environment {#set-space}
 
-1. Create a [space](concepts/resources-hierarchy.md#space) for all your [projects](concepts/resources-hierarchy.md#project): select **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**, enter a name, add an optional description, and click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+1. Create a [space](concepts/resources-hierarchy.md#space) to store all your [projects](concepts/resources-hierarchy.md#project): select **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**, enter a name, add a description if required, and click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
 1. [Link a billing account](operations/space/link-ba.md) to the space. This account will be debited for the use of {{ speechsense-name }}.
 
    {% include [manage-ba-note](../_includes/speechsense/manage-ba-note.md) %}
 
-1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and create a [connection](concepts/resources-hierarchy.md#connection) based on the metainformation of your audio recordings or text chats:
+1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and select a template to create a [connection](concepts/resources-hierarchy.md#connection) based on the metadata of your audio recordings or text chats:
+
+   {% include [metadata](../_includes/speechsense/data/templates-connection.md) %}
 
    1. Specify **{{ ui-key.yc-ui-talkanalytics.connections.connection-name }}**.
    1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}**, or **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
@@ -51,7 +53,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
    {% endcut %}
 
-1. Create a project by clicking **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}** on the space page, entering a name for the project, and adding a connection to it. For each connection, you can select filtering rules based on its metainformation and the [{{ gpt-pro }}](../ai-studio/concepts/generation/index.md) criteria. With filters, you can ensure that only the dialogs you need are added to the project. After adding all required connections and configuring filters, click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+1. Create a project by clicking **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}** on the space page, entering a name for the project, and adding a connection to it. For each connection, you can select filtering rules based on its metadata and the [{{ gpt-pro }}](../ai-studio/concepts/generation/index.md) criteria. With filters, you can ensure that only the dialogs you need are added to the project. After adding all required connections and configuring filters, click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
 
 ## Upload your data {#upload-data}
 

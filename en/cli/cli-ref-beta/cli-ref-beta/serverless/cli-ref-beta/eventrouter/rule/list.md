@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>Supported fields for filter:<br/>name<br/>created_at|
+|`--filter`|<b>`string`</b><br/>Supported fields for filter: name created_at|
 |`--page-size`|<b>`int`</b><br/>The maximum number of results per response.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>'next_page_token' returned by a previous list request.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the 'next_page_token' returned by a previous list request.|
 |`--bus-id`|<b>`string`</b><br/>ID of the bus to list rules in.|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder to list rules in.|
 

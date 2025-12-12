@@ -343,7 +343,6 @@ You can find metrics description in [{#T}](../../managed-kubernetes/metrics.md).
 * [{#T}](../tutorials/k8s-cluster-with-no-internet.md)
 * [{#T}](../tutorials/kubernetes-backup.md)
 * [{#T}](../tutorials/prometheus-grafana-monitoring.md)
-* [{#T}](../tutorials/metrics-server.md)
 * [{#T}](../tutorials/driverless-gpu.md)
 
 #### See also {#see-also}

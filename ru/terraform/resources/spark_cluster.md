@@ -98,6 +98,7 @@ Optional:
 - `dependencies` (Attributes) Environment dependencies. (see [below for nested schema](#nestedatt--config--dependencies))
 - `history_server` (Attributes) History Server configuration. (see [below for nested schema](#nestedatt--config--history_server))
 - `metastore` (Attributes) Metastore configuration. (see [below for nested schema](#nestedatt--config--metastore))
+- `spark_version` (String) Version of Apache Spark. Format: Major.Minor
 
 <a id="nestedatt--config--resource_pools"></a>
 ### Nested Schema for `config.resource_pools`

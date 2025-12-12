@@ -29,6 +29,8 @@ To assign a role to a user:
 
 The list below shows all roles used for access control in {{ dataproc-name }}.
 
+{% include [roles-data-proc](../../_mermaid/roles/data-proc.md) %}
+
 ### Service roles {#service-roles}
 
 #### dataproc.agent {#dataproc-agent}

@@ -19,7 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--family`|<b>`string`</b><br/>Name of the image family to search for.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to get the image from.<br/>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to get the image from. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 
 #### Global Flags
 

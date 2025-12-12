@@ -10434,6 +10434,8 @@ default:
         component:
           instance-storage-dialog:
             button_add-disk: Add disk
+            value_disk-attach-type-attach-existing: Attach existing
+            value_disk-attach-type-create-new: Create
         components:
           PlatformField:
             value_platform-tab-gpu_hGyQ8: With GPU
@@ -10560,6 +10562,7 @@ default:
           label_title: Images
           popup-confirm_button_delete: Delete
           popup-upload_field_pooled: Optimization
+          popup-upload_field_url: Link to image in Object Storage
         instance-groups_hx3kX: Instance groups
         instance:
           access-method:
@@ -12670,7 +12673,6 @@ default:
           label_button_playback: Synthesize and playback
           label_synthesis-settings: Synthesis settings
         speech-to-text-v2:
-          label_button_copy-text: Copy text
           label_button_start-recognition: Start recognition
           recognition-params-section_title_1EDuy: Recognition parameters
         speech-to-text:

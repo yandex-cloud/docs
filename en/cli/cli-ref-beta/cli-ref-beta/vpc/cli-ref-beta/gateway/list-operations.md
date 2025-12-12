@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--gateway-id`|<b>`string`</b><br/>ID of the gateway to list operations for.<br/><br/>To get a gateway ID make a [GatewayService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListGatewayOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListGatewayOperationsResponse.next_page_token] returned by a previous list request.|
+|`--gateway-id`|<b>`string`</b><br/>ID of the gateway to list operations for. To get a gateway ID make a [GatewayService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListGatewayOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListGatewayOperationsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

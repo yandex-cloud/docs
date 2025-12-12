@@ -17,6 +17,8 @@ description: Управление квотами ваших ресурсов —
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [quota-manager](../../_mermaid/roles/quota-manager.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### quota-manager.requestOperator {#quota-manager-requestoperator}

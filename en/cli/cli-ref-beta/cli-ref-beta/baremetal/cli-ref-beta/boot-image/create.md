@@ -19,13 +19,13 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--description`|<b>`string`</b><br/>Description of the image.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create an image in.<br/><br/>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to create an image in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the image.<br/>The name must be unique within the folder.|
-|`--uri`|<b>`string`</b><br/>URI of the source image to create the new image from.<br/>Currently only supports links to images that are stored in Object Storage.<br/>Currently only supports ISO formats.|
+|`--name`|<b>`string`</b><br/>Name of the image. The name must be unique within the folder.|
+|`--uri`|<b>`string`</b><br/>URI of the source image to create the new image from. Currently only supports links to images that are stored in Object Storage. Currently only supports ISO formats.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

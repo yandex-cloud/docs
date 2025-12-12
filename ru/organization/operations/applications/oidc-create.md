@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
   1. Создайте OIDC-приложение:
 
      ```bash
-     yc iam organization-manager idp application oauth application create \
+     yc organization-manager idp application oauth application create \
        --organization-id <идентификатор_организации> \
        --name <имя_приложения> \
        --description <описание_приложения> \

@@ -21,7 +21,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Description of the organization.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.|
 |`--name`|<b>`string`</b><br/>Name of the organization.|
-|`--organization-id`|<b>`string`</b><br/>ID of the organization to update.<br/>To get the organization ID, use a [OrganizationService.List] request.|
+|`--organization-id`|<b>`string`</b><br/>ID of the organization to update. To get the organization ID, use a [OrganizationService.List] request.|
 |`--title`|<b>`string`</b><br/>Display name of the organization.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

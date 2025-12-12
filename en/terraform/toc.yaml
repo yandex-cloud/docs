@@ -41,6 +41,21 @@ items:
       - name: Resources
         expanded: true
         items:
+          - name: ''
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_greenplum_cluster_v2
+                    href: data-sources/mdb_greenplum_cluster_v2.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_greenplum_cluster_v2
+                    href: resources/mdb_greenplum_cluster_v2.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Apache Hive Metastore
             items:
               - name: Data Sources
@@ -272,6 +287,11 @@ items:
                     href: >-
                       data-sources/organizationmanager_idp_application_saml_application.md
                     title: ''
+                  - name: >-
+                      organizationmanager_idp_application_saml_signature_certificate
+                    href: >-
+                      data-sources/organizationmanager_idp_application_saml_signature_certificate.md
+                    title: ''
                   - name: organizationmanager_idp_user
                     href: data-sources/organizationmanager_idp_user.md
                     title: ''
@@ -316,6 +336,11 @@ items:
                   - name: organizationmanager_idp_application_saml_application
                     href: >-
                       resources/organizationmanager_idp_application_saml_application.md
+                    title: ''
+                  - name: >-
+                      organizationmanager_idp_application_saml_signature_certificate
+                    href: >-
+                      resources/organizationmanager_idp_application_saml_signature_certificate.md
                     title: ''
                   - name: organizationmanager_idp_user
                     href: resources/organizationmanager_idp_user.md
@@ -590,6 +615,9 @@ items:
                 items:
                   - name: iam_oauth_client
                     href: resources/iam_oauth_client.md
+                    title: ''
+                  - name: iam_oauth_client_secret
+                    href: resources/iam_oauth_client_secret.md
                     title: ''
                   - name: iam_service_account
                     href: resources/iam_service_account.md

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--federation-id`|<b>`string`</b><br/>ID of the OIDC workload identity federation to return.<br/>To get the OIDC workload identity federation ID, make a [FederationService.List] request.|
+|`--federation-id`|<b>`string`</b><br/>ID of the OIDC workload identity federation to return. To get the OIDC workload identity federation ID, make a [FederationService.List] request.|
 
 #### Global Flags
 

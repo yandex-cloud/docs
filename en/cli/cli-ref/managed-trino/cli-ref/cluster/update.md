@@ -33,6 +33,7 @@ Syntax:
 |`--retry-policy-exchange-manager-additional-properties`|<b>`key=value[,key=value...]`</b><br/>Map entries for ExchangeManagerConfig.additional_properties.|
 |`--trusted-certs-from-files`|<b>`value[,value]`</b><br/>Trusted CA-certificates files. Empty list makes no effect. Each file should contain single self-signed CA-certificate or chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root.|
 |`--remove-trusted-certs`|Whether to remove all trusted certificates from cluster TLS configuration.|
+|`--query-properties`|<b>`key=value[,key=value...]`</b><br/>Query properties as key-value pairs for resource management configuration.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Trino cluster.|
 |`--service-account-id`|<b>`string`</b><br/>A service account id used to access Cloud resources.|
 |`--version`|<b>`string`</b><br/>Trino version.|

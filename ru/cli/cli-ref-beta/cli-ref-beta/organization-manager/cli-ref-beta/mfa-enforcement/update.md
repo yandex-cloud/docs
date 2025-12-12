@@ -18,14 +18,14 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--acr-id`|<b>`string`</b><br/>acr id for the MFA enforcement. one of 'any-mfa' or 'phr',<br/>specification https://yandex.cloud/en/docs/organization/concepts/mfa?utm_referrer=https%3A%2F%2Fa.yandex-team.ru%2F#mfa-factors|
+|`--acr-id`|<b>`string`</b><br/>acr id for the MFA enforcement. one of 'any-mfa' or 'phr', specification https://yandex.cloud/en/docs/organization/concepts/mfa?utm_referrer=https%3A%2F%2Fa.yandex-team.ru%2F#mfa-factors|
 |`--apply-at`|<b>`time`</b><br/>the MFA enforcement application start time (RFC3339)|
 |`--description`|<b>`string`</b><br/>the MFA enforcement description|
 |`--enroll-window`|<b>`duration`</b><br/>the MFA enforcement enroll window (duration, e.g. 30s, 5m10s)|
 |`--mfa-enforcement-id`|<b>`string`</b><br/>id of the MFA enforcement|
 |`--name`|<b>`string`</b><br/>the MFA enforcement name|
 |`--status`|<b>`enum`</b><br/>the MFA enforcement status Possible Values: 'status-active', 'status-inactive'|
-|`--ttl`|<b>`duration`</b><br/>the period during which the entered MFA factor will be considered valid and the<br/>corresponding acr will be regarded as satisfied (duration, e.g. 30s, 5m10s)|
+|`--ttl`|<b>`duration`</b><br/>the period during which the entered MFA factor will be considered valid and the corresponding acr will be regarded as satisfied (duration, e.g. 30s, 5m10s)|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/><br/>The expression must specify:<br/>1. The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effective_from] and [FunctionTagHistoryRecord.effective_to] fields.<br/>2. An '=' or '>' or '<' operator.<br/>3. The value in double quotes ('"'). Must be 3-63 characters long and match the regular expression '[a-z][-a-z0-9]{1,61}[a-z0-9]'.<br/>For example, 'effective_to>2021-01-01T12:00:00Z'.|
-|`--function-id`|<b>`string`</b><br/>ID of the function to retrieve tag history for.<br/><br/>To get a function ID, make a [FunctionService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available<br/>results is larger than 'pageSize', the service returns a [ListFunctionOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'pageToken' to the<br/>[ListFunctionOperationsResponse.next_page_token] returned by a previous list request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effective_from] and [FunctionTagHistoryRecord.effective_to] fields. 2. An '=' or '>' or '<' operator. 3. The value in double quotes ('"'). Must be 3-63 characters long and match the regular expression '[a-z][-a-z0-9]{1,61}[a-z0-9]'. For example, 'effective_to>2021-01-01T12:00:00Z'.|
+|`--function-id`|<b>`string`</b><br/>ID of the function to retrieve tag history for. To get a function ID, make a [FunctionService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available results is larger than 'pageSize', the service returns a [ListFunctionOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'pageToken' to the [ListFunctionOperationsResponse.next_page_token] returned by a previous list request.|
 |`--tag`|<b>`string`</b><br/>Specific tag that history should be limited to.|
 
 #### Global Flags

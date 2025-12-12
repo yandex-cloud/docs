@@ -19,13 +19,13 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--always-next-page-token`|Always return 'next_page_token', even if current page is empty.|
-|`--cluster-id`|<b>`string`</b><br/>ID of the PostgreSQL cluster to request logs for.<br/>To get the PostgreSQL cluster ID use a [ClusterService.List] request.|
-|`--column-filter`|<b>`strings`</b><br/>Columns from the logs table to request.<br/>If no columns are specified, entire log records are returned.|
-|`--from-time`|<b>`time`</b><br/>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. (RFC3339)|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListClusterLogsResponse.next_page_token] returned by the previous list request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the PostgreSQL cluster to request logs for. To get the PostgreSQL cluster ID use a [ClusterService.List] request.|
+|`--column-filter`|<b>`strings`</b><br/>Columns from the logs table to request. If no columns are specified, entire log records are returned.|
+|`--from-time`|<b>`time`</b><br/>Start timestamp for the logs request, in RFC3339 text format. (RFC3339)|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListClusterLogsResponse.next_page_token] returned by the previous list request.|
 |`--service-type`|<b>`enum`</b><br/>Type of the service to request logs about. Possible Values: 'postgresql', 'pooler'|
-|`--to-time`|<b>`time`</b><br/>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. (RFC3339)|
+|`--to-time`|<b>`time`</b><br/>End timestamp for the logs request, in RFC3339 text format. (RFC3339)|
 
 #### Global Flags
 

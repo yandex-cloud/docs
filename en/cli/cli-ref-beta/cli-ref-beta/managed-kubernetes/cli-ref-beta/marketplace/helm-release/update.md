@@ -19,12 +19,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--id`|<b>`string`</b><br/>The ID of the Helm release to update.|
 |`--product-version-id`|<b>`string`</b><br/>The ID of the new product version for the release.|
-|`--user-values`|<b>`shorthand/json`</b><br/>Custom user values to apply during the update.<br/><br/>Example:|
-|`--user-values`|<b>`[{key=value,`</b><br/>value={value={typed-value=value}}}]<br/><br/>Shorthand Syntax:<br/>[{key=str, value={value={typed-value=str}}},...]<br/>Fields:<br/>key    string  required  — The key associated with the value.<br/>value  struct            — The value associated with the key.<br/>value  oneof\<typed-value\>  — Oneof value field<br/>typed-value  string  — The typed string value.<br/>|
+|`--user-values`|<b>`shorthand/json`</b><br/>Custom user values to apply during the update.<br/>Shorthand Syntax:<br/>[<br/>{<br/>key = str,<br/>value = {<br/>value = typed-value=str<br/>}<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"key": "str",<br/>"value": {<br/>"value": {<br/>"typed-value": "str"<br/>}<br/>}<br/>}, ...<br/>]"<br/>Fields:<br/>key -> (string)<br/>The key associated with the value.<br/>value -> (struct)<br/>The value associated with the key.<br/>value -> (oneof\<typed-value\>)<br/>Oneof value field<br/>typed-value -> (string)<br/>The typed string value.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

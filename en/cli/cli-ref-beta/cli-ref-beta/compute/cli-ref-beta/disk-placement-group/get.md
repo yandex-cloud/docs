@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--disk-placement-group-id`|<b>`string`</b><br/>ID of the placement group to return.<br/>To get the placement group ID, use [DiskPlacementGroupService.List] request.|
+|`--disk-placement-group-id`|<b>`string`</b><br/>ID of the placement group to return. To get the placement group ID, use [DiskPlacementGroupService.List] request.|
 
 #### Global Flags
 

@@ -19,12 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--desired-quota-limits`|<b>`shorthand/json`</b><br/>Desired quota limits<br/><br/>Example:|
-|`--desired-quota-limits`|<b>`[{desired-limit=1.0,`</b><br/>quota-id=value}]<br/><br/>Shorthand Syntax:<br/>[{desired-limit=double, quota-id=str},...]<br/>Fields:<br/>desired-limit  double            — Desired limit of the quota<br/>quota-id       string  required  — ID of the quota<br/>|
-|`--resource`|<b>`shorthand/json`</b><br/>Resource to create a quota request in.<br/><br/>Example:|
-|`--resource`|<b>`id=value,`</b><br/>type=value<br/><br/>Shorthand Syntax:<br/>{id=str, type=str}<br/>Fields:<br/>id    string  required  — The id if the resource.<br/>type  string  required  — The type of the resource, e.g. resource-manager.cloud, billing.account.<br/>|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--desired-quota-limits`|<b>`shorthand/json`</b><br/>Desired quota limits<br/>Shorthand Syntax:<br/>[<br/>{<br/>desired-limit = double,<br/>quota-id = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"desired-limit": "double",<br/>"quota-id": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>desired-limit -> (double)<br/>Desired limit of the quota<br/>quota-id -> (string)<br/>ID of the quota|
+|`--resource`|<b>`shorthand/json`</b><br/>Resource to create a quota request in.<br/>Shorthand Syntax:<br/>{<br/>id = str,<br/>type = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"id": "str",<br/>"type": "str"<br/>}"<br/>Fields:<br/>id -> (string)<br/>The id if the resource.<br/>type -> (string)<br/>The type of the resource, e.g. resource-manager.cloud, billing.account.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

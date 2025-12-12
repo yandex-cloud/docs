@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the placement group.|
-|`--disk-placement-group-id`|<b>`string`</b><br/>ID of the placement group to update.<br/>To get the placement group ID, use an [DiskPlacementGroupService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.<br/><br/>The existing set of 'labels' is completely replaced by the provided set.|
+|`--disk-placement-group-id`|<b>`string`</b><br/>ID of the placement group to update. To get the placement group ID, use an [DiskPlacementGroupService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. The existing set of 'labels' is completely replaced by the provided set.|
 |`--name`|<b>`string`</b><br/>Name of the placement group.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB Cluster resource to return.<br/>To get the cluster ID, use a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB Cluster resource to return. To get the cluster ID, use a [ClusterService.List] request.|
 
 #### Global Flags
 

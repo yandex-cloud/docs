@@ -20,8 +20,8 @@ Syntax:
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>ID of the Spark cluster.|
 |`--job-id`|<b>`string`</b><br/>ID of the Spark job to return.|
-|`--page-size`|<b>`int`</b><br/>The maximum length of job output per papge that should be returned.<br/>If the number of available output is larger tha 'page_size', the service returns<br/>a 'next_page_token' that can be used to get the next page of job output in subsequent ListLog requests.<br/>Acceptable values are 0 to 1048576. Default value: 1048576.|
-|`--page-token`|<b>`string`</b><br/>Page token. Set 'page_token' to the 'next_page_token' returned by a previous ListLog<br/>request to get the next page of results.|
+|`--page-size`|<b>`int`</b><br/>The maximum length of job output per papge that should be returned. If the number of available output is larger tha 'page_size', the service returns a 'next_page_token' that can be used to get the next page of job output in subsequent ListLog requests. Acceptable values are 0 to 1048576. Default value: 1048576.|
+|`--page-token`|<b>`string`</b><br/>Page token. Set 'page_token' to the 'next_page_token' returned by a previous ListLog request to get the next page of results.|
 
 #### Global Flags
 

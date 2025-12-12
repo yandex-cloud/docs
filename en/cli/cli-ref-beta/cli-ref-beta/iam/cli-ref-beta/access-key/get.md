@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--access-key-id`|<b>`string`</b><br/>ID of the AccessKey resource to return.<br/>To get the access key ID, use a [AccessKeyService.List] request.|
+|`--access-key-id`|<b>`string`</b><br/>ID of the AccessKey resource to return. To get the access key ID, use a [AccessKeyService.List] request.|
 
 #### Global Flags
 

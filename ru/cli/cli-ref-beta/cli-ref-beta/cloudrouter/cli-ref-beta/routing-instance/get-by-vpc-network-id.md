@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--vpc-network-id`|<b>`string`</b><br/>ID of the VpcNetwork resource to return by.<br/>To get the routingInstance ID use a [RoutingInstanceService.List] request.|
+|`--vpc-network-id`|<b>`string`</b><br/>ID of the VpcNetwork resource to return by. To get the routingInstance ID use a [RoutingInstanceService.List] request.|
 
 #### Global Flags
 

@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the folder.|
-|`--folder-id`|<b>`string`</b><br/>ID of the Folder resource to update.<br/>To get the folder ID, use a [FolderService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the Folder resource to update. To get the folder ID, use a [FolderService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the folder.<br/>The name must be unique within the cloud.|
+|`--name`|<b>`string`</b><br/>Name of the folder. The name must be unique within the cloud.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

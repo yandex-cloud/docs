@@ -247,11 +247,6 @@ items:
       - name: Не поддерживается вложенная виртуализация
         href: compute/known-issues/nested-virtualisation-is-not-supported.md
       - name: >-
-          Устранение проблем с поддержкой UEFI и загрузкой с дисков, размеченных
-          в формате GPT
-        href: >-
-          compute/known-issues/uefi-support-and-booting-from-disks-with-gpt-layout.md
-      - name: >-
           Устранение ошибки `Not enough resources` при запуске виртуальной
           машины
         href: compute/known-issues/not-enough-resources.md

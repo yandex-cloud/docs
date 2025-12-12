@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--ipv4-static-routes`|<b>`shorthand/json`</b><br/>IPv4 StaticRoute configs to upsert<br/><br/>Example:<br/>--ipv4-static-routes [{prefix=value}]<br/><br/>Shorthand Syntax:<br/>[{prefix=str},...]<br/>Fields:<br/>prefix  string  — Prefix.<br/>It's an ip with format ipPrefix/length where address part of ipPrefix is 0.<br/>|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--ipv4-static-routes`|<b>`shorthand/json`</b><br/>IPv4 StaticRoute configs to upsert<br/>Shorthand Syntax:<br/>[<br/>{<br/>prefix = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"prefix": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>prefix -> (string)<br/>Prefix. It's an ip with format ipPrefix/length where address part of ipPrefix is 0.|
 |`--private-connection-id`|<b>`string`</b><br/>ID of the PrivateConnection resource.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

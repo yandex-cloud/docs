@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Redis cluster to return.<br/>To get the cluster ID use a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Redis cluster to return. To get the cluster ID use a [ClusterService.List] request.|
 
 #### Global Flags
 

@@ -595,8 +595,6 @@ items:
                 href: container-infrastructure/autoscaling.md
               - name: Вертикальное масштабирование приложения в кластере
                 href: container-infrastructure/vpa-autoscaling.md
-              - name: Изменение параметров сервера метрик (Metrics Server)
-                href: container-infrastructure/metrics-server.md
               - name: >-
                   Развертывание и нагрузочное тестирование gRPC-сервиса с
                   масштабированием

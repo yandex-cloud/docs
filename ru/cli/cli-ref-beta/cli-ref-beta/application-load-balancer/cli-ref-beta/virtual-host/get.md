@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--http-router-id`|<b>`string`</b><br/>ID of the HTTP router that the virtual host belongs to.<br/><br/>To get the HTTP router ID, make a [HttpRouterService.List] request.|
-|`--virtual-host-name`|<b>`string`</b><br/>Name of the virtual host to return.<br/><br/>To get the virtual host name, make a [VirtualHostService.List] request.|
+|`--http-router-id`|<b>`string`</b><br/>ID of the HTTP router that the virtual host belongs to. To get the HTTP router ID, make a [HttpRouterService.List] request.|
+|`--virtual-host-name`|<b>`string`</b><br/>Name of the virtual host to return. To get the virtual host name, make a [VirtualHostService.List] request.|
 
 #### Global Flags
 

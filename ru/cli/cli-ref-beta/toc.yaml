@@ -4883,9 +4883,13 @@ items:
               - name: remove-domain
                 href: >-
                   cli-ref-beta/serverless/cli-ref-beta/api-gateway/remove-domain.md
+              - name: resume
+                href: cli-ref-beta/serverless/cli-ref-beta/api-gateway/resume.md
               - name: set-access-bindings
                 href: >-
                   cli-ref-beta/serverless/cli-ref-beta/api-gateway/set-access-bindings.md
+              - name: stop
+                href: cli-ref-beta/serverless/cli-ref-beta/api-gateway/stop.md
               - name: update
                 href: cli-ref-beta/serverless/cli-ref-beta/api-gateway/update.md
               - name: update-access-bindings

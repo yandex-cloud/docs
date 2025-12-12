@@ -19,12 +19,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--destination-zone-id`|<b>`string`</b><br/>ID of the availability zone to move the disk to.<br/><br/>To get the zone ID, make a [ZoneService.List] request.|
-|`--disk-id`|<b>`string`</b><br/>ID of the disk to move.<br/><br/>To get the disk ID, make a [DiskService.List] request.|
-|`--disk-placement-policy`|<b>`shorthand/json`</b><br/>Placement policy configuration in target zone. Must be specified if disk has placement policy.<br/><br/>Example:|
-|`--disk-placement-policy`|<b>`placement-group-id=value,`</b><br/>placement-group-partition=1<br/><br/>Shorthand Syntax:<br/>{placement-group-id=str, placement-group-partition=int}<br/>Fields:<br/>placement-group-id         string  — Placement group ID.<br/>placement-group-partition  int     —<br/>|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--destination-zone-id`|<b>`string`</b><br/>ID of the availability zone to move the disk to. To get the zone ID, make a [ZoneService.List] request.|
+|`--disk-id`|<b>`string`</b><br/>ID of the disk to move. To get the disk ID, make a [DiskService.List] request.|
+|`--disk-placement-policy`|<b>`shorthand/json`</b><br/>Placement policy configuration in target zone. Must be specified if disk has placement policy.<br/>Shorthand Syntax:<br/>{<br/>placement-group-id = str,<br/>placement-group-partition = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"placement-group-id": "str",<br/>"placement-group-partition": "int"<br/>}"<br/>Fields:<br/>placement-group-id -> (string)<br/>Placement group ID.<br/>placement-group-partition -> (int)|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

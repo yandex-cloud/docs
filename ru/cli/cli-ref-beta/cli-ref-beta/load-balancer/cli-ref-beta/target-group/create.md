@@ -19,15 +19,14 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--description`|<b>`string`</b><br/>Description of the target group.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to list target groups in.<br/>To get the folder ID, use a [TargetGroupService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to list target groups in. To get the folder ID, use a [TargetGroupService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the target group.<br/>The name must be unique within the folder.|
+|`--name`|<b>`string`</b><br/>Name of the target group. The name must be unique within the folder.|
 |`--region-id`|<b>`string`</b><br/>ID of the availability zone where the target group resides.|
-|`--targets`|<b>`shorthand/json`</b><br/>List of targets within the target group.<br/><br/>Example:|
-|`--targets`|<b>`[{address=value,`</b><br/>subnet-id=value}]<br/><br/>Shorthand Syntax:<br/>[{address=str, subnet-id=str},...]<br/>Fields:<br/>address    string  — IP address of the target.<br/>subnet-id  string  — ID of the subnet that targets are connected to.<br/>All targets in the target group must be connected to the same subnet within a single availability zone.<br/>|
+|`--targets`|<b>`shorthand/json`</b><br/>List of targets within the target group.<br/>Shorthand Syntax:<br/>[<br/>{<br/>address = str,<br/>subnet-id = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"address": "str",<br/>"subnet-id": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>address -> (string)<br/>IP address of the target.<br/>subnet-id -> (string)<br/>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

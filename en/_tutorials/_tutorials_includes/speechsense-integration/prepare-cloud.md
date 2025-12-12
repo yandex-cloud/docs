@@ -28,8 +28,6 @@ Create a service account with the `speech-sense.data.editor` [role](../../../spe
 
 ### Create an API key for the service account {#create-key}
 
-Create an API key for the service account.
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -69,8 +67,6 @@ Create an API key for the service account.
 
 
 ### Add the service account to the space {#add-sa-to-space}
-
-Add the service account to the {{ speechsense-name }} space.
 
 {% list tabs group=instructions %}
 

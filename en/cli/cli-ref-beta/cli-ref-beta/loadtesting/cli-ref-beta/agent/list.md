@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters agents listed in the response.<br/><br/>The filter expression may contain multiple field expressions joined by 'AND'.<br/>The field expression must specify:<br/>1. The field name.<br/>2. An operator:<br/>- '=', '!=', 'CONTAINS', for single values.<br/>- 'IN' or 'NOT IN' for lists of values.<br/>3. The value. String values must be encosed in '"', boolean values are {'true', 'false'}, timestamp values in ISO-8601.<br/><br/>Currently supported fields:<br/>- 'id' [yandex.cloud.loadtesting.api.v1.agent.Agent.id]<br/>- operators: '=', '!=', 'IN', 'NOT IN'<br/>- 'name' [yandex.cloud.loadtesting.api.v1.agent.Agent.name]<br/>- operators: '=', '!=', 'IN', 'NOT IN', 'CONTAINS'<br/><br/>Examples:<br/>- 'id IN ("1", "2", "3")'<br/>- 'name CONTAINS "compute-agent-large" AND id NOT IN ("4", "5")'|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters agents listed in the response. The filter expression may contain multiple field expressions joined by 'AND'. The field expression must specify: 1. The field name. 2. An operator: - '=', '!=', 'CONTAINS', for single values. - 'IN' or 'NOT IN' for lists of values. 3. The value. String values must be encosed in '"', boolean values are {'true', 'false'}, timestamp values in ISO-8601. Currently supported fields: - 'id' [yandex.cloud.loadtesting.api.v1.agent.Agent.id] - operators: '=', '!=', 'IN', 'NOT IN' - 'name' [yandex.cloud.loadtesting.api.v1.agent.Agent.name] - operators: '=', '!=', 'IN', 'NOT IN', 'CONTAINS' Examples: - 'id IN ("1", "2", "3")' - 'name CONTAINS "compute-agent-large" AND id NOT IN ("4", "5")'|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder to list agents in.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than 'page_size', the service returns a [ListAgentsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListAgentsResponse.next_page_token] returned by a previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than 'page_size', the service returns a [ListAgentsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListAgentsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

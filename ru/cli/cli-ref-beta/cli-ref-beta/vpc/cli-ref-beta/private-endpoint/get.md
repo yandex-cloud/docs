@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--private-endpoint-id`|<b>`string`</b><br/>ID of the PrivateEndpoint resource to return.<br/><br/>To get PrivateEndpoint resource ID make a [PrivateEndpointService.List]<br/>request.|
+|`--private-endpoint-id`|<b>`string`</b><br/>ID of the PrivateEndpoint resource to return. To get PrivateEndpoint resource ID make a [PrivateEndpointService.List] request.|
 
 #### Global Flags
 

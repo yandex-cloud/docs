@@ -33,12 +33,16 @@ Revokes permission from the specified Kafka user.
 
 Required field. ID of the Apache Kafka® cluster the user belongs to.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the user to revoke a permission from.
 
-To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/grpc/User/list#List) request. ||
+To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/grpc/User/list#List) request.
+
+The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 || permission | **[Permission](#yandex.cloud.mdb.kafka.v1.Permission)**
 
 Required field. Permission that should be revoked from the specified user. ||
@@ -58,7 +62,6 @@ To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/gr
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.
@@ -212,7 +215,6 @@ To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/gr
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.

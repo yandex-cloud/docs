@@ -5,7 +5,12 @@ description: You can upload a two-channel audio or text chat to {{ speechsense-n
 
 # Creating a connection
 
-You can upload [two-channel audio](#create-audio-connection), [single-channel audio](#create-one-channel-audio-connection), or a [chat](#create-chat-connection) with text messages to a {{ speechsense-name }} connection. To create a connection, you need either the `{{ roles-speechsense-admin }}` or `{{ roles-speechsense-editor }}` role for the space.
+You can upload the following to a {{ speechsense-name }} connection:
+* [Two-channel audio](#create-audio-connection).
+* [Single-channel audio](#create-one-channel-audio-connection).
+* [Chat with text messages](#create-chat-connection). 
+
+To create a connection, you need either the `{{ roles-speechsense-admin }}` or `{{ roles-speechsense-editor }}` role for the space.
 
 {% note info %}
 
@@ -17,7 +22,10 @@ You cannot delete a connection from a project, but you can [delete a project](..
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space of your choice.
-1. In the top-right corner, click **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+1. Go to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and select a template to create a connection or click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+
+   {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %} 
+
 1. Specify a name of the connection and, if needed, add a description.
 1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** data type.
 1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**:
@@ -37,7 +45,10 @@ You cannot delete a connection from a project, but you can [delete a project](..
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space of your choice.
-1. In the top-right corner, click **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+1. Go to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and select a template to create a connection or click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+
+   {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
+
 1. Specify a name of the connection and, if needed, add a description.
 1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** data type.
 1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**:
@@ -50,27 +61,17 @@ You cannot delete a connection from a project, but you can [delete a project](..
 
    {% include [shared-metadata](../../../_includes/speechsense/data/shared-metadata.md) %}
 
-1. Optionally, under **{{ ui-key.yc-ui-talkanalytics.connections.additional.title }}**, enable these options:
+1. Optionally, under **{{ ui-key.yc-ui-talkanalytics.connections.additional.title }}**, enable **{{ ui-key.yc-ui-talkanalytics.connections.additional.split.title }}** and select the dialog splitting option:
 
-   * **Split dialog text by speaker**: Splits the dialog text between speakers.
-   
-      {% note info %}
-      
-      If you disable this option, the dialog text will be presented as only the agent's. All tags and report parameters will be applied exclusively to the agent channel.
-      
-      {% endnote %}
-      
-   * **{{ ui-key.yc-ui-talkanalytics.connections.additional.split.title }}** and select the dialog splitting option:
+   * **By duration**: Dialog is divided into segments of specified duration.
 
-      * **By duration**: Dialog is divided into segments of specified duration.
+      * **{{ ui-key.yc-ui-talkanalytics.connections.additional.slice-length }}**: Specify the segment length in minutes and seconds.
 
-         * **{{ ui-key.yc-ui-talkanalytics.connections.additional.slice-length }}**: Specify the segment length in minutes and seconds.
+   * **By phrases**: Dialog is divided into segments based on key phrases.
 
-      * **By phrases**: Dialog is divided into segments based on key phrases.
-
-         * **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.start-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.finish-key-value }}**: List the key phrases for the beginning and the end of the dialog.
+      * **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.start-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.finish-key-value }}**: List the key phrases for the beginning and the end of the dialog.
            
-            {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+         {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
 
 1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 
@@ -78,7 +79,10 @@ You cannot delete a connection from a project, but you can [delete a project](..
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space of your choice.
-1. In the top-right corner, click **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+1. Go to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and select a template to create a connection or click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+
+   {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
+
 1. Specify a name of the connection and, if needed, add a description.
 1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
 1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}**, specify the keys from the metadata file. This file contains the dialog information collected from chats, CRM systems, or other sources.

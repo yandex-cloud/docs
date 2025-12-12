@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder that the security profile belongs to.<br/>Currently page_size, page_token, filter and order_by are not supported and List method will return all security profiles in the folder.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder that the security profile belongs to. Currently page_size, page_token, filter and order_by are not supported and List method will return all security profiles in the folder.|
 
 #### Global Flags
 

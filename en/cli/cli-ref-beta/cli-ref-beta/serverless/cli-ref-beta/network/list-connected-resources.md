@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than 'pageSize', the service returns a [ListConnectedResourcesResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/><br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'pageToken' to the<br/>[ListConnectedResourcesResponse.next_page_token] returned by a previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than 'pageSize', the service returns a [ListConnectedResourcesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'pageToken' to the [ListConnectedResourcesResponse.next_page_token] returned by a previous list request.|
 |`--network-id`|<b>`string`</b><br/>ID of the network to list serverless resources connected to it.|
 |`--cloud-id`|<b>`string`</b><br/>ID of the cloud to list serverless resources connected to any network from it.|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder to list serverless resources connected to any network from it.|

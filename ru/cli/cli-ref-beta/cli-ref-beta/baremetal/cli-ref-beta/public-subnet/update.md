@@ -19,10 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the public subnet.|
-|`--hardware-pool-ids`|<b>`strings`</b><br/>IDs of the hardware pool that the public subnet belongs to.<br/><br/>To get a list of available hardware pools, use the [HardwarePoolService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.<br/><br/>Existing set of 'labels' is completely replaced by the provided set.|
-|`--name`|<b>`string`</b><br/>Name of the public subnet.<br/>The name must be unique within the folder.|
-|`--public-subnet-id`|<b>`string`</b><br/>ID of the PublicSubnet resource to update.<br/><br/>To get the public subnet ID, use a [PublicSubnetService.List] request.|
+|`--hardware-pool-ids`|<b>`strings`</b><br/>IDs of the hardware pool that the public subnet belongs to. To get a list of available hardware pools, use the [HardwarePoolService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set.|
+|`--name`|<b>`string`</b><br/>Name of the public subnet. The name must be unique within the folder.|
+|`--public-subnet-id`|<b>`string`</b><br/>ID of the PublicSubnet resource to update. To get the public subnet ID, use a [PublicSubnetService.List] request.|
 |`--type`|<b>`enum`</b><br/>Possible Values: 'dedicated', 'ephemeral'|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

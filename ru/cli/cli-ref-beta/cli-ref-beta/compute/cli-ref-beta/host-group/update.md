@@ -19,11 +19,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the group.|
-|`--host-group-id`|<b>`string`</b><br/>ID of the host group to update.<br/>To get the host group ID, use an [HostGroupService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.<br/><br/>The existing set of 'labels' is completely replaced by the provided set.|
+|`--host-group-id`|<b>`string`</b><br/>ID of the host group to update. To get the host group ID, use an [HostGroupService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. The existing set of 'labels' is completely replaced by the provided set.|
 |`--maintenance-policy`|<b>`enum`</b><br/>Behaviour on maintenance events Possible Values: 'restart', 'migrate'|
 |`--name`|<b>`string`</b><br/>Name of the group.|
-|`--scale-policy`|<b>`shorthand/json`</b><br/>Scale policy. Only fixed number of hosts are supported at this moment.<br/><br/>Example:<br/>--scale-policy scale-type={fixed-scale={size=1}}<br/><br/>Shorthand Syntax:<br/>{scale-type={fixed-scale={size=int}}}<br/>Fields:<br/>scale-type  oneof\<fixed-scale\>  — Oneof scale-type field<br/>fixed-scale  struct  —<br/>size  int  —<br/>|
+|`--scale-policy`|<b>`shorthand/json`</b><br/>Scale policy. Only fixed number of hosts are supported at this moment.<br/>Shorthand Syntax:<br/>{<br/>scale-type = fixed-scale={<br/>size = int<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"scale-type": {<br/>"fixed-scale": {<br/>"size": "int"<br/>}<br/>}<br/>}"<br/>Fields:<br/>scale-type -> (oneof\<fixed-scale\>)<br/>Oneof scale-type field<br/>fixed-scale -> (struct)<br/>size -> (int)|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

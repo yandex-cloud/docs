@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Yandex Data Processing cluster.<br/><br/>To get a cluster ID make a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Yandex Data Processing cluster. To get a cluster ID make a [ClusterService.List] request.|
 
 #### Global Flags
 

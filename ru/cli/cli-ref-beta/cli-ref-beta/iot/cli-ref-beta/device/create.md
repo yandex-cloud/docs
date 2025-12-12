@@ -19,15 +19,15 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--certificates`|<b>`shorthand/json`</b><br/>Device certificate.<br/><br/>Example:<br/>--certificates [{certificate-data=value}]<br/><br/>Shorthand Syntax:<br/>[{certificate-data=str},...]<br/>Fields:<br/>certificate-data  string  — Public part of the device certificate.<br/>|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--certificates`|<b>`shorthand/json`</b><br/>Device certificate.<br/>Shorthand Syntax:<br/>[<br/>{<br/>certificate-data = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"certificate-data": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>certificate-data -> (string)<br/>Public part of the device certificate.|
 |`--description`|<b>`string`</b><br/>Description of the device.|
 |`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.|
 |`--name`|<b>`string`</b><br/>Name of the device. The name must be unique within the registry.|
-|`--password`|<b>`string`</b><br/>Device password.<br/><br/>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.|
-|`--registry-id`|<b>`string`</b><br/>ID of the registry to create a device in.<br/><br/>To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List] request.|
-|`--topic-aliases`|<b>`stringToString`</b><br/>Alias of a device topic.<br/><br/>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. 'my/custom/alias' match to '\$device/{id}/events'.|
+|`--password`|<b>`string`</b><br/>Device password. The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.|
+|`--registry-id`|<b>`string`</b><br/>ID of the registry to create a device in. To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List] request.|
+|`--topic-aliases`|<b>`stringToString`</b><br/>Alias of a device topic. Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. 'my/custom/alias' match to '\$device/{id}/events'.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

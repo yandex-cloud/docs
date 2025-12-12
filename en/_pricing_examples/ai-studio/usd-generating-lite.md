@@ -1,1 +1,0 @@
-Total: ({{ sku|USD|foundation_models.text_generation.v1|string }} / 1,000 units) × 750 units = {% calc [currency=USD] ({{ sku|USD|foundation_models.text_generation.v1|number }} / 1000) × 750 %}

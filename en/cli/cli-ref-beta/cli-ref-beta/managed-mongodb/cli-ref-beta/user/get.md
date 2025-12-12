@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB cluster the user belongs to.<br/>To get the cluster ID, use a [ClusterService.List] request.|
-|`--user-name`|<b>`string`</b><br/>Name of the MongoDB User resource to return.<br/>To get the name of the user, use a [UserService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List] request.|
+|`--user-name`|<b>`string`</b><br/>Name of the MongoDB User resource to return. To get the name of the user, use a [UserService.List] request.|
 
 #### Global Flags
 

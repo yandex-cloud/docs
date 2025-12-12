@@ -41,6 +41,13 @@ description: Various use cases for machine learning and artificial intelligence 
 * [{#T}](batch-recognition-stt.md)
 * [{#T}](vision-ocrrecognizer-storage.md)
 
+## Speech analytics {#speech-analytics}
+
+* [{#T}](speechsense/auto-upload.md)
+* [{#T}](speechsense/bitrix24.md)
+* [{#T}](speechsense/amocrm.md)
+* [{#T}](speechsense/ai-assistant.md)
+
 ## Using {{ foundation-models-full-name }} generative neural networks {#generative-neuronets}
 
 * [{#T}](pdf-searchindex-ai-assistant.md)

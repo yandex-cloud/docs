@@ -17,7 +17,7 @@ Make sure to assign the following roles to the {{ dataproc-name }} cluster’s s
 
 {% include [sa-roles](../../_includes/data-processing/sa-roles.md) %}
 
-For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
+For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
 
 
 ## Configure your network {#setup-network}
@@ -39,7 +39,7 @@ Before creating a {{ dataproc-name }} cluster, you need to create and configure 
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
-   * A separate rule for outgoing HTTPS traffic. This will allow you to use [{{ objstorage-full-name }}](../../storage/) [buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and [autoscaling](../concepts/autoscaling.md) of {{ dataproc-name }} clusters.
+   * A separate rule for outbound HTTPS traffic. This will allow you to use [{{ objstorage-full-name }}](../../storage/) [buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and [autoscaling](../concepts/autoscaling.md) of {{ dataproc-name }} clusters.
 
      You can set up this rule using one of the two methods:
 
@@ -52,7 +52,7 @@ Before creating a {{ dataproc-name }} cluster, you need to create and configure 
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-     - To the addresses used by {{ yandex-cloud }}
+     - To addresses used by {{ yandex-cloud }}
 
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
@@ -76,9 +76,9 @@ If you intend to use multiple security groups for your {{ dataproc-name }} clust
 
 {% note info %}
 
-You can specify more granular rules for your security groups, such as allowing traffic only within specific subnets.
+You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
 
-You must configure security groups correctly for all subnets where the {{ dataproc-name }} cluster’s hosts will reside.
+You must configure security groups correctly for all subnets in which the {{ dataproc-name }} cluster hosts will reside.
 
 {% endnote %}
 
@@ -105,9 +105,9 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      {% include [name-format.md](../../_includes/name-format.md) %}
 
-  1. Select the [environment](../concepts/environment.md#environment) to create the cluster in (you cannot change the environment once the cluster is created):
-     * `PRODUCTION`: For stable versions of your apps.
-     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
+  1. Select the [environment](../concepts/environment.md#environment) where you want to create your cluster (you cannot change the environment once the cluster is created):
+     * `PRODUCTION`: For stable versions of your applications.
+     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
   1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
   1. Specify the following cluster settings:
 
@@ -193,7 +193,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU utilization, disable **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** and specify the target CPU utilization level.
      1. Click **{{ ui-key.yacloud.mdb.forms.button_add-subcluster }}**.
 
-  1. Optionaly, add and set up additional subclusters for data storage or processing.
+  1. Optionally, add and set up additional subclusters for data storage or processing.
   1. Optionally, use additional settings to enable protection against accidental cluster deletion.
 
      Even with cluster deletion protection enabled, you can still connect to the {{ dataproc-name }} cluster manually and delete the data.
@@ -215,7 +215,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      yc vpc subnet list
      ```
 
-     If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
+     If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
   1. View the description of the [CLI](../../cli/) command for creating a {{ dataproc-name }} cluster:
@@ -224,7 +224,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      {{ yc-dp }} cluster create --help
      ```
 
-  1. Specify the {{ dataproc-name }} cluster configuration in the create command (the list of supported settings in the example is not exhaustive):
+  1. Specify the {{ dataproc-name }} cluster properties in this command (the example does not show all that are available):
 
      ```bash
      {{ yc-dp }} cluster create <cluster_name> \
@@ -232,6 +232,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
        --bucket=<bucket_name> \
        --zone=<availability_zone> \
        --service-account-name=<service_account_name> \
+       --autoscaling-service-account-name=<name_of_service_account_of_autoscaling_subclusters> \
        --version=<image_version> \
        --services=<list_of_components> \
        --ssh-public-keys-file=<path_to_public_SSH_key> \
@@ -258,15 +259,16 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      {% note info %}
 
-     The {{ dataproc-name }} cluster name must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may be up to 63 characters long.
+     The {{ dataproc-name }} cluster name must be unique within the folder. It may include Latin letters, numbers, hyphens, and underscores. The name may be up to 63 characters long.
 
      {% endnote %}
 
      Where:
-     * `--environment`: Cluster [environment](../concepts/environment.md#environment), either `prestable` or `production`.
+     * `--environment`: Cluster [environment](../concepts/environment.md#environment), `prestable` or `production`.
      * `--bucket`: Name of an {{ objstorage-name }} bucket where job dependencies and results will be stored. The {{ dataproc-name }} cluster’s [service account](../../iam/concepts/users/service-accounts.md) must have `READ and WRITE` permissions for this bucket.
      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) where the {{ dataproc-name }} cluster hosts will reside.
      * `--service-account-name`: Name of the {{ dataproc-name }} cluster’s service account.
+     * (Optional) `--autoscaling-service-account-name`: Name of the service account for managing autoscaling subclusters.
      * `--version`: [Image version](../concepts/environment.md).
 
        {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
@@ -315,12 +317,12 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      ```bash
      {{ yc-dp }} cluster create <cluster_name> \
        ...
-       --subcluster <subcluster_parameters> \
-       --subcluster <subcluster_parameters> \
+       --subcluster <subcluster_properties> \
+       --subcluster <subcluster_properties> \
        ...
      ```
 
-  1. To enable [autoscaling](../concepts/autoscaling.md) in {{ dataproc-name }} subclusters for data processing, specify the following parameters:
+  1. To enable [autoscaling](../concepts/autoscaling.md) in {{ dataproc-name }} subclusters for data processing, specify the following properties:
 
      ```bash
      {{ yc-dp }} cluster create <cluster_name> \
@@ -330,7 +332,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
                     `...`
                     `hosts-count=<minimum_number_of_hosts>`
                     `max-hosts-count=<maximum_number_of_hosts>,`
-                    `preemptible=<use_preemptible_VMs>,`
+                    `preemptible=<use_of_preemptible_VMs>,`
                     `warmup-duration=<VM_warmup_period>,`
                     `stabilization-duration=<stabilization_period>,`
                     `measurement-duration=<load_measurement_interval>,`
@@ -380,16 +382,16 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
 
   To create a {{ dataproc-name }} cluster:
-  1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
+  1. In the command line, navigate to the directory that will contain the {{ TF }} configuration files with the infrastructure plan. If there is no such directory, create one.
 
   
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Create a configuration file with a description of your cloud network, subnets, security group, and NAT gateway.
 
-     The {{ dataproc-name }} cluster resides in a cloud network. If you already have a suitable network, you do not need to describe it again.
+     The {{ dataproc-name }} cluster resides in a cloud network. If you already have a network in place, you do not need to describe it again.
 
-     The {{ dataproc-name }} cluster hosts reside in subnets of the selected cloud network. If you already have suitable subnets, you do not need to describe them again.
+     The {{ dataproc-name }} cluster hosts reside in subnets of the selected cloud network. If you already have subnets in place, you do not need to describe them again.
 
      Below is an example of a configuration file describing a single-subnet cloud network, security group, NAT gateway, and route table:
 
@@ -459,13 +461,19 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
 
   1. Create a configuration file describing the following resources:
-      * [Service account](../../iam/concepts/users/service-accounts.md) that needs access to the {{ dataproc-name }} cluster and {{ objstorage-name }} bucket.
+      * {{ dataproc-name }} cluster [service account](../../iam/concepts/users/service-accounts.md) that needs access to the {{ objstorage-name }} cluster.
+      * Service account for managing autoscaling subclusters (optional).
       * Service account for creating the {{ objstorage-name }} bucket.
       * [Static key](../../iam/concepts/authorization/access-key.md).
       * {{ objstorage-name }} bucket to store [job](../concepts/jobs.md) execution results in.
 
      ```hcl
      resource "yandex_iam_service_account" "data_proc_sa" {
+       name        = "<service_account_name>"
+       description = "<service_account_description>"
+     }
+
+     resource "yandex_iam_service_account" "data_proc_sa_autoscaling" {
        name        = "<service_account_name>"
        description = "<service_account_description>"
      }
@@ -479,7 +487,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      resource "yandex_resourcemanager_folder_iam_member" "dataproc-provisioner" {
        folder_id = "<folder_ID>"
        role      = "dataproc.provisioner"
-       member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
+       member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa_autoscaling.id}"
      }
 
      resource "yandex_iam_service_account" "bucket_sa" {
@@ -522,14 +530,16 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      ```hcl
      resource "yandex_dataproc_cluster" "data_cluster" {
-       bucket              = "${yandex_storage_bucket.data_bucket.bucket}"
-       name                = "<cluster_name>"
-       description         = "<cluster_description>"
-       environment         = "<cluster_environment>"
-       service_account_id  = yandex_iam_service_account.data_proc_sa.id
-       zone_id             = "<availability_zone>"
-       security_group_ids  = [yandex_vpc_security_group.data-processing-sg.id]
-       deletion_protection = <cluster_deletion_protection>
+       bucket                         = "${yandex_storage_bucket.data_bucket.bucket}"
+       name                           = "<cluster_name>"
+       description                    = "<cluster_description>"
+       environment                    = "<cluster_environment>"
+       service_account_id             = yandex_iam_service_account.data_proc_sa.id
+       autoscaling_service_account_id = yandex_iam_service_account.data_proc_sa_autoscaling.id
+       zone_id                        = "<availability_zone>"
+       security_group_ids             = [yandex_vpc_security_group.data-processing-sg.id]
+       deletion_protection            = <cluster_deletion_protection>
+
        depends_on = [
          yandex_resourcemanager_folder_iam_member.dataproc-provisioner,
          yandex_resourcemanager_folder_iam_member.dataproc-agent
@@ -625,7 +635,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
          measurement_duration   = <load_measurement_interval>
          warmup_duration        = <warmup_period>
          stabilization_duration = <stabilization_period>
-         preemptible            = <use_preemptible_VMs>
+         preemptible            = <use_of_preemptible_VMs>
          cpu_utilization_target = <target_CPU_utilization_level>
          decommission_timeout   = <decommissioning_timeout>
        }
@@ -637,11 +647,11 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      * `measurement_duration`: Period, in seconds, for which the average utilization is calculated for each VM, in `<value>s` format. The minimum value is `60s` (1 minute), and the maximum value is `600s` (10 minutes).
      * `warmup_duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s`, and the maximum value is `600s`.
      * `stabilization_duration`: Period, in seconds, during which the required number of VMs cannot be decreased, in `<value>s` format. The minimum value is `60s` and the maximum value is `1800s`.
-     * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can either be `true` or `false`.
+     * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can be either `true` or `false`.
      * `cpu_utilization_target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used for scaling based on the number of pending resources. The minimum value is `10`, and the maximum value is `100`.
      * `decommission_timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0`, and the maximum value is `86400` (24 hours).
 
-     For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
   1. Make sure the {{ TF }} configuration files are correct:
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -681,6 +691,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
     * Settings of the {{ dataproc-name }} subclusters in the `configSpec.subclustersSpec` parameter.
   * Availability zone of the {{ dataproc-name }} cluster in the `zoneId` parameter.
   * ID of the {{ dataproc-name }} cluster’s [service account](../../iam/concepts/users/service-accounts.md) in the `serviceAccountId` parameter.
+  * Service account ID for managing autoscaling subclusters in the `autoscalingServiceAccountId` parameter (optional).
   * Bucket name in the `bucket` parameter.
   * IDs of the {{ dataproc-name }} cluster’s security groups in the `hostGroupIds` parameter.
   * {{ dataproc-name }} cluster deletion protection settings in the `deletionProtection` parameter.
@@ -701,7 +712,7 @@ After the {{ dataproc-name }} cluster status switches to **Running**, you can [c
 
 ## Create a {{ dataproc-name }} cluster copy {#duplicate}
 
-You can create a {{ dataproc-name }} cluster with the same settings as the one you created earlier. To do so, import the source {{ dataproc-name }} cluster’s configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing is convenient if the source {{ dataproc-name }} cluster has multiple settings (e.g., it is an HDFS cluster) and you need to create a similar one.
+You can create a {{ dataproc-name }} cluster with the same settings as the one you created earlier. To do this, import the original {{ dataproc-name }} cluster configuration to {{ TF }}. Then you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is convenient if you want to replicate a {{ dataproc-name }} cluster with multiple settings (e.g., an HDFS cluster).
 
 To create a {{ dataproc-name }} cluster copy:
 
@@ -719,15 +730,15 @@ To create a {{ dataproc-name }} cluster copy:
      resource "yandex_dataproc_cluster" "old" { }
      ```
 
-  1. Write the initial {{ dataproc-name }} cluster’s ID to the environment variable:
+  1. Save the ID of the original {{ dataproc-name }} cluster to an environment variable:
 
      ```bash
      export DATAPROC_CLUSTER_ID=<cluster_ID>
      ```
 
-     You can get the ID with the [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
+     You can request the ID with the [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
 
-  1. Import the initial {{ dataproc-name }} cluster’s settings into the {{ TF }} configuration:
+  1. Import the original {{ dataproc-name }} cluster settings to the {{ TF }} configuration:
 
      ```bash
      terraform import yandex_dataproc_cluster.old ${DATAPROC_CLUSTER_ID}
@@ -743,7 +754,7 @@ To create a {{ dataproc-name }} cluster copy:
   1. Place the file in the new `imported-cluster` directory.
   1. Edit the configuration you copied so that you can create a new {{ dataproc-name }} cluster from it:
      * Specify the new {{ dataproc-name }} cluster name in the `resource` string and the `name` parameter.
-     * Delete the `created_at`, `host_group_ids`, `id`, and `subcluster_spec.id` parameters.
+     * Delete `created_at`, `host_group_ids`, `id`, and `subcluster_spec.id`.
      * If you are connecting to the cluster using an SSH key, change its format in the `ssh_public_keys` parameter. Initial format:
 
        ```hcl
@@ -762,9 +773,9 @@ To create a {{ dataproc-name }} cluster copy:
        ]
        ```
 
-     * Optionally, make further changes if you need to customize the configuration.
+     * Optionally, make further changes if you need a customized configuration.
   1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
-  1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+  1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
   1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
   1. Make sure the {{ TF }} configuration files are correct using this command:
 

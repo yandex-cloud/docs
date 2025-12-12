@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--gateway-id`|<b>`string`</b><br/>ID of the Gateway resource to return.<br/><br/>To get Gateway resource ID make a [GatewayService.List] request.|
+|`--gateway-id`|<b>`string`</b><br/>ID of the Gateway resource to return. To get Gateway resource ID make a [GatewayService.List] request.|
 
 #### Global Flags
 

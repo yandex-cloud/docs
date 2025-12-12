@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--public-connection-id`|<b>`string`</b><br/>ID of the PublicConnection resource to return.<br/>To get the publicConnection ID use a [PublicConnectionService.List] request.|
+|`--public-connection-id`|<b>`string`</b><br/>ID of the PublicConnection resource to return. To get the publicConnection ID use a [PublicConnectionService.List] request.|
 
 #### Global Flags
 

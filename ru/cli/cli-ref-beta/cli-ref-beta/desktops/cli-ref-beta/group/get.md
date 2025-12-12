@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--desktop-group-id`|<b>`string`</b><br/>ID of the desktop group resource to return.<br/><br/>To get the desktop group ID use a [DesktopGroupService.List] request.|
+|`--desktop-group-id`|<b>`string`</b><br/>ID of the desktop group resource to return. To get the desktop group ID use a [DesktopGroupService.List] request.|
 
 #### Global Flags
 

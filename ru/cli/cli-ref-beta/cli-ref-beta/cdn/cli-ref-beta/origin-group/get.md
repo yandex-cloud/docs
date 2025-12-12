@@ -19,7 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder that the origin group belongs to.|
-|`--origin-group-id`|<b>`int`</b><br/>ID of the origin group to return.<br/><br/>To get a origin group ID, make a [OriginGroupService.List] request.|
+|`--origin-group-id`|<b>`int`</b><br/>ID of the origin group to return. To get a origin group ID, make a [OriginGroupService.List] request.|
 
 #### Global Flags
 

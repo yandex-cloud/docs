@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--network-id`|<b>`string`</b><br/>ID of the Network resource to list operations for.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available<br/>results is larger than [page_size], the service returns a [ListNetworkOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests. Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListNetworkOperationsResponse.next_page_token] returned by a previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available results is larger than [page_size], the service returns a [ListNetworkOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListNetworkOperationsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

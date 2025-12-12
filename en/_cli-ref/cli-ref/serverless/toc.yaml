@@ -30,10 +30,14 @@ items:
         href: cli-ref/api-gateway/remove-access-binding.md
       - name: remove-domain
         href: cli-ref/api-gateway/remove-domain.md
+      - name: resume
+        href: cli-ref/api-gateway/resume.md
       - name: rollback-canary
         href: cli-ref/api-gateway/rollback-canary.md
       - name: set-access-bindings
         href: cli-ref/api-gateway/set-access-bindings.md
+      - name: stop
+        href: cli-ref/api-gateway/stop.md
       - name: update
         href: cli-ref/api-gateway/update.md
       - name: websocket

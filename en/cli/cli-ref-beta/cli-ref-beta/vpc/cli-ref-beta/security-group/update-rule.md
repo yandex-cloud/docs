@@ -19,7 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>New description of the rule.|
-|`--labels`|<b>`stringToString`</b><br/>Rule labels as 'key:value' pairs.<br/><br/>Existing set of labels is completely replaced by the provided set, so if you just want<br/>to add or remove a label:<br/>1. Get the current set of labels with a [AddressService.Get] request.<br/>2. Add or remove a label in this set.<br/>3. Send the new set in this field.|
+|`--labels`|<b>`stringToString`</b><br/>Rule labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [AddressService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field.|
 |`--rule-id`|<b>`string`</b><br/>ID of the rule to update.|
 |`--security-group-id`|<b>`string`</b><br/>ID of the SecurityGroup to update rule in.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

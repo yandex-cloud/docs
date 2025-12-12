@@ -19,11 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the target group.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.<br/><br/>The existing set of '' labels '' is completely replaced with the provided set.|
-|`--name`|<b>`string`</b><br/>Name of the target group.<br/>The name must be unique within the folder.|
-|`--target-group-id`|<b>`string`</b><br/>ID of the TargetGroup resource to update.<br/>To get the target group ID, use a [TargetGroupService.List] request.|
-|`--targets`|<b>`shorthand/json`</b><br/>A new list of targets for this target group.<br/><br/>Example:|
-|`--targets`|<b>`[{address=value,`</b><br/>subnet-id=value}]<br/><br/>Shorthand Syntax:<br/>[{address=str, subnet-id=str},...]<br/>Fields:<br/>address    string  — IP address of the target.<br/>subnet-id  string  — ID of the subnet that targets are connected to.<br/>All targets in the target group must be connected to the same subnet within a single availability zone.<br/>|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs. The existing set of '' labels '' is completely replaced with the provided set.|
+|`--name`|<b>`string`</b><br/>Name of the target group. The name must be unique within the folder.|
+|`--target-group-id`|<b>`string`</b><br/>ID of the TargetGroup resource to update. To get the target group ID, use a [TargetGroupService.List] request.|
+|`--targets`|<b>`shorthand/json`</b><br/>A new list of targets for this target group.<br/>Shorthand Syntax:<br/>[<br/>{<br/>address = str,<br/>subnet-id = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"address": "str",<br/>"subnet-id": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>address -> (string)<br/>IP address of the target.<br/>subnet-id -> (string)<br/>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

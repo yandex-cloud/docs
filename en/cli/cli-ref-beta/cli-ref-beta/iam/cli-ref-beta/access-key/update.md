@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--access-key-id`|<b>`string`</b><br/>ID of the AccessKey resource to update.<br/>To get the access key ID, use a [AccessKeyService.List] request.|
+|`--access-key-id`|<b>`string`</b><br/>ID of the AccessKey resource to update. To get the access key ID, use a [AccessKeyService.List] request.|
 |`--description`|<b>`string`</b><br/>Description of the access key.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

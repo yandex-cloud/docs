@@ -19,10 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--cluster-id`|<b>`string`</b><br/>ID of the OpenSearch cluster to reschedule the maintenance operation for.<br/><br/>To get the ID, use a [ClusterService.List] request.|
-|`--delayed-until`|<b>`time`</b><br/>The time until which this maintenance operation should be delayed.<br/>The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks.<br/>The value can also point to a moment in the past if [reschedule_type.IMMEDIATE] reschedule type is selected. (RFC3339)|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--cluster-id`|<b>`string`</b><br/>ID of the OpenSearch cluster to reschedule the maintenance operation for. To get the ID, use a [ClusterService.List] request.|
+|`--delayed-until`|<b>`time`</b><br/>The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to a moment in the past if [reschedule_type.IMMEDIATE] reschedule type is selected. (RFC3339)|
 |`--reschedule-type`|<b>`enum`</b><br/>The type of the reschedule request. Possible Values: 'immediate', 'next-available-window', 'specific-time'|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--certificate-authority-id`|<b>`string`</b><br/>The ID of the Certificate Authority to retrieve.<br/>This must be a valid Certificate Authority ID in your account.|
+|`--certificate-authority-id`|<b>`string`</b><br/>The ID of the Certificate Authority to retrieve. This must be a valid Certificate Authority ID in your account.|
 
 #### Global Flags
 

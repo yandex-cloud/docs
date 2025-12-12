@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--trunk-connection-id`|<b>`string`</b><br/>ID of the TrunkConnection resource to return.<br/>To get the trunkConnection ID use a [TrunkConnectionService.List] request.|
+|`--trunk-connection-id`|<b>`string`</b><br/>ID of the TrunkConnection resource to return. To get the trunkConnection ID use a [TrunkConnectionService.List] request.|
 
 #### Global Flags
 

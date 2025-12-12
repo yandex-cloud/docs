@@ -78,6 +78,7 @@ resource "yandex_ytsaurus_cluster" "my_cluster" {
 
 ### Optional
 
+- `cidr_blocks_whitelist` (Attributes) CIDRs whitelist. (see [below for nested schema](#nestedatt--cidr_blocks_whitelist))
 - `cluster_id` (String) ID of the cluster to return.
 - `description` (String) Description of the cluster.
 - `folder_id` (String) ID of the folder that the cluster belongs to.
@@ -99,13 +100,25 @@ resource "yandex_ytsaurus_cluster" "my_cluster" {
 - `updated_at` (String) Time when the cluster was last updated.
 - `updated_by` (String) User who last updated the cluster.
 
+<a id="nestedatt--cidr_blocks_whitelist"></a>
+### Nested Schema for `cidr_blocks_whitelist`
+
+Optional:
+
+- `v4_cidr_blocks` (List of String) IPv4 CIDR blocks.
+
+
 <a id="nestedatt--spec"></a>
 ### Nested Schema for `spec`
 
 Optional:
 
+- `client_logging` (Attributes) Client Cloud logging configuration. (see [below for nested schema](#nestedatt--spec--client_logging))
 - `compute` (Attributes List) package: yandex.cloud.ytsaurus.v1
 filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--compute))
+- `cron` (Attributes) Cluster regular processing settings. (see [below for nested schema](#nestedatt--spec--cron))
+- `flavor` (String) package: yandex.cloud.ytsaurus.v1
+filename: yandex/cloud/ytsaurus/v1/cluster.proto
 - `odin` (Attributes) package: yandex.cloud.ytsaurus.v1
 filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--odin))
 - `proxy` (Attributes) package: yandex.cloud.ytsaurus.v1
@@ -114,6 +127,17 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](
 filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--storage))
 - `tablet` (Attributes) package: yandex.cloud.ytsaurus.v1
 filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--tablet))
+
+<a id="nestedatt--spec--client_logging"></a>
+### Nested Schema for `spec.client_logging`
+
+Optional:
+
+- `audit_logs_enabled` (Boolean) Enable audit logs.
+- `folder_id` (String) ID of cloud logging folder. Used default loging group.
+- `log_group_id` (String) ID of cloud logging group.
+- `service_account_id` (String) ID of Service account used for write logs.
+
 
 <a id="nestedatt--spec--compute"></a>
 ### Nested Schema for `spec.compute`
@@ -133,9 +157,12 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](
 
 Optional:
 
-- `locations` (List of String) ID of the availability zone where the cluster resides.
-- `size_gb` (Number) ID of the folder that the cluster belongs to.
-- `type` (String) ID of the cluster. Generated at creation time.
+- `locations` (List of String) package: yandex.cloud.ytsaurus.v1
+filename: yandex/cloud/ytsaurus/v1/cluster.proto
+- `size_gb` (Number) package: yandex.cloud.ytsaurus.v1
+filename: yandex/cloud/ytsaurus/v1/cluster.proto
+- `type` (String) package: yandex.cloud.ytsaurus.v1
+filename: yandex/cloud/ytsaurus/v1/cluster.proto
 
 
 <a id="nestedatt--spec--compute--scale_policy"></a>
@@ -164,8 +191,28 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
 
 Optional:
 
-- `size` (Number) ID of the cluster. Generated at creation time.
+- `size` (Number) package: yandex.cloud.ytsaurus.v1
+filename: yandex/cloud/ytsaurus/v1/cluster.proto
 
+
+
+
+<a id="nestedatt--spec--cron"></a>
+### Nested Schema for `spec.cron`
+
+Optional:
+
+- `clear_tmp` (Attributes) Cluster regular tmp-account cleaning settings. (see [below for nested schema](#nestedatt--spec--cron--clear_tmp))
+
+<a id="nestedatt--spec--cron--clear_tmp"></a>
+### Nested Schema for `spec.cron.clear_tmp`
+
+Optional:
+
+- `account_usage_ratio_save_per_owner` (Number) Per account max space usage ratio.
+- `account_usage_ratio_save_total` (Number) Total max space usage ratio.
+- `interval` (String) Script starting interval.
+- `max_dir_node_count` (Number) Max nodes in every directory.
 
 
 
@@ -222,8 +269,10 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](
 
 Optional:
 
-- `count` (Number) ID of the folder that the cluster belongs to.
-- `size_gb` (Number) ID of the cluster. Generated at creation time.
+- `count` (Number) package: yandex.cloud.ytsaurus.v1
+filename: yandex/cloud/ytsaurus/v1/cluster.proto
+- `size_gb` (Number) package: yandex.cloud.ytsaurus.v1
+filename: yandex/cloud/ytsaurus/v1/cluster.proto
 
 
 <a id="nestedatt--spec--storage--ssd"></a>

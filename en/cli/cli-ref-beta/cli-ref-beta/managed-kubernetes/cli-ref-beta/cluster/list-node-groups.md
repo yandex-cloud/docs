@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Kubernetes cluster to list node groups in.<br/>To get the Kubernetes cluster ID use a [ClusterService.List] request.|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>Currently you can use filtering only on [Cluster.name] field.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListClusterNodeGroupsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListClusterNodeGroupsResponse.next_page_token] returned by a previous list request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Kubernetes cluster to list node groups in. To get the Kubernetes cluster ID use a [ClusterService.List] request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Cluster.name] field.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListClusterNodeGroupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListClusterNodeGroupsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

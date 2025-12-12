@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--resource-preset-id`|<b>`string`</b><br/>Required. ID of the resource preset to return.<br/>To get the resource preset ID, use a [ResourcePresetService.List] request.|
+|`--resource-preset-id`|<b>`string`</b><br/>Required. ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List] request.|
 
 #### Global Flags
 

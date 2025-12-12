@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--container-id`|<b>`string`</b><br/>ID of the container to update.<br/><br/>To get a container ID make a [ContainerService.List] request.|
+|`--container-id`|<b>`string`</b><br/>ID of the container to update. To get a container ID make a [ContainerService.List] request.|
 |`--description`|<b>`string`</b><br/>New description for the container.|
-|`--labels`|<b>`stringToString`</b><br/>Container labels as 'key:value' pairs.<br/><br/>Existing set of labels is completely replaced by the provided set, so if you just want<br/>to add or remove a label, request the current set of labels with a [ContainerService.Get] request.|
-|`--name`|<b>`string`</b><br/>New name for the container.<br/>The name must be unique within the folder.|
+|`--labels`|<b>`stringToString`</b><br/>Container labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [ContainerService.Get] request.|
+|`--name`|<b>`string`</b><br/>New name for the container. The name must be unique within the folder.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

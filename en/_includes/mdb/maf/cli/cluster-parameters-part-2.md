@@ -3,7 +3,7 @@
 
     * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
     * `min-count`, `max-count`: Minimum and maximum number of instances in the cluster for the worker.
-    * `resource-preset-id`: [ID of the computing resources](../../../../managed-airflow/concepts/index.md#presets) of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
+    * `resource-preset-id`: [ID of the computing resources](../../../../managed-airflow/concepts/instance-types.md) of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
 
         * `c1-m2`: 1 vCPU, 2 GB RAM
         * `c1-m4`: 1 vCPU, 4 GB RAM

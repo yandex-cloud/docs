@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--standard-image-id`|<b>`string`</b><br/>ID of the StandardImage resource to return.<br/><br/>To get the standard image ID, use a [StandardImageService.List] request.|
+|`--standard-image-id`|<b>`string`</b><br/>ID of the StandardImage resource to return. To get the standard image ID, use a [StandardImageService.List] request.|
 
 #### Global Flags
 

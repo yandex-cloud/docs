@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Apache Kafka® cluster to list connectors in.
             To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,6 +24,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return.
             If the number of available results is larger than `pageSize`, the API returns a [ListConnectorsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) that can be used to get the next page of results in the subsequent [ConnectorService.List](#List) requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -30,6 +32,7 @@ apiPlayground:
             **string**
             Page token that can be used to iterate through multiple pages of results.
             To get the next page of results, set `pageToken` to the [ListConnectorsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) returned by the previous [ConnectorService.List](#List) request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -55,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors
 
 Required field. ID of the Apache Kafka® cluster to list connectors in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.kafka.v1.ListConnectorsRequest}
@@ -66,12 +71,16 @@ To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the API returns a [ListConnectorsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) that can be used to get the next page of results in the subsequent [ConnectorService.List](#List) requests. ||
+If the number of available results is larger than `pageSize`, the API returns a [ListConnectorsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) that can be used to get the next page of results in the subsequent [ConnectorService.List](#List) requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `pageToken` to the [ListConnectorsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) returned by the previous [ConnectorService.List](#List) request. ||
+To get the next page of results, set `pageToken` to the [ListConnectorsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) returned by the previous [ConnectorService.List](#List) request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse}

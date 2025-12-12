@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--private-subnet-id`|<b>`string`</b><br/>ID of the PrivateSubnet resource to return.<br/><br/>To get the private subnet ID use a [PrivateSubnetService.List] request.|
+|`--private-subnet-id`|<b>`string`</b><br/>ID of the PrivateSubnet resource to return. To get the private subnet ID use a [PrivateSubnetService.List] request.|
 
 #### Global Flags
 

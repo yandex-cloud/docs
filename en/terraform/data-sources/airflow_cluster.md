@@ -74,14 +74,26 @@ Optional:
 <a id="nestedatt--code_sync"></a>
 ### Nested Schema for `code_sync`
 
-Read-Only:
+Optional:
 
-- `s3` (Attributes) Currently only Object Storage (S3) is supported as the source of DAG files. (see [below for nested schema](#nestedatt--code_sync--s3))
+- `git_sync` (Attributes) Git repository is supported as the source of DAG files. (see [below for nested schema](#nestedatt--code_sync--git_sync))
+- `s3` (Attributes) Object Storage (S3) is supported as the source of DAG files. (see [below for nested schema](#nestedatt--code_sync--s3))
+
+<a id="nestedatt--code_sync--git_sync"></a>
+### Nested Schema for `code_sync.git_sync`
+
+Required:
+
+- `branch` (String) The name of the Git branch that stores DAG files used in the cluster.
+- `repo` (String) The URL of the Git repository that stores DAG files used in the cluster.
+- `ssh_key` (String) The SSH key that will be used to access the Git repository.
+- `sub_path` (String) The path to the directory in the Git repository that stores DAG files used in the cluster.
+
 
 <a id="nestedatt--code_sync--s3"></a>
 ### Nested Schema for `code_sync.s3`
 
-Read-Only:
+Required:
 
 - `bucket` (String) The name of the Object Storage bucket that stores DAG files used in the cluster.
 

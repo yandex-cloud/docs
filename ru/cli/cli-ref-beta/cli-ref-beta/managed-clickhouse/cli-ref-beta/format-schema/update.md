@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ClickHouse cluster ID.<br/><br/>To get a ClickHouse cluster ID, use the [ClusterService.List] method.|
-|`--format-schema-name`|<b>`string`</b><br/>Format schema name.<br/><br/>To get a format schema name, use the [FormatSchemaService.List] method.|
-|`--uri`|<b>`string`</b><br/>[Link to the file](https://yandex.cloud/ru/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage.|
+|`--cluster-id`|<b>`string`</b><br/>ClickHouse cluster ID. To get a ClickHouse cluster ID, use the [ClusterService.List] method.|
+|`--format-schema-name`|<b>`string`</b><br/>Format schema name. To get a format schema name, use the [FormatSchemaService.List] method.|
+|`--uri`|<b>`string`</b><br/>documentation of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

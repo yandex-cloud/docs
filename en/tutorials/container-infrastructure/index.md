@@ -33,7 +33,6 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
-* [{#T}](metrics-server.md)
 * [{#T}](loadtesting-grpc-autoscaling.md)
 
 ### Installing NGINX {#nginx}

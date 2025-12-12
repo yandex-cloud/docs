@@ -18,10 +18,10 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListRepositoriesResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 10.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListArtifactsResponse.next_page_token] returned by a previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListRepositoriesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 10.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListArtifactsResponse.next_page_token] returned by a previous list request.|
 |`--path`|<b>`string`</b><br/>The path to a specific node where the registry artifact is located.|
-|`--registry-id`|<b>`string`</b><br/>ID of the registry artifact to list repositories in.<br/><br/>To get the registry ID use a [ArtifactService.List] request.|
+|`--registry-id`|<b>`string`</b><br/>ID of the registry artifact to list repositories in. To get the registry ID use a [ArtifactService.List] request.|
 
 #### Global Flags
 

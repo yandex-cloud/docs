@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--api-key-id`|<b>`string`</b><br/>ID of the ApiKey resource to update.<br/>To get the API key ID, use a [ApiKeyService.List] request.|
+|`--api-key-id`|<b>`string`</b><br/>ID of the ApiKey resource to update. To get the API key ID, use a [ApiKeyService.List] request.|
 |`--description`|<b>`string`</b><br/>Description of the API key.|
 |`--expires-at`|<b>`time`</b><br/>API key expiration timestamp, if not specified, then the API key doesn't expire (RFC3339)|
 |`--scopes`|<b>`strings`</b><br/>Scopes of the API key.|

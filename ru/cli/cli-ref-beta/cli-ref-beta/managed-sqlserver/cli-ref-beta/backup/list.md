@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to list backups in.<br/><br/>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return.<br/><br/>If the number of available results is larger than [page_size], the service returns a [ListBackupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to list backups in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListBackupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
 |`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListBackupsResponse.next_page_token] returned by the previous list request.|
 
 #### Global Flags

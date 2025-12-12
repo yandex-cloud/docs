@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster the connector belongs to.<br/><br/>To get this ID, make a [ClusterService.List] request.|
-|`--connector-name`|<b>`string`</b><br/>Name of the Apache Kafka® connector to return information about.<br/><br/>To get this name, make a [ConnectorService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster the connector belongs to. To get this ID, make a [ClusterService.List] request.|
+|`--connector-name`|<b>`string`</b><br/>Name of the Apache Kafka® connector to return information about. To get this name, make a [ConnectorService.List] request.|
 
 #### Global Flags
 

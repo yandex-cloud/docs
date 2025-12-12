@@ -19,15 +19,15 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--deletion-protection`|Prevents accidental zone removal.|
 |`--description`|<b>`string`</b><br/>Description of the DNS zone.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create DNS zones in.<br/><br/>To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to create DNS zones in. To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>DNS zone labels as 'key:value' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the DNS zone.<br/>The name must be unique within the folder.|
-|`--private-visibility`|<b>`shorthand/json`</b><br/>Privately visible zone settings.<br/>At least one of two visibility fields must be set.<br/><br/>Example:<br/>--private-visibility network-ids=value<br/><br/>Shorthand Syntax:<br/>{network-ids=str,...}<br/>Fields:<br/>network-ids  []string  — Network IDs.<br/>|
-|`--public-visibility`|<b>`shorthand/json`</b><br/>Publicly visible zone settings.<br/>At least one of two visibility fields must be set.<br/><br/>Example:<br/>--public-visibility<br/><br/>Shorthand Syntax:<br/>{}|
+|`--name`|<b>`string`</b><br/>Name of the DNS zone. The name must be unique within the folder.|
+|`--private-visibility`|<b>`shorthand/json`</b><br/>Privately visible zone settings. At least one of two visibility fields must be set.<br/>Shorthand Syntax:<br/>{<br/>network-ids = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"network-ids": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>network-ids -> ([]string)<br/>Network IDs.|
+|`--public-visibility`|<b>`shorthand/json`</b><br/>Publicly visible zone settings. At least one of two visibility fields must be set.<br/>Shorthand Syntax:<br/>{}<br/>JSON Syntax:<br/>"{}"|
 |`--zone`|<b>`string`</b><br/>DNS zone suffix.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

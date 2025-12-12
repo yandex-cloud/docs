@@ -220,8 +220,6 @@ items:
             href: tutorials/autoscaling.md
           - name: Вертикальное масштабирование приложения в кластере
             href: tutorials/vpa-autoscaling.md
-          - name: Изменение параметров сервера метрик (Metrics Server)
-            href: tutorials/metrics-server.md
           - name: >-
               Развертывание и нагрузочное тестирование gRPC-сервиса с
               масштабированием

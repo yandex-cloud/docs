@@ -2,6 +2,8 @@
 
 [Log export](../../concepts/logs.md) is a paid feature. See [{#T}](../../pricing.md) for billing information.
 
+For a description of fields of exported logs, see the [Query log reference](../../logs-ref.md).
+
 {% include [logs-unload-delay](../../../_includes/cdn/logs-unload-delay.md) %}
 
 ## Enabling export {#enabling}

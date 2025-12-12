@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/>Currently you can use filtering only on [Registry.name] field.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available<br/>results is larger than 'page_size', the service returns a [ListRegistryOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the<br/>[ListRegistryOperationsResponse.next_page_token] returned by a previous list request.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Registry.name] field.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available results is larger than 'page_size', the service returns a [ListRegistryOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set 'page_token' to the [ListRegistryOperationsResponse.next_page_token] returned by a previous list request.|
 |`--registry-id`|<b>`string`</b><br/>ID of the registry to list operations for.|
 
 #### Global Flags

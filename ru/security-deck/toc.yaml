@@ -106,3 +106,5 @@ items:
         href: security/alerts-roles.md
   - name: Правила тарификации
     href: pricing.md
+  - name: История изменений
+    href: release-notes.md

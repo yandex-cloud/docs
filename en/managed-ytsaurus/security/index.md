@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ myt-full-name }}
-description: Access management in {{ ytsaurus-name }}, a cluster creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ ytsaurus-name }}, a cluster creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ myt-name }}
@@ -10,7 +10,7 @@ description: Access management in {{ ytsaurus-name }}, a cluster creation and ma
 In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Roles this service has](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
 To use the service, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
@@ -30,6 +30,8 @@ To allow access to {{ myt-name }} resources, such as clusters and accounts, give
 ## Roles this service has {#roles-list}
 
 The list below shows all the roles used for access control in this service.
+
+{% include [roles-managed-ytsaurus](../../_mermaid/roles/managed-ytsaurus.md) %}
 
 ### Service roles {#service-roles}
 
@@ -59,7 +61,7 @@ The list below shows all the roles used for access control in this service.
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles are required {#required-roles}
+## Required roles {#required-roles}
 
 To use the service, the user needs the `managed-ytsaurus.editor` role or higher for the folder in which the cluster is created. The `managed-ytsaurus.viewer` role only allows you to view the list of clusters.
 

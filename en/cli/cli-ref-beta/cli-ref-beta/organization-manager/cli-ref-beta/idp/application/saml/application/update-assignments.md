@@ -19,11 +19,10 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--application-id`|<b>`string`</b><br/>ID of the SAML application to update assignments for.|
-|`--assignment-deltas`|<b>`shorthand/json`</b><br/>List of assignment deltas to apply.<br/><br/>Example:|
-|`--assignment-deltas`|<b>`[{action=ADD,`</b><br/>assignment={subject-id=value}}]<br/><br/>Shorthand Syntax:<br/>[{action=ADD\|REMOVE, assignment={subject-id=str}},...]<br/>Fields:<br/>action      enum<ADD\|REMOVE>  required  — Action to perform on the assignment.<br/>assignment  struct            required  — Assignment to perform the action on.<br/>subject-id  string  required  — ID of the subject being assigned.<br/>|
+|`--assignment-deltas`|<b>`shorthand/json`</b><br/>List of assignment deltas to apply.<br/>Shorthand Syntax:<br/>[<br/>{<br/>action = ADD\|REMOVE,<br/>assignment = {<br/>subject-id = str<br/>}<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"action": "ADD\|REMOVE",<br/>"assignment": {<br/>"subject-id": "str"<br/>}<br/>}, ...<br/>]"<br/>Fields:<br/>action -> (enum<ADD\|REMOVE>)<br/>Action to perform on the assignment.<br/>assignment -> (struct)<br/>Assignment to perform the action on.<br/>subject-id -> (string)<br/>ID of the subject being assigned.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

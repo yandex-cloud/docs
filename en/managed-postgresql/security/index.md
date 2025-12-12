@@ -32,6 +32,10 @@ The chart below shows the roles existing in the service and their permission inh
 
 ### Service roles {#service-roles}
 
+#### managed-postgresql.clusters.connector {#managed-postgresql-clusters-connector}
+
+{% include [managed-postgresql.clusters.connector](../../_roles/managed-postgresql/clusters/connector.md) %}
+
 #### managed-postgresql.auditor {#managed-postgresql-auditor}
 
 {% include [managed-postgresql.auditor](../../_roles/managed-postgresql/auditor.md) %}

@@ -19,9 +19,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the snapshot.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.<br/><br/>Existing set of 'labels' is completely replaced by the provided set.|
+|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set.|
 |`--name`|<b>`string`</b><br/>Name of the snapshot.|
-|`--snapshot-id`|<b>`string`</b><br/>ID of the Snapshot resource to update.<br/>To get the snapshot ID use a [SnapshotService.List] request.|
+|`--snapshot-id`|<b>`string`</b><br/>ID of the Snapshot resource to update. To get the snapshot ID use a [SnapshotService.List] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

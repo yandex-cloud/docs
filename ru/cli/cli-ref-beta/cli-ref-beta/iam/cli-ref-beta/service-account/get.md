@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--service-account-id`|<b>`string`</b><br/>ID of the ServiceAccount resource to return.<br/>To get the service account ID, use a [ServiceAccountService.List] request.|
+|`--service-account-id`|<b>`string`</b><br/>ID of the ServiceAccount resource to return. To get the service account ID, use a [ServiceAccountService.List] request.|
 
 #### Global Flags
 

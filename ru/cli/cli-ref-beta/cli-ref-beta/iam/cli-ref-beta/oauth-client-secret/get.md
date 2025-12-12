@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--oauth-client-secret-id`|<b>`string`</b><br/>ID of the OAuthClientSecret resource to return.<br/>To get the OAuthClientSecret ID, use a [OAuthClientSecretService.List] request.|
+|`--oauth-client-secret-id`|<b>`string`</b><br/>ID of the OAuthClientSecret resource to return. To get the OAuthClientSecret ID, use a [OAuthClientSecretService.List] request.|
 
 #### Global Flags
 

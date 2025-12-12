@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder that the origin group belongs to..|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size],<br/>the service returns a [ListOriginGroupsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results,<br/>set [page_token] to the [ListOriginGroupsResponse.next_page_token]<br/>returned by a previous list request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListOriginGroupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListOriginGroupsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

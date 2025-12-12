@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--target-group-id`|<b>`string`</b><br/>ID of the target group to return.<br/><br/>To get the target group ID, make a [TargetGroupService.List] request.|
+|`--target-group-id`|<b>`string`</b><br/>ID of the target group to return. To get the target group ID, make a [TargetGroupService.List] request.|
 
 #### Global Flags
 

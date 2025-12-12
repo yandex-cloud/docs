@@ -26,6 +26,8 @@ description: Управление доступом в веб-инструмен�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [gitlab](../../_mermaid/roles/gitlab.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### gitlab.auditor {#gitlab-auditor}

@@ -19,7 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--description`|<b>`string`</b><br/>Description of the key pair.|
-|`--key-id`|<b>`string`</b><br/>ID of the Key resource to update.<br/>To get key pair ID, use a [KeyService.List] request.|
+|`--key-id`|<b>`string`</b><br/>ID of the Key resource to update. To get key pair ID, use a [KeyService.List] request.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

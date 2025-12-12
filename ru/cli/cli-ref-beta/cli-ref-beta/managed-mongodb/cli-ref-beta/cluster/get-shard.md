@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB cluster that the shard belongs to.<br/>To get the cluster ID use a [ClusterService.List] request.|
-|`--shard-name`|<b>`string`</b><br/>Name of the MongoDB shard to return.<br/>To get the name of the shard use a [ClusterService.ListShards] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB cluster that the shard belongs to. To get the cluster ID use a [ClusterService.List] request.|
+|`--shard-name`|<b>`string`</b><br/>Name of the MongoDB shard to return. To get the name of the shard use a [ClusterService.ListShards] request.|
 
 #### Global Flags
 

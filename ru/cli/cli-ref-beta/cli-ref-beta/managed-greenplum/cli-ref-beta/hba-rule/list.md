@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Greenplum cluster.<br/>To get the Greenplum cluster ID use a [ClusterService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the Greenplum cluster. To get the Greenplum cluster ID use a [ClusterService.List] request.|
 
 #### Global Flags
 

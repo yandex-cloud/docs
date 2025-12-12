@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--function-version-id`|<b>`string`</b><br/>ID of the version to return.<br/><br/>To get a version ID make a [FunctionService.ListVersions] request.|
+|`--function-version-id`|<b>`string`</b><br/>ID of the version to return. To get a version ID make a [FunctionService.ListVersions] request.|
 
 #### Global Flags
 

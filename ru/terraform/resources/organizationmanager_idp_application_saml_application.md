@@ -42,18 +42,16 @@ resource "yandex_organizationmanager_idp_application_saml_application" "example_
       format = "EMAIL"
     }
 
-    attributes = [
-      {
-        name  = "email"
-        value = "email"
-      }, {
-        name  = "firstName"
-        value = "given_name"
-      }, {
-        name  = "lastName"
-        value = "family_name"
-      }
-    ]
+    attributes = [{
+      name  = "email"
+      value = "SubjectClaims.email"
+    }, {
+      name  = "firstName"
+      value = "SubjectClaims.given_name"
+    }, {
+      name  = "lastName"
+      value = "SubjectClaims.family_name"
+    }]
   }
 
   security_settings = {

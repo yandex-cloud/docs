@@ -19,11 +19,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--always-next-page-token`|The service returns [next_page_token] even if the current page is empty.|
-|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster to request logs for.<br/><br/>To get the SQL Server cluster ID, use a [ClusterService.List] request.|
-|`--column-filter`|<b>`strings`</b><br/>Columns from the logs table to request.<br/><br/>If no columns are specified, entire log records are returned.|
-|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response.<br/><br/>The expression must specify:<br/><br/>1. A field name to filter by. Currently filtering can be applied to the [LogRecord.logs.message.hostname] field only.<br/>2. A conditional operator. Can be either '=' or '!=' for single values, 'IN' or 'NOT IN' for lists of values.<br/>3. A value. Must be 1-63 characters long and match the regular expression '[a-z0-9.-]{1,61}'.<br/><br/>Example of a filter: 'message.hostname='node1.db.cloud.yandex.net''.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster to request logs for. To get the SQL Server cluster ID, use a [ClusterService.List] request.|
+|`--column-filter`|<b>`strings`</b><br/>Columns from the logs table to request. If no columns are specified, entire log records are returned.|
+|`--filter`|<b>`string`</b><br/>A filter expression that filters resources listed in the response. The expression must specify: 1. A field name to filter by. Currently filtering can be applied to the [LogRecord.logs.message.hostname] field only. 2. A conditional operator. Can be either '=' or '!=' for single values, 'IN' or 'NOT IN' for lists of values. 3. A value. Must be 1-63 characters long and match the regular expression '[a-z0-9.-]{1,61}'. Example of a filter: 'message.hostname='node1.db.cloud.yandex.net''.|
 |`--from-time`|<b>`time`</b><br/>Specifies a moment that the logs are requested from. (RFC3339)|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return.<br/><br/>If the number of available results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
 |`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListClusterLogsResponse.next_page_token] returned by the previous list request.|
 |`--service-type`|<b>`enum`</b><br/>Type of the service to request logs about. Possible Values: 'sqlserver-error', 'sqlserver-application'|
 |`--to-time`|<b>`time`</b><br/>Specifies a moment that the logs are requested till. (RFC3339)|

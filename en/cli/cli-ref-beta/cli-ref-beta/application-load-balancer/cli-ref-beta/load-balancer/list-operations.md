@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--load-balancer-id`|<b>`string`</b><br/>ID of the application load balancer to get operations for.<br/><br/>To get the application load balancer ID, use a [LoadBalancerService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available<br/>results is larger than [page_size], the service returns a [ListLoadBalancerOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.<br/>Default value: 100.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListLoadBalancerOperationsResponse.next_page_token] returned by a previous list request.|
+|`--load-balancer-id`|<b>`string`</b><br/>ID of the application load balancer to get operations for. To get the application load balancer ID, use a [LoadBalancerService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page that should be returned. If the number of available results is larger than [page_size], the service returns a [ListLoadBalancerOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListLoadBalancerOperationsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

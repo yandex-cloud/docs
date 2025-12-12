@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster the database belongs to.<br/><br/>To get the cluster ID, use a [ClusterService.List] request.|
-|`--database-name`|<b>`string`</b><br/>Name of the SQL Server database to return.<br/><br/>To get the name of the database use a [DatabaseService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster the database belongs to. To get the cluster ID, use a [ClusterService.List] request.|
+|`--database-name`|<b>`string`</b><br/>Name of the SQL Server database to return. To get the name of the database use a [DatabaseService.List] request.|
 
 #### Global Flags
 

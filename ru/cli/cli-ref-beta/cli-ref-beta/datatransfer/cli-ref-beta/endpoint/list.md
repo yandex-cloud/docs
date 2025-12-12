@@ -19,8 +19,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--folder-id`|<b>`string`</b><br/>Identifier of the folder containing the endpoints to be listed.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of endpoints to be sent in the response message. If the<br/>folder contains more endpoints than 'page_size', 'next_page_token' will be<br/>included<br/>in the response message. Include it into the subsequent 'ListEndpointRequest' to<br/>fetch the next page. Defaults to '100' if not specified. The maximum allowed<br/>value<br/>for this field is '1000'.|
-|`--page-token`|<b>`string`</b><br/>Opaque value identifying the endpoints page to be fetched. Should be empty in<br/>the first 'ListEndpointsRequest'. Subsequent requests should have this field<br/>filled<br/>with the 'next_page_token' from the previous 'ListEndpointsResponse'.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of endpoints to be sent in the response message. If the folder contains more endpoints than 'page_size', 'next_page_token' will be included in the response message. Include it into the subsequent 'ListEndpointRequest' to fetch the next page. Defaults to '100' if not specified. The maximum allowed value for this field is '1000'.|
+|`--page-token`|<b>`string`</b><br/>Opaque value identifying the endpoints page to be fetched. Should be empty in the first 'ListEndpointsRequest'. Subsequent requests should have this field filled with the 'next_page_token' from the previous 'ListEndpointsResponse'.|
 
 #### Global Flags
 

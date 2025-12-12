@@ -19,15 +19,15 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--default-algorithm`|<b>`enum`</b><br/>Encryption algorithm to be used with a new key version, generated with the next rotation. Possible Values: 'aes-128', 'aes-192', 'aes-256', 'aes-256-hsm', 'gost-r-3412-2015-k'|
 |`--deletion-protection`|Flag that inhibits deletion of the symmetric KMS key|
 |`--description`|<b>`string`</b><br/>Description of the key.|
 |`--folder-id`|<b>`string`</b><br/>ID of the folder to create a symmetric KMS key in.|
-|`--labels`|<b>`stringToString`</b><br/>Custom labels for the symmetric KMS key as 'key:value' pairs. Maximum 64 per key.<br/>For example, '"project": "mvp"' or '"source": "dictionary"'.|
+|`--labels`|<b>`stringToString`</b><br/>Custom labels for the symmetric KMS key as 'key:value' pairs. Maximum 64 per key. For example, '"project": "mvp"' or '"source": "dictionary"'.|
 |`--name`|<b>`string`</b><br/>Name of the key.|
-|`--rotation-period`|<b>`duration`</b><br/>Interval between automatic rotations. To disable automatic rotation, don't include<br/>this field in the creation request. (duration, e.g. 30s, 5m10s)|
+|`--rotation-period`|<b>`duration`</b><br/>Interval between automatic rotations. To disable automatic rotation, don't include this field in the creation request. (duration, e.g. 30s, 5m10s)|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

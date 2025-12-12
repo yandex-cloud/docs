@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--dns-zone-id`|<b>`string`</b><br/>ID of the DNS zone to return.<br/><br/>To get a DNS zone ID, make a [DnsZoneService.List] request.|
+|`--dns-zone-id`|<b>`string`</b><br/>ID of the DNS zone to return. To get a DNS zone ID, make a [DnsZoneService.List] request.|
 
 #### Global Flags
 

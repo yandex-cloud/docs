@@ -20,11 +20,11 @@ Syntax:
 |----|----|
 |`--deletion-protection`|Prevents accidental zone removal.|
 |`--description`|<b>`string`</b><br/>New description of the DNS zone.|
-|`--dns-zone-id`|<b>`string`</b><br/>ID of the DNS zone to update.<br/><br/>To get the DNS zone ID, make a [DnsZoneService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>DNS zone labels as 'key:value' pairs.<br/><br/>Existing set of labels is completely replaced by the provided set, so if you just want<br/>to add or remove a label:<br/>1. Get the current set of labels with a [DnsZoneService.Get] request.<br/>2. Add or remove a label in this set.<br/>3. Send the new set in this field.|
-|`--name`|<b>`string`</b><br/>New name for the DNS zone.<br/>The name must be unique within the folder.|
-|`--private-visibility`|<b>`shorthand/json`</b><br/>Change network IDs for private visibility.<br/><br/>Example:<br/>--private-visibility network-ids=value<br/><br/>Shorthand Syntax:<br/>{network-ids=str,...}<br/>Fields:<br/>network-ids  []string  — Network IDs.<br/>|
-|`--public-visibility`|<b>`shorthand/json`</b><br/>Public visibility configuration.<br/><br/>Example:<br/>--public-visibility<br/><br/>Shorthand Syntax:<br/>{}|
+|`--dns-zone-id`|<b>`string`</b><br/>ID of the DNS zone to update. To get the DNS zone ID, make a [DnsZoneService.List] request.|
+|`--labels`|<b>`stringToString`</b><br/>DNS zone labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [DnsZoneService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field.|
+|`--name`|<b>`string`</b><br/>New name for the DNS zone. The name must be unique within the folder.|
+|`--private-visibility`|<b>`shorthand/json`</b><br/>Change network IDs for private visibility.<br/>Shorthand Syntax:<br/>{<br/>network-ids = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"network-ids": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>network-ids -> ([]string)<br/>Network IDs.|
+|`--public-visibility`|<b>`shorthand/json`</b><br/>Public visibility configuration.<br/>Shorthand Syntax:<br/>{}<br/>JSON Syntax:<br/>"{}"|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

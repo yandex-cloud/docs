@@ -105,9 +105,21 @@ resource "yandex_airflow_cluster" "my_airflow_cluster" {
 <a id="nestedatt--code_sync"></a>
 ### Nested Schema for `code_sync`
 
+Optional:
+
+- `git_sync` (Attributes) Git repository that stores DAG files used in the cluster. (see [below for nested schema](#nestedatt--code_sync--git_sync))
+- `s3` (Attributes) Currently only Object Storage (S3) is supported as the source of DAG files. (see [below for nested schema](#nestedatt--code_sync--s3))
+
+<a id="nestedatt--code_sync--git_sync"></a>
+### Nested Schema for `code_sync.git_sync`
+
 Required:
 
-- `s3` (Attributes) Currently only Object Storage (S3) is supported as the source of DAG files. (see [below for nested schema](#nestedatt--code_sync--s3))
+- `branch` (String) The name of the branch that stores DAG files used in the cluster.
+- `repo` (String) The URL of the Git repository that stores DAG files used in the cluster.
+- `ssh_key` (String, Sensitive) The SSH key that is used to access the Git repository.
+- `sub_path` (String) The path to the directory in the repository that stores DAG files used in the cluster.
+
 
 <a id="nestedatt--code_sync--s3"></a>
 ### Nested Schema for `code_sync.s3`

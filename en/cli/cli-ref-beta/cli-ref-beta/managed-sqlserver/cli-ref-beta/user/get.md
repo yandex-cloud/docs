@@ -18,8 +18,8 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster the user belongs to.<br/><br/>To get the cluster ID, use a [ClusterService.List] request.|
-|`--user-name`|<b>`string`</b><br/>Name of the SQL Server user to return.<br/><br/>To get the name of the user use a [DatabaseService.List] request.|
+|`--cluster-id`|<b>`string`</b><br/>ID of the SQL Server cluster the user belongs to. To get the cluster ID, use a [ClusterService.List] request.|
+|`--user-name`|<b>`string`</b><br/>Name of the SQL Server user to return. To get the name of the user use a [DatabaseService.List] request.|
 
 #### Global Flags
 

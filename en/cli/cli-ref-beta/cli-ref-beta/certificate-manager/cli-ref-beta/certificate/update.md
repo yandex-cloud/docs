@@ -19,7 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--certificate`|<b>`string`</b><br/>New PEM-encoded certificate content for the certificate. Used only for imported certificates.|
-|`--certificate-id`|<b>`string`</b><br/>ID of the certificate to update.<br/>To get the ID of a certificate use a [CertificateService.List] request.|
+|`--certificate-id`|<b>`string`</b><br/>ID of the certificate to update. To get the ID of a certificate use a [CertificateService.List] request.|
 |`--chain`|<b>`string`</b><br/>New PEM-encoded certificate chain content for the certificate. Used only for imported certificates.|
 |`--deletion-protection`|Flag that protects deletion of the certificate|
 |`--description`|<b>`string`</b><br/>New description for the certificate.|

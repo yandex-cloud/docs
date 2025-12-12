@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--transfer-id`|<b>`string`</b><br/>Identifier of the transfer to be returned.<br/><br/>To get the list of all available transfers, make a [List] request.|
+|`--transfer-id`|<b>`string`</b><br/>Identifier of the transfer to be returned. To get the list of all available transfers, make a [List] request.|
 
 #### Global Flags
 

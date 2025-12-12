@@ -19,8 +19,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--quota-id`|<b>`string`</b><br/>The id of the quota to retrieve.|
-|`--resource`|<b>`shorthand/json`</b><br/>The resource for which the quota limit is being requested.<br/><br/>Example:|
-|`--resource`|<b>`id=value,`</b><br/>type=value<br/><br/>Shorthand Syntax:<br/>{id=str, type=str}<br/>Fields:<br/>id    string  required  — The id if the resource.<br/>type  string  required  — The type of the resource, e.g. resource-manager.cloud, billing.account.|
+|`--resource`|<b>`shorthand/json`</b><br/>The resource for which the quota limit is being requested.<br/>Shorthand Syntax:<br/>{<br/>id = str,<br/>type = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"id": "str",<br/>"type": "str"<br/>}"<br/>Fields:<br/>id -> (string)<br/>The id if the resource.<br/>type -> (string)<br/>The type of the resource, e.g. resource-manager.cloud, billing.account.|
 
 #### Global Flags
 

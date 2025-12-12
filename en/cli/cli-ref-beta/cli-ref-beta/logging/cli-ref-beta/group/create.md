@@ -19,14 +19,14 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/><br/>The template can be customized and used as input for the command.<br/><br/>Usage example:<br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
+|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
+|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
 |`--data-stream`|<b>`string`</b><br/>If specified, all log records will be written to this data stream|
 |`--description`|<b>`string`</b><br/>Description of the log group.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a log group in.<br/><br/>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
+|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a log group in. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
 |`--labels`|<b>`stringToString`</b><br/>Log group labels as 'key:value' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the log group.<br/>The name must be unique within the folder.|
-|`--retention-period`|<b>`duration`</b><br/>Log group entry retention period.<br/><br/>Entries will be present in group during this period.<br/>If specified, must be non-negative.<br/>Empty or zero value is treated as no limit. (duration, e.g. 30s, 5m10s)|
+|`--name`|<b>`string`</b><br/>Name of the log group. The name must be unique within the folder.|
+|`--retention-period`|<b>`duration`</b><br/>Log group entry retention period. Entries will be present in group during this period. If specified, must be non-negative. Empty or zero value is treated as no limit. (duration, e.g. 30s, 5m10s)|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

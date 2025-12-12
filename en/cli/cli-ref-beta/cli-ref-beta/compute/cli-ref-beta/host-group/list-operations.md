@@ -18,9 +18,9 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--host-group-id`|<b>`string`</b><br/>ID of the host group to list operations for.<br/>To get the host group ID, use [HostGroupService.List] request.|
-|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available<br/>results is larger than [page_size], the service returns a [ListHostGroupOperationsResponse.next_page_token]<br/>that can be used to get the next page of results in subsequent list requests.|
-|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the<br/>[ListHostGroupOperationsResponse.next_page_token] returned by a previous list request.|
+|`--host-group-id`|<b>`string`</b><br/>ID of the host group to list operations for. To get the host group ID, use [HostGroupService.List] request.|
+|`--page-size`|<b>`int`</b><br/>The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListHostGroupOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.|
+|`--page-token`|<b>`string`</b><br/>Page token. To get the next page of results, set [page_token] to the [ListHostGroupOperationsResponse.next_page_token] returned by a previous list request.|
 
 #### Global Flags
 

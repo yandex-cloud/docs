@@ -18,7 +18,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--backup-id`|<b>`string`</b><br/>ID of the backup to return information about.<br/>To get the backup ID, use a [ClusterService.ListBackups] request.|
+|`--backup-id`|<b>`string`</b><br/>ID of the backup to return information about. To get the backup ID, use a [ClusterService.ListBackups] request.|
 
 #### Global Flags
 

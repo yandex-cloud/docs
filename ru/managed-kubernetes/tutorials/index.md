@@ -24,7 +24,6 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
-* [{#T}](metrics-server.md)
 * [{#T}](load-testing-grpc-autoscaling.md)
 
 ## Установка NGINX {#nginx}
