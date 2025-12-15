@@ -78,6 +78,8 @@ Optional:
 
 - `web_sql` (Boolean) Allows access for [SQL queries in the management console](https://yandex.cloud/docs/managed-mysql/operations/web-sql-query). Allows access for [SQL queries in the management console](https://yandex.cloud/docs/managed-mysql/operations/web-sql-query).
 
+- `yandex_query` (Boolean) Allow access for [YandexQuery](https://yandex.cloud/services/query). Allow access for [YandexQuery](https://yandex.cloud/services/query).
+
 
 
 <a id="nestedatt--backup_window_start"></a>

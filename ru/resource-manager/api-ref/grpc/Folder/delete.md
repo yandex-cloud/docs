@@ -25,7 +25,9 @@ Deletes the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to delete.
-To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || delete_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The timestamp after which the process of deleting the folder should begin.

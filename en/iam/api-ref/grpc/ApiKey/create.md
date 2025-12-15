@@ -31,13 +31,19 @@ Creates an API key for the specified service account.
 
 ID of the service account to create an API key for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || description | **string**
 
-Description of the API key. ||
+Description of the API key.
+
+The maximum string length in characters is 256. ||
 || scopes[] | **string**
 
-Scopes of the API key. ||
+Scopes of the API key.
+
+The maximum number of elements is 100. The maximum string length in characters for each value is 256. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 API key expiration timestamp, if not specified, then the API key doesn't expire ||

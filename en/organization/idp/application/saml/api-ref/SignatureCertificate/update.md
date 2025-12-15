@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the signature certificate to update.
+            The maximum string length in characters is 50.
           type: string
       required:
         - signatureCertificateId
@@ -34,12 +35,14 @@ apiPlayground:
           description: |-
             **string**
             New name for the signature certificate.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             New description for the signature certificate.
+            The maximum string length in characters is 256.
           type: string
       additionalProperties: false
     definitions: null
@@ -64,7 +67,9 @@ Request to update an existing signature certificate.
 ||Field | Description ||
 || signatureCertificateId | **string**
 
-Required field. ID of the signature certificate to update. ||
+Required field. ID of the signature certificate to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.application.saml.UpdateSignatureCertificateRequest}
@@ -93,10 +98,14 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-New name for the signature certificate. ||
+New name for the signature certificate.
+
+Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-New description for the signature certificate. ||
+New description for the signature certificate.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -251,7 +260,6 @@ ID of the SAML application that the signature certificate belongs to. ||
 
 Current status of the signature certificate.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `ACTIVE`: The certificate is active and can be used for signing.
 - `INACTIVE`: The certificate is inactive and cannot be used for signing. ||
 || name | **string**

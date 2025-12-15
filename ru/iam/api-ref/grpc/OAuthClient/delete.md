@@ -24,7 +24,9 @@ Deletes the specified oauth client with all its secrets.
 || oauth_client_id | **string**
 
 Required field. ID of the oauth client to delete.
-To get the oauth client ID, use [OAuthClientService.list] request. ||
+To get the oauth client ID, use [OAuthClientService.list] request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -13,6 +13,7 @@ apiPlayground:
             Required field. Id of the subject container that external group belongs to.
             To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request
             or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -22,6 +23,7 @@ apiPlayground:
             the service returns a [ListExternalGroupsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -31,6 +33,7 @@ apiPlayground:
             Page token. Set `pageToken`
             to the [ListExternalGroupsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse)
             returned by a previous list external request to get the next page of results.
+            The maximum string length in characters is 2000.
           type: string
         filter:
           description: |-
@@ -40,6 +43,7 @@ apiPlayground:
             1. The fields name or id. Currently you can use filtering only on the [Group.name](#yandex.cloud.organizationmanager.v1.Group) or [Group.id](#yandex.cloud.organizationmanager.v1.Group) fields.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - subjectContainerId
@@ -67,26 +71,34 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/external
 
 Required field. Id of the subject container that external group belongs to.
 To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request
-or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request. ||
+or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListExternalGroupsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListExternalGroupsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse)
-returned by a previous list external request to get the next page of results. ||
+returned by a previous list external request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The fields name or id. Currently you can use filtering only on the [Group.name](#yandex.cloud.organizationmanager.v1.Group) or [Group.id](#yandex.cloud.organizationmanager.v1.Group) fields.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse}

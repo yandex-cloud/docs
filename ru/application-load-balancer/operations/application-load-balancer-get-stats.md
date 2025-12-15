@@ -15,7 +15,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите на имя нужного балансировщика.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
   1. Выберите дашборд — **{{ ui-key.yacloud.alb.label_tab-http-stats }}** или **{{ ui-key.yacloud.alb.label_tab-capacity-stats }}**.
@@ -34,7 +34,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите на имя нужного балансировщика.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
   1. Выберите дашборд — **{{ ui-key.yacloud.alb.label_tab-http-stats }}** или **{{ ui-key.yacloud.alb.label_tab-capacity-stats }}**.

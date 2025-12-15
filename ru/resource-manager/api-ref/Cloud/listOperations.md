@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Cloud resource to list operations for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - cloudId
@@ -24,6 +25,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListCloudOperationsResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListCloudOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Acceptable values are 0 to 1000, inclusive. Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -33,6 +35,7 @@ apiPlayground:
             Page token. Set `pageToken`
             to the [ListCloudOperationsResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListCloudOperationsResponse)
             returned by a previous list request to get the next page of results.
+            The maximum string length in characters is 2000.
           type: string
       additionalProperties: false
     body: null
@@ -56,7 +59,9 @@ GET https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{cloudId}
 ||Field | Description ||
 || cloudId | **string**
 
-Required field. ID of the Cloud resource to list operations for. ||
+Required field. ID of the Cloud resource to list operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.resourcemanager.v1.ListCloudOperationsRequest}
@@ -68,12 +73,16 @@ Required field. ID of the Cloud resource to list operations for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListCloudOperationsResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListCloudOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListCloudOperationsResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListCloudOperationsResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.resourcemanager.v1.ListCloudOperationsResponse}

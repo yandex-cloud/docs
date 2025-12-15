@@ -27,13 +27,17 @@ Converts single basic (not external) group to external. Precondition: group must
 || group_id | **string**
 
 Required field. ID of the Group resource to convert to external.
-To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request. ||
+To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subject_container_id | **string**
 
 Required field. Id of the subject container that external group belongs to.
 Combination of subject_container_id and external_id must be unique.
 To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request
-or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/grpc/Userpool/list#List) request. ||
+or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/grpc/Userpool/list#List) request.
+
+The maximum string length in characters is 50. ||
 || external_id | **string**
 
 Required field. Id of the group from external system.

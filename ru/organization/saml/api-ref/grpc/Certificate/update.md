@@ -28,20 +28,28 @@ Updates the specified certificate.
 || certificate_id | **string**
 
 ID of the certificate to update.
-To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/grpc/Certificate/list#List) request. ||
+To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/grpc/Certificate/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the certificate are going to be updated. ||
 || name | **string**
 
 Name of the certificate.
-The name must be unique within the federation. ||
+The name must be unique within the federation.
+
+Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the certificate. ||
+Description of the certificate.
+
+The maximum string length in characters is 256. ||
 || data | **string**
 
-Certificate data in PEM format. ||
+Certificate data in PEM format.
+
+The maximum string length in characters is 32000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -143,20 +151,30 @@ A certificate.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the certificate. ||
+Required field. ID of the certificate.
+
+The maximum string length in characters is 50. ||
 || federation_id | **string**
 
-Required field. ID of the federation that the certificate belongs to. ||
+Required field. ID of the federation that the certificate belongs to.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the certificate. ||
+Name of the certificate.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the certificate. ||
+Description of the certificate.
+
+The maximum string length in characters is 256. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || data | **string**
 
-Required field. Certificate data in PEM format. ||
+Required field. Certificate data in PEM format.
+
+The maximum string length in characters is 32000. ||
 |#

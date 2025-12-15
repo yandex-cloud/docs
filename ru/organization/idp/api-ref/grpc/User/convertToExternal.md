@@ -26,10 +26,14 @@ Request to convert a user to use external authentication.
 ||Field | Description ||
 || user_id | **string**
 
-Required field. ID of the user to convert. ||
+Required field. ID of the user to convert.
+
+The maximum string length in characters is 50. ||
 || external_id | **string**
 
-Required field. External identifier to associate with the user. ||
+Required field. External identifier to associate with the user.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -157,7 +161,6 @@ To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api
 Current status of the user.
 Determines whether the user can authenticate and access the system.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The user is in the process of being created.
 - `ACTIVE`: The user is active and can authenticate.
 Active users have full access to the system according to their permissions.

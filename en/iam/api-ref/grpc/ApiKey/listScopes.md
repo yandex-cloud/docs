@@ -28,11 +28,15 @@ The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListApiKeyScopesResponse.next_page_token](#yandex.cloud.iam.v1.ListApiKeyScopesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListApiKeyScopesResponse.next_page_token](#yandex.cloud.iam.v1.ListApiKeyScopesResponse) returned by a previous list request. ||
+[ListApiKeyScopesResponse.next_page_token](#yandex.cloud.iam.v1.ListApiKeyScopesResponse) returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListApiKeyScopesResponse {#yandex.cloud.iam.v1.ListApiKeyScopesResponse}

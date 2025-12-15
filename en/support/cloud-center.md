@@ -9,7 +9,7 @@ description: 'This guide will help you get started with the {{ support-center-na
 
 {% note info %}
 
-Only a {{ yandex-cloud }} [user](../overview/roles-and-resources.md#users) can create a request in the support center. For more information, see [{#T}](./overview.md).
+Any {{ yandex-cloud }} [user](../overview/roles-and-resources.md#users) with any role can create a request in the support center if they are a memeber of the relevant [organization](../organization/concepts/organization.md). To get an invitation, ask the organization [owner](../organization/security/index.md#organization-manager-organizations-owner) or [administrator](../organization/security/index.md#organization-manager-admin) to [add](../organization/operations/add-account.md) you. For more information, see [{#T}](./overview.md).
 
 {% endnote %}
 
@@ -29,7 +29,10 @@ To find answers to questions about {{ yandex-cloud }}, do the following in {{ su
 1. Navigate to **{{ ui-key.support-center.common.tickets }}**.
 1. Check out the answers to FAQ using quick search buttons.
 1. If you did not find your question in the FAQ list:
-   1. In the **{{ ui-key.support-center.search.common.value_search-input-placeholder }}** window, briefly describe your issue, e.g., `How to restore access to my billing account`. The {{ support-center-name }} will take your query to the support knowledge base and return all relevant articles.
+   1. In the **{{ ui-key.yacloud_org.support.tickets.label_search-placeholder }}** window, briefly describe your issue, e.g., `How to restore access to my billing account`. The {{ support-center-name }} will take your query to the support knowledge base and return all relevant articles.
+
+      ![image](../_assets/support/problem-solution/cloud-center.png)
+      
    1. If no suitable article is found, a notification window will appear under the search bar. In this window, click **{{ ui-key.support-center.search.common.action_search-in-documentation }}** to find the answer to your question in the {{ yandex-cloud }} documentation or **{{ ui-key.support-center.tickets.common.action_create-ticket }}** to create a ticket.
 
 ## Creating a ticket {#create-request}

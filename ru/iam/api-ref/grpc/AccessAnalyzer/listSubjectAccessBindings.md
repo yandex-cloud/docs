@@ -26,22 +26,30 @@ Returns the list of access bindings for the specified subject in chosen organiza
 ||Field | Description ||
 || subject_id | **string**
 
-Required field. SubjectId to list access bindings for. ||
+Required field. SubjectId to list access bindings for.
+
+The maximum string length in characters is 100. ||
 || organization_id | **string**
 
-Required field. OrganizationId to search access bindings in. ||
+Required field. OrganizationId to search access bindings in.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListSubjectAccessBindingsResponse.next_page_token](#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100 ||
+Default value: 100
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token`
 to the [ListSubjectAccessBindingsResponse.next_page_token](#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListSubjectAccessBindingsResponse {#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse}
@@ -100,8 +108,12 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#

@@ -28,10 +28,14 @@ Request to resolve external IDs to internal user IDs.
 ||Field | Description ||
 || userpool_id | **string**
 
-Required field. ID of the userpool to resolve external IDs in. ||
+Required field. ID of the userpool to resolve external IDs in.
+
+The maximum string length in characters is 50. ||
 || external_ids[] | **string**
 
-List of external IDs to resolve. ||
+List of external IDs to resolve.
+
+The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 256. ||
 |#
 
 ## ResolveExternalIdsResponse {#yandex.cloud.organizationmanager.v1.idp.ResolveExternalIdsResponse}

@@ -12,11 +12,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы {{ KF }}](../../../managed-kafka/pricing.md)).
-* Плата за кластер {{ mpg-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластера (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -268,7 +266,7 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#delete).
@@ -278,9 +276,9 @@
 
     - Вручную {#manual}
 
-        * [Эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
-        * [{{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+        1. [Удалите эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
+        1. [Удалите кластер {{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
+        1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
 
     - {{ TF }} {#tf}
 

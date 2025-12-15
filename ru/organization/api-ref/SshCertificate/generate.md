@@ -12,29 +12,34 @@ apiPlayground:
           description: |-
             **string**
             the cloud must be attached to an organization
+            The maximum string length in characters is 50.
             Includes only one of the fields `cloudId`, `organizationId`.
           type: string
         organizationId:
           description: |-
             **string**
+            The maximum string length in characters is 50.
             Includes only one of the fields `cloudId`, `organizationId`.
           type: string
         subjectId:
           description: |-
             **string**
             specify subject to generate certificate for default login
+            The maximum string length in characters is 50.
             Includes only one of the fields `subjectId`, `osLogin`.
           type: string
         osLogin:
           description: |-
             **string**
             specify os_login for a specific login
+            The maximum string length in characters is 32.
             Includes only one of the fields `subjectId`, `osLogin`.
           type: string
         publicKey:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 15000.
           type: string
       required:
         - publicKey
@@ -87,23 +92,33 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/sshCert
 
 the cloud must be attached to an organization
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `cloudId`, `organizationId`. ||
 || organizationId | **string**
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `cloudId`, `organizationId`. ||
 || subjectId | **string**
 
 specify subject to generate certificate for default login
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `subjectId`, `osLogin`. ||
 || osLogin | **string**
 
 specify os_login for a specific login
 
+The maximum string length in characters is 32.
+
 Includes only one of the fields `subjectId`, `osLogin`. ||
 || publicKey | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 15000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.GenerateSshCertificateResponse}

@@ -13,6 +13,7 @@ apiPlayground:
             ID of the service account to list access keys for.
             To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
             If not specified, it defaults to the subject that made the request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -22,6 +23,7 @@ apiPlayground:
             the service returns a [ListAccessKeysResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -31,6 +33,7 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken`
             to the [ListAccessKeysResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse)
             returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
       additionalProperties: false
     body: null
@@ -56,19 +59,25 @@ GET https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
 
 ID of the service account to list access keys for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListAccessKeysResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListAccessKeysResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse}

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the OAuth application to update.
             To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/Application/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - applicationId
@@ -36,12 +37,14 @@ apiPlayground:
             **string**
             Name of the OAuth application.
             The name must be unique within the organization.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the OAuth application.
+            The maximum string length in characters is 256.
           type: string
         groupClaimsSettings:
           description: |-
@@ -57,6 +60,7 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as key:value pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -77,7 +81,6 @@ apiPlayground:
             description: |-
               **enum** (GroupDistributionType)
               Represents current distribution type of the groups. I.e. which groups are visible for the application users.
-              - `GROUP_DISTRIBUTION_TYPE_UNSPECIFIED`: The distribution type is unspecified
               - `NONE`: No groups are visible for the application users
               - `ASSIGNED_GROUPS`: Only assigned groups are visible for the application users
               - `ALL_GROUPS`: All groups are visible for the application users
@@ -94,11 +97,13 @@ apiPlayground:
             description: |-
               **string**
               Required field. OAuth client id
+              The maximum string length in characters is 50.
             type: string
           authorizedScopes:
             description: |-
               **string**
               List of authorized client scopes by the application
+              The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255.
             type: array
             items:
               type: string
@@ -126,7 +131,9 @@ Request to update a OAuth application.
 || applicationId | **string**
 
 Required field. ID of the OAuth application to update.
-To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/Application/list#List) request. ||
+To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/Application/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.application.oauth.UpdateApplicationRequest}
@@ -166,10 +173,14 @@ The rest of the fields will be reset to the default. ||
 || name | **string**
 
 Name of the OAuth application.
-The name must be unique within the organization. ||
+The name must be unique within the organization.
+
+Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the OAuth application. ||
+Description of the OAuth application.
+
+The maximum string length in characters is 256. ||
 || groupClaimsSettings | **[GroupClaimsSettings](#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupClaimsSettings)**
 
 Settings of the group claims ||
@@ -178,7 +189,9 @@ Settings of the group claims ||
 Connection to the OAuth client with specified scopes ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as key:value pairs. ||
+Resource labels as key:value pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## GroupClaimsSettings {#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupClaimsSettings}
@@ -191,7 +204,6 @@ Settings of the group claims
 
 Represents current distribution type of the groups. I.e. which groups are visible for the application users.
 
-- `GROUP_DISTRIBUTION_TYPE_UNSPECIFIED`: The distribution type is unspecified
 - `NONE`: No groups are visible for the application users
 - `ASSIGNED_GROUPS`: Only assigned groups are visible for the application users
 - `ALL_GROUPS`: All groups are visible for the application users ||
@@ -205,10 +217,14 @@ Represents connection to the OAuth client with specified scopes
 ||Field | Description ||
 || clientId | **string**
 
-Required field. OAuth client id ||
+Required field. OAuth client id
+
+The maximum string length in characters is 50. ||
 || authorizedScopes[] | **string**
 
-List of authorized client scopes by the application ||
+List of authorized client scopes by the application
+
+The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -383,7 +399,6 @@ Represents current connection to the OAuth client with specified scopes ||
 
 Current status of the application.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The apllication is in the process of being created.
 - `ACTIVE`: The apllication is active and operational.
 - `SUSPENDED`: The apllication is suspended. I.e. authentication via this application is disabled.
@@ -423,7 +438,6 @@ Settings of the group claims
 
 Represents current distribution type of the groups. I.e. which groups are visible for the application users.
 
-- `GROUP_DISTRIBUTION_TYPE_UNSPECIFIED`: The distribution type is unspecified
 - `NONE`: No groups are visible for the application users
 - `ASSIGNED_GROUPS`: Only assigned groups are visible for the application users
 - `ALL_GROUPS`: All groups are visible for the application users ||
@@ -437,8 +451,12 @@ Represents connection to the OAuth client with specified scopes
 ||Field | Description ||
 || clientId | **string**
 
-Required field. OAuth client id ||
+Required field. OAuth client id
+
+The maximum string length in characters is 50. ||
 || authorizedScopes[] | **string**
 
-List of authorized client scopes by the application ||
+List of authorized client scopes by the application
+
+The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
 |#

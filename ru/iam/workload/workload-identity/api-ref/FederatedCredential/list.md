@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the service account to list federated credentials for.
             To get the the service account ID make a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -21,6 +22,7 @@ apiPlayground:
             the service returns a [ListFederatedCredentialsResponse.nextPageToken](#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -30,6 +32,7 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken`
             to the [ListFederatedCredentialsResponse.nextPageToken](#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
       required:
         - serviceAccountId
@@ -56,19 +59,25 @@ GET https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials
 || serviceAccountId | **string**
 
 Required field. ID of the service account to list federated credentials for.
-To get the the service account ID make a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request. ||
+To get the the service account ID make a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListFederatedCredentialsResponse.nextPageToken](#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListFederatedCredentialsResponse.nextPageToken](#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse}

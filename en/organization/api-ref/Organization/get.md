@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Organization resource to return.
             To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - organizationId
@@ -40,7 +41,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/organiza
 || organizationId | **string**
 
 Required field. ID of the Organization resource to return.
-To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request. ||
+To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.Organization}

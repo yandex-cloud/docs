@@ -26,7 +26,9 @@ To get the list of available Role resources, make a [List](/docs/iam/api-ref/grp
 || role_id | **string**
 
 Required field. ID of the Role resource to return.
-To get the role ID, use a [RoleService.List](/docs/iam/api-ref/grpc/Role/list#List) request. ||
+To get the role ID, use a [RoleService.List](/docs/iam/api-ref/grpc/Role/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Role {#yandex.cloud.iam.v1.Role}

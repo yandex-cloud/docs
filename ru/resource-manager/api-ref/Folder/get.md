@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Folder resource to return.
             To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - folderId
@@ -40,7 +41,9 @@ GET https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{folderI
 || folderId | **string**
 
 Required field. ID of the Folder resource to return.
-To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.resourcemanager.v1.Folder}
@@ -93,7 +96,6 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 
 Status of the folder.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The folder is active.
 - `DELETING`: The folder is being deleted.
 - `PENDING_DELETION`: Stopping folder resources and waiting for the deletion start timestamp. ||

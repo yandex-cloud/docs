@@ -27,13 +27,19 @@ Request to list assignments for a SAML application.
 ||Field | Description ||
 || application_id | **string**
 
-Required field. ID of the SAML application to list assignments for. ||
+Required field. ID of the SAML application to list assignments for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
-The maximum number of results per page to return. ||
+The maximum number of results per page to return.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
-Page token for pagination. ||
+Page token for pagination.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListAssignmentsResponse {#yandex.cloud.organizationmanager.v1.idp.application.saml.ListAssignmentsResponse}
@@ -69,5 +75,7 @@ An assignment for a SAML application.
 ||Field | Description ||
 || subject_id | **string**
 
-Required field. ID of the subject being assigned. ||
+Required field. ID of the subject being assigned.
+
+The maximum string length in characters is 100. ||
 |#

@@ -27,17 +27,20 @@ apiPlayground:
           description: |-
             **string** (int64)
             Number of results per search result page.
+            Acceptable values are 1 to 100, inclusive.
           type: string
           format: int64
         folderId:
           description: |-
             **string**
             ID of the folder.
+            The maximum string length in characters is 50.
           type: string
         userAgent:
           description: |-
             **string**
             User-Agent request header value.
+            The maximum string length in characters is 300.
           type: string
       required:
         - query
@@ -50,7 +53,6 @@ apiPlayground:
             description: |-
               **enum** (SearchType)
               Required field. Search type that determines the domain name that will be used for the search queries.
-              - `SEARCH_TYPE_UNSPECIFIED`
               - `SEARCH_TYPE_RU`: Russian search type (default), yandex.ru search domain name will be used.
               - `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
               - `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used.
@@ -70,12 +72,12 @@ apiPlayground:
             description: |-
               **string**
               Required field. Search query text
+              The maximum string length in characters is 400.
             type: string
           familyMode:
             description: |-
               **enum** (FamilyMode)
               Rule for filtering search results and determines whether any documents should be excluded.
-              - `FAMILY_MODE_UNSPECIFIED`
               - `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
               - `FAMILY_MODE_MODERATE`: Moderate filter (default value). Documents of the Adult category are excluded from search results
               unless a query is explicitly made for searching resources of this category.
@@ -91,13 +93,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of a requested page with search results
+              The minimum value is 0.
             type: string
             format: int64
           fixTypoMode:
             description: |-
               **enum** (FixTypoMode)
               Typos autocorrections mode
-              - `FIX_TYPO_MODE_UNSPECIFIED`
               - `FIX_TYPO_MODE_ON`: Automatically correct typos (default value).
               - `FIX_TYPO_MODE_OFF`: Autocorrection is off.
             type: string
@@ -115,7 +117,6 @@ apiPlayground:
             description: |-
               **enum** (ImageFormat)
               Searching for images in a particular format.
-              - `IMAGE_FORMAT_UNSPECIFIED`
               - `IMAGE_FORMAT_JPEG`: JPG format.
               - `IMAGE_FORMAT_GIF`: GIF format.
               - `IMAGE_FORMAT_PNG`: PNG format.
@@ -129,7 +130,6 @@ apiPlayground:
             description: |-
               **enum** (ImageSize)
               Searching for images of a particular size.
-              - `IMAGE_SIZE_UNSPECIFIED`
               - `IMAGE_SIZE_ENORMOUS`: Very large images (larger than 1,600 × 1,200 pixels).
               - `IMAGE_SIZE_LARGE`: Large images (from 800 × 600 to 1,600 × 1,200 pixels).
               - `IMAGE_SIZE_MEDIUM`: Medium images (from 150 × 150 to 800 × 600 pixels).
@@ -149,7 +149,6 @@ apiPlayground:
             description: |-
               **enum** (ImageOrientation)
               Searching for images with a particular orientation.
-              - `IMAGE_ORIENTATION_UNSPECIFIED`
               - `IMAGE_ORIENTATION_VERTICAL`: Horizontal orientation.
               - `IMAGE_ORIENTATION_HORIZONTAL`: Vertical orientation.
               - `IMAGE_ORIENTATION_SQUARE`: Square aspect ratio.
@@ -163,7 +162,6 @@ apiPlayground:
             description: |-
               **enum** (ImageColor)
               Searching for images containing a particular color.
-              - `IMAGE_COLOR_UNSPECIFIED`
               - `IMAGE_COLOR_COLOR`: Color images.
               - `IMAGE_COLOR_GRAYSCALE`: Black and white images.
               - `IMAGE_COLOR_RED`: Red is the main color of the image.
@@ -237,13 +235,19 @@ Searching for images with a particular size, orientation, format or color. ||
 Searching for images on a particular website only. ||
 || docsOnPage | **string** (int64)
 
-Number of results per search result page. ||
+Number of results per search result page.
+
+Acceptable values are 1 to 100, inclusive. ||
 || folderId | **string**
 
-ID of the folder. ||
+ID of the folder.
+
+The maximum string length in characters is 50. ||
 || userAgent | **string**
 
-User-Agent request header value. ||
+User-Agent request header value.
+
+The maximum string length in characters is 300. ||
 |#
 
 ## SearchQuery {#yandex.cloud.searchapi.v2.SearchQuery}
@@ -254,7 +258,6 @@ User-Agent request header value. ||
 
 Required field. Search type that determines the domain name that will be used for the search queries.
 
-- `SEARCH_TYPE_UNSPECIFIED`
 - `SEARCH_TYPE_RU`: Russian search type (default), yandex.ru search domain name will be used.
 - `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
 - `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used.
@@ -263,12 +266,13 @@ Required field. Search type that determines the domain name that will be used fo
 - `SEARCH_TYPE_UZ`: Uzbek search type, yandex.uz search domain name will be used. ||
 || queryText | **string**
 
-Required field. Search query text ||
+Required field. Search query text
+
+The maximum string length in characters is 400. ||
 || familyMode | **enum** (FamilyMode)
 
 Rule for filtering search results and determines whether any documents should be excluded.
 
-- `FAMILY_MODE_UNSPECIFIED`
 - `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
 - `FAMILY_MODE_MODERATE`: Moderate filter (default value). Documents of the Adult category are excluded from search results
 unless a query is explicitly made for searching resources of this category.
@@ -276,12 +280,13 @@ unless a query is explicitly made for searching resources of this category.
 and those with profanity are excluded from search results. ||
 || page | **string** (int64)
 
-The number of a requested page with search results ||
+The number of a requested page with search results
+
+The minimum value is 0. ||
 || fixTypoMode | **enum** (FixTypoMode)
 
 Typos autocorrections mode
 
-- `FIX_TYPO_MODE_UNSPECIFIED`
 - `FIX_TYPO_MODE_ON`: Automatically correct typos (default value).
 - `FIX_TYPO_MODE_OFF`: Autocorrection is off. ||
 |#
@@ -294,7 +299,6 @@ Typos autocorrections mode
 
 Searching for images in a particular format.
 
-- `IMAGE_FORMAT_UNSPECIFIED`
 - `IMAGE_FORMAT_JPEG`: JPG format.
 - `IMAGE_FORMAT_GIF`: GIF format.
 - `IMAGE_FORMAT_PNG`: PNG format. ||
@@ -302,7 +306,6 @@ Searching for images in a particular format.
 
 Searching for images of a particular size.
 
-- `IMAGE_SIZE_UNSPECIFIED`
 - `IMAGE_SIZE_ENORMOUS`: Very large images (larger than 1,600 × 1,200 pixels).
 - `IMAGE_SIZE_LARGE`: Large images (from 800 × 600 to 1,600 × 1,200 pixels).
 - `IMAGE_SIZE_MEDIUM`: Medium images (from 150 × 150 to 800 × 600 pixels).
@@ -313,7 +316,6 @@ Searching for images of a particular size.
 
 Searching for images with a particular orientation.
 
-- `IMAGE_ORIENTATION_UNSPECIFIED`
 - `IMAGE_ORIENTATION_VERTICAL`: Horizontal orientation.
 - `IMAGE_ORIENTATION_HORIZONTAL`: Vertical orientation.
 - `IMAGE_ORIENTATION_SQUARE`: Square aspect ratio. ||
@@ -321,7 +323,6 @@ Searching for images with a particular orientation.
 
 Searching for images containing a particular color.
 
-- `IMAGE_COLOR_UNSPECIFIED`
 - `IMAGE_COLOR_COLOR`: Color images.
 - `IMAGE_COLOR_GRAYSCALE`: Black and white images.
 - `IMAGE_COLOR_RED`: Red is the main color of the image.

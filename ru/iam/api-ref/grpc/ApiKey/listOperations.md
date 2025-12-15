@@ -25,18 +25,24 @@ Retrieves the list of operations for the specified API key.
 ||Field | Description ||
 || api_key_id | **string**
 
-Required field. ID of the key to list operations for. ||
+Required field. ID of the key to list operations for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListApiKeyOperationsResponse.next_page_token](#yandex.cloud.iam.v1.ListApiKeyOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListApiKeyOperationsResponse.next_page_token](#yandex.cloud.iam.v1.ListApiKeyOperationsResponse) returned by a previous list request. ||
+[ListApiKeyOperationsResponse.next_page_token](#yandex.cloud.iam.v1.ListApiKeyOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListApiKeyOperationsResponse {#yandex.cloud.iam.v1.ListApiKeyOperationsResponse}

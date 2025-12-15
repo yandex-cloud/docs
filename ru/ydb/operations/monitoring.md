@@ -19,8 +19,8 @@ description: Вы можете отслеживать состояние баз�
 
 Для просмотра детальной информации о состоянии базы данных {{ ydb-name }}:
 
-1. 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится БД.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится БД.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 1. Нажмите на имя нужной базы данных и выберите вкладку **{{ ui-key.yacloud.common.monitoring }}**.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 

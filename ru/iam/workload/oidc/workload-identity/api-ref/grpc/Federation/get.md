@@ -26,7 +26,9 @@ To get the list of available OIDC workload identity federation, make a [List](/d
 || federation_id | **string**
 
 Required field. ID of the OIDC workload identity federation to return.
-To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/list#List) request. ||
+To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Federation {#yandex.cloud.iam.v1.workload.oidc.Federation}

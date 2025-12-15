@@ -26,7 +26,9 @@ To get the list of available OAuthClientSecret resources, make a [List](/docs/ia
 || oauth_client_secret_id | **string**
 
 Required field. ID of the OAuthClientSecret resource to return.
-To get the OAuthClientSecret ID, use a [OAuthClientSecretService.List](/docs/iam/api-ref/grpc/OAuthClientSecret/list#List) request. ||
+To get the OAuthClientSecret ID, use a [OAuthClientSecretService.List](/docs/iam/api-ref/grpc/OAuthClientSecret/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## OAuthClientSecret {#yandex.cloud.iam.v1.OAuthClientSecret}

@@ -10,8 +10,9 @@ description: Узнайте, зачем нужна детализация рас
 Существует несколько способов получения детализации расходов:
 
 * [Просмотр детализации в консоли управления](./check-charges.md).
-* [Просмотр детализации в {{ datalens-full-name }}](./dashboard.md)
+* [Просмотр детализации в {{ datalens-full-name }}](./dashboard.md).
 * [Разовый экспорт детализации](./get-folder-report.md#single-time-download).
 * [Регулярный экспорт детализации](./get-folder-report.md#set-up-regular-download).
+* [Получение детализации через API](./get-charges-via-api.md).
 
 Также вы можете [искать данные в детализации расходов](./query-integration.md) с помощью запросов {{ yq-full-name }}.

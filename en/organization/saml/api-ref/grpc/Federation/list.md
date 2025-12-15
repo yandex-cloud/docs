@@ -27,26 +27,34 @@ Retrieves the list of federations in the specified organization.
 || organization_id | **string**
 
 Required field. ID of the organization to list federations in.
-To get the organization ID, make a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/grpc/Organization/list#List) request. ||
+To get the organization ID, make a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/grpc/Organization/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListFederationsResponse.next_page_token](#yandex.cloud.organizationmanager.v1.saml.ListFederationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100 ||
+Default value: 100
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token`
 to the [ListFederationsResponse.next_page_token](#yandex.cloud.organizationmanager.v1.saml.ListFederationsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [Federation.name](#yandex.cloud.organizationmanager.v1.saml.Federation) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListFederationsResponse {#yandex.cloud.organizationmanager.v1.saml.ListFederationsResponse}
@@ -101,16 +109,22 @@ For more information, see [SAML-compatible identity federations](/docs/iam/conce
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the federation. ||
+Required field. ID of the federation.
+
+The maximum string length in characters is 50. ||
 || organization_id | **string**
 
 ID of the organization that the federation belongs to. ||
 || name | **string**
 
-Required field. Name of the federation. ||
+Required field. Name of the federation.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the federation. ||
+Description of the federation.
+
+The maximum string length in characters is 256. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
@@ -130,7 +144,9 @@ can't log in, even if they have authenticated on your server. ||
 || issuer | **string**
 
 Required field. ID of the IdP server to be used for authentication.
-The IdP server also responds to IAM with this ID after the user authenticates. ||
+The IdP server also responds to IAM with this ID after the user authenticates.
+
+The maximum string length in characters is 8000. ||
 || sso_binding | enum **BindingType**
 
 Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
@@ -138,14 +154,15 @@ Single sign-on endpoint binding type. Most Identity Providers support the `POST`
 SAML Binding is a mapping of a SAML protocol message onto standard messaging
 formats and/or communications protocols.
 
-- `BINDING_TYPE_UNSPECIFIED`
 - `POST`: HTTP POST binding.
 - `REDIRECT`: HTTP redirect binding.
 - `ARTIFACT`: HTTP artifact binding. ||
 || sso_url | **string**
 
 Required field. Single sign-on endpoint URL.
-Specify the link to the IdP login page here. ||
+Specify the link to the IdP login page here.
+
+The maximum string length in characters is 8000. ||
 || security_settings | **[FederationSecuritySettings](#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings)**
 
 Federation security settings. ||

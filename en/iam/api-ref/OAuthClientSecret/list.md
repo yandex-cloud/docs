@@ -14,6 +14,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListOAuthClientSecretsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -21,12 +22,14 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListOAuthClientSecretsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse) returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
         oauthClientId:
           description: |-
             **string**
             Required field. ID of the OAuthClient resource to list OAuthClientSecret resources for.
             To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List](/docs/iam/api-ref/OAuthClient/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - oauthClientId
@@ -55,15 +58,21 @@ GET https://iam.{{ api-host }}/iam/v1/oauthClientSecrets
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListOAuthClientSecretsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListOAuthClientSecretsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse) returned by a previous list request. ||
+[ListOAuthClientSecretsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse) returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || oauthClientId | **string**
 
 Required field. ID of the OAuthClient resource to list OAuthClientSecret resources for.
-To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List](/docs/iam/api-ref/OAuthClient/list#List) request. ||
+To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List](/docs/iam/api-ref/OAuthClient/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse}

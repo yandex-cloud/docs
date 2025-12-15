@@ -29,6 +29,55 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
       1. Add new [labels](../../../resource-manager/concepts/labels.md) by clicking **{{ ui-key.yacloud.component.label-set.button_add-label }}** in the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-labels_uT2D2 }}** field. Click ![xmark](../../../_assets/console-icons/xmark.svg) to delete an existing label.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command for updating a SAML app:
+
+     ```bash
+     yc organization-manager idp application saml application update --help
+     ```
+  
+  1. Run this command:
+
+     ```bash
+     yc organization-manager idp application saml application update \
+       --id <app_ID> \
+       --new-name <application_name> \
+       --description <application_description> \
+       --labels <key>=<value>[,<key>=<value>]
+     ```
+
+     Where:
+
+     * `--id`: SAML application ID. This is a required setting.
+     * `--new-name`: New SAML app name. The name must be unique within the organization and follow the naming requirements:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `--description`: New SAML app description.
+     * `labels`: New list of [labels](../../../resource-manager/concepts/labels.md). You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
+
+     Result:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: saml-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: NONE
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
+- API {#api}
+
+  Use the [Application.Update](../../idp/application/saml/api-ref/Application/update.md) REST API method for the [Application](../../idp/application/saml/api-ref/Application/index.md) resource or the [ApplicationService/Update](../../idp/application/saml/api-ref/grpc/Application/update.md) gRPC API call.
+
 {% endlist %}
 
 ## Update the service provider configuration {#update-sp}
@@ -42,6 +91,59 @@ To update the service provider configuration in a SAML app:
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
   1. {% include [saml-app-update-sp-settings](../../../_includes/organization/saml-app-update-sp-settings.md) %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command for updating the service provider configuration:
+
+     ```bash
+     yc organization-manager idp application saml application update --help
+     ```
+
+  1. Run this command:
+
+     ```bash
+     yc organization-manager idp application saml application update \
+       --id <app_ID> \
+       --sp-entity-id <service_provider_ID> \
+       --acs-urls <URL>[,<URL>] \
+       --signature-mode <signature_mode>
+     ```
+
+     Where:
+
+     * `--id`: SAML application ID. This is a required setting.
+     * `--sp-entity-id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-name }} side.
+     * `--acs-urls`: URL or comma-separated URLs to which {{ org-name }} will send the SAML response. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     * `--signature-mode`: SAML response elements that will be digitally signed. The possible values are:
+       * `assertion_only`: Only the provided user attributes.
+       * `response_only`: Full SAML response.
+       * `response_and_assertion`: Full SAML response and, separately, the provided attributes.
+
+     Result:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: saml-app
+     organization_id: bpf2c65rqcl8********
+     sp_entity_id: https://example.com/saml
+     acs_urls:
+       - url: https://example.com/saml/acs
+     signature_mode: RESPONSE_AND_ASSERTION
+     group_claims_settings:
+       group_distribution_type: NONE
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
+- API {#api}
+
+  Use the [Application.Update](../../idp/application/saml/api-ref/Application/update.md) REST API method for the [Application](../../idp/application/saml/api-ref/Application/index.md) resource or the [ApplicationService/Update](../../idp/application/saml/api-ref/grpc/Application/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -67,6 +169,65 @@ You can issue any number of new digital signature verification key certificates 
       1. To download the new certificate, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) next to it and select ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.common.download }}**.
       1. To delete the certificate, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) next to it and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**, then confirm the deletion. You can only delete inactive certificates.
       1. Click **{{ ui-key.yacloud.common.close }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for creating a new certificate:
+
+     ```bash
+     yc organization-manager idp application saml signature-certificate create --help
+     ```
+
+  1. Create a new certificate:
+
+     ```bash
+     yc organization-manager idp application saml signature-certificate create \
+       --application-id <app_ID>
+     ```
+
+     Where:
+
+     * `--application-id`: SAML application ID.
+
+     Result:
+
+     ```text
+     id: ajeq9jfrmc5t********
+     application_id: ek0o663g4rs2********
+     created_at: "2025-10-21T10:14:17.861652377Z"
+     ```
+
+     Save the certificate ID because you will need it to activate the certificate.
+
+  1. View the list of app certificates:
+
+     ```bash
+     yc organization-manager idp application saml signature-certificate list \
+       --application-id <app_ID>
+     ```
+
+  1. Activate a new certificate:
+
+     ```bash
+     yc organization-manager idp application saml signature-certificate update \
+       --id <certificate_ID> \
+       --active true
+     ```
+
+     Where:
+
+     * `--id`: Certificate ID you got when creating the certificate.
+     * `--active`: Set to `true` to activate the certificate.
+
+     {% include [saml-app-cert-update-warn](../../../_includes/organization/saml-app-cert-update-warn.md) %}
+
+- API {#api}
+
+  Use the [SignatureCertificate.Create](../../idp/application/saml/api-ref/SignatureCertificate/create.md) REST API method for the [SignatureCertificate](../../idp/application/saml/api-ref/SignatureCertificate/index.md) resource or the [SignatureCertificateService/Create](../../idp/application/saml/api-ref/grpc/SignatureCertificate/create.md) gRPC API call.
 
 {% endlist %}
 

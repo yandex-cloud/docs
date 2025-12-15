@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
   1. Узнайте публичный IPv4-адрес прокси-сервера:
 
       1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится ваш прокси-сервер.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
       1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}** и выберите нужный прокси-сервер.
 
           Сохраните IPv4-адрес прокси-сервера, указанный в блоке **{{ ui-key.yacloud.common.overview }}** в поле **{{ ui-key.yacloud.smart-web-security.proxy-servers.publicIpColumn_dPwQF }}** — он понадобится для создания ресурсной DNS-записи.

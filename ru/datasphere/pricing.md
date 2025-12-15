@@ -63,7 +63,7 @@ editable: false
 
 [Хранение моделей](concepts/models/index.md) и [Docker-образов](concepts/docker.md) в {{ ml-platform-name }} оплачивается отдельно. Тарификация зависит от размера модели, размер рассчитывается в ГБ и округляется до целого значения в большую сторону.
 
-Хранение Docker-образо в {{ container-registry-full-name }} оплачивается по тарифам [{{ container-registry-name }}](../container-registry/pricing.md#prices-storage). 
+Хранение Docker-образов в {{ container-registry-full-name }} оплачивается по тарифам [{{ container-registry-name }}](../container-registry/pricing.md#prices-storage). 
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 

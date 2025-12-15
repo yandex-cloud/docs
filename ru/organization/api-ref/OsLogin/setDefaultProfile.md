@@ -9,7 +9,8 @@ apiPlayground:
         osLoginProfileId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
       required:
         - osLoginProfileId
@@ -36,7 +37,9 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/osLogin
 ||Field | Description ||
 || osLoginProfileId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

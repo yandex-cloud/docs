@@ -41,7 +41,22 @@ Updates the specified userpool.
       "one": "int64",
       "two": "int64",
       "three": "int64"
+    },
+    // Includes only one of the fields `fixed`, `smart`
+    "fixed": {
+      "lowers_required": "bool",
+      "uppers_required": "bool",
+      "digits_required": "bool",
+      "specials_required": "bool",
+      "min_length": "int64"
+    },
+    "smart": {
+      "one_class": "int64",
+      "two_classes": "int64",
+      "three_classes": "int64",
+      "four_classes": "int64"
     }
+    // end of the list of possible fields
   },
   "password_lifetime_policy": {
     "min_days_count": "int64",
@@ -62,20 +77,28 @@ Request to update a userpool.
 || userpool_id | **string**
 
 Required field. ID of the userpool to update.
-To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api-ref/grpc/Userpool/list#List) request. ||
+To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api-ref/grpc/Userpool/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the userpool are going to be updated. ||
 || name | **string**
 
 Name of the userpool.
-The name must be unique within the organization. ||
+The name must be unique within the organization.
+
+Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the userpool. ||
+Description of the userpool.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as key:value pairs. ||
+Resource labels as key:value pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || user_settings | **[UserSettings](#yandex.cloud.organizationmanager.v1.idp.UserSettings)**
 
 User settings for the userpool. ||
@@ -121,13 +144,19 @@ Policy that defines password quality requirements.
 Whether passwords similar to previous ones are allowed. ||
 || max_length | **int64**
 
-Maximum password length. Zero means no maximum length is enforced. ||
+Maximum password length. Zero means no maximum length is enforced.
+
+The minimum value is 0. ||
 || min_length | **int64**
 
-Minimum password length. ||
+Minimum password length.
+
+The minimum value is 0. ||
 || match_length | **int64**
 
-Minimum length of substrings to check for similarity to vulnerable sequences. ||
+Minimum length of substrings to check for similarity to vulnerable sequences.
+
+The minimum value is 0. ||
 || required_classes | **[RequiredClasses](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses)**
 
 Character classes required in passwords. ||
@@ -135,6 +164,20 @@ Character classes required in passwords. ||
 
 Minimum length requirements based on character class diversity.
 If not specified, these checks are disabled. ||
+|| fixed | **[Fixed](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed)**
+
+Fixed complexity requirements. Exactly one of complexity requirements must be specified.
+
+Includes only one of the fields `fixed`, `smart`.
+
+Defines password complexity policy. ||
+|| smart | **[Smart](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart)**
+
+Smart complexity requirements. Exactly one of complexity requirements must be specified.
+
+Includes only one of the fields `fixed`, `smart`.
+
+Defines password complexity policy. ||
 |#
 
 ## RequiredClasses {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses}
@@ -165,13 +208,73 @@ Minimum password length requirements based on character class diversity.
 ||Field | Description ||
 || one | **int64**
 
-Minimum length for passwords with one character class. ||
+Minimum length for passwords with one character class.
+
+The minimum value is 0. ||
 || two | **int64**
 
-Minimum length for passwords with two character classes. ||
+Minimum length for passwords with two character classes.
+
+The minimum value is 0. ||
 || three | **int64**
 
-Minimum length for passwords with three character classes. ||
+Minimum length for passwords with three character classes.
+
+The minimum value is 0. ||
+|#
+
+## Fixed {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed}
+
+Fixed complexity policy enforces uniform password rules with required character classes and minimum length.
+
+#|
+||Field | Description ||
+|| lowers_required | **bool**
+
+Whether lowercase letters are required in the password. ||
+|| uppers_required | **bool**
+
+Whether uppercase letters are required in the password. ||
+|| digits_required | **bool**
+
+Whether digits are required in the password. ||
+|| specials_required | **bool**
+
+Whether special characters are required in the password. ||
+|| min_length | **int64**
+
+Minimum length required for all passwords.
+
+The minimum value is 0. ||
+|#
+
+## Smart {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart}
+
+Smart complexity policy applies adaptive requirements based on character class diversity.
+Zero value means passwords with this number of classes are forbidden.
+
+#|
+||Field | Description ||
+|| one_class | **int64**
+
+For passwords with one class of characters
+
+The minimum value is 0. ||
+|| two_classes | **int64**
+
+For passwords with two classes of characters
+
+The minimum value is 0. ||
+|| three_classes | **int64**
+
+For passwords with three classes of characters
+
+The minimum value is 0. ||
+|| four_classes | **int64**
+
+For passwords with all four classes of characters
+
+The minimum value is 0. ||
 |#
 
 ## PasswordLifetimePolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy}
@@ -182,16 +285,21 @@ Policy that defines password lifetime requirements.
 ||Field | Description ||
 || min_days_count | **int64**
 
-Minimum number of days before a password can be changed. ||
+Minimum number of days before a password can be changed.
+
+The minimum value is 0. ||
 || max_days_count | **int64**
 
 Maximum number of days a password remains valid.
-Zero means passwords never expire. ||
+Zero means passwords never expire.
+
+The minimum value is 0. ||
 |#
 
 ## BruteforceProtectionPolicy {#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy}
 
 Policy that defines protection against brute force attacks.
+Zero or empty values disable bruteforce protection.
 
 #|
 ||Field | Description ||
@@ -203,7 +311,9 @@ Time window for counting failed authentication attempts. ||
 Duration of the block after too many failed attempts. ||
 || attempts | **int64**
 
-Number of failed attempts allowed within the window before blocking. ||
+Number of failed attempts allowed within the window before blocking.
+
+Value must be greater than 0. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -254,7 +364,22 @@ Number of failed attempts allowed within the window before blocking. ||
         "one": "int64",
         "two": "int64",
         "three": "int64"
+      },
+      // Includes only one of the fields `fixed`, `smart`
+      "fixed": {
+        "lowers_required": "bool",
+        "uppers_required": "bool",
+        "digits_required": "bool",
+        "specials_required": "bool",
+        "min_length": "int64"
+      },
+      "smart": {
+        "one_class": "int64",
+        "two_classes": "int64",
+        "three_classes": "int64",
+        "four_classes": "int64"
       }
+      // end of the list of possible fields
     },
     "password_lifetime_policy": {
       "min_days_count": "int64",
@@ -370,7 +495,6 @@ List of domains associated with this userpool. ||
 
 Current status of the userpool.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The userpool is in the process of being created.
 - `ACTIVE`: The userpool is active and operational.
 - `DELETING`: The userpool is in the process of being deleted. ||
@@ -419,13 +543,19 @@ Policy that defines password quality requirements.
 Whether passwords similar to previous ones are allowed. ||
 || max_length | **int64**
 
-Maximum password length. Zero means no maximum length is enforced. ||
+Maximum password length. Zero means no maximum length is enforced.
+
+The minimum value is 0. ||
 || min_length | **int64**
 
-Minimum password length. ||
+Minimum password length.
+
+The minimum value is 0. ||
 || match_length | **int64**
 
-Minimum length of substrings to check for similarity to vulnerable sequences. ||
+Minimum length of substrings to check for similarity to vulnerable sequences.
+
+The minimum value is 0. ||
 || required_classes | **[RequiredClasses](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses2)**
 
 Character classes required in passwords. ||
@@ -433,6 +563,20 @@ Character classes required in passwords. ||
 
 Minimum length requirements based on character class diversity.
 If not specified, these checks are disabled. ||
+|| fixed | **[Fixed](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed2)**
+
+Fixed complexity requirements. Exactly one of complexity requirements must be specified.
+
+Includes only one of the fields `fixed`, `smart`.
+
+Defines password complexity policy. ||
+|| smart | **[Smart](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart2)**
+
+Smart complexity requirements. Exactly one of complexity requirements must be specified.
+
+Includes only one of the fields `fixed`, `smart`.
+
+Defines password complexity policy. ||
 |#
 
 ## RequiredClasses {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses2}
@@ -463,13 +607,73 @@ Minimum password length requirements based on character class diversity.
 ||Field | Description ||
 || one | **int64**
 
-Minimum length for passwords with one character class. ||
+Minimum length for passwords with one character class.
+
+The minimum value is 0. ||
 || two | **int64**
 
-Minimum length for passwords with two character classes. ||
+Minimum length for passwords with two character classes.
+
+The minimum value is 0. ||
 || three | **int64**
 
-Minimum length for passwords with three character classes. ||
+Minimum length for passwords with three character classes.
+
+The minimum value is 0. ||
+|#
+
+## Fixed {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed2}
+
+Fixed complexity policy enforces uniform password rules with required character classes and minimum length.
+
+#|
+||Field | Description ||
+|| lowers_required | **bool**
+
+Whether lowercase letters are required in the password. ||
+|| uppers_required | **bool**
+
+Whether uppercase letters are required in the password. ||
+|| digits_required | **bool**
+
+Whether digits are required in the password. ||
+|| specials_required | **bool**
+
+Whether special characters are required in the password. ||
+|| min_length | **int64**
+
+Minimum length required for all passwords.
+
+The minimum value is 0. ||
+|#
+
+## Smart {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart2}
+
+Smart complexity policy applies adaptive requirements based on character class diversity.
+Zero value means passwords with this number of classes are forbidden.
+
+#|
+||Field | Description ||
+|| one_class | **int64**
+
+For passwords with one class of characters
+
+The minimum value is 0. ||
+|| two_classes | **int64**
+
+For passwords with two classes of characters
+
+The minimum value is 0. ||
+|| three_classes | **int64**
+
+For passwords with three classes of characters
+
+The minimum value is 0. ||
+|| four_classes | **int64**
+
+For passwords with all four classes of characters
+
+The minimum value is 0. ||
 |#
 
 ## PasswordLifetimePolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy2}
@@ -480,16 +684,21 @@ Policy that defines password lifetime requirements.
 ||Field | Description ||
 || min_days_count | **int64**
 
-Minimum number of days before a password can be changed. ||
+Minimum number of days before a password can be changed.
+
+The minimum value is 0. ||
 || max_days_count | **int64**
 
 Maximum number of days a password remains valid.
-Zero means passwords never expire. ||
+Zero means passwords never expire.
+
+The minimum value is 0. ||
 |#
 
 ## BruteforceProtectionPolicy {#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy2}
 
 Policy that defines protection against brute force attacks.
+Zero or empty values disable bruteforce protection.
 
 #|
 ||Field | Description ||
@@ -501,5 +710,7 @@ Time window for counting failed authentication attempts. ||
 Duration of the block after too many failed attempts. ||
 || attempts | **int64**
 
-Number of failed attempts allowed within the window before blocking. ||
+Number of failed attempts allowed within the window before blocking.
+
+Value must be greater than 0. ||
 |#

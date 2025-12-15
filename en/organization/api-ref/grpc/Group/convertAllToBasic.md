@@ -25,7 +25,9 @@ Converts all groups that belongs to subject container from external to basic (no
 
 Required field. Id of the subject container for which all external groups will be converted to basic (not external) groups.
 To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request
-or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/grpc/Userpool/list#List) request. ||
+or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/grpc/Userpool/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

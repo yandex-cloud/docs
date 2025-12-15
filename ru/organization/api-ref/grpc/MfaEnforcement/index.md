@@ -11,13 +11,13 @@ a set of methods for managing MFA enforcements
 
 #|
 ||Method | Description ||
-|| [Create](create.md) |  ||
-|| [Update](update.md) |  ||
-|| [Activate](activate.md) |  ||
-|| [Deactivate](deactivate.md) |  ||
-|| [Delete](delete.md) |  ||
-|| [Get](get.md) |  ||
-|| [List](list.md) |  ||
-|| [UpdateAudience](updateAudience.md) |  ||
-|| [ListAudience](listAudience.md) |  ||
+|| [Create](create.md) | creates an MFA enforcement in the specified organization ||
+|| [Update](update.md) | updates the specified MFA enforcement ||
+|| [Activate](activate.md) | activates the specified MFA enforcement ||
+|| [Deactivate](deactivate.md) | deactivates the specified MFA enforcement ||
+|| [Delete](delete.md) | deletes the specified MFA enforcement ||
+|| [Get](get.md) | returns the specified MFA enforcement ||
+|| [List](list.md) | returns MFA enforcements for the specified organization ||
+|| [UpdateAudience](updateAudience.md) | updates specified MFA enforcement's audience ||
+|| [ListAudience](listAudience.md) | returns specified MFA enforcement's audience ||
 |#

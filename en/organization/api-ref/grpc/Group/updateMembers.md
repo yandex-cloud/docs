@@ -30,10 +30,14 @@ Update group members.
 || group_id | **string**
 
 Required field. ID of the group to update.
-To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request. ||
+To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request.
+
+The maximum string length in characters is 50. ||
 || member_deltas[] | **[MemberDelta](#yandex.cloud.organizationmanager.v1.MemberDelta)**
 
-Updates to group members. ||
+Updates to group members.
+
+The number of elements must be in the range 1-1000. ||
 |#
 
 ## MemberDelta {#yandex.cloud.organizationmanager.v1.MemberDelta}
@@ -44,7 +48,6 @@ Updates to group members. ||
 
 Required field. The action that is being performed on a group member.
 
-- `MEMBER_ACTION_UNSPECIFIED`
 - `ADD`: Addition of a group member.
 - `REMOVE`: Removal of a group member. ||
 || subject_id | **string**
@@ -53,7 +56,9 @@ Required field. ID of the subject that is being added or removed from a group.
 
 Subject type can be one of following values:
 * `userAccount`: An account on Yandex, added to Yandex Cloud.
-* `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. ||
+* `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

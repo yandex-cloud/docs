@@ -119,15 +119,15 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    * [Удалите кластер {{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
-    * [Удалите остановленный трансфер](../../../data-transfer/operations/transfer.md#delete).
-    * [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+    1. [Удалите кластер {{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
+    1. [Удалите остановленный трансфер](../../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
 - {{ TF }} {#tf}
 

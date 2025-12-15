@@ -75,7 +75,7 @@ We recommend that you keep track of the money you spend from your personal accou
 
 For more information, see the following sections:
 * For individuals
-    * [Bank card payments](../payment/payment-methods-individual.md)
+    * [Payment methods](../payment/payment-methods-individual.md)
     * [Billing cycle](../payment/billing-cycle-individual.md)
 
 * Businesses and individual entrepreneurs:

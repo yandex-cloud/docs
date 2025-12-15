@@ -27,7 +27,9 @@ Request to get a user by ID.
 ||Field | Description ||
 || user_id | **string**
 
-Required field. ID of the user to return. ||
+Required field. ID of the user to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## User {#yandex.cloud.organizationmanager.v1.idp.User}
@@ -69,7 +71,6 @@ To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api
 Current status of the user.
 Determines whether the user can authenticate and access the system.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The user is in the process of being created.
 - `ACTIVE`: The user is active and can authenticate.
 Active users have full access to the system according to their permissions.

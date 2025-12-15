@@ -12,7 +12,11 @@
         * For federated users: [Identity federation](../organization/concepts/add-federation.md) name.
         * For local users: [User pool](../organization/concepts/user-pools.md) name.
         * For users with a Yandex account: `Yandex ID`.
-    * **{{ ui-key.yacloud_org.entity.user.column_last-auth }}**: Date and time of federated or local user's last [authentication](../iam/concepts/authorization/index.md) in {{ yandex-cloud }}.
+    * **{{ ui-key.yacloud_org.entity.user.column_last-auth }}**: Date and time of the user's last [authentication](../iam/concepts/authorization/index.md) in {{ yandex-cloud }}. There may be no date if no authentication has yet taken place or if it happened before this feature was introduced.
+
+        * For federated and local users, the date is displayed in the list and in the user card.
+        * For users with a Yandex account, the date is displayed only in the card and only when viewed under the same user's name.
+
     * **{{ ui-key.yacloud.common.id }}**: User ID.
     * **{{ ui-key.yacloud_org.entity.user.caption.email }}**: User email address.
 

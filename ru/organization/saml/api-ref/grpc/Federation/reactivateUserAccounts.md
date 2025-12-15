@@ -27,10 +27,14 @@ Method skips non-existent federated user accounts and returns ones that were act
 ||Field | Description ||
 || federation_id | **string**
 
-Required field. ID of the federation to reactivate subjects of. ||
+Required field. ID of the federation to reactivate subjects of.
+
+The maximum string length in characters is 50. ||
 || subject_ids[] | **string**
 
-List of subjects to reactivate. ||
+List of subjects to reactivate.
+
+The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -14,6 +14,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListOAuthClientsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -21,12 +22,14 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListOAuthClientsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientsResponse) returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
         folderId:
           description: |-
             **string**
             Required field. ID of the folder to list oauth clients for
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - folderId
@@ -55,15 +58,21 @@ GET https://iam.{{ api-host }}/iam/v1/oauthClients
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListOAuthClientsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListOAuthClientsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientsResponse) returned by a previous list request. ||
+[ListOAuthClientsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientsResponse) returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || folderId | **string**
 
 Required field. ID of the folder to list oauth clients for
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.ListOAuthClientsResponse}

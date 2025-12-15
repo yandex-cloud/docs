@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the OAuthClientSecret resource to return.
             To get the OAuthClientSecret ID, use a [OAuthClientSecretService.List](/docs/iam/api-ref/OAuthClientSecret/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - oauthClientSecretId
@@ -40,7 +41,9 @@ GET https://iam.{{ api-host }}/iam/v1/oauthClientSecrets/{oauthClientSecretId}
 || oauthClientSecretId | **string**
 
 Required field. ID of the OAuthClientSecret resource to return.
-To get the OAuthClientSecret ID, use a [OAuthClientSecretService.List](/docs/iam/api-ref/OAuthClientSecret/list#List) request. ||
+To get the OAuthClientSecret ID, use a [OAuthClientSecretService.List](/docs/iam/api-ref/OAuthClientSecret/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.OAuthClientSecret}

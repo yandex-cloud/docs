@@ -10,14 +10,19 @@ apiPlayground:
         organizationId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
-          description: '**string** (int64)'
+          description: |-
+            **string** (int64)
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 2000.
           type: string
         filter:
           description: |-
@@ -28,6 +33,7 @@ apiPlayground:
             2. An `=` operator.
             3. The value in double quotes (`"`).
             E.g. login="example-login"
+            The maximum string length in characters is 1000.
           type: string
       required:
         - organizationId
@@ -51,9 +57,15 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/osLoginP
 ||Field | Description ||
 || organizationId | **string**
 
-Required field.  ||
-|| pageSize | **string** (int64) ||
-|| pageToken | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| pageSize | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| pageToken | **string**
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters profiles listed in the response.
@@ -61,7 +73,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering by subject_id, uid or login.
 2. An `=` operator.
 3. The value in double quotes (`"`).
-E.g. login="example-login" ||
+E.g. login="example-login"
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.ListOsLoginProfilesResponse}

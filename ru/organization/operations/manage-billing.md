@@ -91,7 +91,7 @@ description: Из статьи вы узнаете, как управлять т
           1. В открывшемся окне проверьте оплачиваемую сумму и нажмите кнопку **{{ ui-key.yacloud_org.organization.billing.UpdateLimitDialog.confirm_action }}**, чтобы подтвердить оплату.
 
               Необходимая сумма будет списана с вашего платежного аккаунта, а лимит подключений — изменен сразу после оплаты.
-      2. Чтобы уменьшить лимит подключений:
+      1. Чтобы уменьшить лимит подключений:
 
           1. В поле **{{ ui-key.yacloud_org.organization.billing.UpdateLimitDialog.new_limit }}** уменьшите лимит подключений и нажмите кнопку **{{ ui-key.yacloud_org.organization.billing.UpdateLimitDialog.downgrade_action }}**.
 

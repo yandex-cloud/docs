@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the ApiKey resource to update.
             To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - apiKeyId
@@ -35,11 +36,13 @@ apiPlayground:
           description: |-
             **string**
             Description of the API key.
+            The maximum string length in characters is 256.
           type: string
         scopes:
           description: |-
             **string**
             Scopes of the API key.
+            The number of elements must be in the range 1-100. The maximum string length in characters for each value is 256.
           type: array
           items:
             type: string
@@ -76,7 +79,9 @@ PATCH https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
 || apiKeyId | **string**
 
 Required field. ID of the ApiKey resource to update.
-To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request. ||
+To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iam.v1.UpdateApiKeyRequest}
@@ -106,10 +111,14 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || description | **string**
 
-Description of the API key. ||
+Description of the API key.
+
+The maximum string length in characters is 256. ||
 || scopes[] | **string**
 
-Scopes of the API key. ||
+Scopes of the API key.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 256. ||
 || expiresAt | **string** (date-time)
 
 API key expiration timestamp, if not specified, then the API key doesn't expire

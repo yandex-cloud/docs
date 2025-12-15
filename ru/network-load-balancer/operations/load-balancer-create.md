@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы создать [сетевой балансировщик](../concepts/index.md):
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать балансировщик.
-  1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Задайте имя балансировщика. Требования к имени:
 

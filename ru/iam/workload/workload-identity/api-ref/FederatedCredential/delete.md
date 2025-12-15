@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the federated credential key to delete.
             To get the federated credential ID, use a [FederatedCredentialService.List](/docs/iam/workload/workload-identity/api-ref/FederatedCredential/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - federatedCredentialId
@@ -38,7 +39,9 @@ DELETE https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials/{federate
 || federatedCredentialId | **string**
 
 Required field. ID of the federated credential key to delete.
-To get the federated credential ID, use a [FederatedCredentialService.List](/docs/iam/workload/workload-identity/api-ref/FederatedCredential/list#List) request. ||
+To get the federated credential ID, use a [FederatedCredentialService.List](/docs/iam/workload/workload-identity/api-ref/FederatedCredential/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -29,33 +29,44 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/ImageSearch/searchByImage
 ||Field | Description ||
 || site | **string**
 
-Restricts the search to the specific website. ||
+Restricts the search to the specific website.
+
+The maximum string length in characters is 1024. ||
 || folder_id | **string**
 
-ID of the folder. ||
+ID of the folder.
+
+The maximum string length in characters is 50. ||
 || url | **string**
 
 Required field. The image url to use for the search.
+
+The maximum string length in characters is 1024.
 
 Includes only one of the fields `url`, `data`, `id`. ||
 || data | **bytes**
 
 Required field. The image data to use for the search.
 
+The maximum string length in characters is 3145728.
+
 Includes only one of the fields `url`, `data`, `id`. ||
 || id | **string**
 
 Required field. CBIR ID of the image to use for the search.
 
+The maximum string length in characters is 1024.
+
 Includes only one of the fields `url`, `data`, `id`. ||
 || page | **int64**
 
-The number of a requested page with search results. ||
+The number of a requested page with search results.
+
+The minimum value is 0. ||
 || family_mode | enum **FamilyMode**
 
 Rule for filtering search results and determines whether any documents should be excluded.
 
-- `FAMILY_MODE_UNSPECIFIED`
 - `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
 - `FAMILY_MODE_MODERATE`: Moderate filter (default value). Documents of the Adult category are excluded from search results
 unless a query is explicitly made for searching resources of this category.
@@ -110,7 +121,6 @@ Image URL. ||
 
 Image format.
 
-- `IMAGE_FORMAT_UNSPECIFIED`
 - `IMAGE_FORMAT_JPEG`: JPG format.
 - `IMAGE_FORMAT_GIF`: GIF format.
 - `IMAGE_FORMAT_PNG`: PNG format. ||

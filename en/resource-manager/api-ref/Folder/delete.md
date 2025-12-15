@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to delete.
             To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - folderId
@@ -57,7 +58,9 @@ DELETE https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{fold
 || folderId | **string**
 
 Required field. ID of the folder to delete.
-To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.resourcemanager.v1.DeleteFolderRequest}

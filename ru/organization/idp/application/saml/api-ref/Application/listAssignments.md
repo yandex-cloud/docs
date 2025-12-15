@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the SAML application to list assignments for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - applicationId
@@ -21,12 +22,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token for pagination.
+            The maximum string length in characters is 2000.
           type: string
       additionalProperties: false
     body: null
@@ -52,7 +55,9 @@ Request to list assignments for a SAML application.
 ||Field | Description ||
 || applicationId | **string**
 
-Required field. ID of the SAML application to list assignments for. ||
+Required field. ID of the SAML application to list assignments for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.idp.application.saml.ListAssignmentsRequest}
@@ -63,10 +68,14 @@ Request to list assignments for a SAML application.
 ||Field | Description ||
 || pageSize | **string** (int64)
 
-The maximum number of results per page to return. ||
+The maximum number of results per page to return.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
-Page token for pagination. ||
+Page token for pagination.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.application.saml.ListAssignmentsResponse}
@@ -104,5 +113,7 @@ An assignment for a SAML application.
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. ID of the subject being assigned. ||
+Required field. ID of the subject being assigned.
+
+The maximum string length in characters is 100. ||
 |#

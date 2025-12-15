@@ -24,9 +24,15 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/listPro
 ||Field | Description ||
 || organization_id | **string**
 
-Required field.  ||
-|| page_size | **int64** ||
-|| page_token | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| page_token | **string**
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters profiles listed in the response.
@@ -34,7 +40,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering by subject_id, uid or login.
 2. An `=` operator.
 3. The value in double quotes (`"`).
-E.g. login="example-login" ||
+E.g. login="example-login"
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListOsLoginProfilesResponse {#yandex.cloud.organizationmanager.v1.ListOsLoginProfilesResponse}

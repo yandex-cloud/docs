@@ -269,7 +269,7 @@ default:
   k8s-decomission-timeout: 5 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.30, 1.31, 1.32, 1.33
+  k8s-versions-rapid: 1.30, 1.31, 1.32, 1.33, 1.34
   k8s-versions-regular: 1.30, 1.31, 1.32, 1.33
   k8s-versions-stable: 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
@@ -8303,7 +8303,6 @@ default:
         common:
           action_search-in-documentation: Искать в документации
           title_suggestion-quotas: Увеличить квоты
-          value_search-input-placeholder: Опишите вашу проблему
       tariff-plans:
         info:
           action_go: Перейти
@@ -15155,6 +15154,21 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
         tag: 7.3.11-2
+    yc_bitrix-env:
+      dockerImages:
+        nginx:
+          repository:
+            name: >-
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1764089856329713384751806090650435327427957097722
+            tag: '1.28'
+        php:
+          repository:
+            name: >-
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1764089856329713384751806090650435327427957097722
+            tag: 8.2.29
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
+        tag: 1.0.5
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-

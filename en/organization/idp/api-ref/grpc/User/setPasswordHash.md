@@ -29,7 +29,9 @@ Request to set a password hash for a user.
 ||Field | Description ||
 || user_id | **string**
 
-Required field. ID of the user to set the password hash for. ||
+Required field. ID of the user to set the password hash for.
+
+The maximum string length in characters is 50. ||
 || hash | **[PasswordHash](#yandex.cloud.organizationmanager.v1.idp.PasswordHash)**
 
 Password hash to set. ||
@@ -43,12 +45,13 @@ Password hash information.
 ||Field | Description ||
 || password_hash | **string**
 
-Required field. The password hash string. ||
+Required field. The password hash string.
+
+The maximum string length in characters is 128. ||
 || password_hash_type | enum **PasswordHashType**
 
 Required field. Type of the password hash.
 
-- `PASSWORD_HASH_TYPE_UNSPECIFIED`: The password hash type is not specified.
 - `AD_MD4`: Microsoft Active Directory MD4 hash. ||
 |#
 

@@ -1,15 +1,18 @@
 ---
-title: Bank card payments for individuals
-description: Read this article to learn how individuals can top up their personal account and pay for resources with a bank card linked to their billing account.
+title: Payment methods for individuals
+description: Read this article to learn how individuals can top up their personal account and pay for resources.
 ---
 
-# Bank card payments for individuals
+# Payment methods for individuals
 
-Individuals can top up their personal account and pay for the resources they use with a [bank card](#debit-card) linked to their billing account.
+Individuals can top up their personal account and pay for resources by means of the following:
 
-{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+* Credit or debit card
+* SBP (Faster Payment System)
 
 {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
+
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 ## Linking a bank card {#pin-card}
 

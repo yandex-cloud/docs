@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the userpool to list operations for.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     query:
@@ -19,12 +20,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token for pagination.
+            The maximum string length in characters is 2000.
           type: string
       additionalProperties: false
     body: null
@@ -50,7 +53,9 @@ Request to list operations for a userpool.
 ||Field | Description ||
 || userpoolId | **string**
 
-Required field. ID of the userpool to list operations for. ||
+Required field. ID of the userpool to list operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.idp.ListUserpoolOperationsRequest}
@@ -61,10 +66,14 @@ Request to list operations for a userpool.
 ||Field | Description ||
 || pageSize | **string** (int64)
 
-The maximum number of results per page to return. ||
+The maximum number of results per page to return.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
-Page token for pagination. ||
+Page token for pagination.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.ListUserpoolOperationsResponse}

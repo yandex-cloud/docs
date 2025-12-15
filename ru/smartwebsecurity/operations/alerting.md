@@ -42,7 +42,7 @@ description: Следуя данной инструкции, вы сможете
 ### Создание канала уведомления {#create-channel}
 
 1. В [консоли управления]({{ link-console-main }}) слева выберите каталог.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
 1. Нажмите **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Укажите имя канала, метод отправки и получателей.
@@ -122,7 +122,7 @@ description: Следуя данной инструкции, вы сможете
 ### Создание канала уведомления {#create-channel}
 
 1. В [консоли управления]({{ link-console-main }}) слева выберите каталог.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
 1. Нажмите **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Укажите имя канала, метод отправки и получателей.

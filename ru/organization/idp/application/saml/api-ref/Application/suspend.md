@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the SAML application to suspend.
+            The maximum string length in characters is 50.
           type: string
       required:
         - applicationId
@@ -38,7 +39,9 @@ Request to suspend a SAML application.
 ||Field | Description ||
 || applicationId | **string**
 
-Required field. ID of the SAML application to suspend. ||
+Required field. ID of the SAML application to suspend.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -239,7 +242,6 @@ Description of the SAML application. ||
 
 Current status of the SAML application.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The application is in the process of being created.
 - `ACTIVE`: The application is active and can be used for authentication.
 - `SUSPENDED`: The application is suspended. I.e. authentication via this application is disabled.
@@ -292,13 +294,19 @@ Service provider configuration for SAML applications.
 ||Field | Description ||
 || entityId | **string**
 
-Required field. Service provider entity ID. ||
+Required field. Service provider entity ID.
+
+The maximum string length in characters is 8000. ||
 || acsUrls[] | **[AssertionConsumerServiceURL](#yandex.cloud.organizationmanager.v1.idp.application.saml.AssertionConsumerServiceURL)**
 
-Assertion Consumer Service URLs. ||
+Assertion Consumer Service URLs.
+
+The number of elements must be in the range 1-100. ||
 || sloUrls[] | **[SingleLogoutServiceURL](#yandex.cloud.organizationmanager.v1.idp.application.saml.SingleLogoutServiceURL)**
 
-Single Logout Service URLs. ||
+Single Logout Service URLs.
+
+The number of elements must be in the range 0-100. ||
 |#
 
 ## AssertionConsumerServiceURL {#yandex.cloud.organizationmanager.v1.idp.application.saml.AssertionConsumerServiceURL}
@@ -309,7 +317,9 @@ Assertion Consumer Service URL configuration.
 ||Field | Description ||
 || url | **string**
 
-Required field. The URL where SAML responses are sent. ||
+Required field. The URL where SAML responses are sent.
+
+The maximum string length in characters is 8000. ||
 || index | **string** (int64)
 
 Optional index for the assertion consumer service. ||
@@ -323,15 +333,18 @@ Single Logout Service URL configuration.
 ||Field | Description ||
 || url | **string**
 
-Required field. The URL where logout requests are sent. ||
+Required field. The URL where logout requests are sent.
+
+The maximum string length in characters is 8000. ||
 || responseUrl | **string**
 
-Optional separate URL for logout responses. ||
+Optional separate URL for logout responses.
+
+The maximum string length in characters is 8000. ||
 || protocolBinding | **enum** (ProtocolBinding)
 
 Required field. Protocol binding supported by the logout endpoint.
 
-- `PROTOCOL_BINDING_UNSPECIFIED`: The protocol binding is not specified.
 - `HTTP_POST`: HTTP POST binding.
 - `HTTP_REDIRECT`: HTTP Redirect binding. ||
 |#
@@ -346,7 +359,6 @@ Security settings for SAML applications.
 
 Signature mode for SAML messages.
 
-- `SIGNATURE_MODE_UNSPECIFIED`: The signature mode is not specified.
 - `ASSERTIONS`: Sign individual assertions.
 - `RESPONSE`: Sign the entire response.
 - `RESPONSE_AND_ASSERTIONS`: Sign both the response and individual assertions. ||
@@ -366,7 +378,9 @@ Attribute mapping configuration for SAML applications.
 Required field. NameID configuration for the SAML application. ||
 || attributes[] | **[Attribute](#yandex.cloud.organizationmanager.v1.idp.application.saml.Attribute)**
 
-List of attribute mappings. ||
+List of attribute mappings.
+
+The maximum number of elements is 50. ||
 |#
 
 ## NameId {#yandex.cloud.organizationmanager.v1.idp.application.saml.NameId}
@@ -379,7 +393,6 @@ NameID configuration for SAML applications.
 
 Required field. Format of the NameID.
 
-- `FORMAT_UNSPECIFIED`: The NameID format is not specified.
 - `PERSISTENT`: Persistent NameID format.
 This provides a stable, opaque identifier for the user.
 - `EMAIL`: Email NameID format.
@@ -397,10 +410,14 @@ Attribute mapping for SAML applications.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the SAML attribute. ||
+Required field. Name of the SAML attribute.
+
+The maximum string length in characters is 8000. ||
 || value | **string**
 
-Required field. Value of the SAML attribute. ||
+Required field. Value of the SAML attribute.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GroupClaimsSettings {#yandex.cloud.organizationmanager.v1.idp.application.saml.GroupClaimsSettings}
@@ -413,13 +430,14 @@ Group claims settings for SAML applications.
 
 Distribution type for group claims.
 
-- `GROUP_DISTRIBUTION_TYPE_UNSPECIFIED`: The group distribution type is not specified.
 - `NONE`: No groups are provided to the application.
 - `ASSIGNED_GROUPS`: Only assigned groups are provided to the application.
 - `ALL_GROUPS`: All groups are provided to the application. ||
 || groupAttributeName | **string**
 
-Name of the SAML attribute that contains group information. ||
+Name of the SAML attribute that contains group information.
+
+The maximum string length in characters is 8000. ||
 |#
 
 ## IdentityProviderMetadata {#yandex.cloud.organizationmanager.v1.idp.application.saml.IdentityProviderMetadata}

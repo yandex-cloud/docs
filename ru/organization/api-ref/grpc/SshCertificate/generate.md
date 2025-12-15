@@ -34,23 +34,33 @@ Signing certificates for other users requires a special permission
 
 the cloud must be attached to an organization
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `cloud_id`, `organization_id`. ||
 || organization_id | **string**
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `cloud_id`, `organization_id`. ||
 || subject_id | **string**
 
 specify subject to generate certificate for default login
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `subject_id`, `os_login`. ||
 || os_login | **string**
 
 specify os_login for a specific login
 
+The maximum string length in characters is 32.
+
 Includes only one of the fields `subject_id`, `os_login`. ||
 || public_key | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 15000. ||
 |#
 
 ## GenerateSshCertificateResponse {#yandex.cloud.organizationmanager.v1.GenerateSshCertificateResponse}

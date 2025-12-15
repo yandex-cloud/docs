@@ -11,6 +11,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the subject to list groups for.
+            The maximum string length in characters is 50.
           type: string
         organizationId:
           description: |-
@@ -18,6 +19,7 @@ apiPlayground:
             The ID of the organization to scope the group search to.
             If omitted and the subject belongs to a single organization,
             that organization's ID will be used automatically.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -26,6 +28,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListEffectiveResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListEffectiveResponse)
             that can be used to get the next page of results in subsequent list requests.
             Acceptable values are 0 to 1000, inclusive. Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -35,6 +38,7 @@ apiPlayground:
             Page token. Set `pageToken`
             to the [ListEffectiveResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListEffectiveResponse)
             returned by a previous list request to get the next page of results.
+            The maximum string length in characters is 2000.
           type: string
         filter:
           description: |-
@@ -49,6 +53,7 @@ apiPlayground:
             - `id` - group ID
             - `name` - group name
             Must be 1-1000 characters long.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - subjectId
@@ -74,23 +79,31 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/groups:l
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. ID of the subject to list groups for. ||
+Required field. ID of the subject to list groups for.
+
+The maximum string length in characters is 50. ||
 || organizationId | **string**
 
 The ID of the organization to scope the group search to.
 If omitted and the subject belongs to a single organization,
-that organization's ID will be used automatically. ||
+that organization's ID will be used automatically.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListEffectiveResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListEffectiveResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListEffectiveResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListEffectiveResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -104,7 +117,9 @@ Available fields for filtering:
 - `id` - group ID
 - `name` - group name
 
-Must be 1-1000 characters long. ||
+Must be 1-1000 characters long.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.ListEffectiveResponse}

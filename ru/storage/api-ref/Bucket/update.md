@@ -773,6 +773,12 @@ apiPlayground:
             type: array
             items:
               type: string
+          forceCloudConsoleAccess:
+            description: |-
+              **boolean**
+              if true, cloud console will be able to access a bucket
+              regardless of private_endpoints list
+            type: boolean
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/update.md
 ---
 
@@ -947,7 +953,8 @@ To get the bucket name, make a [BucketService.List](/docs/storage/api-ref/Bucket
     "enabled": "boolean",
     "privateEndpoints": [
       "string"
-    ]
+    ],
+    "forceCloudConsoleAccess": "boolean"
   },
   "disabledStatickeyAuth": "boolean"
 }
@@ -1601,6 +1608,10 @@ even if private_endpoints list is empty ||
 || privateEndpoints[] | **string**
 
 white list of private endpoints bucket accessible from ||
+|| forceCloudConsoleAccess | **boolean**
+
+if true, cloud console will be able to access a bucket
+regardless of private_endpoints list ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -1771,7 +1782,8 @@ white list of private endpoints bucket accessible from ||
       "enabled": "boolean",
       "privateEndpoints": [
         "string"
-      ]
+      ],
+      "forceCloudConsoleAccess": "boolean"
     },
     "resourceId": "string",
     "disabledStatickeyAuth": "boolean"
@@ -2542,4 +2554,8 @@ even if private_endpoints list is empty ||
 || privateEndpoints[] | **string**
 
 white list of private endpoints bucket accessible from ||
+|| forceCloudConsoleAccess | **boolean**
+
+if true, cloud console will be able to access a bucket
+regardless of private_endpoints list ||
 |#

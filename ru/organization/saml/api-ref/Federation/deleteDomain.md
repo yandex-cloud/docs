@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the federation to delete a domain from.
             To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         domain:
           description: |-
             **string**
             Required field. Domain name to delete from the federation.
             Must be a valid domain name (1-253 characters).
+            The string length in characters must be 1-253.
           type: string
       required:
         - federationId
@@ -45,11 +47,15 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/
 || federationId | **string**
 
 Required field. ID of the federation to delete a domain from.
-To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 || domain | **string**
 
 Required field. Domain name to delete from the federation.
-Must be a valid domain name (1-253 characters). ||
+Must be a valid domain name (1-253 characters).
+
+The string length in characters must be 1-253. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

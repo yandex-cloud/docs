@@ -13,18 +13,21 @@ apiPlayground:
             **string**
             Required field. ID of the organization to create a group in.
             To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. Name of the group.
             The name must be unique within the organization.
+            Value must match the regular expression ` [a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? `.
           pattern: '[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the group.
+            The maximum string length in characters is 256.
           type: string
         subjectContainerId:
           description: |-
@@ -33,6 +36,7 @@ apiPlayground:
             Combination of subject_container_id and external_id must be unique.
             To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request
             or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         externalId:
           description: |-
@@ -83,20 +87,28 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/externa
 || organizationId | **string**
 
 Required field. ID of the organization to create a group in.
-To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request. ||
+To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the group.
-The name must be unique within the organization. ||
+The name must be unique within the organization.
+
+Value must match the regular expression ` [a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? `. ||
 || description | **string**
 
-Description of the group. ||
+Description of the group.
+
+The maximum string length in characters is 256. ||
 || subjectContainerId | **string**
 
 Required field. Id of the subject container that external group belongs to.
 Combination of subject_container_id and external_id must be unique.
 To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request
-or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request. ||
+or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request.
+
+The maximum string length in characters is 50. ||
 || externalId | **string**
 
 Required field. Id of the group from external system.

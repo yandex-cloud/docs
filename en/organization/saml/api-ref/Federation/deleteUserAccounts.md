@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the federation to delete users from.
+            The maximum string length in characters is 50.
           type: string
       required:
         - federationId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             List of subjects to delete.
+            The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50.
           type: array
           items:
             type: string
@@ -46,7 +48,9 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fe
 ||Field | Description ||
 || federationId | **string**
 
-Required field. ID of the federation to delete users from. ||
+Required field. ID of the federation to delete users from.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.saml.DeleteFederatedUserAccountsRequest}
@@ -63,7 +67,9 @@ Required field. ID of the federation to delete users from. ||
 ||Field | Description ||
 || subjectIds[] | **string**
 
-List of subjects to delete. ||
+List of subjects to delete.
+
+The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

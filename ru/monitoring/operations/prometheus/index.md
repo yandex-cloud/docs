@@ -78,7 +78,7 @@ sourcePath: ru/monitoring_includes/operations/prometheus/index.md
 На вкладке **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** > Воркспейс > **Общая информация** вы можете:
 
 * посмотреть количество записанных метрик;
-* перейти на страницу с сервисными [дашбордами](../../concepts/visualization/dashboard) и посмотреть количество запросов, ошибок и HTTP-статусов в секунду для разных эндпоинтов.
+* перейти на страницу с сервисными [дашбордами](../../concepts/visualization/dashboard.md) и посмотреть количество запросов, ошибок и HTTP-статусов в секунду для разных эндпоинтов.
 
 ### Лимиты для одного эндпоинта {#limits-per-endpoint}
 

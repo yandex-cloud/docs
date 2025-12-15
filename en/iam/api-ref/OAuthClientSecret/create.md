@@ -13,11 +13,13 @@ apiPlayground:
             **string**
             Required field. ID of the OAuthClient resource to create OAuthClientSecret resource for.
             To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List](/docs/iam/api-ref/OAuthClient/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         description:
           description: |-
             **string**
             Description of the OAuthClientResource.
+            The maximum string length in characters is 256.
           type: string
       required:
         - oauthClientId
@@ -50,10 +52,14 @@ POST https://iam.{{ api-host }}/iam/v1/oauthClientSecrets
 || oauthClientId | **string**
 
 Required field. ID of the OAuthClient resource to create OAuthClientSecret resource for.
-To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List](/docs/iam/api-ref/OAuthClient/list#List) request. ||
+To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List](/docs/iam/api-ref/OAuthClient/list#List) request.
+
+The maximum string length in characters is 50. ||
 || description | **string**
 
-Description of the OAuthClientResource. ||
+Description of the OAuthClientResource.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

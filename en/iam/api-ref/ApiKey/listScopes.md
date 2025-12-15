@@ -15,6 +15,7 @@ apiPlayground:
             the service returns a [ListApiKeyScopesResponse.nextPageToken](#yandex.cloud.iam.v1.ListApiKeyScopesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -23,6 +24,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListApiKeyScopesResponse.nextPageToken](#yandex.cloud.iam.v1.ListApiKeyScopesResponse) returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
       additionalProperties: false
     body: null
@@ -50,11 +52,15 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListApiKeyScopesResponse.nextPageToken](#yandex.cloud.iam.v1.ListApiKeyScopesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListApiKeyScopesResponse.nextPageToken](#yandex.cloud.iam.v1.ListApiKeyScopesResponse) returned by a previous list request. ||
+[ListApiKeyScopesResponse.nextPageToken](#yandex.cloud.iam.v1.ListApiKeyScopesResponse) returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.ListApiKeyScopesResponse}

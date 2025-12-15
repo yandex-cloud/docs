@@ -25,7 +25,9 @@ Request to reactivate a suspended user.
 ||Field | Description ||
 || user_id | **string**
 
-Required field. ID of the user to reactivate. ||
+Required field. ID of the user to reactivate.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

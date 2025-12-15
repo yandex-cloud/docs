@@ -23,7 +23,9 @@ Returns the specified UserAccount resource.
 ||Field | Description ||
 || user_account_id | **string**
 
-Required field. ID of the UserAccount resource to return. ||
+Required field. ID of the UserAccount resource to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## UserAccount {#yandex.cloud.iam.v1.UserAccount}
@@ -90,11 +92,15 @@ For more information, see [federations](/docs/iam/concepts/federations).
 ||Field | Description ||
 || federation_id | **string**
 
-Required field. ID of the federation that the federation belongs to. ||
+Required field. ID of the federation that the federation belongs to.
+
+The maximum string length in characters is 50. ||
 || name_id | **string**
 
 Required field. Name Id of the SAML federated user.
-The name is unique within the federation. 1-256 characters long. ||
+The name is unique within the federation. 1-256 characters long.
+
+The string length in characters must be 1-256. ||
 || attributes | **object** (map<**string**, **[Attribute](#yandex.cloud.iam.v1.SamlUserAccount.Attribute)**>)
 
 Additional attributes of the SAML federated user. ||

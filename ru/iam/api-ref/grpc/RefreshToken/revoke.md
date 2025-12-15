@@ -36,10 +36,14 @@ If none of the parameters refresh_token_id, refresh_token, or revoke_filter are 
 
 Identifier of the Refresh Token to be revoked.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `refresh_token_id`, `refresh_token`, `revoke_filter`. ||
 || refresh_token | **string**
 
 The Refresh Token to be revoked.
+
+The maximum string length in characters is 1000.
 
 Includes only one of the fields `refresh_token_id`, `refresh_token`, `revoke_filter`. ||
 || revoke_filter | **[RevokeFilter](#yandex.cloud.iam.v1.RevokeFilter)**
@@ -59,14 +63,20 @@ When multiple fields are provided, they are combined using a logical AND operati
 ||Field | Description ||
 || client_id | **string**
 
-The OAuth client identifier for which the Refresh Token was issued. ||
+The OAuth client identifier for which the Refresh Token was issued.
+
+The maximum string length in characters is 50. ||
 || subject_id | **string**
 
 The subject identifier for whom the Refresh Token was issued.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || client_instance_info | **string**
 
-Information about the app for which the Refresh Token was issued. ||
+Information about the app for which the Refresh Token was issued.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

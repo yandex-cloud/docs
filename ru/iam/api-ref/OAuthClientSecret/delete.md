@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the OAuthClientSecret resource to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - oauthClientSecretId
@@ -36,7 +37,9 @@ DELETE https://iam.{{ api-host }}/iam/v1/oauthClientSecrets/{oauthClientSecretId
 ||Field | Description ||
 || oauthClientSecretId | **string**
 
-Required field. ID of the OAuthClientSecret resource to delete. ||
+Required field. ID of the OAuthClientSecret resource to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

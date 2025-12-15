@@ -23,7 +23,9 @@ Sets a profile as a default for the subject assigned to this profile
 ||Field | Description ||
 || os_login_profile_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

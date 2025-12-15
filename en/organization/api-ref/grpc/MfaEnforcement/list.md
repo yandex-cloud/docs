@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 
 # Identity Hub API, gRPC: MfaEnforcementService.List
 
+returns MFA enforcements for the specified organization
+
 ## gRPC request
 
 **rpc List ([ListMfaEnforcementsRequest](#yandex.cloud.organizationmanager.v1.ListMfaEnforcementsRequest)) returns ([ListMfaEnforcementsResponse](#yandex.cloud.organizationmanager.v1.ListMfaEnforcementsResponse))**
@@ -23,9 +25,19 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 ||Field | Description ||
 || organization_id | **string**
 
-Required field.  ||
-|| page_size | **int64** ||
-|| page_token | **string** ||
+Required field. organization id
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
+
+the maximum number of results per page to return
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| page_token | **string**
+
+page token
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListMfaEnforcementsResponse {#yandex.cloud.organizationmanager.v1.ListMfaEnforcementsResponse}
@@ -52,8 +64,12 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| mfa_enforcements[] | **[MfaEnforcement](#yandex.cloud.organizationmanager.v1.MfaEnforcement)** ||
-|| next_page_token | **string** ||
+|| mfa_enforcements[] | **[MfaEnforcement](#yandex.cloud.organizationmanager.v1.MfaEnforcement)**
+
+list of MFA enforcements for the specified organization ||
+|| next_page_token | **string**
+
+token to get the next page of results ||
 |#
 
 ## MfaEnforcement {#yandex.cloud.organizationmanager.v1.MfaEnforcement}
@@ -79,7 +95,6 @@ corresponding acr is regarded as satisfied ||
 
 MFA enforcement status
 
-- `MFA_ENFORCEMENT_STATUS_UNSPECIFIED`
 - `MFA_ENFORCEMENT_STATUS_ACTIVE`
 - `MFA_ENFORCEMENT_STATUS_INACTIVE`
 - `MFA_ENFORCEMENT_STATUS_DELETING` ||

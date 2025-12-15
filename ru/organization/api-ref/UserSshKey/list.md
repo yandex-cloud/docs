@@ -10,19 +10,25 @@ apiPlayground:
         organizationId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
         subjectId:
           description: |-
             **string**
             if empty, list all organization keys
+            The maximum string length in characters is 50.
           type: string
         pageSize:
-          description: '**string** (int64)'
+          description: |-
+            **string** (int64)
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 2000.
           type: string
       required:
         - organizationId
@@ -46,12 +52,20 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/userSshK
 ||Field | Description ||
 || organizationId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subjectId | **string**
 
-if empty, list all organization keys ||
-|| pageSize | **string** (int64) ||
-|| pageToken | **string** ||
+if empty, list all organization keys
+
+The maximum string length in characters is 50. ||
+|| pageSize | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| pageToken | **string**
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.ListUserSshKeysResponse}

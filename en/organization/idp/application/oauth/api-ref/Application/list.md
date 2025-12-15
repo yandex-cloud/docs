@@ -11,6 +11,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the organization to list OAuth applications in.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -20,6 +21,7 @@ apiPlayground:
             the service returns a [ListApplicationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListApplicationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -29,11 +31,13 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken`
             to the [ListApplicationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListApplicationsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - organizationId
@@ -61,22 +65,30 @@ Request to list OAuth applications.
 ||Field | Description ||
 || organizationId | **string**
 
-Required field. ID of the organization to list OAuth applications in. ||
+Required field. ID of the organization to list OAuth applications in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
 If the number of available results is larger than `pageSize`,
 the service returns a [ListApplicationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListApplicationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListApplicationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListApplicationsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
-A filter expression that filters resources listed in the response. ||
+A filter expression that filters resources listed in the response.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListApplicationsResponse}
@@ -154,7 +166,6 @@ Represents current connection to the OAuth client with specified scopes ||
 
 Current status of the application.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The apllication is in the process of being created.
 - `ACTIVE`: The apllication is active and operational.
 - `SUSPENDED`: The apllication is suspended. I.e. authentication via this application is disabled.
@@ -194,7 +205,6 @@ Settings of the group claims
 
 Represents current distribution type of the groups. I.e. which groups are visible for the application users.
 
-- `GROUP_DISTRIBUTION_TYPE_UNSPECIFIED`: The distribution type is unspecified
 - `NONE`: No groups are visible for the application users
 - `ASSIGNED_GROUPS`: Only assigned groups are visible for the application users
 - `ALL_GROUPS`: All groups are visible for the application users ||
@@ -208,8 +218,12 @@ Represents connection to the OAuth client with specified scopes
 ||Field | Description ||
 || clientId | **string**
 
-Required field. OAuth client id ||
+Required field. OAuth client id
+
+The maximum string length in characters is 50. ||
 || authorizedScopes[] | **string**
 
-List of authorized client scopes by the application ||
+List of authorized client scopes by the application
+
+The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
 |#

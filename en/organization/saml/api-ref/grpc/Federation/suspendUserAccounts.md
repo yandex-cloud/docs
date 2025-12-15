@@ -28,13 +28,19 @@ Method skips non-existent federated user accounts and returns ones that were act
 ||Field | Description ||
 || federation_id | **string**
 
-Required field. ID of the federation to suspend users of. ||
+Required field. ID of the federation to suspend users of.
+
+The maximum string length in characters is 50. ||
 || subject_ids[] | **string**
 
-List of subjects to suspend. ||
+List of subjects to suspend.
+
+The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50. ||
 || reason | **string**
 
-Reason of the suspension ||
+Reason of the suspension
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

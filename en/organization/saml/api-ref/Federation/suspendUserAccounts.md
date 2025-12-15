@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the federation to suspend users of.
+            The maximum string length in characters is 50.
           type: string
       required:
         - federationId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             List of subjects to suspend.
+            The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50.
           type: array
           items:
             type: string
@@ -29,6 +31,7 @@ apiPlayground:
           description: |-
             **string**
             Reason of the suspension
+            The maximum string length in characters is 256.
           type: string
       additionalProperties: false
     definitions: null
@@ -52,7 +55,9 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fe
 ||Field | Description ||
 || federationId | **string**
 
-Required field. ID of the federation to suspend users of. ||
+Required field. ID of the federation to suspend users of.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.saml.SuspendFederatedUserAccountsRequest}
@@ -70,10 +75,14 @@ Required field. ID of the federation to suspend users of. ||
 ||Field | Description ||
 || subjectIds[] | **string**
 
-List of subjects to suspend. ||
+List of subjects to suspend.
+
+The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50. ||
 || reason | **string**
 
-Reason of the suspension ||
+Reason of the suspension
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

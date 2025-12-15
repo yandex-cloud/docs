@@ -26,7 +26,9 @@ To get the list of available ServiceAccount resources, make a [List](/docs/iam/a
 || service_account_id | **string**
 
 Required field. ID of the ServiceAccount resource to return.
-To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request. ||
+To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ServiceAccount {#yandex.cloud.iam.v1.ServiceAccount}

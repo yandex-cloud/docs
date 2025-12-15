@@ -139,6 +139,8 @@ items:
                     href: api-ref/grpc/Wordstat/getDynamics.md
                   - name: GetRegionsDistribution
                     href: api-ref/grpc/Wordstat/getRegionsDistribution.md
+                  - name: GetRegionsTree
+                    href: api-ref/grpc/Wordstat/getRegionsTree.md
           - name: REST (англ.)
             items:
               - name: Overview
@@ -187,6 +189,8 @@ items:
                     href: api-ref/Wordstat/getDynamics.md
                   - name: GetRegionsDistribution
                     href: api-ref/Wordstat/getRegionsDistribution.md
+                  - name: GetRegionsTree
+                    href: api-ref/Wordstat/getRegionsTree.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

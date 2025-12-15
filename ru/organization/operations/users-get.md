@@ -57,6 +57,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+{% include notitle [fed-user-data-after-login-notice](../../_includes/organization/fed-user-data-after-login-notice.md) %}
+
 ## Локальные пользователи {#local} 
 
 

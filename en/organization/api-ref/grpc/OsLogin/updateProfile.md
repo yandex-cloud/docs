@@ -26,15 +26,25 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/updateP
 ||Field | Description ||
 || os_login_profile_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || login | **string**
 
-Required field. must not contain . or end in ~ ||
+Required field. must not contain . or end in ~
+
+The maximum string length in characters is 32. Value must match the regular expression ` ^[^.]*?[^~.]$ `. ||
 || uid | **int64**
 
-1000 - 2^63 - 1 ||
-|| home_directory | **string** ||
-|| shell | **string** ||
+1000 - 2^63 - 1
+
+Acceptable values are 1000 to 9223372036854775807, inclusive. ||
+|| home_directory | **string**
+
+The maximum string length in characters is 255. ||
+|| shell | **string**
+
+The maximum string length in characters is 255. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 |#
 

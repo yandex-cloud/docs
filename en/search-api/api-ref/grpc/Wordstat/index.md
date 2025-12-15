@@ -15,4 +15,5 @@ A set of methods for viewing statistics on search queries to Yandex.
 || [GetTop](getTop.md) | Not implemented. ||
 || [GetDynamics](getDynamics.md) | Not implemented. ||
 || [GetRegionsDistribution](getRegionsDistribution.md) | Not implemented. ||
+|| [GetRegionsTree](getRegionsTree.md) | Not implemented. ||
 |#
