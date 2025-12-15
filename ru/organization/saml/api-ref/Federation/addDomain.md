@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the federation to add a domain to.
             To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - federationId
@@ -24,6 +25,7 @@ apiPlayground:
             **string**
             Required field. Domain name to add to the federation.
             Must be a valid domain name (1-253 characters).
+            The string length in characters must be 1-253.
           type: string
       required:
         - domain
@@ -49,7 +51,9 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fe
 || federationId | **string**
 
 Required field. ID of the federation to add a domain to.
-To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.saml.AddFederationDomainRequest}
@@ -65,7 +69,9 @@ To get the federation ID, make a [FederationService.List](/docs/organization/sam
 || domain | **string**
 
 Required field. Domain name to add to the federation.
-Must be a valid domain name (1-253 characters). ||
+Must be a valid domain name (1-253 characters).
+
+The string length in characters must be 1-253. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -229,7 +235,6 @@ Domain name ||
 
 Current status of the domain.
 
-- `STATUS_UNSPECIFIED`
 - `NEED_TO_VALIDATE`: Domain requires ownership validation.
 - `VALIDATING`: Domain validation is in progress.
 - `VALID`: Domain has been successfully validated and is active.
@@ -294,13 +299,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Type of the validation challenge.
 
-- `TYPE_UNSPECIFIED`
 - `DNS_TXT`: DNS TXT record validation method. ||
 || status | **enum** (Status)
 
 Current status of the challenge.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: Challenge is awaiting completion.
 - `PROCESSING`: Challenge verification is in progress.
 - `VALID`: Challenge has been completed successfully.
@@ -327,7 +330,6 @@ Fully qualified domain name for the record. ||
 
 DNS record type (always TXT for current implementation).
 
-- `TYPE_UNSPECIFIED`
 - `TXT`: TXT record type. ||
 || value | **string**
 

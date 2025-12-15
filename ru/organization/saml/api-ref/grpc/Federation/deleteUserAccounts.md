@@ -26,10 +26,14 @@ Deletes users from the specified federation.
 ||Field | Description ||
 || federation_id | **string**
 
-Required field. ID of the federation to delete users from. ||
+Required field. ID of the federation to delete users from.
+
+The maximum string length in characters is 50. ||
 || subject_ids[] | **string**
 
-List of subjects to delete. ||
+List of subjects to delete.
+
+The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

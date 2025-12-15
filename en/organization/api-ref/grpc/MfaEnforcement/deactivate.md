@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 
 # Identity Hub API, gRPC: MfaEnforcementService.Deactivate
 
+deactivates the specified MFA enforcement
+
 ## gRPC request
 
 **rpc Deactivate ([DeactivateMfaEnforcementRequest](#yandex.cloud.organizationmanager.v1.DeactivateMfaEnforcementRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -21,7 +23,9 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 ||Field | Description ||
 || mfa_enforcement_id | **string**
 
-Required field.  ||
+Required field. id of the MFA enforcement
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -114,7 +118,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| mfa_enforcement_id | **string** ||
+|| mfa_enforcement_id | **string**
+
+id of the MFA enforcement ||
 |#
 
 ## MfaEnforcement {#yandex.cloud.organizationmanager.v1.MfaEnforcement}
@@ -140,7 +146,6 @@ corresponding acr is regarded as satisfied ||
 
 MFA enforcement status
 
-- `MFA_ENFORCEMENT_STATUS_UNSPECIFIED`
 - `MFA_ENFORCEMENT_STATUS_ACTIVE`
 - `MFA_ENFORCEMENT_STATUS_INACTIVE`
 - `MFA_ENFORCEMENT_STATUS_DELETING` ||

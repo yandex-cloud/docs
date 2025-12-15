@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the OAuth application to update.
             To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/Application/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - applicationId
@@ -25,6 +26,7 @@ apiPlayground:
             If the number of available results is larger than `pageSize`,
             the service returns a [ListAssignmentsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListAssignmentsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -33,6 +35,7 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken`
             to the [ListAssignmentsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListAssignmentsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
       additionalProperties: false
     body: null
@@ -59,7 +62,9 @@ Request to list assignments for a OAuth application.
 || applicationId | **string**
 
 Required field. ID of the OAuth application to update.
-To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/Application/list#List) request. ||
+To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/Application/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListAssignmentsRequest}
@@ -73,12 +78,16 @@ Request to list assignments for a OAuth application.
 The maximum number of results per page to return.
 If the number of available results is larger than `pageSize`,
 the service returns a [ListAssignmentsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListAssignmentsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListAssignmentsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListAssignmentsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListAssignmentsResponse}
@@ -122,5 +131,7 @@ An assignment for the OAuth application
 Required field. ID of the subject to be assigned to the OAuth application.
 Supported subject categories: UserAccount, ServiceAccount, Group, MetaGroup, PublicGroup.
 In case subject ID is ID of the group,
-then such group becomes visible to the users of OAuth application in case [GroupDistributionType](/docs/organization/idp/application/oauth/mapi-ref/Application/get#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupDistributionType) has value ASSIGNED_GROUPS. ||
+then such group becomes visible to the users of OAuth application in case [GroupDistributionType](/docs/organization/idp/application/oauth/mapi-ref/Application/get#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupDistributionType) has value ASSIGNED_GROUPS.
+
+The maximum string length in characters is 100. ||
 |#

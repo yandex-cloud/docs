@@ -23,7 +23,9 @@ Create an IAM token for service account.
 ||Field | Description ||
 || service_account_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## CreateIamTokenResponse {#yandex.cloud.iam.v1.CreateIamTokenResponse}

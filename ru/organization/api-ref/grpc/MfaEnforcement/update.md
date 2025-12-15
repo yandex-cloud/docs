@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 
 # Identity Hub API, gRPC: MfaEnforcementService.Update
 
+updates the specified MFA enforcement
+
 ## gRPC request
 
 **rpc Update ([UpdateMfaEnforcementRequest](#yandex.cloud.organizationmanager.v1.UpdateMfaEnforcementRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -29,21 +31,44 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 ||Field | Description ||
 || mfa_enforcement_id | **string**
 
-Required field.  ||
-|| acr_id | **string** ||
+Required field. id of the MFA enforcement
+
+The maximum string length in characters is 50. ||
+|| acr_id | **string**
+
+acr id for the MFA enforcement. one of 'any-mfa' or 'phr',
+specification https://yandex.cloud/en/docs/organization/concepts/mfa?utm_referrer=https%3A%2F%2Fa.yandex-team.ru%2F#mfa-factors
+
+The maximum string length in characters is 50. ||
 || ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
-max 1 year ||
+the period during which the entered MFA factor will be considered valid and the
+corresponding acr will be regarded as satisfied ||
 || status | enum **Status**
 
-- `STATUS_UNSPECIFIED`
-- `STATUS_ACTIVE`
-- `STATUS_INACTIVE` ||
-|| apply_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| enroll_window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
-|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
-|| name | **string** ||
-|| description | **string** ||
+the MFA enforcement status
+
+- `STATUS_ACTIVE`: active
+- `STATUS_INACTIVE`: inactive ||
+|| apply_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+the MFA enforcement application start time ||
+|| enroll_window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+the MFA enforcement enroll window ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+field mask to specify which fields of the MFA enforcement resource should be updated ||
+|| name | **string**
+
+the MFA enforcement name
+
+Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+|| description | **string**
+
+the MFA enforcement description
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -136,7 +161,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| mfa_enforcement_id | **string** ||
+|| mfa_enforcement_id | **string**
+
+id of the MFA enforcement ||
 |#
 
 ## MfaEnforcement {#yandex.cloud.organizationmanager.v1.MfaEnforcement}
@@ -162,7 +189,6 @@ corresponding acr is regarded as satisfied ||
 
 MFA enforcement status
 
-- `MFA_ENFORCEMENT_STATUS_UNSPECIFIED`
 - `MFA_ENFORCEMENT_STATUS_ACTIVE`
 - `MFA_ENFORCEMENT_STATUS_INACTIVE`
 - `MFA_ENFORCEMENT_STATUS_DELETING` ||

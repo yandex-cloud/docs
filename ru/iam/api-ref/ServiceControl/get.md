@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Service.
+            The maximum string length in characters is 50.
           type: string
       required:
         - serviceId
@@ -35,11 +36,13 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the resource.
+              The maximum string length in characters is 50.
             type: string
           type:
             description: |-
               **string**
               Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+              The maximum string length in characters is 64.
             type: string
         required:
           - id
@@ -65,7 +68,9 @@ GET https://iam.{{ api-host }}/iam/v1/services/{serviceId}
 ||Field | Description ||
 || serviceId | **string**
 
-Required field. ID of the Service. ||
+Required field. ID of the Service.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.iam.v1.GetServiceRequest}
@@ -87,10 +92,14 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.Service}
@@ -133,7 +142,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Current status of the service.
 
-- `STATUS_UNSPECIFIED`
 - `ENABLED`: The service is enabled.
 - `PAUSED`: The service is paused.
 - `DISABLED`: The service is disabled.
@@ -153,8 +161,12 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#

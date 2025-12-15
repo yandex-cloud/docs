@@ -25,18 +25,24 @@ List group active members.
 ||Field | Description ||
 || group_id | **string**
 
-Required field. ID of the Group resource to list members for. ||
+Required field. ID of the Group resource to list members for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListGroupMembersResponse.next_page_token](#yandex.cloud.organizationmanager.v1.ListGroupMembersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. Set `page_token`
 to the [ListGroupMembersResponse.next_page_token](#yandex.cloud.organizationmanager.v1.ListGroupMembersResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListGroupMembersResponse {#yandex.cloud.organizationmanager.v1.ListGroupMembersResponse}

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Group resource to return.
             To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - groupId
@@ -40,7 +41,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{
 || groupId | **string**
 
 Required field. ID of the Group resource to return.
-To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request. ||
+To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.Group}

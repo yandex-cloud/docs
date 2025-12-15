@@ -26,13 +26,19 @@ Creates a federated credential for the specified service account.
 || service_account_id | **string**
 
 Required field. ID of the service account to create a federated credential for.
-To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request. ||
+To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 || federation_id | **string**
 
-Required field. ID of the workload identity federation that is used for authentication. ||
+Required field. ID of the workload identity federation that is used for authentication.
+
+The maximum string length in characters is 50. ||
 || external_subject_id | **string**
 
-Required field. Id of the external subject. ||
+Required field. Id of the external subject.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

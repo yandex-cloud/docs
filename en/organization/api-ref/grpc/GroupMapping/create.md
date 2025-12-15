@@ -25,7 +25,9 @@ If mapping already exist, ALREADY_EXISTS will be returned
 ||Field | Description ||
 || federation_id | **string**
 
-Required field. Federation the group mapping will be created for ||
+Required field. Federation the group mapping will be created for
+
+The maximum string length in characters is 50. ||
 || enabled | **bool**
 
 Synchronization status. ||

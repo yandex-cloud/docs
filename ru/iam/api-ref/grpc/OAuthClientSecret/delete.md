@@ -23,7 +23,9 @@ Deletes the specified OAuthClientSecret resource.
 ||Field | Description ||
 || oauth_client_secret_id | **string**
 
-Required field. ID of the OAuthClientSecret resource to delete. ||
+Required field. ID of the OAuthClientSecret resource to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

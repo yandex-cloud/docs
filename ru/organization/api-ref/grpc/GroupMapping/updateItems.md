@@ -43,10 +43,14 @@ Request for updating group mapping configuration
 ||Field | Description ||
 || federation_id | **string**
 
-Required field. Federation the group mapping update is requested ||
+Required field. Federation the group mapping update is requested
+
+The maximum string length in characters is 50. ||
 || group_mapping_item_deltas[] | **[GroupMappingItemDelta](#yandex.cloud.organizationmanager.v1.GroupMappingItemDelta)**
 
-A collection of mapping items to add or remove (ignores update_fields). ||
+A collection of mapping items to add or remove (ignores update_fields).
+
+The number of elements must be in the range 1-1000. ||
 |#
 
 ## GroupMappingItemDelta {#yandex.cloud.organizationmanager.v1.GroupMappingItemDelta}
@@ -58,7 +62,6 @@ Message describes the user's request to change (add or remove) a single group ma
 || item | **[GroupMappingItem](#yandex.cloud.organizationmanager.v1.GroupMappingItem)** ||
 || action | enum **Action**
 
-- `ACTION_UNSPECIFIED`
 - `ADD`: Group mapping item is to be added
 - `REMOVE`: Group mapping item is to be removed ||
 |#
@@ -71,10 +74,14 @@ Group mapping represents which external (federated) groups should match which in
 ||Field | Description ||
 || external_group_id | **string**
 
-Required field. External group id (received from identity provider) ||
+Required field. External group id (received from identity provider)
+
+The maximum string length in characters is 1000. ||
 || internal_group_id | **string**
 
-Required field. Internal cloud group id ||
+Required field. Internal cloud group id
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -187,7 +194,6 @@ Message describes the user's request to change (add or remove) a single group ma
 || item | **[GroupMappingItem](#yandex.cloud.organizationmanager.v1.GroupMappingItem2)** ||
 || action | enum **Action**
 
-- `ACTION_UNSPECIFIED`
 - `ADD`: Group mapping item is to be added
 - `REMOVE`: Group mapping item is to be removed ||
 |#
@@ -200,8 +206,12 @@ Group mapping represents which external (federated) groups should match which in
 ||Field | Description ||
 || external_group_id | **string**
 
-Required field. External group id (received from identity provider) ||
+Required field. External group id (received from identity provider)
+
+The maximum string length in characters is 1000. ||
 || internal_group_id | **string**
 
-Required field. Internal cloud group id ||
+Required field. Internal cloud group id
+
+The maximum string length in characters is 50. ||
 |#

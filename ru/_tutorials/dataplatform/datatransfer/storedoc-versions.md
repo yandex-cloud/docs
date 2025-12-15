@@ -16,11 +16,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ SD }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ SD }}](../../../storedoc/pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластера (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
-* Плата за каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../../data-transfer/pricing.md)).
+* Кластер {{ SD }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ SD }}](../../../storedoc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -247,21 +245,20 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* [Трансфер](../../../data-transfer/operations/transfer.md#delete).
-* [Эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
+1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Кластер {{ mmg-name }} версии `6.0` удалите в зависимости от способа его создания:
 
-Кластер {{ mmg-name }} версии `6.0` удалите в зависимости от способа его создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       Удалите [кластер {{ mmg-name }}](../../../storedoc/operations/cluster-delete.md).
 
-    Удалите [кластер {{ mmg-name }}](../../../storedoc/operations/cluster-delete.md).
+   - С помощью {{ TF }} {#tf}
 
-- С помощью {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}

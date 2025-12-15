@@ -28,15 +28,21 @@ Retrieves the list of OAuthClient resources views in the specified folder
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListOAuthClientsResponse.next_page_token](#yandex.cloud.iam.v1.ListOAuthClientsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListOAuthClientsResponse.next_page_token](#yandex.cloud.iam.v1.ListOAuthClientsResponse) returned by a previous list request. ||
+[ListOAuthClientsResponse.next_page_token](#yandex.cloud.iam.v1.ListOAuthClientsResponse) returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || folder_id | **string**
 
 Required field. ID of the folder to list oauth clients for
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListOAuthClientsResponse {#yandex.cloud.iam.v1.ListOAuthClientsResponse}

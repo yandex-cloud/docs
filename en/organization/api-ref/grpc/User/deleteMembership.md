@@ -24,11 +24,15 @@ Delete user membership.
 ||Field | Description ||
 || organization_id | **string**
 
-Required field. ID of the organization to delete membership. ||
+Required field. ID of the organization to delete membership.
+
+The maximum string length in characters is 50. ||
 || subject_id | **string**
 
 ID of the subject that is being deleted from organization.
-By default equals to authenticated subject. ||
+By default equals to authenticated subject.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -116,10 +120,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || organization_id | **string**
 
-Required field. ID of the organization to delete membership. ||
+Required field. ID of the organization to delete membership.
+
+The maximum string length in characters is 50. ||
 || subject_id | **string**
 
-Required field. ID of the subject that is being deleted from organization. ||
+Required field. ID of the subject that is being deleted from organization.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## DeleteMembershipResponse {#yandex.cloud.organizationmanager.v1.DeleteMembershipResponse}
@@ -128,8 +136,12 @@ Required field. ID of the subject that is being deleted from organization. ||
 ||Field | Description ||
 || organization_id | **string**
 
-Required field. ID of the organization to delete membership. ||
+Required field. ID of the organization to delete membership.
+
+The maximum string length in characters is 50. ||
 || subject_id | **string**
 
-Required field. ID of the subject that is being deleted from organization. ||
+Required field. ID of the subject that is being deleted from organization.
+
+The maximum string length in characters is 50. ||
 |#

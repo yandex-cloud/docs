@@ -5,6 +5,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.176.0 (December 15, 2025)
+##### BUG FIXES:
+* mysql: cluster `access` and `performance_diagnostics` fields fix
+##### ENHANCEMENTS:
+* mdb_kafka: add support for Kafka 4
+
 ## 0.175.0 (December 12, 2025)
 ##### FEATURES:
 * OrganizationManager: added idp saml signature certificate resource and datasource

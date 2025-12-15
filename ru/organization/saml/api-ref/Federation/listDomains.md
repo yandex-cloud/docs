@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the federation to list domains for.
             To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - federationId
@@ -25,6 +26,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListFederationDomainsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederationDomainsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -34,6 +36,7 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken`
             to the [ListFederationDomainsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederationDomainsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
         filter:
           description: |-
@@ -48,6 +51,7 @@ apiPlayground:
             - `domain` - domain name
             - `status` - domain validation status
             Must be 1-1000 characters long.
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -72,7 +76,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fed
 || federationId | **string**
 
 Required field. ID of the federation to list domains for.
-To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.saml.ListFederationDomainsRequest}
@@ -84,12 +90,16 @@ To get the federation ID, make a [FederationService.List](/docs/organization/sam
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListFederationDomainsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederationDomainsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListFederationDomainsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederationDomainsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -103,7 +113,9 @@ Available fields for filtering:
 - `domain` - domain name
 - `status` - domain validation status
 
-Must be 1-1000 characters long. ||
+Must be 1-1000 characters long.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.ListFederationDomainsResponse}
@@ -166,7 +178,6 @@ Domain name ||
 
 Current status of the domain.
 
-- `STATUS_UNSPECIFIED`
 - `NEED_TO_VALIDATE`: Domain requires ownership validation.
 - `VALIDATING`: Domain validation is in progress.
 - `VALID`: Domain has been successfully validated and is active.
@@ -231,13 +242,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Type of the validation challenge.
 
-- `TYPE_UNSPECIFIED`
 - `DNS_TXT`: DNS TXT record validation method. ||
 || status | **enum** (Status)
 
 Current status of the challenge.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: Challenge is awaiting completion.
 - `PROCESSING`: Challenge verification is in progress.
 - `VALID`: Challenge has been completed successfully.
@@ -264,7 +273,6 @@ Fully qualified domain name for the record. ||
 
 DNS record type (always TXT for current implementation).
 
-- `TYPE_UNSPECIFIED`
 - `TXT`: TXT record type. ||
 || value | **string**
 

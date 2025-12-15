@@ -11,20 +11,25 @@ apiPlayground:
         organizationId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
         subjectId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
         name:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 255.
           type: string
         data:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 20000.
           type: string
         expiresAt:
           description: |-
@@ -69,14 +74,22 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/userSsh
 ||Field | Description ||
 || organizationId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subjectId | **string**
 
-Required field.  ||
-|| name | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| name | **string**
+
+The maximum string length in characters is 255. ||
 || data | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 20000. ||
 || expiresAt | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from

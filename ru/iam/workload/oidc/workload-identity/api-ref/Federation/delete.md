@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the OIDC workload identity federation to delete.
             To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - federationId
@@ -38,7 +39,9 @@ DELETE https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId
 || federationId | **string**
 
 Required field. ID of the OIDC workload identity federation to delete.
-To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request. ||
+To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

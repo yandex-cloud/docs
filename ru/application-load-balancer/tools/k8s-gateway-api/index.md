@@ -5,6 +5,8 @@ description: '{{ alb-name }} предоставляет инструмент д�
 
 # Gateway API для {{ managed-k8s-name }}
 
+{% include [ingress-to-gwin-tip](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 {{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — Gateway API. Подробнее о проекте Gateway API см. на его [сайте](https://gateway-api.sigs.k8s.io/).
 
 После установки Gateway API вы сможете создать с его помощью ресурс `Gateway`, а также связанные с ним ресурсы `HTTPRoute` и `GRPCRoute`:

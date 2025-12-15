@@ -28,16 +28,22 @@ Request to update an existing signature certificate.
 ||Field | Description ||
 || signature_certificate_id | **string**
 
-Required field. ID of the signature certificate to update. ||
+Required field. ID of the signature certificate to update.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the certificate are going to be updated. ||
 || name | **string**
 
-New name for the signature certificate. ||
+New name for the signature certificate.
+
+Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-New description for the signature certificate. ||
+New description for the signature certificate.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -153,7 +159,6 @@ ID of the SAML application that the signature certificate belongs to. ||
 
 Current status of the signature certificate.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `ACTIVE`: The certificate is active and can be used for signing.
 - `INACTIVE`: The certificate is inactive and cannot be used for signing. ||
 || name | **string**

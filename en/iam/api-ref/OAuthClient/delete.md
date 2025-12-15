@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the oauth client to delete.
             To get the oauth client ID, use [OAuthClientService.list] request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - oauthClientId
@@ -38,7 +39,9 @@ DELETE https://iam.{{ api-host }}/iam/v1/oauthClients/{oauthClientId}
 || oauthClientId | **string**
 
 Required field. ID of the oauth client to delete.
-To get the oauth client ID, use [OAuthClientService.list] request. ||
+To get the oauth client ID, use [OAuthClientService.list] request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

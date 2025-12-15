@@ -6,6 +6,10 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 # Deleting a connection
 
 
+You cannot delete a connection you [created manually](../quickstart/connection-manager.md#database-connections) as long as it has at least one [dependency](../concepts/connection-manager.md#dependencies). 
+
+A connection [created automatically](../quickstart/connection-manager.md#mdb-integration) when creating a managed database cluster cannot be deleted. Such connections are deleted automatically when you delete the MDB cluster, but they will be remain intact for as long as there is at least one backup referencing them. After you delete the cluster that created the connection, its automatic backups are stored for another week; therefore, the connection does not get deleted right away together with the cluster.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

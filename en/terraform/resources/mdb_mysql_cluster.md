@@ -395,6 +395,7 @@ Optional:
 - `data_lens` (Boolean) Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
 - `data_transfer` (Boolean) Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).
 - `web_sql` (Boolean) Allows access for [SQL queries in the management console](https://yandex.cloud/docs/managed-mysql/operations/web-sql-query).
+- `yandex_query` (Boolean) Allow access for [YandexQuery](https://yandex.cloud/services/query).
 
 
 <a id="nestedblock--backup_window_start"></a>

@@ -8,4 +8,6 @@ To quickly find the ticket you need, use filters and sorting by:
 * Response status.
 * Ticket type.
 
+  ![image](../../_assets/support/problem-solution/cloud-center-filters.png)
+
 To clear the ticket filters, click **{{ ui-key.support-center.tickets.filters.action_reset-filters }}**.

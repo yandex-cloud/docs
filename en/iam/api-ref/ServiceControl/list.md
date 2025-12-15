@@ -21,6 +21,7 @@ apiPlayground:
             the service returns a [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -30,6 +31,7 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken`
             to the [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
             returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
       required:
         - resource
@@ -43,11 +45,13 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the resource.
+              The maximum string length in characters is 50.
             type: string
           type:
             description: |-
               **string**
               Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+              The maximum string length in characters is 64.
             type: string
         required:
           - id
@@ -80,12 +84,16 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100 ||
+Default value: 100
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Resource {#yandex.cloud.iam.v1.Resource}
@@ -96,10 +104,14 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.ListServicesResponse}
@@ -164,7 +176,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Current status of the service.
 
-- `STATUS_UNSPECIFIED`
 - `ENABLED`: The service is enabled.
 - `PAUSED`: The service is paused.
 - `DISABLED`: The service is disabled.
@@ -184,8 +195,12 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#

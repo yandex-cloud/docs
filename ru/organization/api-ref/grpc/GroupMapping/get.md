@@ -27,7 +27,9 @@ the call FAILED_PRECONDITION will be returned.
 ||Field | Description ||
 || federation_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetGroupMappingResponse {#yandex.cloud.organizationmanager.v1.GetGroupMappingResponse}

@@ -25,11 +25,15 @@ Validates a domain in the specified federation.
 || federation_id | **string**
 
 Required field. ID of the federation to validate a domain for.
-To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 || domain | **string**
 
 Required field. Domain name to validate for the federation.
-Must be a valid domain name (1-253 characters). ||
+Must be a valid domain name (1-253 characters).
+
+The string length in characters must be 1-253. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -154,7 +158,6 @@ Domain name ||
 
 Current status of the domain.
 
-- `STATUS_UNSPECIFIED`
 - `NEED_TO_VALIDATE`: Domain requires ownership validation.
 - `VALIDATING`: Domain validation is in progress.
 - `VALID`: Domain has been successfully validated and is active.
@@ -191,13 +194,11 @@ Timestamp of the last challenge status update. ||
 
 Type of the validation challenge.
 
-- `TYPE_UNSPECIFIED`
 - `DNS_TXT`: DNS TXT record validation method. ||
 || status | enum **Status**
 
 Current status of the challenge.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: Challenge is awaiting completion.
 - `PROCESSING`: Challenge verification is in progress.
 - `VALID`: Challenge has been completed successfully.
@@ -224,7 +225,6 @@ Fully qualified domain name for the record. ||
 
 DNS record type (always TXT for current implementation).
 
-- `TYPE_UNSPECIFIED`
 - `TXT`: TXT record type. ||
 || value | **string**
 

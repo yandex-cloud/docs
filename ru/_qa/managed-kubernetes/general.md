@@ -26,3 +26,11 @@
 #### Я могу подключиться к узлу кластера через {{ oslogin }}, по аналогии с ВМ {{ yandex-cloud }}? {#connect-via-oslogin}
 
 Да, для этого [воспользуйтесь инструкцией](../../managed-kubernetes/operations/node-connect-oslogin.md).
+
+#### Какая операционная система используется на узлах кластера? {#cluster-node-os}
+
+В зависимости от [канала обновлений и версии](../../managed-kubernetes/concepts/release-channels-and-updates.md) {{ k8s }} на узлах кластера предустанавливается Ubuntu 20.04 или Ubuntu 22.04.
+
+#### Поддерживает ли Yandex Virtual Private Cloud протокол IPv6? {#ipv6-support}
+
+В {{ vpc-full-name }} [отсутствует поддержка протокола IPv6](../../vpc/concepts/network-overview.md#limits), но на уровне ОС на узлах кластера IPv6 включен по умолчанию.

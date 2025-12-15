@@ -52,6 +52,7 @@ resource "yandex_mdb_mysql_cluster_v2" "cluster" {
     web_sql       = true
     data_transfer = true
     data_lens     = true
+    yandex_query  = true
   }
 
   maintenance_window = {
@@ -144,6 +145,7 @@ Optional:
 - `data_lens` (Boolean) Allow access for Yandex DataLens.
 - `data_transfer` (Boolean) Allow access for DataTransfer
 - `web_sql` (Boolean) Allow access for SQL queries in the management console
+- `yandex_query` (Boolean) Allow access for YandexQuery
 
 
 <a id="nestedatt--backup_window_start"></a>

@@ -12,12 +12,12 @@ apiPlayground:
           description: |-
             **string**
             Required field. Keyword.
+            The maximum string length in characters is 400.
           type: string
         period:
           description: |-
             **enum** (Period)
             Required field. The period of aggregation of the number of queries.
-            - `PERIOD_UNSPECIFIED`
             - `PERIOD_MONTHLY`: Details by month.
             - `PERIOD_WEEKLY`: Details by week.
             - `PERIOD_DAILY`: Details by day.
@@ -53,6 +53,7 @@ apiPlayground:
           description: |-
             **string**
             A list of IDs of the regions a query was made from.
+            The maximum number of elements is 100.
           type: array
           items:
             type: string
@@ -60,7 +61,7 @@ apiPlayground:
           description: |-
             **enum** (Device)
             A list of device types a query was made from.
-            - `DEVICE_UNSPECIFIED`
+            The maximum number of elements is 3.
             - `DEVICE_ALL`: All devices.
             - `DEVICE_DESKTOP`: Desktop computers.
             - `DEVICE_PHONE`: Phones.
@@ -78,6 +79,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the folder.
+            The maximum string length in characters is 50.
           type: string
       required:
         - phrase
@@ -121,12 +123,13 @@ POST https://searchapi.{{ api-host }}/v2/wordstat/dynamics
 ||Field | Description ||
 || phrase | **string**
 
-Required field. Keyword. ||
+Required field. Keyword.
+
+The maximum string length in characters is 400. ||
 || period | **enum** (Period)
 
 Required field. The period of aggregation of the number of queries.
 
-- `PERIOD_UNSPECIFIED`
 - `PERIOD_MONTHLY`: Details by month.
 - `PERIOD_WEEKLY`: Details by week.
 - `PERIOD_DAILY`: Details by day. ||
@@ -152,19 +155,24 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || regions[] | **string**
 
-A list of IDs of the regions a query was made from. ||
+A list of IDs of the regions a query was made from.
+
+The maximum number of elements is 100. ||
 || devices[] | **enum** (Device)
 
 A list of device types a query was made from.
 
-- `DEVICE_UNSPECIFIED`
+The maximum number of elements is 3.
+
 - `DEVICE_ALL`: All devices.
 - `DEVICE_DESKTOP`: Desktop computers.
 - `DEVICE_PHONE`: Phones.
 - `DEVICE_TABLET`: Tablets. ||
 || folderId | **string**
 
-ID of the folder. ||
+ID of the folder.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.searchapi.v2.GetDynamicsResponse}

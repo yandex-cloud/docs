@@ -13,18 +13,21 @@ apiPlayground:
             **string**
             Required field. ID of the folder to create an OIDC workload identity federation in.
             To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. Name of the OIDC workload identity federation.
             The name must be unique within the folder.
+            Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the OIDC workload identity federation.
+            The maximum string length in characters is 256.
           type: string
         disabled:
           description: |-
@@ -36,6 +39,7 @@ apiPlayground:
           description: |-
             **string**
             List of trusted values for aud claim.
+            The maximum number of elements is 100. The maximum string length in characters for each value is 255.
           type: array
           items:
             type: string
@@ -43,11 +47,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. URL of the external IdP server to be used for authentication.
+            The maximum string length in characters is 8000.
           type: string
         jwksUrl:
           description: |-
             **string**
             Required field. URL reference to trusted keys in format of JSON Web Key Set.
+            The maximum string length in characters is 8000.
           type: string
         labels:
           description: |-
@@ -98,27 +104,39 @@ POST https://iam.{{ api-host }}/iam/v1/workload/oidc/federations
 || folderId | **string**
 
 Required field. ID of the folder to create an OIDC workload identity federation in.
-To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the OIDC workload identity federation.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the OIDC workload identity federation. ||
+Description of the OIDC workload identity federation.
+
+The maximum string length in characters is 256. ||
 || disabled | **boolean**
 
 True - the OIDC workload identity federation is disabled and cannot be used for authentication.
 False - the OIDC workload identity federation is enabled and can be used for authentication. ||
 || audiences[] | **string**
 
-List of trusted values for aud claim. ||
+List of trusted values for aud claim.
+
+The maximum number of elements is 100. The maximum string length in characters for each value is 255. ||
 || issuer | **string**
 
-Required field. URL of the external IdP server to be used for authentication. ||
+Required field. URL of the external IdP server to be used for authentication.
+
+The maximum string length in characters is 8000. ||
 || jwksUrl | **string**
 
-Required field. URL reference to trusted keys in format of JSON Web Key Set. ||
+Required field. URL reference to trusted keys in format of JSON Web Key Set.
+
+The maximum string length in characters is 8000. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs ||

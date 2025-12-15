@@ -8,7 +8,9 @@ apiPlayground:
       type: object
       properties:
         subjectId:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -18,6 +20,7 @@ apiPlayground:
             the service returns a [ListRefreshTokensResponse.nextPageToken](#yandex.cloud.iam.v1.ListRefreshTokensResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -27,6 +30,7 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken`
             to the [ListRefreshTokensResponse.nextPageToken](#yandex.cloud.iam.v1.ListRefreshTokensResponse)
             returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
         filter:
           description: |-
@@ -37,6 +41,7 @@ apiPlayground:
             2. The operator. An `=` operator can be used for all fields. An 'IN' operator can be used for [RefreshToken.protectionLevel](#yandex.cloud.iam.v1.RefreshToken).
             3. The value. The value must be in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-zA-Z][_-a-zA-Z0-9]{1,61}[a-z0-9]`.
             Example of a filter: `client_instance_info="clientInstanceInfo" AND protection_level IN ("INSECURE_KEY_DPOP", "SECURE_KEY_DPOP")`.
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -58,19 +63,25 @@ GET https://iam.{{ api-host }}/iam/v1/refreshTokens
 
 #|
 ||Field | Description ||
-|| subjectId | **string** ||
+|| subjectId | **string**
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListRefreshTokensResponse.nextPageToken](#yandex.cloud.iam.v1.ListRefreshTokensResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListRefreshTokensResponse.nextPageToken](#yandex.cloud.iam.v1.ListRefreshTokensResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters refresh tokens listed in the response.
@@ -79,7 +90,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [RefreshToken.clientInstanceInfo](#yandex.cloud.iam.v1.RefreshToken), [RefreshToken.clientId](#yandex.cloud.iam.v1.RefreshToken) or [RefreshToken.protectionLevel](#yandex.cloud.iam.v1.RefreshToken) fields.
 2. The operator. An `=` operator can be used for all fields. An 'IN' operator can be used for [RefreshToken.protectionLevel](#yandex.cloud.iam.v1.RefreshToken).
 3. The value. The value must be in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-zA-Z][_-a-zA-Z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `client_instance_info="clientInstanceInfo" AND protection_level IN ("INSECURE_KEY_DPOP", "SECURE_KEY_DPOP")`. ||
+Example of a filter: `client_instance_info="clientInstanceInfo" AND protection_level IN ("INSECURE_KEY_DPOP", "SECURE_KEY_DPOP")`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.ListRefreshTokensResponse}
@@ -171,7 +184,6 @@ Protection level of the refresh token.
 
 It shows whether DPOP was used to protect the Refresh Token and and the level of security of the storage used for the DPOP key.
 
-- `PROTECTION_LEVEL_UNSPECIFIED`
 - `NO_PROTECTION`: Refresh token without DPOP
 - `INSECURE_KEY_DPOP`: Refresh token with dpop. The dpop key is not a YubiKey PIV key with required pin/touch policy and attestation.
 - `SECURE_KEY_DPOP`: Refresh token with dpop. The dpop key is a YubiKey PIV key with required pin/touch policy and attestation. ||

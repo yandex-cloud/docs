@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the federation to delete.
             To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     query: null
@@ -36,7 +37,9 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/
 || federationId | **string**
 
 Required field. ID of the federation to delete.
-To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

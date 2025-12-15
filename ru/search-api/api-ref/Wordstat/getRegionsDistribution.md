@@ -12,12 +12,12 @@ apiPlayground:
           description: |-
             **string**
             Required field. Keyword
+            The maximum string length in characters is 400.
           type: string
         region:
           description: |-
             **enum** (Region)
             Show query distribution only by city, only by region, or everywhere.
-            - `REGION_UNSPECIFIED`
             - `REGION_ALL`: Show distribution everywhere.
             - `REGION_CITIES`: Show distribution by cities.
             - `REGION_REGIONS`: Show distribution by regions.
@@ -31,7 +31,6 @@ apiPlayground:
           description: |-
             **enum** (Device)
             A list of device types a query was made from.
-            - `DEVICE_UNSPECIFIED`
             - `DEVICE_ALL`: All devices.
             - `DEVICE_DESKTOP`: Desktop computers.
             - `DEVICE_PHONE`: Phones.
@@ -49,6 +48,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the folder.
+            The maximum string length in characters is 50.
           type: string
       required:
         - phrase
@@ -85,12 +85,13 @@ POST https://searchapi.{{ api-host }}/v2/wordstat/regions
 ||Field | Description ||
 || phrase | **string**
 
-Required field. Keyword ||
+Required field. Keyword
+
+The maximum string length in characters is 400. ||
 || region | **enum** (Region)
 
 Show query distribution only by city, only by region, or everywhere.
 
-- `REGION_UNSPECIFIED`
 - `REGION_ALL`: Show distribution everywhere.
 - `REGION_CITIES`: Show distribution by cities.
 - `REGION_REGIONS`: Show distribution by regions. ||
@@ -98,14 +99,15 @@ Show query distribution only by city, only by region, or everywhere.
 
 A list of device types a query was made from.
 
-- `DEVICE_UNSPECIFIED`
 - `DEVICE_ALL`: All devices.
 - `DEVICE_DESKTOP`: Desktop computers.
 - `DEVICE_PHONE`: Phones.
 - `DEVICE_TABLET`: Tablets. ||
 || folderId | **string**
 
-ID of the folder. ||
+ID of the folder.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.searchapi.v2.GetRegionsDistributionResponse}
@@ -138,7 +140,7 @@ Results. ||
 ||Field | Description ||
 || region | **string**
 
-region ID ||
+Region ID ||
 || count | **string** (int64)
 
 Number of queries containing the given keyword. ||

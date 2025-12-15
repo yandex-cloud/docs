@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the user to set the password hash for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - userId
@@ -32,12 +33,12 @@ apiPlayground:
             description: |-
               **string**
               Required field. The password hash string.
+              The maximum string length in characters is 128.
             type: string
           passwordHashType:
             description: |-
               **enum** (PasswordHashType)
               Required field. Type of the password hash.
-              - `PASSWORD_HASH_TYPE_UNSPECIFIED`: The password hash type is not specified.
               - `AD_MD4`: Microsoft Active Directory MD4 hash.
             type: string
             enum:
@@ -67,7 +68,9 @@ Request to set a password hash for a user.
 ||Field | Description ||
 || userId | **string**
 
-Required field. ID of the user to set the password hash for. ||
+Required field. ID of the user to set the password hash for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest}
@@ -98,12 +101,13 @@ Password hash information.
 ||Field | Description ||
 || passwordHash | **string**
 
-Required field. The password hash string. ||
+Required field. The password hash string.
+
+The maximum string length in characters is 128. ||
 || passwordHashType | **enum** (PasswordHashType)
 
 Required field. Type of the password hash.
 
-- `PASSWORD_HASH_TYPE_UNSPECIFIED`: The password hash type is not specified.
 - `AD_MD4`: Microsoft Active Directory MD4 hash. ||
 |#
 

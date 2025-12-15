@@ -25,10 +25,14 @@ Creates an OAuthClientSecret resource for the specified OAuthClient.
 || oauth_client_id | **string**
 
 Required field. ID of the OAuthClient resource to create OAuthClientSecret resource for.
-To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List](/docs/iam/api-ref/grpc/OAuthClient/list#List) request. ||
+To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List](/docs/iam/api-ref/grpc/OAuthClient/list#List) request.
+
+The maximum string length in characters is 50. ||
 || description | **string**
 
-Description of the OAuthClientResource. ||
+Description of the OAuthClientResource.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

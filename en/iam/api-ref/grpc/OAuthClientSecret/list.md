@@ -28,15 +28,21 @@ Retrieves the list of OAuthClientSecret resources of the specified OAuthClient.
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListOAuthClientSecretsResponse.next_page_token](#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListOAuthClientSecretsResponse.next_page_token](#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse) returned by a previous list request. ||
+[ListOAuthClientSecretsResponse.next_page_token](#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse) returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || oauth_client_id | **string**
 
 Required field. ID of the OAuthClient resource to list OAuthClientSecret resources for.
-To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List](/docs/iam/api-ref/grpc/OAuthClient/list#List) request. ||
+To get the oauth client ID, use a [yandex.cloud.iam.v1.OAuthClientService.List](/docs/iam/api-ref/grpc/OAuthClient/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListOAuthClientSecretsResponse {#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse}

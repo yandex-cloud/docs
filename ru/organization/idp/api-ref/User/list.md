@@ -11,22 +11,26 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the userpool to list users in.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token for pagination.
+            The maximum string length in characters is 2000.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - userpoolId
@@ -54,16 +58,24 @@ Request to list users in a userpool.
 ||Field | Description ||
 || userpoolId | **string**
 
-Required field. ID of the userpool to list users in. ||
+Required field. ID of the userpool to list users in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
-The maximum number of results per page to return. ||
+The maximum number of results per page to return.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
-Page token for pagination. ||
+Page token for pagination.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
-A filter expression that filters resources listed in the response. ||
+A filter expression that filters resources listed in the response.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.ListUsersResponse}
@@ -126,7 +138,6 @@ To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api
 Current status of the user.
 Determines whether the user can authenticate and access the system.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The user is in the process of being created.
 - `ACTIVE`: The user is active and can authenticate.
 Active users have full access to the system according to their permissions.

@@ -24,8 +24,12 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/upda
 ||Field | Description ||
 || user_ssh_key_id | **string**
 
-Required field.  ||
-|| name | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| name | **string**
+
+The maximum string length in characters is 255. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

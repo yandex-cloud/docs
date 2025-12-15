@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the userpool to delete.
             To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - userpoolId
@@ -40,7 +41,9 @@ Request to delete a userpool.
 || userpoolId | **string**
 
 Required field. ID of the userpool to delete.
-To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request. ||
+To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -195,7 +195,8 @@ bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/p
     "enabled": "bool",
     "private_endpoints": [
       "string"
-    ]
+    ],
+    "force_cloud_console_access": "bool"
   },
   "resource_id": "string",
   "disabled_statickey_auth": "bool"
@@ -846,4 +847,8 @@ even if private_endpoints list is empty ||
 || private_endpoints[] | **string**
 
 white list of private endpoints bucket accessible from ||
+|| force_cloud_console_access | **bool**
+
+if true, cloud console will be able to access a bucket
+regardless of private_endpoints list ||
 |#

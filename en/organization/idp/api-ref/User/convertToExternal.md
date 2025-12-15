@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the user to convert.
+            The maximum string length in characters is 50.
           type: string
       required:
         - userId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. External identifier to associate with the user.
+            The maximum string length in characters is 256.
           type: string
       required:
         - externalId
@@ -48,7 +50,9 @@ Request to convert a user to use external authentication.
 ||Field | Description ||
 || userId | **string**
 
-Required field. ID of the user to convert. ||
+Required field. ID of the user to convert.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.ConvertToExternalUserRequest}
@@ -65,7 +69,9 @@ Request to convert a user to use external authentication.
 ||Field | Description ||
 || externalId | **string**
 
-Required field. External identifier to associate with the user. ||
+Required field. External identifier to associate with the user.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -232,7 +238,6 @@ To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api
 Current status of the user.
 Determines whether the user can authenticate and access the system.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The user is in the process of being created.
 - `ACTIVE`: The user is active and can authenticate.
 Active users have full access to the system according to their permissions.

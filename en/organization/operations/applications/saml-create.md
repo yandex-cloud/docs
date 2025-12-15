@@ -33,6 +33,66 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
           1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for creating a SAML application:
+
+     ```bash
+     yc organization-manager idp application saml application create --help
+     ```
+
+  1. Create a SAML application:
+
+     ```bash
+     yc organization-manager idp application saml application create \
+       --organization-id <organization_ID> \
+       --name <application_name> \
+       --description <application_description> \
+       --labels <key>=<value>[,<key>=<value>]
+     ```
+
+     Where:
+
+     * `--organization-id`: [ID of the organization](../organization-get-id.md) you want to create your SAML application in. This is a required setting.
+     * `--name`: SAML application name. This is a required setting. The name must be unique within the organization and follow the naming requirements:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `--description`: SAML application description. This is an optional setting.
+     * `--labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
+
+     Result:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: saml-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: NONE
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
+     Save the `id` field value: you will need it to configure your app.
+
+  1. Optionally, get information about the application's certificates:
+
+     ```bash
+     yc organization-manager idp application saml signature-certificate list \
+       --application-id <app_ID>
+     ```
+
+     When you create a SAML application, a certificate is automatically created to verify the SAML response signature.
+
+- API {#api}
+
+  Use the [Application.Create](../../idp/application/saml/api-ref/Application/create.md) REST API method for the [Application](../../idp/application/saml/api-ref/Application/index.md) resource or the [ApplicationService/Create](../../idp/application/saml/api-ref/grpc/Application/create.md) gRPC API call.
+
 {% endlist %}
 
 ## Set up your application {#setup-application}
@@ -88,6 +148,59 @@ Before configuring your SAML application in {{ org-name }}, get the required set
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
   1. {% include [saml-app-update-sp-settings](../../../_includes/organization/saml-app-update-sp-settings.md) %}
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for setting up a SAML application:
+
+     ```bash
+     yc organization-manager idp application saml application update --help
+     ```
+
+  1. Run this command to configure service provider settings:
+
+     ```bash
+     yc organization-manager idp application saml application update \
+       --id <app_ID> \
+       --sp-entity-id <service_provider_ID> \
+       --acs-urls <URL>[,<URL>] \
+       --signature-mode <signature_mode>
+     ```
+
+     Where:
+
+     * `--id`: SAML application ID. This is a required setting.
+     * `--sp-entity-id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-name }} side.
+     * `--acs-urls`: URL or comma-separated URLs to which {{ org-name }} will send the SAML response. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     * `--signature-mode`: SAML response elements that will be digitally signed. The possible values are:
+       * `assertion_only`: Only the provided user attributes.
+       * `response_only`: Full SAML response.
+       * `response_and_assertion`: Full SAML response and, separately, the provided attributes.
+
+     Result:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: saml-app
+     organization_id: bpf2c65rqcl8********
+     sp_entity_id: https://example.com/saml
+     acs_urls:
+       - url: https://example.com/saml/acs
+     signature_mode: RESPONSE_AND_ASSERTION
+     group_claims_settings:
+       group_distribution_type: NONE
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
+- API {#api}
+
+  Use the [Application.Update](../../idp/application/saml/api-ref/Application/update.md) REST API method for the [Application](../../idp/application/saml/api-ref/Application/index.md) resource or the [ApplicationService/Update](../../idp/application/saml/api-ref/grpc/Application/update.md) gRPC API call.
+
 {% endlist %}
 
 ### Configure user and group attributes {#setup-attributes}
@@ -98,7 +211,7 @@ You can configure the attributes {{ org-name }} will transmit to the service pro
 
 ### Configure users and groups {#users-and-groups}
 
-To permit your organization's users to authenticate in external app with {{ org-name }}'s SAML application, you need to explicitly add these users and/or [user groups](../../concepts/groups.md) to the SAML application:
+For your organization's users to be able to authenticate in an external application with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../concepts/groups.md) to the SAML application:
 
 {% note info %}
 

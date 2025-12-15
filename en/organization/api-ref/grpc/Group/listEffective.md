@@ -27,23 +27,31 @@ Returns groups that the subject belongs to within a specific organization.
 ||Field | Description ||
 || subject_id | **string**
 
-Required field. ID of the subject to list groups for. ||
+Required field. ID of the subject to list groups for.
+
+The maximum string length in characters is 50. ||
 || organization_id | **string**
 
 The ID of the organization to scope the group search to.
 If omitted and the subject belongs to a single organization,
-that organization's ID will be used automatically. ||
+that organization's ID will be used automatically.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListEffectiveResponse.next_page_token](#yandex.cloud.organizationmanager.v1.ListEffectiveResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. Set `page_token`
 to the [ListEffectiveResponse.next_page_token](#yandex.cloud.organizationmanager.v1.ListEffectiveResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -57,7 +65,9 @@ Available fields for filtering:
 - `id` - group ID
 - `name` - group name
 
-Must be 1-1000 characters long. ||
+Must be 1-1000 characters long.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListEffectiveResponse {#yandex.cloud.organizationmanager.v1.ListEffectiveResponse}

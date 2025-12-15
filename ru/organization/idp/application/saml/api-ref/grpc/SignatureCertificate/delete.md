@@ -25,7 +25,9 @@ Request to delete a signature certificate.
 ||Field | Description ||
 || signature_certificate_id | **string**
 
-ID of the signature certificate to delete. ||
+ID of the signature certificate to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

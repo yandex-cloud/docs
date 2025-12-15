@@ -27,19 +27,25 @@ Retrieves the list of access keys for the specified service account.
 
 ID of the service account to list access keys for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListAccessKeysResponse.next_page_token](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token`
 to the [ListAccessKeysResponse.next_page_token](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListAccessKeysResponse {#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse}

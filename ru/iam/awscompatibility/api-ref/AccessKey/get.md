@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the AccessKey resource to return.
             To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - accessKeyId
@@ -40,7 +41,9 @@ GET https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
 || accessKeyId | **string**
 
 Required field. ID of the AccessKey resource to return.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.awscompatibility.AccessKey}

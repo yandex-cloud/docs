@@ -32,28 +32,42 @@ Request to update an existing user.
 ||Field | Description ||
 || user_id | **string**
 
-Required field. ID of the user to update. ||
+Required field. ID of the user to update.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the user are going to be updated. ||
 || username | **string**
 
-New username for the user. ||
+New username for the user.
+
+The maximum string length in characters is 254. Value must match the regular expression ` \|[a-z0-9A-Z\._-]{1,64}@.{1,256} `. ||
 || full_name | **string**
 
-New full name for the user. ||
+New full name for the user.
+
+The maximum string length in characters is 256. ||
 || given_name | **string**
 
-New first name for the user. ||
+New first name for the user.
+
+The maximum string length in characters is 256. ||
 || family_name | **string**
 
-New last name for the user. ||
+New last name for the user.
+
+The maximum string length in characters is 256. ||
 || email | **string**
 
-New email address for the user. ||
+New email address for the user.
+
+The maximum string length in characters is 254. Value must match the regular expression ` \|(.{3,254}) `. ||
 || phone_number | **string**
 
-New phone number for the user. ||
+New phone number for the user.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -177,7 +191,6 @@ To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api
 Current status of the user.
 Determines whether the user can authenticate and access the system.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The user is in the process of being created.
 - `ACTIVE`: The user is active and can authenticate.
 Active users have full access to the system according to their permissions.

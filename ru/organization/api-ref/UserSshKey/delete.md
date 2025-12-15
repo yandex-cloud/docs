@@ -9,7 +9,8 @@ apiPlayground:
         userSshKeyId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
       required:
         - userSshKeyId
@@ -34,7 +35,9 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/userS
 ||Field | Description ||
 || userSshKeyId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -35,8 +35,8 @@ data "yandex_iam_oauth_client" "my-oauth-client-data" {
 ### Read-Only
 
 - `name` (String) Name for the oauth client.
-- `redirect_uris` (List of String) List of redirect uries allowed for the oauth client.
-- `scopes` (List of String) List of oauth scopes requested by the oauth client.
+- `redirect_uris` (Set of String) List of redirect uries allowed for the oauth client.
+- `scopes` (Set of String) List of oauth scopes requested by the oauth client.
 - `status` (String) Current status of the oauth client.
 
 <a id="nestedatt--timeouts"></a>

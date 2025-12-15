@@ -27,7 +27,9 @@ To get the list of available Key resources, make a [List](/docs/iam/api-ref/grpc
 || key_id | **string**
 
 Required field. ID of the Key resource to return.
-To get the ID use a [KeyService.List](/docs/iam/api-ref/grpc/Key/list#List) request. ||
+To get the ID use a [KeyService.List](/docs/iam/api-ref/grpc/Key/list#List) request.
+
+The maximum string length in characters is 50. ||
 || format | enum **KeyFormat**
 
 Output format of the key.
@@ -79,7 +81,6 @@ Description of the Key resource. 0-256 characters long. ||
 
 An algorithm used to generate a key pair of the Key resource.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
 || public_key | **string**

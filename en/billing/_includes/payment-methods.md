@@ -4,12 +4,16 @@ The method for crediting funds depends on your legal status ([billing account ty
 
 - Individuals {#individuals}
 
-  - [Bank card transfers](../payment/payment-methods-individual.md)
+  - [Credit or debit card transfers](../operations/pay-the-bill.md#individuals)
+
+  - [SBP (Faster Payment System) transfers](../operations/pay-the-bill.md#individuals)
 
 - Businesses and individual entrepreneurs {#businesses}
+  
+  - [Bank transfer from your account](../operations/pay-the-bill.md#transfer)
+  
+  - [Credit or debit card transfers](../operations/pay-the-bill.md#card)
 
-  - [Bank transfer from your account](../payment/payment-methods-business.md)
-
-  - [Bank card transfers](../payment/payment-methods-card-business.md)
+  - [SBP (Faster Payment System) transfers](../operations/pay-the-bill.md#sbp)
 
 {% endlist %}

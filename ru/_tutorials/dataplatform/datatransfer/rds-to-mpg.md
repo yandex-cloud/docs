@@ -19,12 +19,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ mpg-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластера (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
-* Плата за трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../../data-transfer/pricing.md)).
-* Плата за использование NAT-шлюза (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md#nat-gateways)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../../data-transfer/pricing.md)).
+* NAT-шлюз: почасовое использование и исходящий через него трафик (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md#nat-gateways)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -298,18 +296,18 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    * [Трансфер](../../../data-transfer/operations/transfer.md#delete).
-    * [Эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
-    * [Инстанс Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
-    * [Кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
-    * [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
-    * [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
+    1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
+    1. [Удалите инстанс Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
+    1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+    1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+    1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
 
 - {{ TF }} {#tf}
 

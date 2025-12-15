@@ -25,18 +25,24 @@ Lists operations for the specified federation.
 ||Field | Description ||
 || federation_id | **string**
 
-ID of the federation to list operations for. ||
+ID of the federation to list operations for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListFederationOperationsResponse.next_page_token](#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token`
 to the [ListFederationOperationsResponse.next_page_token](#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListFederationOperationsResponse {#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse}

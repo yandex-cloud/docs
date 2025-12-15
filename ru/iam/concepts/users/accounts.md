@@ -31,6 +31,8 @@ _Федеративный аккаунт_ — это аккаунт пользо
 
 Подробнее читайте в разделе [{#T}](../../../organization/concepts/add-federation.md).
 
+{% include notitle [fed-user-data-after-login-notice](../../../_includes/organization/fed-user-data-after-login-notice.md) %}
+
 ### Примеры использования {#examples-saml-federation}
 
 * [{#T}](../../../tutorials/security/vault-secret.md)

@@ -15,4 +15,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 ||Service | Description ||
 || [AccessKey](AccessKey/index.md) | A set of methods for managing access keys. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [TemporaryAccessKey](TemporaryAccessKey/index.md) | A set of methods for managing temporary and ephemeral access keys. ||
 |#

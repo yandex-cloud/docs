@@ -25,11 +25,15 @@ Deletes the specified domain from the federation.
 || federation_id | **string**
 
 Required field. ID of the federation to delete a domain from.
-To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 || domain | **string**
 
 Required field. Domain name to delete from the federation.
-Must be a valid domain name (1-253 characters). ||
+Must be a valid domain name (1-253 characters).
+
+The string length in characters must be 1-253. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

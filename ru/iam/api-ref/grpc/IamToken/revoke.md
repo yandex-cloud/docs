@@ -23,7 +23,7 @@ Revoke the IAM token.
 ||Field | Description ||
 || iam_token | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## RevokeIamTokenResponse {#yandex.cloud.iam.v1.RevokeIamTokenResponse}

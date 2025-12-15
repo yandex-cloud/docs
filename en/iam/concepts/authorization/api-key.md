@@ -81,7 +81,7 @@ The following services support authentication based on API keys:
 
 ## Use cases {#examples}
 
-* [{#T}](../../../tutorials/serverless/auto-upload.md)
+* [{#T}](../../../tutorials/ml-ai/speechsense/auto-upload.md)
 
 #### See also {#see-also}
 

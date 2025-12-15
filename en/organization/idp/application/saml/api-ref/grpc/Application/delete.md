@@ -25,7 +25,9 @@ Request to delete a SAML application.
 ||Field | Description ||
 || application_id | **string**
 
-Required field. ID of the SAML application to delete. ||
+Required field. ID of the SAML application to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

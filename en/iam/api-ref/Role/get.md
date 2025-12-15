@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Role resource to return.
             To get the role ID, use a [RoleService.List](/docs/iam/api-ref/Role/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - roleId
@@ -40,7 +41,9 @@ GET https://iam.{{ api-host }}/iam/v1/roles/{roleId}
 || roleId | **string**
 
 Required field. ID of the Role resource to return.
-To get the role ID, use a [RoleService.List](/docs/iam/api-ref/Role/list#List) request. ||
+To get the role ID, use a [RoleService.List](/docs/iam/api-ref/Role/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.Role}

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the SAML application to update assignments for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - applicationId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **[AssignmentDelta](#yandex.cloud.organizationmanager.v1.idp.application.saml.AssignmentDelta)**
             List of assignment deltas to apply.
+            The number of elements must be in the range 1-1000.
           type: array
           items:
             $ref: '#/definitions/AssignmentDelta'
@@ -34,6 +36,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the subject being assigned.
+              The maximum string length in characters is 100.
             type: string
         required:
           - subjectId
@@ -44,7 +47,6 @@ apiPlayground:
             description: |-
               **enum** (AssignmentAction)
               Required field. Action to perform on the assignment.
-              - `ASSIGNMENT_ACTION_UNSPECIFIED`: The assignment action is not specified.
               - `ADD`: Add an assignment.
               - `REMOVE`: Remove an assignment.
             type: string
@@ -81,7 +83,9 @@ Request to update assignments for a SAML application.
 ||Field | Description ||
 || applicationId | **string**
 
-Required field. ID of the SAML application to update assignments for. ||
+Required field. ID of the SAML application to update assignments for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.application.saml.UpdateAssignmentsRequest}
@@ -105,7 +109,9 @@ Request to update assignments for a SAML application.
 ||Field | Description ||
 || assignmentDeltas[] | **[AssignmentDelta](#yandex.cloud.organizationmanager.v1.idp.application.saml.AssignmentDelta)**
 
-List of assignment deltas to apply. ||
+List of assignment deltas to apply.
+
+The number of elements must be in the range 1-1000. ||
 |#
 
 ## AssignmentDelta {#yandex.cloud.organizationmanager.v1.idp.application.saml.AssignmentDelta}
@@ -118,7 +124,6 @@ A delta operation on assignments.
 
 Required field. Action to perform on the assignment.
 
-- `ASSIGNMENT_ACTION_UNSPECIFIED`: The assignment action is not specified.
 - `ADD`: Add an assignment.
 - `REMOVE`: Remove an assignment. ||
 || assignment | **[Assignment](#yandex.cloud.organizationmanager.v1.idp.application.saml.Assignment)**
@@ -134,7 +139,9 @@ An assignment for a SAML application.
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. ID of the subject being assigned. ||
+Required field. ID of the subject being assigned.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -292,7 +299,6 @@ A delta operation on assignments.
 
 Required field. Action to perform on the assignment.
 
-- `ASSIGNMENT_ACTION_UNSPECIFIED`: The assignment action is not specified.
 - `ADD`: Add an assignment.
 - `REMOVE`: Remove an assignment. ||
 || assignment | **[Assignment](#yandex.cloud.organizationmanager.v1.idp.application.saml.Assignment2)**
@@ -308,5 +314,7 @@ An assignment for a SAML application.
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. ID of the subject being assigned. ||
+Required field. ID of the subject being assigned.
+
+The maximum string length in characters is 100. ||
 |#

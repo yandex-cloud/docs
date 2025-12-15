@@ -26,7 +26,9 @@ To get the list of available Group resources, make a [List](/docs/organization/a
 || group_id | **string**
 
 Required field. ID of the Group resource to return.
-To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request. ||
+To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Group {#yandex.cloud.organizationmanager.v1.Group}

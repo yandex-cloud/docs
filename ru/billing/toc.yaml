@@ -66,6 +66,8 @@ items:
                 href: operations/dashboard.md
               - name: Экспортировать расширенную детализацию
                 href: operations/get-folder-report.md
+              - name: Получить детализацию через API
+                href: operations/get-charges-via-api.md
               - name: Поиск в детализации с помощью {{ yq-full-name }}
                 href: operations/query-integration.md
   - name: Концепции

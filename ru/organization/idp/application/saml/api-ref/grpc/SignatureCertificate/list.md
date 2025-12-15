@@ -28,16 +28,24 @@ Request to list signature certificates for a SAML application.
 ||Field | Description ||
 || application_id | **string**
 
-Required field. ID of the SAML application to list certificates for. ||
+Required field. ID of the SAML application to list certificates for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
-The maximum number of results per page to return. ||
+The maximum number of results per page to return.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
-Page token for pagination. ||
+Page token for pagination.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
-A filter expression that filters resources listed in the response. ||
+A filter expression that filters resources listed in the response.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListSignatureCertificatesResponse {#yandex.cloud.organizationmanager.v1.idp.application.saml.ListSignatureCertificatesResponse}
@@ -90,7 +98,6 @@ ID of the SAML application that the signature certificate belongs to. ||
 
 Current status of the signature certificate.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `ACTIVE`: The certificate is active and can be used for signing.
 - `INACTIVE`: The certificate is inactive and cannot be used for signing. ||
 || name | **string**

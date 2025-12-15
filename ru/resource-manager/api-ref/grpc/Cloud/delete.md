@@ -25,7 +25,9 @@ Deletes the specified cloud.
 || cloud_id | **string**
 
 Required field. ID of the cloud to delete.
-To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/grpc/Cloud/list#List) request. ||
+To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/grpc/Cloud/list#List) request.
+
+The maximum string length in characters is 50. ||
 || delete_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The timestamp after which the process of deleting the cloud should begin.

@@ -119,6 +119,6 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./sync-ad.md)
 
-## Управление тарификацией {{ org-name }} {#sync-external}
+## Управление тарификацией {{ org-name }} {#manage-billing}
 
 * [{#T}](./manage-billing.md)

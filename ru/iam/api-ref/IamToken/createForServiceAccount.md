@@ -11,7 +11,8 @@ apiPlayground:
         serviceAccountId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
       required:
         - serviceAccountId
@@ -42,7 +43,9 @@ POST https://iam.{{ api-host }}/iam/v1/tokens:createForServiceAccount
 ||Field | Description ||
 || serviceAccountId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.CreateIamTokenResponse}

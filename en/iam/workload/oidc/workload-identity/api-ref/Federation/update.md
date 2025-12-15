@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the OIDC workload identity federation to update.
             To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - federationId
@@ -36,12 +37,14 @@ apiPlayground:
             **string**
             Name of the OIDC workload identity federation.
             The name must be unique within the folder.
+            Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the OIDC workload identity federation.
+            The maximum string length in characters is 256.
           type: string
         disabled:
           description: |-
@@ -53,6 +56,7 @@ apiPlayground:
           description: |-
             **string**
             List of trusted values for aud claim.
+            The maximum number of elements is 100. The maximum string length in characters for each value is 255.
           type: array
           items:
             type: string
@@ -60,6 +64,7 @@ apiPlayground:
           description: |-
             **string**
             URL reference to trusted keys in format of JSON Web Key Set.
+            The maximum string length in characters is 8000.
           type: string
         labels:
           description: |-
@@ -90,7 +95,9 @@ PATCH https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
 || federationId | **string**
 
 Required field. ID of the OIDC workload identity federation to update.
-To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request. ||
+To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iam.v1.workload.oidc.UpdateFederationRequest}
@@ -124,20 +131,28 @@ The rest of the fields will be reset to the default. ||
 || name | **string**
 
 Name of the OIDC workload identity federation.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the OIDC workload identity federation. ||
+Description of the OIDC workload identity federation.
+
+The maximum string length in characters is 256. ||
 || disabled | **boolean**
 
 True - the OIDC workload identity federation is disabled and cannot be used for authentication.
 False - the OIDC workload identity federation is enabled and can be used for authentication. ||
 || audiences[] | **string**
 
-List of trusted values for aud claim. ||
+List of trusted values for aud claim.
+
+The maximum number of elements is 100. The maximum string length in characters for each value is 255. ||
 || jwksUrl | **string**
 
-URL reference to trusted keys in format of JSON Web Key Set. ||
+URL reference to trusted keys in format of JSON Web Key Set.
+
+The maximum string length in characters is 8000. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs ||

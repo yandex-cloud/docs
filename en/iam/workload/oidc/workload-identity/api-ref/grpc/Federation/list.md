@@ -26,19 +26,25 @@ Retrieves the list of OIDC workload identity federations in the specified folder
 || folder_id | **string**
 
 Required field. ID of the folder to list OIDC workload identity federations in.
-To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListFederationsResponse.next_page_token](#yandex.cloud.iam.v1.workload.oidc.ListFederationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100 ||
+Default value: 100
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token`
 to the [ListFederationsResponse.next_page_token](#yandex.cloud.iam.v1.workload.oidc.ListFederationsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListFederationsResponse {#yandex.cloud.iam.v1.workload.oidc.ListFederationsResponse}

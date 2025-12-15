@@ -7,6 +7,32 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.182.0 (15.12.25) {#version0.182.0}
+
+#### Изменения в CLI {#cli-0.182.0}
+
+* В команду `yc init` добавлен параметр `--username`.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.182.0}
+
+##### {{ iam-name }} {#iam-name-0.182.0}
+
+* Для команды `yc iam whoami` исправлена ошибка, которая возникала при получении идентификатора текущего субъекта.
+
+##### {{ mkf-name }} {#mkf-name-0.182.0}
+
+* Добавлена поддержка {{ KF }} версии 4.0.
+
+##### {{ objstorage-full-name }} {#objstorage-0.182.0}
+
+* Добавлены команды для управления выгрузкой метаданных объектов в табличном виде (S3 Inventory):
+  * `yc storage bucket get-inventory-configuration`;
+  * `yc storage bucket create-inventory-configuration`;
+  * `yc storage bucket delete-inventory-configuration`;
+  * `yc storage bucket list-inventory-configurations`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.181.0 (11.12.25) {#version0.181.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services-0.181.0}
@@ -68,8 +94,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ mmg-name }} {#mmg-name-0.181.0}
 
 В команду `yc managed-mongodb cluster restore` добавлены параметры `--whitelist` и `--blacklist` для частичного восстановления кластера.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.180.0 (04.12.25) {#version0.180.0}
 

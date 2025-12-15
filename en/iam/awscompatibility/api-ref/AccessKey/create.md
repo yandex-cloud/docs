@@ -14,11 +14,13 @@ apiPlayground:
             ID of the service account to create an access key for.
             To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
             If not specified, it defaults to the subject that made the request.
+            The maximum string length in characters is 50.
           type: string
         description:
           description: |-
             **string**
             Description of the access key.
+            The maximum string length in characters is 256.
           type: string
       additionalProperties: false
     definitions: null
@@ -50,10 +52,14 @@ POST https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
 
 ID of the service account to create an access key for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || description | **string**
 
-Description of the access key. ||
+Description of the access key.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.awscompatibility.CreateAccessKeyResponse}

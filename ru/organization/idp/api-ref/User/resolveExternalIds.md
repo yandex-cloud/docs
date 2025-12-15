@@ -12,11 +12,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the userpool to resolve external IDs in.
+            The maximum string length in characters is 50.
           type: string
         externalIds:
           description: |-
             **string**
             List of external IDs to resolve.
+            The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 256.
           type: array
           items:
             type: string
@@ -54,10 +56,14 @@ Request to resolve external IDs to internal user IDs.
 ||Field | Description ||
 || userpoolId | **string**
 
-Required field. ID of the userpool to resolve external IDs in. ||
+Required field. ID of the userpool to resolve external IDs in.
+
+The maximum string length in characters is 50. ||
 || externalIds[] | **string**
 
-List of external IDs to resolve. ||
+List of external IDs to resolve.
+
+The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 256. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.ResolveExternalIdsResponse}

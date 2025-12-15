@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the federation to return.
             To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     query: null
@@ -38,7 +39,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fed
 || federationId | **string**
 
 Required field. ID of the federation to return.
-To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.Federation}
@@ -73,16 +76,22 @@ For more information, see [SAML-compatible identity federations](/docs/iam/conce
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the federation. ||
+Required field. ID of the federation.
+
+The maximum string length in characters is 50. ||
 || organizationId | **string**
 
 ID of the organization that the federation belongs to. ||
 || name | **string**
 
-Required field. Name of the federation. ||
+Required field. Name of the federation.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the federation. ||
+Description of the federation.
+
+The maximum string length in characters is 256. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -109,7 +118,9 @@ can't log in, even if they have authenticated on your server. ||
 || issuer | **string**
 
 Required field. ID of the IdP server to be used for authentication.
-The IdP server also responds to IAM with this ID after the user authenticates. ||
+The IdP server also responds to IAM with this ID after the user authenticates.
+
+The maximum string length in characters is 8000. ||
 || ssoBinding | **enum** (BindingType)
 
 Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
@@ -117,14 +128,15 @@ Single sign-on endpoint binding type. Most Identity Providers support the `POST`
 SAML Binding is a mapping of a SAML protocol message onto standard messaging
 formats and/or communications protocols.
 
-- `BINDING_TYPE_UNSPECIFIED`
 - `POST`: HTTP POST binding.
 - `REDIRECT`: HTTP redirect binding.
 - `ARTIFACT`: HTTP artifact binding. ||
 || ssoUrl | **string**
 
 Required field. Single sign-on endpoint URL.
-Specify the link to the IdP login page here. ||
+Specify the link to the IdP login page here.
+
+The maximum string length in characters is 8000. ||
 || securitySettings | **[FederationSecuritySettings](#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings)**
 
 Federation security settings. ||

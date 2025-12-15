@@ -1,6 +1,6 @@
-# Bank card payments for businesses
+# Creadit or debit card payments for businesses
 
-Businesses and individual entrepreneurs can top up their personal accounts and pay for consumed resources using a corporate bank card linked to the billing account.
+Businesses and individual entrepreneurs can top up their personal accounts and pay for consumed resources using a corporate credit or debit card associated with their the billing account, including SBP (Faster Payment System) transfers.
 
 {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 

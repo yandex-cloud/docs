@@ -60,10 +60,14 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/GenSearch/search.md
 ||Field | Description ||
 || messages[] | **[GenSearchMessage](#yandex.cloud.searchapi.v2.GenSearchMessage)**
 
-Single search query or a search query with context in the form of chat with the model. ||
+Single search query or a search query with context in the form of chat with the model.
+
+The number of elements must be in the range 1-100. ||
 || folder_id | **string**
 
-Required field. ID of the folder. ||
+Required field. ID of the folder.
+
+The maximum string length in characters is 50. ||
 || site | **[SiteOption](#yandex.cloud.searchapi.v2.GenSearchRequest.SiteOption)**
 
 Includes only one of the fields `site`, `host`, `url`.
@@ -87,12 +91,13 @@ Fix query misspells. ||
 Use the documents inaccessible from the site's front page. ||
 || search_filters[] | **[SearchFilter](#yandex.cloud.searchapi.v2.GenSearchRequest.SearchFilter)**
 
-Restricts the search by date, document formats or language. ||
+Restricts the search by date, document formats or language.
+
+The maximum number of elements is 10. ||
 || search_type | enum **SearchType**
 
 Search type that determines the domain name that will be used for the search queries.
 
-- `SEARCH_TYPE_UNSPECIFIED`
 - `SEARCH_TYPE_RU`: Russian search type (default), yandex.ru search domain name will be used.
 - `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
 - `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used.
@@ -113,12 +118,13 @@ Search flags ||
 ||Field | Description ||
 || content | **string**
 
-Required field. Text of user query or the model's response (depending on the role value). ||
+Required field. Text of user query or the model's response (depending on the role value).
+
+The maximum string length in characters is 16384. ||
 || role | enum **Role**
 
 Required field. Message sender's role
 
-- `ROLE_UNSPECIFIED`
 - `ROLE_USER`: The message is sent by the user.
 - `ROLE_ASSISTANT`: The message is sent by the model. ||
 |#
@@ -129,7 +135,9 @@ Required field. Message sender's role
 ||Field | Description ||
 || site[] | **string**
 
-Restricts the search to the specific websites. ||
+Restricts the search to the specific websites.
+
+The maximum string length in characters for each value is 1024. The maximum number of elements is 100. ||
 |#
 
 ## HostOption {#yandex.cloud.searchapi.v2.GenSearchRequest.HostOption}
@@ -138,7 +146,9 @@ Restricts the search to the specific websites. ||
 ||Field | Description ||
 || host[] | **string**
 
-Restricts the search to the specific hosts. ||
+Restricts the search to the specific hosts.
+
+The maximum string length in characters for each value is 1024. The maximum number of elements is 100. ||
 |#
 
 ## UrlOption {#yandex.cloud.searchapi.v2.GenSearchRequest.UrlOption}
@@ -147,7 +157,9 @@ Restricts the search to the specific hosts. ||
 ||Field | Description ||
 || url[] | **string**
 
-Restricts the search to the specific pages. ||
+Restricts the search to the specific pages.
+
+The maximum string length in characters for each value is 1024. The maximum number of elements is 100. ||
 |#
 
 ## SearchFilter {#yandex.cloud.searchapi.v2.GenSearchRequest.SearchFilter}
@@ -157,6 +169,8 @@ Restricts the search to the specific pages. ||
 || date | **string**
 
 Restrict by document date. See https://yandex.ru/support/search/ru/query-language/search-operators details.
+
+The maximum string length in characters is 25.
 
 Includes only one of the fields `date`, `lang`, `format`. ||
 || lang | **string**
@@ -170,7 +184,6 @@ Restrict by document format.
 
 Includes only one of the fields `date`, `lang`, `format`.
 
-- `DOC_FORMAT_UNSPECIFIED`
 - `DOC_FORMAT_PDF`
 - `DOC_FORMAT_XLS`
 - `DOC_FORMAT_ODS`
@@ -194,7 +207,9 @@ No more than 64.
 The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
-Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
+Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## GenSearchResponse {#yandex.cloud.searchapi.v2.GenSearchResponse}
@@ -262,12 +277,13 @@ The answer may contain inappropriate content ||
 ||Field | Description ||
 || content | **string**
 
-Required field. Text of user query or the model's response (depending on the role value). ||
+Required field. Text of user query or the model's response (depending on the role value).
+
+The maximum string length in characters is 16384. ||
 || role | enum **Role**
 
 Required field. Message sender's role
 
-- `ROLE_UNSPECIFIED`
 - `ROLE_USER`: The message is sent by the user.
 - `ROLE_ASSISTANT`: The message is sent by the model. ||
 |#

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the certificate to list operations for.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     query:
@@ -22,6 +23,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificateOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -31,6 +33,7 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken`
             to the [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificateOperationsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
       additionalProperties: false
     body: null
@@ -54,7 +57,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/cer
 ||Field | Description ||
 || certificateId | **string**
 
-Required field. ID of the certificate to list operations for. ||
+Required field. ID of the certificate to list operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.saml.ListCertificateOperationsRequest}
@@ -66,12 +71,16 @@ Required field. ID of the certificate to list operations for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificateOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificateOperationsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.ListCertificateOperationsResponse}

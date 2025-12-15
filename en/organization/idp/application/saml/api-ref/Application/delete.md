@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the SAML application to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - applicationId
@@ -38,7 +39,9 @@ Request to delete a SAML application.
 ||Field | Description ||
 || applicationId | **string**
 
-Required field. ID of the SAML application to delete. ||
+Required field. ID of the SAML application to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

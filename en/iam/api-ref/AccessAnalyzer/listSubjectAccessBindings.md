@@ -11,11 +11,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. SubjectId to list access bindings for.
+            The maximum string length in characters is 100.
           type: string
         organizationId:
           description: |-
             **string**
             Required field. OrganizationId to search access bindings in.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -25,6 +27,7 @@ apiPlayground:
             the service returns a [ListSubjectAccessBindingsResponse.nextPageToken](#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -34,6 +37,7 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken`
             to the [ListSubjectAccessBindingsResponse.nextPageToken](#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
       required:
         - subjectId
@@ -60,22 +64,30 @@ GET https://iam.{{ api-host }}/iam/v1/listSubjectAccessBindings
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. SubjectId to list access bindings for. ||
+Required field. SubjectId to list access bindings for.
+
+The maximum string length in characters is 100. ||
 || organizationId | **string**
 
-Required field. OrganizationId to search access bindings in. ||
+Required field. OrganizationId to search access bindings in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListSubjectAccessBindingsResponse.nextPageToken](#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100 ||
+Default value: 100
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListSubjectAccessBindingsResponse.nextPageToken](#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse}
@@ -136,8 +148,12 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#

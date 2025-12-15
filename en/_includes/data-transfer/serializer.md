@@ -20,6 +20,8 @@ If you want to use JSON schemas in {{ schema-registry-full-name }} and preserve 
       {% endnote %}
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.username.title }}**: `api-key`.
+
+  
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.password.title }}**: Value of the [API key](../../iam/concepts/authorization/api-key.md) with a limited scope used for connecting to {{ schema-registry-name }}. To get this value:
       1. Create an API key with a limited scope and place it in the `SECRET` local variable:
 
@@ -38,6 +40,7 @@ If you want to use JSON schemas in {{ schema-registry-full-name }} and preserve 
           ```
 
       1. Copy the printed value and paste it into the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.password.title }}** field in the endpoint creation window.
+
 
 * Under **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.parameters.title }}**:
     * To generate a closed schema for keys, include the `key.converter.dt.json.generate.closed.content.schema` parameter set to `true`.

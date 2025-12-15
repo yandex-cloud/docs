@@ -16,12 +16,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Плата за кластер {{ GP }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
-* Плата за использование публичных IP-адресов для хостов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Плата за каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Кластер {{ mgp-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -254,20 +251,20 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* [Трансфер](../../data-transfer/operations/transfer.md#delete).
-* [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
-* [Эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-* [Объекты](../../storage/operations/objects/delete.md) из бакета.
-* Остальные ресурсы удалите в зависимости от способа их создания:
+1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+1. [Удалите эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакета.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        * [Кластер {{ GP }}](../../managed-greenplum/operations/cluster-delete.md).
-        * [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+        1. [Удалите кластер {{ GP }}](../../managed-greenplum/operations/cluster-delete.md).
+        1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
     - С помощью {{ TF }} {#tf}
 

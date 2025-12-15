@@ -31,7 +31,17 @@ To top up your personal account:
   1. Select a billing account.
   1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
   1. In the window that opens, enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-  1. Enter your card details and click **Pay**.
+  1. Choose [how top up your balance](../payment/payment-methods-individual.md):
+     * SBP (Faster Payment System):
+        1. Click **Pay via SBP**.
+        1. Scan the QR code using your bank’s mobile app and confirm the payment.
+
+        {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
+
+     * Credit or debit card associated with your [Yandex ID](../../iam/concepts/users/accounts.md#passport).  
+     * Adding a card:
+        1. Enter your card details.
+        1. Click **Pay**.
 
 {% endlist %}
 
@@ -79,4 +89,13 @@ To top up your personal account:
 
     Your payment will be processed in real time and completed within 15 minutes.
 
+  - SBP (Faster Payment System) {#sbp}
+
+    {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
+
+    Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Select the SBP top-up method and click **Pay via SBP**.
+    
+    Scan the QR code using your bank’s app and confirm the payment.
+
+    
   {% endlist %}

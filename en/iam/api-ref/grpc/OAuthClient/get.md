@@ -26,7 +26,9 @@ To get the list of available OAuthClient resources, make a [List](/docs/iam/api-
 || oauth_client_id | **string**
 
 Required field. ID of the OAuthClient resource to return.
-To get the oauth client ID, use a [OAuthClientService.List](/docs/iam/api-ref/grpc/OAuthClient/list#List) request. ||
+To get the oauth client ID, use a [OAuthClientService.List](/docs/iam/api-ref/grpc/OAuthClient/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## OAuthClient {#yandex.cloud.iam.v1.OAuthClient}
@@ -69,7 +71,6 @@ ID of the folder oauth client belongs to. ||
 
 Current status of the oauth client.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: OAuth client is being created.
 - `ACTIVE`: OAuth client is active.
 - `DELETING`: OAuth client is being deleted. ||

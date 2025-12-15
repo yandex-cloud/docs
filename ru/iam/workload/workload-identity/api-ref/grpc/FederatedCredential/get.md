@@ -26,7 +26,9 @@ To get the list of available federated credentials, make a [List](/docs/iam/work
 || federated_credential_id | **string**
 
 Required field. ID of the federated credential to return.
-To get the federated credential ID, make a [FederatedCredentialService.List](/docs/iam/workload/workload-identity/api-ref/grpc/FederatedCredential/list#List) request. ||
+To get the federated credential ID, make a [FederatedCredentialService.List](/docs/iam/workload/workload-identity/api-ref/grpc/FederatedCredential/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## FederatedCredential {#yandex.cloud.iam.v1.workload.FederatedCredential}
