@@ -33,10 +33,14 @@ Request to update assignments for a SAML application.
 ||Field | Description ||
 || application_id | **string**
 
-Required field. ID of the SAML application to update assignments for. ||
+Required field. ID of the SAML application to update assignments for.
+
+The maximum string length in characters is 50. ||
 || assignment_deltas[] | **[AssignmentDelta](#yandex.cloud.organizationmanager.v1.idp.application.saml.AssignmentDelta)**
 
-List of assignment deltas to apply. ||
+List of assignment deltas to apply.
+
+The number of elements must be in the range 1-1000. ||
 |#
 
 ## AssignmentDelta {#yandex.cloud.organizationmanager.v1.idp.application.saml.AssignmentDelta}
@@ -49,7 +53,6 @@ A delta operation on assignments.
 
 Required field. Action to perform on the assignment.
 
-- `ASSIGNMENT_ACTION_UNSPECIFIED`: The assignment action is not specified.
 - `ADD`: Add an assignment.
 - `REMOVE`: Remove an assignment. ||
 || assignment | **[Assignment](#yandex.cloud.organizationmanager.v1.idp.application.saml.Assignment)**
@@ -65,7 +68,9 @@ An assignment for a SAML application.
 ||Field | Description ||
 || subject_id | **string**
 
-Required field. ID of the subject being assigned. ||
+Required field. ID of the subject being assigned.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -184,7 +189,6 @@ A delta operation on assignments.
 
 Required field. Action to perform on the assignment.
 
-- `ASSIGNMENT_ACTION_UNSPECIFIED`: The assignment action is not specified.
 - `ADD`: Add an assignment.
 - `REMOVE`: Remove an assignment. ||
 || assignment | **[Assignment](#yandex.cloud.organizationmanager.v1.idp.application.saml.Assignment2)**
@@ -200,5 +204,7 @@ An assignment for a SAML application.
 ||Field | Description ||
 || subject_id | **string**
 
-Required field. ID of the subject being assigned. ||
+Required field. ID of the subject being assigned.
+
+The maximum string length in characters is 100. ||
 |#

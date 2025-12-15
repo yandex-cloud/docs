@@ -34,12 +34,13 @@ The method returns the frequency of queries over time for a given keyword.
 ||Field | Description ||
 || phrase | **string**
 
-Required field. Keyword. ||
+Required field. Keyword.
+
+The maximum string length in characters is 400. ||
 || period | enum **Period**
 
 Required field. The period of aggregation of the number of queries.
 
-- `PERIOD_UNSPECIFIED`
 - `PERIOD_MONTHLY`: Details by month.
 - `PERIOD_WEEKLY`: Details by week.
 - `PERIOD_DAILY`: Details by day. ||
@@ -51,19 +52,24 @@ Required field. The start of the period data is requested for. ||
 The end of the period data is requested for. ||
 || regions[] | **string**
 
-A list of IDs of the regions a query was made from. ||
+A list of IDs of the regions a query was made from.
+
+The maximum number of elements is 100. ||
 || devices[] | enum **Device**
 
 A list of device types a query was made from.
 
-- `DEVICE_UNSPECIFIED`
+The maximum number of elements is 3.
+
 - `DEVICE_ALL`: All devices.
 - `DEVICE_DESKTOP`: Desktop computers.
 - `DEVICE_PHONE`: Phones.
 - `DEVICE_TABLET`: Tablets. ||
 || folder_id | **string**
 
-ID of the folder. ||
+ID of the folder.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetDynamicsResponse {#yandex.cloud.searchapi.v2.GetDynamicsResponse}

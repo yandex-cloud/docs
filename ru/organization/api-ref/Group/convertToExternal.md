@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Group resource to convert to external.
             To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - groupId
@@ -26,6 +27,7 @@ apiPlayground:
             Combination of subject_container_id and external_id must be unique.
             To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request
             or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         externalId:
           description: |-
@@ -63,7 +65,9 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/groups/
 || groupId | **string**
 
 Required field. ID of the Group resource to convert to external.
-To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request. ||
+To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.ConvertToExternalGroupRequest}
@@ -83,7 +87,9 @@ To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/
 Required field. Id of the subject container that external group belongs to.
 Combination of subject_container_id and external_id must be unique.
 To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request
-or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request. ||
+or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organization/idp/api-ref/Userpool/list#List) request.
+
+The maximum string length in characters is 50. ||
 || externalId | **string**
 
 Required field. Id of the group from external system.

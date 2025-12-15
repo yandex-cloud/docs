@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 
 # Identity Hub API, gRPC: MfaEnforcementService.UpdateAudience
 
+updates specified MFA enforcement's audience
+
 ## gRPC request
 
 **rpc UpdateAudience ([UpdateAudienceRequest](#yandex.cloud.organizationmanager.v1.UpdateAudienceRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -27,8 +29,14 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 ||Field | Description ||
 || mfa_enforcement_id | **string**
 
-Required field.  ||
-|| audience_deltas[] | **[AudienceDelta](#yandex.cloud.organizationmanager.v1.AudienceDelta)** ||
+Required field. id of the MFA enforcement
+
+The maximum string length in characters is 50. ||
+|| audience_deltas[] | **[AudienceDelta](#yandex.cloud.organizationmanager.v1.AudienceDelta)**
+
+MFA enforcement's audience to update
+
+The number of elements must be in the range 1-1000. ||
 |#
 
 ## AudienceDelta {#yandex.cloud.organizationmanager.v1.AudienceDelta}
@@ -37,14 +45,15 @@ Required field.  ||
 ||Field | Description ||
 || action | enum **Action**
 
-Required field. 
+Required field. action to perform
 
-- `ACTION_UNSPECIFIED`
-- `ACTION_ADD`
-- `ACTION_REMOVE` ||
+- `ACTION_ADD`: add subject to audience
+- `ACTION_REMOVE`: remove subject from audience ||
 || subject_id | **string**
 
-Required field.  ||
+Required field. subject id
+
+The maximum string length in characters is 100. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -134,7 +143,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| mfa_enforcement_id | **string** ||
+|| mfa_enforcement_id | **string**
+
+id of the MFA enforcement ||
 |#
 
 ## UpdateAudienceResponse {#yandex.cloud.organizationmanager.v1.UpdateAudienceResponse}
@@ -143,8 +154,12 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || mfa_enforcement_id | **string**
 
-Required field.  ||
-|| effective_deltas[] | **[AudienceDelta](#yandex.cloud.organizationmanager.v1.AudienceDelta2)** ||
+Required field. id of the MFA enforcement
+
+The maximum string length in characters is 50. ||
+|| effective_deltas[] | **[AudienceDelta](#yandex.cloud.organizationmanager.v1.AudienceDelta2)**
+
+updated MFA enforcement's audience ||
 |#
 
 ## AudienceDelta {#yandex.cloud.organizationmanager.v1.AudienceDelta2}
@@ -153,12 +168,13 @@ Required field.  ||
 ||Field | Description ||
 || action | enum **Action**
 
-Required field. 
+Required field. action to perform
 
-- `ACTION_UNSPECIFIED`
-- `ACTION_ADD`
-- `ACTION_REMOVE` ||
+- `ACTION_ADD`: add subject to audience
+- `ACTION_REMOVE`: remove subject from audience ||
 || subject_id | **string**
 
-Required field.  ||
+Required field. subject id
+
+The maximum string length in characters is 100. ||
 |#

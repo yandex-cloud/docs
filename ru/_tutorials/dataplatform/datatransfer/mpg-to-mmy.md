@@ -14,7 +14,6 @@
 * Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
 * Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -208,16 +207,16 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    * [Трансфер](../../../data-transfer/operations/transfer.md#delete).
-    * [Эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
-    * [Кластер {{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
-    * [Кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+    1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
+    1. [Удалите кластер {{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
+    1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
 
 - {{ TF }} {#tf}
 

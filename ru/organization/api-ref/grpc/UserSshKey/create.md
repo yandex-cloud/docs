@@ -25,14 +25,22 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/crea
 ||Field | Description ||
 || organization_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subject_id | **string**
 
-Required field.  ||
-|| name | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| name | **string**
+
+The maximum string length in characters is 255. ||
 || data | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 20000. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#
 

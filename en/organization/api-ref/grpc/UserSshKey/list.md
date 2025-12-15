@@ -24,12 +24,20 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/list
 ||Field | Description ||
 || organization_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subject_id | **string**
 
-if empty, list all organization keys ||
-|| page_size | **int64** ||
-|| page_token | **string** ||
+if empty, list all organization keys
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| page_token | **string**
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListUserSshKeysResponse {#yandex.cloud.organizationmanager.v1.ListUserSshKeysResponse}

@@ -48,7 +48,6 @@ Unique identifier of the password. ||
 
 Type of the password.
 
-- `PASSWORD_TYPE_UNSPECIFIED`: The password type is not specified.
 - `TEMPORARY`: Temporary password that must be changed on first use.
 - `PERMANENT`: Permanent password. ||
 || createdAt | **string** (date-time)

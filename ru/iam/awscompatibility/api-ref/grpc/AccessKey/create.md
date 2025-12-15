@@ -26,10 +26,14 @@ Creates an access key for the specified service account.
 
 ID of the service account to create an access key for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || description | **string**
 
-Description of the access key. ||
+Description of the access key.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## CreateAccessKeyResponse {#yandex.cloud.iam.v1.awscompatibility.CreateAccessKeyResponse}

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the signature certificate to return.
+            The maximum string length in characters is 50.
           type: string
       required:
         - signatureCertificateId
@@ -40,7 +41,9 @@ Request to get a signature certificate by ID.
 ||Field | Description ||
 || signatureCertificateId | **string**
 
-Required field. ID of the signature certificate to return. ||
+Required field. ID of the signature certificate to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.application.saml.SignatureCertificate}
@@ -76,7 +79,6 @@ ID of the SAML application that the signature certificate belongs to. ||
 
 Current status of the signature certificate.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `ACTIVE`: The certificate is active and can be used for signing.
 - `INACTIVE`: The certificate is inactive and cannot be used for signing. ||
 || name | **string**

@@ -33,27 +33,37 @@ Updates the specified OIDC workload identity federation.
 || federation_id | **string**
 
 Required field. ID of the OIDC workload identity federation to update.
-To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/list#List) request. ||
+To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the OIDC workload identity federation are going to be updated. ||
 || name | **string**
 
 Name of the OIDC workload identity federation.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the OIDC workload identity federation. ||
+Description of the OIDC workload identity federation.
+
+The maximum string length in characters is 256. ||
 || disabled | **bool**
 
 True - the OIDC workload identity federation is disabled and cannot be used for authentication.
 False - the OIDC workload identity federation is enabled and can be used for authentication. ||
 || audiences[] | **string**
 
-List of trusted values for aud claim. ||
+List of trusted values for aud claim.
+
+The maximum number of elements is 100. The maximum string length in characters for each value is 255. ||
 || jwks_url | **string**
 
-URL reference to trusted keys in format of JSON Web Key Set. ||
+URL reference to trusted keys in format of JSON Web Key Set.
+
+The maximum string length in characters is 8000. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs ||

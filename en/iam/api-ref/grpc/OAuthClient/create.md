@@ -31,17 +31,25 @@ Creates an oauth client in the specified folder.
 || name | **string**
 
 Required field. Name of the oauth client.
-The name must be unique within folder. ||
+The name must be unique within folder.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || redirect_uris[] | **string**
 
-List of redirect uries allowed for the oauth client. ||
+List of redirect uries allowed for the oauth client.
+
+The maximum number of elements is 1000. The maximum string length in characters for each value is 1000. ||
 || scopes[] | **string**
 
-List of oauth scopes requested by the oauth client. ||
+List of oauth scopes requested by the oauth client.
+
+The maximum number of elements is 1000. The maximum string length in characters for each value is 255. ||
 || folder_id | **string**
 
 Required field. ID of the folder to create an oauth client in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 255. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -164,7 +172,6 @@ ID of the folder oauth client belongs to. ||
 
 Current status of the oauth client.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: OAuth client is being created.
 - `ACTIVE`: OAuth client is active.
 - `DELETING`: OAuth client is being deleted. ||

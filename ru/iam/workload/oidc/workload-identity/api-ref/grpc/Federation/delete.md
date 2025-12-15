@@ -24,7 +24,9 @@ Deletes the specified OIDC workload identity federation.
 || federation_id | **string**
 
 Required field. ID of the OIDC workload identity federation to delete.
-To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/list#List) request. ||
+To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

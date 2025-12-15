@@ -4,12 +4,12 @@ You pay for resources by crediting money to your individual personal account as 
 
 Individuals:
 * [Billing cycle](billing-cycle-individual.md)
-* [Paying by bank card](payment-methods-individual.md)
+* [Payment methods](payment-methods-individual.md)
 * [Promo code activation](../operations/activate-promocode.md)
 
 Businesses and individual entrepreneurs:
 * [Billing cycle](billing-cycle-business.md)
-* [Paying by bank card](payment-methods-card-business.md)
+* [Bank card payments](payment-methods-card-business.md)
 * [Bank account transfers](payment-methods-business.md)
 * [Reporting documents](documents.md)
 * [Promo code activation](../operations/activate-promocode.md)

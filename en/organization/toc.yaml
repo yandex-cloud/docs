@@ -39,10 +39,12 @@ items:
             href: operations/add-account.md
           - name: Getting user info
             href: operations/users-get.md
-          - name: Updating user data
+          - name: Updating local user data
             href: operations/user-pools/edit-user.md
           - name: Updating a local user password
             href: operations/user-pools/reset-user-password.md
+          - name: Managing a user in the My account portal
+            href: operations/manage-account.md
           - name: Viewing user groups
             href: operations/get-users-groups.md
           - name: Activating a user
@@ -191,6 +193,8 @@ items:
             href: operations/revoke-role.md
       - name: Syncing users and groups with {{ microsoft-idp.ad-short }}
         href: operations/sync-ad.md
+      - name: Billing management in {{ org-name }}
+        href: operations/manage-billing.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -263,6 +267,8 @@ items:
         href: concepts/mfa.md
       - name: Controlled organizations
         href: concepts/controlled-org.md
+      - name: My account portal
+        href: concepts/my-account.md
       - name: Syncing with {{ microsoft-idp.ad-short }}
         href: concepts/ad-sync.md
       - name: Quotas and limits
@@ -804,6 +810,12 @@ items:
                 href: api-ref/grpc/Organization/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Organization/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/grpc/Organization/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/grpc/Organization/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/grpc/Organization/unbindAccessPolicy.md
           - name: OsLogin
             items:
               - name: Overview
@@ -864,6 +876,46 @@ items:
                     href: idp/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: idp/api-ref/grpc/Operation/cancel.md
+              - name: Synchronization
+                items:
+                  - name: Overview
+                    href: idp/api-ref/grpc/Synchronization/index.md
+                  - name: SetReplicationToken
+                    href: idp/api-ref/grpc/Synchronization/setReplicationToken.md
+                  - name: ResetReplicationToken
+                    href: idp/api-ref/grpc/Synchronization/resetReplicationToken.md
+                  - name: CreateSynchronizationSettings
+                    href: >-
+                      idp/api-ref/grpc/Synchronization/createSynchronizationSettings.md
+                  - name: UpdateSynchronizationSettings
+                    href: >-
+                      idp/api-ref/grpc/Synchronization/updateSynchronizationSettings.md
+                  - name: DeleteSynchronizationSettings
+                    href: >-
+                      idp/api-ref/grpc/Synchronization/deleteSynchronizationSettings.md
+                  - name: GetSynchronizationSettings
+                    href: >-
+                      idp/api-ref/grpc/Synchronization/getSynchronizationSettings.md
+                  - name: ListSupportedAttributes
+                    href: >-
+                      idp/api-ref/grpc/Synchronization/listSupportedAttributes.md
+              - name: SynchronizationSession
+                items:
+                  - name: Overview
+                    href: idp/api-ref/grpc/SynchronizationSession/index.md
+                  - name: OpenSession
+                    href: idp/api-ref/grpc/SynchronizationSession/openSession.md
+                  - name: CloseSession
+                    href: idp/api-ref/grpc/SynchronizationSession/closeSession.md
+                  - name: ReportSessionProgress
+                    href: >-
+                      idp/api-ref/grpc/SynchronizationSession/reportSessionProgress.md
+                  - name: Heartbeat
+                    href: idp/api-ref/grpc/SynchronizationSession/heartbeat.md
+                  - name: GetSession
+                    href: idp/api-ref/grpc/SynchronizationSession/getSession.md
+                  - name: ListSessions
+                    href: idp/api-ref/grpc/SynchronizationSession/listSessions.md
               - name: Userpool
                 items:
                   - name: Overview
@@ -1164,6 +1216,28 @@ items:
                 href: api-ref/Group/updateAccessBindings.md
               - name: ListEffective
                 href: api-ref/Group/listEffective.md
+          - name: MfaEnforcement
+            items:
+              - name: Overview
+                href: api-ref/MfaEnforcement/index.md
+              - name: Create
+                href: api-ref/MfaEnforcement/create.md
+              - name: Update
+                href: api-ref/MfaEnforcement/update.md
+              - name: Activate
+                href: api-ref/MfaEnforcement/activate.md
+              - name: Deactivate
+                href: api-ref/MfaEnforcement/deactivate.md
+              - name: Delete
+                href: api-ref/MfaEnforcement/delete.md
+              - name: Get
+                href: api-ref/MfaEnforcement/get.md
+              - name: List
+                href: api-ref/MfaEnforcement/list.md
+              - name: UpdateAudience
+                href: api-ref/MfaEnforcement/updateAudience.md
+              - name: ListAudience
+                href: api-ref/MfaEnforcement/listAudience.md
           - name: Operation
             items:
               - name: Overview
@@ -1190,6 +1264,12 @@ items:
                 href: api-ref/Organization/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Organization/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/Organization/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/Organization/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/Organization/unbindAccessPolicy.md
           - name: OsLogin
             items:
               - name: Overview
@@ -1250,6 +1330,44 @@ items:
                     href: idp/api-ref/Operation/get.md
                   - name: Cancel
                     href: idp/api-ref/Operation/cancel.md
+              - name: Synchronization
+                items:
+                  - name: Overview
+                    href: idp/api-ref/Synchronization/index.md
+                  - name: SetReplicationToken
+                    href: idp/api-ref/Synchronization/setReplicationToken.md
+                  - name: ResetReplicationToken
+                    href: idp/api-ref/Synchronization/resetReplicationToken.md
+                  - name: CreateSynchronizationSettings
+                    href: >-
+                      idp/api-ref/Synchronization/createSynchronizationSettings.md
+                  - name: UpdateSynchronizationSettings
+                    href: >-
+                      idp/api-ref/Synchronization/updateSynchronizationSettings.md
+                  - name: DeleteSynchronizationSettings
+                    href: >-
+                      idp/api-ref/Synchronization/deleteSynchronizationSettings.md
+                  - name: GetSynchronizationSettings
+                    href: idp/api-ref/Synchronization/getSynchronizationSettings.md
+                  - name: ListSupportedAttributes
+                    href: idp/api-ref/Synchronization/listSupportedAttributes.md
+              - name: SynchronizationSession
+                items:
+                  - name: Overview
+                    href: idp/api-ref/SynchronizationSession/index.md
+                  - name: OpenSession
+                    href: idp/api-ref/SynchronizationSession/openSession.md
+                  - name: CloseSession
+                    href: idp/api-ref/SynchronizationSession/closeSession.md
+                  - name: ReportSessionProgress
+                    href: >-
+                      idp/api-ref/SynchronizationSession/reportSessionProgress.md
+                  - name: Heartbeat
+                    href: idp/api-ref/SynchronizationSession/heartbeat.md
+                  - name: GetSession
+                    href: idp/api-ref/SynchronizationSession/getSession.md
+                  - name: ListSessions
+                    href: idp/api-ref/SynchronizationSession/listSessions.md
               - name: Userpool
                 items:
                   - name: Overview

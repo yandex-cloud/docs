@@ -11,7 +11,7 @@ apiPlayground:
         iamToken:
           description: |-
             **string**
-            Required field. 
+            Required field.
           type: string
       required:
         - iamToken
@@ -42,7 +42,7 @@ POST https://iam.{{ api-host }}/iam/v1/tokens:revoke
 ||Field | Description ||
 || iamToken | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.RevokeIamTokenResponse}

@@ -33,18 +33,24 @@ Output format of the key.
 
 ID of the service account to list key pairs for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListKeysResponse.next_page_token](#yandex.cloud.iam.v1.ListKeysResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListKeysResponse.next_page_token](#yandex.cloud.iam.v1.ListKeysResponse) returned by a previous list request. ||
+[ListKeysResponse.next_page_token](#yandex.cloud.iam.v1.ListKeysResponse) returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListKeysResponse {#yandex.cloud.iam.v1.ListKeysResponse}
@@ -113,7 +119,6 @@ Description of the Key resource. 0-256 characters long. ||
 
 An algorithm used to generate a key pair of the Key resource.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
 || public_key | **string**

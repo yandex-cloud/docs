@@ -32,7 +32,11 @@ description: In this tutorial, you will learn how to configure a {{ KF }} source
     * [{{ KF }} to {{ MY }}](../../../tutorials/mkf-to-mmy.md).
     * [{{ KF }} to {{ OS }}](../../../tutorials/mkf-to-mos.md).
     * [{{ KF }} to {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md).
+
+    
     * [{{ KF }} in {{ DS }}](../../../tutorials/mkf-to-yds.md).
+
+
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -45,7 +49,7 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mkf-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional settings](#additional-settings).
+* [Advanced settings](#additional-settings).
 
 ### {{ mkf-name }} cluster {#managed-service}
 
@@ -71,7 +75,7 @@ Connection with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-kafka-source.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -118,7 +122,7 @@ Connection to the {{ KF }} cluster with explicitly specified network addresses a
 
     {% include [On-premise Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-kafka-source.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -160,6 +164,7 @@ Connection to the {{ KF }} cluster with explicitly specified network addresses a
 
 - Management console {#console}
 
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.transformer.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}**: Select one of the functions created in {{ sf-name }}.
@@ -189,17 +194,22 @@ Connection to the {{ KF }} cluster with explicitly specified network addresses a
 
         {% endnote %}
     
+
     * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}
 
 - {{ TF }} {#tf}
 
+    
     * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/transformers.md) %}
+
 
     * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/parsers.md) %}
 
 - API {#api}
 
+    
     * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/transformers.md) %}
+
 
     * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/parsers.md) %}
 

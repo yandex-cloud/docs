@@ -175,6 +175,12 @@ items:
                 href: api-ref/grpc/Cloud/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Cloud/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/grpc/Cloud/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/grpc/Cloud/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/grpc/Cloud/unbindAccessPolicy.md
           - name: Folder
             items:
               - name: Overview
@@ -197,6 +203,12 @@ items:
                 href: api-ref/grpc/Folder/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Folder/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/grpc/Folder/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/grpc/Folder/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/grpc/Folder/unbindAccessPolicy.md
           - name: Operation
             items:
               - name: Overview
@@ -231,6 +243,12 @@ items:
                 href: api-ref/Cloud/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Cloud/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/Cloud/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/Cloud/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/Cloud/unbindAccessPolicy.md
           - name: Folder
             items:
               - name: Overview
@@ -253,6 +271,12 @@ items:
                 href: api-ref/Folder/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Folder/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/Folder/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/Folder/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/Folder/unbindAccessPolicy.md
           - name: Operation
             items:
               - name: Overview

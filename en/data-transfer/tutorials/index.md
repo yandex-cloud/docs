@@ -1,6 +1,6 @@
 ---
 title: '{{ data-transfer-full-name }} tutorials'
-description: Different use cases for {{ data-transfer-name }} in {{ yandex-cloud }}.
+description: Various {{ data-transfer-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ data-transfer-name }} tutorials
@@ -73,7 +73,9 @@ Data delivery is a process of delivering arbitrary data to target storage. It in
 * [{{ KF }} to {{ MY }}](mkf-to-mmy.md)
 * [{{ KF }} to {{ OS }}](mkf-to-mos.md)
 * [{{ KF }} to {{ ydb-short-name }}](mkf-to-ydb.md)
+
 * [{{ KF }} to {{ DS }}](mkf-to-yds.md)
+
 * [{{ DS }} to {{ CH }}](yds-to-clickhouse.md)
 * [{{ DS }} to {{ objstorage-name }}](yds-to-objstorage.md)
 * [{{ DS }} to {{ ydb-name }}](yds-to-ydb.md)

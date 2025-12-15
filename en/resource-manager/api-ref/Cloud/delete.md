@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the cloud to delete.
             To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - cloudId
@@ -57,7 +58,9 @@ DELETE https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{cloud
 || cloudId | **string**
 
 Required field. ID of the cloud to delete.
-To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request. ||
+To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.resourcemanager.v1.DeleteCloudRequest}

@@ -23,7 +23,9 @@ OsLogin Profiles
 ||Field | Description ||
 || os_login_profile_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## OsLoginProfile {#yandex.cloud.organizationmanager.v1.OsLoginProfile}

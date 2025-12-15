@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the user to update.
+            The maximum string length in characters is 50.
           type: string
       required:
         - userId
@@ -34,33 +35,39 @@ apiPlayground:
           description: |-
             **string**
             New username for the user.
+            The maximum string length in characters is 254. Value must match the regular expression ` |[a-z0-9A-Z\._-]{1,64}@.{1,256} `.
           pattern: '|[a-z0-9A-Z\._-]{1,64}@.{1,256}'
           type: string
         fullName:
           description: |-
             **string**
             New full name for the user.
+            The maximum string length in characters is 256.
           type: string
         givenName:
           description: |-
             **string**
             New first name for the user.
+            The maximum string length in characters is 256.
           type: string
         familyName:
           description: |-
             **string**
             New last name for the user.
+            The maximum string length in characters is 256.
           type: string
         email:
           description: |-
             **string**
             New email address for the user.
+            The maximum string length in characters is 254. Value must match the regular expression ` |(.{3,254}) `.
           pattern: '|(.{3,254})'
           type: string
         phoneNumber:
           description: |-
             **string**
             New phone number for the user.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     definitions: null
@@ -85,7 +92,9 @@ Request to update an existing user.
 ||Field | Description ||
 || userId | **string**
 
-Required field. ID of the user to update. ||
+Required field. ID of the user to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.UpdateUserRequest}
@@ -118,22 +127,34 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || username | **string**
 
-New username for the user. ||
+New username for the user.
+
+The maximum string length in characters is 254. Value must match the regular expression ` \|[a-z0-9A-Z\._-]{1,64}@.{1,256} `. ||
 || fullName | **string**
 
-New full name for the user. ||
+New full name for the user.
+
+The maximum string length in characters is 256. ||
 || givenName | **string**
 
-New first name for the user. ||
+New first name for the user.
+
+The maximum string length in characters is 256. ||
 || familyName | **string**
 
-New last name for the user. ||
+New last name for the user.
+
+The maximum string length in characters is 256. ||
 || email | **string**
 
-New email address for the user. ||
+New email address for the user.
+
+The maximum string length in characters is 254. Value must match the regular expression ` \|(.{3,254}) `. ||
 || phoneNumber | **string**
 
-New phone number for the user. ||
+New phone number for the user.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -296,7 +317,6 @@ To get the userpool ID, make a [UserpoolService.List](/docs/organization/idp/api
 Current status of the user.
 Determines whether the user can authenticate and access the system.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The user is in the process of being created.
 - `ACTIVE`: The user is active and can authenticate.
 Active users have full access to the system according to their permissions.

@@ -27,17 +27,23 @@ Updates the specified group.
 || group_id | **string**
 
 Required field. ID of the Group resource to update.
-To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request. ||
+To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Group resource are going to be updated. ||
 || name | **string**
 
 Name of the group.
-The name must be unique within the organization. ||
+The name must be unique within the organization.
+
+Value must match the regular expression ` \|[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? `. ||
 || description | **string**
 
-Description of the group. ||
+Description of the group.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

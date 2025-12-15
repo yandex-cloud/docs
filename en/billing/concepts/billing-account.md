@@ -27,7 +27,7 @@ To access the list of billing accounts, navigate to [**{{ billing-name }}**]({{ 
   
    * For residents of Russia and Kazakhstan and non-residents of Russia and Kazakhstan.
    * The account is created as a paid one.
-   * You pay for resources using your [bank card](../payment/payment-methods-individual.md).
+   * You [pay](../payment/payment-methods-individual.md) for resources using a bank card or the fast payment system (SBP).
    * Your card is debited automatically for the resources you consume. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
   
  - Business account {#business}

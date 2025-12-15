@@ -13,12 +13,14 @@ apiPlayground:
             **string**
             Required field. Name of the oauth client.
             The name must be unique within folder.
+            Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         redirectUris:
           description: |-
             **string**
             List of redirect uries allowed for the oauth client.
+            The maximum number of elements is 1000. The maximum string length in characters for each value is 1000.
           type: array
           items:
             type: string
@@ -26,6 +28,7 @@ apiPlayground:
           description: |-
             **string**
             List of oauth scopes requested by the oauth client.
+            The maximum number of elements is 1000. The maximum string length in characters for each value is 255.
           type: array
           items:
             type: string
@@ -34,6 +37,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to create an oauth client in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 255.
           type: string
       required:
         - name
@@ -73,17 +77,25 @@ POST https://iam.{{ api-host }}/iam/v1/oauthClients
 || name | **string**
 
 Required field. Name of the oauth client.
-The name must be unique within folder. ||
+The name must be unique within folder.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || redirectUris[] | **string**
 
-List of redirect uries allowed for the oauth client. ||
+List of redirect uries allowed for the oauth client.
+
+The maximum number of elements is 1000. The maximum string length in characters for each value is 1000. ||
 || scopes[] | **string**
 
-List of oauth scopes requested by the oauth client. ||
+List of oauth scopes requested by the oauth client.
+
+The maximum number of elements is 1000. The maximum string length in characters for each value is 255. ||
 || folderId | **string**
 
 Required field. ID of the folder to create an oauth client in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 255. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -245,7 +257,6 @@ ID of the folder oauth client belongs to. ||
 
 Current status of the oauth client.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: OAuth client is being created.
 - `ACTIVE`: OAuth client is active.
 - `DELETING`: OAuth client is being deleted. ||

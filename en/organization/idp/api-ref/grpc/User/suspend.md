@@ -26,10 +26,14 @@ Request to suspend a user.
 ||Field | Description ||
 || user_id | **string**
 
-Required field. ID of the user to suspend. ||
+Required field. ID of the user to suspend.
+
+The maximum string length in characters is 50. ||
 || reason | **string**
 
-Reason for suspending the user. ||
+Reason for suspending the user.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

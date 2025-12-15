@@ -1,7 +1,7 @@
 # Построение пайплайна CI/CD в {{ GL }} с использованием serverless-продуктов
 
 
-Вы можете построить пайплайн [непрерывной интеграции и непрерывной поставки (CI/CD)](/blog/posts/2022/10/ci-cd) с использованием serverless-продуктов.
+Вы можете построить пайплайн [непрерывной интеграции и непрерывной поставки (CI/CD)](https://yandex.cloud/ru/blog/ci-cd-pipeline) с использованием serverless-продуктов.
 
 В качестве примера проекта будет использовано веб-приложение, реализованное на [Django](https://www.djangoproject.com/), которое имитирует корзину товаров интернет-магазина. В базе данных хранятся описания товаров, а состояние корзины товаров сервис хранит в сессии пользователя. Django-приложение разворачивается в [контейнере {{ serverless-containers-name }}](../../serverless-containers/concepts/container.md), при этом секреты безопасно доставляются в приложение с помощью сервиса [{{ lockbox-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) принимает запросы от пользователей и перенаправляет их в [контейнер приложения](../../glossary/containerization.md#containers-apps).
 
@@ -50,7 +50,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 
 Установите в локальном окружении:
 * [Интерфейс командной строки {{ yandex-cloud }}](../../cli/operations/install-cli.md).
-* [Утилиту потоковой обработки JSON-файлов `jq`](https://stedolan.github.io/jq/download/).
+* [Утилиту потоковой обработки JSON-файлов `jq`](https://jqlang.org/download/).
 * [Утилиту потоковой обработки YAML-файлов `yq`](https://github.com/mikefarah/yq#install).
 * [Python версии 3.8 или выше](https://www.python.org/downloads/).
 * Библиотеки Python, перечисленные в файле проекта `application/requirements.txt`:
@@ -108,8 +108,8 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 
 ## Загрузите файлы в репозиторий {{ GL }} {#add-files}
 
-1. [Добавьте SSH-ключ для безопасного доступа к {{ GL }}](https://docs.gitlab.com/ee/user/ssh.html).
-1. [Склонируйте репозиторий](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-with-ssh) `gitlab-test` с помощью [SSH](../../glossary/ssh-keygen.md).
+1. [Добавьте SSH-ключ для безопасного доступа к {{ GL }}](https://docs.gitlab.com/user/ssh/).
+1. [Склонируйте репозиторий](https://docs.gitlab.com/topics/git/clone/) `gitlab-test` с помощью [SSH](../../glossary/ssh-keygen.md).
 1. Скопируйте все файлы из репозитория `yc-serverless-gitlab-ci-cd` в `gitlab-test`.
 1. Перейдите в директорию `gitlab-test`.
 1. Проиндексируйте новые файлы:
@@ -274,10 +274,10 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 
 В файле `.gitlab-ci.yml` описаны следующие этапы сценария CI:
 * **build** — сборка Docker-образа с использованием `Dockerfile` и загрузка образа в {{ container-registry-name }}.
-* **deploy-test-env** — тестовое развертывание приложения. Дополнительно описан, но не использован механизм [artifacts](https://docs.gitlab.com/ee/ci/pipelines/job_artifacts.html) для передачи данных из одного этапа в другой. При необходимости настройте его.
+* **deploy-test-env** — тестовое развертывание приложения. Дополнительно описан, но не использован механизм [artifacts](https://docs.gitlab.com/ci/jobs/job_artifacts/) для передачи данных из одного этапа в другой. При необходимости настройте его.
 * **test** — тестирование приложения. В качестве тестов приведены имитации e2e и нагрузочного тестирования. Опишите и настройте собственные тесты.
 * **delete-test-env** — удаление тестового приложения.
-* **release** — продакшн развертывание приложения. Дополнительно на этом этапе используются [среды развертывания](https://docs.gitlab.com/ee/ci/environments/). Они создаются и сохраняются при каждом успешном выполнении пайплайна. Воспользуйтесь ими, чтобы восстановить и развернуть прошлую версию приложения.
+* **release** — продакшн развертывание приложения. Дополнительно на этом этапе используются [среды развертывания](https://docs.gitlab.com/ci/environments/). Они создаются и сохраняются при каждом успешном выполнении пайплайна. Воспользуйтесь ими, чтобы восстановить и развернуть прошлую версию приложения.
 
 После сохранения файла конфигурации `.gitlab-ci.yml` запустится сценарий сборки.
 

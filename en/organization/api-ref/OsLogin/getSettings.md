@@ -9,7 +9,8 @@ apiPlayground:
         organizationId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
       required:
         - organizationId
@@ -36,7 +37,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/organiza
 ||Field | Description ||
 || organizationId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.OsLoginSettings}

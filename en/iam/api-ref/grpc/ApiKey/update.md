@@ -30,16 +30,22 @@ Updates the specified API key.
 || api_key_id | **string**
 
 Required field. ID of the ApiKey resource to update.
-To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/grpc/ApiKey/list#List) request. ||
+To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/grpc/ApiKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the ApiKey resource are going to be updated. ||
 || description | **string**
 
-Description of the API key. ||
+Description of the API key.
+
+The maximum string length in characters is 256. ||
 || scopes[] | **string**
 
-Scopes of the API key. ||
+Scopes of the API key.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 256. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 API key expiration timestamp, if not specified, then the API key doesn't expire ||

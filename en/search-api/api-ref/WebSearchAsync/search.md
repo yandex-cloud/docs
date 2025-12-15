@@ -27,18 +27,19 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of passages that can be used when generating a document snippet.
+            Acceptable values are 1 to 5, inclusive.
           type: string
           format: int64
         region:
           description: |-
             **string**
             ID of the search country or region that impacts the document ranking rules.
+            The maximum string length in characters is 100.
           type: string
         l10n:
           description: |-
             **enum** (Localization)
             The notification language for a search response.
-            - `LOCALIZATION_UNSPECIFIED`
             - `LOCALIZATION_RU`: Russian (default value)
             - `LOCALIZATION_UK`: Ukrainian
             - `LOCALIZATION_BE`: Belarusian
@@ -58,12 +59,12 @@ apiPlayground:
           description: |-
             **string**
             ID of the folder.
+            The maximum string length in characters is 50.
           type: string
         responseFormat:
           description: |-
             **enum** (Format)
             Search results format.
-            - `FORMAT_UNSPECIFIED`
             - `FORMAT_XML`: XML format (default value)
             - `FORMAT_HTML`: HTML format
           type: string
@@ -75,6 +76,7 @@ apiPlayground:
           description: |-
             **string**
             User-Agent request header value.
+            The maximum string length in characters is 300.
           type: string
         metadata:
           description: |-
@@ -92,7 +94,6 @@ apiPlayground:
             description: |-
               **enum** (SearchType)
               Required field. Search type that determines the domain name that will be used for the search queries.
-              - `SEARCH_TYPE_UNSPECIFIED`
               - `SEARCH_TYPE_RU`: Russian search type (default), yandex.ru search domain name will be used.
               - `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
               - `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used.
@@ -112,12 +113,12 @@ apiPlayground:
             description: |-
               **string**
               Required field. Search query text
+              The maximum string length in characters is 400.
             type: string
           familyMode:
             description: |-
               **enum** (FamilyMode)
               Rule for filtering search results and determines whether any documents should be excluded.
-              - `FAMILY_MODE_UNSPECIFIED`
               - `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
               - `FAMILY_MODE_MODERATE`: Moderate filter (default value). Documents of the Adult category are excluded from search results
               unless a query is explicitly made for searching resources of this category.
@@ -133,13 +134,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of a requested page with search results
+              The minimum value is 0.
             type: string
             format: int64
           fixTypoMode:
             description: |-
               **enum** (FixTypoMode)
               Typos autocorrections mode
-              - `FIX_TYPO_MODE_UNSPECIFIED`
               - `FIX_TYPO_MODE_ON`: Automatically correct typos (default value).
               - `FIX_TYPO_MODE_OFF`: Autocorrection is off.
             type: string
@@ -157,7 +158,6 @@ apiPlayground:
             description: |-
               **enum** (SortMode)
               Documents sorting mode.
-              - `SORT_MODE_UNSPECIFIED`
               - `SORT_MODE_BY_RELEVANCE`: Sort documents by relevance (default value).
               - `SORT_MODE_BY_TIME`: Sort documents by update time.
             type: string
@@ -169,7 +169,6 @@ apiPlayground:
             description: |-
               **enum** (SortOrder)
               Documents sorting order.
-              - `SORT_ORDER_UNSPECIFIED`
               - `SORT_ORDER_ASC`: Reverse order from oldest to most recent.
               - `SORT_ORDER_DESC`: Direct order from most recent to oldest (default).
             type: string
@@ -184,7 +183,6 @@ apiPlayground:
             description: |-
               **enum** (GroupMode)
               Grouping method.
-              - `GROUP_MODE_UNSPECIFIED`
               - `GROUP_MODE_FLAT`: Flat grouping. Each group contains a single document.
               - `GROUP_MODE_DEEP`: Grouping by domain. Each group contains documents from one domain.
             type: string
@@ -196,12 +194,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               Maximum number of groups that can be returned per page with search results.
+              Acceptable values are 1 to 100, inclusive.
             type: string
             format: int64
           docsInGroup:
             description: |-
               **string** (int64)
               Maximum number of documents that can be returned per group.
+              Acceptable values are 1 to 3, inclusive.
             type: string
             format: int64
       SearchMetadata:
@@ -216,6 +216,7 @@ apiPlayground:
               Each value must match the regular expression `[-_0-9a-z]*`.
               The string length in characters for each key must be 1-63.
               Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+              No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
             type: object
             additionalProperties:
               type: string
@@ -283,15 +284,18 @@ The rules for sorting search results that define the sequence of the returned se
 Grouping settings that are used to group documents from a single domain into a container. ||
 || maxPassages | **string** (int64)
 
-The maximum number of passages that can be used when generating a document snippet. ||
+The maximum number of passages that can be used when generating a document snippet.
+
+Acceptable values are 1 to 5, inclusive. ||
 || region | **string**
 
-ID of the search country or region that impacts the document ranking rules. ||
+ID of the search country or region that impacts the document ranking rules.
+
+The maximum string length in characters is 100. ||
 || l10n | **enum** (Localization)
 
 The notification language for a search response.
 
-- `LOCALIZATION_UNSPECIFIED`
 - `LOCALIZATION_RU`: Russian (default value)
 - `LOCALIZATION_UK`: Ukrainian
 - `LOCALIZATION_BE`: Belarusian
@@ -300,17 +304,20 @@ The notification language for a search response.
 - `LOCALIZATION_EN`: English ||
 || folderId | **string**
 
-ID of the folder. ||
+ID of the folder.
+
+The maximum string length in characters is 50. ||
 || responseFormat | **enum** (Format)
 
 Search results format.
 
-- `FORMAT_UNSPECIFIED`
 - `FORMAT_XML`: XML format (default value)
 - `FORMAT_HTML`: HTML format ||
 || userAgent | **string**
 
-User-Agent request header value. ||
+User-Agent request header value.
+
+The maximum string length in characters is 300. ||
 || metadata | **[SearchMetadata](#yandex.cloud.searchapi.v2.SearchMetadata)**
 
 Search flags ||
@@ -324,7 +331,6 @@ Search flags ||
 
 Required field. Search type that determines the domain name that will be used for the search queries.
 
-- `SEARCH_TYPE_UNSPECIFIED`
 - `SEARCH_TYPE_RU`: Russian search type (default), yandex.ru search domain name will be used.
 - `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
 - `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used.
@@ -333,12 +339,13 @@ Required field. Search type that determines the domain name that will be used fo
 - `SEARCH_TYPE_UZ`: Uzbek search type, yandex.uz search domain name will be used. ||
 || queryText | **string**
 
-Required field. Search query text ||
+Required field. Search query text
+
+The maximum string length in characters is 400. ||
 || familyMode | **enum** (FamilyMode)
 
 Rule for filtering search results and determines whether any documents should be excluded.
 
-- `FAMILY_MODE_UNSPECIFIED`
 - `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
 - `FAMILY_MODE_MODERATE`: Moderate filter (default value). Documents of the Adult category are excluded from search results
 unless a query is explicitly made for searching resources of this category.
@@ -346,12 +353,13 @@ unless a query is explicitly made for searching resources of this category.
 and those with profanity are excluded from search results. ||
 || page | **string** (int64)
 
-The number of a requested page with search results ||
+The number of a requested page with search results
+
+The minimum value is 0. ||
 || fixTypoMode | **enum** (FixTypoMode)
 
 Typos autocorrections mode
 
-- `FIX_TYPO_MODE_UNSPECIFIED`
 - `FIX_TYPO_MODE_ON`: Automatically correct typos (default value).
 - `FIX_TYPO_MODE_OFF`: Autocorrection is off. ||
 |#
@@ -364,14 +372,12 @@ Typos autocorrections mode
 
 Documents sorting mode.
 
-- `SORT_MODE_UNSPECIFIED`
 - `SORT_MODE_BY_RELEVANCE`: Sort documents by relevance (default value).
 - `SORT_MODE_BY_TIME`: Sort documents by update time. ||
 || sortOrder | **enum** (SortOrder)
 
 Documents sorting order.
 
-- `SORT_ORDER_UNSPECIFIED`
 - `SORT_ORDER_ASC`: Reverse order from oldest to most recent.
 - `SORT_ORDER_DESC`: Direct order from most recent to oldest (default). ||
 |#
@@ -384,15 +390,18 @@ Documents sorting order.
 
 Grouping method.
 
-- `GROUP_MODE_UNSPECIFIED`
 - `GROUP_MODE_FLAT`: Flat grouping. Each group contains a single document.
 - `GROUP_MODE_DEEP`: Grouping by domain. Each group contains documents from one domain. ||
 || groupsOnPage | **string** (int64)
 
-Maximum number of groups that can be returned per page with search results. ||
+Maximum number of groups that can be returned per page with search results.
+
+Acceptable values are 1 to 100, inclusive. ||
 || docsInGroup | **string** (int64)
 
-Maximum number of documents that can be returned per group. ||
+Maximum number of documents that can be returned per group.
+
+Acceptable values are 1 to 3, inclusive. ||
 |#
 
 ## SearchMetadata {#yandex.cloud.searchapi.v2.SearchMetadata}
@@ -406,7 +415,9 @@ No more than 64.
 The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
-Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
+Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

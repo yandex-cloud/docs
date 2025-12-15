@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the signature certificate to delete.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     query: null
@@ -36,7 +37,9 @@ Request to delete a signature certificate.
 ||Field | Description ||
 || signatureCertificateId | **string**
 
-Required field. ID of the signature certificate to delete. ||
+Required field. ID of the signature certificate to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

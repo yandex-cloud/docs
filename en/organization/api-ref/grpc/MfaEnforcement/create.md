@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 
 # Identity Hub API, gRPC: MfaEnforcementService.Create
 
+creates an MFA enforcement in the specified organization
+
 ## gRPC request
 
 **rpc Create ([CreateMfaEnforcementRequest](#yandex.cloud.organizationmanager.v1.CreateMfaEnforcementRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -28,28 +30,41 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 ||Field | Description ||
 || organization_id | **string**
 
-Required field.  ||
+Required field. organization id of the MFA enforcement
+
+The maximum string length in characters is 50. ||
 || acr_id | **string**
 
-Required field.  ||
+Required field. acr id for the MFA enforcement. one of 'any-mfa' or 'phr',
+specification https://yandex.cloud/en/docs/organization/concepts/mfa?utm_referrer=https%3A%2F%2Fa.yandex-team.ru%2F#mfa-factors
+
+The maximum string length in characters is 50. ||
 || ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
-Required field. max 1 year ||
+Required field. the period during which the entered MFA factor will be considered valid and the
+corresponding acr will be regarded as satisfied ||
 || status | enum **Status**
 
-Required field. 
+Required field. the MFA enforcement status
 
-- `STATUS_UNSPECIFIED`
-- `STATUS_ACTIVE`
-- `STATUS_INACTIVE` ||
-|| apply_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+- `STATUS_ACTIVE`: active
+- `STATUS_INACTIVE`: inactive ||
+|| apply_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+the MFA enforcement application start time ||
 || enroll_window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
-Required field.  ||
+Required field. the MFA enforcement enroll window ||
 || name | **string**
 
-Required field.  ||
-|| description | **string** ||
+Required field. the MFA enforcement name
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+|| description | **string**
+
+the MFA enforcement description
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -143,8 +158,12 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| organization_id | **string** ||
-|| mfa_enforcement_id | **string** ||
+|| organization_id | **string**
+
+organization id of the MFA enforcement ||
+|| mfa_enforcement_id | **string**
+
+id of the MFA enforcement ||
 |#
 
 ## MfaEnforcement {#yandex.cloud.organizationmanager.v1.MfaEnforcement}
@@ -170,7 +189,6 @@ corresponding acr is regarded as satisfied ||
 
 MFA enforcement status
 
-- `MFA_ENFORCEMENT_STATUS_UNSPECIFIED`
 - `MFA_ENFORCEMENT_STATUS_ACTIVE`
 - `MFA_ENFORCEMENT_STATUS_INACTIVE`
 - `MFA_ENFORCEMENT_STATUS_DELETING` ||

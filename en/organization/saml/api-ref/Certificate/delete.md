@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the certificate to delete.
             To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/Certificate/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     query: null
@@ -36,7 +37,9 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/
 || certificateId | **string**
 
 Required field. ID of the certificate to delete.
-To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/Certificate/list#List) request. ||
+To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/Certificate/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

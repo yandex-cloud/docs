@@ -28,10 +28,18 @@ Filtering is only supported by external_group_id or internal_group_id
 ||Field | Description ||
 || federation_id | **string**
 
-Required field.  ||
-|| page_size | **int64** ||
-|| page_token | **string** ||
-|| filter | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| page_token | **string**
+
+The maximum string length in characters is 2000. ||
+|| filter | **string**
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListGroupMappingItemsResponse {#yandex.cloud.organizationmanager.v1.ListGroupMappingItemsResponse}
@@ -62,8 +70,12 @@ Group mapping represents which external (federated) groups should match which in
 ||Field | Description ||
 || external_group_id | **string**
 
-Required field. External group id (received from identity provider) ||
+Required field. External group id (received from identity provider)
+
+The maximum string length in characters is 1000. ||
 || internal_group_id | **string**
 
-Required field. Internal cloud group id ||
+Required field. Internal cloud group id
+
+The maximum string length in characters is 50. ||
 |#

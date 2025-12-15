@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the OAuthClient resource to return.
             To get the oauth client ID, use a [OAuthClientService.List](/docs/iam/api-ref/OAuthClient/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - oauthClientId
@@ -40,7 +41,9 @@ GET https://iam.{{ api-host }}/iam/v1/oauthClients/{oauthClientId}
 || oauthClientId | **string**
 
 Required field. ID of the OAuthClient resource to return.
-To get the oauth client ID, use a [OAuthClientService.List](/docs/iam/api-ref/OAuthClient/list#List) request. ||
+To get the oauth client ID, use a [OAuthClientService.List](/docs/iam/api-ref/OAuthClient/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.OAuthClient}
@@ -85,7 +88,6 @@ ID of the folder oauth client belongs to. ||
 
 Current status of the oauth client.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: OAuth client is being created.
 - `ACTIVE`: OAuth client is active.
 - `DELETING`: OAuth client is being deleted. ||

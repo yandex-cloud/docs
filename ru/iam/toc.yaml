@@ -581,6 +581,13 @@ items:
                     href: awscompatibility/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: awscompatibility/api-ref/grpc/Operation/cancel.md
+              - name: TemporaryAccessKey
+                items:
+                  - name: Overview
+                    href: awscompatibility/api-ref/grpc/TemporaryAccessKey/index.md
+                  - name: CreateEphemeral
+                    href: >-
+                      awscompatibility/api-ref/grpc/TemporaryAccessKey/createEphemeral.md
           - name: Workload Identity
             items:
               - name: Overview
@@ -841,6 +848,13 @@ items:
                     href: awscompatibility/api-ref/Operation/get.md
                   - name: Cancel
                     href: awscompatibility/api-ref/Operation/cancel.md
+              - name: TemporaryAccessKey
+                items:
+                  - name: Overview
+                    href: awscompatibility/api-ref/TemporaryAccessKey/index.md
+                  - name: CreateEphemeral
+                    href: >-
+                      awscompatibility/api-ref/TemporaryAccessKey/createEphemeral.md
           - name: Workload Identity
             items:
               - name: Overview

@@ -12,23 +12,27 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the organization to create a userpool in.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. Name of the userpool.
             The name must be unique within the organization.
+            Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the userpool.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as key:value pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -44,6 +48,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Default subdomain for the userpool.
+            The maximum string length in characters is 63.
           type: string
         userSettings:
           description: |-
@@ -124,18 +129,82 @@ apiPlayground:
             description: |-
               **string** (int64)
               Minimum length for passwords with one character class.
+              The minimum value is 0.
             type: string
             format: int64
           two:
             description: |-
               **string** (int64)
               Minimum length for passwords with two character classes.
+              The minimum value is 0.
             type: string
             format: int64
           three:
             description: |-
               **string** (int64)
               Minimum length for passwords with three character classes.
+              The minimum value is 0.
+            type: string
+            format: int64
+      Fixed:
+        type: object
+        properties:
+          lowersRequired:
+            description: |-
+              **boolean**
+              Whether lowercase letters are required in the password.
+            type: boolean
+          uppersRequired:
+            description: |-
+              **boolean**
+              Whether uppercase letters are required in the password.
+            type: boolean
+          digitsRequired:
+            description: |-
+              **boolean**
+              Whether digits are required in the password.
+            type: boolean
+          specialsRequired:
+            description: |-
+              **boolean**
+              Whether special characters are required in the password.
+            type: boolean
+          minLength:
+            description: |-
+              **string** (int64)
+              Minimum length required for all passwords.
+              The minimum value is 0.
+            type: string
+            format: int64
+      Smart:
+        type: object
+        properties:
+          oneClass:
+            description: |-
+              **string** (int64)
+              For passwords with one class of characters
+              The minimum value is 0.
+            type: string
+            format: int64
+          twoClasses:
+            description: |-
+              **string** (int64)
+              For passwords with two classes of characters
+              The minimum value is 0.
+            type: string
+            format: int64
+          threeClasses:
+            description: |-
+              **string** (int64)
+              For passwords with three classes of characters
+              The minimum value is 0.
+            type: string
+            format: int64
+          fourClasses:
+            description: |-
+              **string** (int64)
+              For passwords with all four classes of characters
+              The minimum value is 0.
             type: string
             format: int64
       PasswordQualityPolicy:
@@ -150,18 +219,21 @@ apiPlayground:
             description: |-
               **string** (int64)
               Maximum password length. Zero means no maximum length is enforced.
+              The minimum value is 0.
             type: string
             format: int64
           minLength:
             description: |-
               **string** (int64)
               Minimum password length.
+              The minimum value is 0.
             type: string
             format: int64
           matchLength:
             description: |-
               **string** (int64)
               Minimum length of substrings to check for similarity to vulnerable sequences.
+              The minimum value is 0.
             type: string
             format: int64
           requiredClasses:
@@ -175,6 +247,25 @@ apiPlayground:
               Minimum length requirements based on character class diversity.
               If not specified, these checks are disabled.
             $ref: '#/definitions/MinLengthByClassSettings'
+          fixed:
+            description: |-
+              **[Fixed](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed)**
+              Fixed complexity requirements. Exactly one of complexity requirements must be specified.
+              Includes only one of the fields `fixed`, `smart`.
+              Defines password complexity policy.
+            $ref: '#/definitions/Fixed'
+          smart:
+            description: |-
+              **[Smart](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart)**
+              Smart complexity requirements. Exactly one of complexity requirements must be specified.
+              Includes only one of the fields `fixed`, `smart`.
+              Defines password complexity policy.
+            $ref: '#/definitions/Smart'
+        oneOf:
+          - required:
+              - fixed
+          - required:
+              - smart
       PasswordLifetimePolicy:
         type: object
         properties:
@@ -182,6 +273,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Minimum number of days before a password can be changed.
+              The minimum value is 0.
             type: string
             format: int64
           maxDaysCount:
@@ -189,6 +281,7 @@ apiPlayground:
               **string** (int64)
               Maximum number of days a password remains valid.
               Zero means passwords never expire.
+              The minimum value is 0.
             type: string
             format: int64
       BruteforceProtectionPolicy:
@@ -210,6 +303,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Number of failed attempts allowed within the window before blocking.
+              Value must be greater than 0.
             type: string
             format: int64
 sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Userpool/create.md
@@ -255,7 +349,22 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/use
       "one": "string",
       "two": "string",
       "three": "string"
+    },
+    // Includes only one of the fields `fixed`, `smart`
+    "fixed": {
+      "lowersRequired": "boolean",
+      "uppersRequired": "boolean",
+      "digitsRequired": "boolean",
+      "specialsRequired": "boolean",
+      "minLength": "string"
+    },
+    "smart": {
+      "oneClass": "string",
+      "twoClasses": "string",
+      "threeClasses": "string",
+      "fourClasses": "string"
     }
+    // end of the list of possible fields
   },
   "passwordLifetimePolicy": {
     "minDaysCount": "string",
@@ -275,20 +384,30 @@ Request to create a userpool.
 ||Field | Description ||
 || organizationId | **string**
 
-Required field. ID of the organization to create a userpool in. ||
+Required field. ID of the organization to create a userpool in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the userpool.
-The name must be unique within the organization. ||
+The name must be unique within the organization.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the userpool. ||
+Description of the userpool.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as key:value pairs. ||
+Resource labels as key:value pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || defaultSubdomain | **string**
 
-Required field. Default subdomain for the userpool. ||
+Required field. Default subdomain for the userpool.
+
+The maximum string length in characters is 63. ||
 || userSettings | **[UserSettings](#yandex.cloud.organizationmanager.v1.idp.UserSettings)**
 
 User settings for the userpool. ||
@@ -334,13 +453,19 @@ Policy that defines password quality requirements.
 Whether passwords similar to previous ones are allowed. ||
 || maxLength | **string** (int64)
 
-Maximum password length. Zero means no maximum length is enforced. ||
+Maximum password length. Zero means no maximum length is enforced.
+
+The minimum value is 0. ||
 || minLength | **string** (int64)
 
-Minimum password length. ||
+Minimum password length.
+
+The minimum value is 0. ||
 || matchLength | **string** (int64)
 
-Minimum length of substrings to check for similarity to vulnerable sequences. ||
+Minimum length of substrings to check for similarity to vulnerable sequences.
+
+The minimum value is 0. ||
 || requiredClasses | **[RequiredClasses](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses)**
 
 Character classes required in passwords. ||
@@ -348,6 +473,20 @@ Character classes required in passwords. ||
 
 Minimum length requirements based on character class diversity.
 If not specified, these checks are disabled. ||
+|| fixed | **[Fixed](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed)**
+
+Fixed complexity requirements. Exactly one of complexity requirements must be specified.
+
+Includes only one of the fields `fixed`, `smart`.
+
+Defines password complexity policy. ||
+|| smart | **[Smart](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart)**
+
+Smart complexity requirements. Exactly one of complexity requirements must be specified.
+
+Includes only one of the fields `fixed`, `smart`.
+
+Defines password complexity policy. ||
 |#
 
 ## RequiredClasses {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses}
@@ -378,13 +517,73 @@ Minimum password length requirements based on character class diversity.
 ||Field | Description ||
 || one | **string** (int64)
 
-Minimum length for passwords with one character class. ||
+Minimum length for passwords with one character class.
+
+The minimum value is 0. ||
 || two | **string** (int64)
 
-Minimum length for passwords with two character classes. ||
+Minimum length for passwords with two character classes.
+
+The minimum value is 0. ||
 || three | **string** (int64)
 
-Minimum length for passwords with three character classes. ||
+Minimum length for passwords with three character classes.
+
+The minimum value is 0. ||
+|#
+
+## Fixed {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed}
+
+Fixed complexity policy enforces uniform password rules with required character classes and minimum length.
+
+#|
+||Field | Description ||
+|| lowersRequired | **boolean**
+
+Whether lowercase letters are required in the password. ||
+|| uppersRequired | **boolean**
+
+Whether uppercase letters are required in the password. ||
+|| digitsRequired | **boolean**
+
+Whether digits are required in the password. ||
+|| specialsRequired | **boolean**
+
+Whether special characters are required in the password. ||
+|| minLength | **string** (int64)
+
+Minimum length required for all passwords.
+
+The minimum value is 0. ||
+|#
+
+## Smart {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart}
+
+Smart complexity policy applies adaptive requirements based on character class diversity.
+Zero value means passwords with this number of classes are forbidden.
+
+#|
+||Field | Description ||
+|| oneClass | **string** (int64)
+
+For passwords with one class of characters
+
+The minimum value is 0. ||
+|| twoClasses | **string** (int64)
+
+For passwords with two classes of characters
+
+The minimum value is 0. ||
+|| threeClasses | **string** (int64)
+
+For passwords with three classes of characters
+
+The minimum value is 0. ||
+|| fourClasses | **string** (int64)
+
+For passwords with all four classes of characters
+
+The minimum value is 0. ||
 |#
 
 ## PasswordLifetimePolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy}
@@ -395,16 +594,21 @@ Policy that defines password lifetime requirements.
 ||Field | Description ||
 || minDaysCount | **string** (int64)
 
-Minimum number of days before a password can be changed. ||
+Minimum number of days before a password can be changed.
+
+The minimum value is 0. ||
 || maxDaysCount | **string** (int64)
 
 Maximum number of days a password remains valid.
-Zero means passwords never expire. ||
+Zero means passwords never expire.
+
+The minimum value is 0. ||
 |#
 
 ## BruteforceProtectionPolicy {#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy}
 
 Policy that defines protection against brute force attacks.
+Zero or empty values disable bruteforce protection.
 
 #|
 ||Field | Description ||
@@ -416,7 +620,9 @@ Time window for counting failed authentication attempts. ||
 Duration of the block after too many failed attempts. ||
 || attempts | **string** (int64)
 
-Number of failed attempts allowed within the window before blocking. ||
+Number of failed attempts allowed within the window before blocking.
+
+Value must be greater than 0. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -475,7 +681,22 @@ Number of failed attempts allowed within the window before blocking. ||
         "one": "string",
         "two": "string",
         "three": "string"
+      },
+      // Includes only one of the fields `fixed`, `smart`
+      "fixed": {
+        "lowersRequired": "boolean",
+        "uppersRequired": "boolean",
+        "digitsRequired": "boolean",
+        "specialsRequired": "boolean",
+        "minLength": "string"
+      },
+      "smart": {
+        "oneClass": "string",
+        "twoClasses": "string",
+        "threeClasses": "string",
+        "fourClasses": "string"
       }
+      // end of the list of possible fields
     },
     "passwordLifetimePolicy": {
       "minDaysCount": "string",
@@ -636,7 +857,6 @@ List of domains associated with this userpool. ||
 
 Current status of the userpool.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The userpool is in the process of being created.
 - `ACTIVE`: The userpool is active and operational.
 - `DELETING`: The userpool is in the process of being deleted. ||
@@ -685,13 +905,19 @@ Policy that defines password quality requirements.
 Whether passwords similar to previous ones are allowed. ||
 || maxLength | **string** (int64)
 
-Maximum password length. Zero means no maximum length is enforced. ||
+Maximum password length. Zero means no maximum length is enforced.
+
+The minimum value is 0. ||
 || minLength | **string** (int64)
 
-Minimum password length. ||
+Minimum password length.
+
+The minimum value is 0. ||
 || matchLength | **string** (int64)
 
-Minimum length of substrings to check for similarity to vulnerable sequences. ||
+Minimum length of substrings to check for similarity to vulnerable sequences.
+
+The minimum value is 0. ||
 || requiredClasses | **[RequiredClasses](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses2)**
 
 Character classes required in passwords. ||
@@ -699,6 +925,20 @@ Character classes required in passwords. ||
 
 Minimum length requirements based on character class diversity.
 If not specified, these checks are disabled. ||
+|| fixed | **[Fixed](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed2)**
+
+Fixed complexity requirements. Exactly one of complexity requirements must be specified.
+
+Includes only one of the fields `fixed`, `smart`.
+
+Defines password complexity policy. ||
+|| smart | **[Smart](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart2)**
+
+Smart complexity requirements. Exactly one of complexity requirements must be specified.
+
+Includes only one of the fields `fixed`, `smart`.
+
+Defines password complexity policy. ||
 |#
 
 ## RequiredClasses {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses2}
@@ -729,13 +969,73 @@ Minimum password length requirements based on character class diversity.
 ||Field | Description ||
 || one | **string** (int64)
 
-Minimum length for passwords with one character class. ||
+Minimum length for passwords with one character class.
+
+The minimum value is 0. ||
 || two | **string** (int64)
 
-Minimum length for passwords with two character classes. ||
+Minimum length for passwords with two character classes.
+
+The minimum value is 0. ||
 || three | **string** (int64)
 
-Minimum length for passwords with three character classes. ||
+Minimum length for passwords with three character classes.
+
+The minimum value is 0. ||
+|#
+
+## Fixed {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed2}
+
+Fixed complexity policy enforces uniform password rules with required character classes and minimum length.
+
+#|
+||Field | Description ||
+|| lowersRequired | **boolean**
+
+Whether lowercase letters are required in the password. ||
+|| uppersRequired | **boolean**
+
+Whether uppercase letters are required in the password. ||
+|| digitsRequired | **boolean**
+
+Whether digits are required in the password. ||
+|| specialsRequired | **boolean**
+
+Whether special characters are required in the password. ||
+|| minLength | **string** (int64)
+
+Minimum length required for all passwords.
+
+The minimum value is 0. ||
+|#
+
+## Smart {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart2}
+
+Smart complexity policy applies adaptive requirements based on character class diversity.
+Zero value means passwords with this number of classes are forbidden.
+
+#|
+||Field | Description ||
+|| oneClass | **string** (int64)
+
+For passwords with one class of characters
+
+The minimum value is 0. ||
+|| twoClasses | **string** (int64)
+
+For passwords with two classes of characters
+
+The minimum value is 0. ||
+|| threeClasses | **string** (int64)
+
+For passwords with three classes of characters
+
+The minimum value is 0. ||
+|| fourClasses | **string** (int64)
+
+For passwords with all four classes of characters
+
+The minimum value is 0. ||
 |#
 
 ## PasswordLifetimePolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy2}
@@ -746,16 +1046,21 @@ Policy that defines password lifetime requirements.
 ||Field | Description ||
 || minDaysCount | **string** (int64)
 
-Minimum number of days before a password can be changed. ||
+Minimum number of days before a password can be changed.
+
+The minimum value is 0. ||
 || maxDaysCount | **string** (int64)
 
 Maximum number of days a password remains valid.
-Zero means passwords never expire. ||
+Zero means passwords never expire.
+
+The minimum value is 0. ||
 |#
 
 ## BruteforceProtectionPolicy {#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy2}
 
 Policy that defines protection against brute force attacks.
+Zero or empty values disable bruteforce protection.
 
 #|
 ||Field | Description ||
@@ -767,5 +1072,7 @@ Time window for counting failed authentication attempts. ||
 Duration of the block after too many failed attempts. ||
 || attempts | **string** (int64)
 
-Number of failed attempts allowed within the window before blocking. ||
+Number of failed attempts allowed within the window before blocking.
+
+Value must be greater than 0. ||
 |#

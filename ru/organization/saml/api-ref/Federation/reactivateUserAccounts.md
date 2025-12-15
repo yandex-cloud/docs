@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the federation to reactivate subjects of.
+            The maximum string length in characters is 50.
           type: string
       required:
         - federationId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             List of subjects to reactivate.
+            The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50.
           type: array
           items:
             type: string
@@ -47,7 +49,9 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fe
 ||Field | Description ||
 || federationId | **string**
 
-Required field. ID of the federation to reactivate subjects of. ||
+Required field. ID of the federation to reactivate subjects of.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.saml.ReactivateFederatedUserAccountsRequest}
@@ -64,7 +68,9 @@ Required field. ID of the federation to reactivate subjects of. ||
 ||Field | Description ||
 || subjectIds[] | **string**
 
-List of subjects to reactivate. ||
+List of subjects to reactivate.
+
+The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

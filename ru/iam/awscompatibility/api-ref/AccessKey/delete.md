@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the access key to delete.
             To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - accessKeyId
@@ -38,7 +39,9 @@ DELETE https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKey
 || accessKeyId | **string**
 
 Required field. ID of the access key to delete.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

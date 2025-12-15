@@ -26,7 +26,9 @@ To get the list of available access keys, make a [List](/docs/iam/awscompatibili
 || access_key_id | **string**
 
 Required field. ID of the AccessKey resource to return.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/grpc/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/grpc/AccessKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## AccessKey {#yandex.cloud.iam.v1.awscompatibility.AccessKey}

@@ -25,18 +25,24 @@ Lists operations for the specified service account.
 ||Field | Description ||
 || service_account_id | **string**
 
-Required field. ID of the ServiceAccount resource to list operations for. ||
+Required field. ID of the ServiceAccount resource to list operations for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListServiceAccountOperationsResponse.next_page_token](#yandex.cloud.iam.v1.ListServiceAccountOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token`
 to the [ListServiceAccountOperationsResponse.next_page_token](#yandex.cloud.iam.v1.ListServiceAccountOperationsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListServiceAccountOperationsResponse {#yandex.cloud.iam.v1.ListServiceAccountOperationsResponse}

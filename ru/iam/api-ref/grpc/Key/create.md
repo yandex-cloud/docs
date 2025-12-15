@@ -28,10 +28,14 @@ Creates a key pair for the specified service account.
 
 ID of the service account to create a key pair for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || description | **string**
 
-Description of the key pair. ||
+Description of the key pair.
+
+The maximum string length in characters is 256. ||
 || format | enum **KeyFormat**
 
 Output format of the key.
@@ -41,7 +45,6 @@ Output format of the key.
 
 An algorithm used to generate a key pair of the Key resource.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
 |#
@@ -106,7 +109,6 @@ Description of the Key resource. 0-256 characters long. ||
 
 An algorithm used to generate a key pair of the Key resource.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
 || public_key | **string**

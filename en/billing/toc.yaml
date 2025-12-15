@@ -112,7 +112,7 @@ items:
         items:
           - name: Billing cycle
             href: payment/billing-cycle-individual.md
-          - name: Bank card payments
+          - name: Payment methods
             href: payment/payment-methods-individual.md
       - name: Businesses and individual entrepreneurs
         items:

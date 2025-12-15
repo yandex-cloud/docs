@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the API key to delete.
             To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - apiKeyId
@@ -38,7 +39,9 @@ DELETE https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
 || apiKeyId | **string**
 
 Required field. ID of the API key to delete.
-To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request. ||
+To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -25,18 +25,24 @@ Lists operations for the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the Folder resource to list operations for. ||
+Required field. ID of the Folder resource to list operations for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListFolderOperationsResponse.next_page_token](#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. Set `page_token`
 to the [ListFolderOperationsResponse.next_page_token](#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListFolderOperationsResponse {#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse}

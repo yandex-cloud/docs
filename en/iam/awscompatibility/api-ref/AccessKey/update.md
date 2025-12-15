@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the AccessKey resource to update.
             To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - accessKeyId
@@ -35,6 +36,7 @@ apiPlayground:
           description: |-
             **string**
             Description of the access key.
+            The maximum string length in characters is 256.
           type: string
       additionalProperties: false
     definitions: null
@@ -58,7 +60,9 @@ PATCH https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyI
 || accessKeyId | **string**
 
 Required field. ID of the AccessKey resource to update.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iam.v1.awscompatibility.UpdateAccessKeyRequest}
@@ -84,7 +88,9 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || description | **string**
 
-Description of the access key. ||
+Description of the access key.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

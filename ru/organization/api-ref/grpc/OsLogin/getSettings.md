@@ -23,7 +23,9 @@ OsLogin settings
 ||Field | Description ||
 || organization_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## OsLoginSettings {#yandex.cloud.organizationmanager.v1.OsLoginSettings}

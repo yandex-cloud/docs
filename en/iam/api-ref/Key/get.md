@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Key resource to return.
             To get the ID use a [KeyService.List](/docs/iam/api-ref/Key/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - keyId
@@ -51,7 +52,9 @@ GET https://iam.{{ api-host }}/iam/v1/keys/{keyId}
 || keyId | **string**
 
 Required field. ID of the Key resource to return.
-To get the ID use a [KeyService.List](/docs/iam/api-ref/Key/list#List) request. ||
+To get the ID use a [KeyService.List](/docs/iam/api-ref/Key/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.iam.v1.GetKeyRequest}
@@ -118,7 +121,6 @@ Description of the Key resource. 0-256 characters long. ||
 
 An algorithm used to generate a key pair of the Key resource.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
 || publicKey | **string**

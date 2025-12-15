@@ -37,8 +37,8 @@ resource "yandex_iam_oauth_client" "my-oauth-client" {
  To get the oauth client ID, use a [OAuthClientService.List] request.
 - `oauth_client_id` (String) ID of the OAuthClient resource to return.
  To get the oauth client ID, use a [OAuthClientService.List] request.
-- `redirect_uris` (List of String) List of redirect uries allowed for the oauth client.
-- `scopes` (List of String) List of oauth scopes requested by the oauth client.
+- `redirect_uris` (Set of String) List of redirect uries allowed for the oauth client.
+- `scopes` (Set of String) List of oauth scopes requested by the oauth client.
 - `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 
 ### Read-Only

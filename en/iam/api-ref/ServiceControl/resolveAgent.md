@@ -10,11 +10,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Service.
+            The maximum string length in characters is 50.
           type: string
         microserviceId:
           description: |-
             **string**
             ID of the Microservice.
+            The maximum string length in characters is 50.
           type: string
       required:
         - serviceId
@@ -39,11 +41,13 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the resource.
+              The maximum string length in characters is 50.
             type: string
           type:
             description: |-
               **string**
               Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+              The maximum string length in characters is 64.
             type: string
         required:
           - id
@@ -67,10 +71,14 @@ GET https://iam.{{ api-host }}/iam/v1/service/{serviceId}/microservice/{microser
 ||Field | Description ||
 || serviceId | **string**
 
-Required field. ID of the Service. ||
+Required field. ID of the Service.
+
+The maximum string length in characters is 50. ||
 || microserviceId | **string**
 
-Required field. ID of the Microservice. ||
+Required field. ID of the Microservice.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.iam.v1.ResolveServiceAgentRequest}
@@ -90,10 +98,14 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.ServiceAgent}

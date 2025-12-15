@@ -44,7 +44,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./delete-member-group.md)
 * [{#T}](./delete-group.md)
 
-## Managing federations {#manage-feds}
+## Managing identity federations {#manage-feds}
 
 * [{#T}](./setup-federation.md)
 * [{#T}](./federation-group-mapping.md)
@@ -114,3 +114,11 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./org-list-bindings.md)
 * [{#T}](./revoke-role.md)
 * [{#T}](./view-subject-access-bindings.md)
+
+## Syncing users and groups with external sources {#sync-external}
+
+* [{#T}](./sync-ad.md)
+
+## {{ org-name }} billing management {#manage-billing}
+
+* [{#T}](./manage-billing.md)

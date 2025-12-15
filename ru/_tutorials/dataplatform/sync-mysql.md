@@ -151,18 +151,20 @@
 
 1. Создайте заказ в интернет-магазине по адресу `http://ya-sample-store.local/`.
 1. Выполните запрос к БД в облаке:
+
    ``` sql
    SELECT so.*, soi.* FROM sales_order_grid so
    INNER JOIN sales_order_item soi ON so.entity_id = soi.order_id
    ORDER BY entity_id DESC 
    LIMIT 10
    ```
+
 1. Убедитесь, что данные вашего заказа появились в БД.
 
-## Как удалить созданные ресурсы {#clear-out}
+## Удалите созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md) `magento`.
-* [Удалите кластер](../../managed-mysql/operations/cluster-delete.md) `ya-sample-cloud-mysql`.
-* Если вы зарезервировали публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+1. [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md) `magento`.
+1. [Удалите кластер](../../managed-mysql/operations/cluster-delete.md) `ya-sample-cloud-mysql`.
+1. Если вы зарезервировали публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).

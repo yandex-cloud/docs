@@ -28,10 +28,14 @@ Resolve agent service account for the service in the specified resource containe
 ||Field | Description ||
 || service_id | **string**
 
-Required field. ID of the Service. ||
+Required field. ID of the Service.
+
+The maximum string length in characters is 50. ||
 || microservice_id | **string**
 
-ID of the Microservice. ||
+ID of the Microservice.
+
+The maximum string length in characters is 50. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
 
 Required field. Resource container. ||
@@ -45,10 +49,14 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## ServiceAgent {#yandex.cloud.iam.v1.ServiceAgent}

@@ -34,10 +34,14 @@ Request to update assignments for specified OAuth application.
 || application_id | **string**
 
 Required field. ID of the OAuth application to update.
-To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/grpc/Application/list#List) request. ||
+To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/grpc/Application/list#List) request.
+
+The maximum string length in characters is 50. ||
 || assignment_deltas[] | **[AssignmentDelta](#yandex.cloud.organizationmanager.v1.idp.application.oauth.AssignmentDelta)**
 
-List of assignment deltas to be applied on the OAuth application. Duplicates or invalid assignments are ignored. ||
+List of assignment deltas to be applied on the OAuth application. Duplicates or invalid assignments are ignored.
+
+The number of elements must be in the range 1-1000. ||
 |#
 
 ## AssignmentDelta {#yandex.cloud.organizationmanager.v1.idp.application.oauth.AssignmentDelta}
@@ -50,7 +54,6 @@ A delta of the
 
 Required field. The action that is being performed on an assignment.
 
-- `ASSIGNMENT_ACTION_UNSPECIFIED`: Action unspecified
 - `ADD`: Add action
 - `REMOVE`: Remove action ||
 || assignment | **[Assignment](#yandex.cloud.organizationmanager.v1.idp.application.oauth.Assignment)**
@@ -69,7 +72,9 @@ An assignment for the OAuth application
 Required field. ID of the subject to be assigned to the OAuth application.
 Supported subject categories: UserAccount, ServiceAccount, Group, MetaGroup, PublicGroup.
 In case subject ID is ID of the group,
-then such group becomes visible to the users of OAuth application in case [GroupDistributionType](/docs/organization/idp/application/oauth/mapi-ref/grpc/Application/get#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupDistributionType) has value ASSIGNED_GROUPS. ||
+then such group becomes visible to the users of OAuth application in case [GroupDistributionType](/docs/organization/idp/application/oauth/mapi-ref/grpc/Application/get#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupDistributionType) has value ASSIGNED_GROUPS.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -188,7 +193,6 @@ A delta of the
 
 Required field. The action that is being performed on an assignment.
 
-- `ASSIGNMENT_ACTION_UNSPECIFIED`: Action unspecified
 - `ADD`: Add action
 - `REMOVE`: Remove action ||
 || assignment | **[Assignment](#yandex.cloud.organizationmanager.v1.idp.application.oauth.Assignment2)**
@@ -207,5 +211,7 @@ An assignment for the OAuth application
 Required field. ID of the subject to be assigned to the OAuth application.
 Supported subject categories: UserAccount, ServiceAccount, Group, MetaGroup, PublicGroup.
 In case subject ID is ID of the group,
-then such group becomes visible to the users of OAuth application in case [GroupDistributionType](/docs/organization/idp/application/oauth/mapi-ref/grpc/Application/get#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupDistributionType) has value ASSIGNED_GROUPS. ||
+then such group becomes visible to the users of OAuth application in case [GroupDistributionType](/docs/organization/idp/application/oauth/mapi-ref/grpc/Application/get#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupDistributionType) has value ASSIGNED_GROUPS.
+
+The maximum string length in characters is 100. ||
 |#

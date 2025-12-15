@@ -24,7 +24,9 @@ cascade.
 ||Field | Description ||
 || federation_id | **string**
 
-Required field. Federation the group mapping deletion is requested ||
+Required field. Federation the group mapping deletion is requested
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

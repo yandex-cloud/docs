@@ -252,7 +252,7 @@ A list of messages that carry the error details. ||
 || ipv6DnsRecords[] | **[DnsRecord](#yandex.cloud.compute.v1.DnsRecord)** ||
 || minTxRate | **string** (int64)
 
-Value must be greater than 0. ||
+The minimum value is 0. ||
 |#
 
 ## DnsRecord {#yandex.cloud.compute.v1.DnsRecord}

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the user to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - userId
@@ -38,7 +39,9 @@ Request to delete a user.
 ||Field | Description ||
 || userId | **string**
 
-Required field. ID of the user to delete. ||
+Required field. ID of the user to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

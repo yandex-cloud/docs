@@ -25,7 +25,9 @@ Request to delete a user.
 ||Field | Description ||
 || user_id | **string**
 
-Required field. ID of the user to delete. ||
+Required field. ID of the user to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -26,7 +26,9 @@ To get the list of available Folder resources, make a [List](/docs/resource-mana
 || folder_id | **string**
 
 Required field. ID of the Folder resource to return.
-To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Folder {#yandex.cloud.resourcemanager.v1.Folder}
@@ -70,7 +72,6 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 
 Status of the folder.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The folder is active.
 - `DELETING`: The folder is being deleted.
 - `PENDING_DELETION`: Stopping folder resources and waiting for the deletion start timestamp. ||

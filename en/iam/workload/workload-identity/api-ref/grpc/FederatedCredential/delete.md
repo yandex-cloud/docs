@@ -24,7 +24,9 @@ Deletes the specified federated credential.
 || federated_credential_id | **string**
 
 Required field. ID of the federated credential key to delete.
-To get the federated credential ID, use a [FederatedCredentialService.List](/docs/iam/workload/workload-identity/api-ref/grpc/FederatedCredential/list#List) request. ||
+To get the federated credential ID, use a [FederatedCredentialService.List](/docs/iam/workload/workload-identity/api-ref/grpc/FederatedCredential/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

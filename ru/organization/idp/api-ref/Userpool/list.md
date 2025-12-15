@@ -11,6 +11,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the organization to list userpools in.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -20,6 +21,7 @@ apiPlayground:
             the service returns a [ListUserpoolsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.ListUserpoolsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -29,11 +31,13 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken`
             to the [ListUserpoolsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.ListUserpoolsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 2000.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - organizationId
@@ -61,22 +65,30 @@ Request to list userpools.
 ||Field | Description ||
 || organizationId | **string**
 
-Required field. ID of the organization to list userpools in. ||
+Required field. ID of the organization to list userpools in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
 If the number of available results is larger than `pageSize`,
 the service returns a [ListUserpoolsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.ListUserpoolsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListUserpoolsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.ListUserpoolsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
-A filter expression that filters resources listed in the response. ||
+A filter expression that filters resources listed in the response.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.ListUserpoolsResponse}
@@ -119,7 +131,22 @@ A filter expression that filters resources listed in the response. ||
           "one": "string",
           "two": "string",
           "three": "string"
+        },
+        // Includes only one of the fields `fixed`, `smart`
+        "fixed": {
+          "lowersRequired": "boolean",
+          "uppersRequired": "boolean",
+          "digitsRequired": "boolean",
+          "specialsRequired": "boolean",
+          "minLength": "string"
+        },
+        "smart": {
+          "oneClass": "string",
+          "twoClasses": "string",
+          "threeClasses": "string",
+          "fourClasses": "string"
         }
+        // end of the list of possible fields
       },
       "passwordLifetimePolicy": {
         "minDaysCount": "string",
@@ -199,7 +226,6 @@ List of domains associated with this userpool. ||
 
 Current status of the userpool.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `CREATING`: The userpool is in the process of being created.
 - `ACTIVE`: The userpool is active and operational.
 - `DELETING`: The userpool is in the process of being deleted. ||
@@ -248,13 +274,19 @@ Policy that defines password quality requirements.
 Whether passwords similar to previous ones are allowed. ||
 || maxLength | **string** (int64)
 
-Maximum password length. Zero means no maximum length is enforced. ||
+Maximum password length. Zero means no maximum length is enforced.
+
+The minimum value is 0. ||
 || minLength | **string** (int64)
 
-Minimum password length. ||
+Minimum password length.
+
+The minimum value is 0. ||
 || matchLength | **string** (int64)
 
-Minimum length of substrings to check for similarity to vulnerable sequences. ||
+Minimum length of substrings to check for similarity to vulnerable sequences.
+
+The minimum value is 0. ||
 || requiredClasses | **[RequiredClasses](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses)**
 
 Character classes required in passwords. ||
@@ -262,6 +294,20 @@ Character classes required in passwords. ||
 
 Minimum length requirements based on character class diversity.
 If not specified, these checks are disabled. ||
+|| fixed | **[Fixed](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed)**
+
+Fixed complexity requirements. Exactly one of complexity requirements must be specified.
+
+Includes only one of the fields `fixed`, `smart`.
+
+Defines password complexity policy. ||
+|| smart | **[Smart](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart)**
+
+Smart complexity requirements. Exactly one of complexity requirements must be specified.
+
+Includes only one of the fields `fixed`, `smart`.
+
+Defines password complexity policy. ||
 |#
 
 ## RequiredClasses {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses}
@@ -292,13 +338,73 @@ Minimum password length requirements based on character class diversity.
 ||Field | Description ||
 || one | **string** (int64)
 
-Minimum length for passwords with one character class. ||
+Minimum length for passwords with one character class.
+
+The minimum value is 0. ||
 || two | **string** (int64)
 
-Minimum length for passwords with two character classes. ||
+Minimum length for passwords with two character classes.
+
+The minimum value is 0. ||
 || three | **string** (int64)
 
-Minimum length for passwords with three character classes. ||
+Minimum length for passwords with three character classes.
+
+The minimum value is 0. ||
+|#
+
+## Fixed {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed}
+
+Fixed complexity policy enforces uniform password rules with required character classes and minimum length.
+
+#|
+||Field | Description ||
+|| lowersRequired | **boolean**
+
+Whether lowercase letters are required in the password. ||
+|| uppersRequired | **boolean**
+
+Whether uppercase letters are required in the password. ||
+|| digitsRequired | **boolean**
+
+Whether digits are required in the password. ||
+|| specialsRequired | **boolean**
+
+Whether special characters are required in the password. ||
+|| minLength | **string** (int64)
+
+Minimum length required for all passwords.
+
+The minimum value is 0. ||
+|#
+
+## Smart {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart}
+
+Smart complexity policy applies adaptive requirements based on character class diversity.
+Zero value means passwords with this number of classes are forbidden.
+
+#|
+||Field | Description ||
+|| oneClass | **string** (int64)
+
+For passwords with one class of characters
+
+The minimum value is 0. ||
+|| twoClasses | **string** (int64)
+
+For passwords with two classes of characters
+
+The minimum value is 0. ||
+|| threeClasses | **string** (int64)
+
+For passwords with three classes of characters
+
+The minimum value is 0. ||
+|| fourClasses | **string** (int64)
+
+For passwords with all four classes of characters
+
+The minimum value is 0. ||
 |#
 
 ## PasswordLifetimePolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy}
@@ -309,16 +415,21 @@ Policy that defines password lifetime requirements.
 ||Field | Description ||
 || minDaysCount | **string** (int64)
 
-Minimum number of days before a password can be changed. ||
+Minimum number of days before a password can be changed.
+
+The minimum value is 0. ||
 || maxDaysCount | **string** (int64)
 
 Maximum number of days a password remains valid.
-Zero means passwords never expire. ||
+Zero means passwords never expire.
+
+The minimum value is 0. ||
 |#
 
 ## BruteforceProtectionPolicy {#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy}
 
 Policy that defines protection against brute force attacks.
+Zero or empty values disable bruteforce protection.
 
 #|
 ||Field | Description ||
@@ -330,5 +441,7 @@ Time window for counting failed authentication attempts. ||
 Duration of the block after too many failed attempts. ||
 || attempts | **string** (int64)
 
-Number of failed attempts allowed within the window before blocking. ||
+Number of failed attempts allowed within the window before blocking.
+
+Value must be greater than 0. ||
 |#

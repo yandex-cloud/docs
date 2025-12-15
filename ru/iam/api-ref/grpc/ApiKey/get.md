@@ -26,7 +26,9 @@ To get the list of available API keys, make a [List](/docs/iam/api-ref/grpc/ApiK
 || api_key_id | **string**
 
 Required field. ID of the API key to return.
-To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/grpc/ApiKey/list#List) request. ||
+To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/grpc/ApiKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ApiKey {#yandex.cloud.iam.v1.ApiKey}

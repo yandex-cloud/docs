@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the OAuth application to delete.
             To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/Application/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - applicationId
@@ -40,7 +41,9 @@ Request to delete a OAuth application.
 || applicationId | **string**
 
 Required field. ID of the OAuth application to delete.
-To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/Application/list#List) request. ||
+To get the OAuth application ID, make a [ApplicationService.List](/docs/organization/idp/application/oauth/mapi-ref/Application/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

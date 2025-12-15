@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the user to suspend.
+            The maximum string length in characters is 50.
           type: string
       required:
         - userId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             Reason for suspending the user.
+            The maximum string length in characters is 256.
           type: string
       additionalProperties: false
     definitions: null
@@ -46,7 +48,9 @@ Request to suspend a user.
 ||Field | Description ||
 || userId | **string**
 
-Required field. ID of the user to suspend. ||
+Required field. ID of the user to suspend.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.SuspendUserRequest}
@@ -63,7 +67,9 @@ Request to suspend a user.
 ||Field | Description ||
 || reason | **string**
 
-Reason for suspending the user. ||
+Reason for suspending the user.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -9,7 +9,8 @@ apiPlayground:
         userSshKeyId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
       required:
         - userSshKeyId
@@ -19,7 +20,9 @@ apiPlayground:
       type: object
       properties:
         name:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 255.
           type: string
         updateMask:
           description: |-
@@ -62,7 +65,9 @@ PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/userSs
 ||Field | Description ||
 || userSshKeyId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.UpdateUserSshKeyRequest}
@@ -77,7 +82,9 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| name | **string** ||
+|| name | **string**
+
+The maximum string length in characters is 255. ||
 || updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.

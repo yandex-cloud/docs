@@ -31,13 +31,19 @@ Request to list domains for a userpool.
 ID of the userpool to list domains for. ||
 || page_size | **int64**
 
-The maximum number of results per page to return. ||
+The maximum number of results per page to return.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
-Page token for pagination. ||
+Page token for pagination.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
-A filter expression that filters resources listed in the response. ||
+A filter expression that filters resources listed in the response.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListUserpoolDomainsResponse {#yandex.cloud.organizationmanager.v1.idp.ListUserpoolDomainsResponse}
@@ -98,7 +104,6 @@ Domain name. ||
 
 Current status of the domain.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `NEED_TO_VALIDATE`: The domain needs to be validated.
 - `VALIDATING`: The domain is in the process of being validated.
 - `VALID`: The domain has been successfully validated.
@@ -137,13 +142,11 @@ Timestamp when the challenge was last updated. ||
 
 Type of the challenge.
 
-- `TYPE_UNSPECIFIED`: The type is not specified.
 - `DNS_TXT`: DNS TXT record challenge. ||
 || status | enum **Status**
 
 Current status of the challenge.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `PENDING`: The challenge is pending verification.
 - `PROCESSING`: The challenge verification is in progress.
 - `VALID`: The challenge has been successfully verified.
@@ -170,7 +173,6 @@ Name of the DNS record. ||
 
 Type of the DNS record.
 
-- `TYPE_UNSPECIFIED`: The type is not specified.
 - `TXT`: TXT record type. ||
 || value | **string**
 

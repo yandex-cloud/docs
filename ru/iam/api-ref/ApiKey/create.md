@@ -14,16 +14,19 @@ apiPlayground:
             ID of the service account to create an API key for.
             To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
             If not specified, it defaults to the subject that made the request.
+            The maximum string length in characters is 50.
           type: string
         description:
           description: |-
             **string**
             Description of the API key.
+            The maximum string length in characters is 256.
           type: string
         scopes:
           description: |-
             **string**
             Scopes of the API key.
+            The maximum number of elements is 100. The maximum string length in characters for each value is 256.
           type: array
           items:
             type: string
@@ -73,13 +76,19 @@ POST https://iam.{{ api-host }}/iam/v1/apiKeys
 
 ID of the service account to create an API key for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || description | **string**
 
-Description of the API key. ||
+Description of the API key.
+
+The maximum string length in characters is 256. ||
 || scopes[] | **string**
 
-Scopes of the API key. ||
+Scopes of the API key.
+
+The maximum number of elements is 100. The maximum string length in characters for each value is 256. ||
 || expiresAt | **string** (date-time)
 
 API key expiration timestamp, if not specified, then the API key doesn't expire

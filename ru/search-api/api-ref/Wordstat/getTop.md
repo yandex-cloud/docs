@@ -12,17 +12,20 @@ apiPlayground:
           description: |-
             **string**
             Required field. Keyword
+            The maximum string length in characters is 400.
           type: string
         numPhrases:
           description: |-
             **string** (int64)
             Number of the phrases in the response.
+            Acceptable values are 1 to 2000, inclusive.
           type: string
           format: int64
         regions:
           description: |-
             **string**
             A list of IDs of the regions a query was made from.
+            The maximum number of elements is 100.
           type: array
           items:
             type: string
@@ -30,7 +33,7 @@ apiPlayground:
           description: |-
             **enum** (Device)
             A list of device types a query was made from.
-            - `DEVICE_UNSPECIFIED`
+            The maximum number of elements is 3.
             - `DEVICE_ALL`: All devices.
             - `DEVICE_DESKTOP`: Desktop computers.
             - `DEVICE_PHONE`: Phones.
@@ -48,6 +51,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the folder.
+            The maximum string length in characters is 50.
           type: string
       required:
         - phrase
@@ -87,25 +91,34 @@ POST https://searchapi.{{ api-host }}/v2/wordstat/topRequests
 ||Field | Description ||
 || phrase | **string**
 
-Required field. Keyword ||
+Required field. Keyword
+
+The maximum string length in characters is 400. ||
 || numPhrases | **string** (int64)
 
-Number of the phrases in the response. ||
+Number of the phrases in the response.
+
+Acceptable values are 1 to 2000, inclusive. ||
 || regions[] | **string**
 
-A list of IDs of the regions a query was made from. ||
+A list of IDs of the regions a query was made from.
+
+The maximum number of elements is 100. ||
 || devices[] | **enum** (Device)
 
 A list of device types a query was made from.
 
-- `DEVICE_UNSPECIFIED`
+The maximum number of elements is 3.
+
 - `DEVICE_ALL`: All devices.
 - `DEVICE_DESKTOP`: Desktop computers.
 - `DEVICE_PHONE`: Phones.
 - `DEVICE_TABLET`: Tablets. ||
 || folderId | **string**
 
-ID of the folder. ||
+ID of the folder.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.searchapi.v2.GetTopResponse}

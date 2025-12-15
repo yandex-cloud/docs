@@ -27,13 +27,19 @@ Request to list operations for a userpool.
 ||Field | Description ||
 || userpool_id | **string**
 
-ID of the userpool to list operations for. ||
+ID of the userpool to list operations for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
-The maximum number of results per page to return. ||
+The maximum number of results per page to return.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
-Page token for pagination. ||
+Page token for pagination.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListUserpoolOperationsResponse {#yandex.cloud.organizationmanager.v1.idp.ListUserpoolOperationsResponse}

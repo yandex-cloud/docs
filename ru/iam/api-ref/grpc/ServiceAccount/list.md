@@ -27,26 +27,34 @@ Retrieves the list of ServiceAccount resources in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to list service accounts in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListServiceAccountsResponse.next_page_token](#yandex.cloud.iam.v1.ListServiceAccountsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100 ||
+Default value: 100
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token`
 to the [ListServiceAccountsResponse.next_page_token](#yandex.cloud.iam.v1.ListServiceAccountsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [ServiceAccount.name](#yandex.cloud.iam.v1.ServiceAccount) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListServiceAccountsResponse {#yandex.cloud.iam.v1.ListServiceAccountsResponse}

@@ -32,25 +32,34 @@ The method returns the last 30 days data about popular queries containing the sp
 ||Field | Description ||
 || phrase | **string**
 
-Required field. Keyword ||
+Required field. Keyword
+
+The maximum string length in characters is 400. ||
 || num_phrases | **int64**
 
-Number of the phrases in the response. ||
+Number of the phrases in the response.
+
+Acceptable values are 1 to 2000, inclusive. ||
 || regions[] | **string**
 
-A list of IDs of the regions a query was made from. ||
+A list of IDs of the regions a query was made from.
+
+The maximum number of elements is 100. ||
 || devices[] | enum **Device**
 
 A list of device types a query was made from.
 
-- `DEVICE_UNSPECIFIED`
+The maximum number of elements is 3.
+
 - `DEVICE_ALL`: All devices.
 - `DEVICE_DESKTOP`: Desktop computers.
 - `DEVICE_PHONE`: Phones.
 - `DEVICE_TABLET`: Tablets. ||
 || folder_id | **string**
 
-ID of the folder. ||
+ID of the folder.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetTopResponse {#yandex.cloud.searchapi.v2.GetTopResponse}

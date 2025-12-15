@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Group resource to update.
             To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - groupId
@@ -36,12 +37,14 @@ apiPlayground:
             **string**
             Name of the group.
             The name must be unique within the organization.
+            Value must match the regular expression ` |[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? `.
           pattern: '|[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the group.
+            The maximum string length in characters is 256.
           type: string
       additionalProperties: false
     definitions: null
@@ -65,7 +68,9 @@ PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/groups
 || groupId | **string**
 
 Required field. ID of the Group resource to update.
-To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request. ||
+To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.UpdateGroupRequest}
@@ -93,10 +98,14 @@ The rest of the fields will be reset to the default. ||
 || name | **string**
 
 Name of the group.
-The name must be unique within the organization. ||
+The name must be unique within the organization.
+
+Value must match the regular expression ` \|[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? `. ||
 || description | **string**
 
-Description of the group. ||
+Description of the group.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

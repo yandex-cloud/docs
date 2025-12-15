@@ -27,14 +27,20 @@ Request to create a new signature certificate.
 ||Field | Description ||
 || application_id | **string**
 
-Required field. ID of the SAML application to create the certificate for. ||
+Required field. ID of the SAML application to create the certificate for.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the signature certificate.
-The name is unique within the application. 3-63 characters long. ||
+The name is unique within the application. 3-63 characters long.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
 || description | **string**
 
-Description of the signature certificate. 0-256 characters long. ||
+Description of the signature certificate. 0-256 characters long.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -150,7 +156,6 @@ ID of the SAML application that the signature certificate belongs to. ||
 
 Current status of the signature certificate.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `ACTIVE`: The certificate is active and can be used for signing.
 - `INACTIVE`: The certificate is inactive and cannot be used for signing. ||
 || name | **string**

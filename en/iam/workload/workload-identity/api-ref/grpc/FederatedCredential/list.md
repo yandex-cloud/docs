@@ -26,19 +26,25 @@ Retrieves the list of federated credentials for the specified service account.
 || service_account_id | **string**
 
 Required field. ID of the service account to list federated credentials for.
-To get the the service account ID make a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request. ||
+To get the the service account ID make a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListFederatedCredentialsResponse.next_page_token](#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token`
 to the [ListFederatedCredentialsResponse.next_page_token](#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## ListFederatedCredentialsResponse {#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse}

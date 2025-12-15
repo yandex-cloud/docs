@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 
 # Identity Hub API, gRPC: MfaEnforcementService.Delete
 
+deletes the specified MFA enforcement
+
 ## gRPC request
 
 **rpc Delete ([DeleteMfaEnforcementRequest](#yandex.cloud.organizationmanager.v1.DeleteMfaEnforcementRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -21,7 +23,9 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/MfaEnforcement/
 ||Field | Description ||
 || mfa_enforcement_id | **string**
 
-Required field.  ||
+Required field. id of the MFA enforcement
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -103,5 +107,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| mfa_enforcement_id | **string** ||
+|| mfa_enforcement_id | **string**
+
+id of the MFA enforcement ||
 |#

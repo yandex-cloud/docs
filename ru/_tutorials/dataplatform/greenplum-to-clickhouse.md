@@ -11,15 +11,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ GP }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
-
-* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
-
-* Плата за использование публичных IP-адресов, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-
-* Плата за трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+* Кластер {{ mgp-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
+* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -159,7 +154,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../../data-transfer/operations/transfer.md#delete) его.
 1. [Удалите](../../data-transfer/operations/endpoint/index.md#delete) эндпоинт-источник.
@@ -169,9 +164,9 @@
 
     - Вручную {#manual}
 
-        1. [Удалите](../../managed-clickhouse/operations/cluster-delete.md) кластер {{ mch-name }}.
-        1. [Удалите](../../managed-greenplum/operations/cluster-delete.md) кластер {{ GP }}.
-        1. [Удалите](../../data-transfer/operations/endpoint/index.md#delete) эндпоинт-приемник.
+        1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+        1. [Удалите кластер {{ GP }}](../../managed-greenplum/operations/cluster-delete.md).
+        1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
 
     - {{ TF }} {#tf}
 

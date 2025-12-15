@@ -15,20 +15,15 @@
 
 * Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../../data-transfer/pricing.md)).
-* База данных {{ ydb-name }}. Стоимость зависит от режима использования:
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
     * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
     * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервных копий.
 
-    См. [тарифы {{ ydb-name }}](../../../ydb/pricing/index.md).
-
-* Сервис {{ yds-name }}. Стоимость зависит от режима тарификации:
+* Сервис {{ yds-name }} (см. [тарифы {{ yds-name }}](../../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
 
     * [По выделенным ресурсам](../../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
     * [По фактическому использованию](../../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
-
-    См. [тарифы {{ yds-name }}](../../../data-streams/pricing.md).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -180,24 +175,23 @@
 
 {% include [note before delete resources](../../../_includes/mdb/note-before-delete-resources.md) %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
 1. [Удалите поток данных {{ yds-name }}](../../../data-streams/operations/manage-streams.md#delete-data-stream).
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#delete).
+       1. [Удалите кластер {{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
+       1. [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
 
-    * [Эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#delete).
-    * [{{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
-    * [Базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}

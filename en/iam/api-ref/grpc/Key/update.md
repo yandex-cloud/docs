@@ -26,13 +26,17 @@ Updates the specified key pair.
 || key_id | **string**
 
 Required field. ID of the Key resource to update.
-To get key pair ID, use a [KeyService.List](/docs/iam/api-ref/grpc/Key/list#List) request. ||
+To get key pair ID, use a [KeyService.List](/docs/iam/api-ref/grpc/Key/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Key resource are going to be updated. ||
 || description | **string**
 
-Description of the key pair. ||
+Description of the key pair.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -159,7 +163,6 @@ Description of the Key resource. 0-256 characters long. ||
 
 An algorithm used to generate a key pair of the Key resource.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
 || public_key | **string**

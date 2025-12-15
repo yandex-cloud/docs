@@ -211,7 +211,6 @@ Domain name. ||
 
 Current status of the domain.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `NEED_TO_VALIDATE`: The domain needs to be validated.
 - `VALIDATING`: The domain is in the process of being validated.
 - `VALID`: The domain has been successfully validated.
@@ -278,13 +277,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Type of the challenge.
 
-- `TYPE_UNSPECIFIED`: The type is not specified.
 - `DNS_TXT`: DNS TXT record challenge. ||
 || status | **enum** (Status)
 
 Current status of the challenge.
 
-- `STATUS_UNSPECIFIED`: The status is not specified.
 - `PENDING`: The challenge is pending verification.
 - `PROCESSING`: The challenge verification is in progress.
 - `VALID`: The challenge has been successfully verified.
@@ -311,7 +308,6 @@ Name of the DNS record. ||
 
 Type of the DNS record.
 
-- `TYPE_UNSPECIFIED`: The type is not specified.
 - `TXT`: TXT record type. ||
 || value | **string**
 
