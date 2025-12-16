@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите бакет, для которого хотите настроить CORS.
   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_cors }}**.
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.cors.button_cors_empty-create }}**.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.cors.button_action-edit }}**.
   1. Заполните открывшуюся форму. Вы можете добавлять, удалять и редактировать правила конфигурации.
      
      {% include [storage-cors-create-rule](../../_includes_service/storage-cors-create-rule.md) %}

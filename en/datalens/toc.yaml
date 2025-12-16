@@ -115,6 +115,8 @@ items:
         href: concepts/caching.md
       - name: Combining data
         href: concepts/data-join.md
+      - name: Adding connection info
+        href: operations/connection/add-description.md
       - name: Databases
         items:
           - name: Creating a {{ CH }} connection
@@ -195,6 +197,8 @@ items:
         href: dataset/settings.md
       - name: Versioning
         href: dataset/versioning.md
+      - name: Adding dataset info
+        href: dataset/add-description.md
       - name: Source parameterization
         href: dataset/parametrization.md
       - name: Data types
@@ -1013,6 +1017,9 @@ items:
       - name: Backend app request timeout exceeded
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
+      - name: Blocks have different column count
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-UNEVEN_COLUMN_COUNT.md
       - name: Cannot join a concatenation of tables with another table
         hidden: true
         href: >-
@@ -1190,6 +1197,9 @@ items:
       - name: Database-side error
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Error handling the response
+        hidden: true
+        href: troubleshooting/errors/SDK_REQUEST_ERROR.md
       - name: Formula syntax error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md

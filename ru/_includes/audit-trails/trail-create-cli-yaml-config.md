@@ -14,6 +14,7 @@ destination:
   data_stream:
     stream_name: <имя_потока_данных_YDS>
     database_id: <идентификатор_базы_данных_YDS>
+    codec: <метод_сжатия_событий>
 service_account_id: <идентификатор_сервисного_аккаунта>
 filtering_policy:
   management_events_filter:

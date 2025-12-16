@@ -114,6 +114,7 @@ description: Следуя данной инструкции, вы сможете
     --destination-log-group-id <идентификатор_лог_группы> \
     --destination-yds-stream <имя_потока_данных_YDS> \
     --destination-yds-database-id <идентификатор_базы_данных_YDS> \
+    --destination-yds-codec <метод_сжатия_событий> \
     --filter-all-folder-id <идентификатор_каталога> \
     --filter-all-cloud-id <идентификатор_облака> \
     --filter-all-organisation-id <идентификатор_организации> \

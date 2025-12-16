@@ -48,7 +48,7 @@ To edit an outdated version, select it from the list of versions. To save your c
 
 * Versioning is not available for the following connections: [Files](../../operations/connection/create-file.md), [Yandex Documents](../../operations/connection/create-yadocs.md), and [Google Sheets](../../operations/connection/create-google-sheets.md).
 * Sensitive connection data, such as passwords and tokens, is not versioned.
-* You can only switch to versions created on or after December 1, 2024. Currently, if you edit a connection created before this date, saving your changes will delete the previous version.
+* You can only switch to versions created starting December 1, 2024. Therefore, if your connection was created before this date, editing it now and saving your changes will permanently delete the previous version.
 * You can only get change history for the last three months.
 * The change history only contains a list of connection versions and indicates the version type, save date and time, and user who made the change.
 * Connection versions do not include:

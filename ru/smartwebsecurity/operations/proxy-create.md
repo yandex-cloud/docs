@@ -5,11 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать прокси-сервер
 
-{% note info %}
-
-На прокси-сервере установлено ограничение MTU для всех пакетов — 1450 байт.
-
-{% endnote %}
+{% include [roles-for-creating-proxy-notice](../../_includes/smartwebsecurity/roles-for-creating-proxy-notice.md)%}
 
 {% list tabs group=instructions %}
 
@@ -41,6 +37,12 @@ description: Следуя данной инструкции, вы сможете
 {% include [after-proxy-create](../../_includes/smartwebsecurity/after-proxy-create.md) %}
 
 {% endlist %}
+
+{% note info %}
+
+На прокси-сервере установлено ограничение MTU для всех пакетов — 1450 байт.
+
+{% endnote %}
 
 ### См. также {#see-also}
 

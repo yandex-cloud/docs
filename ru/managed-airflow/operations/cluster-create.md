@@ -92,7 +92,7 @@ keywords:
         {% endnote %}
 
       * dag-процессора;
-        
+
         {% include [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
       * (опционально) службы Triggerer.
@@ -117,12 +117,25 @@ keywords:
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите существующий бакет или создайте новый. В этом бакете будут храниться DAG-файлы.
+  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите **Тип источника данных** и укажите его параметры:
+     * **S3** – выберите существующий бакет или создайте новый. В этом бакете будут храниться DAG-файлы.
 
-      Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
+        Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
+
+     * **Git** — укажите адрес репозитория, рабочую ветку, путь к каталогу с DAG-файлами и содержимое закрытого SSH-ключа доступа к репозиторию.
+
+        {% note warning %}
+
+        * Адрес репозитория должен разрешать подключения по протоколу SSH.
+
+        * Закрытый ключ не должен быть защищен паролем.
+
+        * Для использования Git-репозитория укажите в блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** сеть с настроенным [NAT-шлюзом](../../vpc/operations/create-nat-gateway.md). Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера {{ maf-name }}.
+
+        {% endnote %}
 
   1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
-      
+
       * Выберите время [технического обслуживания](../concepts/maintenance.md) кластера:
 
         {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
@@ -188,6 +201,11 @@ keywords:
            --deb-packages <список_deb-пакетов> \
            --pip-packages <список_pip-пакетов> \
            --dags-bucket <имя_бакета> \
+           --gitsync repo=<SSH-адрес_репозитория>,`
+                     `branch=<рабочая_ветка>,`
+                     `subpath=<путь_к_каталогу_DAG-файлов>,`
+                     `ssh-key=<закрытый_SSH-ключ>,`
+                     `ssh-key-path=<путь_к_файлу_приватного_SSH-ключа> \
            --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
@@ -206,7 +224,6 @@ keywords:
             {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
-
 
 - {{ TF }} {#tf}
 
@@ -309,6 +326,12 @@ keywords:
           "codeSync": {
             "s3": {
               "bucket": "<имя_бакета>"
+            },
+            "gitSync": {
+              "repo": "<SSH-адрес_репозитория>",
+              "branch": "<рабочая_ветка>",
+              "subPath": "<путь_к_каталогу_DAG-файлов>",
+              "sshKey": "<приватный_SSH-ключ>"
             }
           },
           "maintenanceWindow": {
@@ -393,7 +416,20 @@ keywords:
 
             * `securityGroupIds` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
-        * `codeSync.s3.bucket` — имя бакета, в котором будут храниться DAG-файлы.
+        * `codeSync` — тип и параметры источника DAG-файлов:
+
+            * `s3.bucket` — имя бакета.
+
+            * `gitSync` — параметры Git-репозитория:
+
+              * `repo` — адрес репозитория.
+              * `branch` — рабочая ветка.
+              * `subPath` — путь к каталогу DAG-файлов в репозитории.
+              * `sshKey` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+            Укажите один из двух параметров: `s3` либо `gitSync`.
 
         * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-rest.md) %}
 
@@ -504,6 +540,12 @@ keywords:
           "code_sync": {
             "s3": {
               "bucket": "<имя_бакета>"
+            },
+            "git_sync": {
+              "repo": "<SSH-адрес_репозитория>",
+              "branch": "<рабочая_ветка>",
+              "sub_path": "<путь_к_каталогу_DAG-файлов>",
+              "ssh_key": "<закрытый_SSH-ключ>"
             }
           },
           "maintenance_window": {
@@ -588,7 +630,20 @@ keywords:
 
             * `security_group_ids` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
-        * `code_sync.s3.bucket` — имя бакета, в котором будут храниться DAG-файлы.
+        * `code_sync` — тип и параметры источника DAG-файлов:
+
+            * `s3.bucket` — имя бакета.
+
+            * `git_sync` — параметры Git-репозитория:
+
+              * `repo` — адрес репозитория.
+              * `branch` — рабочая ветка.
+              * `sub_path` — путь к каталогу DAG-файлов в репозитории.
+              * `ssh_key` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+            Укажите один из двух параметров: `s3` либо `git_sync`.
 
         * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-grpc.md) %}
 

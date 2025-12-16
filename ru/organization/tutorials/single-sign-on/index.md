@@ -12,3 +12,4 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * [Zabbix](./saml-zabbix.md)
 * [{{ mos-name }}](./saml-opensearch.md)
 * [SonarQube](./saml-sonarqube.md)
+* [OpenVPN Access Server](./saml-ovpn.md)
