@@ -249,6 +249,8 @@ items:
             href: tutorials/single-sign-on/saml-yandex-360.md
           - name: SonarQube
             href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: OpenVPN Access Server
+            href: tutorials/single-sign-on/saml-ovpn.md
   - name: Концепции
     items:
       - name: Организация

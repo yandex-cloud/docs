@@ -20,7 +20,8 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the database to create a table in.
   1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
   1. Choose **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** on the right side of the page.
@@ -69,7 +70,8 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
   {% endnote %}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the database to create a table in.
   1. Choose **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** on the right side of the page.
   1. Configure the table settings:
@@ -88,13 +90,14 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
 {% endlist %}
 
-### Сolumn-oriented table {#create-column-table}
+### Column-oriented table {#create-column-table}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the database to create a table in.
   1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
   1. Choose **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** on the right side of the page.
@@ -104,11 +107,11 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
   1. Add columns:
      * Column **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
      * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**.
-     * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Specify whether the column is part of the primary key. A primary index is automatically created based on the primary key.
+     * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Specify whether the column is part of the primary key. Primary indexes are automatically created based on the primary key.
 
         {% note info %}
 
-        The order of columns in the primary key depends on the order of columns in the table being created.
+        The order of columns in the primary key depends on the order of columns in the table you are creating.
 
         {% endnote %}
 
@@ -117,7 +120,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
   1. Configure the table TTL parameters:
      * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column}}**. Select the column whose value will be used to calculate the lifetime of the rows.
      * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime}}**. Specify the lifetime of the table rows.
-     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Select a unit of measurement for the table row lifetime you specified.
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Select a measurement unit for the table row lifetime you specified.
   1. Configure partitioning:
      * **{{ ui-key.yacloud.ydb.table.form.field_partition-key }}**: Specify a column to partition the table by.
      * **{{ ui-key.yacloud.ydb.table.form.field_partition-count }}**: Specify the number of partitions for the table.
@@ -142,7 +145,8 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
    In the {{ ydb-short-name }} cloud console, you can add non-key columns to a table and change its automatic partitioning settings.
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Select the database to update a table in.
    1. Find the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_edit }}**.
    1. Add new columns to the table and specify their parameters:
@@ -177,7 +181,8 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
    {% endnote %}
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Select the database to update a table in.
    1. Find the table in the list and click it.
    1. Click **Add row**.
@@ -197,7 +202,8 @@ To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Select the database to update a table in.
    1. Find the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_edit }}**.
 
@@ -210,7 +216,7 @@ To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}
         -  Configure the table TTL parameters:
             * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column}}**. Select the column whose value will be used to calculate the lifetime of the rows.
             * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime}}**. Specify the lifetime of the table rows.
-            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Select a unit of measurement for the table row lifetime you specified.
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Select a measurement unit for the table row lifetime you specified.
 
    1. Click **{{ ui-key.yacloud.ydb.table.edit.button_update }}**.
 
@@ -237,7 +243,8 @@ To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Select the database to delete a table from.
    1. Find the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_delete }}**.
    1. Confirm the deletion.
@@ -254,7 +261,8 @@ To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Go to the database to delete a document table from.
    1. Select a document table from the list of tables, then click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_delete }}**.
    1. Confirm the deletion.
@@ -271,7 +279,8 @@ To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Select the database to delete a table from.
    1. Find the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_delete }}**.
    1. Confirm the deletion.
@@ -290,7 +299,8 @@ To delete tables, you can also use the [`DROP TABLE`]({{ ydb.docs }}/yql/referen
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder page.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the database to create a directory in.
   1. Choose **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_directory }}** on the right side of the page.
   1. Enter the directory name and click **{{ ui-key.yacloud.ydb.browse.dialogs.button_create-directory }}**.

@@ -57,6 +57,10 @@ description: Из статьи вы узнаете, что такое трейл
         * **{{ ui-key.yacloud.logging.label_loggroup }}** — имя лог-группы.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_dataStream }}`:
         * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — имя потока данных.
+        * **Кодек** — метод сжатия событий при записи в поток данных {{ yds-name }}.
+
+            {% include [yds-compressing-events](../../_includes/audit-trails/yds-compressing-events.md) %}
+
 * Блок **{{ ui-key.yacloud.audit-trails.label_service-account }}** — сервисный аккаунт, от имени которого будет выполняться загрузка аудитных логов в бакет, лог-группу или поток данных. Если аккаунту нужны дополнительные роли, появится предупреждение с перечнем ролей.
 * Блок **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
     * **Статус** — включение и выключение сбора аудитных логов уровня конфигурации.

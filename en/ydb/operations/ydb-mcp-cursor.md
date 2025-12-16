@@ -73,7 +73,7 @@ Create a database in [serverless mode](../../ydb/concepts/serverless-and-dedicat
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select a folder to create a database in.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
      1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. Follow these naming requirements:
 
@@ -107,7 +107,7 @@ If working with a local Docker container, skip this section.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the service account you created.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -221,9 +221,9 @@ Without MCP, the LLM would have only the source code and error text. In this cas
 #### Fixing a database schema {#fix-database-with-mcp}
 
 To simulate an error, rename the table:
-1. Log in to the [management console]({{ link-console-main }}).
-1. Go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and open your database.
-1. Click **{{ ui-key.yacloud.ydb.database.switch_browse }}**, then **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**, and run this query to [rename the table](https://ydb.tech/docs/ru/yql/reference/syntax/alter_table/rename):
+1. In the [management console]({{ link-console-main }}), select the folder the DB resides in.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and open your database.
+1. Click **{{ ui-key.yacloud.ydb.database.switch_browse }}**, then **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**, and run this query to [rename the table](https://ydb.tech/docs/en/yql/reference/syntax/alter_table/rename?version=v25.2):
 
 ```
 ALTER TABLE notes RENAME TO notes2
@@ -254,7 +254,7 @@ Delete the temporary `notes2` table if left after the previous step so it does n
 DROP TABLE IF EXISTS notes2
 ```
 
-Now, [rename](https://ydb.tech/docs/ru/yql/reference/syntax/alter_table/rename) the main table again:
+Now, [rename](https://ydb.tech/docs/en/yql/reference/syntax/alter_table/rename?version=v25.2) the main table again:
 
 ```
 ALTER TABLE notes RENAME TO notes_new

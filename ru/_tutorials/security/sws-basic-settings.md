@@ -88,6 +88,8 @@
 
   ### Создайте прокси-сервер {#create-proxy}
 
+  {% include [roles-for-creating-proxy-notice](../../_includes/smartwebsecurity/roles-for-creating-proxy-notice.md)%}
+
   {% list tabs group=instructions %}
 
   - Консоль управления {#console}

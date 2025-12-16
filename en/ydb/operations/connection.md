@@ -8,10 +8,10 @@ Before you start, install the [{{ ydb-short-name }} CLI]({{ ydb.docs }}/referenc
 
 To connect to your DB in {{ dd }} mode, allow incoming and outgoing traffic over TCP on port `{{ ydb.port-dedicated }}`. Make sure the assigned [security group](../../vpc/concepts/security-groups.md) contains the appropriate rule, or add one:
 
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ ydb.port-dedicated }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ ydb.port-dedicated }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
 ## Get connection details {#endpoint-and-path}
 
@@ -21,16 +21,16 @@ To get the database connection details:
 
 - Management console {#console}
 
-  1. Navigate to the [management console]({{ link-console-main }}).
-  1. Select the folder hosting your DB and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Select the DB you want to get the endpoint and path for.
+  1. Go to the [management console]({{ link-console-main }}) and select a folder housing your database.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Select the DB for which you need to get the endpoint and path.
       
       * The DB endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):
 
           >For example, the endpoint for a DB in Serverless mode is `{{ ydb.ep-serverless }}` and in Dedicated mode is `{{ ydb.ep-dedicated }}`.
       * The DB path is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`).
       
-          >Example of a DB path: `{{ ydb.path-serverless }}`.
+          >Here is an example of a DB path: `{{ ydb.path-serverless }}`.
 
 - {{ yandex-cloud }} CLI {#cli}
 

@@ -7,7 +7,9 @@ description: In this article, you will learn how to create a connection to get d
 
 {% note info %}
 
-Only a user with the `{{ roles-datalens-instances-admin }}` or `{{ roles-datalens-admin }}` [role](../../security/roles.md#service-roles) can create and use a connection. To allow other users to view a connection and run queries to it, the connection administrator can configure [object access permissions](../../security/manage-access.md).
+Only a user with the `{{ roles-datalens-instances-admin }}` or `{{ roles-datalens-admin }}` [role](../../security/roles.md#service-roles) can create and use a connection in an [organization](../../concepts/organizations.md). The `{{ roles-datalens-workbooks-editor }}` [workbook admin](../../security/roles.md#datalens-workbooks-admin) role is not enough to create a connection.
+
+To allow other users to view a connection and run queries to it, the connection administrator can configure [object access permissions](../../security/manage-access.md).
 
 {% endnote %}
 

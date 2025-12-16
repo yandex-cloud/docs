@@ -248,6 +248,8 @@ items:
             href: security/single-sign-on/saml-managed-gitlab.md
           - name: SonarQube
             href: security/single-sign-on/saml-sonarqube.md
+          - name: OpenVPN Access Server
+            href: security/single-sign-on/saml-ovpn.md
       - name: Загрузка аудитных логов в {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md

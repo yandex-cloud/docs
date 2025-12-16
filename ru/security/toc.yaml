@@ -115,6 +115,8 @@ items:
             href: tutorials/single-sign-on/saml-sonarqube.md
           - name: Настройка единого входа в {{ yandex-360 }} по стандарту SAML
             href: tutorials/single-sign-on/saml-yandex-360.md
+          - name: Настройка единого входа в OpenVPN Access Server по стандарту SAML
+            href: tutorials/single-sign-on/saml-ovpn.md
       - name: Сетевая безопасность
         items:
           - name: Организация виртуального хостинга

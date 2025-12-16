@@ -28,7 +28,6 @@ This feature is at the Beta testing stage.
 
 * Neuroanalyst is based on the cloud service called [{{ foundation-models-full-name }}](../../ai-studio).
 * Your data and queries stay within the {{ yandex-cloud }} infrastructure.
-* The currently used model is Qwen3 235B-A22B-Instruct-2507; going forward, there will be more models to choose from.
 * Your data and queries are not logged, nor used for model tuning.
 * The admin can [disable generation of insights for your users](#prohibit) at the dashboard level.
 

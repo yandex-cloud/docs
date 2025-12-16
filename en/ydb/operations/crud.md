@@ -12,10 +12,10 @@ To run queries, you will need to create a [database](manage-databases.md) and a 
 ## SQL queries in the management console {#web-sql}
 
 To send an SQL query to a database from the management console:
-1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+1. In the [management console]({{ link-console-main }}), select the folder containing your database.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 1. Select the database from the list.
-1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
 1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text. When making queries, you can use the following templates:
    * To use one of the standard templates, select it from the drop-down list to the right of the **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** button.
    * To populate a template with data from a specific table, click ![image](../../_assets/horizontal-ellipsis.svg) in the row with the table and select a template.
@@ -50,7 +50,7 @@ Once the `series`, `seasons`, and `episodes` tables are created, you can insert 
 REPLACE INTO <table_name> (<list_of_columns>) VALUES (<list_of_values_to_add>);
 ```
 
-Use the [REPLACE]({{ ydb.docs }}/yql/reference/syntax/replace_into) statement to add a new row or change an existing one based on the specified primary key value. If a row with the specified primary key value does not exist, it will be created. If the row already exists, the column values of the existing row will be replaced with the new ones. *The values of columns not involved in the operation are set to their default values.* This is the only difference from the UPSERT statement.
+Use the [REPLACE]({{ ydb.docs }}/yql/reference/syntax/replace_into) statement to add a new row or change an existing one based on the specified primary key value. If a row with the specified primary key value does not exist, it will be created. If the row already exists, the column values of the existing row will be replaced with new ones. *The values of columns not involved in the operation are set to their default values.* This is the only difference from the UPSERT statement.
 
 {% note info %}
 

@@ -13,6 +13,7 @@ Error code | Description |
 [ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED](ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md) | Request size limit exceeded |
 [ERR.CK.TOO_MANY_LINES](ERR-CK_TOO_MANY_LINES.md) | Too many series on the chart |
 [ERR.DS_API](ERR-DS_API.md) | Internal server error |
+[ERR.DS_API.BLOCK.UNEVEN_COLUMN_COUNT](ERR-DS_API-BLOCK-UNEVEN_COLUMN_COUNT.md) | Blocks have different column count |
 [ERR.DS_API.CONNECTION_CONFIG.DASHSQL_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md) | Using QL charts is prohibited at the connection level |
 [ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md) | Subquery source is disallowed in the connection settings |
 [ERR.DS_API.DATABASE_UNAVAILABLE](ERR-DS_API-DATABASE_UNAVAILABLE.md) | Data source is unavailable |
@@ -69,3 +70,4 @@ Error code | Description |
 [ERR.FILE.PARSE_FAILED.INVALID_EXCEL](ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md) | Invalid file format |
 [ERR.FILE.UNSUPPORTED_DOCUMENT](ERR-FILE-UNSUPPORTED_DOCUMENT.md) | File check failed |
 [ERR.US.BAD_REQUEST.ALREADY_EXISTS](ERR-US-BAD_REQUEST-ALREADY_EXISTS.md) | Failed to create <object_type> |
+[SDK_REQUEST_ERROR](SDK_REQUEST_ERROR.md) | Error handling the response |
