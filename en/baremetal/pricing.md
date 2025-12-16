@@ -36,9 +36,9 @@ All prices are per month.
 
 #### Prices for promo configurations {#promo}
 
-##### Reduced prices since 27.11.2025 until 19.12.2025 {#27-11-19-12-2025}
+##### Reduced prices since 27.11.2025 until 29.12.2025 {#27-11-19-12-2025}
 
-You can rent servers with these configuration options until December 19, 2025, or as long as they are available. The price is valid once you complete the purchase and for the entire period of use. You can use the servers you rented at a discounted price until you cancel your rent on your own. Once you cancel, you will not be able to get a server at a discounted price again.
+You can rent servers with these configuration options until December 29, 2025, or as long as they are available. The price is valid once you complete the purchase and for the entire period of use. You can use the servers you rented at a discounted price until you cancel your rent on your own. Once you cancel, you will not be able to get a server at a discounted price again.
 
 
 

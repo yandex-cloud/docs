@@ -204,6 +204,7 @@ description: Следуя данной инструкции, вы сможете
 
               * `stream_name` — имя [созданного ранее](#before-you-begin) потока данных. Имя можно запросить со [списком потоков данных в каталоге](../../data-streams/operations/manage-streams.md#list-data-streams).
               * `database_id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}. Идентификатор можно запросить со [списком баз данных {{ ydb-short-name }} в каталоге](../../ydb/operations/manage-databases.md#list-db).
+              * `codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
       * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) созданного [ранее](#before-you-begin) сервисного аккаунта.
 
       {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
@@ -239,6 +240,7 @@ description: Следуя данной инструкции, вы сможете
     --destination-log-group-id <идентификатор_лог_группы> \
     --destination-yds-stream <имя_потока_данных_YDS> \
     --destination-yds-database-id <идентификатор_базы_данных_YDS> \
+    --destination-yds-codec <метод_сжатия_событий> \
     --filter-all-folder-id <идентификатор_каталога> \
     --filter-all-cloud-id <идентификатор_облака> \
     --filter-all-organisation-id <идентификатор_организации> \

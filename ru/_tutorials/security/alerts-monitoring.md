@@ -260,7 +260,14 @@
   * [{#T}](../../ydb/metrics.md)
   * [{#T}](../../ydb/concepts/limits.md)
 
-Подробнее о решении проблем с записью данных см. в разделе [{#T}](../../data-streams/tutorials/slow-writes-debug.md).
+  Подробнее о решении проблем с записью данных см. в разделе [{#T}](../../data-streams/tutorials/slow-writes-debug.md).
+
+  {% note tip %}
+
+  {% include [yds-compressing-events](../../_includes/audit-trails/yds-compressing-events.md) %}
+
+  {% endnote %}
+  
 
 
 

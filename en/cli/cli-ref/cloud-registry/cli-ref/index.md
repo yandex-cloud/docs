@@ -23,6 +23,7 @@ Syntax:
 	- [yc cloud-registry registry add-ip-permissions](registry/add-ip-permissions.md) — Add ip permissions for the specified registry
 	- [yc cloud-registry registry create](registry/create.md) — Creates a registry in the specified folder
 	- [yc cloud-registry registry delete](registry/delete.md) — Deletes the specified registry
+	- [yc cloud-registry registry force-delete](registry/force-delete.md) — Deletes the specified registry
 	- [yc cloud-registry registry get](registry/get.md) — Returns the specified Registry
 	- [yc cloud-registry registry list](registry/list.md) — Retrieves the list of Registry resources
 	- [yc cloud-registry registry list-access-bindings](registry/list-access-bindings.md) — Lists access bindings for the specified registry

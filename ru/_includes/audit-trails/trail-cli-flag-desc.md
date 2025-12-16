@@ -15,6 +15,7 @@
 
     С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-log-group-id`.
 * `--destination-yds-database-id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}.
+* `--destination-yds-codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
 * `--filter-all-folder-id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, для всех ресурсов которого будут регистрироваться события уровня конфигурации.
 * `--filter-all-cloud-id` — [идентификатор](../../resource-manager/operations/cloud/get-id.md) облака, для всех ресурсов которого будут регистрироваться события уровня конфигурации.
 * `--filter-all-organisation-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, для всех ресурсов которой будут регистрироваться события уровня конфигурации.

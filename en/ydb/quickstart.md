@@ -8,14 +8,14 @@ description: Follow this guide to create and set up a {{ ydb-name }} database.
 In this tutorial, you will create a [{{ ydb-short-name }}](https://ydb.tech/{{ lang }}) database in {{ yandex-cloud }} and run a simple query to it using the {{ yandex-cloud }} [management console]({{ link-console-main }}) or command line tools.
 
 You can also work with a {{ ydb-full-name }} DB through:
-* [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/)
-* [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/)
-* [AWS SDK](docapi/tools/aws-sdk/index.md)
-* [AWS CLI](docapi/tools/aws-cli/index.md)
+* [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).
+* [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/).
+* [AWS SDK](docapi/tools/aws-sdk/index.md).
+* [AWS CLI](docapi/tools/aws-cli/index.md).
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
@@ -37,7 +37,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. Follow these naming requirements:
 
@@ -48,7 +48,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       You can leave the default parameters for the DB being created and [change](operations/manage-databases.md#update-db-serverless) them later. For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-  Wait for the DB to start. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+  Wait for the database to start. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -107,7 +107,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. Follow these naming requirements:
 
@@ -124,7 +124,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
      1. Select an existing network from the **{{ ui-key.yacloud.ydb.forms.field_network }}** list or create a new one:
         1. Click **{{ ui-key.yacloud.common.create }}**.
         1. In the window that opens, enter a **{{ ui-key.yacloud.vpc.networks.create.field_name }}** for the new network.
-        1. (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option. Subnets in each availability zone will be created automatically.
+        1. Optionally, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Subnets in each availability zone will be created automatically.
         1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
      1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each [availability zone](../overview/concepts/geo-scope.md):
         1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -137,7 +137,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
      You cannot change the settings of the **{{ ui-key.yacloud.ydb.forms.label_section-network }}** section after the database is created.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-     Wait for the DB to start. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+     Wait for the database to start. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -239,7 +239,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the desired bucket is located.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the previously created database.
   1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
   1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text.
@@ -308,5 +308,5 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 ## What's next {#whats-next}
 
 * Learn more about [working with DBs](operations/index.md).
-* Read about [service concepts](concepts/index.md).
+* Read about the [service concepts](concepts/index.md).
 * Learn more about the [YQL]({{ ydb.docs }}/yql/reference/) query language.

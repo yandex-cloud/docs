@@ -23,6 +23,7 @@ resource "yandex_audit_trails_trail" "basic_trail" {
   data_stream_destination {
     database_id = "<идентификатор_базы_данных_YDS>"
     stream_name = "<имя_потока_данных_YDS>"
+    codec       = "<метод_сжатия_событий>"
   }
 
   # Настройки политики фильтрации

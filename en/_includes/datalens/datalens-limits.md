@@ -38,7 +38,7 @@ Maximum number of rows for background chart export | 1,000,000 rows
 
 #### Chart data limits {#datalens-chart-data-limits}
 
-Charts in {{ datalens-short-name }} can only display a limited amount of data. If the number of rows (columns and cells for pivot tables) in a dataset exceeds the established limit, the chart will not be built. Therefore, to build a chart from data in a large dataset, select a part of the data to display based on the limits below using the [filters](../../datalens/dataset/settings.md#default-setting):
+Charts in {{ datalens-short-name }} can only display a limited amount of data. If the number of rows (columns and cells for pivot tables) in a dataset exceeds the established limit, the chart will not be built. Therefore, to build a chart from data in a large dataset, select a part of the data to display based on the limits below using the [filters](../../datalens/dataset/settings.md#default-filters):
 
 Chart type | I/O
 ----- | -----

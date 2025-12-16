@@ -16,6 +16,10 @@ description: Следуя данной инструкции, вы сможете
 {% endnote %}
 
 
+{% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
+
+
+
 
 
 ## Создать кластер {#create-cluster}

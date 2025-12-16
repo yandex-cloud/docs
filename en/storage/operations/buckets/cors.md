@@ -16,7 +16,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
   1. Select the bucket you want to configure CORS for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_cors }}** tab.
-  1. Click **{{ ui-key.yacloud.storage.bucket.cors.button_cors_empty-create }}**.
+  1. Click **{{ ui-key.yacloud.storage.bucket.cors.button_action-edit }}**.
   1. Fill out the form that opens. You can add, delete, and edit configuration rules.
      
      {% include [storage-cors-create-rule](../../_includes_service/storage-cors-create-rule.md) %}
