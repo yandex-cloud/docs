@@ -60,8 +60,8 @@ To get started:
 
 ## Create a cluster {#cluster-create}
 
-1. In the management console, select the folder where you want to create a DB cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. In the management console, select the folder where you want to create your database cluster.
+1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mch-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.

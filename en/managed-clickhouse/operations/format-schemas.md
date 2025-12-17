@@ -15,7 +15,8 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
 
 - CLI {#cli}
@@ -34,7 +35,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -53,7 +54,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -101,7 +102,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -120,7 +121,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -173,7 +174,8 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
     1. Click **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.button-action_add-format-schema }}**.
     1. In the **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.title_add }}** dialog box, fill out the form by specifying the schema file link generated earlier in the **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.field_format-schema-uri }}** field.
@@ -210,7 +212,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `format_schema` section to the {{ mch-name }} cluster description:
 
@@ -241,7 +243,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -272,7 +274,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -324,7 +326,8 @@ To update the contents of a schema that is already added to the cluster:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
     1. Select the appropriate schema, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
@@ -348,7 +351,7 @@ To update the contents of a schema that is already added to the cluster:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, change the `uri` parameter value under `format_schema`:
 
@@ -377,7 +380,7 @@ To update the contents of a schema that is already added to the cluster:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -399,7 +402,7 @@ To update the contents of a schema that is already added to the cluster:
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             Here, we only specified a single setting, `uri`.
 
@@ -411,7 +414,7 @@ To update the contents of a schema that is already added to the cluster:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -442,7 +445,7 @@ To update the contents of a schema that is already added to the cluster:
         Where:
 
         * `format_schema_name`: Schema name.
-        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `uri`.
 
@@ -468,7 +471,8 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
    1. Select the appropriate schema, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
@@ -491,7 +495,7 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. Delete the section describing `format_schema` in question from the {{ mch-name }} cluster description.
 
@@ -509,7 +513,7 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -528,7 +532,7 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -1,12 +1,14 @@
 # Servers
 
-A {{ baremetal-name }} server is a fully [configured](./server-configurations.md) physical server connected to the [network](./network.md) via two or more 1 Gbps, 10 Gbps, or 25 Gbps [network interfaces](#network-interfaces). Its hardware and network resources are physically isolated and can be accessed only by their leaser.
+A {{ baremetal-name }} server is a physical server connected to the [network](./network.md) via two or more 1 Gbps, 10 Gbps, or 25 Gbps [network interfaces](#network-interfaces). Its hardware and network resources are physically isolated and can be accessed only by their lessee.
+
 
 {% include [bios-settings-warning](../../_includes/baremetal/bios-settings-warning.md) %}
 
 ## Server lease {#server-lease}
 
 You can lease a server for one day, one month, three months, six months, or one year. You can view the configurations available for lease in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}). 
+
 
 ## Server access {#server-access}
 
@@ -20,9 +22,9 @@ Pools are infrastructurally separate data center modules servers physically resi
 |---------------|------------------|------------------------------------|
 | `{{ region-id }}` | `{{ region-id }}-m` | `{{ region-id }}-m3`<br>`{{ region-id }}-m4` |
 
-## Reserving power for servers {#server-power-supply}
+## Redundant power supply for servers {#server-power-supply}
 
-When leasing a sever, you can select your configurations based on power reservation scheme type:
+When leasing a sever, you can select your configurations based on redundant power supply type:
 
 * Servers with one power supply unit (`1 PSU`).
 * Servers with two or more power supply units (`2+ PSU`).
@@ -32,16 +34,16 @@ When leasing a sever, you can select your configurations based on power reservat
 
 Any {{ baremetal-name }} server [configuration](./server-configurations.md) includes at least two [network interfaces](https://en.wikipedia.org/wiki/Network_interface_controller):
 
-* [Public](./network.md#public-network) network interface.
-* [Private](./network.md#private-network) network interface.
+* Network interface connected to a [public network](./network.md#public-network).
+* Network interface connected to a [private network](./network.md#private-network).
 
-In total, there may be more than two network interfaces:
-* In configurations with 10 Gbps and 25 Gbp NICs, in addition to the primary (high-speed) network interfaces, server diagnostic tools may display two more (inactive) network interfaces.
+In this case, there may be more than two network interfaces:
+* In configurations with NICs supporting connection speeds of 10 Gbps and 25 Gbps, in addition to the primary (high-speed) network interfaces, server diagnostic tools may display two more (inactive) network interfaces.
 
     These inactive interfaces belong to the integrated NICs of the server motherboard. They are not connected to any networks and do not require any configuration.
-* In configurations with the [MC-LAG](./mc-lag.md) network connection redundancy, the server uses not one but two network interfaces at once to connect to each of the networks.
+* In configurations with the [MC-LAG](./mc-lag.md) network connection redundancy, the server is connected to each of the networks not through one interface, but simultaneously through two network interfaces.
 
-    Network interfaces connected to the same network can be consolidated into aggregation groups at the OS level, which ensures fault tolerance.
+    Network interfaces connected to the same network can be combined into aggregation groups at the operating system level, which ensures fault tolerance.
 
 ## Server statuses {#server-status}
 
@@ -57,7 +59,7 @@ A server can have one of the following statuses:
 * `QUARANTINING`: Server is being [quarantined](#quarantine).
 * `QUARANTINED`: Server is quarantined. Users cannot access quarantined servers over the network or through a KVM console.
 * `RETURNING_FROM_QUARANTINE`: Server is returning from quarantine, with access being restored over the network and through a KVM console.
-* `ERROR`: Error has occurred, the KVM console is unavailable. Contact [technical support]({{ link-console-support }}).
+* `ERROR`: Error has occurred, the KVM console is unavailable. Please contact [support]({{ link-console-support }}).
 
 ## Quarantine {#quarantine}
 

@@ -15,10 +15,10 @@ description: You can monitor the state of a {{ mmy-name }} cluster and its indiv
 
 ## Monitoring the cluster state {#monitoring-cluster}
 
-For detailed {{ mmy-name }} cluster state information:
+To view detailed information on the state of a {{ mmy-name }} cluster:
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -75,14 +75,14 @@ The **Master overview** section shows master details:
 
 To view detailed information on the state of individual {{ mmy-name }} hosts:
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page.
 1. Select the host you need from the drop-down list.
 
 This page displays the charts showing workloads of individual cluster hosts:
 
-* **CPU usage**: Processor core utilization. As the workload increases, the **idle** value goes down.
+* **CPU usage**: Processor core workload. As the workload increases, the **idle** value goes down.
 * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
 * **Disk IOPS**: Number of disk operations per second.
 
@@ -149,7 +149,7 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster for which you want to set up alerts.
 
-    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+    1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 
     1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
@@ -168,7 +168,7 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Below are recommended thresholds for some metrics:
+Below are the recommended thresholds for some metrics:
 
 | Metric                             | Internal metric name               | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`                   | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`                 |
 |-------------------------------------|:-------------------------:|:-------------------------:|:-------------------------:|
@@ -192,10 +192,10 @@ You can check the current storage size in the [cluster details](cluster-list.md#
 
 To check the cluster’s state and status:
 
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Locate the cluster you need in the list, and hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
-### Cluster health {#cluster-health}
+### Cluster states {#cluster-health}
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 

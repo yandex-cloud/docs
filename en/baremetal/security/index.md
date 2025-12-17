@@ -14,6 +14,8 @@ For more information about role inheritance, see [Inheritance of access permissi
 
 In {{ baremetal-name }}, you can manage access using both service and primitive roles.
 
+{% include [baremetal](../../_mermaid/roles/baremetal.md) %}
+
 ### Service roles {#service-roles}
 
 #### baremetal.auditor {#baremetal-auditor}

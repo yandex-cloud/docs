@@ -1,1 +1,3 @@
-Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, select the appropriate [server configuration](../../../baremetal/concepts/server-configurations.md).
+In the **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** field, select the [lease period](../../../baremetal/concepts/servers.md#server-lease): `1 day`, `1 month`, `3 months`, `6 months`, or `1 year`.
+
+{% include [server-lease-step6-period](./server-lease-step6-period.md) %}

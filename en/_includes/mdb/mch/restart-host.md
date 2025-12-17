@@ -13,14 +13,16 @@ You may need to restart hosts to promptly address such issues as:
 
   To restart a single host:
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. In the host row, click ![icon](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
     1. In the window that opens, enable **I am restarting host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
   To restart multiple hosts in one go:
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Select the hosts you want to restart and click **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}** at the bottom of the screen.
     1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
@@ -44,7 +46,7 @@ You may need to restart hosts to promptly address such issues as:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
@@ -71,7 +73,7 @@ You may need to restart hosts to promptly address such issues as:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 

@@ -1,6 +1,6 @@
 ---
 title: Information about clusters in {{ mmy-short-name }}
-description: You can get detailed information about each {{ mmy-short-name }} cluster you created. To get the list of database clusters in a folder, navigate to the folder dashboard and select {{ mmy-name }}.
+description: You can get detailed information about each {{ mmy-short-name }} cluster you created. To get a list of database clusters in a folder, navigate to the folder dashboard and go to {{ mmy-name }}.
 ---
 
 # Information about existing {{ MY }} clusters
@@ -13,7 +13,7 @@ You can get detailed information about each {{ mmy-short-name }} cluster you cre
 
 - Management console {#console}
 
-  Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
 - CLI {#cli}
 
@@ -97,7 +97,7 @@ You can get detailed information about each {{ mmy-short-name }} cluster you cre
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -162,9 +162,9 @@ You can get detailed information about each {{ mmy-short-name }} cluster you cre
 
 {% endlist %}
 
-## Viewing cluster operations {#list-operations}
+## Viewing operations with clusters {#list-operations}
 
-All actions with {{ mmy-name }} clusters are logged as a list of operations. Each operation gets a unique ID.
+All actions with {{ mmy-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -172,14 +172,14 @@ All actions with {{ mmy-name }} clusters are logged as a list of operations. Eac
 
 - Management console {#console}
 
-  To view operations with all {{ mmy-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mysql.switch_operations }}** in the left-hand panel. The list that opens will also display operations for the deleted resources.
+  To view operations with all {{ mmy-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mysql.switch_operations }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
 
-  You can get the cluster’s operation list as follows:
+  You can get a list of operations for a cluster as follows:
 
   1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mysql.switch_list }}**.
-  1. Select the cluster in question.
+  1. Select the cluster you need.
   1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mysql.switch_operations }}** panel for the cluster you selected.
 
      You will see the list of operations with this cluster.
@@ -190,7 +190,7 @@ All actions with {{ mmy-name }} clusters are logged as a list of operations. Eac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the list of operations for a {{ mmy-name }} cluster, run this command:
+  To get a list of operations for a {{ mmy-name }} cluster, run this command:
 
   ```bash
   yc managed-mysql cluster list-operations <cluster_name_or_ID>
@@ -210,7 +210,7 @@ All actions with {{ mmy-name }} clusters are logged as a list of operations. Eac
 
   {% include [list of clusters in the folder](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc managed-mysql cluster list-operations c9qk2926qqu9******** --format yaml
@@ -281,7 +281,7 @@ All actions with {{ mmy-name }} clusters are logged as a list of operations. Eac
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get the list of operations](#get-operations) for the cluster.
+1. [Get a list of operations](#get-operations) for your cluster.
 1. Copy the ID of the operation you need.
 1. Get the operation details:
 

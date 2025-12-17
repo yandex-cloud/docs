@@ -14,7 +14,7 @@ description: This page provides reference information on the {{ TF }} provider r
 | **{{ TF }} resource**                                                                                        | **{{ yandex-cloud }} resource**                        |
 |------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
 | [yandex_mdb_sharded_postgresql_cluster]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster)   | [{{ SPQR }}](./operations/cluster-create.md) cluster |
-| [yandex_mdb_sharded_postgresql_database]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_database) | [{{ SPQR }} database](https://pg-sharding.tech/)  |
+| [yandex_mdb_sharded_postgresql_database]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_database) | [{{ SPQR }} database](operations/connect.md)      |
 | [yandex_mdb_sharded_postgresql_shard]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_shard)       | [{{ SPQR }} shard](./concepts/index.md#shard)         |
 | [yandex_mdb_sharded_postgresql_user]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_user)         | {{ SPQR }} user                              |
 

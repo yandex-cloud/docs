@@ -25,7 +25,8 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
 
 - CLI {#cli}
@@ -44,7 +45,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -63,7 +64,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -96,7 +97,8 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
 
 - CLI {#cli}
@@ -116,7 +118,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -135,7 +137,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -177,7 +179,8 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
     1. Select the cluster:
 
-        1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+        1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
         1. Click **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button-action_add-ml-model }}**.
 
@@ -210,7 +213,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `ml_model` section describing the ML model being added to the {{ mch-name }} cluster description:
 
@@ -239,7 +242,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -270,7 +273,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -346,7 +349,8 @@ To update the contents of a model that is already added to the cluster:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
     1. Select the model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
 
@@ -370,7 +374,7 @@ To update the contents of a model that is already added to the cluster:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, change the `uri` parameter value under `ml_model`:
 
@@ -399,7 +403,7 @@ To update the contents of a model that is already added to the cluster:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -421,9 +425,9 @@ To update the contents of a model that is already added to the cluster:
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
-            Here, we only specified a single setting, `uri`.
+            Here, we only specified a single parameter, `uri`.
 
         * `uri`: Link to the new model file in {{ objstorage-name }}.
 
@@ -433,7 +437,7 @@ To update the contents of a model that is already added to the cluster:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -464,7 +468,7 @@ To update the contents of a model that is already added to the cluster:
         Where:
 
         * `ml_model_name`: Model name.
-        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `uri`.
 
@@ -476,12 +480,12 @@ To update the contents of a model that is already added to the cluster:
 
 {% endlist %}
 
-## Removing a model {#disable}
+## Disabling a model {#disable}
 
 {% note info %}
 
 
-After removing a model, the related object remains in the {{ objstorage-full-name }} bucket. If you no longer need this model object, you can [delete](../../storage/operations/objects/delete.md) it.
+After you disable a model, the relevant object remains in the {{ objstorage-full-name }} bucket. If you no longer need this model object, you can [delete](../../storage/operations/objects/delete.md) it.
 
 
 {% endnote %}
@@ -490,7 +494,8 @@ After removing a model, the related object remains in the {{ objstorage-full-nam
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
     1. Select the model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
@@ -513,7 +518,7 @@ After removing a model, the related object remains in the {{ objstorage-full-nam
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. Delete the section describing `ml_model` in question from the {{ mch-name }} cluster description.
 
@@ -531,7 +536,7 @@ After removing a model, the related object remains in the {{ objstorage-full-nam
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -550,7 +555,7 @@ After removing a model, the related object remains in the {{ objstorage-full-nam
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

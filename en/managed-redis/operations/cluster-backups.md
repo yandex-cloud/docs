@@ -1,23 +1,23 @@
 ---
 title: Managing {{ VLK }} backups
-description: You can create backups and restore clusters from existing {{ VLK }} backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If your cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from the backup.
+description: You can create backups and use existing backups to restore {{ VLK }} clusters. When you restore a cluster from a backup, you create a new cluster with the backup data. If your cloud lacks resources to create such a cluster, you will not be able to restore your data from the backup.
 ---
 
 # Managing backups in {{ mrd-name }}
 
 
-You can create [backups](../concepts/backup.md) and use the existing backups to restore clusters.
+You can create [backups](../concepts/backup.md) and use existing backups to restore clusters.
 
-Additionally, {{ mrd-name }} creates automatic daily backups. You can [set the backup start time](#set-backup-window):
+{{ mrd-name }} also creates automatic daily backups. You can [set the backup start time](#set-backup-window):
 
 ## Restoring a cluster from a backup {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder lacks [resources](../concepts/limits.md) to create such a cluster, data will not be restored from the backup. The average backup recovery speed is 10 MBps.
+When you restore a cluster from a backup, you create a new cluster with the backup data. If your folder lacks resources to create such a cluster, you will not be able to restore your data from the backup. The average backup restore speed is 10 MBps.
 
-If you chose the **local-ssd** disk type when restoring the cluster from a backup, add at least two hosts per shard.
+If you selected the **local-ssd** disk type when restoring the cluster from a backup, add at least two hosts per shard.
 
 
-Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yandex-cloud }} account the [managed-redis.restorer](../../iam/roles-reference.md#managed-redis-restorer) role or higher for the backup folder and the new cluster folder.
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-redis.restorer](../../iam/roles-reference.md#managed-redis-restorer) role or higher for the backup folder and the new cluster folder to your {{ yandex-cloud }} account.
 
 
 {% list tabs group=instructions %}
@@ -26,24 +26,24 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   To restore an existing cluster from a backup:
 
-  1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
-  1. In the line of the appropriate backup, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to restore the cluster.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
+  1. Next to the backup you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   To restore a previously deleted cluster from a backup:
 
-  1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to restore the cluster.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
   1. In the line of the appropriate backup, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
-  {{ mrd-name }} will initiate the process of creating a new cluster from the backup.
+  {{ mrd-name }} will start creating the cluster from the backup.
 
 - CLI {#cli}
 
@@ -89,7 +89,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
          --disk-size 20
       ```
 
-      This results in a new {{ VLK }} cluster with the following characteristics:
+      This will create a new {{ VLK }} cluster with the following specifications:
 
       * Name: `mynewrd`.
       * Environment: `PRODUCTION`.
@@ -141,16 +141,16 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
         Where:
 
-        * `backupId`: Backup ID. To find out the ID, [get a list of folder backups](#list-backups).
+        * `backupId`: Backup ID. To find out the ID, [get the list of backups in the folder](#list-backups).
         * `name`: Cluster name.
         * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
-        * `configSpec.redis.password`: Password.
+        * `configSpec.redis.password`: User password.
         * `hostSpecs`: Host settings:
 
              * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
-            * `replicaPriority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
-            * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if the `tlsEnabled` parameter is set to `true`.
+            * `replicaPriority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if `tlsEnabled` is set to `true`.
 
         * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
 
@@ -158,7 +158,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
             {% note warning %}
 
-            You can only enable connection encryption when creating a new cluster. You cannot disable encryption for a cluster that it is enabled for.
+            You can enable encrypted connections only when creating a new cluster. You cannot disable encryption for an existing cluster.
 
             {% endnote %}
 
@@ -172,7 +172,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [Cluster.Restore](../api-ref/grpc/Cluster/restore.md) call and send a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [Cluster.Restore](../api-ref/grpc/Cluster/restore.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -210,16 +210,16 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
         Where:
 
-        * `backup_id`: Backup ID. To find out the ID, [get a list of folder backups](#list-backups).
+        * `backup_id`: Backup ID. To find out the ID, [get the list of backups in the folder](#list-backups).
         * `name`: Cluster name.
         * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
-        * `config_spec.redis.password`: Password.
+        * `config_spec.redis.password`: User password.
         * `host_specs`: Host settings:
 
              * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
-            * `replica_priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
-            * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if the `tlsEnabled` parameter is set to `true`.
+            * `replica_priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if `tlsEnabled` is set to `true`.
 
         * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
 
@@ -227,7 +227,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
             {% note warning %}
 
-            You can only enable connection encryption when creating a new cluster. You cannot disable encryption for a cluster that it is enabled for.
+            You can enable encrypted connections only when creating a new cluster. You cannot disable encryption for an existing cluster.
 
             {% endnote %}
 
@@ -241,9 +241,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder to create a backup in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
+  1. In the [management console]({{ link-console-main }}), where you want to create a backup.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -262,13 +262,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
       {{ yc-mdb-rd }} cluster backup --help
       ```
 
-  1. Send a request to create a cluster backup, specifying the cluster name or ID:
+  1. Send the following request to create a cluster backup, specifying the cluster name or ID:
 
       ```bash
       {{ yc-mdb-rd }} cluster backup my-rd-cluster
       ```
 
-      You can get the cluster name and ID from the [list of clusters](cluster-list.md#list-clusters).
+      You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -287,7 +287,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -297,7 +297,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -327,14 +327,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - Management console {#console}
 
-  To get the list of cluster backups:
+  To get a list of cluster backups:
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
 
-  To get the list of all backups in the folder:
+  To get a list of all backups in a folder:
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI {#cli}
@@ -343,7 +343,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the list of {{ VLK }} cluster backups available in the default folder, run this command:
+  To get a list of {{ VLK }} cluster backups available in the default folder, run this command:
 
   ```bash
   {{ yc-mdb-rd }} backup list
@@ -381,7 +381,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
         1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
-    1. To get the list of backups for all clusters in the folder:
+    1. To get a list of backups for all clusters in a folder:
 
         1. Call the [Backup.List](../api-ref/Backup/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -394,7 +394,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
             ```
 
             
-            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+            You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
         1. Check the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.redis.v1.ListBackupsResponse) to make sure your request was successful.
@@ -409,7 +409,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. To get a list of cluster backups:
 
-        1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -429,9 +429,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
         1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
-    1. To get the list of backups for all clusters in the folder:
+    1. To get a list of backups for all clusters in a folder:
 
-        1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [BackupService.List](../api-ref/grpc/Backup/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -448,27 +448,27 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
             ```
 
             
-            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+            You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
         1. Check the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.redis.v1.ListBackupsResponse) to make sure your request was successful.
 
 {% endlist %}
 
-## Getting backup info {#get-backup}
+## Getting backup information {#get-backup}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   To get information about a backup of an existing cluster:
-  1. In the [management console]({{ link-console-main }}), go to the folder with the cluster to get backup information for.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
+  1. In the [management console]({{ link-console-main }}), go to the folder with the cluster whose backup information you want to get.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
 
   To get information about a backup of a previously deleted cluster:
-  1. In the [management console]({{ link-console-main }}), go to the folder the deleted cluster was in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder that previously stored the deleted cluster.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI {#cli}
@@ -500,7 +500,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/backups/<backup_ID>'
         ```
 
-        You can request the backup ID together with the [list of backups](#list-backups).
+        You can get the backup ID with the [list of backups](#list-backups).
 
     1. Check the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.redis.v1.Backup) to make sure your request was successful.
 
@@ -512,7 +512,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [BackupService.Get](../api-ref/grpc/Backup/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -544,7 +544,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - CLI {#cli}
 
-  To set the backup start time, use the `--backup-window-start` flag. You must specify the time in `HH:MM:SS` format.
+  To set the backup start time, use the `--backup-window-start` option. You must specify the time in `HH:MM:SS` format.
 
   ```bash
   {{ yc-mdb-rd }} cluster create \
@@ -604,14 +604,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
             Here, specify the backup start time:
 
-            * `hours`: Between `0` and `23` hours.
-            * `minutes`: Between `0` and `59` minutes.
-            * `seconds`: Between `0` and `59` seconds.
+            * `hours`: From `0` to `23` hours.
+            * `minutes`: From `0` to `59` minutes.
+            * `seconds`: From `0` to `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -621,7 +621,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -660,9 +660,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
             Here, specify the backup start time:
 
-            * `hours`: Between `0` and `23` hours.
-            * `minutes`: Between `0` and `59` minutes.
-            * `seconds`: Between `0` and `59` seconds.
+            * `hours`: From `0` to `23` hours.
+            * `minutes`: From `0` to `59` minutes.
+            * `seconds`: From `0` to `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).

@@ -36,7 +36,7 @@
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information on how to create this file, see [this guide](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. To enable and configure statistics collection, add the `performance_diagnostics` section to the cluster configuration:
 
@@ -52,7 +52,7 @@
         }
         ```
 
-        For `sessions_sampling_interval` and `statements_sampling_interval`, the valid values range from `1` to `86400` seconds.
+        For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
 
     1. Make sure the settings are correct.
 
@@ -206,7 +206,7 @@
                 yandex.cloud.mdb.mysql.v1.ClusterService.Update
             ```
 
-            Where `config_spec.performance_diagnostics` is the statistics collection settings:
+            Where `config_spec.performance_diagnostics` represents the statistics collection settings:
 
             * `enabled`: Enables statistics collection, `true` or `false`.
             * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
@@ -218,7 +218,7 @@
 
 ## Getting session statistics {#get-sessions}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
 
     To view session statistics or the history of queries run within a session, select the relevant tab.
@@ -239,14 +239,14 @@
 
         To view the history of queries run within a session:
 
-        1. Specify the time interval.
-        1. Optionally, set filters.
+        1. Specify the required time interval.
+        1. Optionally, configure filters.
 
     {% endlist %}
 
 ## Getting query statistics {#get-queries}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
     To view query statistics or compare them across two time intervals, select the relevant tab.
@@ -264,11 +264,11 @@
 
         To get information about the relative changes in query statistics:
 
-        1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** field, select the time interval whose statistics will serve as the basis for calculations.
-        1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** field, select the time interval whose statistics will be compared with those of the first interval.
-        1. Optionally, set filters.
+        1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** field, select the time interval to use as the baseline for calculations.
+        1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** field, select the time interval to compare against the baseline interval.
+        1. Optionally, configure filters.
 
-        Let’s assume, 10 `SELECT * FROM cities` queries were made in the first interval and 20, in the second one. When comparing statistics, the difference in the number of queries (the `Calls` column in the table) will be `+100%`.
+        Suppose, 10 `SELECT * FROM cities` queries were executed in the first interval and 20 in the second. When comparing statistics, the difference in the number of queries (the `Calls` column in the table) will be `+100%`.
 
     {% endlist %}
 

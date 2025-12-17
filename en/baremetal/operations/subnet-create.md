@@ -66,17 +66,17 @@ description: In this tutorial, you will learn how to create a private subnet and
        
        {% include [name-format](../../_includes/name-format.md) %}
        
-     * `--description`: Subnet description. This is an optional parameter.
-     * `--labels`: Subnet labels. This is an optional parameter.
-     * `--vrf-options`: Routing settings for communication with servers from other pools. This is an optional parameter. Possible settings:
+     * `--description`: Subnet description. This is an optional setting.
+     * `--labels`: Subnet labels. This is an optional setting.
+     * `--vrf-options`: Routing settings for communication with servers from other pools. This is an optional setting. Possible settings:
        * `vrf-id`: ID of the [virtual network segment (VRF)](../concepts/network.md#vrf-segment).
        * `vrf-name`: VRF name.
        * `cidr`: Subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
-       * `gateway-ip`: Gateway IP address for routing traffic from this subnet to other VRF-connected subnets. This is an optional parameter.
+       * `gateway-ip`: Gateway IP address for routing traffic from this subnet to other VRF-connected subnets. This is an optional setting.
      
          {% include [default-gateaway](../../_includes/baremetal/instruction-steps/default-gateaway.md) %}
 
-       * `dhcp`: IP address range for assigning addresses using DHCP to server network interfaces. This is an optional parameter.
+       * `dhcp`: IP address range for assigning addresses using DHCP to server network interfaces. This is an optional setting.
      
          {% include [default-dhcp](../../_includes/baremetal/instruction-steps/default-dhcp.md) %}
 

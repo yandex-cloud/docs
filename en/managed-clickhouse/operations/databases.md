@@ -27,8 +27,9 @@ In a cluster with enabled database management via SQL:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
 
@@ -47,11 +48,11 @@ In a cluster with enabled database management via SQL:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Database.List](../api-ref/Database/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Database.List](../api-ref/Database/list.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -60,18 +61,18 @@ In a cluster with enabled database management via SQL:
         --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/databases'
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [DatabaseService.List](../api-ref/grpc/Database/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [DatabaseService.List](../api-ref/grpc/Database/list.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -112,7 +113,8 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name.
   1. Select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
@@ -127,7 +129,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
         It is only available in [replicated](../concepts/replication.md) clusters.
 
-      You set the engine when creating a database and cannot change it for this database.
+      You can only set the engine when creating a database and cannot change it later.
 
   1. Click **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
 
@@ -154,7 +156,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `yandex_mdb_clickhouse_database` resource:
 
@@ -194,11 +196,11 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Database.Create](../api-ref/Database/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Database.Create](../api-ref/Database/create.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -230,12 +232,12 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [DatabaseService.Create](../api-ref/grpc/Database/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [DatabaseService.Create](../api-ref/grpc/Database/create.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -290,7 +292,8 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant database row and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
@@ -313,7 +316,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. Delete the `yandex_mdb_clickhouse_database` resource with the name of the database you are deleting.
 
@@ -329,11 +332,11 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Database.Delete](../api-ref/Database/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Database.Delete](../api-ref/Database/delete.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -348,12 +351,12 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \

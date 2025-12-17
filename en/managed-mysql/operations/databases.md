@@ -10,8 +10,8 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
 
@@ -19,7 +19,7 @@ You can add and remove databases, view database details, and manage some databas
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the list of cluster databases, run this command:
+  To get a list of cluster databases, run this command:
 
   ```bash
   {{ yc-mdb-my }} database list \
@@ -45,7 +45,7 @@ You can add and remove databases, view database details, and manage some databas
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure your request was successful.
+  1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -84,7 +84,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name.
   1. If you want a new user to become the database owner, [create it](cluster-users.md#adduser).
   1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
@@ -125,7 +125,7 @@ You can add and remove databases, view database details, and manage some databas
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information on how to create this file, see [this guide](cluster-create.md).
+      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
   1. Add the `yandex_mdb_mysql_database` resource:
 
@@ -173,7 +173,7 @@ You can add and remove databases, view database details, and manage some databas
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -215,8 +215,8 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI {#cli}
@@ -237,7 +237,7 @@ You can add and remove databases, view database details, and manage some databas
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information on how to create this file, see [this guide](cluster-create.md).
+      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
   1. Delete the `yandex_mdb_mysql_database` resource with the name of the database you are deleting.
 
@@ -268,7 +268,7 @@ You can add and remove databases, view database details, and manage some databas
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](#list-db).
 
-  1. Check the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -314,8 +314,8 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. In the list of the settings, locate **sql_mode**.
   1. Select the required SQL modes from the drop-down list. To restore the default settings, click **{{ ui-key.yacloud.component.mdb.settings.button_reset }}**.
@@ -344,7 +344,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](./cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. Specify the required SQL modes in the `sql_mode` parameter under `mysql_config`:
 
@@ -411,7 +411,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 

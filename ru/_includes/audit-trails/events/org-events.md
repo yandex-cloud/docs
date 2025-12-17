@@ -33,6 +33,7 @@
 `idp.SetUserPassword` | Установка пароля локального пользователя
 `idp.SetUserpoolAccessBindings` | Назначение прав доступа к пулу пользователей
 `idp.SuspendUser` | Деактивация локального пользователя
+`idp.UpdateSubscriptionLimit` | Изменение лимита подписки
 `idp.UpdateUser` | Изменение локального пользователя
 `idp.UpdateUserpool` | Изменение пула пользователей
 `idp.UpdateUserpoolAccessBindings` | Изменение прав доступа к пулу пользователей
@@ -70,6 +71,7 @@
 `saml.UpdateApplicationAssignments` | Изменение списка пользователей SAML-приложения
 `saml.UpdateFederation` | Изменение федерации удостоверений
 `saml.UpdateSignatureCertificate` | Изменение сертификата для подписи
+`saml.UploadSignatureCertificate` | Загрузка сертификата для подписи
 `saml.ValidateFederationDomain` | Валидация домена, привязываемого к федерации 
 `UnbindOrganizationAccessPolicy` | Отмена привязки политики авторизации в организации
 `UpdateGroup` | Изменение группы пользователей

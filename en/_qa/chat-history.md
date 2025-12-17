@@ -1,6 +1,6 @@
 #### Can I see my chat history? {#chat-history}
 
-You can only view the history of the chats you had in [{{ ai-playground }}]({{ link-console-main }}/link/ai-studio/). Proceed as follows:
+You can only view the history of the chats you had in [{{ ai-playground }}]({{ link-console-main }}/link/ai-studio/). To do this:
 
 1. In the [management console]({{ link-console-main }}), select the folder your chat was in.
 1. Select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.

@@ -5,6 +5,17 @@ description: This section contains {{ mrd-name }} release notes.
 
 # {{ mrd-full-name }} release notes
 
+## October 2025 {#oct-2025}
+
+* A new version is out: {{ VLK }} 9.0. For more information about revisions, see the [{{ VLK }}](https://github.com/valkey-io/valkey/releases/tag/9.0.0) documentation.
+* Added support for:
+    * Valkey-Search: Vector and full-text search.
+    * Valkey-JSON: Native work with JSON documents.
+    * Valkey-Bloom: Probabilistic data structures.
+* When [creating](operations/user-create.md) a {{ VLK }} user, you can now immediately specify their permissions. Do it with the help of an [ACL](https://valkey.io/topics/acl/) (Access Control List) which controls the user's permissions to run particular commands.
+* Added integration with {{ connection-manager-name }}. This tool allows you to connect to the cluster without directly using a password, thus reducing the risk of it being compromised.
+* Added the ability to restore a sharded cluster from a backup.
+
 ## July 2025 {#jul-2025}
 
 

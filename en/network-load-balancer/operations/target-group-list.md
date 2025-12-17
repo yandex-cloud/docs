@@ -8,7 +8,8 @@ You can request detailed information about each target group you created.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder page.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. In the left-hand panel, select ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 
 - CLI {#cli}
@@ -47,7 +48,7 @@ You can request detailed information about each target group you created.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your [target group](../concepts/target-resources.md).
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. In the left-hand panel, select ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
     1. Click your group name.
     1. The **Overview** page will show the target group details.

@@ -7,7 +7,7 @@ description: Follow this guide to change {{ CH }} settings at the query level.
 
 You can specify [{{ CH }} settings at the query level](https://clickhouse.com/docs/en/operations/settings/query-level) to flexibly configure databases in a {{ mch-name }} cluster. You can specify settings using several methods:
 
-* Using the [{{ yandex-cloud }} interfaces](#yandex-cloud-interfaces). This way you can specify only the [{{ CH }} settings available in {{ yandex-cloud }}](../concepts/settings-list.md#user-level-settings).
+* Using the [{{ yandex-cloud }} interfaces](#yandex-cloud-interfaces). This way you can only specify the [{{ CH }} settings available in {{ yandex-cloud }}](../concepts/settings-list.md#user-level-settings).
 * Using SQL queries. This way you can specify any {{ CH }} settings at the query level. The way you set up {{ CH }} depends on the type of settings:
 
    * [User settings](#user). In the `CREATE USER` and `ALTER USER` SQL queries, you can use the `SETTINGS` condition to provide settings. This way, settings will only apply to the selected user.
@@ -51,7 +51,8 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
    To configure {{ CH }}:
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the name of the cluster you need, then go the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** section.
    1. In the appropriate user row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.section_additional }}** list, expand **settings** and [configure {{ CH }}](../concepts/settings-list.md#user-level-settings).
@@ -91,7 +92,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      Learn how to create this file in [Creating a cluster](cluster-create.md).
+      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
    1. In the {{ mch-name }} cluster user description, under `settings`, edit the parameters as follows:
 
@@ -118,11 +119,11 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [User.Update](../api-ref/User/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Call the [User.Update](../api-ref/User/update.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -140,7 +141,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `settings`: Required [{{ CH }} settings](../concepts/settings-list.md#user-level-settings) with new values.
 
@@ -150,13 +151,13 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 

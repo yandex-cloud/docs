@@ -54,8 +54,9 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. In the **Geobase uri** field, enter a link to the geobase archive in {{ objstorage-full-name }}.
 
@@ -67,7 +68,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
     To add a geobase:
 
-    1. View the description of the CLI command for updating the cluster configuration:
+    1. View the description of the CLI command to update the cluster configuration:
 
         ```bash
         {{ yc-mdb-ch }} cluster update-config --help
@@ -80,13 +81,13 @@ If you are not using your custom geobase, [remove it](#disconnect).
              --set geobase_uri="<link_to_geobase_archive_in_Object_Storage>"
         ```
 
-        You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster settings, add the `geobase_uri` parameter with the link to the archive containing the geobase being added in {{ objstorage-full-name }}:
 
@@ -118,7 +119,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -146,7 +147,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             Here, we only specified a single setting, `configSpec.clickhouse.config.geobaseUri`.
 
@@ -158,7 +159,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -195,7 +196,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         Where:
 
-        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `config_spec.clickhouse.config.geobase_uri`.
 
@@ -213,8 +214,9 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
     1. Delete the value in the **Geobase uri** field.
 
@@ -226,7 +228,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
     To remove a geobase:
 
-    1. View the description of the CLI command for updating the cluster configuration:
+    1. View the description of the CLI command to update the cluster configuration:
 
         ```bash
         {{ yc-mdb-ch }} cluster update-config --help
@@ -244,7 +246,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -272,7 +274,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             Here, we only specified a single setting, `configSpec.clickhouse.config.geobaseUri`.
 
@@ -284,7 +286,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -322,7 +324,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         Where:
 
-        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `config_spec.clickhouse.config.geobase_uri`.
 
@@ -330,7 +332,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

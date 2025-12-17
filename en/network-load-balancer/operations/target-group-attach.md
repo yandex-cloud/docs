@@ -12,7 +12,7 @@ description: Follow this guide to attach a target group to a network load balanc
   To attach a [target group](../concepts/target-resources.md) to a network load balancer:
   
   1. In the [management console]({{ link-console-main }}), select the folder where you want to attach a target group to a load balancer.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Next to the load balancer to which you want to attach a target group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_attach-tg }}**.
   1. Select a target group or [create a new one](target-group-create.md).
   1. Configure health check settings.
@@ -51,7 +51,7 @@ description: Follow this guide to attach a target group to a network load balanc
 
      {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
 
-     For more information about health check settings, see [Resource health check](../concepts/health-check).
+     For more information about health check settings, see [Resource health check](../concepts/health-check.md).
 
 - {{ TF }} {#tf}
 
@@ -85,7 +85,7 @@ description: Follow this guide to attach a target group to a network load balanc
 
         * `healthcheck`: Health check settings. Specify a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 
@@ -99,7 +99,7 @@ description: Follow this guide to attach a target group to a network load balanc
 
   To attach a target group to a network load balancer, use the [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/AttachTargetGroup](../api-ref/grpc/NetworkLoadBalancer/attachTargetGroup.md) gRPC API call, providing the following in your request:
 
-  * Load balancer ID in the `networkLoadBalancerId` parameter.
+  * Load balancer ID, in the `networkLoadBalancerId` parameter.
   * Target group ID in the `attachedTargetGroup.targetGroupId` parameter.
   * Health check settings in the `attachedTargetGroup.healthChecks` parameter.
 
