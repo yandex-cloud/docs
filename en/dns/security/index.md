@@ -1,13 +1,13 @@
 ---
 title: Access management in {{ dns-full-name }}
-description: Access management in {{ dns-full-name }}, a service for managing DNS zones and domain names of your resources. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
+description: Access management in {{ dns-full-name }}, a service for managing DNS zones and domain names of your resources. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ dns-name }}
 
 In this section, you will learn:
-* [What resources support role assignment](#resources).
-* [What roles this service has](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 * [What roles are required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
@@ -16,7 +16,7 @@ To assign a role for a resource, you need the `dns.admin` role or one of the fol
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 

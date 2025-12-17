@@ -18,7 +18,7 @@ A [target group](concepts/target-resources.md) consists of cloud resources that 
 To create a target group:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a target group.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. In the left-hand panel, select ![image](../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 1. Click **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
 1. Enter `test-target-group` as the target group name.
@@ -33,10 +33,10 @@ When creating a network load balancer, you need to set up a listener to handle i
 To create a network load balancer:
   
 1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
 1. Name the load balancer, e.g., `test-load-balancer`.
-1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select an IP address assignment method:
+1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select the IP address assignment method:
 
    * **{{ ui-key.yacloud.common.label_auto }}**: To assign a random IP address from the {{ yandex-cloud }} IP address pool.
    * **{{ ui-key.yacloud.common.label_list }}**: To select a public IP address from the list of previously reserved static IP addresses. For more information, see [{#T}](../vpc/operations/set-static-ip.md).
@@ -83,7 +83,7 @@ To create a network load balancer:
 To check the [status of the network load balancer](concepts/index.md#lb-statuses) and targets in the attached target group:
 
 1. In the [management console]({{ link-console-main }}), select the folder with the load balancer.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. In the list, find the load balancer you created.
 1. Make sure the load balancer's status is `Active`, which means it is ready to distribute traffic across the targets.
 1. Click the load balancer name.

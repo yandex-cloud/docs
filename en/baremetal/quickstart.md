@@ -5,7 +5,7 @@ description: Follow this guide to lease and set up your first physical server in
 
 # Getting started with {{ baremetal-full-name }}
 
-Lease your first physical server and connect to it. All the leased server's resources are exclusively yours, thus providing better performance than an equivalent virtual machine.
+Lease your first [physical server](./concepts/servers.md) and connect to it. All the leased server's resources are exclusively yours, thus providing better performance than an equivalent virtual machine.
 
 ## Getting started {#before-you-begin}
 
@@ -17,35 +17,35 @@ Lease your first physical server and connect to it. All the leased server's reso
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder that will contain your leased server.
-  1. [Go](../console/operations/select-service.md#select-service) to **{{ baremetal-name }}**.
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
-  1. Select the `{{ region-id }}-m` [availability zone](../overview/concepts/geo-scope.md).
-  1. Select the `{{ region-id }}-m3` pool.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
+  1. {% include [server-lease-step1](../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
+  1. {% include [server-lease-step2](../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.ready-configs_ibA3Y }}` and a suitable [configuration](./concepts/server-configurations.md) for your {{ baremetal-name }} server. For example: `BA-i103-S-10G`.
 
-     1. Select the `BA-i103-S-10G` server configuration.
-     1. Optionally, configure disk partitioning:
+      {% include [server-lease-selecting-the-right-config](../_includes/baremetal/instruction-steps/server-lease-selecting-the-right-config.md) %}
 
-        1. Click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-        1. Specify the layout parameters and click **{{ ui-key.yacloud.common.save }}**.
+  1. In the server configuration window that opens:
 
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 22.04 LTS` image.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, specify:
+      1. {% include [server-lease-step4](../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
+      1. In the **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** field, select the server [lease period](./concepts/servers.md#server-lease).
 
-     1. **{{ ui-key.yacloud.baremetal.field_server-count }}**: `1`.
-     1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}**: `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`.
+          {% note tip %}
 
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, click **{{ ui-key.yacloud.common.create }}**.
-  1. In the window that opens, under **{{ ui-key.yacloud.baremetal.title_common-info }}**, in the **{{ ui-key.yacloud.baremetal.field_subnetwork-name }}** field, enter the `bm-subnetwork` subnet name and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
+          For initial testing, you can lease a server only for one day or one month. Should you need more time, your server lease will automatically renew for the same period.
 
-  1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+          {% endnote %}
+      1. In the **{{ ui-key.yacloud.baremetal.field_server-count_jPgTg }}** field, keep `1`.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` and an image running `Ubuntu 24.04 LTS`.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-disk }}**, click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}** to configure partitions for the server disks.
 
-      {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
+          In the window that opens, leave the default disk partitioning settings or edit them, then click **{{ ui-key.yacloud.common.save }}**.
+      1. {% include [server-lease-step9-bm](../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
+      1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, enter the server **{{ ui-key.yacloud.baremetal.field_name }}**: `bm-server`.
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+          {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
+
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, enter the server **{{ ui-key.yacloud.baremetal.field_name }}**: `bm-server`.
+      1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 ---
 title: Managing {{ CH }} backups
-description: You can create backups and restore clusters from existing {{ CH }} backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If your cloud lacks resources to create such a cluster, you will not be able to restore your data from the backup.
+description: You can create backups and use existing backups to restore {{ CH }} clusters. When you restore a cluster from a backup, you create a new cluster with the backup data. If your cloud lacks resources to create such a cluster, you will not be able to restore your data from the backup.
 ---
 
 # Managing backups in {{ mch-name }}
@@ -22,7 +22,8 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
 
 - Management console {#console}
   
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -52,7 +53,7 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -72,7 +73,7 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -122,7 +123,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 - Management console {#console}
 
   To restore an existing cluster from a backup:
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to restore a cluster.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Update the new cluster settings, if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
@@ -136,9 +138,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   To restore a previously deleted cluster from a backup:
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to restore a cluster.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Update the new cluster settings, if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
       To restore a single shard, make sure to leave only that particular shard checked under **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**. Uncheck the rest of the shards.
@@ -149,7 +152,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
-  {{ mch-name }} will start creating a cluster from the backup.
+  {{ mch-name }} will start creating the cluster from the backup.
 
 - CLI {#cli}
 
@@ -249,7 +252,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -358,7 +361,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -480,11 +483,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 - Management console {#console}
 
   To get a list of cluster backups:
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
   To get a list of all backups in a folder:
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
   These lists contain the following information:
@@ -529,7 +534,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -564,11 +569,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. View the [server response](../api-ref/Backup/list.md#responses) to make sure your request was successful.
+        1. Check the [server response](../api-ref/Backup/list.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -618,7 +623,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.clickhouse.v1.ListBackupsResponse) to make sure your request was successful.
+        1. Check the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.clickhouse.v1.ListBackupsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -629,11 +634,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 - Management console {#console}
 
   To get information about a backup of an existing cluster:
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
   To get information about a backup of a previously deleted cluster:
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where the cluster used to reside.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
 - CLI {#cli}
@@ -652,7 +659,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -671,7 +678,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -724,7 +731,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -753,7 +760,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             Here, we only specified a single setting, `configSpec.backupWindowStart`.
 
@@ -765,7 +772,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -804,7 +811,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
         Where:
 
-        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `config_spec.backup_window_start`.
 
@@ -841,7 +848,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -865,7 +872,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
       Where:
 
-      * `updateMask`: Comma-separated string of settings you want to update.
+      * `updateMask`: Comma-separated list of settings you want to update.
 
         Here, we only specified a single setting, `configSpec.backupRetainPeriodDays`.
 
@@ -877,7 +884,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -910,7 +917,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
       Where:
 
-      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
         Here, we only specified a single setting, `config_spec.backup_retain_period_days`.
 
@@ -934,7 +941,8 @@ You can only delete manual backups.
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup in question and select **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
 
@@ -962,11 +970,11 @@ You can only delete manual backups.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Backup.Delete](../api-ref/Backup/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Backup.Delete](../api-ref/Backup/delete.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -981,12 +989,12 @@ You can only delete manual backups.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [BackupService.Delete](../api-ref/grpc/Backup/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [BackupService.Delete](../api-ref/grpc/Backup/delete.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \

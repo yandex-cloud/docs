@@ -27,7 +27,7 @@ To reinstall a {{ baremetal-name }} server OS:
   1. In the window that opens:
 
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select one of the available OS images.
-      1. {% include [server-lease-step6](../../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
+      1. {% include [server-lease-step8](../../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
 
           If you do not modify the disk partitioning, the server will maintain its existing RAID configuration and disk allocation settings.
       1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:

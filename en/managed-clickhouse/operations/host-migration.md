@@ -24,7 +24,8 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - Management console {#console}
 
-      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
@@ -52,7 +53,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
                `assign-public-ip=<allow_public_access_to_host>
       ```
 
-      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
+      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` argument, specify the target availability zone for your hosts.
 
    - {{ TF }} {#tf}
 
@@ -70,7 +71,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
          }
          ```
 
-         In the `zone` parameter, specify the availability zone you are moving the hosts to.
+         In the `zone` attribute, specify the target availability zone for your hosts.
 
       1. Make sure the settings are correct.
 
@@ -82,11 +83,11 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
          ```bash
          curl \
@@ -119,7 +120,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -177,7 +178,8 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - Management console {#console}
 
-      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -210,7 +212,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    {% endlist %}
 
-1. Wait for the cluster state to change to **Alive**. In the management console, navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster state to change to **Alive**. In the management console, [go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 ## Migrating {{ ZK }} hosts {#zookeeper-hosts}
 
@@ -221,7 +223,8 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - Management console {#console}
 
-      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-zookeeper }}**.
       1. Specify the new subnet and the availability zone to move the hosts to.
@@ -244,7 +247,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
                `assign-public-ip=<allow_public_access_to_host>
       ```
 
-      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
+      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` argument, specify the target availability zone for your hosts.
 
    - {{ TF }} {#tf}
 
@@ -262,7 +265,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
          }
          ```
 
-         In the `zone` parameter, specify the availability zone you are moving the hosts to.
+         In the `zone` attribute, specify the target availability zone for your hosts.
 
       1. Make sure the settings are correct.
 
@@ -274,11 +277,11 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
          ```bash
          curl \
@@ -311,7 +314,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -341,7 +344,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
          Where `host_specs` is the array of settings for the new hosts. Each element of the `host_specs` array contains settings for a single host and has the following structure:
 
-         * `type`: Host type, `ZOOKEEPER`.
+         * `type`: `ZOOKEEPER` host type.
          * `zone_id`: Availability zone.
          * `subnet_id`: Subnet ID.
          * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
@@ -358,7 +361,8 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - Management console {#console}
 
-      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -391,7 +395,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    {% endlist %}
 
-1. Wait for the cluster state to change to **Alive**. In the management console, navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster state to change to **Alive**. In the management console, [go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}
 

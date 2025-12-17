@@ -1,6 +1,6 @@
 ---
 title: How to update {{ MY }} cluster settings in {{ mmy-full-name }}
-description: In this tutorial, you will learn how to update {{ MY }} cluster settings.
+description: In this guide, you will learn how to update {{ MY }} cluster settings.
 ---
 
 # Updating {{ MY }} cluster settings
@@ -8,7 +8,7 @@ description: In this tutorial, you will learn how to update {{ MY }} cluster set
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
-* [Change the disk type and increase the storage size](#change-disk-size).
+* [Change the disk type and expand the storage](#change-disk-size).
 * [Change {{ MY }} settings](#change-mysql-config).
 
     {% note warning %}
@@ -20,7 +20,7 @@ After creating a cluster, you can:
 * [Change additional cluster settings](#change-additional-settings).
 * [Manually switch the master host](#start-manual-failover).
 * [Move the cluster](#move-cluster) to another folder.
-* [Edit security groups](#change-sg-set).
+* [Update security groups](#change-sg-set).
 
 Learn more about other cluster updates:
 
@@ -35,8 +35,8 @@ The choice of a [host class](../concepts/instance-types.md) in {{ mmy-short-name
 
 When changing the host class:
 
-* A single-host cluster becomes unavailable for a few minutes with database connections terminated.
-* A multi-host cluster gets a new master. Each host is stopped and updated one by one, remaining unavailable for a few minutes.
+* A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
+* A multi-host cluster will switch to a new master host Each host is stopped and updated one by one, remaining unavailable for a few minutes.
 * Using a [special FQDN](./connect.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when your cluster has no active workload.
@@ -45,8 +45,8 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the {{ MY }} host class, select the one you need under **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -58,7 +58,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the host class for a cluster:
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -84,7 +84,7 @@ We recommend changing the host class only when your cluster has no active worklo
      ```
 
 
-  1. Run this command, specifying the host class you need:
+  1. Specify the required host class in the cluster update command:
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster_name_or_ID>
@@ -97,9 +97,9 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about creating this file, see [this guide](./cluster-create.md).
+      Learn how to create this file in [Creating a cluster](./cluster-create.md).
 
-  1. In the {{ mmy-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
+  1. Edit the `resource_preset_id` value in the `resources` section of your {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -159,7 +159,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -220,12 +220,12 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       * Select the [disk type](../concepts/storage.md).
-      * Specify the required disk size.
+      * Specify the disk size.
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -237,7 +237,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -257,7 +257,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about creating this file, see [this guide](./cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](./cluster-create.md).
 
   1. Under `resources`, change the `disk_type_id` and `disk_size` parameter values:
 
@@ -315,14 +315,14 @@ We recommend changing the host class only when your cluster has no active worklo
 
       * `updateMask`: Comma-separated list of settings you want to update.
 
-      * `configSpec.resources`: Storage parameters:
+      * `configSpec.resources`: Storage settings:
 
           * `diskTypeId`: [Disk type](../concepts/storage.md).
           * `diskSize`: New storage size, in bytes.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -365,14 +365,14 @@ We recommend changing the host class only when your cluster has no active worklo
 
       * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-      * `config_spec.resources`: Storage parameters:
+      * `config_spec.resources`: Storage settings:
 
           * `disk_type_id`: [Disk type](../concepts/storage.md).
           * `disk_size`: New storage size, in bytes.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -384,8 +384,8 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -398,7 +398,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings):
 
-  1. See the description of the CLI command for updating a cluster configuration:
+  1. View the description of the CLI command to update the cluster configuration:
 
       ```bash
       {{ yc-mdb-my }} cluster update-config --help
@@ -419,7 +419,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about creating this file, see [this guide](./cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](./cluster-create.md).
 
   1. In the {{ mmy-name }} cluster description, add or update the [DBMS settings](../concepts/settings-list.md) under `mysql_config`:
 
@@ -482,11 +482,11 @@ We recommend changing the host class only when your cluster has no active worklo
 
       * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Specify each setting on a separate line, separated by commas.
 
-          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
+          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -532,13 +532,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
           Here, we provide only one setting.
 
-      * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Specify each setting on a separate line, separated by commas.
+      * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Specify each setting on a new line, separated by commas.
 
-          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
+          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for the descriptions and possible values of the settings.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -550,8 +550,8 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Change additional cluster settings:
 
      - **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**
@@ -568,7 +568,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
   To change additional cluster settings:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
@@ -584,7 +584,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
           --datalens-access=<true_or_false> \
           --websql-access=<true_or_false> \
           --yandexquery-access=<true_or_false> \
-          --disk-size-autoscaling disk-size-limit=<max_storage_size_in_GB>,`
+          --disk-size-autoscaling disk-size-limit=<maximum_storage_size_in_GB>,`
                                  `planned-usage-threshold=<threshold_for_scheduled_expansion_in_percent>,`
                                  `emergency-usage-threshold=<threshold_for_immediate_expansion_in_percent> \
           --maintenance-window type=<maintenance_type>,`
@@ -620,7 +620,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    * `performance-diagnostics`: Enables statistics collection for [cluster performance diagnostics](performance-diagnostics.md). For `sessions-sampling-interval` and `statements-sampling-interval`, the valid values range from `1` to `86400` seconds.
+    * `performance-diagnostics`: Enables statistics collection for [cluster performance diagnostics](performance-diagnostics.md). For `sessions-sampling-interval` and `statements-sampling-interval`, possible values range from `1` to `86400` seconds.
 
     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -628,7 +628,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information on how to create this file, see [this guide](cluster-create.md).
+      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
   1. To change the backup start time, add the `backup_window_start` section to the {{ mmy-name }} cluster description:
 
@@ -693,7 +693,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
       }
       ```
 
-      For `sessions_sampling_interval` and `statements_sampling_interval`, the valid values range from `1` to `86400` seconds.
+      For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
 
   1. Make sure the settings are correct.
 
@@ -740,8 +740,8 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
                   "statementsSamplingInterval": "<statement_sampling_interval>"
               },
               "diskSizeAutoscaling": {
-                  "plannedUsageThreshold": "<threshold_for_scheduled_expansion_in_percent>",
-                  "emergencyUsageThreshold": "<threshold_for_immediate_expansion_in_percent>",
+                  "plannedUsageThreshold": "<threshold_for_scheduled_increase_in_percent>",
+                  "emergencyUsageThreshold": "<threshold_for_immediate_increase_in_percent>",
                   "diskSizeLimit": "<maximum_storage_size_in_bytes>"
               }
           },
@@ -765,9 +765,9 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
               Here, specify the backup start time:
 
-              * `hours`: Between `0` and `23` hours.
-              * `minutes`: Between `0` and `59` minutes.
-              * `seconds`: Between `0` and `59` seconds.
+              * `hours`: From `0` to `23` hours.
+              * `minutes`: From `0` to `59` minutes.
+              * `seconds`: From `0` to `59` seconds.
               * `nanos`: Between `0` and `999999999` nanoseconds.
 
           * `backupRetainPeriodDays`: Number of days to retain the cluster backup, between `7` and `60`.
@@ -791,7 +791,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
       {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}
 
-      * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
+      * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -808,7 +808,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -854,8 +854,8 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
                   "statements_sampling_interval": "<statement_sampling_interval>"
               },
               "disk_size_autoscaling": {
-                  "planned_usage_threshold": "<threshold_for_scheduled_expansion_in_percent>",
-                  "emergency_usage_threshold": "<threshold_for_immediate_expansion_in_percent>",
+                  "planned_usage_threshold": "<threshold_for_scheduled_increase_in_percent>",
+                  "emergency_usage_threshold": "<threshold_for_immediate_increase_in_percent>",
                   "disk_size_limit": "<maximum_storage_size_in_bytes>"
               }
           },
@@ -879,10 +879,10 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
               Here, specify the backup start time:
 
-              * `hours`: Between `0` and `23` hours.
-              * `minutes`: Between `0` and `59` minutes.
-              * `seconds`: Between `0` and `59` seconds.
-              * `nanos`: Between `0` and `999999999` nanoseconds.
+              * `hours`: From `0` to `23` hours.
+              * `minutes`: From `0` to `59` minutes.
+              * `seconds`: From `0` to `59` seconds.
+              * `nanos`: From `0` to `999999999` nanoseconds.
 
           * `backup_retain_period_days`: Number of days to retain the cluster backup, between `7` and `60`.
 
@@ -905,7 +905,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
       {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}
 
-      * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+      * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -926,24 +926,24 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
           < body.json
       ```
 
-  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 
 ### {{ connection-manager-name }} {#conn-man}
 
-If you cluster has no integration with {{ connection-manager-name }}, enable **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. You can only do this in the [management console]({{ link-console-main }}).
+If the {{ connection-manager-name }} integration is not enabled for your cluster, turn on **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. This option is only available in the [management console]({{ link-console-main }}).
 
-The following resources will be created for each database user:
+The system will create the following resources for each database user:
 
-* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) with information about the database connection.
+* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) containing database connection details.
 
-* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) with the user password. {{ lockbox-name }} provides secure storage for passwords.
+* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) containing the user password. Storing passwords in {{ lockbox-name }} ensures their security.
 
-  The connection and secret will be created for each new database user. To view all connections, open the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
+  The system will create connections and secrets for each new database user. To see all connections, select the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
 
-  You need the `connection-manager.viewer` role to view connection info. You can [use {{ connection-manager-name }} to configure access to connections](../../metadata-hub/operations/connection-access.md).
+  Viewing connection details requires the `connection-manager.viewer` role. You can [use {{ connection-manager-name }} to configure access to connections](../../metadata-hub/operations/connection-access.md).
 
   {% note info %}
 
@@ -963,14 +963,14 @@ Consider these key points when performing a failover in {{ mmy-name }}:
 
 To learn more, see [Replication](../concepts/replication.md).
 
-To switch the master:
+To perform a master failover:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and open the ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the name of your cluster and select the ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Click ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
       * To switch the master to one of the replicas, leave the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option enabled.
       * To switch the master to a specific replica, disable the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option and then select the replica from the drop-down list.
@@ -1010,11 +1010,11 @@ To switch the master:
                }'
      ```
 
-     Where `hostName` is the [FQDN of the replica](connect.md#fqdn) which becomes the master host.
+     Where `hostName` is the [FQDN of the replica](connect.md#fqdn) promoted to master.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1054,8 +1054,8 @@ To switch the master:
 
 - Management console {#console}
 
-    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-    1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
     1. Select the destination folder for your cluster.
     1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
@@ -1087,9 +1087,9 @@ To switch the master:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](./cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](./cluster-create.md).
 
-    1. In the {{ mmy-name }} cluster description, edit or add the `folder_id` parameter value:
+    1. In the {{ mmy-name }} cluster description, edit the `folder_id` value. If the argument does not exist, add it:
 
         ```hcl
         resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -1129,11 +1129,11 @@ To switch the master:
                   }'
       ```
 
-      Where `destinationFolderId` is the ID of the folder to which you are moving your cluster. You can get this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      Where `destinationFolderId` is the ID of the target folder for your cluster. You can get this ID from the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1159,7 +1159,7 @@ To switch the master:
           yandex.cloud.mdb.mysql.v1.ClusterService.Move
       ```
 
-      Where `destination_folder_id` is the ID of the folder to which you are moving your cluster. You can get this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      Where `destination_folder_id` is the ID of the folder to which you are moving your cluster. You can get this ID from the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1168,14 +1168,14 @@ To switch the master:
 {% endlist %}
 
 
-## Editing security groups {#change-sg-set}
+## Updating security groups {#change-sg-set}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
 - CLI {#cli}
@@ -1186,13 +1186,13 @@ To switch the master:
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
         ```
 
-    1. Run this command, specifying the security groups:
+    1. Specify the required security groups in the cluster update command:
 
         ```bash
         {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
@@ -1203,9 +1203,9 @@ To switch the master:
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about creating this file, see [this guide](./cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](./cluster-create.md).
 
-  1. Edit the `security_group_ids` parameter in the {{ mmy-name }} cluster description:
+  1. Edit the `security_group_ids` value in the {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -1259,11 +1259,11 @@ To switch the master:
 
           Here, we provide only one setting.
 
-      * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups) provided as array elements.
+      * `securityGroupIds`: New [security groups](../concepts/network.md#security-groups), formatted as an array.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1307,11 +1307,11 @@ To switch the master:
 
           Here, we provide only one setting.
 
-      * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups) provided as array elements
+      * `security_group_ids`: New [security groups](../concepts/network.md#security-groups), formatted as an array.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

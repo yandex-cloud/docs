@@ -1028,45 +1028,45 @@ default:
   sku|KZT|baremetal:
     component:
       bms-4-body:
-        1-month|string: "193\_500,00\_₸"
-        12-month|string: "164\_475,00\_₸"
-        6-month|string: "183\_825,00\_₸"
+        1-month|string: "386\_500,00\_₸"
+        12-month|string: "328\_525,00\_₸"
+        6-month|string: "359\_445,00\_₸"
       bms-5-body:
-        1-month|string: "259\_000,00\_₸"
-        12-month|string: "220\_150,00\_₸"
-        6-month|string: "246\_050,00\_₸"
+        1-month|string: "304\_500,00\_₸"
+        12-month|string: "258\_825,00\_₸"
+        6-month|string: "283\_185,00\_₸"
       bms-cpu-9374f:
         1-month|string: "195\_000,00\_₸"
         12-month|string: "165\_750,00\_₸"
-        6-month|string: "185\_250,00\_₸"
+        6-month|string: "181\_350,00\_₸"
       bms-cpu-9654:
         1-month|string: "202\_200,00\_₸"
         12-month|string: "171\_870,00\_₸"
-        6-month|string: "192\_090,00\_₸"
+        6-month|string: "188\_050,00\_₸"
       bms-cpu-a74f3:
         1-month|string: "181\_200,00\_₸"
         12-month|string: "154\_020,00\_₸"
-        6-month|string: "172\_140,00\_₸"
+        6-month|string: "168\_520,00\_₸"
       bms-cpu-a7663:
         1-month|string: "113\_400,00\_₸"
         12-month|string: "96\_390,00\_₸"
-        6-month|string: "107\_730,00\_₸"
+        6-month|string: "105\_465,00\_₸"
       bms-cpu-a7702:
-        1-month|string: "180\_000,00\_₸"
-        12-month|string: "153\_000,00\_₸"
-        6-month|string: "171\_000,00\_₸"
+        1-month|string: "39\_600,00\_₸"
+        12-month|string: "33\_660,00\_₸"
+        6-month|string: "36\_830,00\_₸"
       bms-cpu-a7713:
         1-month|string: "180\_000,00\_₸"
         12-month|string: "153\_000,00\_₸"
-        6-month|string: "171\_000,00\_₸"
+        6-month|string: "167\_400,00\_₸"
       bms-cpu-i6338:
-        1-month|string: "94\_800,00\_₸"
-        12-month|string: "80\_580,00\_₸"
-        6-month|string: "90\_060,00\_₸"
+        1-month|string: "76\_800,00\_₸"
+        12-month|string: "65\_280,00\_₸"
+        6-month|string: "71\_425,00\_₸"
       bms-cpu-i6354:
         1-month|string: "90\_000,00\_₸"
         12-month|string: "76\_500,00\_₸"
-        6-month|string: "85\_500,00\_₸"
+        6-month|string: "83\_700,00\_₸"
       bms-disk-h10t:
         1-month|string: "12\_600,00\_₸"
         12-month|string: "10\_710,00\_₸"
@@ -1074,115 +1074,115 @@ default:
       bms-disk-h18t:
         1-month|string: "23\_400,00\_₸"
         12-month|string: "19\_890,00\_₸"
-        6-month|string: "22\_230,00\_₸"
+        6-month|string: "21\_765,00\_₸"
       bms-disk-h24t:
         1-month|string: "36\_600,00\_₸"
         12-month|string: "31\_110,00\_₸"
-        6-month|string: "34\_770,00\_₸"
+        6-month|string: "34\_040,00\_₸"
       bms-disk-h2t:
         1-month|string: "6\_600,00\_₸"
         12-month|string: "5\_610,00\_₸"
-        6-month|string: "6\_270,00\_₸"
+        6-month|string: "6\_140,00\_₸"
       bms-disk-h4t:
         1-month|string: "7\_200,00\_₸"
         12-month|string: "6\_120,00\_₸"
-        6-month|string: "6\_840,00\_₸"
+        6-month|string: "6\_700,00\_₸"
       bms-disk-h6t:
         1-month|string: "9\_000,00\_₸"
         12-month|string: "7\_650,00\_₸"
-        6-month|string: "8\_550,00\_₸"
+        6-month|string: "8\_370,00\_₸"
       bms-disk-h8t:
         1-month|string: "11\_400,00\_₸"
         12-month|string: "9\_690,00\_₸"
-        6-month|string: "10\_600,00\_₸"
+        6-month|string: "10\_605,00\_₸"
       bms-disk-n1:
         9t:
           1-month|string: "15\_000,00\_₸"
           12-month|string: "12\_750,00\_₸"
-          6-month|string: "14\_250,00\_₸"
+          6-month|string: "13\_950,00\_₸"
       bms-disk-n15t:
         1-month|string: "154\_800,00\_₸"
         12-month|string: "131\_580,00\_₸"
-        6-month|string: "147\_060,00\_₸"
+        6-month|string: "143\_965,00\_₸"
       bms-disk-n3:
         2t:
           1-month|string: "28\_800,00\_₸"
           12-month|string: "24\_480,00\_₸"
-          6-month|string: "27\_360,00\_₸"
+          6-month|string: "26\_785,00\_₸"
         8t:
           1-month|string: "28\_800,00\_₸"
           12-month|string: "24\_480,00\_₸"
-          6-month|string: "27\_360,00\_₸"
+          6-month|string: "26\_785,00\_₸"
       bms-disk-n30t:
         1-month|string: "228\_600,00\_₸"
         12-month|string: "194\_310,00\_₸"
-        6-month|string: "217\_170,00\_₸"
+        6-month|string: "212\_600,00\_₸"
       bms-disk-n6:
         4t:
           1-month|string: "78\_600,00\_₸"
           12-month|string: "66\_810,00\_₸"
-          6-month|string: "74\_670,00\_₸"
+          6-month|string: "73\_100,00\_₸"
       bms-disk-n7:
         6t:
           1-month|string: "78\_600,00\_₸"
           12-month|string: "66\_810,00\_₸"
-          6-month|string: "74\_670,00\_₸"
+          6-month|string: "73\_100,00\_₸"
       bms-disk-n960g:
         1-month|string: "10\_200,00\_₸"
         12-month|string: "8\_670,00\_₸"
-        6-month|string: "9\_690,00\_₸"
+        6-month|string: "9\_490,00\_₸"
       bms-net-2p25g:
         1-month|string: "24\_000,00\_₸"
         12-month|string: "20\_400,00\_₸"
-        6-month|string: "22\_800,00\_₸"
+        6-month|string: "22\_320,00\_₸"
       bms-ram4-1024:
         1-month|string: "306\_600,00\_₸"
         12-month|string: "260\_610,00\_₸"
-        6-month|string: "291\_270,00\_₸"
+        6-month|string: "285\_140,00\_₸"
       bms-ram4-128:
         1-month|string: "38\_400,00\_₸"
         12-month|string: "32\_640,00\_₸"
-        6-month|string: "36\_480,00\_₸"
+        6-month|string: "35\_715,00\_₸"
       bms-ram4-1536:
         1-month|string: "459\_600,00\_₸"
         12-month|string: "390\_660,00\_₸"
-        6-month|string: "436\_620,00\_₸"
+        6-month|string: "427\_430,00\_₸"
       bms-ram4-256:
         1-month|string: "76\_200,00\_₸"
         12-month|string: "64\_770,00\_₸"
-        6-month|string: "72\_390,00\_₸"
+        6-month|string: "70\_870,00\_₸"
       bms-ram4-384:
         1-month|string: "114\_000,00\_₸"
         12-month|string: "96\_900,00\_₸"
-        6-month|string: "108\_300,00\_₸"
+        6-month|string: "106\_020,00\_₸"
       bms-ram4-512:
         1-month|string: "151\_800,00\_₸"
         12-month|string: "129\_030,00\_₸"
-        6-month|string: "144\_210,00\_₸"
+        6-month|string: "141\_175,00\_₸"
       bms-ram4-768:
         1-month|string: "229\_800,00\_₸"
         12-month|string: "195\_330,00\_₸"
-        6-month|string: "218\_310,00\_₸"
+        6-month|string: "213\_715,00\_₸"
       bms-ram5-1024:
         1-month|string: "308\_400,00\_₸"
         12-month|string: "262\_140,00\_₸"
-        6-month|string: "292\_980,00\_₸"
+        6-month|string: "286\_815,00\_₸"
       bms-ram5-1152:
         1-month|string: "363\_600,00\_₸"
         12-month|string: "309\_060,00\_₸"
-        6-month|string: "345\_420,00\_₸"
+        6-month|string: "338\_150,00\_₸"
       bms-ram5-1536:
         1-month|string: "462\_600,00\_₸"
         12-month|string: "393\_210,00\_₸"
-        6-month|string: "439\_470,00\_₸"
+        6-month|string: "430\_220,00\_₸"
       bms-ram5-2304:
-        1-month|string: "703\_200,00\_₸"
-        12-month|string: "597\_720,00\_₸"
-        6-month|string: "668\_040,00\_₸"
+        1-month|string: "640\_200,00\_₸"
+        12-month|string: "544\_170,00\_₸"
+        6-month|string: "595\_390,00\_₸"
       bms-ram5-768:
         1-month|string: "231\_600,00\_₸"
         12-month|string: "196\_860,00\_₸"
-        6-month|string: "220\_020,00\_₸"
+        6-month|string: "215\_390,00\_₸"
     data:
       data-100tb:
         1sec|string: "50\_000,00\_₸"
@@ -3587,45 +3587,45 @@ default:
   sku|RUB|baremetal:
     component:
       bms-4-body:
-        1-month|string: "38\_700,00\_₽"
-        12-month|string: "32\_895,00\_₽"
-        6-month|string: "36\_765,00\_₽"
+        1-month|string: "77\_300,00\_₽"
+        12-month|string: "65\_705,00\_₽"
+        6-month|string: "71\_889,00\_₽"
       bms-5-body:
-        1-month|string: "51\_800,00\_₽"
-        12-month|string: "44\_030,00\_₽"
-        6-month|string: "49\_210,00\_₽"
+        1-month|string: "60\_900,00\_₽"
+        12-month|string: "51\_765,00\_₽"
+        6-month|string: "56\_637,00\_₽"
       bms-cpu-9374f:
         1-month|string: "39\_000,00\_₽"
         12-month|string: "33\_150,00\_₽"
-        6-month|string: "37\_050,00\_₽"
+        6-month|string: "36\_270,00\_₽"
       bms-cpu-9654:
         1-month|string: "40\_440,00\_₽"
         12-month|string: "34\_374,00\_₽"
-        6-month|string: "38\_418,00\_₽"
+        6-month|string: "37\_610,00\_₽"
       bms-cpu-a74f3:
         1-month|string: "36\_240,00\_₽"
         12-month|string: "30\_804,00\_₽"
-        6-month|string: "34\_428,00\_₽"
+        6-month|string: "33\_704,00\_₽"
       bms-cpu-a7663:
         1-month|string: "22\_680,00\_₽"
         12-month|string: "19\_278,00\_₽"
-        6-month|string: "21\_546,00\_₽"
+        6-month|string: "21\_093,00\_₽"
       bms-cpu-a7702:
-        1-month|string: "36\_000,00\_₽"
-        12-month|string: "30\_600,00\_₽"
-        6-month|string: "34\_200,00\_₽"
+        1-month|string: "7\_920,00\_₽"
+        12-month|string: "6\_732,00\_₽"
+        6-month|string: "7\_366,00\_₽"
       bms-cpu-a7713:
         1-month|string: "36\_000,00\_₽"
         12-month|string: "30\_600,00\_₽"
-        6-month|string: "34\_200,00\_₽"
+        6-month|string: "33\_480,00\_₽"
       bms-cpu-i6338:
-        1-month|string: "18\_960,00\_₽"
-        12-month|string: "16\_116,00\_₽"
-        6-month|string: "18\_012,00\_₽"
+        1-month|string: "15\_360,00\_₽"
+        12-month|string: "13\_056,00\_₽"
+        6-month|string: "14\_285,00\_₽"
       bms-cpu-i6354:
         1-month|string: "18\_000,00\_₽"
         12-month|string: "15\_300,00\_₽"
-        6-month|string: "17\_100,00\_₽"
+        6-month|string: "16\_740,00\_₽"
       bms-disk-h10t:
         1-month|string: "2\_520,00\_₽"
         12-month|string: "2\_142,00\_₽"
@@ -3633,115 +3633,115 @@ default:
       bms-disk-h18t:
         1-month|string: "4\_680,00\_₽"
         12-month|string: "3\_978,00\_₽"
-        6-month|string: "4\_446,00\_₽"
+        6-month|string: "4\_353,00\_₽"
       bms-disk-h24t:
         1-month|string: "7\_320,00\_₽"
         12-month|string: "6\_222,00\_₽"
-        6-month|string: "6\_954,00\_₽"
+        6-month|string: "6\_808,00\_₽"
       bms-disk-h2t:
         1-month|string: "1\_320,00\_₽"
         12-month|string: "1\_122,00\_₽"
-        6-month|string: "1\_254,00\_₽"
+        6-month|string: "1\_228,00\_₽"
       bms-disk-h4t:
         1-month|string: "1\_440,00\_₽"
         12-month|string: "1\_224,00\_₽"
-        6-month|string: "1\_368,00\_₽"
+        6-month|string: "1\_340,00\_₽"
       bms-disk-h6t:
         1-month|string: "1\_800,00\_₽"
         12-month|string: "1\_530,00\_₽"
-        6-month|string: "1\_710,00\_₽"
+        6-month|string: "1\_674,00\_₽"
       bms-disk-h8t:
         1-month|string: "2\_280,00\_₽"
         12-month|string: "1\_938,00\_₽"
-        6-month|string: "2\_120,00\_₽"
+        6-month|string: "2\_121,00\_₽"
       bms-disk-n1:
         9t:
           1-month|string: "3\_000,00\_₽"
           12-month|string: "2\_550,00\_₽"
-          6-month|string: "2\_850,00\_₽"
+          6-month|string: "2\_790,00\_₽"
       bms-disk-n15t:
         1-month|string: "30\_960,00\_₽"
         12-month|string: "26\_316,00\_₽"
-        6-month|string: "29\_412,00\_₽"
+        6-month|string: "28\_793,00\_₽"
       bms-disk-n3:
         2t:
           1-month|string: "5\_760,00\_₽"
           12-month|string: "4\_896,00\_₽"
-          6-month|string: "5\_472,00\_₽"
+          6-month|string: "5\_357,00\_₽"
         8t:
           1-month|string: "5\_760,00\_₽"
           12-month|string: "4\_896,00\_₽"
-          6-month|string: "5\_472,00\_₽"
+          6-month|string: "5\_357,00\_₽"
       bms-disk-n30t:
         1-month|string: "45\_720,00\_₽"
         12-month|string: "38\_862,00\_₽"
-        6-month|string: "43\_434,00\_₽"
+        6-month|string: "42\_520,00\_₽"
       bms-disk-n6:
         4t:
           1-month|string: "15\_720,00\_₽"
           12-month|string: "13\_362,00\_₽"
-          6-month|string: "14\_934,00\_₽"
+          6-month|string: "14\_620,00\_₽"
       bms-disk-n7:
         6t:
           1-month|string: "15\_720,00\_₽"
           12-month|string: "13\_362,00\_₽"
-          6-month|string: "14\_934,00\_₽"
+          6-month|string: "14\_620,00\_₽"
       bms-disk-n960g:
         1-month|string: "2\_040,00\_₽"
         12-month|string: "1\_734,00\_₽"
-        6-month|string: "1\_938,00\_₽"
+        6-month|string: "1\_898,00\_₽"
       bms-net-2p25g:
         1-month|string: "4\_800,00\_₽"
         12-month|string: "4\_080,00\_₽"
-        6-month|string: "4\_560,00\_₽"
+        6-month|string: "4\_464,00\_₽"
       bms-ram4-1024:
         1-month|string: "61\_320,00\_₽"
         12-month|string: "52\_122,00\_₽"
-        6-month|string: "58\_254,00\_₽"
+        6-month|string: "57\_028,00\_₽"
       bms-ram4-128:
         1-month|string: "7\_680,00\_₽"
         12-month|string: "6\_528,00\_₽"
-        6-month|string: "7\_296,00\_₽"
+        6-month|string: "7\_143,00\_₽"
       bms-ram4-1536:
         1-month|string: "91\_920,00\_₽"
         12-month|string: "78\_132,00\_₽"
-        6-month|string: "87\_324,00\_₽"
+        6-month|string: "85\_486,00\_₽"
       bms-ram4-256:
         1-month|string: "15\_240,00\_₽"
         12-month|string: "12\_954,00\_₽"
-        6-month|string: "14\_478,00\_₽"
+        6-month|string: "14\_174,00\_₽"
       bms-ram4-384:
         1-month|string: "22\_800,00\_₽"
         12-month|string: "19\_380,00\_₽"
-        6-month|string: "21\_660,00\_₽"
+        6-month|string: "21\_204,00\_₽"
       bms-ram4-512:
         1-month|string: "30\_360,00\_₽"
         12-month|string: "25\_806,00\_₽"
-        6-month|string: "28\_842,00\_₽"
+        6-month|string: "28\_235,00\_₽"
       bms-ram4-768:
         1-month|string: "45\_960,00\_₽"
         12-month|string: "39\_066,00\_₽"
-        6-month|string: "43\_662,00\_₽"
+        6-month|string: "42\_743,00\_₽"
       bms-ram5-1024:
         1-month|string: "61\_680,00\_₽"
         12-month|string: "52\_428,00\_₽"
-        6-month|string: "58\_596,00\_₽"
+        6-month|string: "57\_363,00\_₽"
       bms-ram5-1152:
         1-month|string: "72\_720,00\_₽"
         12-month|string: "61\_812,00\_₽"
-        6-month|string: "69\_084,00\_₽"
+        6-month|string: "67\_630,00\_₽"
       bms-ram5-1536:
         1-month|string: "92\_520,00\_₽"
         12-month|string: "78\_642,00\_₽"
-        6-month|string: "87\_894,00\_₽"
+        6-month|string: "86\_044,00\_₽"
       bms-ram5-2304:
-        1-month|string: "140\_640,00\_₽"
-        12-month|string: "119\_544,00\_₽"
-        6-month|string: "133\_608,00\_₽"
+        1-month|string: "128\_040,00\_₽"
+        12-month|string: "108\_834,00\_₽"
+        6-month|string: "119\_078,00\_₽"
       bms-ram5-768:
         1-month|string: "46\_320,00\_₽"
         12-month|string: "39\_372,00\_₽"
-        6-month|string: "44\_004,00\_₽"
+        6-month|string: "43\_078,00\_₽"
     data:
       data-100tb:
         1sec|string: "10\_000,00\_₽"
@@ -9570,8 +9570,26 @@ default:
           field_full-name: Полное имя
           field_password: Пароль
           field_username: Имя пользователя
+          title_password_policy: Парольная политика
           title_personal-info: Персональная информация
           title_userpool_members: Пользователи
+          UserpoolOverviewPage:
+            action_set_password_policy_aaDns: Настроить политику
+          UserpoolPasswordPolicyForm:
+            attempts_before_lockout_ay7Le: "Количество неудачных попыток ввода пароля до\_блокировки"
+            brute_force_protection_msHno: Защита пароля от подбора
+            complexity_oeJs5: Сложность пароля
+            failed_attempts_interval_wfd7Z: Интервал для подсчёта неудачных попыток
+            lifetime_hnEhW: Срок жизни пароля
+            lockout_duration_t1CZB: Продолжительность блокировки
+            min_length_title_mvmiQ: Минимальная длина
+            option_digits_ssY6G: Цифры
+            option_lowers_75kTr: Строчные буквы латинского алфавита
+            option_specials_6GSqK: Специальные символы, например `!@#$%^&*`
+            option_uppers_ur5iy: Заглавные буквы латинского алфавита
+            symbol_classes_any_fqb6f: Произвольные
+            symbol_classes_required_1BHUu: Обязательные
+            unlimited_cSfYU: Без ограничений
         users:
           components:
             title_mfa_5CFwd: MFA
@@ -10214,7 +10232,6 @@ default:
         label_lockbox-name: Имя
         label_lockbox-version: Версия
         label_networks: VRF
-        label_one-month-duration: 1 месяц
         label_password-lockbox: Секрет Lockbox
         label_password-plain: Новый пароль
         label_public-ip-ephemeral: Из эфемерной подсети

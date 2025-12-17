@@ -5,7 +5,7 @@ You can upgrade a {{ mrd-name }} cluster to any supported version.
 
 ## Supported versions {#version-supported}
 
-All {{ VLK }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see [this {{ VLK }} article](https://valkey.io/topics/releases/).
+All {{ VLK }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see [this {{ VLK }} guide](https://valkey.io/topics/releases/).
 
 
 ### Viewing a list of available {{ VLK }} versions {#version-list}
@@ -14,7 +14,7 @@ All {{ VLK }} versions, which were supported in {{ mrd-name }}, will remain avai
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
@@ -28,18 +28,18 @@ All {{ VLK }} versions, which were supported in {{ mrd-name }}, will remain avai
 
 ## Before a version upgrade {#before-update}
 
-Make sure this does not affect your applications:
+Make sure the upgrade will not disrupt your applications:
 
-1. See {{ VLK }} [changelog](https://docs.redis.com/latest/rs/release-notes/) for how upgrades may affect your applications.
-1. Try a version upgrade on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, provided {{ mrd-name }} [supports](#version-supported) the {{ VLK }} version in the backup.
-1. [Create a backup](cluster-backups.md#create-backup) of the main cluster directly before the version upgrade.
+1. Check the {{ VLK }} [release notes](https://docs.redis.com/latest/rs/release-notes/) to learn how upgrades may affect your applications.
+1. Try upgrading a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, provided {{ mrd-name }} [supports](#version-supported) the {{ VLK }} version in the backup.
+1. [Create a backup](cluster-backups.md#create-backup) of the main cluster immediately before upgrading.
 
 ## Upgrading a cluster {#start-update}
 
 {% note alert %}
 
 * After updating the DBMS, the cluster cannot be rolled back to the previous version.
-* The success of a {{ VLK }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
+* Whether a {{ VLK }} version upgrade succeeds depends on multiple factors, including your cluster’s configuration and the nature of the stored data. We recommend that you start with [upgrading a test cluster](#before-update) with the same data and configuration.
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ Make sure this does not affect your applications:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to upgrade.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -61,13 +61,13 @@ Make sure this does not affect your applications:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Get a list of your {{ VLK }} clusters using this command:
+  1. Get the list of your {{ VLK }} clusters using this command:
 
      ```bash
      {{ yc-mdb-rd }} cluster list
      ```
 
-  1. Get information about the cluster you need and check the {{ VLK }} version in the `config.version` parameter:
+  1. Get the target cluster details and check its {{ VLK }} version in the `config.version` setting:
 
      ```bash
      {{ yc-mdb-rd }} cluster get <cluster_name_or_ID>
@@ -84,9 +84,9 @@ Make sure this does not affect your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](./cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. Under `config`, change the `version` parameter to the {{ VLK }} version you want to upgrade to.
 
@@ -108,17 +108,17 @@ Make sure this does not affect your applications:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mrd }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -138,25 +138,25 @@ Make sure this does not affect your applications:
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
-            Only one parameter is provided in this case.
+            Here, we provide only one setting.
 
         * `configSpec.version`: New {{ VLK }} version.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -182,15 +182,15 @@ Make sure this does not affect your applications:
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-            Only one parameter is provided in this case.
+            Here, we provide only one setting.
 
         * `config_spec.version`: New {{ VLK }} version.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

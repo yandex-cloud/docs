@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [network load balancer](../../network-load-balancer/concepts/index.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
   1. Select the [target group](../../network-load-balancer/concepts/target-resources.md) in question.
   1. Under **{{ ui-key.yacloud.load-balancer.target-group.label_targets-section-title }}**, remove the old [VMs](../../compute/concepts/vm.md) and add new ones.

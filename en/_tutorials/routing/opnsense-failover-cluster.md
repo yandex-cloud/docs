@@ -114,18 +114,21 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, click the `{{ ui-key.yacloud.baremetal.servers.Filters.poolFilter_tVgg5 }}` filter and select the `{{ region-id }}-m4` server pool.
-  1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
-  
-      To test the solution, a configuration with minimum hardware specifications will be enough.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select `{{ ui-key.yacloud.baremetal.field_choose-no-os }}`.
-  1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `opnsense-private-subnet-m4` subnet you created earlier.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `opnsense-master`.
-  1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.ready-configs_ibA3Y }}` and a suitable {{ baremetal-name }} server [configuration](../../baremetal/concepts/server-configurations.md) in the `{{ region-id }}-m4` server pool.
+
+      Do it by selecting the `{{ region-id }}-m4` server pool in the filter on the right side of the window, under **{{ ui-key.yacloud.baremetal.servers.Filters.poolFilter_tVgg5 }}**.
+
+      To test the solution, a configuration with minimum hardware specifications will be enough. To select the suitable server configuration, click the section with its name in the central part of the screen.
+  1. In the server configuration window that opens:
+
+      1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select `{{ ui-key.yacloud.baremetal.field_choose-no-os }}`.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `opnsense-private-subnet-m4` subnet you created earlier.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `opnsense-master`.
+      1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
   1. Similarly, lease one more server named `opnsense-backup` in the `{{ region-id }}-m4` server pool.
-  1. Similarly, lease two more servers named `vmware-esxi` and `jump-server` in the `{{ region-id }}-m4` server pool. But select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings** when filling the lease form.
+  1. Similarly, lease two more servers named `vmware-esxi` and `jump-server` in the `{{ region-id }}-m4` server pool. However, when configuring these servers, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings**.
 
 {% endlist %}
 
@@ -189,7 +192,7 @@ To save time, you can run the OPNsense installation on your `opnsense-master` an
 1. Once the installation is complete, select `Root Password` in the **Final Configuration** window to set a password for the `root` user and press **Enter**. Enter and confirm the password.
 1. Once you set the password, select `Complete Install` in the **Final Configuration** window and press **Enter**.
 1. In the **Installation Complete** window, select `Reboot now` and press **Enter**.
-1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens:
+1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens, do the following:
 
       1. Under **CD/DVD Media1**, click **Disconnect**. Check the **Status** section for the **Virtual CD 1** device to make sure the **Connected To** field value has changed to `Not connected`.
       1. Click **Close**.
@@ -608,7 +611,7 @@ Further configuration may involve creating firewall rules. However, for the purp
 
     {% include [kvm-console-actions-notice](../_tutorials_includes/opnsense-failover-cluster/kvm-console-actions-notice.md) %}
 
-1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens:
+1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens, do the following:
 
       1. In the **CD/DVD Media1** section, click **Browse** and select the VMware ESXi image you saved earlier in the `user-iso` directory.
       1. Click **Connect CD/DVD**.
@@ -619,7 +622,7 @@ Further configuration may involve creating firewall rules. However, for the purp
 1. Set the `root` user password for access to the hypervisor settings.
 1. To start the ESXi installation, confirm that you agree to modify the partition table.
 1. Wait for the installation to complete and press **Enter** to restart your server.
-1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens:
+1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens, do the following:
 
       1. Under **CD/DVD Media1**, click **Disconnect**. Check the **Status** section for the **Virtual CD 1** device to make sure the **Connected To** field value has changed to `Not connected`.
       1. Click **Close**.

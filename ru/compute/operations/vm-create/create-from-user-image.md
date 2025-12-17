@@ -1,7 +1,3 @@
----
-title: Как создать виртуальную машину из пользовательского образа
-description: Следуя данной инструкции, вы сможете создать виртуальную машину из пользовательского образа.
----
 
 # Создать виртуальную машину из пользовательского образа
 
@@ -32,7 +28,6 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Выберите вариант **Расширенная настройка**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.

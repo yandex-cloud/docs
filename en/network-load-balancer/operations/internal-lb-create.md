@@ -20,7 +20,7 @@ To create an internal network load balancer:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the load balancer. Follow these naming requirements:
 
@@ -183,7 +183,7 @@ To create an internal network load balancer:
        * `port`: Port number (ranging from `1` to `32767`) on which the load balancer will listen to incoming traffic.
        * `internal_address_spec`: Specification of the internal load balancer's listener:
          * `subnet_id`: Subnet ID.
-         * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
+         * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default is `ipv4`.
          * `address`: Listener IP address not occupied by other resources and belonging to the subnet range specified in the `subnet_id` field.
 
              If the `address` field value is not specified, the internal load balancer listener gets a random IP address from the selected [subnet](../../vpc/concepts/network.md#subnet) range.
@@ -194,7 +194,7 @@ To create an internal network load balancer:
 
         * `healthcheck`: Health check settings. Specify a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-link }}/resources/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}/resources/lb_network_load_balancer).
 
   1. Create a network load balancer:
 
@@ -236,7 +236,7 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
        deletion_protection = "true"
      ```
 
-     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 
@@ -346,7 +346,7 @@ Create an internal network load balancer with a listener and attached target gro
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 

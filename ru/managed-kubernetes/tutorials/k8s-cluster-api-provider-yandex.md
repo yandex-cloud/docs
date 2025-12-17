@@ -1,5 +1,4 @@
 ---
-noIndex: true
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/k8s-cluster-api-provider-yandex'
 ---
 

@@ -5,6 +5,17 @@ description: This section contains {{ mmg-name }} release notes.
 
 # {{ mmg-full-name }} release notes
 
+## October 2025 {#oct-2025}
+
+* Added integration with {{ connection-manager-name }}. This tool allows you to connect to databases without directly using a password, thus reducing the risk of it being compromised.
+* Added the ability to configure the maximum number of connections and other cluster settings via the [API](api-ref/grpc/Cluster/index.md).
+* Simplified restoring the default setting values via the API: when updating settings, you can now provide an empty field without a value.
+* In the management console, added a new cluster host health status when the cluster recovery from a backup is in progress.
+* Added the ability to manually [set](https://mongodb.prakticum-team.ru/docs/manual/tutorial/modify-chunk-size-in-sharded-cluster/#std-label-tutorial-modifying-range-size) the chunk size for sharded clusters.
+* Added the ability to manage data migration when adding or deleting a shard using the `rangeDeleterBatchSize`, `rangeDeleterBatchDelayMS`, and `migrateCloneInsertionBatchSize` settings.
+* Added the SRV records improving stability of the host’s fully qualified domain name (FQDN). Now the following format is used for connections: `mongodb+srv://[username: password@]<cluster_ID>.{{ dns-zone }}[/[defaultauthdb][? options]]`.
+* You can now view the full replica configuration information in the management console and the `{{ yc-mdb-mg }} host list` CLI command ouptut.
+
 ## July 2025 {#jul-2025}
 
 
@@ -29,7 +40,7 @@ Starting December 2, 2024, you can no longer create {{ MG }} 5.0 clusters: the v
 
 ## October 2024 {#oct-2024}
 
-Now you can [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
+You can now [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
 
 ## September 2024 {#sep-2024}
 

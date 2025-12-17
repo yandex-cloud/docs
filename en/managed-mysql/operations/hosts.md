@@ -13,8 +13,8 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 
 - CLI {#cli}
 
@@ -22,7 +22,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the list of cluster hosts, run this command:
+  To get a list of cluster hosts, run this command:
 
   ```bash
   {{ yc-mdb-my }} host list \
@@ -59,7 +59,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -98,8 +98,8 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Specify the following host settings:
 
@@ -177,7 +177,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more information on how to create this file, see [this guide](cluster-create.md).
+     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
   1. Add the `host` section to the {{ mmy-name }} cluster description:
 
      ```hcl
@@ -249,7 +249,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -326,8 +326,8 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 - Management console {#console}
 
   To change the cluster host settings:
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.edit }}**.
   1. Specify new host settings:
      1. Select the host’s replication source for manual replication stream management.
@@ -371,7 +371,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
   To change the cluster host settings:
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more information on how to create this file, see [this guide](cluster-create.md).
+     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mmy-name }} cluster description, change the attributes of the `host` section referring to the host you want to update.
 
      ```hcl
@@ -441,7 +441,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -513,8 +513,8 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -536,7 +536,7 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more information on how to create this file, see [this guide](cluster-create.md).
+     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
   1. Delete the `host` section from the {{ mmy-name }} cluster description.
   1. Make sure the settings are correct.
 
@@ -573,11 +573,11 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
       Where `hostNames` is the array containing the host you want to delete.
 
-      You can provide only one host FQDN per request. If you need to delete multiple hosts, send a separate request for each of them.
+      You can provide only one host FQDN per request. If you need to delete multiple hosts, send a separate request for each one.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -607,7 +607,7 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
       Where `host_names` is the array containing the host you want to delete.
 
-      You can provide only one host FQDN per request. If you need to delete multiple hosts, send a separate request for each of them.
+      You can only specify one host FQDN per request. If you need to delete multiple hosts, send a separate request for each one.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

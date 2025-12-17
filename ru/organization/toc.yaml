@@ -105,6 +105,8 @@ items:
             href: operations/user-pools/get-list-users.md
           - name: Настроить доступ к пулу пользователей
             href: operations/user-pools/set-access-bindings-userpool.md
+          - name: Настроить парольную политику
+            href: operations/user-pools/set-password-policy.md
           - name: Удалить пул пользователей
             href: operations/user-pools/delete-userpool.md
       - name: Управление доменами
@@ -239,8 +241,12 @@ items:
                 href: tutorials/single-sign-on/grafana/saml-grafana.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/grafana/oidc-grafana.md
+          - name: Grafana OSS
+            href: tutorials/single-sign-on/oidc-grafana-oss.md
           - name: '{{ mos-name }}'
             href: tutorials/single-sign-on/saml-opensearch.md
+          - name: '{{ OS }}'
+            href: tutorials/single-sign-on/saml-opensearch-self-managed.md
           - name: '{{ mgl-name }}'
             href: tutorials/single-sign-on/saml-managed-gitlab.md
           - name: Zabbix
@@ -261,6 +267,8 @@ items:
         href: concepts/groups.md
       - name: Пулы пользователей
         href: concepts/user-pools.md
+      - name: Парольная политика
+        href: concepts/password-policy.md
       - name: Федерации удостоверений
         href: concepts/add-federation.md
       - name: Домены

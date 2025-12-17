@@ -11,14 +11,36 @@ description: In this tutorial, you will learn how to update your {{ baremetal-fu
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the server belongs to.
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. Find the server you need in the list, click ![image](../../../_assets/console-icons/ellipsis.svg) in its row, then select **{{ ui-key.yacloud.common.edit }}**.
-  1. If required, change the server’s name, description, labels, lease duration, and network settings.
+  1. Find the server you need in the list, click ![image](../../../_assets/console-icons/ellipsis.svg) in its row, and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Push your changes to the server configuration:
 
-      {% note info %}
+      * Optionally, change the server's name in the **{{ ui-key.yacloud.baremetal.field_name_dFuVW }}** field. Follow these naming requirements:
 
-      The lease duration setting changes will apply only after the current server lease period expires.
+          {% include [name-format](../../../_includes/name-format.md) %}
 
-      {% endnote %}
+      * Optionally, add or update the server's description in the **{{ ui-key.yacloud.baremetal.field_description_f2tds }}** field.
+      * Optionally, add or update the server's [labels](../../../resource-manager/concepts/labels.md) in the **{{ ui-key.yacloud.component.label-set.label_labels }}** field.
+      * Optionally, update server lease duration under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**.
+
+          {% note info %}
+
+          The lease duration setting changes will apply only after the current server lease period expires.
+
+          {% endnote %}
+      
+      * Optionally, change the server's [network settings](../../concepts/network.md) in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** and **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** fields.
+      * Optionally, in the **{{ ui-key.yacloud.baremetal.servers.BandwidthRow.bandwidthTitle_wvZra }}** field, change the [server's bandwidth](../../concepts/network-restrictions.md#bandwidth-for-pubic-network) package. Available bandwidth packages:
+
+          * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan10Tb_2BFQU }}`
+          * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan100Tb_4AB2b }}`
+
+          {% note info %}
+
+          You can select a bandwidth package only for configurations with a public IP address and network cards of 10 Gbps or higher.
+
+          After you increase bandwidth, it can be reduced only after 24 hours.
+
+          {% endnote %}
 
   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 
@@ -48,14 +70,14 @@ description: In this tutorial, you will learn how to update your {{ baremetal-fu
 
       Where:
       * `--name`: Server name.
-      * `--new-name`: New server name. This is an optional parameter.
-      * `--description`: New server description. This is an optional parameter.
-      * `--network-interfaces`: New network settings. This is an optional parameter. The possible values are:
+      * `--new-name`: New server name. This is an optional setting.
+      * `--description`: New server description. This is an optional setting.
+      * `--network-interfaces`: New network settings. This is an optional setting. The possible values are:
         
         * `private-subnet-id`: ID of the new [private subnet](../../concepts/network.md#private-subnet).
         * `public-subnet-id`: ID of the new [dedicated public subnet](../../concepts/network.md#public-subnet).
 
-      * `--labels`: New server labels. This is an optional parameter.
+      * `--labels`: New server labels. This is an optional setting.
 
 {% endlist %}
 

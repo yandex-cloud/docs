@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mch-full-name }}
-description: Access management in {{ CH }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ CH }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mch-name }}
@@ -9,7 +9,7 @@ description: Access management in {{ CH }}, a database creation and management s
 In this section, you will learn:
 
 * [Resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Roles this service has](#roles-list).
 * [What roles are required for specific actions](#required-roles).
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
@@ -24,11 +24,11 @@ To assign a role for a resource, a user should have the `mdb.admin` role, `manag
 
 {% include [assign-roles-mdb](../_includes/iam/assign-roles-mdb.md) %}
 
-## Roles existing in this service {#roles-list}
+## Roles this service has {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all the `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
 
-![image](../_assets/mdb/roles-managed-clickhouse.svg)
+{% include [roles-managed-clickhouse](../_mermaid/roles/managed-clickhouse.md) %}
 
 ### Service roles {#service-roles}
 

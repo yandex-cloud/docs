@@ -31,7 +31,7 @@ Learn more about minor version updates and host maintenance in [Maintenance](../
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -48,7 +48,7 @@ Learn more about minor version updates and host maintenance in [Maintenance](../
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -85,7 +85,8 @@ Make sure the upgrade will not disrupt your applications:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** page in the folder where you want to upgrade the {{ CH }} version.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the {{ CH }} version.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. 
     1. In the list of clusters, select the one to update.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the version in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
@@ -125,7 +126,7 @@ Make sure the upgrade will not disrupt your applications:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `version` field to the {{ mch-name }} cluster description or edit its value if it is already there:
 
@@ -152,7 +153,7 @@ Make sure the upgrade will not disrupt your applications:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -176,7 +177,7 @@ Make sure the upgrade will not disrupt your applications:
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             Here, we only specified a single setting, `configSpec.version`.
 
@@ -188,7 +189,7 @@ Make sure the upgrade will not disrupt your applications:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -222,7 +223,7 @@ Make sure the upgrade will not disrupt your applications:
 
         Where:
 
-        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `config_spec.version`.
 

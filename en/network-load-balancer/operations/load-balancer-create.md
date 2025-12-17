@@ -20,7 +20,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
   To create a [network load balancer](../concepts/index.md):
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Name the load balancer. Follow these naming requirements:
 
@@ -58,7 +58,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** for health checks. The possible values range from `1` to `32767`.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds. The possible values range from `1` to `60`. The interval must be at least 1 second longer than the response timeout.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Health check interval in seconds. The possible values range from `1` to `60`.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider the VM ready to receive traffic.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a VM instance ready to receive traffic.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks before traffic is no longer routed to the VM.
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
@@ -70,7 +70,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for creating a network load balancer:
+  1. See the description of the CLI command to create a network load balancer:
 
      ```bash
      yc load-balancer network-load-balancer create --help
@@ -110,7 +110,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
   1. Describe the network load balancer settings in the configuration file.
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
@@ -142,7 +142,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
      * `deletion_protection`: Deletion protection for the network load balancer. You cannot delete a load balancer with this option enabled. This does not apply to its listeners or target groups. The default value is `false`.
      * `listener`: Listener settings:
        * `name`: Listener name.
-       * `port`: Port number (ranging from `1` to `32767`) on which the load balancer will listen to incoming traffic.
+       * `port`: Port in the range from `1` to `32767` the network load balancer will receive incoming traffic at.
        * `external_address_spec`: Specification of the listener for the external load balancer settings:
          * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
      * `attached_target_group`: Description of the network load balancer's target group settings:
@@ -150,7 +150,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
           {% include [get-target-group-id](../../_includes/network-load-balancer/get-target-group-id.md) %}
 
-        * `healthcheck`: Health check settings. Specify a name, a port number ranging from `1` to `32767`, and a path for health checks.
+        * `healthcheck`: Health check settings. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
      For more information about `yandex_lb_network_load_balancer` settings in {{ TF }}, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
@@ -195,7 +195,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 
@@ -224,7 +224,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
 Create a network load balancer with a listener and attached target group with the following test settings:
 
 * Name: `test-load-balancer-2`
-* Listener settings:
+* Listener parameters:
     * Name: `test-listener`
     * Port: `80`
     * Target port: `81`
@@ -265,7 +265,7 @@ Create a network load balancer with a listener and attached target group with th
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the load balancer, including the `listener` and `attached_target_group` sections:
+  1. In the configuration file, describe the resource parameters with the `listener` and `attached_target_group` sections:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
@@ -297,7 +297,7 @@ Create a network load balancer with a listener and attached target group with th
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 

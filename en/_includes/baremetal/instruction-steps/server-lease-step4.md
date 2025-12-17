@@ -1,1 +1,3 @@
-In the **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** field, select the [pool](../../../baremetal/concepts/servers.md#server-pools) the server will be leased from.
+Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, **{{ ui-key.yacloud.baremetal.title_section-location }}**, and **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, make sure the server configuration you have provided so far is adequate.
+
+If not, click ![arrow-left](../../../_assets/console-icons/arrow-left.svg) under **{{ ui-key.yacloud.baremetal.title_section-server-config }}** to return to configuration setup.

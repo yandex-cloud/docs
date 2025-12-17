@@ -9,7 +9,7 @@ To get started:
 
 
 * [Create a database cluster](#cluster-create).
-* [Connect to the DB](#connect).
+* [Connect to the database](#connect).
 
 
 
@@ -24,13 +24,13 @@ To get started:
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
-1. You can connect to DB [clusters](concepts/index.md) from both inside and outside {{ yandex-cloud }}:
-   * To connect from inside {{ yandex-cloud }}, create a [VM](../compute/concepts/vm.md) in the same [cloud network](../vpc/concepts/network.md#network) as the DB cluster (on [Linux](../compute/quickstart/quick-create-linux.md)).
+1. You can connect to database [clusters](concepts/index.md) from both inside and outside {{ yandex-cloud }}:
+   * To connect from inside {{ yandex-cloud }}, create a [VM](../compute/concepts/vm.md) in the same [cloud network](../vpc/concepts/network.md#network) as the database cluster (on [Linux](../compute/quickstart/quick-create-linux.md)).
    * To connect to the {{ mmy-name }} cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
 
-   The next step assumes that you are connecting to the {{ mmy-name }} cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+   The next step assumes that you are connecting to the {{ mmy-name }} cluster from a [Linux](../compute/quickstart/quick-create-linux.md) VM.
 
    {% endnote %}
 
@@ -44,18 +44,18 @@ To get started:
 
 ## Create a cluster {#cluster-create}
 
-1. In the management console, select the folder where you want to create a DB cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. In the management console, select the folder where you want to create your database cluster.
+1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Set the {{ mmy-name }} cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
+1. Specify your {{ mmy-name }} cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the {{ mmy-name }} cluster is ready: its status on the {{ mmy-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
 
 
-## Connect to the DB {#connect}
+## Connect to the database {#connect}
 
-1. If you are using [security groups](../vpc/concepts/security-groups.md) for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the {{ mmy-name }} cluster and the connecting host.
+1. If you are using [security groups](../vpc/concepts/security-groups.md) for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to allow all relevant traffic between the {{ mmy-name }} cluster and the connecting host.
 
-1. To connect to the DB server, get an SSL certificate:
+1. To connect to the database server, get an SSL certificate:
 
    {% include [install-certificate](../_includes/mdb/mmy/install-certificate.md) %}
 
@@ -67,5 +67,5 @@ To get started:
 ## What's next {#whats-next}
 
 * Read about the [service concepts](concepts/index.md).
-* Learn more about [creating a {{ mmy-name }} cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).
+* Learn more about [creating a {{ mmy-name }} cluster](operations/cluster-create.md) and [connecting to a database](operations/connect.md).
 * Check [questions and answers](qa/general.md).

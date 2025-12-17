@@ -16,7 +16,7 @@ editable: false
 
 In {{ baremetal-name }}, you pay for renting a server of a [certain configuration](concepts/server-configurations.md). A rented server is billable for the entire rent period, whether it is on or off.
 
-The available number of servers of a certain configuration is indicated in the [calculator](https://yandex.cloud/en/prices) on the {{ yandex-cloud }} website and in the [management console]({{ link-console-main }}) when selecting a server.
+You can look up how many servers of particular configurations are available in the [calculator](https://yandex.cloud/en/prices) on the {{ yandex-cloud }} website and in the [management console]({{ link-console-main }}) when selecting a server.
 
 The monthly prices are based on 720 hours per month.
 
@@ -24,6 +24,8 @@ The monthly prices are based on 720 hours per month.
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+The cost may depend on the [rent period](../baremetal/concepts/servers.md#server-lease).
 
 The funds are debited **monthly**, irrespective of the rent period.
 
@@ -34,7 +36,7 @@ All prices are per month.
 {% include [usd-servers.md](../_pricing/baremetal/usd-servers.md) %}
 
 
-#### Prices for promo configurations {#promo}
+#### Server configurations at reduced prices {#promo}
 
 ##### Reduced prices since 27.11.2025 until 29.12.2025 {#27-11-19-12-2025}
 
@@ -45,20 +47,14 @@ You can rent servers with these configuration options until December 29, 2025, o
 {% include [usd-servers.md](../_pricing/baremetal/promo/2025-black-friday/usd-servers-promo.md) %}
 
 
-##### Promo code Yandex Scale 2025 {#scale2025}
+##### Reduced prices from 24/09/2025 to 24/10/2025 as part of Yandex Scale 2025 {#scale2025}
 
-Promo configurations can be rented until October 24, 2025, or while supplies last. Promo configuration prices are valid until 11:59 PM on December 31, 2025.
+The price is valid from the moment of purchase until 11:59 p.m. on 31/12/2025.
 
 
 
 {% include [usd-servers.md](../_pricing/baremetal/promo/2025-yandex-scale/usd-servers-promo.md) %}
 
-
-{% note info %}
-
-[Quarantined](./concepts/servers.md#quarantine) servers are free of charge. However, if a server is not restored for further use during the quarantine, the time it spent in quarantine will be included in the paid lease term.
-
-{% endnote %}
 
 ### Dedicated public subnets {#public-subnets}
 

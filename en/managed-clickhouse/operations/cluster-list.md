@@ -13,7 +13,7 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
 
 - Management console {#console}
 
-  In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
 - CLI {#cli}
 
@@ -36,7 +36,7 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -54,11 +54,11 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
       You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-  1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.clickhouse.v1.ListClustersResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.clickhouse.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -84,7 +84,7 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
       You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-  1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.clickhouse.v1.ListClustersResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.clickhouse.v1.ListClustersResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -94,7 +94,8 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -113,7 +114,7 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -128,11 +129,11 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -156,7 +157,7 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
@@ -175,7 +176,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
   You can get a list of operations for a cluster as follows:
 
   1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.clickhouse.switch_list }}**.
   1. Select your cluster.
   1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.clickhouse.switch_operations }}** panel for the cluster you selected.
@@ -238,7 +239,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -257,7 +258,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -324,7 +325,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
     - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -337,11 +338,11 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
               --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
           ```
 
-      1. View the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+      1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -9,7 +9,7 @@ You can stop and restart a network load balancer as needed.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to stop a load balancer.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Next to the load balancer you need to stop, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Stop**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.stop }}**.
 
@@ -44,7 +44,7 @@ You can restart a network load balancer with the `Stopped` status.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to start a load balancer.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Next to the load balancer you need to start, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Start**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.start }}**.
 

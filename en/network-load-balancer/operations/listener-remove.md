@@ -12,7 +12,7 @@ description: Follow this guide to delete a listener.
   To delete a [listener](../concepts/listener.md) for your network load balancer:
   
   1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a load balancer listener.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Select the network load balancer whose listener you need to delete.
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the listener to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.

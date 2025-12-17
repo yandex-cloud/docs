@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mos-full-name }}
-description: Access management in {{ OS }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ OS }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Managing access to {{ mos-name }}
@@ -9,7 +9,7 @@ description: Access management in {{ OS }}, a database creation and management s
 In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Roles this service has](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
 To use the service, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
@@ -28,9 +28,9 @@ To allow access to {{ mos-name }} resources (clusters and hosts, cluster backups
 
 ## Roles this service has {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all the `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
 
-![image](../../_assets/mdb/roles-managed-opensearch.svg)
+{% include [roles-managed-opensearch](../../_mermaid/roles/managed-opensearch.md) %}
 
 ### Service roles {#service-roles}
 
@@ -81,9 +81,9 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles are required {#required-roles}
+## Required roles {#required-roles}
 
-To use the service, you need the [{{ roles.mos.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mos.viewer }}` role only allows you to view the list of clusters.
+To use {{ maf-name }}, you need the [{{ roles.mos.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mos.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mos.editor }}` role or higher.
 
