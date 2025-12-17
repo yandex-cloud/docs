@@ -5,9 +5,7 @@ items:
     items:
       - name: Обзор
         href: quickstart/index.md
-      - name: Упрощенное создание виртуальной машины Linux
-        href: quickstart/simple-form-vm.md
-      - name: Продвинутое создание виртуальной машины Linux
+      - name: Создание виртуальной машины Linux
         href: quickstart/quick-create-linux.md
       - name: Создание группы виртуальных машин
         href: quickstart/ig.md

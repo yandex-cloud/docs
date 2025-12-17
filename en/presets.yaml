@@ -1024,45 +1024,45 @@ default:
   sku|KZT|baremetal:
     component:
       bms-4-body:
-        1-month|string: ₸193500.00
-        12-month|string: ₸164475.00
-        6-month|string: ₸183825.00
+        1-month|string: ₸386500.00
+        12-month|string: ₸328525.00
+        6-month|string: ₸359445.00
       bms-5-body:
-        1-month|string: ₸259000.00
-        12-month|string: ₸220150.00
-        6-month|string: ₸246050.00
+        1-month|string: ₸304500.00
+        12-month|string: ₸258825.00
+        6-month|string: ₸283185.00
       bms-cpu-9374f:
         1-month|string: ₸195000.00
         12-month|string: ₸165750.00
-        6-month|string: ₸185250.00
+        6-month|string: ₸181350.00
       bms-cpu-9654:
         1-month|string: ₸202200.00
         12-month|string: ₸171870.00
-        6-month|string: ₸192090.00
+        6-month|string: ₸188050.00
       bms-cpu-a74f3:
         1-month|string: ₸181200.00
         12-month|string: ₸154020.00
-        6-month|string: ₸172140.00
+        6-month|string: ₸168520.00
       bms-cpu-a7663:
         1-month|string: ₸113400.00
         12-month|string: ₸96390.00
-        6-month|string: ₸107730.00
+        6-month|string: ₸105465.00
       bms-cpu-a7702:
-        1-month|string: ₸180000.00
-        12-month|string: ₸153000.00
-        6-month|string: ₸171000.00
+        1-month|string: ₸39600.00
+        12-month|string: ₸33660.00
+        6-month|string: ₸36830.00
       bms-cpu-a7713:
         1-month|string: ₸180000.00
         12-month|string: ₸153000.00
-        6-month|string: ₸171000.00
+        6-month|string: ₸167400.00
       bms-cpu-i6338:
-        1-month|string: ₸94800.00
-        12-month|string: ₸80580.00
-        6-month|string: ₸90060.00
+        1-month|string: ₸76800.00
+        12-month|string: ₸65280.00
+        6-month|string: ₸71425.00
       bms-cpu-i6354:
         1-month|string: ₸90000.00
         12-month|string: ₸76500.00
-        6-month|string: ₸85500.00
+        6-month|string: ₸83700.00
       bms-disk-h10t:
         1-month|string: ₸12600.00
         12-month|string: ₸10710.00
@@ -1070,115 +1070,115 @@ default:
       bms-disk-h18t:
         1-month|string: ₸23400.00
         12-month|string: ₸19890.00
-        6-month|string: ₸22230.00
+        6-month|string: ₸21765.00
       bms-disk-h24t:
         1-month|string: ₸36600.00
         12-month|string: ₸31110.00
-        6-month|string: ₸34770.00
+        6-month|string: ₸34040.00
       bms-disk-h2t:
         1-month|string: ₸6600.00
         12-month|string: ₸5610.00
-        6-month|string: ₸6270.00
+        6-month|string: ₸6140.00
       bms-disk-h4t:
         1-month|string: ₸7200.00
         12-month|string: ₸6120.00
-        6-month|string: ₸6840.00
+        6-month|string: ₸6700.00
       bms-disk-h6t:
         1-month|string: ₸9000.00
         12-month|string: ₸7650.00
-        6-month|string: ₸8550.00
+        6-month|string: ₸8370.00
       bms-disk-h8t:
         1-month|string: ₸11400.00
         12-month|string: ₸9690.00
-        6-month|string: ₸10600.00
+        6-month|string: ₸10605.00
       bms-disk-n1:
         9t:
           1-month|string: ₸15000.00
           12-month|string: ₸12750.00
-          6-month|string: ₸14250.00
+          6-month|string: ₸13950.00
       bms-disk-n15t:
         1-month|string: ₸154800.00
         12-month|string: ₸131580.00
-        6-month|string: ₸147060.00
+        6-month|string: ₸143965.00
       bms-disk-n3:
         2t:
           1-month|string: ₸28800.00
           12-month|string: ₸24480.00
-          6-month|string: ₸27360.00
+          6-month|string: ₸26785.00
         8t:
           1-month|string: ₸28800.00
           12-month|string: ₸24480.00
-          6-month|string: ₸27360.00
+          6-month|string: ₸26785.00
       bms-disk-n30t:
         1-month|string: ₸228600.00
         12-month|string: ₸194310.00
-        6-month|string: ₸217170.00
+        6-month|string: ₸212600.00
       bms-disk-n6:
         4t:
           1-month|string: ₸78600.00
           12-month|string: ₸66810.00
-          6-month|string: ₸74670.00
+          6-month|string: ₸73100.00
       bms-disk-n7:
         6t:
           1-month|string: ₸78600.00
           12-month|string: ₸66810.00
-          6-month|string: ₸74670.00
+          6-month|string: ₸73100.00
       bms-disk-n960g:
         1-month|string: ₸10200.00
         12-month|string: ₸8670.00
-        6-month|string: ₸9690.00
+        6-month|string: ₸9490.00
       bms-net-2p25g:
         1-month|string: ₸24000.00
         12-month|string: ₸20400.00
-        6-month|string: ₸22800.00
+        6-month|string: ₸22320.00
       bms-ram4-1024:
         1-month|string: ₸306600.00
         12-month|string: ₸260610.00
-        6-month|string: ₸291270.00
+        6-month|string: ₸285140.00
       bms-ram4-128:
         1-month|string: ₸38400.00
         12-month|string: ₸32640.00
-        6-month|string: ₸36480.00
+        6-month|string: ₸35715.00
       bms-ram4-1536:
         1-month|string: ₸459600.00
         12-month|string: ₸390660.00
-        6-month|string: ₸436620.00
+        6-month|string: ₸427430.00
       bms-ram4-256:
         1-month|string: ₸76200.00
         12-month|string: ₸64770.00
-        6-month|string: ₸72390.00
+        6-month|string: ₸70870.00
       bms-ram4-384:
         1-month|string: ₸114000.00
         12-month|string: ₸96900.00
-        6-month|string: ₸108300.00
+        6-month|string: ₸106020.00
       bms-ram4-512:
         1-month|string: ₸151800.00
         12-month|string: ₸129030.00
-        6-month|string: ₸144210.00
+        6-month|string: ₸141175.00
       bms-ram4-768:
         1-month|string: ₸229800.00
         12-month|string: ₸195330.00
-        6-month|string: ₸218310.00
+        6-month|string: ₸213715.00
       bms-ram5-1024:
         1-month|string: ₸308400.00
         12-month|string: ₸262140.00
-        6-month|string: ₸292980.00
+        6-month|string: ₸286815.00
       bms-ram5-1152:
         1-month|string: ₸363600.00
         12-month|string: ₸309060.00
-        6-month|string: ₸345420.00
+        6-month|string: ₸338150.00
       bms-ram5-1536:
         1-month|string: ₸462600.00
         12-month|string: ₸393210.00
-        6-month|string: ₸439470.00
+        6-month|string: ₸430220.00
       bms-ram5-2304:
-        1-month|string: ₸703200.00
-        12-month|string: ₸597720.00
-        6-month|string: ₸668040.00
+        1-month|string: ₸640200.00
+        12-month|string: ₸544170.00
+        6-month|string: ₸595390.00
       bms-ram5-768:
         1-month|string: ₸231600.00
         12-month|string: ₸196860.00
-        6-month|string: ₸220020.00
+        6-month|string: ₸215390.00
     data:
       data-100tb:
         1sec|string: ₸50000.00
@@ -3583,45 +3583,45 @@ default:
   sku|RUB|baremetal:
     component:
       bms-4-body:
-        1-month|string: ₽38700.00
-        12-month|string: ₽32895.00
-        6-month|string: ₽36765.00
+        1-month|string: ₽77300.00
+        12-month|string: ₽65705.00
+        6-month|string: ₽71889.00
       bms-5-body:
-        1-month|string: ₽51800.00
-        12-month|string: ₽44030.00
-        6-month|string: ₽49210.00
+        1-month|string: ₽60900.00
+        12-month|string: ₽51765.00
+        6-month|string: ₽56637.00
       bms-cpu-9374f:
         1-month|string: ₽39000.00
         12-month|string: ₽33150.00
-        6-month|string: ₽37050.00
+        6-month|string: ₽36270.00
       bms-cpu-9654:
         1-month|string: ₽40440.00
         12-month|string: ₽34374.00
-        6-month|string: ₽38418.00
+        6-month|string: ₽37610.00
       bms-cpu-a74f3:
         1-month|string: ₽36240.00
         12-month|string: ₽30804.00
-        6-month|string: ₽34428.00
+        6-month|string: ₽33704.00
       bms-cpu-a7663:
         1-month|string: ₽22680.00
         12-month|string: ₽19278.00
-        6-month|string: ₽21546.00
+        6-month|string: ₽21093.00
       bms-cpu-a7702:
-        1-month|string: ₽36000.00
-        12-month|string: ₽30600.00
-        6-month|string: ₽34200.00
+        1-month|string: ₽7920.00
+        12-month|string: ₽6732.00
+        6-month|string: ₽7366.00
       bms-cpu-a7713:
         1-month|string: ₽36000.00
         12-month|string: ₽30600.00
-        6-month|string: ₽34200.00
+        6-month|string: ₽33480.00
       bms-cpu-i6338:
-        1-month|string: ₽18960.00
-        12-month|string: ₽16116.00
-        6-month|string: ₽18012.00
+        1-month|string: ₽15360.00
+        12-month|string: ₽13056.00
+        6-month|string: ₽14285.00
       bms-cpu-i6354:
         1-month|string: ₽18000.00
         12-month|string: ₽15300.00
-        6-month|string: ₽17100.00
+        6-month|string: ₽16740.00
       bms-disk-h10t:
         1-month|string: ₽2520.00
         12-month|string: ₽2142.00
@@ -3629,115 +3629,115 @@ default:
       bms-disk-h18t:
         1-month|string: ₽4680.00
         12-month|string: ₽3978.00
-        6-month|string: ₽4446.00
+        6-month|string: ₽4353.00
       bms-disk-h24t:
         1-month|string: ₽7320.00
         12-month|string: ₽6222.00
-        6-month|string: ₽6954.00
+        6-month|string: ₽6808.00
       bms-disk-h2t:
         1-month|string: ₽1320.00
         12-month|string: ₽1122.00
-        6-month|string: ₽1254.00
+        6-month|string: ₽1228.00
       bms-disk-h4t:
         1-month|string: ₽1440.00
         12-month|string: ₽1224.00
-        6-month|string: ₽1368.00
+        6-month|string: ₽1340.00
       bms-disk-h6t:
         1-month|string: ₽1800.00
         12-month|string: ₽1530.00
-        6-month|string: ₽1710.00
+        6-month|string: ₽1674.00
       bms-disk-h8t:
         1-month|string: ₽2280.00
         12-month|string: ₽1938.00
-        6-month|string: ₽2120.00
+        6-month|string: ₽2121.00
       bms-disk-n1:
         9t:
           1-month|string: ₽3000.00
           12-month|string: ₽2550.00
-          6-month|string: ₽2850.00
+          6-month|string: ₽2790.00
       bms-disk-n15t:
         1-month|string: ₽30960.00
         12-month|string: ₽26316.00
-        6-month|string: ₽29412.00
+        6-month|string: ₽28793.00
       bms-disk-n3:
         2t:
           1-month|string: ₽5760.00
           12-month|string: ₽4896.00
-          6-month|string: ₽5472.00
+          6-month|string: ₽5357.00
         8t:
           1-month|string: ₽5760.00
           12-month|string: ₽4896.00
-          6-month|string: ₽5472.00
+          6-month|string: ₽5357.00
       bms-disk-n30t:
         1-month|string: ₽45720.00
         12-month|string: ₽38862.00
-        6-month|string: ₽43434.00
+        6-month|string: ₽42520.00
       bms-disk-n6:
         4t:
           1-month|string: ₽15720.00
           12-month|string: ₽13362.00
-          6-month|string: ₽14934.00
+          6-month|string: ₽14620.00
       bms-disk-n7:
         6t:
           1-month|string: ₽15720.00
           12-month|string: ₽13362.00
-          6-month|string: ₽14934.00
+          6-month|string: ₽14620.00
       bms-disk-n960g:
         1-month|string: ₽2040.00
         12-month|string: ₽1734.00
-        6-month|string: ₽1938.00
+        6-month|string: ₽1898.00
       bms-net-2p25g:
         1-month|string: ₽4800.00
         12-month|string: ₽4080.00
-        6-month|string: ₽4560.00
+        6-month|string: ₽4464.00
       bms-ram4-1024:
         1-month|string: ₽61320.00
         12-month|string: ₽52122.00
-        6-month|string: ₽58254.00
+        6-month|string: ₽57028.00
       bms-ram4-128:
         1-month|string: ₽7680.00
         12-month|string: ₽6528.00
-        6-month|string: ₽7296.00
+        6-month|string: ₽7143.00
       bms-ram4-1536:
         1-month|string: ₽91920.00
         12-month|string: ₽78132.00
-        6-month|string: ₽87324.00
+        6-month|string: ₽85486.00
       bms-ram4-256:
         1-month|string: ₽15240.00
         12-month|string: ₽12954.00
-        6-month|string: ₽14478.00
+        6-month|string: ₽14174.00
       bms-ram4-384:
         1-month|string: ₽22800.00
         12-month|string: ₽19380.00
-        6-month|string: ₽21660.00
+        6-month|string: ₽21204.00
       bms-ram4-512:
         1-month|string: ₽30360.00
         12-month|string: ₽25806.00
-        6-month|string: ₽28842.00
+        6-month|string: ₽28235.00
       bms-ram4-768:
         1-month|string: ₽45960.00
         12-month|string: ₽39066.00
-        6-month|string: ₽43662.00
+        6-month|string: ₽42743.00
       bms-ram5-1024:
         1-month|string: ₽61680.00
         12-month|string: ₽52428.00
-        6-month|string: ₽58596.00
+        6-month|string: ₽57363.00
       bms-ram5-1152:
         1-month|string: ₽72720.00
         12-month|string: ₽61812.00
-        6-month|string: ₽69084.00
+        6-month|string: ₽67630.00
       bms-ram5-1536:
         1-month|string: ₽92520.00
         12-month|string: ₽78642.00
-        6-month|string: ₽87894.00
+        6-month|string: ₽86044.00
       bms-ram5-2304:
-        1-month|string: ₽140640.00
-        12-month|string: ₽119544.00
-        6-month|string: ₽133608.00
+        1-month|string: ₽128040.00
+        12-month|string: ₽108834.00
+        6-month|string: ₽119078.00
       bms-ram5-768:
         1-month|string: ₽46320.00
         12-month|string: ₽39372.00
-        6-month|string: ₽44004.00
+        6-month|string: ₽43078.00
     data:
       data-100tb:
         1sec|string: ₽10000.00
@@ -9566,8 +9566,26 @@ default:
           field_full-name: Full name
           field_password: Password
           field_username: Username
+          title_password_policy: Password policy
           title_personal-info: Personal information
           title_userpool_members: Users
+          UserpoolOverviewPage:
+            action_set_password_policy_aaDns: Set password policy
+          UserpoolPasswordPolicyForm:
+            attempts_before_lockout_ay7Le: Number of failed password attempts before lockout
+            brute_force_protection_msHno: Brute force protection
+            complexity_oeJs5: Password complexity
+            failed_attempts_interval_wfd7Z: Failed attempt interval
+            lifetime_hnEhW: Password lifetime
+            lockout_duration_t1CZB: Lockout duration
+            min_length_title_mvmiQ: Minimum length
+            option_digits_ssY6G: Digits
+            option_lowers_75kTr: Lowercase Latin letters
+            option_specials_6GSqK: Special characters, e.g., `!@#$%^&*`
+            option_uppers_ur5iy: Uppercase Latin letters
+            symbol_classes_any_fqb6f: Custom
+            symbol_classes_required_1BHUu: Required
+            unlimited_cSfYU: Unlimited
         users:
           components:
             title_mfa_5CFwd: MFA
@@ -10206,7 +10224,6 @@ default:
         label_lockbox-name: Name
         label_lockbox-version: Version
         label_networks: VRF
-        label_one-month-duration: 1 month
         label_password-lockbox: Lockbox secret
         label_password-plain: New password
         label_public-ip-ephemeral: From ephemeral subnet

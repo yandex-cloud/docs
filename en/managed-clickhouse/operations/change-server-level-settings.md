@@ -25,8 +25,9 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
 
    To configure {{ CH }}:
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. Specify the [{{ CH }} settings](../concepts/settings-list.md#server-level-settings).
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -51,7 +52,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
       {{ yc-mdb-ch }} cluster update-config --help
       ```
 
-   1. Set the parameter values as needed:
+   1. Provide the arguments as needed:
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
@@ -64,7 +65,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
 
    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      Learn how to create this file in [Creating a cluster](cluster-create.md).
+      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, under `clickhouse.config`, edit the parameters as follows:
 
@@ -136,7 +137,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
 
 - REST API {#api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -167,7 +168,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
 
       Where:
 
-      * `updateMask`: Comma-separated string of settings you want to update.
+      * `updateMask`: Comma-separated list of settings you want to update.
       * `configSpec.clickhouse.config`: {{ CH }} server-level settings. For the list of possible parameters and their values, see the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -176,7 +177,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
 
 - gRPC API {#grpc-api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -219,7 +220,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
 
       Where:
 
-      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
       * `config_spec.clickhouse.config`: {{ CH }} server-level settings. For the list of possible parameters and their values, see the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).

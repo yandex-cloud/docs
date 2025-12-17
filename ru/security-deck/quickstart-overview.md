@@ -61,9 +61,11 @@ description: В данном разделе описано, как начать 
 
 ### Контроль данных ({{ dspm-name }}) {#dspm}
 
-[Контроль данных или {{ dspm-name }}]({{ link-sd-main }}dspm/) (Data Security Posture Management) — это инструмент, помогающий оперативно обнаруживать чувствительную информацию, сохраненную в [бакетах](../storage/concepts/bucket.md) {{ objstorage-full-name }}, с тем чтобы своевременно принимать необходимые меры для ее защиты от несанкционированного доступа или утечки. Подробнее см. в разделе [{#T}](./concepts/dspm.md).
+{% include [about-dspm](../_includes/security-deck/about-dspm.md) %}
 
 Чтобы начать работать с модулем {{ dspm-name }}, воспользуйтесь инструкциями по [созданию источника данных](./operations/dspm/create-data-source.md) и [созданию сканирования](./operations/dspm/create-scan.md) информации в бакете.
+
+Подробнее см. в разделе [{#T}](./concepts/dspm.md).
 
 ### Контроль {{ k8s }} (KSPM) {#kspm}
 

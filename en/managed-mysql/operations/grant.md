@@ -14,9 +14,9 @@ You can manage user permissions for individual databases by changing [user privi
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
-  1. Click the name of your cluster and open the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
 
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
 
@@ -69,7 +69,7 @@ You can manage user permissions for individual databases by changing [user privi
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information on how to create this file, see [this guide](cluster-create.md).
+      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
   1. Find the relevant `yandex_mdb_mysql_user` resource and change the list of user’s privileges for the appropriate database in the `roles` parameter:
 
@@ -142,7 +142,7 @@ You can manage user permissions for individual databases by changing [user privi
 
           For each database, add a separate element with permission settings to the `permissions` array.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the username, with the [list of users in the cluster](#list-users).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
   1. Check the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -198,7 +198,7 @@ You can manage user permissions for individual databases by changing [user privi
 
           For each database, add a separate element with permission settings to the `permissions` array.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the username, with the [list of users in the cluster](#list-users).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
   1. Check the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

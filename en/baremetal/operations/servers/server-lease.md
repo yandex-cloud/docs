@@ -5,6 +5,7 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
 
 # Leasing a server
 
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -12,25 +13,26 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
   1. {% include [server-lease-step1](../../../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
   1. {% include [server-lease-step2](../../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. {% include [server-lease-step3](../../../_includes/baremetal/instruction-steps/server-lease-step3.md) %}
-  1. {% include [server-lease-step4](../../../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
-  1. {% include [server-lease-step5](../../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
-  1. {% include [server-lease-step6](../../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
-  1. {% include [server-lease-step7-bm](../../../_includes/baremetal/instruction-steps/server-lease-step7-bm.md) %}
-  1. {% include [server-lease-step8](../../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
-  1. {% include [server-lease-step9-bm](../../../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
-  1. {% include [server-lease-step10-bm](../../../_includes/baremetal/instruction-steps/server-lease-step10-bm.md) %}
-  1. If you are installing an OS from a {{ marketplace-short-name }} public image, specify server access settings under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+  1. In the server configuration window that opens:
 
-      {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
+      1. {% include [server-lease-step4](../../../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
+      1. {% include [server-lease-step5](../../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
+      1. {% include [server-lease-step6](../../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
+      1. {% include [server-lease-step7-bm](../../../_includes/baremetal/instruction-steps/server-lease-step7-bm.md) %}
+      1. {% include [server-lease-step8](../../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
+      1. {% include [server-lease-step9-bm](../../../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
+      1. {% include [server-lease-step10-bm](../../../_includes/baremetal/instruction-steps/server-lease-step10-bm.md) %}
+      1. If you are installing an OS from a {{ marketplace-short-name }} public image, specify server access settings under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
-  1. Optionally, enable server backup in [{{ backup-full-name }}](../../../backup/index.yaml):
+          {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
 
-      {% include [server-lease-step11](../../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
+      1. Optionally, enable server backup in [{{ backup-full-name }}](../../../backup/index.yaml):
 
-      For more information, see [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+          {% include [server-lease-step11](../../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
 
-  1. {% include [server-lease-step12](../../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
-  1. {% include [server-lease-step13](../../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
+          For more information, see [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+      1. {% include [server-lease-step12](../../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
+      1. {% include [server-lease-step13](../../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
 
 - CLI {#cli}
 
@@ -96,3 +98,4 @@ Once you lease a server, you can install or reinstall the OS at any time using e
    {% include [server-lease-cli-result](../../../_includes/baremetal/instruction-steps/server-lease-cli-result.md) %}
 
 {% endlist %}
+

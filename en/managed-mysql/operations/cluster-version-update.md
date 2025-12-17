@@ -1,4 +1,4 @@
-# Upgrading {{ MY }} version
+# {{ MY }} version upgrade
 
 You can upgrade a {{ mmy-name }} cluster to any supported minor or major version.
 
@@ -41,7 +41,7 @@ For information on minor version upgrades and host maintenance, see [Maintenance
 
 When getting ready for an upgrade, a comprehensive approach to testing and compatibility analysis is of particular importance. Our experience shows that most upgrade issues can be prevented in advance:
 
-1. Look up {{ MY }} [release notes](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html) for info on how upgrades may affect your applications.
+1. Check the {{ MY }} [release notes](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html) to learn how upgrades may affect your applications.
 
    {% cut "Examples of changes in {{ MY }} 8.0" %}
 
@@ -122,8 +122,8 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
 - Management console {#console}
 
-   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Select the cluster you need from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Select your cluster from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -164,7 +164,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information on how to create this file, see [this guide](cluster-create.md).
+      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
    1. Add the `version` field to the `yandex_mdb_mysql_cluster` resource or change the field value if it already exists:
 
@@ -222,7 +222,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 

@@ -8,7 +8,8 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
 
 - CLI {#cli}
@@ -28,7 +29,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -47,7 +48,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -80,7 +81,8 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Select a shard group to view detailed information.
 
@@ -102,7 +104,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -121,7 +123,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -155,7 +157,8 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.shard-groups.button_add-group }}**.
   1. Fill in the form fields and click **{{ ui-key.yacloud.common.apply }}**.
@@ -186,7 +189,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
   1. Add the `shard_group` section to the {{ mch-name }} cluster description.
 
      ```hcl
@@ -219,7 +222,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -252,7 +255,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -296,7 +299,8 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the shard group in question and select **{{ ui-key.yacloud.common.edit }}**.
 
@@ -330,7 +334,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mch-name }} cluster description, update the `shard_group` section for the shard group you need:
 
      ```hcl
@@ -363,7 +367,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -388,7 +392,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      Where:
 
-     * `updateMask`: Comma-separated string of settings you want to update.
+     * `updateMask`: Comma-separated list of settings you want to update.
      * `description`: New description for the shard group.
      * `shardNames`: New list of shards to include in the group. To learn shard names, get a [list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure you have added all the required shards to the new list.
 
@@ -398,7 +402,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -433,7 +437,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      Where:
 
-     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
      * `description`: New description for the shard group.
      * `shard_names`: New list of shards to include in the group. To learn shard names, get a [list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure you have added all the required shards to the new list.
 
@@ -453,7 +457,8 @@ Tables created on the deleted group remain but become unusable: any attempts to 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the shard group in question and select **{{ ui-key.yacloud.common.delete }}**.
 
@@ -479,7 +484,7 @@ Tables created on the deleted group remain but become unusable: any attempts to 
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
   1. Delete the `shard_group` section for the appropriate group from the {{ mch-name }} cluster description.
   1. Make sure the settings are correct.
 
@@ -495,7 +500,7 @@ Tables created on the deleted group remain but become unusable: any attempts to 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -514,7 +519,7 @@ Tables created on the deleted group remain but become unusable: any attempts to 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

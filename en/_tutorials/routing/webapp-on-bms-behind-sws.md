@@ -43,9 +43,9 @@ The infrastructure support cost for deploying a web application on {{ baremetal-
 * Fee for using the VM [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for leasing the {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
-* Fee for using an L7 load balancer’s computing resources (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using the L7 load balancer’s computing resources (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for requests processed by security profile rules (see [{{ sws-full-name }} pricing](../../smartwebsecurity/pricing.md)).
-* If using a [log group](../../logging/concepts/log-group.md) for load balancer logging, the fee for writing and storing data (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
+* If using a [log group](../../logging/concepts/log-group.md) for load balancer logging, fee for data logging and storage (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
 {% include [bms-vpc-private-over-cic-free-traffic](../../_includes/baremetal/bms-vpc-private-over-cic-free-traffic.md) %}
 
@@ -214,21 +214,26 @@ Create a {{ interconnect-name }} [private connection](../../baremetal/concepts/n
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, click the `{{ ui-key.yacloud.baremetal.servers.Filters.poolFilter_tVgg5 }}` filter and select the `{{ region-id }}-m4` server pool.
-  1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
-  1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Debian 11` image.
-  1. In the **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** field, select your lease period: `1 day`.
-  
-      When this period expires, server lease will automatically be renewed for the same period. You cannot terminate the lease during the specified lease period, but you can [refuse](../../baremetal/operations/servers/server-lease-cancel.md) to extend the server lease further.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m4` subnet you created earlier.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
-  1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.ready-configs_ibA3Y }}` and a suitable {{ baremetal-name }} server [configuration](../../baremetal/concepts/server-configurations.md) in the `{{ region-id }}-m4` server pool.
 
-      {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
+      Do it by selecting the `{{ region-id }}-m4` server pool in the filter on the right side of the window, under **{{ ui-key.yacloud.baremetal.servers.Filters.poolFilter_tVgg5 }}**.
 
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `alb-back-0`.
-  1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
+      To select the suitable server configuration, click the section with its name in the central part of the screen.
+  1. In the server configuration window that opens:
+
+      1. In the **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** field, select your lease period: `1 day`.
+
+          {% include [server-lease-step6-period](../../_includes/baremetal/instruction-steps/server-lease-step6-period.md) %}
+
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Debian 11` image.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m4` subnet you created earlier.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
+      1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+
+          {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
+
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `alb-back-0`.
+      1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
   1. Similarly, lease one more server, `alb-back-1`, in the `{{ region-id }}-m4` server pool.
 
 {% endlist %}
@@ -535,7 +540,7 @@ After you create the {{ vpc-name }} and {{ baremetal-name }} infrastructure comp
   1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` and then the `alb-sg` security group from the list that opens.
   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, leave only the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones with the `vpc-subnet-a` and `vpc-subnet-b` subnets, respectively.
   1. If you do not want load balancer logs saved to a [log group](../../logging/concepts/log-group.md), disable **{{ ui-key.yacloud.alb.label_log-requests }}**.
-  1. In the **{{ ui-key.yacloud.alb.label_listeners }}** section, click **{{ ui-key.yacloud.alb.button_add-listener }}** and in the form that opens:
+  1. In the **{{ ui-key.yacloud.alb.label_listeners }}** section, click **{{ ui-key.yacloud.alb.button_add-listener }}** and do the following in the form that opens:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener): `alb-bms-listener`.
       1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select the `http-80` HTTP router you created earlier.

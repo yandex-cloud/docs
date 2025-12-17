@@ -25,7 +25,7 @@ After you create a network load balancer, you can:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
     1. Enter a new name and description for the load balancer.
     1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -62,11 +62,11 @@ After you create a network load balancer, you can:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [{#T}](load-balancer-create.md).
+        Learn how to create this file in [{#T}](load-balancer-create.md).
 
-        For a complete list of editable network load balancer configuration fields, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+        For a complete list of updatable network load balancer configuration fields, see [this provider article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
     1. In the network load balancer description, change the `name` and `description` values:
 
@@ -92,7 +92,7 @@ After you create a network load balancer, you can:
     * Load balancer ID in the `networkLoadBalancerId` parameter. To find out the ID, [get a list of network load balancers in the folder](load-balancer-list.md#list).
     * New name in the `name` parameter.
     * New description in the `description` parameter.
-    * List of editable cluster configuration fields in the `updateMask` parameter (in this case, `name` and `description`).
+    * List of cluster configuration fields to update, in the `updateMask` parameter (in this case, `name` and `description`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -104,7 +104,7 @@ After you create a network load balancer, you can:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
     1. Change the load balancer labels.
     1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -140,11 +140,11 @@ After you create a network load balancer, you can:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [{#T}](load-balancer-create.md).
+        Learn how to create this file in [{#T}](load-balancer-create.md).
 
-        For a complete list of editable network load balancer configuration fields, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+        For a complete list of updatable network load balancer configuration fields, see [this provider article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
     1. In the network load balancer description, change the `name` and `description` values:
 
@@ -173,7 +173,7 @@ After you create a network load balancer, you can:
 
     * Load balancer ID in the `networkLoadBalancerId` parameter. To find out the ID, [get a list of network load balancers in the folder](load-balancer-list.md#list).
     * New label values in the `labels` parameter.
-    * List of editable cluster configuration fields in the `updateMask` parameter (in this case, `labels`).
+    * List of cluster configuration fields to update, in the `updateMask` parameter (in this case, `labels`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -185,7 +185,7 @@ After you create a network load balancer, you can:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
     1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, select a different target group from the drop-down list or [create a new one](target-group-create.md).
     1. To change target group health check settings:
@@ -231,11 +231,11 @@ After you create a network load balancer, you can:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [{#T}](load-balancer-create.md).
+        Learn how to create this file in [{#T}](load-balancer-create.md).
 
-        For a complete list of editable network load balancer configuration fields, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+        For a complete list of updatable network load balancer configuration fields, see [this provider article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
     1. In the network load balancer description, change the target group ID and its health check settings under `attached_target_group`:
 
@@ -284,7 +284,7 @@ After you create a network load balancer, you can:
 
       {% include [get-target-group-id](../../_includes/network-load-balancer/get-target-group-id.md) %}
 
-    * List of editable cluster configuration fields in the `updateMask` parameter (in this case, `attachedTargetGroups`).
+    * List of cluster configuration fields to update, in the `updateMask` parameter (in this case, `attachedTargetGroups`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

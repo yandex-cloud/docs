@@ -48,6 +48,6 @@ Calculation examples:
 | ~10 TB                             | 1                 | 0.125           | 86,400 * 0.125 = 10,800 GB |
 | ~100 TB                            | 10                | 1.25            | 86,400 * 1.25 = 108,000 GB |
 
-## Can I get logs of my operations in {{ yandex-cloud }}? {#logs}
+## How do I get the logs of my activity in the services? {#logs}
 
 Yes, you can request information about operations with your resources from {{ yandex-cloud }} logs. For more information, see [Data requests](../../support/request.md).

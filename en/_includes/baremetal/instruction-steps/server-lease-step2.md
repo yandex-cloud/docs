@@ -1,1 +1,1 @@
-[Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** and click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+[Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.

@@ -51,7 +51,7 @@ Create a non-sharded {{ VLK }} cluster [without public access](./concepts/networ
 To create a cluster:
 
 1. In the management console, select the folder where you want to create a {{ VLK }} cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify the following cluster parameters:
 

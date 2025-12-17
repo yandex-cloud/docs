@@ -111,6 +111,8 @@ items:
             href: tutorials/single-sign-on/saml-zabbix.md
           - name: Настройка единого входа в {{ mos-name }} по стандарту SAML
             href: tutorials/single-sign-on/saml-opensearch.md
+          - name: Настройка единого входа в {{ OS }} по стандарту SAML
+            href: tutorials/single-sign-on/saml-opensearch-self-managed.md
           - name: Настройка единого входа в SonarQube по стандарту SAML
             href: tutorials/single-sign-on/saml-sonarqube.md
           - name: Настройка единого входа в {{ yandex-360 }} по стандарту SAML

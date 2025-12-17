@@ -22,7 +22,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 * The available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
-* The number of hosts you can create in a {{ CH }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create together with a {{ CH }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 
 * When using [{{ CK }}](../concepts/replication.md#ck), a cluster must consist of three or more hosts. You do not need separate hosts to run {{ CK }}. You can only create this kind of cluster using the [{{ yandex-cloud }} CLI](../../cli) or API.
 
@@ -49,9 +49,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   To create a {{ mch-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. Specify the cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
+  1. Specify the cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your applications.
       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
@@ -75,11 +75,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * Select the size of your data and backup disk. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
-      * Optionally, configure the [automatic storage expansion](../concepts/storage.md#autoscaling) for a {{ CH }} subcluster:
+      * Optionally, set the [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ CH }} subcluster:
 
         {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
 
-        The automatic storage expansion settings for a {{ CH }} subcluster apply to all existing shards within the subcluster. If you add a new shard, it will use the settings of the oldest shard.
+        The automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. If you add a new shard, it will use the settings of the oldest shard.
 
       
       * Optionally, select **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
@@ -94,7 +94,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**:
   
-      * Optionally, configure the [automatic storage expansion](../concepts/storage.md#autoscaling) for a {{ ZK }} subcluster:
+      * Optionally, set the [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ ZK }} subcluster:
 
         {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
   
@@ -125,7 +125,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         To view the password after creating a cluster, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-      * Specify a DB name. The database name may contain Latin letters, numbers, and underscores. It may be up to 63 characters long. You cannot create a database named `default`.
+      * Specify a DB name. The database name may contain Latin letters, numbers, and underscores. The name may be up to 63 characters long. You cannot create a database named `default`.
 
       * Select the database engine: 
       
@@ -195,7 +195,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       {{ yc-mdb-ch }} cluster create --help
       ```
 
-  1. In this command, specify the cluster properties (our example does not use all available parameters):
+  1. Specify the cluster properties in this command (the example does not show all that are available):
 
       
       ```bash
@@ -300,7 +300,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-      1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information about setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
+      1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` argument. For details on setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
 
       1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
@@ -351,7 +351,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                                   `clickhouse-emergency-usage-threshold=<threshold_for_immediate_increase_in_percent>,`
                                   `zookeeper-disk-size-limit=<maximum_storage_size_in_GB>,`
                                   `zookeeper-planned-usage-threshold=<threshold_for_scheduled_increase_in_percent>,`
-                                  `zookeeper-emergency-usage-threshold=<threshold_for_immediate_increase_in_percent>
+                                  `zookeeper-emergency-usage-threshold=<threshold_for_immediate_expansion_in_percent>
            ...
          ```
 
@@ -573,7 +573,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -735,7 +735,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                       
                       {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
 
-                * `access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+                * `access`: Settings enabling access to the cluster from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
 
                     {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
 
@@ -809,7 +809,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -974,7 +974,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                       
                         {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 
-                * `access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+                * `access`: Settings enabling access to the cluster from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
 
                     {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
 
@@ -1048,21 +1048,21 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               < body.json
             ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a cluster, you may need to additionally [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ CH }} cluster with the settings of another one created earlier. To do this, import the {{ CH }} source cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when a {{ CH }} source cluster has a lot of settings and you need to create a similar one.
+You can create a {{ CH }} cluster with the settings of another one created earlier. To do this, import the original {{ CH }} cluster configuration to {{ TF }}. Then you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is useful when you want to replicate a {{ CH }} cluster with multiple settings.
 
 To create a {{ CH }} cluster copy:
 
@@ -1081,15 +1081,15 @@ To create a {{ CH }} cluster copy:
         resource "yandex_mdb_clickhouse_cluster" "old" { }
         ```
 
-    1. Save the ID of the {{ CH }} source cluster to an environment variable:
+    1. Save the original {{ CH }} cluster ID to an environment variable:
 
         ```bash
         export CLICKHOUSE_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-    1. Import the {{ CH }} source cluster settings to the {{ TF }} configuration:
+    1. Import the original {{ CH }} cluster settings to the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_clickhouse_cluster.old ${CLICKHOUSE_CLUSTER_ID}
@@ -1105,7 +1105,7 @@ To create a {{ CH }} cluster copy:
     1. Place the file in the new `imported-cluster` directory.
     1. Edit the copied configuration so that you can create a new cluster from it:
 
-        * Specify the new cluster name in the `resource` string and the `name` parameter.
+        * Specify the new cluster name in the `resource` name and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
         * In the `host` sections, delete `fqdn`.
         * Under `clickhouse.config.merge_tree`, if the `max_bytes_to_merge_at_max_space_in_pool`, `max_parts_in_total`, and `number_of_free_entries_in_pool_to_execute_mutation` parameters are set to `0`, delete them.

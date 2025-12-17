@@ -8,12 +8,12 @@ Type of limit | Quantity
 --- | ---
 MAC addresses per port | 5
 
-The limit on the number of MAC addresses is set separately for each server’s network interface. If you need more MAC addresses, create a request to [support]({{ link-console-support }}) specifying the servers for which you need to increase the limit.
+The limit on the number of MAC addresses is set separately for network interface of each server. If you need a larger number of MAC addresses, create a request to [support]({{ link-console-support }}), specifying the servers for which you need to increase the limit.
 
 {% cut "Request template" %}
 
 ```text
-Subject: [BareMetal]: Changing limits on the number of MAC addresses
+Subject: [BareMetal] Changing limits on the number of MAC addresses
 
 Request text:
 Please change the limits on the number of MAC addresses for the following servers.
@@ -51,13 +51,7 @@ MSS in private network | 8870
 
 {% include [public-net-bandwidth-restrictions](../../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
 
-{% note info %}
-
-To request a bandwidth package of 100 TB, contact [support]({{ link-console-support }}).
-
-{% endnote %}
-
-To increase this amount, you can use a package with daily billing:
+To increase bandwidth, [update](../operations/servers/server-update.md) the server configuration by activating a bandwidth package with daily billing:
 
 Data amount, TB per day | Connection capacity, Gbps | Note
 --- | --- | ---

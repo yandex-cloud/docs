@@ -340,11 +340,25 @@ description: В данном разделе приведены описания 
 
 ## {{ sd-full-name }} {#security-deck}
 
+Имя сервиса — `securitydeck`.
+
 ### Модуль Контроль {{ k8s }}® (KSPM) {#sd-kspm}
 
-Имя сервиса — `kspm`.
+Имя модуля — `securitydeck.kspm`.
 
 {% include [sd-kspm-events](../../_includes/audit-trails/events/sd-kspm-events.md) %}
+
+### Модуль Контроль конфигурации (CSPM) {#sd-cspm}
+
+Имя модуля — `securitydeck.cspm`.
+
+{% include [sd-cspm-events](../../_includes/audit-trails/events/sd-cspm-events.md) %}
+
+### Окружения {{ sd-name }} {#sd-orchestrator}
+
+Имя модуля — `securitydeck.orchestrator`.
+
+{% include [sd-orchestrator-events](../../_includes/audit-trails/events/sd-orchestrator-events.md) %}
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 

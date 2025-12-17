@@ -54,7 +54,8 @@ To connect {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using 
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your bucket. If you have no bucket, [create](../../storage/operations/buckets/create.md) one and [upload](../../storage/operations/objects/upload.md) the data you need to it.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 
   1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md) or [object ACL](../../storage/operations/objects/edit-acl.md):
 
@@ -71,7 +72,7 @@ To connect {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using 
       {% endnote %}
 
   
-  1. If [encryption](../../storage/concepts/encryption.md) is enabled for the bucket, [assign](../../kms/operations/key-access.md#add-access-binding) to the service account the [kms.keys.encrypterDecrypter](../../iam/roles-reference.md#kms-keys-encrypterDecrypter) role for the encryption key linked to the bucket.
+  1. If [encryption](../../storage/concepts/encryption.md) is enabled for the bucket, [assign](../../kms/operations/key-access.md#add-access-binding) the service account the [kms.keys.encrypterDecrypter](../../iam/roles-reference.md#kms-keys-encrypterDecrypter) role for the encryption key linked to the bucket.
 
 
 {% endlist %}

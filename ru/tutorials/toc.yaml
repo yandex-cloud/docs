@@ -238,12 +238,16 @@ items:
                 href: security/single-sign-on/grafana/saml-grafana.md
               - name: OpenID Connect
                 href: security/single-sign-on/grafana/oidc-grafana.md
+          - name: Grafana OSS
+            href: security/single-sign-on/oidc-grafana-oss.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'
             href: security/single-sign-on/saml-yandex-360.md
           - name: '{{ mos-name }}'
             href: security/single-sign-on/saml-opensearch.md
+          - name: '{{ OS }}'
+            href: security/single-sign-on/saml-opensearch-self-managed.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
           - name: SonarQube

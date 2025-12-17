@@ -283,6 +283,10 @@ description: В статье приведен полный справочник 
 
 {% include [backup.viewer](../_roles/backup/viewer.md) %}
 
+#### backup.user {#backup-user}
+
+{% include [backup.user](../_roles/backup/user.md) %}
+
 #### backup.editor {#backup-editor}
 
 {% include [backup.editor](../_roles/backup/editor.md) %}

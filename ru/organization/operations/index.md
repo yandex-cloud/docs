@@ -57,6 +57,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./user-pools/edit-userpool.md)
 * [{#T}](./user-pools/manage-domain.md)
 * [{#T}](./user-pools/set-access-bindings-userpool.md)
+* [{#T}](./user-pools/set-password-policy.md)
 * [{#T}](./user-pools/get-list-userpools.md)
 * [{#T}](./user-pools/get-userpool.md)
 * [{#T}](./user-pools/delete-userpool.md)

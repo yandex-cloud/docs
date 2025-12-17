@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mmy-full-name }}
-description: Access management in {{ MY }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ MY }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mmy-name }}
@@ -24,17 +24,13 @@ To assign a role for a resource, a user should have the `mdb.admin` role, `manag
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
-## Roles existing in this service {#roles-list}
+## Roles this service has {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all the `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
 
-![image](../../_assets/mdb/roles-managed-mysql.svg)
+{% include [roles-managed-mysql](../../_mermaid/roles/managed-mysql.md) %}
 
 ### Service roles {#service-roles}
-
-#### managed-mysql.clusters.connector {#managed-mysql-clusters-connector}
-
-{% include [managed-mysql.clusters.connector](../../_roles/managed-mysql/clusters/connector.md) %}
 
 #### managed-mysql.auditor {#managed-mysql-auditor}
 
@@ -83,9 +79,9 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles are required {#required-roles}
+## Required roles {#required-roles}
 
-To use {{ maf-name }}, you need the [{{ roles.mmy.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder to house the new cluster. The `{{ roles.mmy.viewer }}` role only allows you to view the list of clusters.
+To use {{ maf-name }}, you need the [{{ roles.mmy.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mmy.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mmy.editor }}` role or higher.
 

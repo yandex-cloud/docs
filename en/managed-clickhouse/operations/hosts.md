@@ -35,7 +35,8 @@ You can create several hosts in a cluster in one go.
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-clickhouse-hosts }}**.
 
@@ -125,7 +126,7 @@ You can create several hosts in a cluster in one go.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
   1. Add one or multiple `host` sections to the {{ mch-name }} cluster description, one for each new host.
 
      A single `host` section is as follows:
@@ -158,11 +159,11 @@ You can create several hosts in a cluster in one go.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -205,7 +206,7 @@ You can create several hosts in a cluster in one go.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -280,7 +281,8 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 - Management console {#console}
 
   To change the cluster host settings:
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the window that opens, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
@@ -308,7 +310,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
   1. Add or edit the `assign_public_ip` parameter in the relevant `host` section.
 
@@ -337,7 +339,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -365,7 +367,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
         Where `updateHostSpecs[]` is the list of hosts and their parameters to update. Below is the structure of an individual element:
 
         * `hostName`: Host name which you can get with the [list of hosts in the cluster](#list-hosts).
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             Here, we only specified a single setting, `assignPublicIp`.
 
@@ -377,7 +379,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -414,7 +416,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
         Where `update_host_specs[]` is the list of hosts and their parameters to update. Below is the structure of an individual element:
 
         * `host_name`: Host name which you can get with the [list of hosts in the cluster](#list-hosts).
-        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `assign_public_ip`.
 
@@ -457,14 +459,16 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
 
   To delete a single host:
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
     1. In the window that opens, enable **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
   To delete multiple hosts in one go:
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Select the hosts you want to delete and click **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** at the bottom of the screen.
     1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.hosts.action_delete-host }}**.
@@ -490,7 +494,7 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mch-name }} cluster description, delete one or multiple `CLICKHOUSE` `host` sections.
   1. Make sure the settings are correct.
 

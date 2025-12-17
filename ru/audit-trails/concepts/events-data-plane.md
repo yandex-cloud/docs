@@ -101,6 +101,12 @@ description: В данном разделе приведены описания 
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
 
+## {{ mgp-full-name }} {#mgp}
+
+Имя сервиса — `mdb.greenplum`.
+
+{% include [mgp-events-dp](../../_includes/audit-trails/events/mgp-events-dp.md) %}
+
 ## {{ mpg-full-name }} {#mpg}
 
 Имя сервиса — `mdb.postgresql`.
@@ -121,15 +127,23 @@ description: В данном разделе приведены описания 
 
 ## {{ sd-full-name }} {#security-deck}
 
+Имя сервиса — `securitydeck`.
+
 ### Модуль {{ atr-name }} {#sd-access-transparency}
 
-Имя сервиса — `accesstransparency`.
+Имя модуля — `securitydeck.accesstransparency`.
 
 {% include [sd-at-events-dp](../../_includes/audit-trails/events/sd-at-events-dp.md) %}
 
+### Модуль {{ alerts-name }} {#sd-alerts}
+
+Имя модуля — `securitydeck.alerts`.
+
+{% include [sd-alerts-events-dp](../../_includes/audit-trails/events/sd-alerts-events-dp.md) %}
+
 ### Модуль Контроль {{ k8s }}® (KSPM) {#sd-kspm}
 
-Имя сервиса — `kspm`.
+Имя модуля — `securitydeck.kspm`.
 
 {% include [sd-kspm-events-dp](../../_includes/audit-trails/events/sd-kspm-events-dp.md) %}
 
