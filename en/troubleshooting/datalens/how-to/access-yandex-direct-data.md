@@ -1,10 +1,12 @@
-# Connecting to Yandex Direct from DataLens
+# How to access {{ yandex-direct }} from {{ datalens-name }}
 
-## Issue description {#case-description}
 
-You need to set up a connection to Yandex Direct data from DataLens.
+## Case description {#case-description}
+
+You need to set up access to {{ yandex-direct }} data in {{ datalens-name }}.
 
 ## Solution {#case-resolution}
 
-You can use [Cloud Functions](../../../functions/quickstart/index.md) to request data from the [Yandex Direct API](https://yandex.ru/dev/direct/#start).
-For this, create a function that will save Yandex Direct data to an intermediate database, for example, to a [Managed Service for ClickHouse](../../../managed-clickhouse/quickstart.md) cluster. After that, [set up a connection](../../../datalens/operations/connection/create-clickhouse.md) to this database from DataLens.
+You can use [{{ sf-name }}](../../../functions/quickstart/index.md) to request data from the [{{ yandex-direct }} API](https://yandex.com/dev/direct/#start).
+
+To do this, create a function that saves {{ yandex-direct }} data to an intermediate database, such as a [{{ mch-full-name }}](../../../managed-clickhouse/quickstart.md) cluster. After that, [set up a connection](../../../datalens/operations/connection/create-clickhouse.md) to this database from {{ datalens-name }}.

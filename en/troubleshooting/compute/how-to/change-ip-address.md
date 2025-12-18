@@ -2,41 +2,44 @@
 
 
 
-## Scenario description {#case-description}
+## Case description {#case-description}
 
 You need to change the internal IP address of the VM instance.
 
 ## Solution {#case-resolution}
 
-The internal address of the VM instance can be changed using CLI, Terraform, and API.
+You can change the internal IP address of a VM using the CLI, {{ TF }}, and API. 
 
 {% list tabs %}
 
 - CLI
 
-   - [Installing and setting up the CLI](https://cloud.yandex.ru/docs/cli/quickstart)
-   - The `yc compute instance update-network-interface` [command](https://cloud.yandex.ru/docs/cli/cli-ref/compute/cli-ref/instance/update-network-interface).
-      Command example:
-   ```
-   yc compute instance update-network-interface <VM ID> --network-interface-index=0 --ipv4-address=<new IP from subnet range>
-   ```
-   The `--network-interface-index` flag sets the index of the network interface being updated, with numbering starting from zero.
+    * [Installing and setting up the CLI](../../../cli/quickstart.md)
+    * `yc compute instance update-network-interface` [command](../../../cli/cli-ref/compute/cli-ref/instance/update-network-interface)
 
-- Terraform
+    Command example:
 
-   - [The `ip_address` parameter in the `network_interface` section, `yandex_compute_instance` resource](https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/compute_instance#ip_address)
+    ```
+    yc compute instance update-network-interface <VM ID> --network-interface-index=0 --ipv4-address=<new IP address from subnet range>
+    ```
+
+    The `--network-interface-index` flag sets the index of the network interface to update, with numbering starting from zero.
+
+- {{ TF }}
+
+   * [`ip_address` property, `network_interface` section, `yandex_compute_instance` resource](https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/compute_instance#ip_address)
 
 
 - API
 
-   - [REST](https://cloud.yandex.ru/docs/compute/api-ref/Instance/updateNetworkInterface);
-   - [gRPC](https://cloud.yandex.ru/docs/compute/api-ref/grpc/Instance/updateNetworkInterface.md).
+    * [REST](../../../compute/api-ref/Instance/updateNetworkInterface)
+    * [gRPC](../../../compute/api-ref/grpc/Instance/updateNetworkInterface)
 
-   Execute the ```yc compute instance update-network-interface <VM_ID> --network-interface-index=0 --ipv4-address=<new_IP_address>``` command
+    Run this command: ```yc compute instance update-network-interface <VM_ID> --network-interface-index=0 --ipv4-address=<new_IP_address>```.
 
 {% endlist %}
 
-{% note info %}
+{% note alert %}
 
 You can only change the IP address on a stopped machine.
 

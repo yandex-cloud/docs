@@ -1,3 +1,3 @@
-# Solutions for known {{ certificate-manager-name }} issues
+## Solutions for known {{ certificate-manager-name }} issues {#known-issues-resolving}
 
-* [Resolving issues with obtaining and renewing certificates from Let's Encrypt](certificate-issue-or-renewal-failed.md)
+* [Fixing issues with obtaining and renewing Let's Encrypt certificates](certificate-issue-or-renewal-failed.md)

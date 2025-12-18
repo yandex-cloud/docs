@@ -1,4 +1,4 @@
-# All solutions for {{ dataproc-name }}
+# Solutions for {{ dataproc-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

@@ -1,18 +1,18 @@
-# Fixing the "CNAME already exists" error
+# Fixing the `CNAME already exists` error
 
 
 
 ## Issue description {#issue-description}
 
-When creating a resource, you see this error:
+When creating a resource, you get this error:
 ```
 cname:["CNAME cdn.<domain> already exists. Try another CNAME or contact support."]
 ```
 
 ## Solution {#issue-resolution}
 
-The problem is that the CDN provider already has a resource with the same host name. Once it is removed, you can create a resource with that name in Yandex Cloud.
+The issue occurs because the CDN provider already has a resource with the same host name. Once it is deleted, you can create a resource with that name in {{ yandex-cloud }}.
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions did not help, the problem might be that some unused resources, even inactive ones, still exist. We recommend contacting [EdgeCDN support](https://edgecenter.ru) to delete unused resources.
+If the above actions did not help, it may mean that some resources still remain, even if they are inactive. We recommend contacting [EdgeCDN support](https://edgecenter.ru) to delete unused resources.

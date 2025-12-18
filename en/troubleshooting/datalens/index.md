@@ -1,4 +1,4 @@
-# All solutions for {{ datalens-name }}
+# Solutions for {{ datalens-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

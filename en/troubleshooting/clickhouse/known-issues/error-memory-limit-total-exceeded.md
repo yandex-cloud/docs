@@ -1,31 +1,34 @@
-# Fixing the request execution error: Exception Memory limit (total) exceeded
+# Fixing the `Exception Memory limit (total) exceeded` error when running a query
 
 
 
 ## Issue description {#issue-description}
 
-When executing a query in ClickHouse, you get this error:
+When running a {{ CH }} query, you get this error:
 
 ```
-DB::Exception: Memory limit (total) exceeded: would use XX.XX GiB (attempt to allocate chunk of XXXXXXXX bytes), maximum: XX.X GiB. (MEMORY_LIMIT_EXCEEDED), Stack trace (when copying this message, always include the lines below)
+DB::Exception: Memory limit (total) exceeded: would use XX.XX GiB (attempt to allocate chunk of ******** bytes), maximum: **.* GiB. (MEMORY_LIMIT_EXCEEDED), Stack trace (when copying this message, always include the lines below)
 ```
 
 ## Solution {#issue-resolution}
 
-This error indicates that the database query size exceeds the user's RAM limit. You can increase it via the UI, on the **Users** tab. You need to change the `max_memory_usage` parameter.
+This error indicates that the database query size exceeds the user RAM limit. You can increase this limit on the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab in your [management console]({{ link-console-main }}) by editing the `max_memory_usage` parameter. 
 
-Note that this limit should not exceed the `max_server_memory_usage` parameter.
+{% note warning %}
+
+The `max_memory_usage` limit value must not exceed that of `max_server_memory_usage`.
+
+{% endnote %}
 
 If user management via SQL is enabled in the cluster, you can set this parameter:
 
-* At the session level, via `set max_memory_usage`
+* At the session level, via `set max_memory_usage`.
 * For all users by default, by [creating one settings profile](https://clickhouse.tech/docs/ru/operations/access-rights/#settings-profiles-management).
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).
-When creating the request, provide the following information:
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. ID of a Managed Service for Clickhouse cluster
-2. Database query code
-3. Full text of the error message.
+1. {{ mch-full-name }} cluster ID.
+1. Database query code.
+1. Full text of the error message.

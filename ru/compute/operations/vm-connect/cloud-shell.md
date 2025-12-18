@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Подключиться к виртуальной машине Linux по SSH с помощью {{ cloud-shell-full-name }}
 
 
-Вы можете подключиться к ВМ по SSH с помощью {{ cloud-shell-name }} в консоли управления.
+Вы можете подключиться к ВМ в статусе `Running` по SSH с помощью {{ cloud-shell-name }} в консоли управления.
 
 {% list tabs group=operating_system %}
 

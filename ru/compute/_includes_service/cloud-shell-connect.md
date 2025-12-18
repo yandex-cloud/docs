@@ -1,5 +1,6 @@
 1. В [консоли управления]({{ link-console-main }}) на панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** или найдите его с помощью строки поиска на дашборде.
 1. Перейдите в ВМ, к которой хотите подключиться.
+1. Убедитесь, что ВМ находится в статусе `Running`. Если ВМ не запущена, в правом верхнем углу нажмите ![image](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.compute.instances.button_gr-action-start }}** и дождитесь перехода ВМ в статус `Running`.
 1. Справа вверху нажмите ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-ssh }}**.
 1. Введите логин пользователя. По умолчанию введен логин, указанный при создании ВМ.
 1. Вставьте содержимое или загрузите файл закрытого SSH-ключа.

@@ -192,6 +192,8 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Высокая доступность кластера
+        href: concepts/high-availability.md
       - name: Классы хостов
         items:
           - name: Действующие классы хостов

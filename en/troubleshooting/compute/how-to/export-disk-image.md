@@ -1,53 +1,51 @@
-# How to export disk images of virtual machines {{ compute-name }}
+# How to export {{ compute-name }} VM images
 
 
 
-## Task description {#case-description}
+## Issue description {#case-description}
 
-You need to upload an image of one or more VM disks to the local storage.
+You need to download an image of one or multiple VM disks to your local storage.
 
 ## Solution {#case-resolution}
 
-Disk images or snapshots of Compute Cloud instances can only be used within {{ yandex-cloud }}.
-It is impossible to download it to your computer directly from the [Management Console]({{ link-console-main }}) interface or using the YC CLI tools.
+You can only use an image or snapshot of a VM disk within {{ yandex-cloud }}.
+You cannot directly download it to your computer via the [management console]({{ link-console-main }}) or the YC CLI.
 
-You can use third-party software or standard OS tools to create an image or backup copy of your disk.
-For example, run the `dd` utility on the temporary Linux instance with an attached copy of the target disk, and then download resulting image to your local computer.
+To resolve this issue, you can use third-party software or native OS tools to create an image or backup of your disk, e.g., `dd` on Linux machines, and then download the image to your local storage.
 To do this, follow these steps:
 
- {% note warning "**Note**" %}
+ {% note warning "**Please note**" %}
   
-  `dd` utility treats disks as block devices, not as file systems.
+  The `dd` utility treats disk images as block devices rather than file systems.
 
-  If you run a disk copy operation on a virtual machine that is currently booted directly from this disk, there may be data inconsistency in its image file.
-  To avoid this, we strongly recommend stopping the VM and creating a new image from its system disk.
+  If you run a disk copy operation on a VM that is running on that particular disk, you may encounter data inconsistency in the image file you get. To avoid it, we highly recommend that you stop the VM and create a new image from its system disk instead of running a disk copy operation on a running system.
 
  {% endnote %}
 
-1. Stop the VM with the disk you want to copy. You can do this in the management console or by the command in the YC CLI:
+1. Stop the VM whose disk image you need to copy. You can do this via the management console or the YC CLI:
 
    ```bash
-   yc compute instance stop <instance_name>
+   yc compute instance stop <VM_name>
    ```
 
-2. Create the VM disk image that you want to copy [following these instructions](../../../compute/operations/image-create/create-from-disk).
+1. Create a VM disk image to copy following [this guide](../../../compute/operations/image-create/create-from-disk).
 
-3. Create a temporary Linux-based VM. You will run a disk image copy operation on it.
+1. Create a temporary Linux VM to run a copy operation.
 
-4. While creating a VM, [connect an additional disk to it](../../../compute/operations/vm-control/vm-attach-disk).\
-Then specify the previously created image as disk contents.
+1. When creating a VM, [attach a secondary disk to it](../../../compute/operations/vm-control/vm-attach-disk).
+   Then, specify the image you created earlier as its contents.
 
-5. [Connect to the created temporary VM via SSH](../../../compute/operations/vm-connect/ssh).
+1. [Connect to the temporary VM over SSH](../../../compute/operations/vm-connect/ssh).
 
-6. Attach an additional disk, which you want to copy, to the temporary instance, [following these instructions](../../../compute/operations/vm-control/vm-attach-disk#mount-disk-and-fix-uuid).
+1. Mount the secondary disk (the one you need to copy) to it following [this guide](../../../compute/operations/vm-control/vm-attach-disk#mount-disk-and-fix-uuid).
 
-7. Create a new SSH session and copy the additional disk to the local machine with the command:
+1. Create a new SSH session and copy the secondary disk to your local machine using this command:
 
    ```bash
-   ssh <username>@<ip_address> "sudo dd if=/dev/sdb status=progress | gzip -c" > sda.img.gz
+   ssh <username>@<VM_IP_address> "sudo dd if=/dev/sdb status=progress | gzip -c" > sda.img.gz
    ```
 
-   In a result, your disk image will be saved to a directory on the local machine from where the SSH session was started.
+   The disk image will be saved to your local directory where the SSH session was established.
 
-If you need to transfer a disk image within {{yandex-cloud }}, you can provide public access to the disk image. 
-To do this, assign the role `{{roles-image-user }}` to the system group `{{subjects-allAuthenticatedUsers }}`. The role `{{roles-image-user }}` does not grant the authority to delete or modify your images.
+If you need to transfer the disk image within {{ yandex-cloud }}, you can provide public access to it. 
+To do this, assign the `{{ roles-image-user }}` role to the `{{ subjects-allAuthenticatedUsers }}` system group. This role does not grant permissions to delete or modify your images.

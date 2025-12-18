@@ -5,9 +5,22 @@ description: Следуя данной инструкции, вы сможете
 
 # Отзыв refresh-токена
 
+{% include [cli-install](../../../_includes/iam/refresh-tokens-add-note.md) %}
+
 Чтобы отозвать [refresh-токен](../../concepts/authorization/refresh-token.md) федеративного пользователя:
 
 {% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![userpool](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+  1. Найдите в списке нужного вам пользователя. При необходимости воспользуйтесь фильтром или поиском в верхней части экрана.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}**.
+  1. Рядом с нужным токеном нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. Чтобы отозвать все токены, нажмите ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.my-account.refresh-tokens.action_remove_all }}**.
+
+  Отозвать свои refresh-токены также можно через портал [Мой аккаунт](../../../organization/concepts/my-account.md).
 
 - CLI {#cli}
 
@@ -69,3 +82,5 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [revoke](../../api-ref/RefreshToken/revoke.md) для ресурса [RefreshToken](../../api-ref/RefreshToken/index.md) или вызовом gRPC API [RefreshTokenService/Revoke](../../api-ref/grpc/RefreshToken/revoke.md).
 
 {% endlist %}
+
+Refresh-токены также автоматически удаляются через семь дней после истечения [срока их действия](../../concepts/authorization/refresh-token.md#lifetime).

@@ -1,4 +1,4 @@
-# All solutions for {{ mmy-name }}
+# Solutions for {{ mmy-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

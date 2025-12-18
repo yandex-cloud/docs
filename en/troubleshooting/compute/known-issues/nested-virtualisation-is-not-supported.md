@@ -1,12 +1,13 @@
-# No nested virtualization support
+# Nested virtualization is not supported
+
 
 ## Issue description {#issue-description}
-You couldn't start an instance from within another instance in Compute Cloud.
+
+You could not start a VM from within another VM in {{ compute-name }}.
 
 ## Solution {#issue-resolution}
-We do not provide nested virtualization at the moment.
-For more information, see the [documentation section](../../../compute/qa/vm.md#nested-virtualization).
 
-You can vote for this feature on the Yandex Cloud [community portal](https://cloud.yandex.ru/features/302).
+We do not provide nested virtualization at the moment; to learn more, see the [relevant section](../../../compute/qa/vm.md#nested-virtualization).
 
-We review all the community suggestions regularly, adding them to our roadmap. As soon as we implement the idea you added or upvoted, we will send you an email.
+If your particular case still requires nested virtualization, you can [create a support ticket]({{ link-console-support }}). 
+When creating the ticket, describe your use case in as much detail as possible.

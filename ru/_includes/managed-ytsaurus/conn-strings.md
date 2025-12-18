@@ -66,7 +66,7 @@
          class_name = "IamTokenAuth";
        };
        proxy = {
-         url = "https://<идентификатор_кластера_{{ ytsaurus-name }}>.proxy.ytsaurus.yandexcloud.net";
+         url = "https://proxy.<идентификатор_кластера_{{ ytsaurus-name }}>.ytsaurus.yandexcloud.net";
          enable_proxy_discovery = %false;
        }
      }
@@ -139,7 +139,7 @@
 
         timeout := 10 * time.Second
         client, err := ythttpsdk.NewClient(&ytsdk.Config{
-            Proxy:                 fmt.Sprintf("https://%s.proxy.ytsaurus.yandexcloud.net", *clusterID),
+            Proxy:                 fmt.Sprintf("https://proxy.%s.ytsaurus.yandexcloud.net", *clusterID),
             LightRequestTimeout:   &timeout,
             DisableProxyDiscovery: true,
             CredentialsProviderFn: iamTokenProvider,
@@ -231,7 +231,7 @@
       from yc_managed_ytsaurus_auth import with_iam_token_auth
 
       client = yt.YtClient(
-          proxy="https://<идентификатор_кластера_{{ ytsaurus-name }}>.proxy.ytsaurus.yandexcloud.net",
+          proxy="https://proxy.<идентификатор_кластера_{{ ytsaurus-name }}>.ytsaurus.yandexcloud.net",
           config=with_iam_token_auth(config={"proxy": {"enable_proxy_discovery": False}}),
       )
 

@@ -1,13 +1,13 @@
-# Checking for restrictions on traffic, connection speed, and bandwidth
+# Checking for traffic, connection speed, and bandwidth limitations
 
 
 
-## Scenario description {#case-description}
+## Case description {#case-description}
 
-You need to find out if the {{ vpc-full-name }} traffic, Internet connection speed, or bandwidth is limited.
+You need to know whether {{ vpc-name }} limits traffic, connection speed, or bandwidth.
 
 ## Solution {#case-resolution}
 
-{{ vpc-full-name }} does not limit the bandwidth, traffic, and connection speed. Users might only encounter limitations on channels outside our scope of responsibility.
+{{ vpc-name }} does not limit the bandwidth, traffic, or connection speed. You can only encounter limitations on channels beyond our scope of responsibility. 
 
-We only charge for outbound traffic exceeding 100 GB/month. You can check the prices [here](../../../vpc/pricing).
+We charge you only for outgoing traffic exceeding 100 GB per month. You can check our prices [here](../../../vpc/pricing.md).

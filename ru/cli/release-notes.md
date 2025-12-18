@@ -7,6 +7,24 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.183.0 (18.12.25) {#version0.183.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.183.0}
+
+##### {{ objstorage-name }} {#objstorage-name-0.183.0}
+
+* В команду `yc storage bucket update` добавлены следующие параметры:
+  * `--disable-statickey-auth=<true_или_false>` — управление возможностью аутентификации в бакете с помощью статических ключей.
+  * `--private-endpoints-force-cloudconsole-access=<true_или_false>` — управление возможностью доступа из консоли управления к бакету, доступ к которому разрешен только из сервисных подключений {{ vpc-short-name }}.
+ 
+##### {{ mtr-name }} {#mtr-name-0.183.0}
+
+* Добавлены команды для создания и обновления каталогов {{ GP }} в {{ mtr-name }}:
+* `yc managed trino catalog create greenplum`;
+* `yc managed trino catalog update greenplum`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.182.0 (15.12.25) {#version0.182.0}
 
 #### Изменения в CLI {#cli-0.182.0}
@@ -30,8 +48,6 @@ description: На странице представлены релизы CLI, а
   * `yc storage bucket create-inventory-configuration`;
   * `yc storage bucket delete-inventory-configuration`;
   * `yc storage bucket list-inventory-configurations`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.181.0 (11.12.25) {#version0.181.0}
 

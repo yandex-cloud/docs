@@ -1,4 +1,4 @@
-# All solutions for {{ billing-name }}
+# Solutions for {{ billing-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

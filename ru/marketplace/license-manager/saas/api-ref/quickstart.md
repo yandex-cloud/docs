@@ -20,7 +20,7 @@ description: Вы научитесь взаимодействовать с API {
 1. Пользователь переходит по ссылке, в результате SaaS-продукту передается JWT-токен.
 1. _Первый вариант аутентификации_: у пользователя уже есть учетная запись в SaaS-продукте. В этом случае он вводит свои учетные данные и входит в систему.
 1. _Второй вариант аутентификации_: у пользователя нет учетной записи в SaaS-продукте. В этом случае он создает новую учетную запись и входит в систему.
-1. SaaS-продукт [отправляет](#lock-subscription) в {{ marketplace-short-name }} запрос `LockService.Ensure`, содержащий полученный от пользователя токен и идентификатор ресурса в SaaS-продукте.
+1. SaaS-продукт отправляет в {{ marketplace-short-name }} запрос `ProductInstanceService.Claim`, содержащий полученный от пользователя токен и идентификатор ресурса в SaaS-продукте.
 1. В результате {{ marketplace-short-name }} привязывает подписку к ресурсу и возвращает SaaS-продукту привязку (объект `Lock`).
 1. SaaS-продукт сохраняет полученную привязку и начинает предоставлять доступ к ресурсу.
 1. SaaS-продукт периодически [запрашивает](#get-lock) привязку в {{ marketplace-short-name }}.
@@ -30,62 +30,59 @@ description: Вы научитесь взаимодействовать с API {
 
 Чтобы начать работать c {{ marketplace-short-name }} {{ license-manager }} SaaS API:
 
-{% include [license-manager-quickstart-before-you-begin](../../../../_includes/marketplace/license-manager-quickstart-before-you-begin.md) %}
+1. [Станьте партнером](../../../quickstart.md#send-application) {{ marketplace-short-name }} и [зарегистрируйте](../../../operations/registration.md) аккаунт юридического лица.
+1. В [кабинете партнера]({{ link-cloud-partners }}) создайте [продукт](../../../operations/create-product.md) и [тариф](../../../operations/create-tariff.md) с типом [Subscription](../../../concepts/subscription.md).
+1. [Создайте](../../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого вы будете аутентифицироваться в API.
+1. [Назначьте](../../../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) сервисному аккаунту роли `license-manager.saasSubscriptionSupervisor` и `marketplace.productInstances.saasSupervisor` на [профиль партнера](../../../concepts/publisher.md) или на отдельный [продукт](../../../concepts/product.md).
+1. [Получите](../../../../iam/concepts/authorization/iam-token) IAM-токен для сервисного аккаунта, от имени которого вы будете аутентифицироваться в License Manager API.
+
+Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se) и [gRPCurl](https://github.com/fullstorydev/grpcurl) (при использовании [gRPC API](../api-ref/grpc/index.md)).
 
 
 ## Настройте интеграцию с API {#integrate}
 
-Чтобы реализовать бизнес-логику продукта, самостоятельно доработайте код вашего приложения, [настроив интеграцию](../../../operations/license-manager-integration.md) с {{ license-manager }} SaaS API для проверки статуса и типа подписок.
+Чтобы реализовать бизнес-логику продукта, самостоятельно доработайте код вашего приложения, [настроив интеграцию](../../../operations/license-manager-integration.md) с {{ license-manager }} SaaS API и Product Instance Manager API для проверки статуса и типа подписок:
 
+1. Аутентифицируйтесь в {{ license-manager }} SaaS API и Product Instance Manager API от имени сервисного аккаунта. Для аутентификации используйте [IAM-токен](../../../../iam/concepts/authorization/iam-token.md).
+1. Создайте страницу, на которую нужно перенаправить пользователя во время привязки купленной им подписки к сервису. На этой странице пользователь должен будет аутентифицироваться.
 
-### Привяжите подписку к ресурсу {#lock-subscription}
+    При перенаправлении пользователя на такую страницу в строке запроса в параметре `token` передается JWT-токен (`token`), сгенерированный {{ yandex-cloud }}. JWT-токен действует 15 минут и содержит:
 
-Чтобы привязать подписку к ресурсу, воспользуйтесь методом REST API [Ensure](../api-ref/Lock/ensure.md) для ресурса [Lock](../api-ref/Lock/index.md) или вызовом gRPC API [LockService/Ensure](../api-ref/grpc/Lock/ensure.md):
+    * идентификатор подписки, которую купил пользователь (`license_instance_id`);
+    * идентификатор шаблона подписки, который вы создали в кабинете партнера (`license_template_id`);
+    * идентификатор запущенного экземпляра продукта пользователя (`product_instance_id`).
 
-{% list tabs group=instructions %}
+1. Пока действует JWT-токен, на созданной странице авторизуйте пользователя и сохраните уникальный идентификатор экземпляра запущенного продукта (`product_instance_id`).
+1. Привяжите уникальный идентификатор экземпляра продукта пользователя (`product_instance_id`) к купленной пользователем подписке (`license_instance_id`).
 
-- REST API {#api}
+    Привязать идентификатор к подписке можно с помощью метода REST API [Claim](../../../pim/saas/api-ref/ProductInstance/claim.md) для ресурса [ProductInstance](../../../pim/saas/api-ref/ProductInstance/index.md) или вызова gRPC API [ProductService/Claim](../../../pim/saas/api-ref/grpc/ProductInstance/claim.md).
 
-  ```bash
-  curl \
-    --request POST \
-    --url 'https://marketplace.{{ api-host }}/marketplace/license-manager/saas/v1/locks/ensure' \
-    --header 'Authorization: Bearer <IAM-токен>' \
-    --header 'Content-Type: application/json' \
-    --data '{
-        "instanceToken": "<JWT-токен>",
-        "resourceId": "<идентификатор_ресурса>"
-    }'
-  ```
+    Передайте в запросе:
 
-  Где:
+    * JWT-токен (`token`);
+    * (опционально) уникальный идентификатор пользователя в вашей системе (`resource_id`);
+    * (опционально) дополнительные метаданные (`resource_info`).
 
-  * `instanceToken` — JWT-токен, полученный от пользователя.
-  * `resourceId` — идентификатор ресурса в SaaS-продукте.
+    В ответе вы получите идентификатор привязки (`lock_id`) — он находится в параметре `metadata`. Если в ответе ошибка, значит, подписка не привязалась к сервису и нужно попросить пользователя заново пройти все шаги.
 
-- gRPC API {#grpc-api}
+1. Организуйте периодическую проверку того, что привязка подписки активна. Используйте для этого идентификатор привязки (`lock_id`), полученный на предыдущем шаге.
 
-  ```bash
-  grpcurl \
-    -rpc-header "Authorization: Bearer <IAM-токен>" \
-    -d '{
-        "instanceToken": "<JWT-токен>",
-        "resourceId": "<идентификатор_ресурса>"
-    }' \
-    marketplace.{{ api-host }}:443 yandex.cloud.marketplace.licensemanager.saas.v1.LockService/Ensure
-  ```
+    Получить актуальную информацию о привязке подписки можно с помощью:
+    * метода REST API [get](../api-ref/Lock/get.md) для ресурса [Lock](../api-ref/Lock/index.md) или вызова gRPC API [LockService/Get](../api-ref/grpc/Lock/get.md).
 
-  Где:
+        В ответе должен возвращаться активный ресурс Lock, для которого `state = LOCKED`, а время окончания действия подписки `end_time` находится в будущем.
 
-  * `instanceToken` — JWT-токен, полученный от пользователя.
-  * `resourceId` — идентификатор ресурса в SaaS-продукте.
+    * метода REST API [getByResourceID](../api-ref/Lock/getByResourceID.md) для ресурса [Lock](../api-ref/Lock/index.md) или вызова gRPC API [LockService/Get](../api-ref/grpc/Lock/getByResourceID.md).
 
-{% endlist %}
+        При успешном ответе должен возвращаться активный ресурс Lock, иначе — ошибка `NOT_FOUND`.
 
-В результате:
+    {% note info %}
 
-* {{ marketplace-short-name }} привяжет подписку к ресурсу и вернет привязку (объект `Lock`).
-* SaaS-продукт сохранит привязку и начнет предоставлять доступ к ресурсу.
+    Учитывайте, что пользователь может отвязать одну подписку от сервиса и привязать к нему другую. Ваш код должен корректно обрабатывать такие случаи.
+
+    {% endnote %}
+
+1. Организуйте бизнес-логику обработки подписок: учет потребления, ограничения по времени, количеству пользователей и т.п.
 
 
 ### Получите информацию о привязке {#get-lock}
@@ -104,7 +101,7 @@ description: Вы научитесь взаимодействовать с API {
     --header 'Content-Type: application/json'
   ```
 
-  Где `<идентификатор_привязки>` — значение поля `lockId`, полученное на предыдущем шаге.
+  Где `<идентификатор_привязки>` — значение поля `lockId`.
 
 - gRPC API {#grpc-api}
 
@@ -121,7 +118,7 @@ description: Вы научитесь взаимодействовать с API {
 
 {% endlist %}
 
-В результате {{ marketplace-short-name }} вернет привязку (объект `Lock`), если подписка активна.
+В результате {{ marketplace-short-name }} вернет привязку (объект `Lock`), если подписка активна и привязана к экземпляру продукта пользователя.
 
 
 ### Отследите продление подписки {#track-subscription-renewal}
@@ -141,7 +138,7 @@ description: Вы научитесь взаимодействовать с API {
     --header 'Authorization: Bearer <IAM-токен>'
   ```
 
-  Где `<идентификатор_инстанса>` — идентификатор экземпляра подписки.
+  Где `<идентификатор_экземпляра>` — идентификатор экземпляра подписки.
 
 - gRPC API {#grpc-api}
 

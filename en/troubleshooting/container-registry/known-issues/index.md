@@ -1,3 +1,3 @@
-# Solutions for known {{ container-registry-name }} issues
+## Solutions for known {{ container-registry-name }} issues {#known-issues-resolving}
 
-* [Exceeded limits on images uploaded from a DockerHub folder](docker-pull-limit-reached-in-dockerhub.md)
+* [Exceeded limits on images uploaded from a Docker Hub folder](docker-pull-limit-reached-in-dockerhub.md)

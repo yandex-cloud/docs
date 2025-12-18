@@ -1,26 +1,23 @@
-# You are unable to delete your Managed Service for PostgreSQL cluster in the Dead status if deletion protection was enabled for it
+# You are unable to delete your {{ mpg-name }} cluster in the `DEAD` status if it has deletion protection enabled
 
-## Issue description {#issue-resolution}
 
-How this issue can manifest:
-* You are unable to delete a cluster in the `Dead` status because it has deletion protection enabled.
-* Managed Service for PostgreSQL cluster switched to the `Unknown` status immediately after creation, and you are unable to delete it from the management console.
+## Issue description {#issue-description} 
+
+* You are unable to delete a cluster in the `DEAD` status because it has deletion protection enabled.
+* {{ mpg-name }} cluster switched to the `UNKNOWN` status right after it was created, and you are unable to delete it from the [management console]({{ link-console-main }}).
 
 ## Solution {#issue-resolution}
 
-If a cluster is in the `DEAD`/`UNKNOWN` status, you can disable deletion protection using the YC CLI:
-
+If your cluster status is `DEAD` or `UNKNOWN`, you can disable its deletion protection by running this YC CLI command:
 ```
-yc managed-postreqsl cluster update --deletion-protection=false <CLUSTER_ID>
+yc managed-postgresql cluster update --deletion-protection=false <CLUSTER_ID>
 ```
 
-Once this operation completes, you can delete this cluster in the YC CLI as well:
-
+Once done, you can delete this cluster as follows:
 ```
-yc managed-postreqsl cluster delete <CLUSTER_ID>
+yc managed-postgresql cluster delete <CLUSTER_ID>
 ```
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).
-In your request, specify the ID of the problem cluster and briefly describe the issue.
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). When creating a ticket, specify your cluster ID and describe the issue in brief.

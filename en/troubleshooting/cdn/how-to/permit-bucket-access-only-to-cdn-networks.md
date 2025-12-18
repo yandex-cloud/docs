@@ -1,645 +1,211 @@
-# Restricting access to an Object Storage bucket using an IP range from Cloud CDN
+# How to restrict {{ objstorage-name }} bucket access to a specific {{ cdn-name }} IP address range
 
-## Issue description {#case-description}
-You need to ensure that your static site content (or single-page application, SPA) hosted in Yandex Object Storage is only available to Yandex Cloud CDN.
 
-## Solution {#case-solution}
-By the logic of static site hosting in Object Storage, bucket contents should be available to all IP addresses and subnets that request content from the site.
-The Yandex Cloud CDN caches the content from site buckets on its servers. However, you cannot use the management console to make your bucket accessible only from Yandex Cloud CDN networks.
 
-To implement this scenario, restrict public access to the bucket from IP addresses. For this, manually allow connections only from Yandex Cloud CDN subnets, prohibiting access to bucket contents from all the other IP addresses.
-In this case, you need to create a [bucket access policy](../../../storage/concepts/policy.md) to specify IP ranges used by Yandex Cloud CDN.
+## Case description {#case-description}
 
-You can get a list of IPs and subnets used by the service at the links:
-- [List of public IP addresses of the Edge Center provider](https://api.edgecenter.ru/cdn/public_ips_list)
-- [List of IP subnets of the Edge Center provider (with CIDRs)](https://api.edgecenter.ru/cdn/public_net_list).
+You need to ensure that only {{ cdn-full-name }} can access the content of your static website or single-page application (SPA) hosted in {{ objstorage-full-name }}.
 
-{% note info %}
+## Solution {#case-resolution}
 
-Keep in mind that this IP list may get updated occasionally, with new IPs/subnets added or unused IPs/subnets removed.
-Make sure to check the subnet list in your Object Storage against the current IP list from time to time.
+Static website hosting in {{ objstorage-name }} implies that bucket contents should be available to all IP addresses and subnets requesting content from the website.
+
+{{ cdn-name }} caches the website bucket contents on its servers. However, the management console does not yet have the option to restrict access to your bucket to CDNs only.
+
+To implement this scenario, restrict public access to the bucket by IP address: manually allow connections only from {{ cdn-full-name }} subnets, prohibiting access to bucket contents from any other IP addresses. To do this, you need to configure a [bucket policy](../../../storage/concepts/policy.md) where you will specify the IP address ranges used by {{ cdn-name }}.
+
+{% list tabs group=instructions %}
+
+- {{ cdn-full-name }}
+
+  You can view the list of the {{ cdn-full-name }} subnets [here](../../../security/ip-list.md#cloud-cdn). 
+  
+
+- EdgeCDN
+
+  To get the list of the relevant IP addresses and subnets, see:
+  
+  * [List of public IP addresses of the EdgeCenter provider](https://api.edgecenter.ru/cdn/public_ips_list)
+  * [List of subnets of the EdgeCenter provider (with CIDRs)](https://api.edgecenter.ru/cdn/public_net_list)
+  
+
+{% endlist %}
+
+{% note info "Note" %}
+
+This IP address list gets changed on a regular basis, with new IP addresses or subnets added or unused ones removed. 
+
+You may want to regularly check the subnet list in your bucket policy against the current IP address list.
 
 {% endnote %}
 
-Our CDN partner, [EDGECenter](https://apidocs.edgecenter.ru/cdn#tag/IP-Addresses-List), provides this IP list to our API.
+Apply the policy from the configuration below by following [this guide](../../../storage/operations/buckets/policy.md#apply-policy).
+Before applying a policy based on this configuration, replace `<bucket_name>` with your bucket name in {{ objstorage-name }}.
 
+{% list tabs group=instructions %}
 
-Apply the policy from the sample configuration below by following [this guide](../../../storage/operations/buckets/policy.md#apply-policy).
-Before applying a policy based on this sample configuration, change `<bucket_name>` to your bucket name in Object Storage.
+- {{ cdn-full-name }}
 
-{% cut "Sample configuration" %}
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "103.242.74.224/29"
+  ```
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<bucket_name>/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:sourceip": "188.72.103.0/24"
+          }
         }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "185.211.231.192/29"
+      },
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<bucket_name>/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:sourceip": "188.72.104.0/24"
+          }
         }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "5.188.132.0/28"
+      },
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<bucket_name>/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:sourceip": "188.72.105.0/24"
+          }
         }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "195.34.58.164/31"
+      },
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<bucket_name>/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:sourceip": "188.72.110.0/24"
+          }
         }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "217.118.183.248/30"
+      },
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<bucket_name>/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:sourceip": "188.72.111.0/24"
+          }
         }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "178.176.145.176/28"
+      },
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<bucket_name>/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:sourceip": "188.72.112.0/24"
+          }
         }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "194.67.48.24/30"
+      },
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<bucket_name>/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:sourceip": "188.72.113.0/24"
+          }
         }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "176.56.179.176/29"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "98.158.98.226/31"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "87.239.191.78/31"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "195.3.244.188/30"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "92.223.123.96/27"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "138.204.14.150/31"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "81.211.44.154/31"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "220.158.132.70/31"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "92.223.108.0/27"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "194.186.66.252/30"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "5.188.121.128/25"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "178.176.153.0/24"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "178.176.145.96/27"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "5.101.68.0/27"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "91.243.83.0/26"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "31.173.147.2/31"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "92.223.122.160/27"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "178.176.131.224/28"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "195.239.135.56/30"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "178.176.145.0/27"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "92.223.110.0/27"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "87.229.240.64/30"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "5.188.7.0/26"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "178.176.131.128/26"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "92.50.131.190/31"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "109.200.129.16/29"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "194.154.79.64/30"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "92.223.123.0/26"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "92.223.64.0/28"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "185.101.137.0/28"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "92.223.114.0/26"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-         "aws:SourceIp": "178.176.145.64/27"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-         "aws:SourceIp": "195.239.185.56/30"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-         "aws:SourceIp": "178.176.145.128/28"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-         "aws:SourceIp": "178.176.145.144/28"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "178.176.145.0/26"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-         "aws:SourceIp": "5.8.43.0/28"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-         "aws:SourceIp": "185.228.134.96/31"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-       "IpAddress": {
-        "aws:SourceIp": "5.188.121.128/26"
+      },
+      {
+        "Effect": "Allow",
+        "Principal": "",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<bucket_name>/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:sourceip": "89.223.9.0/24"
+          }
         }
       }
-    },
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-      "IpAddress": {
-      "aws:SourceIp": "62.141.95.96/30"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-       "IpAddress": {
-        "aws:SourceIp": "92.223.43.0/26"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-       "IpAddress": {
-        "aws:SourceIp": "185.11.76.52/31"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-           "aws:SourceIp": "178.176.131.0/26"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-            "aws:SourceIp": "178.176.145.160/28"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-            "aws:SourceIp": "31.173.147.0/31"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-            "aws:SourceIp": "178.176.131.192/27"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-      "IpAddress": {
-            "aws:SourceIp": "178.176.131.240/28"
-        }
-       }
-     },
-     {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<bucket name>/*",
-      "Condition": {
-        "IpAddress": {
-            "aws:SourceIp": "178.176.131.64/26"
-        }
-      }
-    }
-  ]
-}
+    ]
+  }
+  ```
 
-```
-{% endcut %}
+- EdgeCDN
+
+  You can find the list of IP addresses for the EdgeCenter CDN provider [here](https://api.edgecenter.ru/cdn/public_ips_list). Since this list is very large, you way want to generate an ACL automatically, and then upload it to the bucket configuration.
+  In this article, we provide a Python script as an example. Save this script to `acl_generator.py` and run it through `python3 acl_generator.py https://api.edgecenter.ru/cdn/public_ips_list my-bucket -o policy.json`, where `my-bucket` is the name of your bucket in {{ objstorage-name }}.
+
+  {% cut "Example of Python script" %}
+
+   ```python
+    import json
+    import requests
+    import argparse
+
+    def main():
+      parser = argparse.ArgumentParser(description='Generate S3 Bucket ACL from IP list')
+      parser.add_argument('url', help='URL of JSON file with IP addresses')
+      parser.add_argument('bucket', help='S3 bucket name')
+      parser.add_argument('-o', '--output', default='acl.json', help='Output filename (default: acl.json)')
+      args = parser.parse_args()
+
+      try:
+          response = requests.get(args.url, timeout=10)
+          response.raise_for_status()
+          data = response.json()
+
+          if 'addresses' not in data or not isinstance(data'addresses', list):
+              raise ValueError("Invalid JSON structure: 'addresses' array not found")
+          
+          acl = {
+              "Version": "2012-10-17",
+              "Statement": [
+                  {
+                      "Effect": "Allow",
+                      "Principal": "*",
+                      "Action": "s3:GetObject",
+                      "Resource": f"arn:aws:s3:::{args.bucket}/*",
+                      "Condition": {
+                          "IpAddress": {
+                              "aws:sourceip": address
+                          }
+                      }
+                  }
+                  for address in data'addresses']
+              ]
+          }
+
+          with open(args.output, 'w') as f:
+              json.dump(acl, f, indent=4)
+          
+          print(f"ACL successfully generated for  IPs. Saved to ")
+
+      except requests.exceptions.RequestException as e:
+          print(f"Network error: {e}")
+      except json.JSONDecodeError:
+          print("Error: Invalid JSON format in response")
+      except ValueError as e:
+          print(e)
+
+   if _name_ == "_main_":
+      main()
+  ```
+
+  {% endcut %}
+
+
+{% endlist %}
+
+

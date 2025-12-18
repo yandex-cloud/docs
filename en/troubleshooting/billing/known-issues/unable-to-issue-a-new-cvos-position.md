@@ -1,21 +1,27 @@
-# You are unable to add a Committed Volume of Services (CVoS) for Compute Cloud
+# You are unable to purchase a committed volume of services for {{ compute-short-name }}
+
+
 
 ## Issue description {#case-description}
-When trying to create a [Committed Volume of Services](../../../billing/concepts/cvos.md) (CVoS) for Compute Cloud, you get the error message: `Couldn't purchase commitment. To reserve resources, contact Sales.`
 
-### Diagnostics
-Compute Cloud has a restriction on resource commitments available per purchase.
-
-Per each CVoS purchase in Compute Cloud, you can currently commit to:
-* vCPU: no more than 20 cores
-* RAM: no more than 40 GB
+When trying to purchase a [committed volume of services (CVoS)](../../../billing/concepts/cvos.md) for {{ compute-short-name }}, you get this error message: 
+```
+Could not purchase CVoS. To purchase a CVoS, contact Sales.
+```
 
 ## Solution {#case-resolution}
 
-To bypass this limit, you can split your required Yandex Cloud resources into several purchases.
+{{ compute-short-name }} has a limit on resource commitments available per purchase.
+
+A single {{ compute-short-name }} commitment may include:
+
+* vCPU: Up to 20 cores
+* RAM: Up to 40 GB
+
+To bypass this limit, you can split {{ yandex-cloud }} resources you need into several purchases.
 
 {% note info %}
 
-The number of purchases is unlimited, so you can split a larger commitment into several purchases.
+The number of purchases is unlimited, so you can split a larger commitment into any number of small purchases you are comfortable with.
 
 {% endnote %}

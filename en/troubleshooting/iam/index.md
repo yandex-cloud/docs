@@ -1,4 +1,4 @@
-# All solutions for {{ iam-name }}
+# Solutions for {{ iam-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

@@ -10961,6 +10961,7 @@ default:
           button_action-password-reset: Сбросить пароль
           button_action-restart: Перезапустить
           button_create: Создать виртуальную машину
+          button_gr-action-start: Запустить
           button_gr-action-stop: Остановить
           column_cloud-backup: Cloud Backup
           column_internal-ip: Внутренний IPv4
@@ -12418,6 +12419,7 @@ default:
           label_task-status: Статус
           label_task-status-planned: Запланировано
           title_maintenance: Техническое обслуживание
+          title_task-details: Подробнее о задании
         shard-groups:
           button_add-group: Создать группу шардов
       metadata-hub:

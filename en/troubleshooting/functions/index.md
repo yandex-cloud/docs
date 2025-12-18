@@ -1,4 +1,4 @@
-# All solutions for {{ sf-name }}
+# Solutions for {{ sf-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

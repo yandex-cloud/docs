@@ -1,96 +1,96 @@
-# Transferring VMs between folders or clouds
+# How to move a VM across folders or clouds
 
 
 
-## Issue description {#case-description}
+## Case description {#case-description}
 
-You need to transfer a VM instance from one cloud or folder to another cloud or folder.
+You need to move a VM from one cloud or folder to another.
 
 ## Solution {#case-resolution}
 
 {% list tabs %}
 
-- Transfer between clouds
+- Moving across clouds
 
-   To transfer a VM between clouds, complete the following steps:
+    To move a VM across clouds, complete the following steps:
 
-   1. [Create an image from the disk of the required VM](../../../compute/operations/image-create/create-from-disk.md)
-   2. [Add an IAM user](../../../organization/operations/add-account.md) to the cloud with the image you want to transfer;
-   3. [Assign the IAM user the minimum required roles](../../../iam/operations/roles/grant.md) of `resource-manager.clouds.member` and `compute.images.user`.
-   4. [Set up](../../../cli/quickstart.md) the YC CLI tool for the user in the target cloud.
-   5. Get the ID of your image. For this, in the web interface, find the **ID** field in the **Images** tab, or get the ID using the YC CLI `yc compute image list` command.
-   6. Get the ID of the cloud where the original image is located. For this, in the web interface, find the **ID** field on the cloud's home page, or get the ID using the YC CLI `yc resource-manager cloud list` command.
-   7. Create a new image in the target cloud using the YC CLI tool:
+    1. [Create an image from the disk of the required VM](../../../compute/operations/image-create/create-from-disk.md).
+    1. [Add an {{ iam-short-name }} user](../../../organization/operations/add-account.md) to the cloud with the image you want to transfer.
+    1. [Assign the {{ iam-short-name }} user the minimum required roles](../../../iam/operations/roles/grant.md): `{{ roles-cloud-member }}` and `{{ roles-image-user }}`.
+    1. [Set up](../../../cli/quickstart.md) YC CLI for the user in the target cloud.
+    1. Get the ID of your image. To do this, in the [management console]({{ link-console-main }}), find the **{{ ui-key.yacloud.common.id }}** field on the **{{ ui-key.yacloud.compute.images.label_title }}** tab. Alternatively, you can get the ID by running this YC CLI command: `yc compute image list`.
 
-   ```
-   yc compute image create --name <new_image_name> \
-   --source-image-id <ID_of_original_image> \
-   --cloud-id <ID_of_cloud_where_original_image_is_located>
-   ```
+    1. Get the ID of the cloud where the original image is located. To do this, in the [management console]({{ link-console-main }}), find the **{{ ui-key.yacloud.common.id }}** field. Alternatively, you can get the ID by running this YC CLI command: `yc resource-manager cloud list`.
 
-   After performing these actions, [create a new VM instance](../../../compute/operations/vm-create/create-from-user-image.md#create-vm-from-image) from the resulting image.
+    1. With your YC CLI, create a new image in the target cloud:
 
-- Transfer between folders
+        ```
+        yc compute image create --name <new_image_name> \
+        --source-image-id <original_image_ID> \
+        --cloud-id <original_image_home_cloud_ID>
+        ```
 
-   To change the folder of a VM instance, complete the following steps:
+    After performing these actions, [create a new VM](../../../compute/operations/vm-create/create-from-user-image.md#create-vm-from-image) from the image you got.
 
-   * In the CLI:
+- Moving across folders
 
-      {% include [cli-install](../../../_includes/cli-install.md) %}
+    To change a VM folder, follow these steps in your CLI:
 
-      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-      1. Get a list of all VMs in the default folder:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-         ```bash
-         yc compute instance list
-         ```
+    1. Get a list of all VMs in the default folder:
 
-         Result:
+        ```bash
+        yc compute instance list
+        ```
 
-         ```bash
-         +----------------------+-----------------+---------------+---------+----------------------+
-         |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
-         +----------------------+-----------------+---------------+---------+----------------------+
-         | fhm0b28lgfp4tkoa3jl6 | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-         | fhm9gk85nj7gcoji2f8s | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
-         +----------------------+-----------------+---------------+---------+----------------------+
-         ```
+        Result:
 
-      1. Get a list of all folders in the default cloud:
+        ```bash
+        +----------------------+-----------------+--------------------+---------+----------------------+
+        |          ID          |       NAME      |       ZONE ID      | STATUS  |     DESCRIPTION      |
+        +----------------------+-----------------+--------------------+---------+----------------------+
+        | fhm***************** | first-instance  | {{ region-id }}-a  | RUNNING | my first vm via CLI  |
+        | fhm***************** | second-instance | {{ region-id }}-a  | RUNNING | my second vm via CLI |
+        +----------------------+-----------------+--------------------+---------+----------------------+
+        ```      
 
-         ```bash
-         yc resource-manager folder list
-         ```
+    1. Get a list of all folders in the default cloud:
 
-         Result:
+        ```bash
+        yc resource-manager folder list
+        ```
 
-         ```bash
-         +----------------------+--------------------+------------------+--------+
-         |          ID          |        NAME        |      LABELS      | STATUS |
-         +----------------------+--------------------+------------------+--------+
-         | b1gd129pp9ha0vnvf5g7 | my-folder          |                  | ACTIVE |
-         | b1g66mft1vopnevbn57j | default            |                  | ACTIVE |
-         +----------------------+--------------------+------------------+--------+
-         ```
+        Result:
 
-      1. View the description of the CLI command for moving a VM:
+        ```bash
+        +----------------------+--------------------+------------------+--------+
+        |          ID          |        NAME        |      LABELS      | STATUS |
+        +----------------------+--------------------+------------------+--------+
+        | b1g***************** | my-folder          |                  | ACTIVE |
+        | b1g***************** | default            |                  | ACTIVE |
+        +----------------------+--------------------+------------------+--------+
+        ```
 
-         ```bash
-         yc compute instance move --help
-         ```
+    1. See the description of the CLI command for moving a VM:
 
-      1. Move the VM to another folder with the following parameters:
+        ```bash
+        yc compute instance move --help
+        ```
 
-         * In `id`, enter the ID of the VM, for example, `fhm0b28lgfp4tkoa3jl6`.
-         * In `destination-folder-id`, enter the ID of the destination folder, for example, `b1gd129pp9ha0vnvf5g7`.
+    1. Move the VM to a different folder by specifying the following values: 
 
-         ```bash
-         yc compute instance move \
-             --id fhm0b28lgfp4tkoa3jl6 \
-             --destination-folder-id b1gd129pp9ha0vnvf5g7
-         ```
+        * In `id`, enter the VM ID, e.g., `fhm*****************`.
+        * In `destination-folder-id`, specify the destination folder ID, e.g., `b1g*****************`.
 
-         For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
+        ```bash
+        yc compute instance move \
+            --id fhm***************** \
+            --destination-folder-id b1g*****************
+        ```
+
+        For more information about `yc compute instance move`, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
 
 {% endlist %}

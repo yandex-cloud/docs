@@ -2,7 +2,7 @@
 
 
 
-## Scenario description {#case-description}
+## Case description {#case-description}
 
 You need to connect a custom domain to the bucket.
 
@@ -11,15 +11,15 @@ You need to connect a custom domain to the bucket.
 To connect a custom domain to the bucket, do the following:
 
 1. Create a bucket with the domain name.
-2. [Set up the bucket as a host](../../../storage/operations/hosting/setup)
-3. Configure DNS: [Add a CNAME record](../../../storage/operations/hosting/own-domain)
-4. [Add a custom certificate to {{ certificate-manager-full-name }}](../../../certificate-manager/operations)
-5. [Attach the certificate to the bucket to enable HTTPS](../../../storage/operations/hosting/certificate).
+1. [Set up the bucket as a host](../../../storage/operations/hosting/setup.md).
+1. Configure DNS: [Add a CNAME record](../../../storage/operations/hosting/own-domain.md).
+1. [Add a custom certificate to {{ certificate-manager-name }}](../../../certificate-manager/operations/index.md).
+1. [Attach the certificate to the bucket to enable HTTPS](../../../storage/operations/hosting/certificate.md).
 
 {% note info %}
 
-In paragraph **4,** you can replace your certificate with a free Let's Encrypt certificate issued [with {{ certificate-manager-full-name }}](../../../certificate-manager/operations/managed/cert-create).
+For step 4, you can replace your certificate with a free Let's Encrypt certificate issued [with {{ certificate-manager-name }}](../../../certificate-manager/operations/managed/cert-create.md).
 
 {% endnote %}
 
-After successfully completing all the steps, you can access your files via such links: `<domain_name>/[filekey]`.
+After successfully completing all steps, you can access your files through the links in `<domain_name>/[filekey]` format.

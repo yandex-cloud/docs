@@ -4,14 +4,18 @@
 
 ## Issue description {#issue-description}
 
-* When trying to create an OAuth token on behalf of a Yandex ID user, you see the error message: `Forbidden to get tokens with these rights for this application`.
+When trying to create an OAuth token on behalf of a Yandex ID user, you get this error message:
 
-## Solution  {#issue-resolution}
+```
+Forbidden to get tokens with these permissions for this application.
+```
 
-Try visiting this [page](https://passport.yandex.ru/passport?mode=userapprove): it may provide details on what you need to do to get the token.
+## Solution {#issue-resolution}
 
-Also note that for most Yandex Cloud service scenarios, you can use [service accounts](../../../iam/concepts/users/service-accounts.md).
+Check out [this page](https://passport.yandex.com/passport?mode=userapprove): you may find out in detail how to get a token.
+
+Note that in most {{ yandex-cloud }} use cases, you can use [service accounts](../../../iam/concepts/users/service-accounts.md).
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions did not help solve the issue, seek assistance from [our colleagues at Yandex ID](https://yandex.ru/support/id/authorization/app-passwords.html) (the button opening the feedback form is at the bottom of this page).
+If the above actions did not help solve the issue, contact the [Yandex ID support](https://yandex.com/support/id/en/authorization/app-passwords.html). You can find the button expanding the feedback form at the bottom of the page.

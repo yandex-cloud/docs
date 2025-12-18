@@ -1,4 +1,4 @@
-# All solutions for {{ ml-platform-name }}
+# Solutions for {{ ml-platform-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 
