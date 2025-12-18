@@ -1,22 +1,26 @@
 # How to disable DDoS protection
 
-## Issue description {#case-description}
-You need to disable DDoS protection on an existing IP.
+
+## Case description {#case-description}
+
+You need to disable DDoS protection on an existing IP address.
 
 ## Solution {#case-resolution}
-DDoS-protected IPs are issued from a separate IP pool.
-You cannot disable or enable DDoS protection on an external IP already linked to a VM.
-You can unlink the existing IP from your VM and link a new IP, without DDoS protection.
 
-For this, in the management console, follow the steps:
-1. Go to the VM properties page in the management console web interface.
-2. On the overview tab, click the ellipsis icon (**"..."**) in the upper-right part of the **Network** section.
-3. Select **"Disassociate public IP address"**.
-4. When the public IP is removed, repeat the action and select "Add public IP address".
-5. **Do not** select "DDoS protection" in the pop-up window.
+DDoS-protected IP addresses are issued from a separate IP pool. You cannot enable or disable DDoS protection on an external IP address that is already assigned to a VM. 
+
+You can unassign the existing IP address from your VM and assign a new one, without DDoS protection. 
+
+To do this, follow these steps in the [management console]({{ link-console-main }}):
+
+1. Go to the VM settings page in the [management console]({{ link-console-main }}).
+1. In the **{{ ui-key.yacloud.common.overview }}** tab, click ![***](../../../_assets/options.svg) in the top-right part of the **Network** sections.
+1. Select **{{ ui-key.yacloud.compute.instance.overview.button_remove-public-ip }}**.
+1. When the public IP is unassigned, repeat the action and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
+1. In the pop-up window, do not enable **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
 
 {% note alert %}
 
-Note that this action will change the VM's public IP, and it will no longer be available at this IP.
+This will change the VM's public IP address, making it unavailable at the previous address.
 
 {% endnote %}

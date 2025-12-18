@@ -75,3 +75,9 @@ description: Удаление группы виртуальных машин —
   Список доступных групп запрашивайте методом REST API [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md).
 
 {% endlist %}
+
+{% note tip %}
+
+Чтобы защитить группу ВМ от случайного удаления, [включите защиту от удаления](enable-deletion-protection.md). Пока защита включена, удалить группу невозможно.
+
+{% endnote %}

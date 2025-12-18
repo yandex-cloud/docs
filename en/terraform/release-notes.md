@@ -5,6 +5,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.177.0 (December 18, 2025)
+##### FEATURES:
+* trino: add resource groups and query properties configuration to cluster
+##### BUG FIXES:
+* CloudOrganization: fixed sensitive fields for idp_user
+
 ## 0.176.0 (December 15, 2025)
 ##### BUG FIXES:
 * mysql: cluster `access` and `performance_diagnostics` fields fix

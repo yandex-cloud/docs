@@ -7,6 +7,12 @@
 
 * Объем памяти (RAM) — при резервном копировании требуется 1 ГБ RAM на каждый ТБ резервной копии. Объем используемой памяти зависит от объема и типа данных, обрабатываемых [агентом {{ backup-name }}](../../backup/concepts/agent.md).
 
+{% note tip %}
+
+{% include [cloud-backup-resources-note](./cloud-backup-resources-note.md) %}
+
+{% endnote %}
+
 {% include [agent-ram-usage-paragraph](./operations/agent-ram-usage-paragraph.md) %}
 
 {% include [agent-ram-usage-second-paragraph](./operations/agent-ram-usage-second-paragraph.md) %}

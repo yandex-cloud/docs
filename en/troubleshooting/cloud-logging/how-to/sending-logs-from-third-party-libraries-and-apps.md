@@ -1,29 +1,31 @@
-# Setting up delivery of third-party application logs to Cloud Logging
+# How to set up delivery of third-party application logs to {{ cloud-logging-name }}
 
-## Issue description {#case-description}
 
-You need to deliver logs of third-party applications and services to Cloud Logging.
+## Case description {#case-description}
+
+You need to deliver logs of third-party applications and services to {{ cloud-logging-full-name }}.
 
 ## Solution {#case-resolution}
 
-To write custom logs, you can use the example for Cloud Functions.
+To write custom logs, you can use our example for {{ sf-full-name }}.
 
-{% cut "Example of cloud function with logging levels" %}
-Function version parameters in this example are:
+{% cut "Example of a cloud function with logging levels" %}
+The function version in this example has the following properties:
 
-Execution environment: `python38`
-Entry point: `index.handler`
-Memory: 128 MB
-Timeout: 3s
-Service account: `<service_account_ID>`
+* Runtime environment: `python38`
+* Entry point:`index.handler`
+* RAM: 128 MB
+* Timeout: 3 seconds
+* Service account: `<service_account_ID>`
 
 {% note info %}
 
-The service account running the function must have the `logging.writer` and `functions.functionInvoker` roles.
+The service account running the function must have the `{{ roles-logging-writer }}` and `{{ roles-functions-invoker }}` roles.
 To learn how to assign these roles to the service account, see these sections:
 
-* [Managing rights to access log groups](../../../logging/operations/access-rights.md)
-* [Access control in Cloud Functions](../../../functions/security/index.md#about-access-control)
+* [Managing permissions to access log groups](../../../logging/operations/access-rights.md)
+* [Access management in {{ sf-name }}](../../../functions/security/index.md#about-access-control)
+
 
 {% endnote %}
 
@@ -53,7 +55,7 @@ def handler(event, context):
     logger.warning("My log message of level WARNING", extra={"my-key": "my-value"})
     logger.error("My log message of level ERROR", extra={"my-key": "my-value"})
     logger.fatal("My log message of level FATAL", extra={"my-key": "my-value"})
-
+    
     cloud_logging_service = yandexcloud.SDK().client(LogReadingServiceStub)
     logs = {}
     criteria = Criteria(log_group_id='<log_group_ID>', resource_ids=['<resource_ID>'])
@@ -62,15 +64,14 @@ def handler(event, context):
     logs = cloud_logging_service.Read(read_request)
     return logs
 ```
-
 {% endcut %}
 
-You can also export logs by the command `yc logging read --group-id <group_ID> --folder-id <folder_ID> --since "YYYY-MM-DDT00:00:00Z" --until "YYYY-MM-DDT23:59:59Z" --filter 'resource_id: <CLUSTER_ID_MDB>' --limit 1000`.
-To use custom filters in this query, review the [query language syntax](../../../logging/concepts/filter).
+Alternatively, you can export logs by running this command: `yc logging read  --group-id <group_ID> --folder-id <folder_ID> --since "YYYY-MM-DDT00:00:00Z" --until "YYYY-MM-DDT23:59:59Z" --filter 'resource_id: <MDB_CLUSTER_ID_>' --limit 1000`.
+To use custom filters in this query, check the [query language syntax](../../../logging/concepts/filter).
 
-{% note alert %}
+{% note warning %}
 
-You can return a maximum of 1,000 rows of logs by this command. If the logs stored in Cloud Logging over this period exceed 1,000 rows, the earliest rows will not be selected.
+You can return a maximum of 1,000 rows of logs by this command. If the logs stored in {{ cloud-logging-full-name }} over this period exceed 1,000 rows, the earliest of them will not be selected.
 
 We recommend exporting logs with the interval of 15 minutes as they can include numerous events.
 

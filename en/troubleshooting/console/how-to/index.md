@@ -1,3 +1,3 @@
-# Sample configurations and use cases for {{ console-full-name }}
+## Examples of {{ console-name }} use cases {#configuration-examples}
 
 * [How to increase quotas](increase-quota.md)

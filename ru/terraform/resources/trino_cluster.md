@@ -42,6 +42,79 @@ resource "yandex_trino_cluster" "trino" {
     }
   }
 
+  # resource_groups = file("resource-groups.json")
+  resource_groups = jsonencode(
+    {
+      "rootGroups" : [
+        {
+          "name" : "global",
+          "softMemoryLimit" : "80%",
+          "hardConcurrencyLimit" : 100,
+          "maxQueued" : 1000,
+          "schedulingPolicy" : "weighted",
+          "subGroups" : [
+            {
+              "name" : "adhoc",
+              "softMemoryLimit" : "10%",
+              "hardConcurrencyLimit" : 50,
+              "maxQueued" : 1,
+              "schedulingWeight" : 10,
+              "subGroups" : [
+                {
+                  "name" : "other",
+                  "softMemoryLimit" : "10%",
+                  "hardConcurrencyLimit" : 2,
+                  "maxQueued" : 1,
+                  "schedulingWeight" : 10,
+                  "schedulingPolicy" : "weighted_fair",
+                  "subGroups" : [
+                    {
+                      "name" : "$${USER}",
+                      "softMemoryLimit" : "10%",
+                      "hardConcurrencyLimit" : 1,
+                      "maxQueued" : 100
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "admin",
+          "softMemoryLimit" : "100%",
+          "hardConcurrencyLimit" : 50,
+          "maxQueued" : 100,
+          "schedulingPolicy" : "query_priority"
+        }
+      ],
+      "selectors" : [
+        {
+          "user" : "bob",
+          "userGroup" : "admin",
+          "queryType" : "DATA_DEFINITION",
+          "source" : "jdbc#(?<toolname>.*)",
+          "clientTags" : [
+            "hipri"
+          ],
+          "group" : "admin"
+        },
+        {
+          "group" : "global.adhoc.other.$${USER}"
+        }
+      ],
+      "cpuQuotaPeriod" : "1h"
+    }
+  )
+
+
+  query_properties = {
+    "query.max-memory-per-node"     = "7GB"
+    "memory.heap-headroom-per-node" = "31%"
+    "query.max-memory"              = "13GB"
+    "query.max-total-memory"        = "21GB"
+  }
+
   maintenance_window = {
     day  = "MON"
     hour = 15
@@ -69,6 +142,8 @@ resource "yandex_trino_cluster" "trino" {
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `logging` (Attributes) Cloud Logging configuration. (see [below for nested schema](#nestedatt--logging))
 - `maintenance_window` (Attributes) Configuration of window for maintenance operations. (see [below for nested schema](#nestedatt--maintenance_window))
+- `query_properties` (Map of String) Query properties configuration.
+- `resource_groups_json` (String) Resource groups configuration as a Trino-like json. Note, that some fields are not supported in Managed Trino, refer to documentation for more details. We recommend using `jsonencode()` as it can help sidestep different issues with formatting, whitespace and other nuances inherent to JSON.
 - `retry_policy` (Attributes) Configuration for retry policy, specifying the spooling storage destination and other settings. (see [below for nested schema](#nestedatt--retry_policy))
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))

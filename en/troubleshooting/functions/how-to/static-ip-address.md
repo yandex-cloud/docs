@@ -2,23 +2,24 @@
 
 
 
-## Scenario description {#case-description}
+## Case description {#case-description}
 
-You need to set up a static IP address for a function or Serverless.
+You need to set up a static IP address for a function or {{ serverless-containers-name }}.
 
 ## Solution {#case-resolution}
 
-Assigning a static IP address to a cloud function is not supported yet. The function can execute on resources with different addresses each time, so you cannot assign a specific address to it.
+Assigning a static IP address to a cloud function is not supported yet. The function may run on resources with different addresses each time, so you cannot assign it a specific address.
 
-As an alternative solution, you can use Compute Cloud. Create in it a VM instance with a static IP address, install the runtime environment for your programming language, and start executing the function code in it. We provide more details [here](https://cloud.yandex.ru/docs/compute/operations/vm-create/create-linux-vm) and [there](https://cloud.yandex.ru/docs/vpc/operations/get-static-ip).
+As an alternative, you can use {{ compute-full-name }}. Create in it a VM instance with a static IP address, install the runtime environment for your programming language, and run the function code in it. For more information, see [here](../../../compute/operations/vm-create/create-linux-vm.md) and [there](../../../vpc/operations/get-static-ip.md).
 
 {% note info %}
 
-You can also use the API gateway to call the function via a custom domain.
+You can also use the API gateway to call the function via a custom domain. 
 
-Read more in our documentation:
-- [Linking a domain to the gateway](https://cloud.yandex.ru/docs/api-gateway/operations/api-gw-domains)
-- [Calling a function via a gateway](https://cloud.yandex.ru/docs/api-gateway/concepts/extensions/cloud-functions)
-- [Calling a container via a gateway](https://cloud.yandex.ru/docs/api-gateway/concepts/extensions/containers)
+Learn more in our guides: 
+
+* [Associating a domain with the gateway](../../../api-gateway/operations/api-gw-domains.md)
+* [Calling a function via a gateway](../../../api-gateway/concepts/extensions/cloud-functions.md)
+* [Calling a container via a gateway](../../../api-gateway/concepts/extensions/containers.md)
 
 {% endnote %}

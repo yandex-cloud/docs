@@ -1,3 +1,5 @@
-# All solutions for {{ certificate-manager-name }}
+# Solutions for {{ certificate-manager-name }}
+
+{% include [how-to-index](how-to/index.md) %}
 
 {% include [known-issues-index](known-issues/index.md) %}

@@ -8,10 +8,10 @@ You need to find out when and why user files and clouds are deleted and how long
 
 ## Solution {#issue-resolution}
 
-According to clause 11.5.1 of the [offer agreement](https://yandex.ru/legal/cloud_oferta/), Yandex ensures the storage of information and Content of the Customer, placed on the Platform's resources:
+According to Clause 11.5.1 of the [Offer]({{ billing-oferta-url }}), Yandex ensures the storage of the Customer's information and Content hosted on the Platform's resources:
 
-* For Business accounts: within 60 (sixty) calendar days from the date of suspension of the Customer's access to the Services for reasons related to the Customer's non-compliance with the terms of payment for the Services, or from the date of the Trial period end.
-* For Personal accounts: within 30 (thirty) calendar days from the date of suspension of the Customer's access to the Services for reasons related to the Customer's non-compliance with the terms of payment for the Services, or from the date of the Trial period end.
-* Within 7 (seven) calendar days from the date of suspension of the Customer's access to the Services for reasons related to the Customer's non-compliance with other terms of the Agreement.
+* For Business accounts: Within sixty (60) calendar days from the date of suspension of the Customer's access to the Services for reasons related to the Customer's non-compliance with the terms and conditions of payment for the Services, or from the expiration date of the Trial period.
+* For Personal accounts: Within sixty (60) calendar days from the date of suspension of the Customer's access to the Services for reasons related to the Customer's non-compliance with the terms and conditions of payment for the Services, or from the expiration date of the Trial period.
+* Within seven (7) calendar days from the date of suspension of the Customer's access to the Services for reasons related to the Customer's non-compliance with other terms of the Agreement.
 
-After the expiration of the above terms, in case the Customer fails to eliminate the violations that led to the suspension of access to the Services, Yandex has the right to label the information and Content, placed on the Platform resources, as deletable and delete them along with the Platform resources within **72 hours**.
+Upon the expiration of the foregoing periods, if the Customer fails to remedy the violations that resulted in the suspension of access to the Services, Yandex shall have the right to designate the information and Content hosted on the Platform's resources as subject to deletion and to delete such information and Content along with the Platform's resources within 72 hours.

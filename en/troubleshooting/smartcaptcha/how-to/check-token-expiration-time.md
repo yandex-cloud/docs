@@ -1,13 +1,13 @@
-# What is the lifespan of the token returned by the check method in SmartCaptcha
+# Lifetime of the token returned by the `check` method in {{ captcha-name }}
 
 
 
-## Scenario description {#case-description}
+## Case description {#case-description}
 
-What is the lifespan of the token returned by the [check method](https://captcha-api.yandex.ru/check) in {{ captcha-full-name }}?
+You need to know the lifetime of the token returned by the [`check` method](https://captcha-api.yandex.ru/check) in {{ captcha-name }}.
 
 ## Solution {#case-resolution}
 
-The received token is valid for the next 5 minutes. If you call `execute` several times within 5 minutes after successful user validation, no check is performed, and the first successful token is returned.
+This token is valid for the next five minutes. If you call `execute` multiple times within five minutes after successful user validation, the system will perform no checks and return the first successful token. 
 
-After 5 minutes, the token is reset, and calling `window.smartCaptcha.execute` will trigger user verification.
+After five minutes, the token will expire, and calling `window.smartCaptcha.execute` will trigger user verification.

@@ -1,4 +1,4 @@
-# All solutions for {{ serverless-containers-name }}
+# Solutions for {{ serverless-containers-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

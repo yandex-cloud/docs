@@ -11,7 +11,7 @@ description: В данном разделе описано, как начать 
 
 ## Перед началом работы {#before-begin}
 
-Чтобы начать работать c {{ sd-name }} в {{ yandex-cloud }}:
+Чтобы начать работать с {{ sd-name }} в {{ yandex-cloud }}:
 
 1. Если вы еще не зарегистрированы в {{ yandex-cloud }}, перейдите в [консоль управления]({{ link-console-main }}) и следуйте инструкциям.
 1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).

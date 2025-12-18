@@ -10953,6 +10953,7 @@ default:
           button_action-password-reset: Reset password
           button_action-restart: Restart
           button_create: Create virtual machine
+          button_gr-action-start: Start
           button_gr-action-stop: Stop
           column_cloud-backup: Cloud Backup
           column_internal-ip: Internal IPv4
@@ -12408,6 +12409,7 @@ default:
           label_task-status: Status
           label_task-status-planned: Planned
           title_maintenance: Technical maintenance
+          title_task-details: Task details
         shard-groups:
           button_add-group: Create shard group
       metadata-hub:

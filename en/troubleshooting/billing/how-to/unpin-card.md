@@ -1,23 +1,20 @@
-# How to unlink a bank card from the billing account
+# How to remove a credit/debit card from a billing account
 
 
 
-## Scenario description {#case-description}
+## Case description {#case-description}
 
-You need to unlink the bank card from your {{ yandex-cloud }} billing account.
+You need to remove a credit/debit card from your {{ yandex-cloud }} billing account.
 
 ## Solution {#case-resolution}
 
-To unlink a card from the billing account, unlink it from [Yandex ID](https://id.yandex.ru/). Then it will automatically be unlinked from all Yandex services, including Yandex Cloud.
+To remove a credit/debit card from a billing account, you actually need to remove it from [Yandex ID](https://id.yandex.ru/), and this will automatically unlink it from all Yandex services, including {{ yandex-cloud }}.
 
-However, if you have [billable resources](../../../billing/operations/check-charges.md), an attempt to debit funds will change the billing account status to `SUSPENDED`, and you will no longer have access to the cloud resources. To learn more about this, see the [public offer](https://yandex.ru/legal/cloud_oferta/), clause 6.11.4.
+However, if you have [billable resources](../../../billing/operations/check-charges.md), an attempt to debit funds will change your billing account status to `SUSPENDED`, making {{ yandex-cloud }} resources unavailable to you. To learn more, see [our Public Offer Agreement]({{ billing-oferta-url }}), clause 6.11.4.
 
-## If nothing helped {#if-issue-still-persists}
+## If nothing helped {#if-nothing-worked}
 
-If for some reason this method does not suit you, you will need to disable the unused billing account.
-To do this, [create a request for technical support]({{ link-console-support }}).
-Provide the following information in the request:
+If for some reason this solution does not suit you, you will need to deactivate the unused billing account. To do this, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. Billing account ID.
-You can find this ID on the [page with billing account details]({{ link-console-support }}).
-1. Description of actions you want to perform with the billing account.
+1. Billing account ID: You can find it on the [page with the billing account details]({{ link-console-support }}).
+1. What you need to do with your billing account.

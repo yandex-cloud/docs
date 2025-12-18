@@ -1,4 +1,4 @@
-# All solutions for {{ captcha-name }}
+# Solutions for {{ captcha-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

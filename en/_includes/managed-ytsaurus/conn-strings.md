@@ -66,7 +66,7 @@ Before connecting:
          class_name = "IamTokenAuth";
        };
        proxy = {
-         url = "https://<{{ ytsaurus-name }}_cluster_ID>.proxy.ytsaurus.yandexcloud.net";
+         url = "https://proxy.<{{ ytsaurus-name }}_cluster_ID>.ytsaurus.yandexcloud.net";
          enable_proxy_discovery = %false;
        }
      }
@@ -139,7 +139,7 @@ To connect to your cluster:
 
         timeout := 10 * time.Second
         client, err := ythttpsdk.NewClient(&ytsdk.Config{
-            Proxy:                 fmt.Sprintf("https://%s.proxy.ytsaurus.yandexcloud.net", *clusterID),
+            Proxy:                 fmt.Sprintf("https://proxy.%s.ytsaurus.yandexcloud.net", *clusterID),
             LightRequestTimeout:   &timeout,
             DisableProxyDiscovery: true,
             CredentialsProviderFn: iamTokenProvider,
@@ -231,7 +231,7 @@ Before connecting:
       from yc_managed_ytsaurus_auth import with_iam_token_auth
 
       client = yt.YtClient(
-          proxy="https://<{{ ytsaurus-name }}_cluster_ID>.proxy.ytsaurus.yandexcloud.net",
+          proxy="https://proxy.<{{ ytsaurus-name }}_cluster_ID>.ytsaurus.yandexcloud.net",
           config=with_iam_token_auth(config={"proxy": {"enable_proxy_discovery": False}}),
       )
 

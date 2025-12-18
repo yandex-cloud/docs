@@ -1,19 +1,19 @@
-# Not all fields are displayed in datasets built on Yandex Metrica
+# Some fields are not displayed in datasets built on {{ metrika }}
 
 
 
 ## Issue description {#issue-description}
 
-Some fields are not displayed in datasets built on Yandex Metrica.
+Some fields are not displayed in datasets built on {{ metrika }}.
 
 ## Solution {#issue-resolution}
 
-You can see the exported fields on the [Yandex Metrica Live demo dashboard](https://cloud.yandex.ru/marketplace/products/yandex/metrica-live-demo).
+You can see the exported fields on the [Yandex Metrica Live demo dashboard](https://yandex.cloud/en/marketplace/products/yandex/metrica-live-demo). Once you add the demo dashboard, you will see two new datasets in the **{{ ui-key.datalens.component.aside-header.view.switch_datasets }}** menu:
 
-Once you add the demo dashboard, you will see two new datasets in the Datasets menu:
-* `Yandex Metrica Sessions`, XXX field
-* `Yandex Metrica Impressions`, XXX fields.
+* `Yandex Metrica Sessions`, *** fields.
+* `Yandex Metrica Impressions`, *** fields.
 
 ## If the issue persists {#if-issue-still-persists}
 
-If you cannot find the fields needed for your scenario among these fields, then to enable full-fledged data operations, post-processing, etc., we recommend exporting data from the [Yandex Metrica Logs API](https://yandex.ru/dev/metrika/doc/api2/logs/intro.html)  to the [cloud-based ClickHouse](../../../managed-clickhouse/) and connecting {{ datalens-full-name }} to this database.
+If you cannot find the fields you need among these fields, you may want to data from the [{{ metrika }} Logs API](https://yandex.ru/dev/metrika/en/logs/) to the [cloud-based {{ CH }}](../../../managed-clickhouse/) and connecting {{ datalens-name }} to this database. This will enable full-fledged data operations.
+

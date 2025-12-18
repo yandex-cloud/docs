@@ -1,26 +1,27 @@
-# DataProc cluster is in the Unknown state immediately after creation
+ 
+# {{ dataproc-name }} cluster is in the `UNKNOWN` state right after it has been created
+
 
 ## Issue description {#issue-description}
 
-When you create a DataProc cluster, its nodes remain in the Unknown state immediately after creation
+After you create a {{ dataproc-name }} cluster, its nodes remain in the `UNKNOWN` state.
 
 ## Solution {#issue-resolution}
 
-The cluster can be in the UNKNOWN state because its instances are created without public IP addresses
-They are not available from the internet and do not have internet access by default.
+A cluster may be in the `UNKNOWN` state if you are creating its VMs without public IP addresses. They are not available from the internet and do not have internet access by default.
 
-To grant online access to these instances, use the NAT gateway functionality.
-1. [Create a NAT gateway](../../../vpc/operations/create-nat-gateway).
-2. [Add a routing table](../../../vpc/operations/static-route-create) by selecting the created gateway as a NextHop node.
-3. Link the routing table to the subnet with the cluster's instances:
-4. [Set up security groups](../../../data-proc/operations/cluster-create#change-security-groups) if required.
-   If you do not use security groups, skip this step.
+To grant online access to these instances, you will need to use a NAT gateway.
 
-As a result of these actions, the cluster should change to Running within several minutes.
+1. [Create a NAT gateway](../../../vpc/operations/create-nat-gateway.md).
+1. [Add a route table](../../../vpc/operations/static-route-create.md), selecting the gateway you created as a next-hop node.
+1. Link the routing table to the subnet with the cluster's VMs.
+1. [Set up security groups](../../../data-proc/operations/cluster-create.md#change-security-groups) if required. If you do not use security groups, skip this step.
+
+As a result, the cluster should change to `RUNNING` within a few minutes.
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).
-In the request, specify the following information:
-1. ID of the problem DataProc cluster.
-2. Date and time when the cluster creation started.
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
+
+1. ID of the {{ dataproc-name }} cluster in question.
+1. Date and time when you started creating the cluster.

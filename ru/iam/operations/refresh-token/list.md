@@ -5,9 +5,21 @@ description: Следуя данной инструкции, вы сможете
 
 # Получение списка refresh-токенов
 
+{% include [cli-install](../../../_includes/iam/refresh-tokens-add-note.md) %}
+
 Чтобы получить список [refresh-токенов](../../concepts/authorization/refresh-token.md) федеративного пользователя:
 
 {% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![userpool](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+  1. Найдите в списке нужного вам пользователя. При необходимости воспользуйтесь фильтром или поиском в верхней части экрана.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}**.
+  1. (Опционально) В поле **Поиск по клиенту** введите имя OAuth-приложения, список refresh-токенов для которого вы хотите получить.
+  1. (Опционально) В поле **Поиск по ID токена** введите идентификатор OAuth-приложения, список refresh-токенов для которого вы хотите получить. Например: идентификатор {{ yandex-cloud }} CLI — `yc.oauth.public-sdk`.
+  1. (Опционально) Чтобы изменить отображаемые столбцы, нажмите ![settings](../../../_assets/console-icons/gear.svg) в правом верхнем углу списка.
 
 - CLI {#cli}
 
@@ -66,3 +78,5 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [list](../../api-ref/RefreshToken/list.md) для ресурса [RefreshToken](../../api-ref/RefreshToken/index.md) или вызовом gRPC API [RefreshTokenService/List](../../api-ref/grpc/RefreshToken/list.md).
 
 {% endlist %}
+
+Посмотреть список своих refresh-токенов также можно через портал [Мой аккаунт](../../../organization/concepts/my-account.md).
