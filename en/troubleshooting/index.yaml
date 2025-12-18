@@ -1,55 +1,106 @@
 title: Ready-made solutions for known use cases
 description:
-  - "Known solutions and tips for\_optimal consumption Yandex Cloud services."
+  - '"Known solutions and tips for optimal use of {{ yandex-cloud }} services."'
 links:
-  - title: Billing
-    description: Solutions for Cloud Billing
+  - title: '{{ alb-name }}'
+    description: Solutions for {{ alb-name }}
+    href: application-load-balancer/
+  - title: '{{ billing-name }}'
+    description: Solutions for {{ billing-name }}
     href: billing/
-  - title: CDN
-    description: Solutions for Cloud CDN
+  - title: '{{ cdn-name }}'
+    description: Solutions for {{ cdn-name }}
     href: cdn/
-  - title: Cloud Logging
-    description: Solutions for Cloud Logging
-    href: cloud-logging/
-  - title: Compute
-    description: Solutions for Compute Cloud
-    href: compute/
-  - title: Container Registry
-    description: Solutions for Container Registry
-    href: container-registry/
-  - title: DataLens
-    description: Solutions for DataLens
-    href: datalens/
-  - title: DataSphere
-    description: Solutions for DataSphere
-    href: datasphere/
-  - title: IAM
-    description: Solutions for Identity and Access Management
-    href: iam/
-  - title: KMS
-    description: Solutions for Key Management Service
-    href: kms/
-  - title: Kubernetes
-    description: Solutions for Managed Service for Kubernetes
-    href: managed-kubernetes/
-  - title: Object Storage
-    description: Solutions for Object Storage
-    href: storage/
-  - title: Managed PostgreSQL
-    description: Solutions for Managed Service for PostgreSQL
-    href: managed-postgresql/
-  - title: Cloud Functions
-    description: Solutions for Cloud Functions
+  - title: '{{ certificate-manager-name }}'
+    description: Solutions for {{ certificate-manager-name }}
+    href: certificate-manager/
+  - title: '{{ mch-name }}'
+    description: Solutions for {{ mch-name }}
+    href: clickhouse/
+  - title: '{{ dns-name }}'
+    description: Solutions for {{ dns-name }}
+    href: dns/
+  - title: '{{ sf-name }}'
+    description: Solutions for {{ sf-name }}
     href: functions/
-  - title: Serverless Containers
-    description: Solutions for Serverless Containers
+  - title: '{{ cloud-logging-name }}'
+    description: Solutions for {{ cloud-logging-name }}
+    href: cloud-logging/
+  - title: '{{ compute-name }}'
+    description: Solutions for {{ compute-name }}
+    href: compute/
+  - title: '{{ container-registry-name }}'
+    description: Solutions for {{ container-registry-name }}
+    href: container-registry/
+  - title: '{{ console-name }}'
+    description: Solutions for {{ console-name }}
+    href: console/
+  - title: '{{ datalens-name }}'
+    description: Solutions for {{ datalens-name }}
+    href: datalens/
+  - title: '{{ dataproc-name }}'
+    description: Solutions for {{ dataproc-name }}
+    href: dataproc/
+  - title: '{{ ml-platform-name }}'
+    description: Solutions for {{ ml-platform-name }}
+    href: datasphere/
+  - title: '{{ data-transfer-name }}'
+    description: Solutions for {{ data-transfer-name }}
+    href: data-transfer/
+  - title: '{{ iam-name }}'
+    description: Solutions for {{ iam-short-name }}
+    href: iam/
+  - title: '{{ kms-name }}'
+    description: Solutions for {{ kms-short-name }}
+    href: kms/
+  - title: Legal
+    description: Solutions for legal
+    href: legal/
+  - title: '{{ mgl-name }}'
+    description: Solutions for {{ mgl-name }}
+    href: managed-gitlab/
+  - title: '{{ managed-k8s-name }}'
+    description: Solutions for {{ managed-k8s-name }}
+    href: managed-kubernetes/
+  - title: '{{ mmy-name }}'
+    description: Solutions for {{ mmy-name }}
+    href: managed-mysql/
+  - title: '{{ mpg-name }}'
+    description: Solutions for {{ mpg-name }}
+    href: managed-postgresql/
+  - title: '{{ mkf-name }}'
+    description: Solutions for {{ mkf-name }}
+    href: managed-kafka/
+  - title: '{{ ydb-name }}'
+    description: Solutions for {{ ydb-name }}
+    href: managed-ydb/
+  - title: '{{ monitoring-name }}'
+    description: Solutions for {{ monitoring-name }}
+    href: monitoring/
+  - title: '{{ network-load-balancer-name }}'
+    description: Solutions for {{ network-load-balancer-name }}
+    href: network-load-balancer/
+  - title: '{{ objstorage-name }}'
+    description: Solutions for {{ objstorage-name }}
+    href: storage/
+  - title: Partner
+    description: Solutions for Partner
+    href: partner/
+  - title: '{{ serverless-containers-name }}'
+    description: Solutions for {{ serverless-containers-name }}
     href: serverless-containers/
-  - title: SpeechKit
-    description: Solutions for SpeechKit
+  - title: '{{ captcha-name }}'
+    description: Solutions for {{ captcha-name }}
+    href: smartcaptcha/
+  - title: '{{ speechkit-name }}'
+    description: Solutions for {{ speechkit-name }}
     href: speechkit/
-  - title: VPC
-    description: Solutions for Virtual Private Cloud
+  - title: '{{ yandex-cloud }} {{ TF }} provider'
+    description: Solutions for the {{ yandex-cloud }} {{ TF }} provider
+    href: terraform/
+  - title: '{{ vpc-name }}'
+    description: Solutions for {{ vpc-name }}
     href: vpc/
 meta:
   title: Troubleshooting
-  description: Known solutions and tips for optimal consumption Yandex Cloud services.
+  description: Known solutions and tips for optimal use of {{ yandex-cloud }} services.

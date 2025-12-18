@@ -1,5 +1,4 @@
 ---
-noIndex: true
 canonical: '{{ link-docs }}/tutorials/security/migration-from-nlb-to-alb/'
 ---
 

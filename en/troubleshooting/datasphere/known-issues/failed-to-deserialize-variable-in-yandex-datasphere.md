@@ -1,31 +1,33 @@
-# Fixing the «Failed to deserialize variable» error
+# Fixing the `Failed to deserialize variable` error
+
 
 ## Issue description {#issue-description}
 
-When you open a DataSphere project, you see the following error message:
+When you open a {{ ml-platform-name }} project, you see the following error message: 
 ```
 Failed to deserialize variable %VAR_NAME%
 Run the following code to delete it: del_datasphere_variables
 ```
-Where `%VAR_NAME%` is the name of the variable that you couldn't deserialize.
+Where `%VAR_NAME%` is the name of the variable the system was unable to deserialize.
 
 ## Solution {#issue-resolution}
 
-The message `The following variables cannot be serialized` means that some variables fail to be serialized, so you cannot save them.
-The interpreter state will be saved on configuration change. All the computation results, including values of variables, will also be saved at this point.
+`The following variables cannot be serialized` means that some variables cannot be serialized and saved. The interpreter keeps its current state when the configuration changes. All computation results, including variable values, are also saved. 
 
-Some variables fail to be serialized and cannot be saved. For example, a variable with a file open for writing: `f = open("file.txt", "w")`.
-When you assign values to such variables, you'll see the warning: `The following variables cannot be serialized`.
-Such a warning will not affect your code execution and further computation results.
+{% note info %}
 
-The `Run the following code to delete it: del_datasphere_variables` message means that the variable was probably stored in the RAM of your GPU configuration previously, but hasn't been moved to the RAM of the current GPU configuration.
+Since some variables cannot get serialized, they cannot be saved. For example, let's assume there is a variable with a file open for writing: `f = open("file.txt", "w")`. You will see the following warning when assigning values to such variables: `The following variables cannot be serialized`. Such a warning will not affect your code execution and further computation results.
 
-The error text includes a recommendation how to reset the variable (the `del_datasphere_variables` method) to fix the error. In such a case, try running all the cells linked to this variable within the same configuration.
+{% endnote %}
 
-## If the issue persists {#if-problem-persists}
+`Run the following code to delete it: del_datasphere_variables` means that the variable previously resided in GPU memory but was not moved to the current CPU memory. 
 
-If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).
-In the request, specify the following information:
+The error message suggests how to reset the variable: use the `del_datasphere_variables` method to delete it, and then run all associated cells in the same configuration.
+
+## If the issue persists {#if-issue-still-persists}
+
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
+
 1. Project URL from the browser address bar.
-2. Full text of the error message.
-3. [HAR file](../../../support/create-har.md) with the recorded results of browser and server interaction with the DataSphere project.
+1. Full text of the error message.
+1. [HAR file](../../../support/create-har.md) with the recorded communications between the browser and the server hosting the {{ ml-platform-name }} project.

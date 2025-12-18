@@ -1,4 +1,4 @@
-# Resolving the "Invalid audio received" error
+# Resolving the `Invalid audio received` error
 
 
 
@@ -14,6 +14,4 @@ When you make a request to recognize a file, you see this error in the service r
 
 ## Solution {#issue-resolution}
 
-This error means that the audio file data has been encoded by an unsupported codec.
-
-We discuss the supported audio formats and codecs [here](../../../speechkit/formats).
+This error means that the audio file data has been encoded by an unsupported codec. For more information on the supported audio formats and codecs, see [this article](../../../speechkit/formats.md).

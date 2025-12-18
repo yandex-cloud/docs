@@ -2,23 +2,21 @@
 
 
 
-## Scenario description {#case-description}
+## Case description {#case-description}
 
-You need to receive invoices via email automatically.
+You need to receive invoices to your email automatically.
 
 ## Solution {#case-resolution}
 
-The invoice is generated automatically and issued at the beginning of the next reporting period only on the following conditions:
+We will automatically generate and send your payment invoice at the beginning of the following reporting period, provided the following conditions are met:
 
-* The selected payment method is [Bank transfer](../../../billing/payment/payment-methods-business)
-* The [total invoice amount](../../../billing/concepts/bill#payment-amount) is more than zero.
+* You pay via [**wire transfer**](../../../billing/payment/payment-methods-business.md).
+* [Total invoice amount](../../../billing/concepts/bill.md#payment-amount) is greater than zero.
 
-## If the issue persists {#if-issue-still-persists}
+## If the issue persists {#if-nothing-worked}
 
-If the invoice does not arrive at the email address linked to the billing account owner's account, [create a request for technical support]({{ link-console-support }}).
-When creating the request, provide the following information:
+If you still do not receive invoices at the email address linked to the billing account owner's account, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. The ID of the billing account for which you couldn't get an invoice.
-You can find it on the [page with billing account details]({{ link-console-billing }}).
-2. The email address to which you expect the invoice to be delivered.
-3. Description of the problem
+1. ID of the billing account for which you were unable to get an invoice. You can find it on the [page with your billing account details]({{ link-console-billing }}).
+1. Email address to which you expect the invoice to be delivered.
+1. Issue description.

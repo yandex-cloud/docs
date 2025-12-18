@@ -1,4 +1,4 @@
-# Sample configurations and use cases for {{ captcha-name }}
+## Examples of {{ captcha-name }} configurations and use cases {#configuration-examples}
 
-* [What is the lifespan of the token returned by the check method in SmartCaptcha](check-token-expiration-time.md)
-* [How to get information about the number of checks used over a given period](learning-about-monitoring-and-tarification.md)
+* [How to get information about the number of challenges used over a certain period](learning-about-monitoring-and-tarification.md)
+* [Lifetime of the token returned by the `check` method in {{ captcha-name }}](check-token-expiration-time.md)

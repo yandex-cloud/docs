@@ -1,4 +1,4 @@
-# Resolving the "Contact your organization's administrator for a new invitation" error
+# Fixing the `Contact your organization administrator for a new invitation` error
 
 
 
@@ -6,14 +6,12 @@
 
 When joining a cloud organization via the invitation link, you see this error message:
 ```
-Ask the organization administrator to give you a new invitation.
+Ask the organization administrator to send you a new invitation.
 ```
 
 ## Solution {#issue-resolution}
 
-On the page with this error text, there is a **Report details** button that provides a detailed error description.
-
-If the error text looks like this:
+You can get a detailed description of this error by clicking **Report details** on the page with the error message. If you get this error text:
 
 ```text
 Invitation ... has 'ACCEPTED' status. Expected status 'PENDING'.

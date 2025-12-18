@@ -1,5 +1,5 @@
-# Sample configurations and use cases for {{ mpg-short-name }}
+## Examples of {{ mpg-name }} configurations and use cases {#configuration-examples}
 
-* [Understanding the Conn limit parameter](conn-limit-parameter.md)
-* [How to set up SQL query filtering](sql-queries-filtering.md)
+* [How `Conn limit` works](conn-limit-parameter.md)
 * [How to enable SQL query logging](sql-queries-logging.md)
+* [How to set up SQL query filtering](sql-queries-filtering.md)

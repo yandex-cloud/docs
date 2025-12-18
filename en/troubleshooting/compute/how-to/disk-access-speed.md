@@ -1,21 +1,21 @@
-# What is the disk access speed for a VM
+# How to check the disk access speed for a VM instance
 
 
 
-## Scenario description {#case-description}
+## Case description {#case-description}
 
-What is the access speed to the disks of a VM instance, and what affects it?
+You need to find out the disk access speed of a virtual machine and what it depends on.
 
 ## Solution {#case-resolution}
 
-The speed is determined by the type of disk, the physical block size, and the disk size. You can read more about this in the [documentation](../../../compute/concepts/disk#performance).
+The speed depends on the disk type, the physical block size, and the disk size. To learn more, see [this article](../../../compute/concepts/disk.md#performance).
 
 {% note info %}
 
-The speed of access to the disks is not affected by disk type: boot or secondary.
+The access speed is not affected by whether the disk is a boot or data one. 
 
 {% endnote %}
 
-Disks have limits on IOPS and bandwidth. You can read more about this [here](../../../compute/concepts/limits#limits-disks).
+Disks have limits on IOPS and bandwidth. You can read more about this [here](../../../compute/concepts/limits.md#limits-disks).
 
-To achieve the maximum IOPS, we recommend making reads and writes of no more than 4 KB, and to achieve the maximum bandwidth, of up to 4 MB.
+For maximum IOPS, limit the size of reads and writes to 4 KB or less, and for maximum bandwidth, to 4 MB.

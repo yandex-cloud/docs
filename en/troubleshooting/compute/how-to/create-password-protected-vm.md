@@ -1,16 +1,16 @@
-# How to create a VM with password access
+# How to create a VM instance with password access
 
 
 
-## Scenario description {#case-description}
+## Case description {#case-description}
 
 You need to create a VM instance with password access.
 
 ## Solution {#case-resolution}
 
-In the public Linux images provided by Yandex Cloud, the option to connect via SSH using a login and password is disabled by default. You can enable it either from within your VM or when creating a VM based on metadata.
+In public Linux images provided by {{ yandex-cloud }}, SSH connections using a login and password are disabled by default. You can enable it either from within your VM instance or by using metadata when creating a VM.
 
-For more about VM metadata, see the [documentation](../../../compute/concepts/vm-metadata).
+Learn more about VM metadata in [this guide](../../../compute/concepts/vm-metadata.md).
 
 {% note alert %}
 
@@ -35,10 +35,10 @@ chpasswd:
   expire: False
 
 ```
-You can deliver metadata when creating a VM using the CLI, API, or Terraform. Example of a CLI command:
+You can provide metadata when creating a VM using the CLI, API, or {{ TF }}. Example of a CLI command:
 ```
-yc compute instance create  --name instance --zone ru-central1-a \
---network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+yc compute instance create  --name instance --zone {{ region-id }}-a \
+--network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
 --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
 --metadata-from-file user-data=metadata.yaml
 ```

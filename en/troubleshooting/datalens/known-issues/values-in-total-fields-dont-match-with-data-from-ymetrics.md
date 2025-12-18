@@ -1,25 +1,22 @@
-# Values in Total fields of tabular DataLens charts mismatch those in Yandex Metrica
+# `Total` values in {{ datalens-name }} table charts mismatch the respective data from Yandex Metrica
+
 
 ## Issue description {#issue-description}
 
-DataLens uses a connection to Yandex Metrica data.
-My tabular chart in DataLens and data from Yandex Metrica show different values in Total fields.
+When connecting to {{ metrika }}, your table chart in {{ datalens-name }} and data from {{ metrika }} show different values in `Total` fields.
 
 ## Solution {#issue-resolution}
 
-Such a behavior results from Yandex Metrica mechanics. When you request data over the API, Yandex Metrica returns an approximate result.
-Accuracy of the provided data is also affected by [sampling](https://yandex.ru/dev/metrika/doc/api2/api_v1/sampling.html) on the Yandex Metrica side.
+Such a behavior results from {{ metrika }} mechanics. When you request data over the API, {{ metrika }} returns an approximate result. 
 
-To make sure that additive metrics show correct total values, change the accuracy in the connection settings to 100%.
+Accuracy of the provided data is also affected by [sampling](https://yandex.ru/dev/metrika/en/) on the {{ metrika }} side. To make sure that additive metrics show correct total values, change the accuracy in the connection settings to 100%.
 
-A direct connection to Yandex Metrica has several limitations. We recommend exporting raw data from Yandex Metrica to an intermediate database. For example, to export and/or replicate data from Yandex Metrica, you can use the [ClickHouse database](../../../managed-clickhouse/quickstart.md).
-
-Once you export the data to an intermediate database, you can [set up a connection to it](../../../datalens/operations/connection/create-clickhouse.md) from DataLens.
+A direct connection has certain limitations. We recommend exporting raw data from {{ metrika }} to an intermediate database; e.g., to export or replicate data, you can use a [{{ CH }} database](../../../managed-clickhouse/quickstart.md). Once you export the data to an intermediate database, you can [set up a connection to it](../../../datalens/operations/connection/create-clickhouse.md) from {{ datalens-name }}.
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).
-In the request, specify the following information:
-1. Link to the problem object from the browser address bar.
-2. Full text of the error message with the Request ID content.
-3. [HAR file](../../../support/create-har.md) with the recorded results of browser interaction with DataLens servers.
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
+
+1. Link to the problematic object from your browser address bar.
+1. Full text of the error message with the `Request ID`.
+1. [HAR file](../../../support/create-har.md) with the recorded results of browser communication with {{ datalens-name }} servers.

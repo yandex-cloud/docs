@@ -1,29 +1,28 @@
-# Resolving the "Incorrect format expected an integer" error when creating an MX record
+# Fixing the `Incorrect format: expected an integer` error when creating an MX record
 
 
 
 ## Issue description {#issue-description}
 
-When creating an MX record, you see this error: `Incorrect format: expected an integer`.
+When creating an MX record, you get the `Incorrect format: expected an integer` error.
 
 ## Solution {#issue-resolution}
 
-The `Incorrect format: expected an integer` error indicates that when creating an MX record, one of its fields includes text instead of a number.
+The `Incorrect format: expected an integer` error means that when creating an MX record, one of its fields includes text instead of a number. 
 
-The `MX` record consists of two parts:
-- `PREFERENCE`: A 16-bit integer that specifies the host priority. The lower the value, the higher the host preference.
-- `EXCHANGE`: The FQDN of the host that processes emails in the specified zone. This field value must point to an A or AAAA record.
+An MX record consists of two parts:
+
+* `PREFERENCE`: 16-bit integer setting the host priority. A lower the value means higher priority.
+* `EXCHANGE`: FQDN of the email processing host in the specified zone. This field value must point to an A or AAAA record.
 
 {% note alert %}
 
-In the `Value` field, you need to specify a number (record priority) followed by text. For example, `10 mx.yandex.net.`
+In the `Value` field, you need to specify a number, i.e., record priority, followed by text, e.g., `10 mx.yandex.net.`.
 
 {% endnote %}
 
-More details [here](../../../dns/concepts/resource-record#mx).
+For more information, see [this article](../../../dns/concepts/resource-record.md#mx).
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).
-
-When creating a request, please attach a screenshot of the record settings.
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). When creating it, please attach a screenshot of the record settings.

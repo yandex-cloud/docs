@@ -1,4 +1,4 @@
-# All solutions for {{ dns-name }}
+# Solutions for {{ dns-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

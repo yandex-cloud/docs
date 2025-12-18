@@ -171,8 +171,6 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 | `ch_system_events_ContextLock_rate`<br/>`DGAUGE` |
 | `ch_system_events_ContextLockWaitMicroseconds_inc`<br/>`DGAUGE` |
 | `ch_system_events_ContextLockWaitMicroseconds_rate`<br/>`DGAUGE` |
-| `ch_system_events_CreatedHTTPConnections_inc`<br/>`DGAUGE` |
-| `ch_system_events_CreatedHTTPConnections_rate`<br/>`DGAUGE` |
 | `ch_system_events_CreatedLogEntryForMerge_inc`<br/>`DGAUGE` |
 | `ch_system_events_CreatedLogEntryForMerge_rate`<br/>`DGAUGE` |
 | `ch_system_events_CreatedReadBufferOrdinary_inc`<br/>`DGAUGE` |
@@ -745,8 +743,6 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 | `ch_system_metrics_DatabaseOnDiskThreads`<br/>`DGAUGE` |
 | `ch_system_metrics_DatabaseOnDiskThreadsActive`<br/>`DGAUGE` |
 | `ch_system_metrics_DatabaseOnDiskThreadsScheduled`<br/>`DGAUGE` |
-| `ch_system_metrics_DatabaseOrdinaryThreads`<br/>`DGAUGE` |
-| `ch_system_metrics_DatabaseOrdinaryThreadsActive`<br/>`DGAUGE` |
 | `ch_system_metrics_DatabaseReplicatedCreateTablesThreads`<br/>`DGAUGE` |
 | `ch_system_metrics_DatabaseReplicatedCreateTablesThreadsActive`<br/>`DGAUGE` |
 | `ch_system_metrics_DatabaseReplicatedCreateTablesThreadsScheduled`<br/>`DGAUGE` |
@@ -1066,8 +1062,6 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 | `ch_system_metrics_TablesLoaderForegroundThreads`<br/>`DGAUGE` |
 | `ch_system_metrics_TablesLoaderForegroundThreadsActive`<br/>`DGAUGE` |
 | `ch_system_metrics_TablesLoaderForegroundThreadsScheduled`<br/>`DGAUGE` |
-| `ch_system_metrics_TablesLoaderThreads`<br/>`DGAUGE` |
-| `ch_system_metrics_TablesLoaderThreadsActive`<br/>`DGAUGE` |
 | `ch_system_metrics_TablesToDropQueueSize`<br/>`DGAUGE` |
 | `ch_system_metrics_TaskTrackerThreads`<br/>`DGAUGE` |
 | `ch_system_metrics_TaskTrackerThreadsActive`<br/>`DGAUGE` |

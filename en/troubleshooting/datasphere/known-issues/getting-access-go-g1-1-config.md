@@ -1,32 +1,38 @@
-# Getting access to the GPU g1.1 and higher configurations in DataSphere
+# Getting access to GPU g1.1 and higher configurations in {{ ml-platform-name }}
 
 
 
-## Issue description {#issue-description}
+## Case description {#issue-description}
 
-When attempting to use the GPU g1.1 or higher configurations in DataSphere, you see this error message:
+When attempting to use GPU g1.1 or higher configurations in {{ ml-platform-name }}, you get this error message:
 
-* `Access Denied: Spec g1.1 is not available for your cloud. Please contact your administrator or Support`
+```
+Access Denied: Spec g1.1 is not available for your cloud. Please contact your administrator or Support
+```
 
 ## Solution {#issue-resolution}
 
-Access to the g1.1 configuration for DataSphere is available after switching to a paid plan and topping up your account with an amount of 500 rubles or more. We mention this in the [Limits section of the DataSphere documentation](../../../datasphere/concepts/limits.md).
-GPUs are highly demanded resources. We want all users to be able to fully test their scenarios in Yandex Cloud, so we ask you to top up the balance.
+Access to the g1.1 configuration for {{ ml-platform-name }} becomes available after switching to paid usage and topping up your account balance with at least ₽500. To learn more, see [**Limits**](../../../datasphere/concepts/limits.md) in the {{ ml-platform-name }} section.
 
-Please note that after switching to paid usage, active grants will be used to pay for resources in the first place. We will only start debiting your account after the grant is used up or has expired. To learn more about this, see the [Billing cycle section in the Yandex Cloud Billing documentation](../../../billing/payment/billing-cycle-individual.md).
+GPU is a high-demand resource, and we want all our users to fully test their use cases in {{ yandex-cloud }}; this is why you have to make a deposit to use it.
 
-To use the g1.1 platform, top up the balance of your account with the required amount, then do the following:
+{% note info %}
 
-1. Stop computations and exit the project using **File** → **Stop IDE executions**.
-2. Log in to the project again from the Yandex Cloud console.
+After switching to paid usage, any active grants will be applied first towards payment for resources. We will only start debiting your account after your grant is used up or has expired. To learn more, see [**Billing cycle**](../../../billing/payment/billing-cycle-individual.md) in the {{ billing-name }} section.
 
-The rules for charging for resources within projects are provided in the [relevant section of the DataSphere documentation](../../../datasphere/pricing.md).
+{% endnote %}
+
+To use the g1.1 platform, top up the balance of your account with the required amount, and then do the following:
+
+1. Stop computations and exit the project through **File** → **Stop IDE executions**.
+1. Log in to the project again using the [management console]({{ link-console-main }}).
+
+To learn how resources are charged within projects, see [{{ ml-platform-name }} pricing policy](../../../datasphere/pricing.md).
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).
-In the request, specify the following information:
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. DataSphere community ID
-2. Desired GPU configuration type that you need access to
-3. Detailed scenario of using the GPU configuration in your DataSphere project.
+1. {{ ml-platform-name }} community ID.
+1. Type of GPU configuration you need to get access to.
+1. How you prefer to use this GPU configuration in your {{ ml-platform-name }} project.

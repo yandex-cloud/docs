@@ -1,23 +1,30 @@
-# Restoring health of a Managed Services for PostgreSQL cluster after its disks become Read Only
+# Restoring a {{ mpg-name }} cluster after running out of free storage space
 
-## Issue description {#case-description}
-The storage in your Managed Services for PostgreSQL cluster has become read-only.
-New data is not written to your cluster's database tables.
 
-## Troubleshooting and reproducing issues {#diagnosis-and-reproduction}
-Go to the **Monitoring** tab in the cluster management interface, open the `Disk capacity on primary` chart, and look up the ratio between the `free` and `used bytes` values.
-This way, you can evaluate the percentage ratio of the cluster storage utilization.
+## Issue description {#issue-description}
 
-When the storage is more than 97% full, the host automatically switches to `read-only` mode.
-For all databases in this case, `DEFAULT_TRANSACTION_READ_ONLY` is set to `TRUE` using the `ALTER DATABASE` query.
+* The {{ mpg-name }} cluster is running in read-only mode.
+* Any writes to the cluster's database tables fail.
 
-`INSERT`, `DELETE`, or `UPDATE` queries result in an error in this mode.
+## Diagnostics and issue reproduction {#issue-diagnostics-and-reproduction}
 
-## Solution {#case-resolution}
-You can avoid this by setting an alert on switching over to `read-only` mode. You can find the steps to set up such an alert [here](../../../managed-postgresql/concepts/storage.md#read-only-monitor).
+Go to the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab in the [management console]({{ link-console-main }}), open the `Disk capacity on primary` chart, and review the ratio between the `free` and `used bytes` values to estimate the percentage of cluster storage utilization.
 
-When you receive the alert, you can use two methods to disable this mode in your cluster:
-- By [expanding the storage size](../../../managed-postgresql/operations/update.md#change-disk-size): in this case, the service will automatically disable the `read-only ` mode.
-- Manually, by following this [guide](../../../managed-postgresql/concepts/storage.md#read-only-solutions).
+{% note info %}
 
-Currently, there is no automatic method to expand cluster storage.
+When the storage is more than 95% full, the host will automatically switch to `read-only` mode. In this case, the `ALTER DATABASE` statement sets the `DEFAULT_TRANSACTION_READ_ONLY = TRUE` flag for all databases.
+
+In this mode, any `INSERT`, `DELETE`, or `UPDATE` operations return an error.
+
+{% endnote %}
+
+## Solution {#issue-resolution}
+
+You can avoid this by setting up an alert to monitor switching to `read-only` mode. To learn more about how to set it up, see [this article on {{ mpg-name }}](../../../managed-postgresql/concepts/storage.md#read-only-monitor).
+
+Upon receiving the alert, you can recover the cluster from this mode in two ways:
+
+* [Expanding the storage size](../../../managed-postgresql/operations/storage-space.md): {{ mpg-name }} will automatically disable `read-only ` mode.
+* Manually by following [these steps](../../../managed-postgresql/concepts/storage.md#read-only-solutions).
+
+Currently, there is no way to automatically expand cluster storage.

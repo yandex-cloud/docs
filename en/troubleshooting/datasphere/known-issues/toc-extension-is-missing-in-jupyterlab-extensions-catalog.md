@@ -1,13 +1,14 @@
-# You do not see the Table of Contents extension in the JupyterLab extension list
+# `Table of Contents` extension is missing from the {{ jlab }}Lab extension list
+
 
 ## Issue description {#issue-description}
 
-You do not see the Table of Contents extension in the JupyterLab extension catalog in your DataSphere project running in the Serverless mode.
-This extension facilitates navigation inside the project files using headers.
+The {{ jlab }}Lab extension folder of your {{ ml-platform-name }} project running in serverless mode does not contain the `Table of Contents` extension. This extension facilitates navigation inside the project files using headers.
 
 ## Solution {#issue-resolution}
 
-In the serverless DataSphere mode, JupyterLab 3.X isn't available yet.
-You can use the [Dedicated mode](../../../datasphere/concepts/project.md#dedicated) where JupyterLab 3.5.3 is available.
+If you use {{ ml-platform-name }} in serverless mode, {{ jlab }}Lab 3.0 and higher is not available yet. Opt for the [dedicated mode](../../../datasphere/concepts/project.md#dedicated) that supports {{ jlab }}Lab 3.5.3.
 
-Follow new DataSphere releases on the [changelog](../../../datasphere/release-notes.md) page in the documentation.
+Check new {{ ml-platform-name }} releases on the [release notes](../../../datasphere/release-notes.md) page.
+
+

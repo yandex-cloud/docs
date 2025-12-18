@@ -1,4 +1,4 @@
-# All solutions for {{ cdn-name }}
+# Solutions for {{ cdn-short-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

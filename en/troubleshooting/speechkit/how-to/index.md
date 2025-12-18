@@ -1,3 +1,3 @@
-# Sample configurations and use cases for {{ speechkit-name }}
+## Examples of {{ speechkit-name }} configurations and use cases {#configuration-examples}
 
-* [Enabling automated punctuation in the recognized text](enabling-punctuator-in-speechkit.md)
+* [How to enable automated punctuation in the recognized text](enabling-punctuator-in-speechkit.md)

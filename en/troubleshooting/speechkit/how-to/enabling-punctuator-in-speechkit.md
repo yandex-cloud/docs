@@ -1,19 +1,36 @@
-# Enabling automated punctuation in the recognized text
+# How to enable automated punctuation in the recognized text
 
-## Issue description {#case-description}
-You need to enable automated punctuation (i.e., the punctuator) in the recognized text.
+
+## Case description {#case-description}
+
+You need to enable automated punctuation in the recognized text.
 
 ## Solution {#case-resolution}
-The punctuator is available in the following recognition modes:
 
-1. In gRPC API, the punctuator is enabled by the `TEXT_NORMALIZATION_ENABLED` option. This option enables the text normalization mode that mostly adds punctuation marks. Acceptable option values are given in [this](../../../speechkit/stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile.md#speechkit.stt.v3.TextNormalizationOptions) SpeechKit API specification section.
+The automatic punctuation feature is currently available across four tools of ours: REST API v1 for synchronous recognition, REST API v2 for asynchronous recognition, gRPC API v2 for streaming recognition, and API v3.
 
-2. In the asynchronous recognition REST API, the punctuator functionality is enabled by the `config.specification.literature_text` option. It enables the text normalization mode that mostly adds punctuation marks. Acceptable option values are given in [this](../../../speechkit/stt/api/transcribation-api.md#sendfile-params) SpeechKit API specification section.
+{% list tabs %}
 
-3. In the streaming recognition REST API, the punctuator is enabled by the `x-normalize-partials` option. If this flag is `true`, you can get intermediate recognition results (parts of a recognized utterance) in a normalized format: numerals are returned as numbers, the profanity filter is enabled, etc. Acceptable option values are given in [this](../../../speechkit/stt/api/streaming-api.md#additional-settings) SpeechKit API specification section.
+- REST API v1
+  
+  Use the `config.specification.literature_text` property to manage the automatic punctuation. For acceptable values, see [this {{ speechkit-name }} API specification section](../../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params).
 
-{% note info %}
+- REST API v2
+  
+  Use the `x-normalize-partials` property to manage the automatic punctuation. When set to `true`, you get intermediate recognition results, i.e., parts of recognized utterance, in a normalized format: numbers as digits, profanity filter enabled, etc. For acceptable values, see [this {{ speechkit-name }} API specification section](../../../{{ speechkit-slug }}/stt/api/streaming-api.md#additional-settings).
 
-Text normalization is currently unavailable in the synchronous recognition mode.
+- gRPC API v2
+  
+  Use the `TEXT_NORMALIZATION_ENABLED` property to manage the automatic punctuation. It actually enables the text normalization mode and adds punctuation marks. For acceptable values, see [this {{ speechkit-name }} API specification section](../../../{{ speechkit-slug }}/stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile.md#speechkit.stt.v3.TextNormalizationOptions).
+
+- API v3
+  
+  Use the `literature_text=true` property to manage the automatic punctuation (`text_normalization` should be enabled). In addition to inserting punctuation marks, this mode capitalizes the first letter of sentences and proper nouns. For acceptable values, see [this {{ speechkit-name }} API specification section](../../../{{ speechkit-slug }}/stt/api/streaming-api.md#additional-settings).
+  
+{% endlist %}
+
+{% note warning %}
+
+Text normalization is currently unavailable in synchronous recognition mode.
 
 {% endnote %}

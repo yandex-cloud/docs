@@ -1,26 +1,24 @@
-# Updating software on a Managed Service for GitLab instance
+# How to update the {{ mgl-name }} instance software
 
 
 
-## Issue description {#issue-description}
+## Issue description {#case-description}
 
-You need to update the version of the installed GitLab Community Edition or GitLab Enterprise Edition package on the Managed Service for GitLab instance.
+You need to update the version of the installed {{ GL }} Community Edition or {{ GL }} Enterprise Edition package on your {{ mgl-full-name }} instance.
 
 ## Solution {#case-resolution}
 
-You cannot update the software version independently yet.
-The GitLab software is updated on Managed Service for GitLab instances automatically as the released GitLab software versions are adapted to the Yandex Cloud environment.
+You cannot update the software version on your own. {{ mgl-full-name }} instances automatically update their {{ GL }} software as its new released versions are adapted to the {{ yandex-cloud }} environment.
 
-If a GitLab software update is critical for certain reasons, [create a request for technical support](https://console.cloud.yandex.ru/support?section=contact).
-In the request, specify the following information:
+If a {{ GL }} software update is critical, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. ID of the GitLab instance for which you need to update the installed software.
-2. Target GitLab version you want to install.
-3. Date and time of the update.
-4. Reason for the update.
+1. ID of the {{ GL }} instance for which you need to update the installed software.
+1. Target {{ GL }} version you want to install.
+1. Date and time of the update.
+1. Reason for the update.
 
 {% note alert %}
 
-During the software update operation, the Managed Service for GitLab instance and the data on it will be inaccessible.
+During this operation, both the {{ mgl-name }} instance under update and any data in it will be inaccessible.
 
 {% endnote %}

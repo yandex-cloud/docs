@@ -1,23 +1,21 @@
-# Changing the instance type for Managed Service for GitLab
+# How to change the {{ mgl-name }} instance type
 
 
 
-## Issue description {#case-description}
+## Case description {#case-description}
 
-You need to change the instance type for an existing Managed Service for GitLab instance.
+You need to change the type for an existing {{ mgl-full-name }} instance.
 
 ## Solution {#case-resolution}
 
-Currently, to change the type of an existing instance of Managed Service for GitLab, you need to [create a request for technical support](https://console.cloud.yandex.ru/support?section=contact).
-In the request, specify the following information:
+Currently, changing the type of an existing {{ mgl-name }} instance requires you to [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. ID of your instance of Managed Service for GitLab (or a link to it in the management console)
-2. Instance type to apply changes to (for example, `s2.medium`)
-3. Time window for performing the instance type change operation.
+1. ID of your {{ mgl-name }} instance (or a link to it in the [management console]({{ link-console-main }})).
+1. Instance type to apply changes to, e.g., `s2.medium`.
+1. Preferred time slot for our support intervention.
 
 {% note alert %}
 
-Changing the type of the Managed Service for GitLab instance will take some time.
-During this operation, the Managed Service for GitLab instance and data in it will be unavailable.
+Changing your {{ mgl-name }} instance type will take some time. During this operation, both the instance and any data in it will be inaccessible.
 
 {% endnote %}

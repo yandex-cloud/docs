@@ -1,3 +1,5 @@
-# All solutions for {{ mgl-name }}
+# Solutions for {{ mgl-name }}
 
 {% include [how-to-index](how-to/index.md) %}
+
+{% include [known-issues-index](known-issues/index.md) %}

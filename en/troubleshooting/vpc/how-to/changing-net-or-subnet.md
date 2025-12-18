@@ -2,12 +2,12 @@
 
 
 
-## Scenario description {#case-description}
+## Case description {#case-description}
 
-You need to change the cloud network or subnet for the MDB cluster.
+You need to change the cloud network or subnet for your MDB cluster.
 
 ## Solution {#case-resolution}
 
-The network where the cluster is located can only be specified at cluster creation. Alternatively, you can restore the existing cluster from a backup, specifying the relevant network under "Network settings" during recovery.
+You can only specify the network when creating a cluster. Alternatively, you can restore the existing cluster from a backup and specify the relevant network under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**.
 
-The process of recovery from a backup is detailed in the [documentation](../../../managed-clickhouse/operations/cluster-backups#restore).
+You can learn more about backup recovery in [this guide](../../../managed-clickhouse/operations/cluster-backups.md#restore).

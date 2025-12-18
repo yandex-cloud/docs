@@ -212,6 +212,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](instance-groups/resume-processes.md)
 * [{#T}](instance-groups/rolling-restart.md)
 * [{#T}](instance-groups/rolling-recreate.md)
+* [{#T}](instance-groups/enable-deletion-protection.md)
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/access.md)

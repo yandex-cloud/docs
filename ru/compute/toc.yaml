@@ -337,6 +337,8 @@ items:
             href: operations/instance-groups/update.md
           - name: Изменить группу ВМ по YAML-спецификации
             href: operations/instance-groups/update-from-yaml.md
+          - name: Включить защиту от удаления
+            href: operations/instance-groups/enable-deletion-protection.md
           - name: Отключить и включить зоны доступности для группы ВМ
             href: operations/instance-groups/disable-enable-zone.md
           - name: Перенести группу ВМ в другую зону доступности

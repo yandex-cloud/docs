@@ -4,7 +4,7 @@
 
 ## Issue description {#issue-description}
 
-You increased the size of your boot disk, but it changed in the console rather than on the VM.
+After increasing the boot disk size, it updated in the [management console]({{ link-console-main }}) but remained unchanged on the VM.
 
 ## Solution {#issue-resolution}
 

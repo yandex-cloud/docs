@@ -1,88 +1,85 @@
-# Troubleshooting payment issues
+# Resolving payment issues
 
 
-## Problem description {#issue-description}
+## Issue description {#issue-description}
 
-* Funds are not credited to billing account for a long time after the payment;
-* You are unable to top up your account through the {{ yandex-cloud }} mobile app or credit card.
+* The funds fail to appear on your billing account for some time after you have made a payment.
+* You are unable to top up your account using the {{ yandex-cloud }} mobile app.
 
 ## Solution {#issue-resolution}
 
-Usually, funds are automatically credited to the account as soon as {{ yandex-cloud }} receives payment confirmation from the bank.
-
+In most cases, funds are automatically credited to your account as soon as Yandex receives payment confirmation from your bank. Payments from legal entities are usually credited to accounts by early afternoon of the next business day.
 
 {% list tabs %}
 
-- Bank transfer
+- Wire transfer
 
-  1. Check the current bank account from which the payment was made.
-  Payment must be made from a billing account which is [bound to legal entity](../../../billing/operations/pay-the-bill).
+    1. Check the account you used when making your payment. The payment should originate from a bank account opened for the organization or individual entrepreneur the billing account was created for. For more details, see [this guide](../../../billing/operations/pay-the-bill.md#organizaciyam-i-ip).
 
+    1. Make sure the following details are correctly specified in your payment order:
 
-  
-  1. Make sure that the following data is correctly specified in the invoice:
+    * Payment amount.
+    * Bank details of the legal entity Yandex Cloud operates under (OOO Yandeks Oblako).
+    * Your company or individual entrepreneur TIN.
+    * Billing account number in the payment details (should look like `LSO-***********-**`).
+    * Agreement number in the payment details (should look like `******/**`).
 
-  * Payment amount;
-  * Bank details of {{ yandex-cloud }};
-  * Nebius Israel account number;
-  * Payment invoice ID.
+- Credit or debit card
+    
+    Make sure to check the following:
 
-
-- Payment by card
-
-  1. Check the bank card balance and information about debit operations. The possible reason for the failure when debiting funds can be indicated there.
-  It is possible that there are not enough funds on the card or the limits for the amount of daily/monthly debiting of funds set in your bank's mobile application have been exceeded.
-  1. Check whether online transactions are allowed for the card.
-  This can be checked in the online banking system or your bank's mobile application.
-  1. Check the status and expiration date of the card in the online banking or mobile application of your bank.
-  2. Check if the card can be charged by any other transactions on the Internet.
+    1. Card balance and transaction history: the possible reason for the transaction failure may appear there. Common issues include insufficient funds or exceeding daily/monthly spending limits set in your bank’s mobile app.
+    1. Confirm that your card is enabled for online transactions; this can be verified in your bank's online member area or mobile app.
+    1. Card status and expiration date (you can also check this in the member area or mobile app).
+    1. Whether the card works for other online transactions.
 
 {% endlist %}
 
-## If the problem remains {#if-issue-still-persists}
+## If the issue persists {#if-issue-still-persists}
 
-If the above steps did not help solve the problem, [create a technical support request]( {{ link-console-support }}).
-To display a list of data that you will need to inform the technical support team, select the payment type used in your billing account on the tab below.
+If the above actions did not help, [create a support ticket]({{ link-console-support }}).
+To help our support team resolve your issue quickly, select your payment method below to see what information you will need to provide.
 
 {% list tabs %}
 
-- Bank transfer
+- Wire transfer
 
-    When creating a request, specify the following information:
+    Provide the following information in your ticket:
 
-    * ID of the billing account that does not receive funds after making the payment 
-    * A completed invoice with the bank's mark on its execution.
+    1. The ID of the billing account where the funds fail to appear. You can find this ID on the [page with the billing account details]({{ link-console-billing }}).
+    1. A completed payment order stamped by your bank as processed.
 
-- Payment by card
+- Credit or debit card
 
-    When creating a request, specify the following information:
+    Provide the following information in your ticket:
 
-    * ID of the billing account that does not receive funds after making the payment.
-    This ID can be found [on the billing account data page]({{ link-console-billing }});
+    1. The ID of the billing account where the funds fail to appear. You can find this ID on the [page with the billing account details]({{ link-console-billing }}).
+    1. Your country of residence.
+    1. The country from which you are trying to make a payment with your credit/debit card.
+    1. Whether your card allows online transactions.
+    1. Whether the card works for other online transactions.
+    1. Date and time of payment.
+    1. Whether the funds were debited from the credit/debit card as a result of the payment.
+    1. Bank card mask.
 
-    * Information about which country you are a resident of;
-    * From which country is the attempt to pay by bank card;
-    * Are online payment transactions allowed for your card;
-    * Are there any write-offs on the card for any other transactions on the Internet;
-    * Date and time of payment;
-    * Have the funds been debited from the bank card as a result of the payment;
-    * Mask of bank card.
+    {% note info %}
 
-    {% note warning %}
+    The card mask consists of the first six and last four digits of your card number, formatted as `1234 56** **** 4321`. The mask is used to identify the bank that issued the card, the payment system, and the country of issue. The card mask might also be displayed on the receipt when you shop in stores.
 
-    The bank card mask is the first six and last four digits of its number in the format `1234 56XX XXXX 4321`.
-    It is also necessary to identify the bank that issued the card, payment system and the country, where card was issued.
-    The card mask is usually prins in the receipts from online and offline stores.
+    Sharing the card mask is safe: it does not contain the full details required to process a payment.
 
-    It is safe to report the card mask, since you do not transmit the full set of data required to make a payment.
-    For security reasons, the following data should never be disclosed to third parties:
+    {% endnote %}
 
-    * Full card number;
-    * Information about the validity period of the card;
-    * Last name and first name of the cardholder;
-    * CVC/CVV code of the card;
-    * One-time passwords from SMS;
-    * Information about other charges or other operations on bank card.
+    For security reasons, do not disclose the following information to third parties:
+
+
+    * Full card number.
+    * Card expiration date.
+    * Cardholder's first name and last name.
+    * CVC/CVV code.
+    * One-time text message passwords.
+    * Details of other card transactions.
+
 
     {% endnote %}
 
