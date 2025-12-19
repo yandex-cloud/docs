@@ -60,6 +60,48 @@ You can also reduce the connection limit. In this case, the already paid connect
 
 {% include [idp-connection-limit-modifying-role](../_includes/organization/idp-connection-limit-modifying-role.md) %}
 
+
+
+## Cost calculation examples {#examples}
+
+### Example 1 {#example-1}
+
+Your organization has 10 users who need access to external applications.
+
+By default, the organization has a non-billable limit of 15 users per month who can authenticate to external applications. This means you will not be charged for using {{ org-name }}.
+
+
+### Example 2 {#example-2}
+
+At the beginning of the month, your organization had 15 users who needed access to external applications. Now, you need to increase the user limit to 130.
+
+
+
+{% include [usd-example-2](../_pricing_examples/organization/usd-example-2.md) %}
+
+
+
+### Example 3 {#example-3}
+
+At the beginning of the month, your organization had 130 users who needed access to external applications. Now, you need to increase the user limit to 600.
+
+
+
+{% include [usd-example-3](../_pricing_examples/organization/usd-example-3.md) %}
+
+
+
+### Example 4 {#example-4}
+
+At the beginning of the month, your organization had 600 users who needed access to external applications. Now, you need to reduce the user limit to 400.
+
+
+
+{% include [usd-example-4](../_pricing_examples/organization/usd-example-4.md) %}
+
+
+
+
 #### See also {#see-also}
 
 * [{#T}](./operations/manage-billing.md)

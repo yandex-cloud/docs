@@ -5,6 +5,14 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2025
 
+## November {#november-2025}
+
+### Fixed issues {#fixes-november-2025}
+
+1. Fixed the field display order for {{ PG }} indexes.
+1. Resolved an issue with query execution within a single {{ CH }} session.
+1. Fixed an issue where `JSONB` fields were displayed as an `Object`.
+
 ## October {#october-2025}
 
 ### Improvements {#improvements-october-2025}

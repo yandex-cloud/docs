@@ -11,10 +11,6 @@ This feature is at the Beta testing stage.
 
 {% endnote %}
 
-
-{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 Neuroanalyst streamlines the creation and editing of calculated fields. It is available in the calculated field constructor at the chart and dataset levels. You can use it to:
 
 * Quickly write a new formula.

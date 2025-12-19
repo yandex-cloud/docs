@@ -1,11 +1,11 @@
 ---
 title: '{{ alerts-name }} service roles in {{ sd-full-name }}'
-description: This page enlists service roles required to control access to the {{ alerts-name }} module in {{ sd-full-name }}.
+description: This page lists the service roles required to control access to the {{ alerts-name }} module in {{ sd-full-name }}.
 ---
 
-# {{ alerts-name }} service roles
+# Service roles for {{ alerts-name }}
 
-With [{{ alerts-name }}](../concepts/alerts.md) service roles, you can manage the module's resources and access to them.
+With the [{{ alerts-name }}](../concepts/alerts.md) service roles, you can manage the module's resources and access to them.
 
 #### security-deck.alertSinks.user {#security-deck-alertSinks-user}
 

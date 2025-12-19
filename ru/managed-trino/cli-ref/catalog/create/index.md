@@ -17,6 +17,7 @@ Syntax:
 
 - [yc managed-trino catalog create clickhouse](clickhouse.md) — Create ClickHouse catalog
 - [yc managed-trino catalog create delta-lake](delta-lake.md) — Create Delta Lake catalog
+- [yc managed-trino catalog create greenplum](greenplum.md) — Create Greenplum catalog
 - [yc managed-trino catalog create hive](hive.md) — Create Hive catalog
 - [yc managed-trino catalog create hudi](hudi.md) — Create Hudi catalog
 - [yc managed-trino catalog create iceberg](iceberg.md) — Create Iceberg catalog

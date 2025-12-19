@@ -16,14 +16,20 @@ The main entity {{ k8s }} leverages is a _{{ k8s }} cluster_.
 
 {{ k8s }} fully manages the master and monitors the state and health of node groups. Users can manage nodes directly and configure {{ k8s }} clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
 
-{% include [Install kubectl](../../_includes/managed-kubernetes/note-node-group-internet-access.md) %}
-
 {{ k8s }} clusters in the {{ yandex-cloud }} infrastructure use the following resources:
 
 Resource | Quantity | Comment
 --- | --- | ---
-Subnet | 2 | {{ k8s }} reserves IP address ranges to use for pods and services.
-Public IP address | N | N includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address for **each** node in the group if you use one-to-one NAT.
+Subnet | 2 | When creating a cluster without [tunnel mode](network-policy.md#cilium), {{ managed-k8s-name }} reserves two subnets: for pods and services. For a cluster with tunnel mode, subnets in the address space of the cloud network are not reserved.
+Public IP address | N | The number of IP addresses may vary depending on whether you are using [public access](./network.md#public-access-to-a-host) in the cluster.
+
+{% note info %}
+
+{% include [nodes-internet-access](../../_includes/managed-kubernetes/nodes-internet-access.md) %}
+
+{% include [nodes-internet-access-additional](../../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}
+
+{% endnote %}
 
 ### Cluster labels {#cluster-labels}
 

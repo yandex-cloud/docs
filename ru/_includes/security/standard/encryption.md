@@ -849,21 +849,13 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 #### 4.16 Администратор облака имеет инструкцию по действиям в случае компрометации секретов его облака {#secrets-scanning}
 
 В {{ yandex-cloud }} по умолчанию для всех включен [Secret Scanning Service](../../../security/operations/search-secrets.md).
-Он обнаруживает облачные структурированные секреты в открытом доступе в следующих источниках:
+Источники для обнаружения облачных структурированных секретов в открытом доступе:
 
-* в публичных репозиториях Github;
-* в поисковом индексе Яндекса;
-* в Helm-чартах {{ k8s }} маркетплейса.
+{% include [secret-sources](./secret-sources.md) %}
 
 Список облачных секретов для обнаружения:
 
-* {{ yandex-cloud }} Session Cookie;
-* {{ yandex-cloud }} {{ iam-short-name }} token;
-* {{ yandex-cloud }} API Key;
-* Yandex Passport OAuth token;
-* {{ yandex-cloud }} AWS API compatible Access Secret;
-* {{ yandex-cloud }} {{ captcha-name }} Server Key;
-* {{ lockbox-short-name }} структурированные секреты.
+{% include [secret-types](./secret-types.md) %}
 
 Сервис автоматически уведомляет клиента о найденном секрете, который относится к его инфраструктуре:
 

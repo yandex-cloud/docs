@@ -122,17 +122,13 @@ Deleting a dashboard | N/A | ![image](../../_assets/common/no.svg) | ![image](..
 Moving a dashboard | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Editing access permissions | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Granting public access | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
-**Report** ^1^ |
+**Report** |
 Viewing a dashboard | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Editing a dashboard | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Copying a dashboard | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Deleting a dashboard | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Moving a dashboard | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Editing access permissions | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
-
-
-^1^ This feature is only available with the Business [service plan](../pricing.md#service-plans).
-
 
 {% note info %}
 
@@ -143,7 +139,7 @@ You cannot duplicate (copy) a folder and a connection with any permissions.
 
 ## Object access audit {#audit-access}
 
-The Business [service plan users](../../datalens/pricing.md#service-plans) can get access logs to {{ datalens-short-name }} objects (view, edit, delete). To get the logs, [contact support]({{ link-console-support }}).
+{{ at-full-name }} is used to track [audit logs](../at-ref.md).
 
 
 

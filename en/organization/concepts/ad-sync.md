@@ -5,6 +5,7 @@ description: The {{ ad-sync-agent }} enables you to configure {{ org-full-name }
 
 # Syncing users and groups with {{ microsoft-idp.ad-full }}
 
+
 {% include [note-preview](../../_includes/note-preview.md) %}
 
 If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) for user management and you want your users to be able to access {{ yandex-cloud }}, you do not need to create {{ yandex-cloud }} accounts for your users manually. Instead, you can [sync](../operations/sync-ad.md) the users and groups created in your {{ microsoft-idp.ad-short }} folder with {{ org-full-name }}.
@@ -58,7 +59,7 @@ The {{ ad-sync-agent }} syncs the following objects with the {{ microsoft-idp.ad
 * **User memberships in groups**.
 * **User password [hashes](https://en.wikipedia.org/wiki/Hash_function)**.
 
-    {{ microsoft-idp.ad-short }} stores user passwords but as hashes, not as plaintext. {{ yandex-cloud }} collects the user password hash from the {{ microsoft-idp.ad-short }} folder and uses the modern and secure [Argon2](https://en.wikipedia.org/wiki/Argon2) algorithm to generate it own hash based on it.
+    {{ microsoft-idp.ad-short }} stores user passwords as hashes, not plaintext. {{ yandex-cloud }} collects the user password hash from the {{ microsoft-idp.ad-short }} folder and generates its own one based on it using the modern hack-proof [Argon2](https://en.wikipedia.org/wiki/Argon2) algorithm.
 
     {% note alert %}
 

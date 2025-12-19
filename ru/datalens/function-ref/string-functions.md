@@ -25,7 +25,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/string-functions.md
 
 ## [CONCAT](CONCAT.md)
 
-**Синтаксис:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
+**Синтаксис:**`CONCAT(  [ arg_1 [ , arg_2 [ , arg_3 [ , ... ] ] ] ] )`
 
 Объединяет произвольное количество строк. При использовании нестроковых типов происходит преобразование в строку и объединение.
 

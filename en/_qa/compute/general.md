@@ -62,6 +62,13 @@ General best practices for improving VM performance:
 1. For product solutions, use a vCPU with a guaranteed performance of at least 100%. If you are using a vCPU with performance below 100%, the vCPU performance may decrease to the guaranteed minimum due to other active processes on the same physical core. For example, for 5% performance, this is only about 100 MHz of clock frequency, which is most likely insufficient for a production server.
 
    If the graphs show that the vCPU load is close to 100% for a long time or at the time the issue occurs, we recommend increasing the number of cores.
+
+   {% note warning %}
+
+   {% include [vcpu-note](../../_includes/compute/vcpu-note.md) %}
+
+   {% endnote %}
+
 1. Never use the swap file. It causes a significant drop in performance. The best solution is to expand vRAM if your system is running low on memory. With Linux, you can also use `zram-config`.
 1. Use large network SSDs. Network disks can become a bottleneck in the system. They have limits on IOPS and bandwidth, which vary depending on the disk type and size. For more information, see [{#T}](../../compute/concepts/limits.md#compute-limits-disks).
 

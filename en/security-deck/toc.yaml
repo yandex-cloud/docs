@@ -100,7 +100,7 @@ items:
         href: security/cspm-roles.md
       - name: '{{ atr-name }} roles'
         href: security/access-transparency-roles.md
-      - name: '{{ alerts-name }} roles'
+      - name: '{{ alerts-name }} module roles'
         href: security/alerts-roles.md
   - name: Pricing policy
     href: pricing.md

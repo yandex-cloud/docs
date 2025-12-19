@@ -26,7 +26,7 @@ For usage examples, see [{{ datalens-gallery }}]({{ link-datalens-main }}/galler
 * **Dataset**: Description of a dataset from a source.
 * **Chart**: Data from a data source or dataset visualized as tables, diagrams, or maps.
 * **Dashboard**: Complex visualization made up of charts and selectors for filtering data as well as text blocks, automatically optimized for mobile devices.
-* **Report**: Document designed as an interactive presentation, where you can add charts, text blocks, headers, and images and then export it to PDF. Reports are available with the _Business_ [service plan](../../datalens/pricing.md#service-plans).
+* **Report**: Document designed as an interactive presentation, where you can add charts, text blocks, headers, and images and then export it to PDF.
 
 {{ datalens-short-name }} uses workbooks and collections to organize objects. Workbooks store connections, datasets, charts, and dashboards. Collections group workbooks and other collections for streamlined data management and navigation.
 
@@ -37,7 +37,7 @@ For usage examples, see [{{ datalens-gallery }}]({{ link-datalens-main }}/galler
 
 * [**QL charts**](chart/ql-charts.md) help you render a chart by running a query to your data source.
 
-* [**Editor**](../charts/editor/index.md) is designed for creating data visualization widgets with JavaScript. In Editor, you can use data from various [sources](../charts/editor/sources.md) and process it as you like, which makes it a very flexible tool. Only available in the Business plan.
+* [**Editor**](../charts/editor/index.md) is designed for creating data visualization widgets with JavaScript. In Editor, you can use data from various [sources](../charts/editor/sources.md) and process it as you like, which makes it a very flexible tool.
 
 You can add your charts to [dashboards](./dashboard.md) or [reports](../reports/index.md), enhance them with control elements, such as selectors, headers, images, or tooltips, and share your work with your colleagues and team.
 

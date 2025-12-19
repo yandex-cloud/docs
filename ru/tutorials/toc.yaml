@@ -571,6 +571,10 @@ items:
         href: container-infrastructure/vm-update.md
       - name: Настройка вывода информации из Docker-контейнера в серийный порт
         href: container-infrastructure/serial-port.md
+      - name: >-
+          Запуск Docker-образа на виртуальной машине с помощью {{
+          cloud-registry-name }}
+        href: container-infrastructure/docker-cloud-registry.md
       - name: '{{ managed-k8s-name }}'
         items:
           - name: Создание нового {{ k8s }}-проекта

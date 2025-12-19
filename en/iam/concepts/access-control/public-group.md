@@ -26,7 +26,7 @@ Assigning this role to the `All authenticated users` system group gives public a
 
 ### All users {#allUsers}
 
-The `All users` public group includes any user, with no authentication required.
+The `All users` public group includes all users; no authentication is required.
 
 > For example, when making an API request to your resource, users do not need to specify their IAM tokens. Using this group is unsafe. Instead, use system groups, such as `All users in organization X` and `All users in federation N`, or your custom organization user [groups](../../../organization/concepts/groups.md).
 

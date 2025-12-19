@@ -23,7 +23,9 @@ Deletes the specified captcha.
 ||Field | Description ||
 || captcha_id | **string**
 
-Required field. ID of the captcha to delete. ||
+Required field. ID of the captcha to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

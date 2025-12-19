@@ -5,6 +5,7 @@ description: Follow this guide to deactivate, reactivate, and delete an OIDC app
 
 # Deactivating and deleting an OIDC application in {{ org-full-name }}
 
+
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}

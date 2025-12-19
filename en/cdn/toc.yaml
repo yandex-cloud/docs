@@ -103,6 +103,8 @@ items:
         href: concepts/index.md
       - name: Providers
         href: concepts/providers.md
+      - name: Points of presence
+        href: concepts/points-of-presence.md
       - name: Resource
         href: concepts/resource.md
       - name: Origins and origin groups

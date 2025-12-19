@@ -12,9 +12,45 @@ For more information on access management in {{ yandex-cloud }}, see the {{ iam-
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for individual resources within the service using the [{{ cloud-center }} interface]({{ cloud-center-link }}), {{ yandex-cloud }} [CLI](../../cli/cli-ref/organization-manager/cli-ref/index.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-link }}):
+You can also assign roles for individual resources within the service:
 
-{% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  You can use the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) to assign roles for the following resources:
+
+  * [Organization](../operations/security.md)
+  * [User group](../operations/access-manage-group.md)
+
+- CLI {#cli}
+
+  You can use the [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/index.md) to assign roles for the following resources:
+
+  * [Organization](../operations/security.md)
+  * [User pool](../concepts/user-pools.md)
+  * [User group](../operations/access-manage-group.md)
+  * [SAML app](../concepts/applications.md#saml)
+  * [OIDC app](../concepts/applications.md#oidc)
+
+- {{ TF }} {#tf}
+
+  You can use [{{ TF }}]({{ tf-provider-link }}) to assign roles for the following resources:
+
+  * [Organization](../operations/security.md)
+  * [User group](../operations/access-manage-group.md)
+
+- API {#api}
+
+  You can use the [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
+
+  * [Organization](../operations/security.md)
+  * [User pool](../concepts/user-pools.md)
+  * [User group](../operations/access-manage-group.md)
+  * [SAML app](../concepts/applications.md#saml)
+  * [OIDC app](../concepts/applications.md#oidc)
+
+{% endlist %}
 
 ## Roles this service has {#roles-list}
 
@@ -259,7 +295,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
        * `serviceAccount:{service_account_id}`: Service account ID.
        * `federatedUser:{federated_user_id}`: Federated user ID.
 
-     Here is the configuration file example:
+     Here is a configuration file example:
 
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {

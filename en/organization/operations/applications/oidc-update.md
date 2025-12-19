@@ -5,6 +5,7 @@ description: Follow this guide to update an OIDC application in {{ org-name }}.
 
 # Updating an OIDC application in {{ org-full-name }}
 
+
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
@@ -56,7 +57,7 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
 
      Where:
 
-     * `--id`: OIDC app ID. This is a required parameter.
+     * `--id`: OIDC app ID. This is a required setting.
      * `--name`: New name for the OIDC app. The name must be unique within the organization and follow the naming requirements:
 
        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}

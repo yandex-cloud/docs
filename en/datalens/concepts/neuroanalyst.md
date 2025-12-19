@@ -11,10 +11,6 @@ This feature is at the Beta testing stage.
 
 {% endnote %}
 
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 {{ datalens-full-name }} Neuroanalyst is a group of AI assistants that help you with project analysis, suggest improvements and edits, and streamline creating and editing visualizations.
 
 * [Neuroanalyst for calculated fields](../concepts/calculations/formulas-helper.md): Helps you to create calculated fields.
@@ -48,6 +44,7 @@ The number of AI queries is limited to 600 queries per user per month. We may co
 - {{ datalens-short-name }} instance
 
   1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
+  1. Select the **Security** tab.
   1. Disable **Neuroanalyst** (on by default). As soon as you do it, the AI assistants will disappear from the {{ datalens-name }} interface for the instance users.
 
 

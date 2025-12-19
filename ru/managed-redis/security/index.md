@@ -24,7 +24,7 @@ description: Управление доступом в сервисе по соз
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
-В [консоли управления]({{ link-console-main }}) или через [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
+В [консоли управления]({{ link-console-main }}), через [CLI](../../cli) или [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
 
 ## Какие роли действуют в сервисе {#roles-list}
 

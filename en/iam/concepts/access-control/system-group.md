@@ -8,7 +8,7 @@ description: In this tutorial, you will learn about system groups and their type
 
 A _system group_ is a group of users (subjects) to which you can assign [roles](./roles.md). In {{ yandex-cloud }}, there are two types of system groups: `All users in organization X` and `All users in federation N`. These groups allow you to grant access to your resources for a specific user group, but only for the operations that are allowed by the assigned role. System groups do not include [service accounts](../users/service-accounts.md).
 
-System groups are dynamic: any new user added to an organization or federation automatically inherits all the permissions assigned to that organization or federation. When a user is removed from an organization or federation, those permissions are automatically revoked.
+System groups are dynamic: any new user added to an organization or federation automatically inherits all the permissions assigned to that organization or federation. When a user is removed from an organization or federation, such permissions are automatically revoked.
 
 It is unsafe to assign roles with extensive permissions, such as `editor` or `admin`, to system groups.
 

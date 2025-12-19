@@ -6,8 +6,6 @@ description: From this article, you will learn how to add a JS selector to a das
 # Adding a JS selector to a dashboard
 
 
-{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
 Before adding a selector, make sure you have the `{{ permission-write }}` or `{{ permission-admin }}` permission for the dashboard. For more information, see [{#T}](../../security/manage-access.md).
 
 

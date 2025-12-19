@@ -95,6 +95,22 @@ items:
             href: tutorials/authentication/entra-id.md
           - name: User group mapping in {{ keycloak }}
             href: tutorials/authentication/keycloak.md
+      - name: Security and standards
+        items:
+          - name: Setting up OIDC SSO in Grafana Cloud
+            href: tutorials/single-sign-on/oidc-grafana.md
+          - name: Setting up SAML SSO in Grafana Cloud
+            href: tutorials/single-sign-on/saml-grafana.md
+          - name: Setting up SAML SSO in {{ mgl-name }}
+            href: tutorials/single-sign-on/saml-managed-gitlab.md
+          - name: Setting up SAML SSO in Zabbix
+            href: tutorials/single-sign-on/saml-zabbix.md
+          - name: Setting up SAML SSO in {{ mos-name }}
+            href: tutorials/single-sign-on/saml-opensearch.md
+          - name: Setting up SAML SSO in SonarQube
+            href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: Setting up SAML SSO in {{ yandex-360 }}
+            href: tutorials/single-sign-on/saml-yandex-360.md
       - name: Network security
         items:
           - name: Setting up virtual hosting
@@ -265,14 +281,16 @@ items:
       - name: Application security
         items:
           - name: >-
-              Installing an NGINX ingress controller with a certificate from {{
-              certificate-manager-name }}
+              Installing an NGINX ingress controller with a {{
+              certificate-manager-name }} certificate
             href: tutorials/app-security/nginx-ingress-certificate-manager.md
           - name: Building a CI/CD pipeline in {{ GL }} with serverless products
             href: tutorials/app-security/ci-cd-serverless.md
           - name: Building an interactive serverless application using WebSocket
             href: tutorials/app-security/websocket-app.md
-          - name: Creating an L7 {{ alb-name }} with a {{ sws-name }} profile
+          - name: >-
+              Creating an L7 load balancer in {{ alb-name }} with a {{ sws-name
+              }} profile
             items:
               - name: Overview
                 href: tutorials/app-security/balancer-with-sws-profile/index.md

@@ -60,10 +60,7 @@ window.addEventListener('message', function(event) {
 ></iframe>
 ```
 
-Подробнее о параметрах инициализации плеера см. в разделах:
-
-* [Параметры инициализации плеера](./initialization.md)
-* [Параметры инициализации плеера](./initialization.md)
+Подробнее см. в разделе [Параметры инициализации плеера](./initialization.md).
 
 ## Управление плеером {#player-controls}
 

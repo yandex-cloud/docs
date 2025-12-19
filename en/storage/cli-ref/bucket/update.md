@@ -40,10 +40,12 @@ Syntax:
 |`--policy-from-file`|<b>`string`</b><br/>Same as policy but loads policy from file|
 |`--enable-private-endpoints`|<b>`string`</b><br/>Sets bucket allowed private endpoints policy: true/false. Example: --enable-private-endpoints=true|
 |`--private-endpoints`|<b>`value[,value]`</b><br/>Sets bucket private endpoints|
+|`--private-endpoints-force-cloudconsole-access`|<b>`string`</b><br/>If true, Cloud Console will be able to access bucket regardless of private-endpoints-list: true/false. Example: --private-endpoints-force-cloudconsole-access=true|
 |`--generate-lifecycle-skeleton`|Prints example of lifecycle rules|
 |`--generate-website-settings-skeleton`|Prints example of website settings|
 |`--encryption`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Sets encryption kms-master-key-id<br/><br/>Possible property names:<br/><ul> <li><code>key-id</code>:     Encryption key id</li> </ul>|
 |`--remove-encryption`|Remove encryption from the bucket|
+|`--disable-statickey-auth`|<b>`string`</b><br/>Disable static key authentication in bucket: true/false. Example: --disable-statickey-auth=true|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

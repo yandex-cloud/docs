@@ -5,10 +5,6 @@ description: Follow this guide to build a table based on an SQL query to the dat
 
 # Building a table based on an SQL query to the data source
 
-
-{% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 Follow this guide to build a table based on an SQL query to the data source in Editor. For convenience, we will use the connection and dataset from the deployed demo workbook as the data source.
 
 ## Getting started {#before-you-begin}
@@ -256,7 +252,7 @@ Follow this guide to build a table based on an SQL query to the data source in E
    module.exports = {head, rows};
    ```
 
-1. At the top of the chart, click **Run**. The preview will show the connection as a table with rows grouped by the **PaymentType** field and columns grouped by the **OrderYear** field, along with a monthly sales chart:
+1. At the top of the chart, click **Execute**. The preview will show the connection as a table with rows grouped by the **PaymentType** field and columns grouped by the **OrderYear** field, along with a monthly sales chart:
 
    ![image.png](../../../../_assets/datalens/editor/quick-start-2.png) 
 

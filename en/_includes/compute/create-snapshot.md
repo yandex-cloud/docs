@@ -57,6 +57,7 @@
           * `pci_topology=v1`: `PCI_TOPOLOGY_V1` topology.
           * `pci_topology=v2`: Adopts the `PCI_TOPOLOGY_V2` topology.
 
+          If the source disk has `Gen 2` assigned, by default, the new snapshot will get `--hardware-features` set to `pci_topology=v1`.
 
           If the source disk has `Gen 1` assigned, by default, the new snapshot will get the same `--hardware-features` value as the source disk.
 

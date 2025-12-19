@@ -44,4 +44,4 @@ Returns the approximate `quant`-level quantile (`quant` should be in range from 
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `Files`, `Google Sheets`, `Yandex Documents`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `Trino`, `Yandex Documents`.

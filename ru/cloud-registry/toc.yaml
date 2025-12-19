@@ -55,6 +55,12 @@ items:
                 href: operations/binary/push.md
               - name: Скачать binary-артефакт из реестра
                 href: operations/binary/pull.md
+  - name: Практические руководства
+    items:
+      - name: >-
+          Запуск Docker-образа на виртуальной машине с помощью {{
+          cloud-registry-name }}
+        href: tutorials/docker-cloud-registry.md
   - name: Концепции
     items:
       - name: Обзор

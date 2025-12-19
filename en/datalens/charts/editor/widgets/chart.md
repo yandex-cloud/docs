@@ -5,10 +5,6 @@ description: In this article, you will learn about charts (Gravity UI Charts) in
 
 # Chart (Gravity UI Charts)
 
-
-{% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 You can use this chart type to render various charts with the [@gravity-ui/charts](https://github.com/gravity-ui/charts) library.
 
 For available types of visualizations, see the [library overview](https://gravity-ui.github.io/charts/pages/overview.html).

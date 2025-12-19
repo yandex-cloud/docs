@@ -71,7 +71,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/markup-functions.md
 
 ## [MARKUP](MARKUP.md)
 
-**Синтаксис:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
+**Синтаксис:**`MARKUP(  [ arg_1 [ , arg_2 [ , arg_3 [ , ... ] ] ] ] )`
 
 Объединяет размеченный текст. Также может быть использован для конвертации обычных строк в размеченный текст.
 

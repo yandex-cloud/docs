@@ -109,8 +109,8 @@ The time it takes to move a VM to a different availability zone depends on the s
       +----------------------+---------------------------------+--------------------------------+----------------------+
       |          ID          |              NAME               |          DESCRIPTION           |      NETWORK-ID      |
       +----------------------+---------------------------------+--------------------------------+----------------------+
-      | enpagmu40nj577vbbsl5 | my-sg-group                     |                                | enpnohfm8jb52d4c9av8 |
-      | enpe9n88cellg5p3av6g | default-sg-enpnohfm8jb52d4c9av8 | Default security group for     | enpnohfm8jb52d4c9av8 |
+      | enpagmu40nj5******** | my-sg-group                     |                                | enpnohfm8jb5******** |
+      | enpe9n88cell******** | default-sg-enpnohfm8jb5******** | Default security group for     | enpnohfm8jb5******** |
       |                      |                                 | network                        |                      |
       +----------------------+---------------------------------+--------------------------------+----------------------+
       ```
@@ -172,7 +172,7 @@ The time it takes to move a VM to a different availability zone depends on the s
 
           If a VM has multiple network interfaces, specify the `--network-interface` parameter as many times as needed (for each network interface).
 
-      For more information about the `yc compute instance relocate` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
+      For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
       If you are moving a VM with a [disk in a placement group](../../concepts/disk-placement-group.md), use this command:
 
@@ -195,7 +195,7 @@ The time it takes to move a VM to a different availability zone depends on the s
         * `disk-placement-group-id`: ID of the disk placement group to place the disk in.
         * `disk-placement-group-partition`: Partition number in the disk placement group.
 
-      For more information about the `yc compute instance relocate` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
+      For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
   Please note that connecting VM [network interfaces](../../concepts/network.md) to new subnets changes their IP addressing. If you need to specify internal IP addresses for the VM network interfaces, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for public IP addresses, use the `nat-address=<public_IP_address>` property. Other than that, setting up network interface parameters when moving a VM to a different availability zone is similar to setting up the same parameters when creating a VM.
 

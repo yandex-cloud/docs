@@ -35,6 +35,8 @@ items:
         href: operations/instance/monitoring.md
       - name: Setting up OmniAuth
         href: operations/omniauth.md
+      - name: Integration with {{ objstorage-name }}
+        href: operations/objstorage-integration.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -67,7 +69,7 @@ items:
         href: tutorials/argo-cd.md
   - name: Concepts
     items:
-      - name: Service resource interdependencies
+      - name: Resource relationships
         href: concepts/index.md
       - name: Advantages over a custom {{ GL }} installation
         href: concepts/managed-gitlab-vs-custom-installation.md
@@ -81,6 +83,8 @@ items:
         href: concepts/security.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Integration with {{ objstorage-name }}
+        href: concepts/s3-integration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -557,7 +557,7 @@ To build and upload a working version of the website to your bucket, use [AWS CL
 
     {% note info %}
 
-    If an error occurs, replace the `region` value with the main AWS region — [first row in the regions table](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+    If you get an error, replace the `region` value with the main AWS region, which is the [first row in the table of regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
 
     {% endnote %}
 

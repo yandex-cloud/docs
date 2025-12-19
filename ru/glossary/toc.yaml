@@ -101,6 +101,8 @@ items:
         href: dns.md
       - name: gRPC
         href: grpc.md
+      - name: Наблюдаемость
+        href: observability.md
       - name: REST API
         href: rest-api.md
       - name: Виртуальная частная сеть (VPN)
