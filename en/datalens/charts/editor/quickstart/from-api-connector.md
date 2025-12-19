@@ -5,10 +5,6 @@ description: Follow this guide to build a table based on API Connector in Editor
 
 # Building a table based on API Connector
 
-
-{% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 Follow this guide to build a table in Editor based on an API Connector connection.
 
 You will use a static JSON file located at `https://storage.yandexcloud.net/datalens-public-demo-assets/data/mtcars.json` as your data source, but the process is similar for full-blown APIs.
@@ -125,7 +121,7 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
    module.exports = {head, rows};
    ```
 
-1. At the top of the chart, click **Run**. The preview area will display a simple table displaying the data received from the JSON API.
+1. At the top of the chart, click **Execute**. The preview area will display a simple table displaying the data received from the JSON API.
 
    ![image.png](../../../../_assets/datalens/editor/quick-start-3.png)
 

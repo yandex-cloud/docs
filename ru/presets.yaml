@@ -6752,7 +6752,6 @@ default:
         v1|string: Не тарифицируется
   sku|USD|datalens:
     users:
-      v1|number: 8.249997
       v1|string: "8,249997\_$"
   sku|USD|datatransfer:
     compute:
@@ -9293,6 +9292,7 @@ default:
         Layout:
           organization-description_kvoUz: Пользователи и приложения
         MyAccountLayout:
+          activity_kyqSv: Активность
           groups_pqQRu: Группы
           profile_8kyBA: Профиль
           security_7zQ3g: Вход и безопасность
@@ -9593,6 +9593,11 @@ default:
         users:
           components:
             title_mfa_5CFwd: MFA
+          Filters:
+            placeholder_eu3h7: Все операции
+          UserPageLayout:
+            title_audit-log_fGywF: Аудитный лог
+            title_auth-audit-log_sajZE: Лог входа
       page:
         acl-diagnostics:
           action_select-subject: Выбрать субъект
@@ -10482,6 +10487,8 @@ default:
         label_marketplace: Магазин приложений
       cloud-registry:
         action_registry-create: Создать реестр
+        registries:
+          registry-kind_docker: Docker
         title_registries: Реестры
       cloud-shell:
         label_service: Cloud Shell
@@ -11934,6 +11941,8 @@ default:
             label_rotation: Период ротации
             label_title-versions: Версии
         symmetric-keys:
+          button_action-activate: Активировать
+          button_action-deactivate: Деактивировать
           button_action-rotate: Ротировать
           button_empty-create: Создать ключ
       load-balancer:

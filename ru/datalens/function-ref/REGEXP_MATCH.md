@@ -40,4 +40,4 @@ REGEXP_MATCH("RU 912873","\w\s\d") = TRUE
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `Яндекс Документы`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`.

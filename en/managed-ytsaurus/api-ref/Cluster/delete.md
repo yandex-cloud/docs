@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the cluster to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -36,7 +37,9 @@ DELETE https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters/{clusterId}
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster to delete. ||
+Required field. ID of the cluster to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -108,13 +108,14 @@ You can [issue](../operations/applications/saml-update.md#update-cert) new digit
 {% include [saml-app-cert-update-warn](../../_includes/organization/saml-app-cert-update-warn.md) %}
 
 You must additionally specify on the service provider's side what data will be signed in the identity provider's SAML responses:
-* Only provided user attributes.
+* Only the provided user attributes.
 * Full SAML response.
 * Full SAML response and, separately, the provided attributes.
 
 The signing mode configured on the service provider's side must be the same as the signing mode on the {{ org-name }} side.
 
 ## OIDC apps {#oidc}
+
 
 In {{ org-name }}, you can [create](../operations/applications/oidc-create.md) OpenID Connect (OIDC) applications that allow configuring OIDC-based single sign-on on the {{ org-name }} side and provide the values you need to set up integration on the service provider's side.
 

@@ -5,10 +5,6 @@ description: In this article, you will learn about report versioning and version
 
 # Versioning
 
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 Report versioning means storing the history of report configuration changes through versions. A list of versions is available to users with the lowest edit permission for the report.
 
 To go to the list of versions, click ![image](../../_assets/console-icons/ellipsis.svg) at the top of the screen and select ![image](../../_assets/console-icons/clock.svg) **Change history**.

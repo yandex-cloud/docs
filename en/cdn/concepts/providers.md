@@ -4,9 +4,11 @@ _CDN provider_ is a content delivery service provider.
 
 {{ cdn-full-name }} supports the following content delivery network providers:
 * {{ cdn-full-name }} based on Yandex own technology. It is used by default.
-* [EdgeCDN](https://edgecenter.ru/cdn) based on the external infrastructure of our partner, EdgeCenter.
+* [EdgeCDN](https://edgecenter.ru/en/cdn) based on the external infrastructure of our partner, EdgeCenter.
 
 Both providers offer the same capabilities and support the same interfaces for resource and CDN origin management: the [management console]({{ link-console-main }}), [CLI](../cli-ref/index.md), [{{ TF }}](../tf-ref.md), and [API](../api-ref/authentication.md).
+
+Providers have different points of presence (POPs). For more information, see [{#T}](points-of-presence.md).
 
 If you use the EdgeCDN provider, its own [limits](limits.md#cdn-limits) and [restrictions](limits.md#other-restrictions) apply.
 

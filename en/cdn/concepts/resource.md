@@ -1,6 +1,6 @@
 # CDN resource
 
-A _resource_ is the main logical entity in {{ cdn-full-name }} that lets you configure and manage content distribution from [origins](origins.md) over a CDN.
+A _resource_ is the main logical entity in {{ cdn-full-name }} that lets you configure and manage content distribution from [origins](origins.md) over a CDN. Content is distributed through [points of presence](points-of-presence.md).
 
 To start distributing content over a CDN, create a resource by following the [instructions](../operations/resources/create-resource.md) and specify the following in it:
 

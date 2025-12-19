@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Captcha resource to return.
+            The maximum string length in characters is 50.
           type: string
       required:
         - captchaId
@@ -36,7 +37,9 @@ GET https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas/{captchaId}:get
 ||Field | Description ||
 || captchaId | **string**
 
-Required field. ID of the Captcha resource to return. ||
+Required field. ID of the Captcha resource to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.smartcaptcha.v1.CaptchaSecretKey}

@@ -9,3 +9,9 @@ You can only change resources for a node group. You can create groups with diffe
 #### Who handles {{ k8s }} cluster scaling? {#scaling}
 
 In {{ managed-k8s-name }}, you can enable [cluster autoscaling](../../managed-kubernetes/concepts/autoscale.md#ca).
+
+#### Do the {{ k8s }} cluster nodes need internet access? {#internet-access}
+
+{% include [nodes-internet-access](../../_includes/managed-kubernetes/nodes-internet-access.md) %}
+
+{% include [nodes-internet-access-additional](../../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}

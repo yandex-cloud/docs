@@ -82,11 +82,11 @@ Yes, you can create snapshots of the disks attached to your VM and use them when
 
 #### Can I move my VM to a different availability zone? {#move-az}
 
-You cannot directly change the [availability zone](../../overview/concepts/geo-scope.md) hosting your VM. However, you can create a VM copy in the availability zone you need.
+You can move an existing VM to a different [availability zone](../../overview/concepts/geo-scope.md). You can also create a VM copy in another availability zone. For more information, see [{#T}](../../compute/operations/vm-control/vm-change-zone.md).
 
 #### Can I move my VM to a different folder? {#move-to-project}
 
-You can move your VM to a different [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). For more information, see [{#T}](../../compute/operations/vm-control/vm-change-folder.md).
+You can move your VM to different [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). For more information, see [{#T}](../../compute/operations/vm-control/vm-change-folder.md).
 
 #### Can I recover my VM if I accidentally delete it? {#delete-vm2}
 

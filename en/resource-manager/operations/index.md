@@ -26,6 +26,7 @@ description: Step-by-step guide on managing a cloud using {{ resmgr-full-name }}
 * [{#T}](folder/update.md)
 * [{#T}](folder/delete.md)
 * [{#T}](folder/set-access-bindings.md)
+* [{#T}](folder/switch.md)
 * [{#T}](folder/get-id.md)
 * [{#T}](folder/notify.md)
 

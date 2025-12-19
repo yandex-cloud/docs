@@ -50,4 +50,4 @@ COUNTD_APPROX([ClienID])
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `Files`, `Google Sheets`, `Oracle Database 12c (12.1)`, `Yandex Documents`, `YDB`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `Oracle Database 12c (12.1)`, `Trino`, `Yandex Documents`, `YDB`.

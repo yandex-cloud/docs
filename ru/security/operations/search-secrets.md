@@ -7,22 +7,11 @@ description: Следуя данной инструкции, вы сможете
 
 {{ yandex-cloud }} ищет следующие типы секретов в открытых источниках:
 
-* [API-ключи](../../iam/concepts/authorization/api-key.md).
-* [{{ iam-short-name }} Cookies](../../iam/concepts/authorization/cookie.md).
-* [{{ iam-short-name }}-токены](../../iam/concepts/authorization/iam-token.md).
-* [Статические ключи доступа](../../iam/concepts/authorization/access-key.md).
-* [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
-* [Серверные ключи {{ captcha-name }}](../../smartcaptcha/concepts/keys.md).
-* [Refresh-токены](../../iam/concepts/authorization/refresh-token.md).
-* [Секреты OIDC-приложений](../../organization/concepts/applications.md#oidc-secret).
+{% include [secret-types](../../_includes/security/standard/secret-types.md) %}
 
 {{ yandex-cloud }} подключен к следующим программам поиска секретов:
 
-* [Партнерская программа поиска секретов {{ yandex-cloud }}](#leak-detection-affiliate-program).
-* [GitHub Secret scanning partner program](#github-secret-scanning).
-* [GitLab Secret Detection](#gitlab-secret-detection).
-* [Поисковый индекс Яндекс](#secret-is-leaked).
-* [Helm-чарты в {{ marketplace-full-name }}](#helm-charts).
+{% include [secret-sources](../../_includes/security/standard/secret-sources.md) %}
 
 ## Партнерская программа поиска секретов {{ yandex-cloud }} {#leak-detection-affiliate-program}
 

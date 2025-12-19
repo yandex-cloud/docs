@@ -5,6 +5,7 @@ description: Follow this guide to create an OIDC application in {{ org-name }} t
 
 # Creating an OIDC application in {{ org-full-name }}
 
+
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
 To authenticate your [organization’s](../../concepts/organization.md) users in external apps using [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on, create an [OIDC application](../../concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and on your service provider’s side.
@@ -112,13 +113,13 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
 
      Where:
 
-     * `--organization-id`: [ID of the organization](../organization-get-id.md) you want to create your OIDC app in. This is a required parameter.
-     * `--name`: OIDC app name. This is a required parameter. The name must be unique within the organization and follow the naming requirements:
+     * `--organization-id`: [ID of the organization](../organization-get-id.md) you want to create your OIDC app in. This is a required setting.
+     * `--name`: OIDC app name. This is a required setting. The name must be unique within the organization and follow the naming requirements:
 
        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
-     * `--description`: OIDC app description. This is an optional parameter.
-     * `--client-id`: OAuth client ID you got in Step 2. This is a required parameter.
+     * `--description`: OIDC app description. This is an optional setting.
+     * `--client-id`: OAuth client ID you got in Step 2. This is a required setting.
      * `--authorized-scopes`: Specify the same attributes as when creating the OAuth client.
      * `--group-distribution-type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. The possible values are:
        * `all-groups`: Service provider will get all groups the user belongs to.
@@ -126,7 +127,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
           The maximum number of groups to change hands is 1,000. If the user belongs to more groups than this, only the first thousand will go to the service provider.
        * `assigned-groups`: Of all the user's groups, the service provider will only get the ones explicitly [specified](#users-and-groups).
        * `none`: Service provider will not get any of the groups the user belongs to.
-     * `--labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
+     * `--labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
      Result:
 

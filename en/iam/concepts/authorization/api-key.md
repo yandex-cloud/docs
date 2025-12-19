@@ -40,12 +40,17 @@ Available scopes are listed below:
 * `yc.ai.speechkitTts.execute`: To [synthesize speech](../../../speechkit/tts/index.md) via the [{{ speechkit-name }} API](../../../speechkit/concepts/api.md).
 * `yc.ai.translate.execute`: To translate text via the [{{ translate-full-name }} API](../../../translate/concepts/api.md).
 * `yc.ai.vision.execute`: To perform optical text recognition via the [{{ vision-name }} API](../../../vision/ocr/api-ref/index.md).
+* `yc.datasphere.community-projects.manageResource`: To manage [project](../../../datasphere/concepts/project.md) resources via the [{{ ml-platform-full-name }} API](../../../datasphere/api-ref/overview.md).
+* `yc.logging.write`: To write logs to [log groups](../../../logging/concepts/log-group.md) via the [{{ cloud-logging-full-name }} API](../../../logging/api-ref/authentication.md).
+* `yc.managed-ytsaurus.cluster.use`: To work with [clusters](../../../managed-ytsaurus/concepts/component-types.md) via the [{{ myt-full-name }} API](../../../managed-ytsaurus/api-ref/authentication.md).
 * `yc.monitoring.manage`: To view and write data in {{ monitoring-full-name }} via the [{{ monitoring-name }} API](../../../monitoring/api-ref/index.md).
 * `yc.monitoring.read`: To view data in {{ monitoring-full-name }} via the [{{ monitoring-name }} API](../../../monitoring/api-ref/index.md).
 * `yc.postbox.send`: To send emails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
 * `yc.search-api.execute`: To send search queries to [{{ search-api-name }}](../../../search-api/api-ref/index.md).
 * `yc.serverless.containers.invoke`: To invoke containers via the [{{ serverless-containers-short-name }} API](../../../serverless-containers/containers/api-ref/index.md).
 * `yc.serverless.functions.invoke`: To invoke functions via the [{{ sf-short-name }} API](../../../functions/functions/api-ref/index.md).
+* `yc.serverless.mcpGateways.invoke`: To invoke MCP servers via the [{{ mcp-hub-name }} {{ foundation-models-full-name }}](../../../ai-studio/concepts/mcp-hub/index.md).
+* `yc.speech-sense.use`: To work with {{ speechsense-name }} [resources](../../../speechsense/concepts/resources-hierarchy.md) via the [{{ speechsense-full-name }} API](../../../speechsense/api-ref/authentication.md).
 * `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
 * `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
 

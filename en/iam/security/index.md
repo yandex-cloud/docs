@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ iam-full-name }} ({{ iam-short-name }})
-description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an identity and access management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an identity and access management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ iam-name }}
@@ -20,7 +20,36 @@ To assign a role for a resource, a user should have the `iam.admin` role or one 
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a [service account](../concepts/users/service-accounts.md) in the [management console]({{ link-console-main }}) or using the {{ yandex-cloud }} [CLI](../../cli/cli-ref/iam/cli-ref/service-account/add-access-binding.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+You can also assign roles for individual resources within the service:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  You can use the [management console]({{ link-console-main }}) to assign roles for a [service account](../concepts/users/service-accounts.md).
+
+- CLI {#cli}
+
+  You can use the [{{ yandex-cloud }} CLI](../../cli/cli-ref/iam/cli-ref/index.md) to assign roles for the following resources:
+
+  * [Service account](../concepts/users/service-accounts.md)
+  * [Workload identity federation](../concepts/workload-identity.md)
+
+- {{ TF }} {#tf}
+
+  You can use [{{ TF }}]({{ tf-provider-link }}) to assign roles for the following resources:
+
+  * [Service account](../concepts/users/service-accounts.md)
+  * [Workload identity federation](../concepts/workload-identity.md)
+
+- API {#api}
+
+  You can use the [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
+
+  * [Service account](../concepts/users/service-accounts.md)
+  * [Workload identity federation](../concepts/workload-identity.md)
+
+{% endlist %}
 
 ## Roles this service has {#roles-list}
 

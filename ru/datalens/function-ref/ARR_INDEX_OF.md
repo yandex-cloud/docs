@@ -1,0 +1,48 @@
+---
+editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/ARR_INDEX_OF.md
+---
+
+# ARR_INDEX_OF
+
+
+
+#### Синтаксис {#syntax}
+
+
+```
+ARR_INDEX_OF( array, value )
+```
+
+#### Описание {#description}
+Возвращает позицию (индекс) первого вхождения значения `value` в массив `array`. Индексация начинается с 1. Если значение `value` не найдено в массиве, функция возвращает 0.
+
+**Типы аргументов:**
+- `array` — `Массив дробных чисел | Массив целых чисел | Массив строк`
+- `value` — `Дробное число | Целое число | Строка`
+
+
+**Возвращаемый тип**: `Целое число`
+
+#### Примеры {#examples}
+
+```
+ARR_INDEX_OF(ARRAY('a', 'b', 'c', 'b'), 'b') = 2
+```
+
+```
+ARR_INDEX_OF(ARRAY(1.1, 2.2, 3.3, 3.3), 3) = 3
+```
+
+```
+ARR_INDEX_OF(ARRAY(1, 2, 3, 2), 2) = 2
+```
+
+```
+ARR_INDEX_OF(ARRAY('a', 'b', 'c', 'b'), 'd') = 0
+```
+
+
+#### Поддержка источников данных {#data-source-support}
+
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`.

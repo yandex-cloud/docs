@@ -5,10 +5,6 @@ description: In this article, you will learn about the Editor tabs.
 
 # Tabs
 
-
-{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 Chart configuration is customized using JavaScript code you add on the editor tabs in the [interface](./index.md#interface).
 
 The chart configuration code, as described on the tabs, is executed on the server. This page presents the code formats for each of the tabs.
@@ -196,7 +192,7 @@ The following limitations apply when using parameters:
 
 This tab defines the structure for requesting the data to visualize.
 
-You can request the data using:
+You can get the data using:
 
 * [Dataset](#sources-dataset)
 * [Database connection via an SQL query](#sources-database)

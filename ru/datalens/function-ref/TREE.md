@@ -32,4 +32,4 @@ TREE(ARRAY([Country], [Region], [City]))
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Яндекс Документы`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`.

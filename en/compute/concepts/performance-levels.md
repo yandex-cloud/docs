@@ -26,6 +26,8 @@ VMs with vCPU performance level below 100% may operate at lower [speed](storage-
 
 {% include [vcpu-perfomance-disks](../../_includes/compute/vcpu-perfomance-disks.md) %}
 
+{% include [vcpu-note](../../_includes/compute/vcpu-note.md) %}
+
 {% endnote %}
 
 ## Minimum and maximum configurations {#minmax-configurations}

@@ -7,6 +7,69 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.180.0 (04/12/25) {#version0.180.0}
+
+##### {{ mtr-short-name }}
+* Added the following commands for creating and updating a {{ TR }} catalog with a {{ MY }} connector for {{ mtr-name }}:
+  * `yc managed trino catalog create mysql`
+  * `yc managed trino catalog update mysql`
+
+##### {{ org-name }}
+* Removed certain password policies from user pool management commands:
+  * `yc organization-manager idp userpool create`
+  * `yc organization-manager idp userpool update`
+
+## Previous releases {#previous-release}
+
+### Version 0.179.0 (02/12/25) {#version0.179.0}
+
+#### Changes to the CLI {#cli}
+
+* Added the new `yc beta` command subtree with beta commands that use the updated interface.
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ org-name }}
+
+* Added commands for authorization policy management at the organization level:
+  * `yc organization-manager organization list-access-policy-bindings`
+  * `yc organization-manager organization bind-access-policy`
+  * `yc organization-manager organization unbind-access-policy`
+
+##### {{ resmgr-name }}
+
+* Added commands for authorization policy management at the cloud level:
+  * `yc resource-manager cloud list-access-policy-bindings`
+  * `yc resource-manager cloud bind-access-policy`
+  * `yc resource-manager cloud unbind-access-policy`
+
+##### {{ resmgr-name }}
+
+* Added commands for authorization policy management at the folder level:
+  * `yc resource-manager folder list-access-policy-bindings`
+  * `yc resource-manager folder bind-access-policy`
+  * `yc resource-manager folder unbind-access-policy`
+
+##### {{ at-name }}
+
+* Added the `--destination-yds-codec` flag to select an event compression method when configuring {{ yds-name }} trails:
+  * `yc audit-trails trail create`
+  * `yc audit-trails trail update`
+
+### Version 0.178.0 (01/12/25) {#version0.178.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mkf-name }}
+
+* Added the `--disk-encryption-key-id` parameter to specify an encryption key for cluster disks: `yc managed-kafka cluster create`.
+
+##### {{ ig-name }}
+
+* Added commands to manage the zonal shift in {{ ig-name }}:
+  * `yc compute instance-group disable-zones`
+  * `yc compute instance-group enable-zones`
+
 ### Version 0.177.0 (20/11/25) {#version0.177.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -75,8 +138,6 @@ description: This page presents a list of CLI releases and the updates of each.
   * `yc managed-trino cluster add-access-bindings`
   * `yc managed-trino cluster remove-access-bindings`
 
-## Previous releases {#previous-release}
-
 ### Version 0.176.0 (20/11/25) {#version0.176.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -113,7 +174,7 @@ Added commands for {{ mcp-hub-name }}:
 
 ### Version 0.175.0 (10/11/25) {#version0.175.0}
 
-####  Changes in {{ yandex-cloud }} services
+#### Changes in {{ yandex-cloud }} services
 
 ##### {{ org-name }}
 
@@ -2289,7 +2350,7 @@ Fixed the `yc compute instance-group update` command issue where the instance gr
 
 * Added the `yc managed-postgresql backup delete` command for deleting manual backups.
 * Added the following flags to the `yc managed-postgresql cluster update` command:
-  * `--disk-size-autoscaling`: To manage the automatic disk size expansion service settings.
+  * `--disk-size-autoscaling`: To manage the automatic disk size increase service settings.
   * `--yandexquery-access`: To allow access to the cluster from {{ yq-full-name }}.
 
 **{{ mch-name }}**
@@ -2453,16 +2514,16 @@ Added the `yc managed-clickhouse cluster list-external-dictionaries` command to 
 
 ##### {{ cloud-logging-name }} {#cloud-logging}
 
-* Added the `SINCE` and `FILTER` positional parameters to the `yc logging read` command, e.g.: `yc logging read default 1d "level = INFO"`.
-* Added the `MESSAGE` and `JSON-PAYLOAD` positional parameters to the `yc logging write` command, e.g.: `yc logging write default test "{\"key\":\"value\"}"`.
+* Added the `SINCE` and `FILTER` positional parameters to the `yc logging read` command, e.g., `yc logging read default 1d "level = INFO"`.
+* Added the `MESSAGE` and `JSON-PAYLOAD` positional parameters to the `yc logging write` command, e.g., `yc logging write default test "{\"key\":\"value\"}"`.
 
 ##### {{ sf-name }} {#functions}
 
-* Added the `SINCE` and `FILTER` positional parameters to the `yc serverless function logs` and `yc serverless function version logs` commands, e.g.: `yc serverless function logs default 1d "level = INFO"`.
+* Added the `SINCE` and `FILTER` positional parameters to the `yc serverless function logs` and `yc serverless function version logs` commands, e.g., `yc serverless function logs default 1d "level = INFO"`.
 
 ##### {{ iot-name }} {#iot}
 
-Added the `SINCE` and `FILTER` positional parameters to the `yc iot broker logs` command, e.g.: `yc iot broker logs default 1d "level = INFO"`.
+Added the `SINCE` and `FILTER` positional parameters to the `yc iot broker logs` command, e.g., `yc iot broker logs default 1d "level = INFO"`.
 
 ### Version 0.103.0 (15/03/23) {#version0.103.00}
 

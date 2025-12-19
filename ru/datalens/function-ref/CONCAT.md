@@ -11,7 +11,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/CONCAT.md
 
 
 ```
-CONCAT( arg_1, arg_2, arg_3 [ , ... ] )
+CONCAT(  [ arg_1 [ , arg_2 [ , arg_3 [ , ... ] ] ] ] )
 ```
 
 #### Описание {#description}
@@ -38,4 +38,4 @@ CONCAT(2019, 01, 23) = "20190123"
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `Яндекс Документы`, `YDB`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`, `YDB`.

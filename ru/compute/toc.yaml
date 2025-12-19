@@ -632,6 +632,8 @@ items:
             href: tutorials/integrate-nextcloud/fault-tolerant.md
           - name: Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF }}
             href: tutorials/integrate-nextcloud/terraform.md
+      - name: Запуск Docker-образа на ВМ с помощью {{ cloud-registry-name }}
+        href: tutorials/docker-cloud-registry.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

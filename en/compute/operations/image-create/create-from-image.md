@@ -68,11 +68,12 @@ To create an image from another custom image:
           {% include [generation-types-cli](../../../_includes/compute/generation-types-cli.md) %}
 
           If not specified, the new image will get the same hardware generation assigned as the source image.
-      * `--hardware-features`: Additional settings for `Gen 1`. This is an optional setting. The possible values are:
+      * `--hardware-features`: Advanced settings for `Gen 1`. This is an optional setting. The possible values are:
 
           * `pci_topology=v1`: `PCI_TOPOLOGY_V1` topology.
           * `pci_topology=v2`: Adopts the `PCI_TOPOLOGY_V2` topology.
 
+          If the source image has `Gen 2` assigned, by default the new image will get `--hardware-features` set to `pci_topology=v1`.
 
           If the source image has `Gen 1` assigned, by default the new image will get the same `--hardware-features` value as the source image.
 

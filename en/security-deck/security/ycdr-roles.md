@@ -1,6 +1,6 @@
 ---
 title: '{{ ycdr-full-name }} service roles in {{ sd-full-name }}'
-description: This page enlists service roles required to control access to the {{ ycdr-name }} module in {{ sd-name }}.
+description: This page lists the service roles required to control access to the {{ ycdr-name }} module in {{ sd-name }}.
 ---
 
 # Service roles for {{ ycdr-full-name }}

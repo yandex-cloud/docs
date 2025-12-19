@@ -5,10 +5,6 @@ description: In this article, you will learn about methods available in Editor.
 
 # Methods available in Editor
 
-
-{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 The supported methods include:
 
 * [Editor.generateHtml(arg)](#gen-html)

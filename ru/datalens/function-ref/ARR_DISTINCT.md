@@ -1,0 +1,43 @@
+---
+editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/ARR_DISTINCT.md
+---
+
+# ARR_DISTINCT
+
+
+
+#### Синтаксис {#syntax}
+
+
+```
+ARR_DISTINCT( array )
+```
+
+#### Описание {#description}
+Удаляет повторяющиеся элементы из массива `array`, возвращая новый массив, содержащий только уникальные элементы. Порядок элементов в возвращаемом массиве может не совпадать с порядком в исходном массиве.
+
+**Типы аргументов:**
+- `array` — `Массив дробных чисел | Массив целых чисел | Массив строк`
+
+
+**Возвращаемый тип**: Совпадает с типом аргументов (`array`)
+
+#### Примеры {#examples}
+
+```
+ARR_DISTINCT(ARRAY(1, 2, 2, 3, 3, 3, 4)) = [1, 2, 3, 4]
+```
+
+```
+ARR_DISTINCT(ARRAY(1.1, 2.2, 2.2, 3.3, 3.3, 3.3, 4.4)) = [1.1, 2.2, 3.3, 4.4]
+```
+
+```
+ARR_DISTINCT(ARRAY('apple', 'banana', 'apple', 'orange', 'banana')) = ['apple', 'banana', 'orange']
+```
+
+
+#### Поддержка источников данных {#data-source-support}
+
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`.

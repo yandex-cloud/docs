@@ -24,7 +24,7 @@ Make sure to provide anti-malware protection within your scope of responsibility
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 Follow the vendor guide to install the AV solution.
 
@@ -145,7 +145,7 @@ When deploying virtual machines, we recommend:
 
 #### 3.4 {{ TF }} is used in accordance with best information security practices {#tf-using}
 
-With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} will automatically detect which part of your configuration is already deployed, and what should be added or removed. Learn more in [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
+With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} will automatically detect which part of your configuration is already deployed, and what should be added or removed. For more information, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
 We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, payment system data, etc. Instead, you should use services to store and use secrets in the configuration, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
@@ -246,7 +246,7 @@ The {{ yandex-cloud }} Certified Security Specialist certification exam evaluate
 | --- | --- |
 | ENV39 | Informational |
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 1. See the [description of competencies](https://yandex.cloud/ru/certification/security-specialist-competencies) tested during the {{ yandex-cloud }} Certified Security Specialist exam.
 1. Study the [materials](https://yandex.cloud/ru/certification/security-specialist-prerequisites) to help you pass the exam.
@@ -308,7 +308,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 
 {% endlist %}
 
-**Guides and solutions to use:** 
+**Guides and solutions to use:**
 
 If public access is enabled, [remove](../../../iam/operations/roles/revoke.md) it or perform access control (grant permission to access public data consciously).
 
@@ -413,7 +413,7 @@ When using {{ objstorage-name }} to store critical data, be sure to enable loggi
 
 This makes sure that data-plane logs with the following objects are written: PUT, DELETE, GET, POST, OPTIONS, HEAD.
 
-You can request log data [writing](../../../audit-trails/concepts/events.md#objstorage) (except for bucket object read events) in {{ at-short-name }}. You can use the `traffic` metric in [{{ monitoring-short-name }}](../../../storage/metrics.md) to view the amount of outgoing traffic from the bucket. In the future, all logs will be written to {{ at-short-name }}.
+You can get log data [writing](../../../audit-trails/concepts/events.md#objstorage) (except for bucket object read events) in {{ at-short-name }}. You can use the `traffic` metric in [{{ monitoring-short-name }}](../../../storage/metrics.md) to view the amount of outgoing traffic from the bucket. In the future, all logs will be written to {{ at-short-name }}.
 
 You can also analyze {{ objstorage-name }} logs in {{ datalens-short-name }}. For more information, see [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](../../../tutorials/datalens/storage-logs-analysis.md).
 
@@ -540,7 +540,7 @@ We recommend prohibiting internet access to databases that contain critical data
      done
      ```
 
-  1. The output should return an empty string. Otherwise, proceed to "Guides and solutions to use".
+  1. The output should return an empty string. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -585,11 +585,11 @@ Assigning a public IP to a managed database raises information security risks. W
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
-**Guides and solutions to use:** 
+**Guides and solutions to use:**
 
 Disable public access if it is not required.
 
@@ -805,7 +805,7 @@ We recommend that you enable this type of access only if needed, because it rais
 
 {% endlist %}
 
-**Guides and solutions to use:** 
+**Guides and solutions to use:**
 
 1. In the management console, select the cloud or folder to disable access from the management console in.
 1. In the list of services, select a service or services with managed databases.
@@ -1009,7 +1009,7 @@ When setting up database permissions, use the principle of least privilege.
 
 {% endlist %}
 
-**Guides and solutions to use:** 
+**Guides and solutions to use:**
 
 Disable public access if it is not required.
 
@@ -1425,7 +1425,7 @@ An API gateway is an interface for working with services in {{ yandex-cloud }} o
 
 #### 3.40 Access management in {{ api-gw-name }} is configured {#api-gateway-access-managment}
 
-{{ yandex-cloud }} users can only perform operations on resources in accordance with the roles assigned to them. Without assigned roles, a user cannot perform most operations.
+{% include [operate-via-roles-paragraph](../../../_includes/iam/operate-via-roles-paragraph.md) %}
 
 [{{ iam-full-name }}](../../../iam/) checks all operations in {{ yandex-cloud }}. If an entity does not have required permissions, {{ iam-short-name }} returns an error.
 
@@ -1477,7 +1477,7 @@ If you specify a network in the API gateway settings, this will create an auxili
 
 {% endlist %}
 
-**Guides and solutions to use:** 
+**Guides and solutions to use:**
 
 If the API gateway does not require access to resources from the specified cloud network, delete it from the gateway settings. For more information, see [{#T}](../../../api-gateway/operations/api-gw-update.md).
 

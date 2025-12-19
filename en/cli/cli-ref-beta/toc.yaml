@@ -1,7 +1,7 @@
 title: Command line interface beta version
 href: index.yaml
 items:
-  - name: CLI beta version reference
+  - name: CLI beta reference
     expanded: true
     items:
       - name: Overview

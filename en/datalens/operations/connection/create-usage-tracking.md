@@ -20,9 +20,11 @@ To create a {{ datalens-short-name }} Usage Analytics connection:
 
 1. Under **Files and services**, select the **Usage Analytics** connection:
 
-   * **Light**: Provides aggregated statistics on the {{ datalens-short-name }} instance usage for a limited period of time (60 days). This connection is available with any [service plan](../../pricing.md#service-plans).
+   * **Light**: Provides aggregated statistics on the {{ datalens-short-name }} instance usage for a limited period of time (60 days).
 
-   * **Detailed**: Provides both detailed and aggregated statistics for the {{ datalens-short-name }} instance over a long period of time (360 days). Offers detailed statistics on dataset queries and dashboard views. This connection is only available with the _Business_ [service plan](../../pricing.md#service-plans). Once you change your service plan to _Community_, the connection will no longer work.
+   * **Detailed**: Provides both detailed and aggregated statistics for the {{ datalens-short-name }} instance over a long period of time (360 days). Offers detailed statistics on dataset queries and dashboard views.
+
+{% include [datalens-usage-tracking-connection-011225-note](../../../_includes/datalens/operations/datalens-usage-tracking-connection-011225-note.md) %}
 
 1. Leave the **Automatically create dashboard, charts, and dataset over connection** option enabled if you want a standard dataset:
 

@@ -7,6 +7,8 @@ description: '{{ k8s }}® Security Posture Management (KSPM) ensures that contai
 
 {% include [note-preview-kspm](../../_includes/security-deck/note-preview-kspm.md) %}
 
+{% include [kpsm-requirements](../../_includes/security-deck/kpsm-requirements.md) %}
+
 {% include [kspm-basic-intro](../../_includes/security-deck/kspm-basic-intro.md) %}
 
 The KSPM configuration is set when you [create](../operations/workspaces/create.md) a workspace and may include checking clusters for compliance with the following standards:

@@ -22,7 +22,9 @@ To assign a role for a resource, a user should have the `storage.admin` role or 
 
 ## Resources you can assign a role for {#resources}
 
-You can use the [management console]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/quickstart.md), [API](../../api-design-guide/index.yaml) or [{{ TF }}]({{ tf-provider-link }}) to assign a role for an [organization](../../organization/concepts/organization.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or individual bucket. These assigned roles will also apply to nested resources.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can assign a role for a separate bucket in the [management console]({{ link-console-main }}) or using the [{{ yandex-cloud }} API](../api-ref/Bucket/setAccessBindings.md) or [{{ TF }}]({{ tf-provider-link }}/storage_bucket_iam_binding).
 
 To learn how to manage access to buckets and objects in them, see [{#T}](../concepts/acl.md).
 

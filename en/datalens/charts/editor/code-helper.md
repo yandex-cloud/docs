@@ -11,10 +11,6 @@ This feature is at the Beta testing stage.
 
 {% endnote %}
 
-
-{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 Neuroanalyst streamlines the creation and editing of visualizations in Editor. Available for three visualization types: [Table](./widgets/table.md), [Markdown](./widgets/markdown.md), and [Advanced chart](./widgets/advanced.md). Neuroanalyst only works with the **Prepare** tab.
 
 To activate Neuroanalyst, click **Help me code** at the top in Editor to open the **Neuroanalyst** tab on the right.

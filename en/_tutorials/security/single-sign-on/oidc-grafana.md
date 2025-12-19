@@ -1,5 +1,6 @@
 # Creating an OIDC application in {{ org-full-name }} for integration with Grafana Cloud
 
+
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
 [Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports OpenID Connect (OIDC) authentication to provide secure SSO for your organization's users.
@@ -55,6 +56,105 @@ To configure OIDC in Grafana Cloud, you need organization administrator permissi
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for creating an OIDC app:
+
+     ```bash
+     yc organization-manager idp application oauth application create --help
+     ```
+
+  1. Create an OAuth client:
+
+     ```bash
+     yc iam oauth-client create \
+       --name grafana-cloud-oauth-client \
+       --scopes openid,email,profile
+     ```
+
+     Where:
+
+     * `--name`: OAuth client name.
+     * `--scopes`: User attributes that will be available to Grafana Cloud. The specified attributes are:
+       * `openid`: User ID. Required attribute.
+       * `email`: User email address.
+       * `profile`: Additional user details, such as first name, last name, and avatar.
+
+     Result:
+
+     ```text
+     id: ajeqqip130i1********
+     name: grafana-cloud-oauth-client
+     folder_id: b1g500m2195v********
+     status: ACTIVE
+     ```
+
+     Save the `id` field value: you will need it to create and configure your app.
+
+  1. Create a secret for your OAuth client:
+
+     ```bash
+     yc iam oauth-client-secret create \
+       --oauth-client-id <OAuth_client_ID>
+     ```
+
+     Result:
+
+     ```text
+     oauth_client_secret:
+       id: ajeq9jfrmc5t********
+       oauth_client_id: ajeqqip130i1********
+       masked_secret: yccs__939233b8ac****
+       created_at: "2025-10-21T10:14:17.861652377Z"
+     secret_value: yccs__939233b8ac********
+     ```
+
+     Save the `secret_value` field value: you will need it to configure your Grafana Cloud.
+  
+  1. Create an OIDC app:
+
+     ```bash
+     yc organization-manager idp application oauth application create \
+       --organization-id <organization_ID> \
+       --name grafana-cloud-oidc-app \
+       --description "OIDC application for integration with Grafana Cloud" \
+       --client-id <OAuth_client_ID> \
+       --authorized-scopes openid,email,profile \
+       --group-distribution-type none
+     ```
+
+     Where:
+
+     * `--organization-id`: [ID of the organization](../../../organization/operations/organization-get-id.md) you want to create your OIDC app in. This is a required setting.
+     * `--name`: OIDC app name. This is a required setting.
+     * `--description`: OIDC app description. This is an optional setting.
+     * `--client-id`: OAuth client ID you got in Step 2. This is a required setting.
+     * `--authorized-scopes`: Specify the same attributes as when creating the OAuth client.
+     * `--group-distribution-type`: Set to `none` as user groups are not provided to Grafana Cloud.
+
+     Result:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: grafana-cloud-oidc-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: NONE
+     client_grant:
+       client_id: ajeqqip130i1********
+       authorized_scopes:
+         - openid
+         - email
+         - profile
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
 {% endlist %}
 
 ## Set up the integration {#setup-integration}
@@ -78,6 +178,60 @@ To integrate Grafana Cloud with the OIDC app you created in {{ org-name }}, comp
 
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Get information about your new OIDC application:
+
+     ```bash
+     yc organization-manager idp application oauth application get <app_ID>
+     ```
+
+     Where `<app_ID>` is your OIDC app ID you got when creating the app.
+
+     This will return the application information, including the following:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: grafana-cloud-oidc-app
+     organization_id: bpf2c65rqcl8********
+     client_grant:
+       client_id: ajeqqip130i1********
+       authorized_scopes:
+         - openid
+         - email
+         - profile
+     ```
+
+     Save the `client_id` value: this is the Client ID you will need to configure your Grafana Cloud.
+
+  1. Get the OpenID Connect Discovery configuration URL:
+
+     ```bash
+     yc organization-manager idp application oauth application get <app_ID> \
+       --format json | jq -r '.client_grant.issuer_uri'
+     ```
+
+     The result will look as follows:
+
+     ```text
+     https://{{ auth-main-host }}/oauth/<OAuth_client_ID>
+     ```
+
+     Save this URL: this is the OpenID Connect Discovery URL you will need to configure your Grafana Cloud.
+
+  1. Use the OAuth client secret that you saved when creating the app in the previous step. If you have not saved the secret, create a new one:
+
+     ```bash
+     yc iam oauth-client-secret create \
+       --oauth-client-id <OAuth_client_ID>
+     ```
+
+     Save the `secret_value` value from the command output: this is the Client Secret you will need to configure your Grafana Cloud.
+
 {% endlist %}
 
 #### Configure the redirect URI {#setup-redirect}
@@ -91,13 +245,41 @@ To integrate Grafana Cloud with the OIDC app you created in {{ org-name }}, comp
   1. At the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** and in the window that opens:
       1. In the **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** field, specify the authentication endpoint for your Grafana Cloud instance formatted as follows:
 
-        ```
+        ```text
         <Grafana_Cloud_instance_URL>/login/generic_oauth
         ```
 
-        For example: `https://your-org.grafana.net/login/generic_oauth`.
+        For example, `https://your-org.grafana.net/login/generic_oauth`.
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Update your OIDC app by providing the redirect URI:
+
+     ```bash
+     yc organization-manager idp application oauth application update <app_ID> \
+       --redirect-uris "<Grafana_Cloud_instance_URL>/login/generic_oauth"
+     ```
+
+     Where:
+     
+     * `<app_ID>`: OIDC app ID you got when creating the app.
+     * `--redirect-uris`: Authentication endpoint for your Grafana Cloud instance. For example, `https://your-org.grafana.net/login/generic_oauth`.
+
+     Result:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: grafana-cloud-oidc-app
+     organization_id: bpf2c65rqcl8********
+     redirect_uris:
+       - https://your-org.grafana.net/login/generic_oauth
+     ```
 
 {% endlist %}
 
@@ -137,6 +319,44 @@ Add a user to the application:
     1. Click ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
     1. In the window that opens, select the required user or user group.
     1. Click **{{ ui-key.yacloud.common.add }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Get the [user ID](../../../organization/operations/users-get.md) or [user group ID](../../../organization/operations/group-get-id.md).
+
+  1. To add a user or user group to the app:
+   
+     1. See the description of the CLI command for adding users to an app:
+   
+        ```bash
+        yc organization-manager idp application oauth application add-assignments --help
+        ```
+   
+     1. Run this command:
+   
+        ```bash
+        yc organization-manager idp application oauth application add-assignments \
+          --id <app_ID> \
+          --subject-id <user_or_group_ID>
+        ```
+   
+        Where:
+   
+        * `--id`: OIDC app ID.
+        * `--subject-id`: User or user group ID.
+   
+        Result:
+   
+        ```text
+        assignment_deltas:
+          - action: ADD
+            assignment:
+              subject_id: ajetvnq2mil8********
+        ```
 
 {% endlist %}
 

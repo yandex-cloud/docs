@@ -41,7 +41,7 @@ items:
             href: operations/users-get.md
           - name: Updating local user data
             href: operations/user-pools/edit-user.md
-          - name: Updating a local user password
+          - name: Changing a local user password
             href: operations/user-pools/reset-user-password.md
           - name: Managing a user in the My account portal
             href: operations/manage-account.md
@@ -1620,3 +1620,5 @@ items:
     href: at-ref.md
   - name: Release notes
     href: release-notes.md
+  - name: '{{ org-full-name }} Sync Agent release notes'
+    href: sync-agent-release-notes.md

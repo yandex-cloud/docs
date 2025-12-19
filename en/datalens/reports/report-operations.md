@@ -5,10 +5,6 @@ description: Follow this guide to learn how to work with a report.
 
 # Working with a report
 
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 In this section, you will learn how to work with a report:
 
 * [Creating a report](#create-report)
@@ -312,7 +308,7 @@ You can add, configure, or delete a selector in your report:
 
 To hide the **Selectors** window, click ![icon](../../_assets/console-icons/xmark.svg).
 
-Learn more in [{#T}](./add-selector.md).
+For more information, see [{#T}](./add-selector.md).
 
 ## Sharing a link to a report {#link-on-report}
 

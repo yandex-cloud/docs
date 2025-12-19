@@ -6748,7 +6748,6 @@ default:
         v1|string: Free
   sku|USD|datalens:
     users:
-      v1|number: 8.249997
       v1|string: $8.249997
   sku|USD|datatransfer:
     compute:
@@ -9289,6 +9288,7 @@ default:
         Layout:
           organization-description_kvoUz: Users & applications
         MyAccountLayout:
+          activity_kyqSv: Activity
           groups_pqQRu: Groups
           profile_8kyBA: Profile
           security_7zQ3g: Login and security
@@ -9589,6 +9589,11 @@ default:
         users:
           components:
             title_mfa_5CFwd: MFA
+          Filters:
+            placeholder_eu3h7: All operations
+          UserPageLayout:
+            title_audit-log_fGywF: Audit log
+            title_auth-audit-log_sajZE: Login log
       page:
         acl-diagnostics:
           action_select-subject: Select subject
@@ -10474,6 +10479,8 @@ default:
         label_marketplace: Marketplace
       cloud-registry:
         action_registry-create: Create registry
+        registries:
+          registry-kind_docker: Docker
         title_registries: Registries
       cloud-shell:
         label_service: Cloud Shell
@@ -11924,6 +11931,8 @@ default:
             label_rotation: Rotation period
             label_title-versions: Versions
         symmetric-keys:
+          button_action-activate: Activate
+          button_action-deactivate: Deactivate
           button_action-rotate: Rotate
           button_empty-create: Create key
       load-balancer:

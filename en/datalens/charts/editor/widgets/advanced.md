@@ -5,10 +5,6 @@ description: In this article, you will learn about advanced charts in {{ datalen
 
 # Advanced chart
 
-
-{% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 With this type of visualization, you can create HTML with secure markup using the [Editor.generateHtml(args)](../methods.md#gen-html) function and flexible SVG visualizations using the `d3`, `d3-chord`, and `d3-sankey` libraries.
 
 On the **Prepare** tab, you need to create a structure:

@@ -23,7 +23,9 @@ Returns the secret data of specified Captcha resource.
 ||Field | Description ||
 || captcha_id | **string**
 
-Required field. ID of the Captcha resource to return. ||
+Required field. ID of the Captcha resource to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## CaptchaSecretKey {#yandex.cloud.smartcaptcha.v1.CaptchaSecretKey}

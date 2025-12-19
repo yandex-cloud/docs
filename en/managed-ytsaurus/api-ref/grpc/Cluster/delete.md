@@ -23,7 +23,9 @@ Deletes the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the cluster to delete. ||
+Required field. ID of the cluster to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

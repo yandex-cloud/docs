@@ -5,10 +5,6 @@ description: In this tutorial, you will learn how to configure chart cross-filte
 
 # Cross-filtering
 
-
-{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 Filtering parameters are used to filter charts by charts. In this case, some chart acts as a selector for other charts.
 
 When a filtering chart is opened from a dashboard for edits or in a new tab, the filter parameters are highlighted.

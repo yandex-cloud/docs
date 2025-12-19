@@ -21,3 +21,4 @@ _Пулы пользователей_ объединяют [локальных �
 * [{#T}](../operations/user-pools/create-userpool.md)
 * [Создать локального пользователя](../operations/add-account.md#add-local-user)
 * [{#T}](../operations/user-pools/add-domain.md)
+* [{#T}](../operations/user-pools/user-get-logs.md)

@@ -5,7 +5,7 @@ description: Follow this guide to export and import {{ datalens-full-name }} wor
 
 # Exporting and importing workbooks {{ datalens-full-name }}
 
-In {{ datalens-short-name }}, you can move [workbooks](./index.md) between installations using export and import tools. For example, you can export a ready-made workbook with its settings and connections from the cloud {{ datalens-full-name }} to an [open source](https://datalens.tech) installation.
+In {{ datalens-short-name }}, you can transfer [workbooks](./index.md) between installations using export and import tools. For example, you can export a ready-made workbook with its settings and connections from the cloud {{ datalens-full-name }} to an [open source](https://datalens.tech) installation.
 
 
 {% note info %}
@@ -92,10 +92,6 @@ If the workbook import fails, you will get an error [message](./export-and-impor
 
 ## Disabling workbook export {#workbooks-export-disable}
 
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 By default, users with the `{{ roles-datalens-admin }}` role can export workbooks. You can disable this option at the {{ datalens-short-name }} instance level. After you disable export:
 
 * ![icon](../../_assets/console-icons/file-arrow-up.svg) **Export** button will disappear from the workbook interface.
@@ -107,6 +103,7 @@ Only the {{ datalens-short-name }} instance [admin](../security/roles.md#datalen
 To prohibit export of workbooks:
 
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
+1. Select the **Security** tab.
 1. Disable **Workbook export** (enabled by default).
 
 

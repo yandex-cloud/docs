@@ -5,10 +5,6 @@ description: Follow this guide to build a table based on a dataset in Editor.
 
 # Building a table based on a dataset
 
-
-{% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 Follow this guide to build a table in Editor based on a dataset. For convenience, we will use a connection and dataset from a deployed demo workbook as the data source.
 
 ## Getting started {#before-you-begin}
@@ -249,7 +245,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
    module.exports = {head, rows};
    ```
 
-1. At the top of the chart, click **Run**. The preview will show the dataset as a table with rows grouped by the **Payment type** field and columns grouped by the **Order year** field, along with a monthly sales chart:
+1. At the top of the chart, click **Execute**. The preview will show the dataset as a table with rows grouped by the **Payment type** field and columns grouped by the **Order year** field, along with a monthly sales chart:
 
    ![image.png](../../../../_assets/datalens/editor/quick-start-1.png)
 

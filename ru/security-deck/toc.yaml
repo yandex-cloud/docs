@@ -86,6 +86,12 @@ items:
         href: concepts/ai-assistant.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Диагностика ошибок
+    items:
+      - name: Обзор
+        href: diagnostics/index.md
+      - name: Ошибки в работе KSPM
+        href: diagnostics/kspm-diagnostics.md
   - name: Управление доступом
     items:
       - name: Общие роли {{ sd-name }}

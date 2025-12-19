@@ -71,6 +71,8 @@ items:
                 href: cli-ref/catalog/create/clickhouse.md
               - name: delta-lake
                 href: cli-ref/catalog/create/delta-lake.md
+              - name: greenplum
+                href: cli-ref/catalog/create/greenplum.md
               - name: hive
                 href: cli-ref/catalog/create/hive.md
               - name: hudi
@@ -103,6 +105,8 @@ items:
                 href: cli-ref/catalog/update/clickhouse.md
               - name: delta-lake
                 href: cli-ref/catalog/update/delta-lake.md
+              - name: greenplum
+                href: cli-ref/catalog/update/greenplum.md
               - name: hive
                 href: cli-ref/catalog/update/hive.md
               - name: hudi
