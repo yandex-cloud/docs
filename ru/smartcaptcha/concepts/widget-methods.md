@@ -35,7 +35,7 @@ description: Вы можете подключить виджет {{ captcha-name
 ```html
 <div
   class="smart-captcha"
-  data-sitekey="<ключ_клиентской_части>"
+  data-sitekey="<ключ_клиента>"
   data-hl="<язык>"
 ></div>
 ```
@@ -74,8 +74,8 @@ description: Вы можете подключить виджет {{ captcha-name
       <div
         id="captcha-container"
         class="smart-captcha"
-        data-sitekey="<ключ_клиентской_части>"
-        data-hl="en"
+        data-sitekey="<ключ_клиента>"
+        data-hl="<язык>"
         data-callback="callback"
       ></div>
       <input type="submit" value="Submit" />
@@ -109,7 +109,7 @@ description: Вы можете подключить виджет {{ captcha-name
       const container = document.getElementById('<идентификатор_контейнера>');
 
       const widgetId = window.smartCaptcha.render(container, {
-        sitekey: '<ключ_клиентской_части>',
+        sitekey: '<ключ_клиента>',
         hl: '<язык>',
       });
     }
@@ -147,7 +147,7 @@ description: Вы можете подключить виджет {{ captcha-name
 
 * `container` — контейнер для виджета. Можно передать DOM-элемент или идентификатор контейнера.
 * `params` — объект с параметрами для капчи:
-    * `sitekey` — [ключ клиентской части](./keys.md).
+    * `sitekey` — [ключ клиента](./keys.md).
     * `callback` — функция-обработчик.
     * `hl` — язык виджета.
     * `test` — включение работы капчи в режиме тестирования. Пользователь всегда будет получать задание. Используйте это свойство только для отладки и тестирования.
@@ -306,7 +306,7 @@ description: Вы можете подключить виджет {{ captcha-name
     }
 
     window.smartCaptcha.render('captcha-container', {
-      sitekey: '<ключ_клиентской_части>',
+      sitekey: '<ключ_клиента>',
       callback: callback,
     });
   }
