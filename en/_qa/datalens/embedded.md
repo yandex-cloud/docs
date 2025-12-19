@@ -39,6 +39,6 @@ Embedded dashboards can only be opened in view mode. Their navigation bar and, b
 
 The **Request access** option is not available on embedded dashboards.
 
-### Does the UI customization available in the _Business_ plan apply to embedded objects? {#ui-customization}
+### Does UI customization apply to embedded objects? {#ui-customization}
 
-The {{ datalens-short-name }} UI customization available in the _Business_ plan applies to all embedded objects.
+The {{ datalens-short-name }} UI customization applies to all embedded objects.

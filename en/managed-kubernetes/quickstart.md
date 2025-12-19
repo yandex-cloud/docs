@@ -17,11 +17,11 @@ To get started with {{ managed-k8s-name }}:
 1. Install [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/), the {{ k8s }} CLI.
 1. Make sure you have enough [resources available in the cloud](concepts/limits.md).
 1. If you do not have a [network](../vpc/concepts/network.md#network) yet, [create one](../vpc/operations/network-create.md).
-1. If you do not have any [subnets](../vpc/concepts/network.md#subnet) yet, [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will reside.
+1. If you do not have any [subnets](../vpc/concepts/network.md#subnet) yet, [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where the new {{ managed-k8s-name }} cluster and node group will reside.
 1. Create these [service accounts](../iam/operations/sa/create.md):
 
    * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](security/index.md#yc-api) for the folder where you want to create a {{ managed-k8s-name }} cluster. This service account will be used to create the resources for the {{ managed-k8s-name }} cluster.
-   * Service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../container-registry/concepts/docker-image.md) [registry](../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
+   * Service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../container-registry/concepts/docker-image.md) [registry](../container-registry/concepts/registry.md). The {{ managed-k8s-name }} nodes will use this account to pull the required Docker images from the registry.
 
    You can use the same service account for both operations.
 
@@ -88,6 +88,15 @@ To create a {{ managed-k8s-name }} node group:
    * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select an IP address assignment method:
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool.
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
+
+     {% note info %}
+     
+     {% include [nodes-internet-access](../_includes/managed-kubernetes/nodes-internet-access.md) %}
+     
+     {% include [nodes-internet-access-additional](../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}
+     
+     {% endnote %}
+
    * Select [security groups](operations/connect/security-groups.md).
    * Select the availability zone and subnet to place the {{ managed-k8s-name }} group nodes in.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the access credentials for the {{ managed-k8s-name }} group nodes over SSH:

@@ -10,7 +10,7 @@ editable: false
 
 {% note info %}
 
-Starting December 1, {{ datalens-name }} introduces a revised pricing policy. For details of the changes, see [this article](../pricing-changes.md).
+On December 1, 2025, the {{ datalens-name }} pricing rules changed. For details of the changes, see [this article](../pricing-changes.md). To see the new pricing policy, follow [this link](../pricing.md).
 
 {% endnote %}
 
@@ -19,9 +19,9 @@ Starting December 1, {{ datalens-name }} introduces a revised pricing policy. Fo
 * **Community**: Suitable for small teams and non-profit projects.
 * **Business**: Suitable for enterprise deployments and business scenarios.
 
-The plan you choose covers your organization and can only be [changed](../settings/service-plan.md#change-service-plan) by its owner or administrator. You must pay for all [active users](../pricing.md#active-users).
+The plan you choose covers your organization and can only be [changed](../settings/service-plan.md#change-service-plan) by its owner or administrator. You must pay for all [active users](../pricing-old.md#active-users).
 
-Different service plans offer different features and vary in [cost](../pricing.md#prices).
+Different service plans offer different features and vary in [cost](../pricing-old.md#prices).
 
 **Service plan**  | **Community** | **Business**
 ------------------ |---------------|---------------
@@ -36,7 +36,7 @@ JavaScript customization options in [Editor](../charts/editor/index.md) | ![imag
 [Reports for export and presentations](../reports/index.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 [Prohibiting export of workbooks](../workbooks-collections/export-and-import.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 [Background export of chart data](../concepts/chart/data-export.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
-[{{ datalens-name }}](../settings/ui-customization.md) UI customization | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
+[{{ datalens-name }}](../settings/appearance.md#ui-customization) UI customization | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
 [Secure chart and dashboard embedding](../security/private-embedded-objects.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
 [Published content management](./datalens-public.md#publication-disable) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 {{ datalens-name }} usage statistics | General ([Light](./datalens-usage-analytics.md#light-dash)) | Advanced ([Detailed](./datalens-usage-analytics.md#detailed-dash)) 

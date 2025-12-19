@@ -8,11 +8,13 @@ description: In this article, you will learn what {{ datalens-name }} instance u
 
 You can connect [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md) to analyze {{ datalens-short-name }} user behavior, i.e., view statistics on the service instance usage.
 
-Depending on your [pricing plan](../pricing.md#service-plans), the following **Usage Analytics** connection types are available:
+The following **Usage Analytics** connections are available:
 
-* **Light**: Provides aggregated statistics on the {{ datalens-short-name }} instance usage for a limited period of time (60 days). This connection is available with any service plan.
+* **Light**: Provides aggregated statistics on the {{ datalens-short-name }} instance usage for a limited period of time (60 days).
 
-* **Detailed**: Provides both detailed and aggregated statistics for the {{ datalens-short-name }} instance over a long period of time (360 days). Offers detailed statistics on dataset queries and dashboard views. This connection is only available with the _Business_ service plan. Once you change your service plan to _Community_, the connection will no longer work.
+* **Detailed**: Provides both detailed and aggregated statistics for the {{ datalens-short-name }} instance over a long period of time (360 days). Offers detailed statistics on dataset queries and dashboard views.
+
+{% include [datalens-usage-tracking-connection-011225-note](../../_includes/datalens/operations/datalens-usage-tracking-connection-011225-note.md) %}
 
 
 ## Specifics of working with a connection {#ut-connection-dashboard}

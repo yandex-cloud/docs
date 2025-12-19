@@ -49,6 +49,7 @@ description: Различные сценарии использования {{ c
 * [{#T}](pvc-snapshot-restore.md)
 * [{#T}](usb-over-ip.md)
 * [{#T}](integrate-nextcloud/index.md)
+* [{#T}](docker-cloud-registry.md)
 
 ## {{ coi }} {#coi}
 

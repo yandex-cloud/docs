@@ -9,7 +9,7 @@ The {{ resmgr-name }} resource model is shown in the chart. Most {{ yandex-cloud
 
 ![image](../../_assets/YC-resource-model-en.svg)
 
-All {{ yandex-cloud }} resources, such as [VMs](../../compute/concepts/vm.md), [disks](../../compute/concepts/disk.md), or [networks](../../vpc/concepts/network.md#network), are placed in [folders](#folder). When creating a resource, its folder is specified.
+All {{ yandex-cloud }} resources, such as [VMs](../../compute/concepts/vm.md), [disks](../../compute/concepts/disk.md), or [networks](../../vpc/concepts/network.md#network), are placed in [folders](#folder). You specify a folder when creating a resource.
 
 Each folder belongs to a single [cloud](#cloud). There are no folders outside a cloud. You cannot create a folder inside another folder.
 
@@ -60,12 +60,8 @@ Just like folders in your file system, {{ yandex-cloud }} folders make resource 
 When a user ([subject](../../iam/concepts/access-control/index.md#subject)) performs an operation with a resource, {{ iam-name }} check the user's access permissions for the resource.
 
 Resource access permissions are inherited as follows:
-* Organization access permissions apply to the organization's resources:
-  * [Federations](../../iam/concepts/federations.md).
-  * Groups.
-  * Organization clouds.
-* Permissions to access the cloud apply to all folders within the cloud.
-* Folder access permissions apply to all resources in the folder.
+
+{% include [basic-role-inheritance-chain](../../_includes/basic-role-inheritance-chain.md) %}
 
 >Example for an organization named `myorganization` with the following hierarchy:
 >* `mycloud` cloud:
@@ -89,7 +85,7 @@ Once the delay period ends, the cloud/folder status will change to `DELETING`. T
 
 ### Reasons why a folder cannot be deleted {#inability-to-delete}
 
-The deletion of a folder in the `DELETING` status can be canceled by the system. Possible causes:
+The deletion of a folder in the `DELETING` status can be canceled by the system. The possible causes might include the following:
 
 * The folder contains a {{ vpc-full-name }} [IP address](../../vpc/concepts/address.md) currently used by a [VM](../../compute/concepts/vm.md) in another folder.
 * The folder contains deletion protected managed database clusters.
@@ -101,3 +97,4 @@ In which case the deletion will be stopped, the folder will regain its `ACTIVE` 
 * [{#T}](../operations/cloud/set-access-bindings.md)
 * [{#T}](../operations/folder/create.md)
 * [{#T}](../operations/folder/set-access-bindings.md)
+* [{#T}](../../iam/concepts/access-control/resources-with-access-control.md)

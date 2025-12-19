@@ -1,0 +1,5 @@
+Права на просмотр [логов](../../organization/concepts/logs.md) пользователя зависят от его [роли](../../organization/security/index.md) в [организации](../../organization/concepts/organization.md) или [пуле пользователей](../../organization/concepts/user-pools.md):
+
+* `organization-manager.viewer`, `organization-manager.editor`, `organization-manager.admin` или `organization-manager.organizations.owner` — логи любого пользователя организации на [странице пользователя](../../organization/operations/user-pools/user-get-logs.md#organization);
+* `organization-manager.userpools.admin` и выше — логи всех пользователей пула на [странице в пуле](../../organization/operations/user-pools/user-get-logs.md#pool);
+* остальные пользователи — только свои логи в портале [Мой аккаунт](../../organization/concepts/my-account.md).

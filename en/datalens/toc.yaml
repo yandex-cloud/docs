@@ -275,6 +275,10 @@ items:
                 href: function-ref/ARRAY.md
               - name: ARR_AVG
                 href: function-ref/ARR_AVG.md
+              - name: ARR_DISTINCT
+                href: function-ref/ARR_DISTINCT.md
+              - name: ARR_INDEX_OF
+                href: function-ref/ARR_INDEX_OF.md
               - name: ARR_INTERSECT
                 href: function-ref/ARR_INTERSECT.md
               - name: ARR_MAX
@@ -349,6 +353,24 @@ items:
                 href: function-ref/WEEK.md
               - name: YEAR
                 href: function-ref/YEAR.md
+          - name: Hash functions
+            items:
+              - name: Overview
+                href: function-ref/hash-functions.md
+              - name: CITYHASH64
+                href: function-ref/CITYHASH64.md
+              - name: INTHASH64
+                href: function-ref/INTHASH64.md
+              - name: MD5
+                href: function-ref/MD5.md
+              - name: MURMURHASH2_64
+                href: function-ref/MURMURHASH2_64.md
+              - name: SHA1
+                href: function-ref/SHA1.md
+              - name: SHA256
+                href: function-ref/SHA256.md
+              - name: SIPHASH64
+                href: function-ref/SIPHASH64.md
           - name: Logical functions
             items:
               - name: Overview
@@ -425,6 +447,30 @@ items:
                 href: function-ref/SQUARE.md
               - name: TAN
                 href: function-ref/TAN.md
+          - name: Native functions
+            items:
+              - name: Overview
+                href: function-ref/native-functions.md
+              - name: DB_CALL_AGG_FLOAT
+                href: function-ref/DB_CALL_AGG_FLOAT.md
+              - name: DB_CALL_AGG_INT
+                href: function-ref/DB_CALL_AGG_INT.md
+              - name: DB_CALL_AGG_STRING
+                href: function-ref/DB_CALL_AGG_STRING.md
+              - name: DB_CALL_ARRAY_FLOAT
+                href: function-ref/DB_CALL_ARRAY_FLOAT.md
+              - name: DB_CALL_ARRAY_INT
+                href: function-ref/DB_CALL_ARRAY_INT.md
+              - name: DB_CALL_ARRAY_STRING
+                href: function-ref/DB_CALL_ARRAY_STRING.md
+              - name: DB_CALL_BOOL
+                href: function-ref/DB_CALL_BOOL.md
+              - name: DB_CALL_FLOAT
+                href: function-ref/DB_CALL_FLOAT.md
+              - name: DB_CALL_INT
+                href: function-ref/DB_CALL_INT.md
+              - name: DB_CALL_STRING
+                href: function-ref/DB_CALL_STRING.md
           - name: Operators
             items:
               - name: Overview
@@ -677,7 +723,7 @@ items:
                 href: operations/chart/config-chart-navigator.md
               - name: Configuring the display of null values
                 href: operations/chart/chart-null-settings.md
-              - name: Creating a color palette
+              - name: Configuring a color palette
                 href: operations/chart/create-palette.md
       - name: QL charts
         items:
@@ -875,8 +921,6 @@ items:
     items:
       - name: Overview
         href: security/index.md
-      - name: Adding users
-        href: security/add-new-user.md
       - name: '{{ datalens-short-name }} roles'
         href: security/roles.md
       - name: Organizations in {{ datalens-name }}
@@ -907,10 +951,20 @@ items:
             href: security/private-embedded-objects.md
   - name: Service settings
     items:
-      - name: UI customization
-        href: settings/ui-customization.md
-      - name: Disabling navigation through directories
-        href: settings/disable-folder-navigation.md
+      - name: Overview
+        href: settings/index.md
+      - name: Seats
+        href: settings/seats.md
+      - name: Users
+        href: security/add-new-user.md
+      - name: Service plans and payment
+        href: settings/service-plan.md
+      - name: Appearance
+        href: settings/appearance.md
+      - name: Security
+        href: settings/restrictions.md
+      - name: Navigation
+        href: settings/navigation.md
   - name: DataLens Gallery
     href: concepts/gallery.md
   - name: Pricing policy
@@ -919,16 +973,20 @@ items:
         href: pricing.md
       - name: Pricing policy updates as of December 1
         href: pricing-changes.md
-      - name: Service plans
-        href: concepts/service-plans-comparison.md
-      - name: Configuring a service plan
-        href: settings/service-plan.md
+      - name: Archive
+        items:
+          - name: Pricing policy before December 1, 2025
+            href: pricing-old.md
+          - name: Service plans before December 1, 2025
+            href: concepts/service-plans-comparison.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
     items:
-      - name: October 2025
+      - name: November 2025
         href: release-notes/index.md
+      - name: October 2025
+        href: release-notes/2510.md
       - name: September 2025
         href: release-notes/2509.md
       - name: August 2025
@@ -937,10 +995,10 @@ items:
         href: release-notes/2507.md
       - name: June 2025
         href: release-notes/2506.md
-      - name: May 2025
-        href: release-notes/2505.md
       - name: Archive
         items:
+          - name: May 2025
+            href: release-notes/2505.md
           - name: April 2025
             href: release-notes/2504.md
           - name: March 2025

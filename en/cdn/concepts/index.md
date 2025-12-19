@@ -1,6 +1,6 @@
 # {{ cdn-full-name }} overview
 
-{{ cdn-full-name }} provides web service developers with a _Content Delivery Network_ (CDN) functionality. The _CDN servers_ located all over the world get content from your _origins_, cache the content, and deliver it to end clients on request. Thus you decrease the load on origins and reduce content waiting time for the end user.
+{{ cdn-full-name }} provides web service developers with a _Content Delivery Network_ (CDN) functionality. The _CDN servers_ located at [points of presence](points-of-presence.md) get content from your _origins_, cache the content, and deliver it to end clients on request. Thus you decrease the load on origins and reduce content waiting time for the end user.
 
 ### How CDN works
 
@@ -18,13 +18,14 @@
 
 ### Service concepts {#service-concepts}
 
-{{ cdn-name }} uses the following concepts:
+{{ cdn-name }} uses the following basic terms:
 
 #|
-|| **Concept** | **Description** ||
+|| **Term** | **Description** ||
 || [Resource](./resource.md) | The main entity in the service that allows you to configure and control content distribution from origins over the CDN. ||
 || [Origins and origin groups](./origins.md) | The servers that are origins of content. CDN servers access them to load files. ||
 || [Providers](./providers.md) | CDN providers. ||
+|| [Points of presence](./points-of-presence.md) | Points of presence, or PoPs, are physical locations of CDN servers that cache and deliver content to end users. ||
 || [Exchanging data between clients and the CDN](./clients-to-servers.md) | Receiving client requests by the CDN load balancer and sending response data from CDN servers. ||
 || [TLS certificates](./clients-to-servers-tls.md) | Certificates used for HTTPS connections between clients and the CDN load balancer. ||
 || [CORS](./cors.md) | Cross-domain client requests to the CDN (cross-origin resource sharing). ||

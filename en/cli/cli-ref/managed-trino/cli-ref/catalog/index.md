@@ -25,6 +25,7 @@ Aliases:
 - [yc managed-trino catalog create](create/index.md) — Create Trino catalog
 	- [yc managed-trino catalog create clickhouse](create/clickhouse.md) — Create ClickHouse catalog
 	- [yc managed-trino catalog create delta-lake](create/delta-lake.md) — Create Delta Lake catalog
+	- [yc managed-trino catalog create greenplum](create/greenplum.md) — Create Greenplum catalog
 	- [yc managed-trino catalog create hive](create/hive.md) — Create Hive catalog
 	- [yc managed-trino catalog create hudi](create/hudi.md) — Create Hudi catalog
 	- [yc managed-trino catalog create iceberg](create/iceberg.md) — Create Iceberg catalog
@@ -37,6 +38,7 @@ Aliases:
 - [yc managed-trino catalog update](update/index.md) — Update Trino catalog
 	- [yc managed-trino catalog update clickhouse](update/clickhouse.md) — Update ClickHouse catalog
 	- [yc managed-trino catalog update delta-lake](update/delta-lake.md) — Update Delta Lake catalog
+	- [yc managed-trino catalog update greenplum](update/greenplum.md) — Update Greenplum catalog
 	- [yc managed-trino catalog update hive](update/hive.md) — Update Hive catalog
 	- [yc managed-trino catalog update hudi](update/hudi.md) — Update Hudi catalog
 	- [yc managed-trino catalog update iceberg](update/iceberg.md) — Update Iceberg catalog

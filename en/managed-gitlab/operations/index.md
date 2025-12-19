@@ -19,3 +19,4 @@ description: This page provides a list of step-by-step guides for {{ mgl-name }}
 * [{#T}](approval-rules.md)
 * [{#T}](instance/monitoring.md)
 * [{#T}](omniauth.md)
+* [{#T}](objstorage-integration.md)

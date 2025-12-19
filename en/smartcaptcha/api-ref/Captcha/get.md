@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Captcha resource to return.
+            The maximum string length in characters is 50.
           type: string
       required:
         - captchaId
@@ -36,7 +37,9 @@ GET https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas/{captchaId}
 ||Field | Description ||
 || captchaId | **string**
 
-Required field. ID of the Captcha resource to return. ||
+Required field. ID of the Captcha resource to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.smartcaptcha.v1.Captcha}
@@ -157,7 +160,10 @@ Required field. ID of the Captcha resource to return. ||
       "preCheckType": "string",
       "challengeType": "string"
     }
-  ]
+  ],
+  "disallowDataProcessing": "boolean",
+  "description": "string",
+  "labels": "object"
 }
 ```
 
@@ -197,7 +203,6 @@ List of allowed host names, see [Domain validation](/docs/smartcaptcha/concepts/
 
 Complexity of the captcha.
 
-- `CAPTCHA_COMPLEXITY_UNSPECIFIED`
 - `EASY`: High chance to pass pre-check and easy advanced challenge.
 - `MEDIUM`: Medium chance to pass pre-check and normal advanced challenge.
 - `HARD`: Little chance to pass pre-check and hard advanced challenge.
@@ -215,14 +220,12 @@ Turn off host name check, see [Domain validation](/docs/smartcaptcha/concepts/do
 
 Basic check type of the captcha.
 
-- `CAPTCHA_PRE_CHECK_TYPE_UNSPECIFIED`
 - `CHECKBOX`: User must click the "I am not a robot" button.
 - `SLIDER`: User must move the slider from left to right. ||
 || challengeType | **enum** (CaptchaChallengeType)
 
 Additional task type of the captcha.
 
-- `CAPTCHA_CHALLENGE_TYPE_UNSPECIFIED`
 - `IMAGE_TEXT`: Text recognition: The user has to type a distorted text from the picture into a special field.
 - `SILHOUETTES`: Silhouettes: The user has to mark several icons from the picture in a particular order.
 - `KALEIDOSCOPE`: Kaleidoscope: The user has to build a picture from individual parts by shuffling them using a slider. ||
@@ -234,7 +237,16 @@ List of security rules. ||
 Determines whether captcha is protected from being deleted. ||
 || overrideVariants[] | **[OverrideVariant](#yandex.cloud.smartcaptcha.v1.OverrideVariant)**
 
-List of variants to use in security_rules ||
+List of variants to use in security_rules
+
+The maximum number of elements is 32. ||
+|| disallowDataProcessing | **boolean** ||
+|| description | **string**
+
+The maximum string length in characters is 512. ||
+|| labels | **object** (map<**string**, **string**>)
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## SecurityRule {#yandex.cloud.smartcaptcha.v1.SecurityRule}
@@ -245,13 +257,19 @@ SecurityRule object. Defines the condition and action: when and which variant to
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the rule. The name is unique within the captcha. 1-50 characters long. ||
+Required field. Name of the rule. The name is unique within the captcha. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || priority | **string** (int64)
 
-Priority of the rule. Lower value means higher priority. ||
+Priority of the rule. Lower value means higher priority.
+
+Acceptable values are 1 to 999999, inclusive. ||
 || description | **string**
 
-Optional description of the rule. 0-512 characters long. ||
+Optional description of the rule. 0-512 characters long.
+
+The maximum string length in characters is 512. ||
 || condition | **[Condition](#yandex.cloud.smartcaptcha.v1.Condition)**
 
 The condition for matching the rule. ||
@@ -274,7 +292,9 @@ Host where captcha placed. ||
 URI where captcha placed. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartcaptcha.v1.Condition.HeaderMatcher)**
 
-Captcha request headers. ||
+Captcha request headers.
+
+The maximum number of elements is 20. ||
 || sourceIp | **[IpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpMatcher)**
 
 The IP address of the requester. ||
@@ -288,7 +308,9 @@ HostMatcher object.
 ||Field | Description ||
 || hosts[] | **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
 
-List of hosts. OR semantics implied. ||
+List of hosts. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher}
@@ -299,20 +321,32 @@ StringMatcher object.
 ||Field | Description ||
 || exactMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || exactNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 |#
@@ -328,7 +362,9 @@ UriMatcher object. AND semantics implied.
 Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
 || queries[] | **[QueryMatcher](#yandex.cloud.smartcaptcha.v1.Condition.QueryMatcher)**
 
-List of query matchers. AND semantics implied. ||
+List of query matchers. AND semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## QueryMatcher {#yandex.cloud.smartcaptcha.v1.Condition.QueryMatcher}
@@ -339,7 +375,9 @@ QueryMatcher object.
 ||Field | Description ||
 || key | **string**
 
-Required field. Key of the query parameter. ||
+Required field. Key of the query parameter.
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
 
 Required field. Value of the query parameter. ||
@@ -353,7 +391,9 @@ HeaderMatcher object.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of header (case insensitive). ||
+Required field. Name of header (case insensitive).
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
 
 Required field. Value of the header. ||
@@ -379,7 +419,9 @@ IpRangesMatcher object.
 ||Field | Description ||
 || ipRanges[] | **string**
 
-List of IP ranges. OR semantics implied. ||
+List of IP ranges. OR semantics implied.
+
+The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher}
@@ -390,7 +432,9 @@ GeoIpMatcher object.
 ||Field | Description ||
 || locations[] | **string**
 
-ISO 3166-1 alpha 2. OR semantics implied. ||
+ISO 3166-1 alpha 2. OR semantics implied.
+
+The minimum number of elements is 1. ||
 |#
 
 ## OverrideVariant {#yandex.cloud.smartcaptcha.v1.OverrideVariant}
@@ -401,15 +445,18 @@ OverrideVariant object. Contains the settings to override.
 ||Field | Description ||
 || uuid | **string**
 
-Unique identifier of the variant. ||
+Unique identifier of the variant.
+
+Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. The maximum string length in characters is 64. ||
 || description | **string**
 
-Optional description of the rule. 0-512 characters long. ||
+Optional description of the rule. 0-512 characters long.
+
+The maximum string length in characters is 512. ||
 || complexity | **enum** (CaptchaComplexity)
 
 Complexity of the captcha.
 
-- `CAPTCHA_COMPLEXITY_UNSPECIFIED`
 - `EASY`: High chance to pass pre-check and easy advanced challenge.
 - `MEDIUM`: Medium chance to pass pre-check and normal advanced challenge.
 - `HARD`: Little chance to pass pre-check and hard advanced challenge.
@@ -418,14 +465,12 @@ Complexity of the captcha.
 
 Basic check type of the captcha.
 
-- `CAPTCHA_PRE_CHECK_TYPE_UNSPECIFIED`
 - `CHECKBOX`: User must click the "I am not a robot" button.
 - `SLIDER`: User must move the slider from left to right. ||
 || challengeType | **enum** (CaptchaChallengeType)
 
 Additional task type of the captcha.
 
-- `CAPTCHA_CHALLENGE_TYPE_UNSPECIFIED`
 - `IMAGE_TEXT`: Text recognition: The user has to type a distorted text from the picture into a special field.
 - `SILHOUETTES`: Silhouettes: The user has to mark several icons from the picture in a particular order.
 - `KALEIDOSCOPE`: Kaleidoscope: The user has to build a picture from individual parts by shuffling them using a slider. ||

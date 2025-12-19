@@ -21,14 +21,12 @@ In {{ datalens-short-name }}, you can export data from charts:
     * `Markdown` (copied to clipboard)
 
   * File upload begins immediately.
-  * Available in all [service plans](../../pricing.md#service-plans).
 
 * [Background data export](#background-export) with extended limits of up to 1 GB:
 
   * Available only for paginated [Tables](../../visualization-ref/table-chart.md) created in the [wizard](./dataset-based-charts.md). Exports data from all the table's pages.
   * Format: `CSV` file.
   * First, the file is generated in the background, then a download link is created. File preparation takes up to 30 minutes.
-  * Available only with the Business [service plan](../../pricing.md#service-plans).
 
 Any user with access permissions for a chart can export its data unless you [disable data export](#disable-export).
 
@@ -52,10 +50,6 @@ To export the data displayed on the chart:
 The data file will be generated immediately and downloaded in your browser. The maximum export file size is 50 MB.
 
 ## Background data export {#background-export}
-
-
-{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
 
 * [Limitations](#restrictions)
 * [Exporting data in the background](#how-to-background-export)
@@ -165,10 +159,11 @@ By default, users can export data from charts. You can disable this option at th
   To disable data export, you need the `{{ roles-datalens-admin }}` role. An instance-level ban also prohibits data export from [non-publicly embedded](../../security/private-embedded-objects.md) charts and charts with [public access](../datalens-public.md) configured within this instance.
   
   1. In the left-hand panel, select ![sliders](../../../_assets/console-icons/sliders.svg) **Service settings**.
+  1. Select the **Security** tab.
   1. Disable the **Data export** option (enabled by default).
-
-     ![image](../../../_assets/datalens/chart/install-export-disable.png)
-
+  
+     ![image](../../../_assets/datalens/settings/data-export-disable.png)
+  
   After you ban export:
   
   * In the chart interface, the export option will be removed from the ![icon](../../../_assets/console-icons/ellipsis.svg) menu, and users will be unable to export chart data.

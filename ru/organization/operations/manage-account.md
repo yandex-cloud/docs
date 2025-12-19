@@ -18,6 +18,7 @@ description: Следуя данной инструкции, вы сможете
 [Удаление refresh-токенов](#delete-refresh-token) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Управление способами подтверждения входа](#manage-mfa) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Просмотр групп](#view-groups) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg)
+[Просмотр логов](#view-logs) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg)
 
 ## Посмотреть атрибуты {#view-profile}
 
@@ -27,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
   1. На панели слева выберите ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
-  1. В блоке **{{ ui-key.yacloud_org.my-account.ProfileEditPageLayout.main_breadcrumb }}** отобразятся атрибуты пользователя.
+  1. В блоке **{{ ui-key.yacloud_org.my-account.ProfileEditPageLayout.main_breadcrumb }}** отобразятся атрибуты вашего аккаунта.
 
 {% endlist %}
 
@@ -112,6 +113,23 @@ description: Следуя данной инструкции, вы сможете
 
   1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
   1. На панели слева выберите ![alt](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.groups_pqQRu }}**.
-  1. На странице **{{ ui-key.yacloud_org.my-account.GroupsPageLayout.header }}** отобразятся все группы пользователя и их идентификаторы.
+  1. На странице **{{ ui-key.yacloud_org.my-account.GroupsPageLayout.header }}** отобразятся все ваши группы и их идентификаторы.
+
+{% endlist %}
+
+## Посмотреть логи {#view-logs}
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/clock.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.activity_kyqSv }}**.
+  1. На открывшейся странице отобразятся ваши аудитные [логи](../concepts/logs.md).
+  1. Чтобы увидеть более подробную информацию о событии, нажмите на нужную запись.
+
+     Вы также можете воспользоваться фильтрами вверху страницы, чтобы найти нужные логи.
+
+  Чтобы посмотреть логи всех пользователей [организации](../concepts/organization.md) или [пула](../concepts/user-pools.md), в которых вы являетесь администратором, см. страницу [{#T}](./user-pools/user-get-logs.md).
 
 {% endlist %}

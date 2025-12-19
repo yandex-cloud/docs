@@ -103,6 +103,7 @@ To create a disk from an [image](../../concepts/image.md):
           * `pci_topology=v1`: `PCI_TOPOLOGY_V1` topology.
           * `pci_topology=v2`: Adopts the `PCI_TOPOLOGY_V2` topology.
 
+          If the source image has `Gen 2` assigned, by default the new disk will get `--hardware-features` set to `pci_topology=v1`.
 
           If the source image has `Gen 1` assigned, by default the new disk will get the same `--hardware-features` value as the source image.
       * `--kms-key-id`: ID of the {{ kms-full-name }} [symmetric encryption key](../../../kms/concepts/key.md) for creating an encrypted disk. This is an optional setting.
@@ -136,7 +137,7 @@ To create a disk from an [image](../../concepts/image.md):
           pci_topology: PCI_TOPOLOGY_V2
       ```
 
-      For more information about the `yc compute disk create` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
+      For more information about the `yc compute disk create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
 
   1. Get a list of disks in the default folder:
 
@@ -193,7 +194,7 @@ To create a disk from an [image](../../concepts/image.md):
 
   1. Define the parameters of the `yandex_compute_disk` resource in the configuration file.
 
-      Here is the configuration file example:
+      Here is a configuration file example:
      
       ```hcl
       resource "yandex_compute_disk" "my-disk" {

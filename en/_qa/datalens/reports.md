@@ -1,18 +1,12 @@
 
 # Reports
 
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 ### Does {{ datalens-short-name }} support selectors in reports? {#selector-in-report}
 
 {{ datalens-short-name }} supports selectors in [reports](../../datalens/reports/index.md), which enables you to configure data filtering. You can add a regular [selector](../../datalens/dashboard/selector.md) or a [JS selector](../../datalens/charts/editor/widgets/controls.md) to a report. Before adding a selector, make sure you have the `{{ permission-write }}` or `{{ permission-admin }}` access to the report. For more information, see [{#T}](../../datalens/security/manage-access.md).
 
 
 ### Is there a report demo version? {#demo-report}
-
-Reports are only available with the Business [service plan](../../datalens/pricing.md#service-plans).
 
 To view a report example, deploy the [DataLens demo dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi) from {{ datalens-gallery }}:
 

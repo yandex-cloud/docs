@@ -8,6 +8,102 @@ description: This section contains {{ iam-name }} release notes.
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## October 2025 {#october-2025}
+
+Added the following [roles](roles-reference.md):
+
+{% cut "Managed databases" %}
+
+  User role | Description
+  --- | ---
+  `mdb.restorer` | Enables restoring managed database clusters from backups and grants read access to such clusters and their logs.
+
+{% endcut %}
+
+{% cut "{{ org-full-name }}" %}
+
+  User role | Description
+  --- | ---
+  `organization-manager.groups.externalConverter` | Enables adding an attribute with an external group ID to {{ org-name }} user groups when synchronizing with user groups in Active Directory or another external source.
+  `organization-manager.groups.externalCreator` | Enables creating {{ org-name }} user groups when synchronizing with user groups in Active Directory or another external source.
+  `organization-manager.userpools.syncAgent` | Enables synchronizing {{ org-name }} users and groups with users and groups in Active Directory or another external source.
+
+{% endcut %}
+
+{% cut "{{ mkf-full-name }}" %}
+
+  User role | Description
+  --- | ---
+  `managed-kafka.restorer` | Enables restoring {{ KF }} clusters from backups, viewing information about such clusters and their logs, as well as information about {{ mkf-name }} quotas and resource operations.
+
+{% endcut %}
+
+{% cut "{{ mch-full-name }}" %}
+
+  User role | Description
+  --- | ---
+  `managed-clickhouse.restorer` | Enables restoring {{ CH }} clusters from backups, viewing information about {{ CH }} clusters and their logs, as well as information about {{ mch-name }} quotas and resource operations.
+
+{% endcut %}
+
+
+{% cut "{{ mmy-full-name }}" %}
+
+  User role | Description
+  --- | ---
+  `managed-mysql.restorer` | Enables restoring {{ MY }} clusters from backups, viewing information about {{ MY }} clusters, hosts, databases, and users, cluster logs, as well as information about {{ mmy-name }} quotas and resource operations.
+
+{% endcut %}
+
+{% cut "{{ mos-full-name }}" %}
+
+  User role | Description
+  --- | ---
+  `managed-opensearch.restorer` | Enables restoring {{ OS }} clusters from backups, viewing information about {{ OS }} clusters and their logs, as well as information about {{ mos-name }} quotas and resource operations.
+
+{% endcut %}
+
+{% cut "{{ mpg-full-name }}" %}
+
+  User role | Description
+  --- | ---
+  `managed-postgresql.restorer` | Enables restoring {{ PG }} clusters from backups, viewing information about {{ PG }} clusters, hosts, databases, and users, cluster logs, as well as information about {{ mpg-name }} quotas and resource operations.
+
+{% endcut %}
+
+{% cut "{{ mspqr-full-name }}" %}
+
+  User role | Description
+  --- | ---
+  `managed-spqr.restorer` | Enables restoring {{ SPQR }} clusters from backups, viewing information about {{ SPQR }} clusters, hosts, databases, and users, cluster logs, as well as information about {{ mspqr-name }} quotas and resource operations.
+
+{% endcut %}
+
+
+{% cut "{{ mrd-full-name }}" %}
+
+  User role | Description
+  --- | ---
+  `managed-redis.restorer` | Enables restoring {{ VLK }} clusters from backups, viewing information about {{ VLK }} hosts and clusters, their logs, as well as information about {{ mrd-name }} quotas and resource operations.
+
+{% endcut %}
+
+{% cut "{{ mgp-full-name }}" %}
+
+  User role | Description
+  --- | ---
+  `managed-greenplum.restorer` | Enables restoring {{ GP }} clusters from backups, viewing information about {{ GP }} clusters and hosts, their logs, as well as information about {{ mgp-name }} quotas and resource operations.
+
+{% endcut %}
+
+{% cut "{{ mmg-full-name }}" %}
+
+  User role | Description
+  --- | ---
+  `managed-mongodb.restorer` | Enables restoring {{ MG }} clusters from backups, viewing information about {{ MG }} clusters, hosts, shards, databases, and users, cluster logs, as well as information about {{ mmg-name }} quotas and resource operations.
+
+{% endcut %}
+
 ## Q3 2025 {#q3-2025}
 
 * [Added](../organization/operations/view-subject-access-bindings.md) the ability to view a list of subject’s accesses using the [CLI](../cli/cli-ref/iam/cli-ref/access-analyzer/) and [API](../iam/api-ref/AccessAnalyzer/). {{ tag-con }} {{ tag-cli }} {{ tag-api }}

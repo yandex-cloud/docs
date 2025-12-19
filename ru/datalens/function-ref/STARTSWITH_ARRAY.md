@@ -37,4 +37,4 @@ STARTSWITH(ARRAY(1, 2, 3), ARRAY(2, 3)) = FALSE
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Яндекс Документы`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`.

@@ -12,6 +12,12 @@ After you create a VM, you can change its computing resources. For more informat
 
 This section explains you how to change the number and performance of vCPUs and the amount of RAM.
 
+{% note warning %}
+
+{% include [vcpu-note](../../../_includes/compute/vcpu-note.md) %}
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

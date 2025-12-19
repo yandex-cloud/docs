@@ -6,6 +6,8 @@ editable: false
 
 # Updated pricing policy for {{ datalens-full-name }}
 
+
+
 Starting December 1, {{ datalens-full-name }} introduces a revised pricing policy. Under the new unified service plan, all users will gain access to expanded capabilities, including Neuroanalyst, reports, JavaScript-based customizations in Editor, background chart data export, UI styling, and more. The new plan will be offered free of charge for individual use and for a fee for team work.
 
 * [New pricing policy](#new-rules)
@@ -26,9 +28,9 @@ Pricing will be based on the number of _seats_ within one {{ datalens-full-name 
 
 ### Active users and seats {#difference}
 
-According to the [pricing policy](./pricing.md) valid until December 1, 2025, you pay only for _active_ {{ datalens-name }} users. An active user is someone whose actions result in a query to a data source, e.g., opening or editing a dashboard, chart, or dataset.
+According to the [pricing policy](./pricing-old.md) valid until December 1, 2025, you pay only for _active_ {{ datalens-name }} users. An active user is someone whose actions result in a query to a data source, e.g., opening or editing a dashboard, chart, or dataset.
 
-However, the new pricing policy, due to come into effect on December 1, 2025, is going to charge for each seat no matter whether its user is active or not.
+However, the new [pricing policy](./pricing.md), due to come into effect on December 1, 2025, is going to charge for each seat no matter whether its user is active or not.
 
 ### Managing seats {#manage-seats}
 
@@ -46,6 +48,8 @@ The administrator will be able to:
 * View the list of users with seats.
 * Reassign seats from user to user.
 * Increase or decrease the number of seats in the instance.
+
+By March 1, 2026, we will deploy tools to automatically revoke inactive seats.
 
 ### Prices {#prices}
 

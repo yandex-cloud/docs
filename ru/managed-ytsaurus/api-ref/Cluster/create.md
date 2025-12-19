@@ -22,6 +22,7 @@ apiPlayground:
           description: |-
             **string**
             Name of the cluster.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9040104510410-044f]\S{1,61}[a-zA-Z0-9040104510410-044f] `.
           pattern: '[a-zA-Z0-9040104510410-044f]\S{1,61}[a-zA-Z0-9040104510410-044f]'
           type: string
         description:
@@ -53,6 +54,11 @@ apiPlayground:
             **[ClusterSpec](#yandex.cloud.ytsaurus.v1.ClusterSpec)**
             Cluster specification.
           $ref: '#/definitions/ClusterSpec'
+        cidrBlocksWhitelist:
+          description: |-
+            **[CidrBlocks](#yandex.cloud.ytsaurus.v1.CidrBlocks)**
+            CIDRs whitelist.
+          $ref: '#/definitions/CidrBlocks'
       required:
         - folderId
         - zoneId
@@ -63,48 +69,82 @@ apiPlayground:
         type: object
         properties:
           sizeGb:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Size of a single HDD disk in GB.
             type: string
             format: int64
           count:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Total amount of HDD disks.
+            type: string
+            format: int64
+      Changelogs:
+        type: object
+        properties:
+          sizeGb:
+            description: |-
+              **string** (int64)
+              Size of changelogs disk in GB.
             type: string
             format: int64
       SsdSpec:
         type: object
         properties:
           sizeGb:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Size of a single SSD disk in GB.
             type: string
             format: int64
           type:
-            description: '**string**'
+            description: |-
+              **string**
+              Type of a SSD disk.
             type: string
           count:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Total amount of SSD disks.
             type: string
             format: int64
+          changelogs:
+            description: |-
+              **[Changelogs](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec.Changelogs)**
+              Configuration of dynamic table changelogs.
+            $ref: '#/definitions/Changelogs'
       StorageSpec:
         type: object
         properties:
           hdd:
-            description: '**[HddSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec)**'
+            description: |-
+              **[HddSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec)**
+              Configuration of cluster HDD strorage.
             $ref: '#/definitions/HddSpec'
           ssd:
-            description: '**[SsdSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec)**'
+            description: |-
+              **[SsdSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec)**
+              Configuration of cluster SSD strorage
             $ref: '#/definitions/SsdSpec'
       DiskSpec:
         type: object
         properties:
           type:
-            description: '**string**'
+            description: |-
+              **string**
+              Type of a disk.
             type: string
           sizeGb:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Size of a single disk in GB.
             type: string
             format: int64
           locations:
-            description: '**string**'
+            description: |-
+              **string**
+              Locations on a disk.
             type: array
             items:
               type: string
@@ -112,18 +152,24 @@ apiPlayground:
         type: object
         properties:
           size:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Amount of exec nodes.
             type: string
             format: int64
       AutoScale:
         type: object
         properties:
           minSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Minimal amount of exec nodes.
             type: string
             format: int64
           maxSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Maximum amount of exec nodes.
             type: string
             format: int64
       ScalePolicy:
@@ -132,11 +178,13 @@ apiPlayground:
           fixed:
             description: |-
               **[FixedScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.FixedScale)**
+              Scale policy that doesn't change number of running exec nodes over time.
               Includes only one of the fields `fixed`, `auto`.
             $ref: '#/definitions/FixedScale'
           auto:
             description: |-
               **[AutoScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale)**
+              Scale policy that can adjust number of running exec nodes within specified range based on some criteria.
               Includes only one of the fields `fixed`, `auto`.
             $ref: '#/definitions/AutoScale'
         oneOf:
@@ -148,15 +196,21 @@ apiPlayground:
         type: object
         properties:
           preset:
-            description: '**string**'
+            description: |-
+              **string**
+              VM configuration preset name.
             type: string
           disks:
-            description: '**[DiskSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec.DiskSpec)**'
+            description: |-
+              **[DiskSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec.DiskSpec)**
+              Configuration of exec node strorage.
             type: array
             items:
               $ref: '#/definitions/DiskSpec'
           scalePolicy:
-            description: '**[ScalePolicy](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy)**'
+            description: |-
+              **[ScalePolicy](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy)**
+              Exec nodes scaling policy.
             $ref: '#/definitions/ScalePolicy'
           name:
             description: |-
@@ -167,71 +221,180 @@ apiPlayground:
         type: object
         properties:
           preset:
-            description: '**string**'
+            description: |-
+              **string**
+              VM configuration preset name.
             type: string
           count:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Total amount of tablet nodes.
             type: string
             format: int64
       HttpProxySpec:
         type: object
         properties:
           count:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Total amount of HTTP proxies.
             type: string
             format: int64
       RpcProxySpec:
         type: object
         properties:
           count:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Total amount of RPC proxies.
             type: string
             format: int64
       ProxySpec:
         type: object
         properties:
           http:
-            description: '**[HttpProxySpec](#yandex.cloud.ytsaurus.v1.HttpProxySpec)**'
+            description: |-
+              **[HttpProxySpec](#yandex.cloud.ytsaurus.v1.HttpProxySpec)**
+              Configuration of HTTP proxies.
             $ref: '#/definitions/HttpProxySpec'
           rpc:
-            description: '**[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec)**'
+            description: |-
+              **[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec)**
+              Configuration of rpc proxies.
             $ref: '#/definitions/RpcProxySpec'
       OdinSpec:
         type: object
         properties:
           checksTtl:
-            description: '**string** (duration)'
+            description: |-
+              **string** (duration)
+              TTL of Odin check samples.
             type: string
             format: duration
+      ClearTmpCronSpec:
+        type: object
+        properties:
+          interval:
+            description: |-
+              **string** (duration)
+              Script starting interval.
+            type: string
+            format: duration
+          accountUsageRatioSaveTotal:
+            description: |-
+              **string**
+              Total max space usage ratio.
+            type: string
+          accountUsageRatioSavePerOwner:
+            description: |-
+              **string**
+              Per account max space usage ratio.
+            type: string
+          maxDirNodeCount:
+            description: |-
+              **string** (int64)
+              Max nodes in every directory.
+            type: string
+            format: int64
+      CronSpec:
+        type: object
+        properties:
+          clearTmp:
+            description: |-
+              **[ClearTmpCronSpec](#yandex.cloud.ytsaurus.v1.ClearTmpCronSpec)**
+              Cluster regular tmp-account cleaning settings.
+            $ref: '#/definitions/ClearTmpCronSpec'
+      ClientLogging:
+        type: object
+        properties:
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of Service account used for write logs.
+            type: string
+          logGroupId:
+            description: |-
+              **string**
+              ID of cloud logging group.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Destination of cloud logging group.
+            type: string
+          folderId:
+            description: |-
+              **string**
+              ID of cloud logging folder. Used default loging group.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Destination of cloud logging group.
+            type: string
+          auditLogsEnabled:
+            description: |-
+              **boolean**
+              Enable audit logs.
+            type: boolean
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
       ClusterSpec:
         type: object
         properties:
           storage:
-            description: '**[StorageSpec](#yandex.cloud.ytsaurus.v1.StorageSpec)**'
+            description: |-
+              **[StorageSpec](#yandex.cloud.ytsaurus.v1.StorageSpec)**
+              Cluster storage configuration.
             $ref: '#/definitions/StorageSpec'
           compute:
-            description: '**[ComputeSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec)**'
+            description: |-
+              **[ComputeSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec)**
+              Cluster exec nodes configuration.
             type: array
             items:
               $ref: '#/definitions/ComputeSpec'
           tablet:
-            description: '**[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec)**'
+            description: |-
+              **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec)**
+              Cluster tablet nodes configuration.
             $ref: '#/definitions/TabletSpec'
           proxy:
-            description: '**[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec)**'
+            description: |-
+              **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec)**
+              Cluster proxies configuration.
             $ref: '#/definitions/ProxySpec'
           odin:
-            description: '**[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec)**'
+            description: |-
+              **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec)**
+              Odin configuration.
             $ref: '#/definitions/OdinSpec'
           flavor:
             description: |-
               **enum** (Flavor)
-              - `FLAVOR_UNSPECIFIED`
+              Cluster flavor (type).
               - `DEMO`: Demo cluster configuration with minimal system resources. Not fault-tolerant, not for production use.
             type: string
             enum:
               - FLAVOR_UNSPECIFIED
               - DEMO
+          cron:
+            description: |-
+              **[CronSpec](#yandex.cloud.ytsaurus.v1.CronSpec)**
+              Cluster regular processing settings.
+            $ref: '#/definitions/CronSpec'
+          clientLogging:
+            description: |-
+              **[ClientLogging](#yandex.cloud.ytsaurus.v1.ClientLogging)**
+              Client Cloud logging configuration.
+            $ref: '#/definitions/ClientLogging'
+      CidrBlocks:
+        type: object
+        properties:
+          v4CidrBlocks:
+            description: |-
+              **string**
+              IPv4 CIDR blocks.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/ytsaurus/v1/api-ref/Cluster/create.md
 ---
 
@@ -267,7 +430,10 @@ POST https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters
       "ssd": {
         "sizeGb": "string",
         "type": "string",
-        "count": "string"
+        "count": "string",
+        "changelogs": {
+          "sizeGb": "string"
+        }
       }
     },
     "compute": [
@@ -311,7 +477,28 @@ POST https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters
     "odin": {
       "checksTtl": "string"
     },
-    "flavor": "string"
+    "flavor": "string",
+    "cron": {
+      "clearTmp": {
+        "interval": "string",
+        "accountUsageRatioSaveTotal": "string",
+        "accountUsageRatioSavePerOwner": "string",
+        "maxDirNodeCount": "string"
+      }
+    },
+    "clientLogging": {
+      "serviceAccountId": "string",
+      // Includes only one of the fields `logGroupId`, `folderId`
+      "logGroupId": "string",
+      "folderId": "string",
+      // end of the list of possible fields
+      "auditLogsEnabled": "boolean"
+    }
+  },
+  "cidrBlocksWhitelist": {
+    "v4CidrBlocks": [
+      "string"
+    ]
   }
 }
 ```
@@ -326,7 +513,9 @@ Required field. ID of the folder to create the cluster in. ||
 Required field. ID of the availability zone where the cluster resides. ||
 || name | **string**
 
-Name of the cluster. ||
+Name of the cluster.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9040104510410-044f]\S{1,61}[a-zA-Z0-9040104510410-044f] `. ||
 || description | **string**
 
 Description of the cluster. ||
@@ -342,55 +531,107 @@ IDs of the security groups to attach to the cluster. ||
 || spec | **[ClusterSpec](#yandex.cloud.ytsaurus.v1.ClusterSpec)**
 
 Cluster specification. ||
+|| cidrBlocksWhitelist | **[CidrBlocks](#yandex.cloud.ytsaurus.v1.CidrBlocks)**
+
+CIDRs whitelist. ||
 |#
 
 ## ClusterSpec {#yandex.cloud.ytsaurus.v1.ClusterSpec}
 
 #|
 ||Field | Description ||
-|| storage | **[StorageSpec](#yandex.cloud.ytsaurus.v1.StorageSpec)** ||
-|| compute[] | **[ComputeSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec)** ||
-|| tablet | **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec)** ||
-|| proxy | **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec)** ||
-|| odin | **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec)** ||
+|| storage | **[StorageSpec](#yandex.cloud.ytsaurus.v1.StorageSpec)**
+
+Cluster storage configuration. ||
+|| compute[] | **[ComputeSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec)**
+
+Cluster exec nodes configuration. ||
+|| tablet | **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec)**
+
+Cluster tablet nodes configuration. ||
+|| proxy | **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec)**
+
+Cluster proxies configuration. ||
+|| odin | **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec)**
+
+Odin configuration. ||
 || flavor | **enum** (Flavor)
 
-- `FLAVOR_UNSPECIFIED`
+Cluster flavor (type).
+
 - `DEMO`: Demo cluster configuration with minimal system resources. Not fault-tolerant, not for production use. ||
+|| cron | **[CronSpec](#yandex.cloud.ytsaurus.v1.CronSpec)**
+
+Cluster regular processing settings. ||
+|| clientLogging | **[ClientLogging](#yandex.cloud.ytsaurus.v1.ClientLogging)**
+
+Client Cloud logging configuration. ||
 |#
 
 ## StorageSpec {#yandex.cloud.ytsaurus.v1.StorageSpec}
 
 #|
 ||Field | Description ||
-|| hdd | **[HddSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec)** ||
-|| ssd | **[SsdSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec)** ||
+|| hdd | **[HddSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec)**
+
+Configuration of cluster HDD strorage. ||
+|| ssd | **[SsdSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec)**
+
+Configuration of cluster SSD strorage ||
 |#
 
 ## HddSpec {#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec}
 
 #|
 ||Field | Description ||
-|| sizeGb | **string** (int64) ||
-|| count | **string** (int64) ||
+|| sizeGb | **string** (int64)
+
+Size of a single HDD disk in GB. ||
+|| count | **string** (int64)
+
+Total amount of HDD disks. ||
 |#
 
 ## SsdSpec {#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec}
 
 #|
 ||Field | Description ||
-|| sizeGb | **string** (int64) ||
-|| type | **string** ||
-|| count | **string** (int64) ||
+|| sizeGb | **string** (int64)
+
+Size of a single SSD disk in GB. ||
+|| type | **string**
+
+Type of a SSD disk. ||
+|| count | **string** (int64)
+
+Total amount of SSD disks. ||
+|| changelogs | **[Changelogs](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec.Changelogs)**
+
+Configuration of dynamic table changelogs. ||
+|#
+
+## Changelogs {#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec.Changelogs}
+
+#|
+||Field | Description ||
+|| sizeGb | **string** (int64)
+
+Size of changelogs disk in GB. ||
 |#
 
 ## ComputeSpec {#yandex.cloud.ytsaurus.v1.ComputeSpec}
 
 #|
 ||Field | Description ||
-|| preset | **string** ||
-|| disks[] | **[DiskSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec.DiskSpec)** ||
-|| scalePolicy | **[ScalePolicy](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy)** ||
+|| preset | **string**
+
+VM configuration preset name. ||
+|| disks[] | **[DiskSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec.DiskSpec)**
+
+Configuration of exec node strorage. ||
+|| scalePolicy | **[ScalePolicy](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy)**
+
+Exec nodes scaling policy. ||
 || name | **string**
 
 Name for exec pool. ||
@@ -400,9 +641,15 @@ Name for exec pool. ||
 
 #|
 ||Field | Description ||
-|| type | **string** ||
-|| sizeGb | **string** (int64) ||
-|| locations[] | **string** ||
+|| type | **string**
+
+Type of a disk. ||
+|| sizeGb | **string** (int64)
+
+Size of a single disk in GB. ||
+|| locations[] | **string**
+
+Locations on a disk. ||
 |#
 
 ## ScalePolicy {#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy}
@@ -411,8 +658,12 @@ Name for exec pool. ||
 ||Field | Description ||
 || fixed | **[FixedScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.FixedScale)**
 
+Scale policy that doesn't change number of running exec nodes over time.
+
 Includes only one of the fields `fixed`, `auto`. ||
 || auto | **[AutoScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale)**
+
+Scale policy that can adjust number of running exec nodes within specified range based on some criteria.
 
 Includes only one of the fields `fixed`, `auto`. ||
 |#
@@ -421,52 +672,134 @@ Includes only one of the fields `fixed`, `auto`. ||
 
 #|
 ||Field | Description ||
-|| size | **string** (int64) ||
+|| size | **string** (int64)
+
+Amount of exec nodes. ||
 |#
 
 ## AutoScale {#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale}
 
 #|
 ||Field | Description ||
-|| minSize | **string** (int64) ||
-|| maxSize | **string** (int64) ||
+|| minSize | **string** (int64)
+
+Minimal amount of exec nodes. ||
+|| maxSize | **string** (int64)
+
+Maximum amount of exec nodes. ||
 |#
 
 ## TabletSpec {#yandex.cloud.ytsaurus.v1.TabletSpec}
 
 #|
 ||Field | Description ||
-|| preset | **string** ||
-|| count | **string** (int64) ||
+|| preset | **string**
+
+VM configuration preset name. ||
+|| count | **string** (int64)
+
+Total amount of tablet nodes. ||
 |#
 
 ## ProxySpec {#yandex.cloud.ytsaurus.v1.ProxySpec}
 
 #|
 ||Field | Description ||
-|| http | **[HttpProxySpec](#yandex.cloud.ytsaurus.v1.HttpProxySpec)** ||
-|| rpc | **[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec)** ||
+|| http | **[HttpProxySpec](#yandex.cloud.ytsaurus.v1.HttpProxySpec)**
+
+Configuration of HTTP proxies. ||
+|| rpc | **[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec)**
+
+Configuration of rpc proxies. ||
 |#
 
 ## HttpProxySpec {#yandex.cloud.ytsaurus.v1.HttpProxySpec}
 
 #|
 ||Field | Description ||
-|| count | **string** (int64) ||
+|| count | **string** (int64)
+
+Total amount of HTTP proxies. ||
 |#
 
 ## RpcProxySpec {#yandex.cloud.ytsaurus.v1.RpcProxySpec}
 
 #|
 ||Field | Description ||
-|| count | **string** (int64) ||
+|| count | **string** (int64)
+
+Total amount of RPC proxies. ||
 |#
 
 ## OdinSpec {#yandex.cloud.ytsaurus.v1.OdinSpec}
 
 #|
 ||Field | Description ||
-|| checksTtl | **string** (duration) ||
+|| checksTtl | **string** (duration)
+
+TTL of Odin check samples. ||
+|#
+
+## CronSpec {#yandex.cloud.ytsaurus.v1.CronSpec}
+
+#|
+||Field | Description ||
+|| clearTmp | **[ClearTmpCronSpec](#yandex.cloud.ytsaurus.v1.ClearTmpCronSpec)**
+
+Cluster regular tmp-account cleaning settings. ||
+|#
+
+## ClearTmpCronSpec {#yandex.cloud.ytsaurus.v1.ClearTmpCronSpec}
+
+#|
+||Field | Description ||
+|| interval | **string** (duration)
+
+Script starting interval. ||
+|| accountUsageRatioSaveTotal | **string**
+
+Total max space usage ratio. ||
+|| accountUsageRatioSavePerOwner | **string**
+
+Per account max space usage ratio. ||
+|| maxDirNodeCount | **string** (int64)
+
+Max nodes in every directory. ||
+|#
+
+## ClientLogging {#yandex.cloud.ytsaurus.v1.ClientLogging}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+ID of Service account used for write logs. ||
+|| logGroupId | **string**
+
+ID of cloud logging group.
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Destination of cloud logging group. ||
+|| folderId | **string**
+
+ID of cloud logging folder. Used default loging group.
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Destination of cloud logging group. ||
+|| auditLogsEnabled | **boolean**
+
+Enable audit logs. ||
+|#
+
+## CidrBlocks {#yandex.cloud.ytsaurus.v1.CidrBlocks}
+
+#|
+||Field | Description ||
+|| v4CidrBlocks[] | **string**
+
+IPv4 CIDR blocks. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -512,7 +845,10 @@ Includes only one of the fields `fixed`, `auto`. ||
         "ssd": {
           "sizeGb": "string",
           "type": "string",
-          "count": "string"
+          "count": "string",
+          "changelogs": {
+            "sizeGb": "string"
+          }
         }
       },
       "compute": [
@@ -556,7 +892,23 @@ Includes only one of the fields `fixed`, `auto`. ||
       "odin": {
         "checksTtl": "string"
       },
-      "flavor": "string"
+      "flavor": "string",
+      "cron": {
+        "clearTmp": {
+          "interval": "string",
+          "accountUsageRatioSaveTotal": "string",
+          "accountUsageRatioSavePerOwner": "string",
+          "maxDirNodeCount": "string"
+        }
+      },
+      "clientLogging": {
+        "serviceAccountId": "string",
+        // Includes only one of the fields `logGroupId`, `folderId`
+        "logGroupId": "string",
+        "folderId": "string",
+        // end of the list of possible fields
+        "auditLogsEnabled": "boolean"
+      }
     },
     "createdAt": "string",
     "createdBy": "string",
@@ -569,6 +921,11 @@ Includes only one of the fields `fixed`, `auto`. ||
       "externalHttpProxyBalancer": "string",
       "internalHttpProxyAlias": "string",
       "internalRpcProxyAlias": "string"
+    },
+    "cidrBlocksWhitelist": {
+      "v4CidrBlocks": [
+        "string"
+      ]
     }
   }
   // end of the list of possible fields
@@ -732,7 +1089,7 @@ User who last updated the cluster. ||
 
 Status of the cluster.
 
-- `STATUS_UNKNOWN`
+- `STATUS_UNKNOWN`: Unknown status.
 - `CREATING`: Cluster is being created.
 - `RUNNING`: Cluster is running.
 - `ERROR`: Cluster encountered a problem and cannot operate.
@@ -745,62 +1102,114 @@ Status of the cluster.
 
 Health of the cluster.
 
-- `HEALTH_UNKNOWN`
+- `HEALTH_UNKNOWN`: Unknown health.
 - `ALIVE`: Cluster is alive.
 - `DEAD`: Cluster is dead.
 - `DEGRADED`: Cluster is degraded. ||
 || endpoints | **[Endpoints](#yandex.cloud.ytsaurus.v1.Cluster.Endpoints)**
 
 Endpoints of the cluster. ||
+|| cidrBlocksWhitelist | **[CidrBlocks](#yandex.cloud.ytsaurus.v1.CidrBlocks2)**
+
+CIDRs whitelist. ||
 |#
 
 ## ClusterSpec {#yandex.cloud.ytsaurus.v1.ClusterSpec2}
 
 #|
 ||Field | Description ||
-|| storage | **[StorageSpec](#yandex.cloud.ytsaurus.v1.StorageSpec2)** ||
-|| compute[] | **[ComputeSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec2)** ||
-|| tablet | **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec2)** ||
-|| proxy | **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec2)** ||
-|| odin | **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec2)** ||
+|| storage | **[StorageSpec](#yandex.cloud.ytsaurus.v1.StorageSpec2)**
+
+Cluster storage configuration. ||
+|| compute[] | **[ComputeSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec2)**
+
+Cluster exec nodes configuration. ||
+|| tablet | **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec2)**
+
+Cluster tablet nodes configuration. ||
+|| proxy | **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec2)**
+
+Cluster proxies configuration. ||
+|| odin | **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec2)**
+
+Odin configuration. ||
 || flavor | **enum** (Flavor)
 
-- `FLAVOR_UNSPECIFIED`
+Cluster flavor (type).
+
 - `DEMO`: Demo cluster configuration with minimal system resources. Not fault-tolerant, not for production use. ||
+|| cron | **[CronSpec](#yandex.cloud.ytsaurus.v1.CronSpec2)**
+
+Cluster regular processing settings. ||
+|| clientLogging | **[ClientLogging](#yandex.cloud.ytsaurus.v1.ClientLogging2)**
+
+Client Cloud logging configuration. ||
 |#
 
 ## StorageSpec {#yandex.cloud.ytsaurus.v1.StorageSpec2}
 
 #|
 ||Field | Description ||
-|| hdd | **[HddSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec2)** ||
-|| ssd | **[SsdSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec2)** ||
+|| hdd | **[HddSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec2)**
+
+Configuration of cluster HDD strorage. ||
+|| ssd | **[SsdSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec2)**
+
+Configuration of cluster SSD strorage ||
 |#
 
 ## HddSpec {#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec2}
 
 #|
 ||Field | Description ||
-|| sizeGb | **string** (int64) ||
-|| count | **string** (int64) ||
+|| sizeGb | **string** (int64)
+
+Size of a single HDD disk in GB. ||
+|| count | **string** (int64)
+
+Total amount of HDD disks. ||
 |#
 
 ## SsdSpec {#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec2}
 
 #|
 ||Field | Description ||
-|| sizeGb | **string** (int64) ||
-|| type | **string** ||
-|| count | **string** (int64) ||
+|| sizeGb | **string** (int64)
+
+Size of a single SSD disk in GB. ||
+|| type | **string**
+
+Type of a SSD disk. ||
+|| count | **string** (int64)
+
+Total amount of SSD disks. ||
+|| changelogs | **[Changelogs](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec.Changelogs2)**
+
+Configuration of dynamic table changelogs. ||
+|#
+
+## Changelogs {#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec.Changelogs2}
+
+#|
+||Field | Description ||
+|| sizeGb | **string** (int64)
+
+Size of changelogs disk in GB. ||
 |#
 
 ## ComputeSpec {#yandex.cloud.ytsaurus.v1.ComputeSpec2}
 
 #|
 ||Field | Description ||
-|| preset | **string** ||
-|| disks[] | **[DiskSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec.DiskSpec2)** ||
-|| scalePolicy | **[ScalePolicy](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy2)** ||
+|| preset | **string**
+
+VM configuration preset name. ||
+|| disks[] | **[DiskSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec.DiskSpec2)**
+
+Configuration of exec node strorage. ||
+|| scalePolicy | **[ScalePolicy](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy2)**
+
+Exec nodes scaling policy. ||
 || name | **string**
 
 Name for exec pool. ||
@@ -810,9 +1219,15 @@ Name for exec pool. ||
 
 #|
 ||Field | Description ||
-|| type | **string** ||
-|| sizeGb | **string** (int64) ||
-|| locations[] | **string** ||
+|| type | **string**
+
+Type of a disk. ||
+|| sizeGb | **string** (int64)
+
+Size of a single disk in GB. ||
+|| locations[] | **string**
+
+Locations on a disk. ||
 |#
 
 ## ScalePolicy {#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy2}
@@ -821,8 +1236,12 @@ Name for exec pool. ||
 ||Field | Description ||
 || fixed | **[FixedScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.FixedScale2)**
 
+Scale policy that doesn't change number of running exec nodes over time.
+
 Includes only one of the fields `fixed`, `auto`. ||
 || auto | **[AutoScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale2)**
+
+Scale policy that can adjust number of running exec nodes within specified range based on some criteria.
 
 Includes only one of the fields `fixed`, `auto`. ||
 |#
@@ -831,52 +1250,125 @@ Includes only one of the fields `fixed`, `auto`. ||
 
 #|
 ||Field | Description ||
-|| size | **string** (int64) ||
+|| size | **string** (int64)
+
+Amount of exec nodes. ||
 |#
 
 ## AutoScale {#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale2}
 
 #|
 ||Field | Description ||
-|| minSize | **string** (int64) ||
-|| maxSize | **string** (int64) ||
+|| minSize | **string** (int64)
+
+Minimal amount of exec nodes. ||
+|| maxSize | **string** (int64)
+
+Maximum amount of exec nodes. ||
 |#
 
 ## TabletSpec {#yandex.cloud.ytsaurus.v1.TabletSpec2}
 
 #|
 ||Field | Description ||
-|| preset | **string** ||
-|| count | **string** (int64) ||
+|| preset | **string**
+
+VM configuration preset name. ||
+|| count | **string** (int64)
+
+Total amount of tablet nodes. ||
 |#
 
 ## ProxySpec {#yandex.cloud.ytsaurus.v1.ProxySpec2}
 
 #|
 ||Field | Description ||
-|| http | **[HttpProxySpec](#yandex.cloud.ytsaurus.v1.HttpProxySpec2)** ||
-|| rpc | **[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec2)** ||
+|| http | **[HttpProxySpec](#yandex.cloud.ytsaurus.v1.HttpProxySpec2)**
+
+Configuration of HTTP proxies. ||
+|| rpc | **[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec2)**
+
+Configuration of rpc proxies. ||
 |#
 
 ## HttpProxySpec {#yandex.cloud.ytsaurus.v1.HttpProxySpec2}
 
 #|
 ||Field | Description ||
-|| count | **string** (int64) ||
+|| count | **string** (int64)
+
+Total amount of HTTP proxies. ||
 |#
 
 ## RpcProxySpec {#yandex.cloud.ytsaurus.v1.RpcProxySpec2}
 
 #|
 ||Field | Description ||
-|| count | **string** (int64) ||
+|| count | **string** (int64)
+
+Total amount of RPC proxies. ||
 |#
 
 ## OdinSpec {#yandex.cloud.ytsaurus.v1.OdinSpec2}
 
 #|
 ||Field | Description ||
-|| checksTtl | **string** (duration) ||
+|| checksTtl | **string** (duration)
+
+TTL of Odin check samples. ||
+|#
+
+## CronSpec {#yandex.cloud.ytsaurus.v1.CronSpec2}
+
+#|
+||Field | Description ||
+|| clearTmp | **[ClearTmpCronSpec](#yandex.cloud.ytsaurus.v1.ClearTmpCronSpec2)**
+
+Cluster regular tmp-account cleaning settings. ||
+|#
+
+## ClearTmpCronSpec {#yandex.cloud.ytsaurus.v1.ClearTmpCronSpec2}
+
+#|
+||Field | Description ||
+|| interval | **string** (duration)
+
+Script starting interval. ||
+|| accountUsageRatioSaveTotal | **string**
+
+Total max space usage ratio. ||
+|| accountUsageRatioSavePerOwner | **string**
+
+Per account max space usage ratio. ||
+|| maxDirNodeCount | **string** (int64)
+
+Max nodes in every directory. ||
+|#
+
+## ClientLogging {#yandex.cloud.ytsaurus.v1.ClientLogging2}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+ID of Service account used for write logs. ||
+|| logGroupId | **string**
+
+ID of cloud logging group.
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Destination of cloud logging group. ||
+|| folderId | **string**
+
+ID of cloud logging folder. Used default loging group.
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Destination of cloud logging group. ||
+|| auditLogsEnabled | **boolean**
+
+Enable audit logs. ||
 |#
 
 ## Endpoints {#yandex.cloud.ytsaurus.v1.Cluster.Endpoints}
@@ -885,14 +1377,23 @@ Includes only one of the fields `fixed`, `auto`. ||
 ||Field | Description ||
 || ui | **string**
 
-https://CID.ui.ytsaurus.yandexcloud.net ||
+https://CID.ytsaurus.yandexcloud.net ||
 || externalHttpProxyBalancer | **string**
 
-https://CID.proxy.ytsaurus.yandexcloud.net ||
+https://proxy.CID.ytsaurus.yandexcloud.net ||
 || internalHttpProxyAlias | **string**
 
 https://hp.CID.ytsaurus.mdb.yandexcloud.net:PORT ||
 || internalRpcProxyAlias | **string**
 
 rp.CID.ytsaurus.mdb.yandexcloud.net:PORT ||
+|#
+
+## CidrBlocks {#yandex.cloud.ytsaurus.v1.CidrBlocks2}
+
+#|
+||Field | Description ||
+|| v4CidrBlocks[] | **string**
+
+IPv4 CIDR blocks. ||
 |#

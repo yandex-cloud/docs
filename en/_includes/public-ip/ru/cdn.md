@@ -1,10 +1,4 @@
-| IPv4               |
-|--------------------|
-| `188.72.103.0/24`  |
-| `188.72.104.0/24`  |
-| `188.72.105.0/24`  |
-| `188.72.110.0/24`  |
-| `188.72.111.0/24`  |
-| `188.72.112.0/24`  |
-| `188.72.113.0/24`  |
-| `89.223.9.0/24`    |
+The list of public IP addresses varies depending on the [provider](../../../cdn/concepts/providers.md) in use:
+
+* [{{ cdn-full-name }}](https://tech.cdn.yandex.net/prefixes/yc.json) IP addresses.
+* [EdgeCDN](https://api.edgecenter.ru/cdn/public_net_list) IP addresses.

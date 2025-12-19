@@ -43,25 +43,9 @@ Object storage in workbooks and in folders of the old object model does not over
 
 ## How to enable workbooks and collections {#enable-workbooks}
 
-{% note warning %}
+{% include [enable-workbooks](../../_includes/datalens/settings/enable-workbooks.md) %}
 
-* To enable workbooks, a user must have the `{{ roles-datalens-admin }}` role. They can do this only if a {{ datalens-short-name }} instance is deployed at the [organization](../concepts/organizations.md) level.
-* Only workbooks and collections are available in new {{ datalens-short-name }} instances.
-
-{% endnote %}
-
-To get started with workbooks:
-
-1. Go to the [service settings]({{ link-datalens-settings }}).
-1. Under **Workbooks**, click **Enable workbooks**.
-
-   {% cut "Workbooks enabled" %}
-
-   ![image](../../_assets/datalens/workbooks-collections/enable-workbooks.png)
-
-   {% endcut %}
-
-To transfer any object from a folder to a workbook, perform [migration](./migrations.md). If you are not going to use folder navigation anymore, you can [disable](../settings/disable-folder-navigation.md) it.
+To transfer any object from a folder to a workbook, perform [migration](./migrations.md). If you are not going to use folder navigation anymore, you can [disable](../settings/navigation.md#disable-folder-navigation) it.
 
 
 

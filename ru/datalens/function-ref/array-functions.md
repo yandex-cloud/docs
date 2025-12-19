@@ -15,6 +15,22 @@ sourcePath: ru/_api-ref/datalens/function-ref/array-functions.md
 
 
 
+## [ARR_DISTINCT](ARR_DISTINCT.md)
+
+**Синтаксис:**`ARR_DISTINCT( array )`
+
+Удаляет повторяющиеся элементы из массива `array`, возвращая новый массив, содержащий только уникальные элементы. Порядок элементов в возвращаемом массиве может не совпадать с порядком в исходном массиве.
+
+
+
+## [ARR_INDEX_OF](ARR_INDEX_OF.md)
+
+**Синтаксис:**`ARR_INDEX_OF( array, value )`
+
+Возвращает позицию (индекс) первого вхождения значения `value` в массив `array`. Индексация начинается с 1. Если значение `value` не найдено в массиве, функция возвращает 0.
+
+
+
 ## [ARR_INTERSECT](ARR_INTERSECT.md)
 
 **Синтаксис:**`ARR_INTERSECT( array_1, array_2, array_3 [ , ... ] )`

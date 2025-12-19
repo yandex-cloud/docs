@@ -342,6 +342,30 @@ items:
                 href: function-ref/SQUARE.md
               - name: TAN
                 href: function-ref/TAN.md
+          - name: Нативные функции
+            items:
+              - name: Обзор
+                href: function-ref/native-functions.md
+              - name: DB_CALL_AGG_FLOAT
+                href: function-ref/DB_CALL_AGG_FLOAT.md
+              - name: DB_CALL_AGG_INT
+                href: function-ref/DB_CALL_AGG_INT.md
+              - name: DB_CALL_AGG_STRING
+                href: function-ref/DB_CALL_AGG_STRING.md
+              - name: DB_CALL_ARRAY_FLOAT
+                href: function-ref/DB_CALL_ARRAY_FLOAT.md
+              - name: DB_CALL_ARRAY_INT
+                href: function-ref/DB_CALL_ARRAY_INT.md
+              - name: DB_CALL_ARRAY_STRING
+                href: function-ref/DB_CALL_ARRAY_STRING.md
+              - name: DB_CALL_BOOL
+                href: function-ref/DB_CALL_BOOL.md
+              - name: DB_CALL_FLOAT
+                href: function-ref/DB_CALL_FLOAT.md
+              - name: DB_CALL_INT
+                href: function-ref/DB_CALL_INT.md
+              - name: DB_CALL_STRING
+                href: function-ref/DB_CALL_STRING.md
           - name: Оконные функции
             items:
               - name: Обзор
@@ -540,6 +564,10 @@ items:
                 href: function-ref/ARRAY.md
               - name: ARR_AVG
                 href: function-ref/ARR_AVG.md
+              - name: ARR_DISTINCT
+                href: function-ref/ARR_DISTINCT.md
+              - name: ARR_INDEX_OF
+                href: function-ref/ARR_INDEX_OF.md
               - name: ARR_INTERSECT
                 href: function-ref/ARR_INTERSECT.md
               - name: ARR_MAX
@@ -634,6 +662,24 @@ items:
                 href: function-ref/URL.md
               - name: USER_INFO
                 href: function-ref/USER_INFO.md
+          - name: Хеш-функции
+            items:
+              - name: Обзор
+                href: function-ref/hash-functions.md
+              - name: CITYHASH64
+                href: function-ref/CITYHASH64.md
+              - name: INTHASH64
+                href: function-ref/INTHASH64.md
+              - name: MD5
+                href: function-ref/MD5.md
+              - name: MURMURHASH2_64
+                href: function-ref/MURMURHASH2_64.md
+              - name: SHA1
+                href: function-ref/SHA1.md
+              - name: SHA256
+                href: function-ref/SHA256.md
+              - name: SIPHASH64
+                href: function-ref/SIPHASH64.md
           - name: Поддержка функций
             href: function-ref/availability.md
       - name: Примеры использования функций

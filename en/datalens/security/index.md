@@ -29,7 +29,6 @@ When using a firewall, allow access to external resources required to run {{ dat
 To learn about {{ datalens-name }} access management, see:
 
 
-* [{#T}](./add-new-user.md)
 * [{#T}](./roles.md)
 * Organizations in {{ datalens-name }}:
 

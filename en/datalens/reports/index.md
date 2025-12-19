@@ -5,10 +5,6 @@ description: In this tutorial, you will learn about reports in {{ datalens-full-
 
 # Reports in {{ datalens-name }}
 
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 A _report_ is a multi-page document in a specified format you can use as an interactive presentation or export to PDF and print. You can add [charts](../concepts/chart/index.md), [text blocks](../dashboard/widget.md#text), [headers](../dashboard/widget.md#title), and images to report pages.
 
 

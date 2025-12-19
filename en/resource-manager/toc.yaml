@@ -41,6 +41,8 @@ items:
             href: operations/folder/delete.md
           - name: Setting up access rights
             href: operations/folder/set-access-bindings.md
+          - name: Folder navigation
+            href: operations/folder/switch.md
           - name: Getting the folder ID
             href: operations/folder/get-id.md
           - name: Getting notifications from services in a folder

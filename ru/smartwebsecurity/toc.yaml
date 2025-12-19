@@ -202,6 +202,8 @@ items:
         href: concepts/conditions.md
       - name: Списки
         href: concepts/lists.md
+      - name: Управление бот-трафиком
+        href: concepts/botes.md
       - name: Защита доменов
         href: concepts/domain-protect.md
       - name: Логирование

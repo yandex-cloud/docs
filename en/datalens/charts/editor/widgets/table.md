@@ -5,10 +5,6 @@ description: In this tutorial, you will learn how to work with tables in Editor.
 
 # Table
 
-
-{% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 This type of chart supports the same functionality as the [table](../../../visualization-ref/table-chart.md) in the wizard: you can customize styles, set up cross-filtering, pagination, etc.
 
 ## Structure on the Prepare tab {#prepare}

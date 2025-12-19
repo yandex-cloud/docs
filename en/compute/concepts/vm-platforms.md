@@ -31,6 +31,12 @@ AMD Zen 4</br>(`standard-v4a`) | [AMD EPYC™ 9654](https://www.amd.com/en/produ
 
 {% include [amd-platform-preview](../../_includes/compute/amd-platform-preview.md) %}
 
+{% note warning %}
+
+{% include [vcpu-note](../../_includes/compute/vcpu-note.md) %}
+
+{% endnote %}
+
 ## High-performance platforms {#compute-optimized-platforms}
 
 Platform | Processor | Maximum number of</br> cores (vCPUs) per VM | CPU base</br> clock rate (GHz)

@@ -1,6 +1,8 @@
 # Content caching
 
-In the CDN resource settings, you can enable _content caching_ to temporarily store the file copies loaded from origins. There are two types of caching: on CDN servers and in the client browsers.
+In the CDN resource settings, you can enable _content caching_ to temporarily store the file copies loaded from origins. There are two types of caching:
+* On CDN servers located at the [points of presence](points-of-presence.md).
+* In client browsers.
 
 ## Caching on CDN servers {#server-side}
 

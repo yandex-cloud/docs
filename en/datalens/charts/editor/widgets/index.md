@@ -5,10 +5,6 @@ description: In this article, you will learn about visualization types available
 
 # Visualization types
 
-
-{% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
-
 The Editor offers multiple visualization types which you can render using various libraries:
 
 * [Table](./table.md)

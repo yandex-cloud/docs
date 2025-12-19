@@ -1,0 +1,1 @@
+Virtual machines with over 256 vCPUs will run correctly only on operating systems with Linux kernel version 5.15 or higher.

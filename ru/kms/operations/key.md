@@ -63,12 +63,6 @@
 
 После создания ключа вы можете изменить любой из его атрибутов. Если вы измените алгоритм шифрования, то новый алгоритм будет использоваться начиная со следующей версии ключа. Чтобы сразу создать новую версию и сделать ее версией по умолчанию, [ротируйте ключ](#rotate).
 
-{% note info %}
-
-Изменение статуса ключа с `Active` на `Inactive` относится к [eventually consistent](../concepts/consistency.md) операциям. Изменения, вызванные такими операциями, вступают в силу с задержкой до трех часов.
-
-{% endnote %}
-
 Чтобы изменить ключ:
 
 {% list tabs group=instructions %}
@@ -150,6 +144,101 @@
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      Проверить изменение ключа можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```bash
+     yc kms symmetric-key get <имя_ключа>
+     ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../../kms/api-ref/SymmetricKey/update.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Update](../../kms/api-ref/grpc/SymmetricKey/update.md).
+
+{% endlist %}
+
+## Активировать и деактивировать ключ {#active-inactive}
+
+После создания ключа вы можете изменить текущий [статус ключа](../concepts/key.md#parameters).
+
+{% note info %}
+
+Деактивация ключа (изменение статуса ключа с `Active` на `Inactive`) относится к [eventually consistent](../concepts/consistency.md) операциям. Изменения, вызванные такими операциями, вступают в силу с задержкой до трех часов.
+
+{% endnote %}
+
+Чтобы изменить статус ключа:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Войдите в [консоль управления]({{ link-console-main }}).
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+  1. Чтобы деактивировать ключ, в строке с нужным ключом в статусе `Active` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-keys.button_action-deactivate }}**.
+  1. Чтобы активировать ключ, в строке с нужным ключом в статусе `Inactive` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-keys.button_action-activate }}**.
+
+- CLI {#cli}
+
+  Выполните команду:
+
+  ```bash
+  yc kms symmetric-key update \
+    --name example-key \
+    --status active
+  ```
+
+  Где:
+
+  * `--name` — имя ключа. Если в каталоге есть несколько ключей с одинаковыми именами, используйте идентификатор ключа в параметре `--id`.
+  * `--status` — новый статус ключа. Возможные значения: `active`, `inactive`.
+
+- {{ TF }} {#tf}
+
+  1. Откройте файл конфигурации {{ TF }} и добавьте к описанию ресурса `yandex_kms_symmetric_key` параметр `status` со значением `ACTIVE` или `INACTIVE`.
+
+     Пример структуры конфигурационного файла:
+
+     ```hcl
+     ...
+     resource "yandex_kms_symmetric_key" "key-a" {
+       name                = "example-symmetric-key"
+       description         = "description for key"
+       ...
+       status              = "INACTIVE"
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_kms_symmetric_key` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key).
+
+  1. Проверьте конфигурацию командой:
+
+     ```bash
+     terraform validate
+     ```
+
+     Если конфигурация является корректной, появится сообщение:
+
+     ```text
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     terraform plan
+     ```
+
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+  1. Примените изменения конфигурации:
+
+     ```bash
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+  Проверить изменение статуса ключа можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc kms symmetric-key get <имя_ключа>

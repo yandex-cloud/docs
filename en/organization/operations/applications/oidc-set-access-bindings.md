@@ -5,6 +5,7 @@ description: In this article, you will learn how to set up access to an OIDC app
 
 # Setting up access for OIDC app users in {{ org-full-name }}
 
+
 To grant access to an [OIDC app](../../concepts/applications.md#oidc), assign [roles](../../../iam/concepts/access-control/roles.md) to subjects. [Learn](../../security/index.md#roles-list) what roles the service has and assign the required ones.
 
 {% list tabs group=instructions %}

@@ -36,4 +36,4 @@ LEN(ARRAY('a', 'b', NULL, 'c')) = 4
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Яндекс Документы`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`.

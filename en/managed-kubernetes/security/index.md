@@ -14,13 +14,15 @@ In this section, you will learn about:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-{% include [roles-assign](../../_includes/iam/roles-assign.md) %}
+To assign a role for a resource, a user should have the `k8s.admin` role or one of the following roles for that resource:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 ## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can also [assign a role for a separate cluster](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
+Also, you can assign [roles required to access the {{ k8s }} API](#k8s-api) to a separate cluster via the [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md), [{{ TF }}]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_binding), or [API](../api-ref/authentication.md). For more information, see [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
 
 ## Roles this service has {#roles-list}
 

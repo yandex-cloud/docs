@@ -50,12 +50,8 @@ The {{ datalens-short-name }} instance [admin](../security/roles.md#datalens-adm
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
-
-   ![screen05](../../_assets/datalens/concepts/datalens-public/screen05.png)
-
+1. Select the **Security** tab.
 1. Under **Publication**, click **View published**.
-
-   ![screen06](../../_assets/datalens/concepts/datalens-public/screen06.png)
 
 ## Sharing a chart based on Yandex Metrica or AppMetrica data {#metrica-share}
 
@@ -66,8 +62,6 @@ To share a chart or dashboard containing Yandex Metrica or AppMetrica data, use 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
 
 ## Disabling publication {#publication-disable}
-
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
 
 By default, users can publish charts and dashboards for which they have the admin permissions. You can disable this option at the {{ datalens-short-name }} instance level. After you disable publication:
 
@@ -80,15 +74,11 @@ To disable object publication:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
-
-   ![screen05](../../_assets/datalens/concepts/datalens-public/screen05.png)
-
+1. Select the **Security** tab.
 1. Under **Publication**:
 
    1. View a list of published objects that will no longer be publicly accessible. To do this, click **View published**.
    1. Disable **Publication**.
-
-   ![screen07](../../_assets/datalens/concepts/datalens-public/screen07.png)
 
 #### See also: {#see-also}
 

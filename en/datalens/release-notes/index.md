@@ -1,136 +1,69 @@
 ---
-title: '{{ datalens-full-name }} release notes: October 2025'
-description: Check out {{ datalens-full-name }} release notes for October 2025.
+title: '{{ datalens-full-name }} release notes: November 2025'
+description: Check out {{ datalens-full-name }} release notes for November 2025.
 ---
 
-# {{ datalens-full-name }} release notes: October 2025
+# {{ datalens-full-name }} release notes: November 2025
 
 * [Changes in basic features](#base)
 * [Fixes and improvements](#fixes)
-* [Changes available with the _Business_ service plan](#business)
 
 ## Changes in basic features {#base}
 
-* Added [connection versioning](../concepts/connection/versioning.md). You can now view a list of previously saved connection changes and roll back to a previous version.
-  The following restrictions apply:
 
-  * Versioning is not available for the following connections: [Files](../operations/connection/create-file.md), [Yandex Documents](../operations/connection/create-yadocs.md), and [Google Sheets](../operations/connection/create-google-sheets.md).
-  * Sensitive connection data, such as passwords and tokens, is not versioned.
-  * Connection versions do not contain the source data changes (rows added, updated, or deleted in the data source).
-  * You can only get change history for the last three months.
+* Starting December 1, {{ datalens-full-name }} introduces a revised pricing policy. Under the new unified service plan, all users will gain access to expanded capabilities, including [Neuroanalyst](../concepts/neuroanalyst.md), [reports](../reports/index.md), JavaScript-based customizations in [Editor](../charts/editor/index.md), [background chart data export](../concepts/chart/data-export.md#background-export), [UI styling](../settings/appearance.md#ui-customization), and more. The new plan will be offered free of charge for individual use and for a fee for team work.
 
-* Added the option to [set up](../dataset/create-dataset.md#setup-fields) field display in the dataset. For dimensions, you can choose a color and set a display format for numeric types; for measures, you can only set a display format for numbers. These settings apply when you use these fields in charts built based on this dataset.
+  For more information, see the [pricing policy updates](../pricing-changes.md).
 
-  {% cut "Field display settings" %}
+* Added a new section with info about the annual [{{ datalens-short-name }} festival]({{ link-datalens-main }}/festival).
+* In connections to [{{ TR }}](../operations/connection/create-trino.md), [{{ PG }}](../operations/connection/create-postgresql.md), and [{{ GP }}](../operations/connection/create-greenplum.md), reduced workload on the source when selecting tables. What's new:
 
-  ![screenshot](../../_assets/datalens/dataset/dataset-field-format.png =310x285)
+  * Table lists are filtered and paginated on the database side.
+  * For [{{ TR }}](../operations/connection/create-trino.md#create-dataset), when you create a dataset, the table search is limited to the selected catalog.
 
-  {% endcut %}
+* The chat with the [report Neuroanalyst](../reports/insights.md) does not close when you switch between the pages of the report.
 
 
-* Added the ability to [select a default palette](../operations/chart/create-palette.md#default-palette) in the chart color settings.
 
-
-* The chat with support can now be opened directly from the {{ datalens-full-name }} interface. To open the chat, click ![image](../../_assets/console-icons/circle-question.svg) on the sidebar and select ![image](../../_assets/console-icons/comments.svg) **Open chat** under **Support**.
-
-* New works available in [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery). For more information, see the [{{ datalens-short-name }} Telegram chat](https://t.me/YandexDataLens/28631/140855).
-
-
-### Changes in the interface {#interface-changes}
-
-* The confirmation button was made more visible in the dialog box for creating, saving, and duplicating entities in folder navigation.
-
-  {% cut "Saving a chart" %}
-
-  ![image](../../_assets/datalens/release-notes/confirmation-button-view.png)
-
-  {% endcut %}
-
-
-* Added contrast to the background color of the dashboard and [widget pinning](../dashboard/settings.md#widget-fixation) area.
-
-
-* For [private object embedding](../security/private-embedded-objects.md), highlighted the info that the functionality is available in the _Business_ [service plan](../concepts/service-plans-comparison.md) to the settings window.
-
-  {% cut "Embedding settings" %}
-
-  ![image](../../_assets/datalens/release-notes/business-embedded.png =581x268)
-
-  {% endcut %}
-
-
-### Mobile version updates {#mobile-version-changes}
-
-* Added a widget pinning area to the dashboard.
-* Viewing dashboard contents and descriptions, as well as the ![](../../_assets/console-icons/arrow-shape-turn-up-right.svg) button, are now available in the panel at the bottom of the screen.
+* Updated the appearance of [chart](../dashboard/widget.md#chart) widget settings.
 
 ## Fixes and improvements {#fixes}
 
 
+* Fixed an issue where the [{{ datalens-gallery }}](https://datalens.ru/gallery) section did not appear if no organization was selected on the {{ datalens-short-name }} [main page]({{ link-datalens-main }}/init).
+* Added an update to the widget menu in reports after loading data.
+* Fixed chart loading when scrolling the dashboard. Previously, empty widgets would appear from time to time.
+* Fixed a private object embedding issue where [signed parameters](../security/private-embedded-objects.md#signed-parameters) did not affect dataset-based selectors.
 
-* Implemented the `_autoupdate` parameter for [private embedding](../security/private-embedded-objects.md), which allows you to manage the auto-update of charts and dashboards.
-* For charts and dashboards, fixed the issue of opening the [embedding settings](../security/private-embedded-objects.md#how-to-private-embed) in the side navigation. To open the settings, click ![image](../../_assets/console-icons/chart-column.svg) **Charts** or ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** in the sidebar and click ![ellipsis](../../_assets/console-icons/ellipsis.svg) → **Embedding settings** in the row with the object.
-* Fixed the display of totals in the Waterfall chart tooltip ([Gravity UI Charts](../charts/editor/widgets/chart.md)).
 
-
-* Fixed an error when [exporting data from a chart](../concepts/chart/data-export.md) to an `XLSX` file, where the `Date and time` column displayed the export date instead of the **Total**.
+* In the [dataset field settings](../dataset/create-dataset.md#setup-fields), fixed a bug that made it impossible to assign the same color to different fields.
+* In reports, fixed an issue with pivot table presentation after changing the [page format](../reports/report-operations.md#page-settings).
 
 ### Fixes in charts {#chart-fixes}
 
-* Disabled sorting for [multi-dataset charts](../concepts/chart/multidataset-chart.md).
-* Fixed the [undo changes](../concepts/chart/settings.md#undo-redo) button operation when changing chart type to [combined chart](../visualization-ref/combined-chart.md).
-* In the [table](../visualization-ref/table-chart.md#set-field-color) and [pivot table](../visualization-ref/pivot-table-chart.md#set-field-color), fixed the colors of fields with the default palette.
-* Fixed the display of an [indicator](../visualization-ref/indicator-chart.md), which uses [markup functions](../function-ref/markup-functions.md) along with some other functions.
-* In the [pivot table](../visualization-ref/pivot-table-chart.md#set-field-color), fixed the display of [markup functions](../function-ref/markup-functions.md) in the totals.
-* For [tables with trees](../dataset/data-types.md#how-to-use-tree), fixed the display of query info in the [inspector](../concepts/chart/inspector.md).
+* Fixed the display of [tables](../visualization-ref/table-chart.md) with empty (`null`) values in `Markup` type fields (fields using the [markup functions](../function-ref/markup-functions.md)).
+* Fixed the chart title font color setting in [Gravity UI Charts](../charts/editor/widgets/chart.md).
 
 
-### Fixes in workbooks {#workbook-fixes}
+### Fixes in Neuroanalyst {#neuroanalyst-fixes}
 
-* Added sorting by creation date and name in the object selection dialog in the [workbook](../workbooks-collections/index.md), when adding a chart or selector to a dashboard.
-* When [importing a workbook](../workbooks-collections/export-and-import.md#import-workbook), the list of workbooks is now updated after you close the progress window.
-* Added the option to delete a workbook during its creation (a workbook with the `Importing` status). In which case the workbook creation page will display an error.
+* On dashboards, the [Neuroanalyst](../concepts/neuroanalyst.md) chat box can now appear not only on top of the dashboard but also along its side, thus compressing it sideways (default). To change the chat position, click:
+  
+  * ![image](../../_assets/console-icons/pin-slash.svg): Chat on the top of the dashboard.
+  * ![image](../../_assets/console-icons/pin.svg): Chat along the side of the dashboard.
 
+* The Neuroanalyst chat now closes as soon as you switch to dashboard edit mode.
+* When in dashboard edit or create mode, the Neuroanalyst chat opening button is now hidden.
+* Closing the Neuroanalyst chat does not delete its contents. When you open the chat for the same widget or dashboard, you will see your previous dialog. Opening the chat for a new widget will start a new dialog.
+* Fixed Neuroanalyst chat positioning when minimized.
+* Fixed the Neuroanalyst chat bugs, where:
 
-### Error handling {#errors}
+  * Queries related to the Neuroanalyst chat were still executed after you closed it.
+  * The Neuroanalyst chat was displayed even if you tried to hide it.
+  * Neuroanalyst froze or displayed a white screen in the chat box after you clicked **Start again**.
+  * The buttons for hiding ![image](../../_assets/console-icons/chevrons-up.svg) and showing ![image](../../_assets/console-icons/chevrons-down.svg) the [pinned widgets](../dashboard/settings.md#widget-fixation) area were displayed on top of the open Neuroanalyst chat.
 
-* Fixed the `Minified error` that occurred when using the dashboard in some browsers.
-* Fixed an error that occurred when editing a [calculated field](../concepts/calculations/index.md#how-to-create-calculated-field) formula in a chart with grouping already added.
-* Fixed the display of validation errors when creating a [connection](../concepts/connection/index.md).
+### Mobile version updates {#mobile-version-changes}
 
+* Chart [legends](../concepts/chart/settings.md#common-settings) in full screen mode are no longer concealed behind the browser panel if using a non-standard address bar layout (e.g., mobile Yandex Browser with the bottom panel).
 
-* The error when attempting to create a workbook or collection with an existing name is now displayed more clearly and in the language configured by the user.
-* Added a handling action for the error when attempting to deploy a workbook with invalid data from the gallery. Now you get a message with a recommendation to contact support.
-
-## Changes available with the _Business_ service plan {#business}
-
-* Fixed incorrect collapsing of the AI chat in the Safari browser.
-
-### Setting up an AI prompt {#ai-promt-setting}
-
-Now you can set up a custom AI prompt. To do this, follow these steps:
-
-1. Click ![image](../../_assets/console-icons/gear.svg) **Settings** in the left part of the navigation panel to open the settings.
-1. Go to the **AI settings** tab.
-   
-   {% cut "AI settings" %}
-
-   ![image](../../_assets/datalens/release-notes/ai-setting.png)
-
-   {% endcut %}
-
-1. Click **Edit**.
-1. Enter a prompt in the text field and click **Save**. Text length: up to 2,000 characters.
-
-With each request to the AI, the custom prompt will be added to the {{ datalens-short-name }} system prompt.
-
-{% cut "Examples of user prompts for the AI" %}
-
-* For the subject area:
-  `Note that this data is related to food production`
-* For the user role:
-  `Answer me as a marketing expert`
-* For interpretation of measures and data:
-  `MAU: Always counted by the number of unique users, not client companies`
-
-{% endcut %}

@@ -16,38 +16,42 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-## {{ datalens-name }} service plans {#effective-rules}
+## {{ datalens-name }} service plan {#effective-rules}
 
-{{ datalens-full-name }} features service plans offering different service packages:
+{{ datalens-full-name }} has a single service plan where access is free for individual users and teams are billed based on the number of [seats](#seats).
 
-* **Community**: Suitable for small teams and non-profit projects.
-* **Business**: Suitable for enterprise deployments and business scenarios.
+### Seats {#seats}
 
-The plan you choose covers your organization and can only be [changed](./settings/service-plan.md#change-service-plan) by its owner or administrator. You pay for all [active users](#active-users).
+* Every {{ datalens-full-name }} user needs a seat, even if only to view or edit dashboards.
+* Seats are issued automatically when new users first log in to {{ datalens-full-name }}.
+* Seats can be managed by the administrator, see [this article](./settings/seats.md) for details.
+* You can manage access to objects in {{ datalens-full-name }} using [roles and access permissions](./security/index.md); a seat does not provide access to objects.
 
-Different service plans offer different [features](./concepts/service-plans-comparison.md) and vary in cost.
+{% note info %}
+
+By default, seat auto-purchasing is enabled in the instance: a seat is immediately issued to a user upon their first login to {{ datalens-name }}. The administrator can [disable this option](./settings/seats.md#purchase-automatically) in the settings to only assign already available seats to new users. If there are no such seats, the administrator will have to manually issue seats to new users.
+
+{% endnote %}
+
+Seats are counted towards the month's total, regardless of user activity. If the instance contains more than one seat, the total charge is calculated as follows:
+
+> Number of seats × Cost per seat
+
+You may schedule a cut in the number of seats at any time; however, the change will take effect only on the first day of the following calendar month.
+
+Technical support coverage is determined by the [{{ yandex-cloud }}](../support/overview.md) support plan you select.
+
+### Trial period {#trial}
+
+New {{ datalens-name }} users can take advantage of a 30-day trial period during which teamwork is free. At the end of the trial period, you will need to link a billing account to start paying for seats or reduce the consumption per instance to one seat.
+
+You can only use the trial period once per {{ datalens-name }} instance: it activates automatically when you activate the instance. When exiting the trial, your first month's cost is prorated based on remaining days in the month.
 
 ## Prices for the Russia region {#prices}
 
-The cost of using {{ datalens-name }} depends on the service plan you select and is calculated per active user per month.
-
-**Active user** {#active-users}
-
-A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset.
-
-The number of billable users is calculated on a monthly basis: each month, the active users are counted anew. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }}](./operations/connection/create-usage-tracking.md) usage statistics.
-
-**Business trial period** {#business-trial}
-
-{{ datalens-name }} users can activate a 30-day trial of the _Business_ plan to test all its [features](./concepts/service-plans-comparison.md) for free. 
-
-Rules of the _Business_ trial period:
-* You can activate the trial period only once per {{ datalens-name }} instance.
-* You cannot use the trial period if you previously activated the {{ datalens-name }} _Business_ plan.
-
-To activate the _Business_ plan trial period, switch to the _Business_ service plan by following [this guide](./settings/service-plan.md##change-service-plan). Once the trial period ends, the second month of use will be charged to you proportionally to the remaining number of days.
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+The cost of using {{ datalens-name }} depends on the number of seats per instance. For individual users with a single seat in the instance, {{ datalens-name }} is available at no charge. If {{ datalens-name }} is used for teamwork, and your instance has more than one seat, each seat will be charged.
 
 
 
@@ -55,35 +59,8 @@ To activate the _Business_ plan trial period, switch to the _Business_ service p
 
 
 
-{% cut "Cost calculation example" %}
-
-Let’s assume an organization has five Business plan users of {{ datalens-name }} whose activity over three months was as follows:
-
-* In June, `user_1`, `user_2`, and `user_3` were active. The fee for June will be:
-  
-
-  
-  {% include [usd-example](../_pricing_examples/datalens/usd-users-1.md) %}
-
-
-* In July, `user_2`, and `user_3` were active. The fee for July will be:
-
-
-  
-  {% include [usd-example](../_pricing_examples/datalens/usd-users-2.md) %}
-
-
-* In August, `user_1`, `user_2`, `user_3`, `user_4`, and `user_5` were active. The fee for August will be:
-
-
-  
-  {% include [usd-example](../_pricing_examples/datalens/usd-users-3.md) %}
-
-
-{% endcut %}
-
 #### See also {#see-also}
 
-* [Configuring a {{ datalens-name }} service plan](./settings/service-plan.md)
-* [Service plan features](./concepts/service-plans-comparison.md)
+* [Updated pricing policy as of December 1](./pricing-changes.md)
 * [Pricing and payment questions](./qa/pricing.md)
+* [Managing seats in {{ datalens-name }}](./settings/seats.md)

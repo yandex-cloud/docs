@@ -19,6 +19,16 @@ description: Various {{ yandex-cloud }} security tutorials
         * [{#T}](authentication/entra-id.md)
         * [{#T}](authentication/keycloak.md)
 
+## Security and standards {#security-and-standards}
+
+* [{#T}](single-sign-on/oidc-grafana.md)
+* [{#T}](single-sign-on/saml-grafana.md)
+* [{#T}](single-sign-on/saml-managed-gitlab.md)
+* [{#T}](single-sign-on/saml-zabbix.md)
+* [{#T}](single-sign-on/saml-opensearch.md)
+* [{#T}](single-sign-on/saml-sonarqube.md)
+* [{#T}](single-sign-on/saml-yandex-360.md)
+
 
 ## Network security {#network-security}
 

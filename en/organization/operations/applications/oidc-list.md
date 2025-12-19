@@ -5,6 +5,7 @@ description: Follow this guide to get a list of OIDC apps in {{ org-name }}.
 
 # Getting a list of OIDC apps in {{ org-full-name }}
 
+
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}

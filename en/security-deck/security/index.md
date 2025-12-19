@@ -5,7 +5,7 @@ description: Managing access permissions in {{ sd-full-name }} information secur
 
 # Common {{ sd-full-name }} roles
 
-{{ yandex-cloud }} users can only perform operations on resources in accordance with the roles assigned to them. If a user has no roles yet, they cannot perform any operations.
+{% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
 To allow access to {{ sd-name }} resources, assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md). Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
@@ -43,7 +43,7 @@ In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 {{ yandex-cloud }} also supports a separate list of roles for each {{ sd-name }} module. For more information, see:
 
-* [Roles for {{ ycdr-full-name }})](./ycdr-roles.md).
+* [Roles for managing user access to dashboards ({{ ycdr-full-name }})](./ycdr-roles.md).
 * [Roles for Data Security Posture Management](./dspm-roles.md).
 * [Roles for security management with KSPM](./kspm-roles.md).
 * [Roles for Cloud Infrastructure Entitlement Management](./ciem-roles.md).

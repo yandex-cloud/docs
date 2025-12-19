@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the captcha to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - captchaId
@@ -36,7 +37,9 @@ DELETE https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas/{captchaId}
 ||Field | Description ||
 || captchaId | **string**
 
-Required field. ID of the captcha to delete. ||
+Required field. ID of the captcha to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
