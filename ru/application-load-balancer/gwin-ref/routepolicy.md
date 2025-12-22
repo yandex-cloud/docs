@@ -179,7 +179,7 @@ spec:
               ip:
                 remoteIp: "10.0.0.0/8"
     
-    # Specific rule settings (overrides common settings)
+    # Specific rule settings (conflict with global settings is an error)
     rule:
       api-rule:  # rule name from HTTPRoute
         backends:
@@ -205,7 +205,7 @@ spec:
               ip:
                 remoteIp: "192.168.1.0/24"
     
-    # Specific host settings (overrides common settings)
+    # Specific host settings (conflict with global settings is an error)
     host:
       "api.example.com":  # specific hostname
         securityProfileID: "api-host-security"  # per-host WAF

@@ -18,7 +18,9 @@ The following fields will not be returned for buckets in the list: [Bucket.polic
 
 ```json
 {
-  "folder_id": "string"
+  "folder_id": "string",
+  "page_token": "string",
+  "page_size": "int64"
 }
 ```
 
@@ -31,6 +33,12 @@ Required field. ID of the folder to list buckets in.
 To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||
+|| page_token | **string**
+
+Indicates that the list is being continued on this bucket with a token. ||
+|| page_size | **int64**
+
+Maximum number of buckets to be returned in response. ||
 |#
 
 ## ListBucketsResponse {#yandex.cloud.storage.v1.ListBucketsResponse}
@@ -189,7 +197,8 @@ The maximum string length in characters is 50. ||
       "resource_id": "string",
       "disabled_statickey_auth": "bool"
     }
-  ]
+  ],
+  "next_page_token": "string"
 }
 ```
 
@@ -198,6 +207,9 @@ The maximum string length in characters is 50. ||
 || buckets[] | **[Bucket](#yandex.cloud.storage.v1.Bucket)**
 
 List of buckets in the specified folder. ||
+|| next_page_token | **string**
+
+Included in the response when there are more buckets that can be listed with pagination. ||
 |#
 
 ## Bucket {#yandex.cloud.storage.v1.Bucket}

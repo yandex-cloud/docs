@@ -26,7 +26,7 @@ items:
         href: concepts/sharding.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: '{{ SPQR }} storage'
+      - name: Storage in {{ SPQR }}
         href: concepts/storage.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -274,3 +274,5 @@ items:
                 href: api-ref/User/delete.md
   - name: Release notes
     href: release-notes.md
+  - name: FAQ
+    href: qa/index.md

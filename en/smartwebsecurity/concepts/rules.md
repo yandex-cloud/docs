@@ -53,7 +53,7 @@ Actions for basic rules:
 Actions for Smart Protection and Web Application Firewall rules:
 * _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Redirect suspicious requests to {{ captcha-name }}.
 
-     {% note alert %}
+     {% note warning %}
 
      To ensure your application works correctly, apply _API protection_ to HTTP requests with dynamic content loading.
 
@@ -67,6 +67,21 @@ Actions for Smart Protection and Web Application Firewall rules:
           
   Traffic is checked by ML models and behavioral analysis algorithms. Requests are not sent to {{ captcha-name }}, which allows making legitimate API calls to the protected resources. Special DDoS protection policies block only overt attack attempts. If, in full protection mode, a request was redirected to a CAPTCHA challenge, the API protection mode may let it through to the protected resource.
 
-Action for Advanced Rate Limiter rules: _Block requests when exceeding the limit_. Requests above the specified limit over a period of time will be blocked. The requesting client will get error `429`.
+Actions for Advanced Rate Limiter rules:
 
+* _Block requests when exceeding the limit_: Requests above the specified limit over a period of time will be blocked until the limit period expires. The requesting client will get error `429`.
+
+* _Temporarily block all requests_: Requests above the specified limit over a period of time will be blocked for a fixed period of time, rather than until the end of the limit period. The requesting client will get error `429`. You can block requests for the period from 1 second to 60 minutes.
+
+* _Send over-limit requests for CAPTCHA verification_: Requests above the specified limit over a period of time will be sent to {{ captcha-name }}. 
+
+    Requests exceeding the limit will be sent to CAPTCHA. You can configure CAPTCHA in the security profile to which the ARL profile is connected. This helps differentiate legitimate users from bots, ensuring that requests are not fully blocked and the application remains available.
+
+    {% note warning %}
+
+    Do not use CAPTCHA for HTTP requests with dynamic content loading (`ajax`, `xhr`, `iframe`) and requests to mobile applications.
+
+    {% endnote %}
+    
+    
 The requests that were allowed by all rules and let through to the protected resource are called _legitimate_.

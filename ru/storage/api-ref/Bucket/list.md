@@ -14,6 +14,17 @@ apiPlayground:
             To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
             The maximum string length in characters is 50.
           type: string
+        pageToken:
+          description: |-
+            **string**
+            Indicates that the list is being continued on this bucket with a token.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            Maximum number of buckets to be returned in response.
+          type: string
+          format: int64
       required:
         - folderId
       additionalProperties: false
@@ -46,6 +57,12 @@ Required field. ID of the folder to list buckets in.
 To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||
+|| pageToken | **string**
+
+Indicates that the list is being continued on this bucket with a token. ||
+|| pageSize | **string** (int64)
+
+Maximum number of buckets to be returned in response. ||
 |#
 
 ## Response {#yandex.cloud.storage.v1.ListBucketsResponse}
@@ -206,7 +223,8 @@ The maximum string length in characters is 50. ||
       "resourceId": "string",
       "disabledStatickeyAuth": "boolean"
     }
-  ]
+  ],
+  "nextPageToken": "string"
 }
 ```
 
@@ -215,6 +233,9 @@ The maximum string length in characters is 50. ||
 || buckets[] | **[Bucket](#yandex.cloud.storage.v1.Bucket)**
 
 List of buckets in the specified folder. ||
+|| nextPageToken | **string**
+
+Included in the response when there are more buckets that can be listed with pagination. ||
 |#
 
 ## Bucket {#yandex.cloud.storage.v1.Bucket}

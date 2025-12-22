@@ -20,6 +20,8 @@
 `video.episodes.count` | 500 ||
 || Total number of video [thumbnails](../video/operations/video/add-thumbnail.md) in all channels
 `video.thumbnails.count` | 20,000 ||
+|| Number of [player presets](../video/concepts/presets.md) in all channels
+`video.stylePresets.count` | 100 ||
 |#
 
 #### Limits {#limits}

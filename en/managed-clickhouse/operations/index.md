@@ -16,6 +16,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 * [Stopping and starting a cluster](cluster-stop.md)
 * [Managing {{ CH }} hosts](hosts.md)
 * [Managing {{ ZK }} hosts](zk-hosts.md)
+* [Managing {{ CK }} hosts](ck-hosts.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
 * [Managing backups](cluster-backups.md)
 * [Deleting a cluster](cluster-delete.md)

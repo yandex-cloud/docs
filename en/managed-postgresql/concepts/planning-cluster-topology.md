@@ -1,4 +1,4 @@
-# Planning a cluster topology
+# Planning cluster topology
 
 When planning your cluster topology, you need to be aware of what can disrupt the cluster and how tolerant your application is of such disruptions.
 
@@ -53,7 +53,7 @@ A two-host cluster meets the high availability criteria and is subject to the [S
 Compared to a single-host cluster, a cluster with two hosts offers the following advantages:
 
 * Balancing load between two hosts when reading data for faster cluster performance.
-* Automatic master failover when the current master host is unavailable if the **Autofailover** option is enabled. Until the failover is complete, your cluster will be unavailable for writes for a short time but still readable.
+* Automatic master failover when the current master host is unavailable. Until the failover is complete, your cluster will be unavailable for writes for a short time but still readable.
 
 {% include [balancing](../../_includes/mdb/mpg/note-warn-balancing.md) %}
 
@@ -82,8 +82,6 @@ Compared to two-host clusters, a cluster with three or more hosts offers the fol
 * [{#T}](../tutorials/1c-postgresql.md)
 
 ### Cluster availability under different topologies {#cluster-availability}
-
-A cluster is available for writes only if it has [autofailover](../operations/update.md#change-additional-settings) configured. This setting is required for the cluster to restore itself when its master fails or becomes unavailable. Otherwise, the cluster will be unavailable for writes until the master is recovered or you [perform the failover manually](../operations/update.md#start-manual-failover).
 
 The number of hosts listed in the tables includes the master host and replica hosts subject to automatic replication. Replica hosts with [specified replication sources](./replication.md#replication-manual) are not counted.
 
@@ -125,7 +123,7 @@ Master and `N-1` quorum replicas
 
 ## Cluster availability during master failover {#cluster-availability}
 
-If your high availability cluster has the **Autofailover** option enabled and no replication source is specified for at least two hosts, you need to ensure that the cluster is readable during failover. You can do this in any of the following ways:
+If your high availability cluster has no replication source specified for at least two hosts, you need to ensure that the cluster is readable during failover. You can do this in any of the following ways:
 
 * Connect to your cluster using [special FQDNs](../operations/connect.md#special-fqdns):
 

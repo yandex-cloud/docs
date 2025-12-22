@@ -16,6 +16,10 @@ You can use [SDKs](../sdk/index.md) to embed a video player into a website or ap
     src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&mute=true"
 ></iframe>
 
+## Player presets {#player-presets}
+
+{% include [player-presets](../../_includes/video/player-presets.md) %}
+
 ## See also {#see-also}
 * [{#T}](../operations/video/get-link.md)
 * [{#T}](../operations/streams/get-link.md)

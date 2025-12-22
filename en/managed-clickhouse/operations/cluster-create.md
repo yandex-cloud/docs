@@ -24,17 +24,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 * The number of hosts you can create together with a {{ CH }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 
-* When using [{{ CK }}](../concepts/replication.md#ck), a cluster must consist of three or more hosts. You do not need separate hosts to run {{ CK }}. You can only create this kind of cluster using the [{{ yandex-cloud }} CLI](../../cli) or API.
+* When using [{{ CK }}](../concepts/replication.md#ck), the cluster configuration depends on the selected mode:
+
+  * **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-embedded-clickhouse-keeper }}**: {{ CK }} runs on {{ CH }} hosts. The cluster must consist of three or more {{ CH }} hosts.
+  * **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**: {{ CK }} runs on separate hosts. The cluster must consist of two or more {{ CH }} hosts. Another three {{ CK }} hosts will be added to the cluster automatically. 
 
 * When using [{{ ZK }}](../concepts/replication.md#zk), a cluster may consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
 
   The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. To learn more, see [Replication](../concepts/replication.md#zk).
 
-  {% note warning %}
-
-  {{ ZK }} hosts are counted towards the cloud [resource quota]({{ link-console-quotas }}) and the [cluster cost](../pricing.md#prices-zookeeper).
-
-  {% endnote %}
+{% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
 
 
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
@@ -57,10 +56,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list, select the {{ CH }} version the {{ mch-name }} cluster will use. For most clusters, we recommend selecting the latest LTS version.
 
-  
-  1. If you are expecting to use data from an {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
-
-
   1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
       * Select the platform, VM type, and host class. The latter determines the technical specifications of the VMs the database hosts will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the specifications of all existing instances also change.
@@ -73,30 +68,62 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the size of your data and backup disk. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
+      * Select the size of your data and backup disk. For more information on how backups occupy storage space, see [Backups](../concepts/backup.md).
 
-      * Optionally, set the [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ CH }} subcluster:
+      * Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ CH }}:
 
         {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
 
-        The automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. If you add a new shard, it will use the settings of the oldest shard.
+        The automatic storage size increase settings for {{ CH }} apply to all existing shards. If you add a new shard, it will use the settings of the oldest shard.
 
-      
-      * Optionally, select **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
-
-        * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
-
-        * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
-
-        To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
-
-
-
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**:
   
-      * Optionally, set the [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ ZK }} subcluster:
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host your cluster and security groups for cluster network traffic. You may need to [set up security groups](connect/index.md#configuring-security-groups) to be able to connect to the cluster.
 
-        {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
+
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
+      
+      * Configure the settings for database hosts created along with the cluster. To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host number:
+
+        * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
+        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Specify the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+
+        
+        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect/index.md) to the host from the internet.
+
+
+        * If [sharding](../concepts/sharding.md) is enabled for the cluster and the number of hosts is greater than that of shards, select a shard.
+
+        To add hosts to your cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+
+      * Optionally, select a [coordination service](../concepts/replication.md) to distribute requests between hosts:
+
+        * {{ CK }} running on {{ CH }} hosts (embedded).
+        * {{ CK }} running on separate hosts.
+        * {{ ZK }} running on separate hosts.
+
+  1. Configure the following settings depending on the coordination service you selected:
+
+      * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** coordination service:
+
+        * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md).
+        * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}**, select the [disk type](../concepts/storage.md) and storage size. Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ CK }}.
+        * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-hosts }}**, change the settings of the automatically added {{ CK }} hosts as appropriate.
+        
+          To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host and specify the following:
+          
+          * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
+          * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Select the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+
+      * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}** coordination service:
+
+        * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md).
+        * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, select the [disk type](../concepts/storage.md) and storage size. Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ ZK }}.
+        * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, change the settings of the automatically added {{ ZK }} hosts as appropriate.
+        
+          To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host and specify the following:
+          
+          * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
+          * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Select the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
   
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -125,7 +152,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         To view the password after creating a cluster, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-      * Specify a DB name. The database name may contain Latin letters, numbers, and underscores. The name may be up to 63 characters long. You cannot create a database named `default`.
+      * Specify a DB name. The database name may contain Latin letters, numbers, and underscores. It may be up to 63 characters long. You cannot create a database named `default`.
 
       * Select the database engine: 
       
@@ -147,23 +174,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       * [Configure the DBMS](../concepts/settings-list.md#server-level-settings), if required. You can do it later.
 
         Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
-
-  
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host your cluster and security groups for cluster network traffic. You may need to [set up security groups](connect/index.md#configuring-security-groups) to be able to connect to the cluster.
-
-
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters of database hosts created along with the cluster. To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host number:
-
-      * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
-      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Specify the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
-
-      
-      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect/index.md) to the host from the internet.
-
-        {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
-
-
-      To add hosts to your cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
   1. Specify the cluster service settings, if required:
 
@@ -341,7 +351,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          * `--cloud-storage-data-cache`: Set to store files in a cluster storage, `true` or `false`.
          * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in a cluster and object storage, `true` or `false`.
 
-      1. To set up automatic storage expansion for {{ CH }} and {{ ZK }} subclusters, use the `--disk-size-autoscaling` flag:
+      1. To configure automatic increase of storage size for {{ CH }} and {{ ZK }}, use the `--disk-size-autoscaling` flag:
         
          ```bash
          {{ yc-mdb-ch }} cluster create \
@@ -355,7 +365,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            ...
          ```
 
-         Where `--disk-size-autoscaling` defines the automatic storage expansion settings:
+         Where `--disk-size-autoscaling` defines the automatic storage size increase settings:
          
          {% include [disk-size-autoscaling-cli](../../_includes/mdb/mch/disk-size-autoscaling-cli.md) %}
       
@@ -573,7 +583,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -711,11 +721,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `clickhouse`: {{ CH }} configuration:
 
-                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs by calling the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
 
-                    * `diskSizeAutoscaling`: Automatic storage expansion settings for a {{ CH }} subcluster:
+                    * `diskSizeAutoscaling`: Automatic storage size increase settings for {{ CH }}:
                       
                       {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
 
@@ -731,7 +741,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: Disk type.
 
-                    * `diskSizeAutoscaling`: Automatic storage expansion settings for a {{ ZK }} subcluster:
+                    * `diskSizeAutoscaling`: Automatic storage size increase settings for {{ ZK }}:
                       
                       {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
 
@@ -794,7 +804,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             curl \
@@ -809,7 +819,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -950,11 +960,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `clickhouse`: {{ CH }} configuration:
 
-                    * `resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs by calling the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: [Disk type](../concepts/storage.md).
 
-                    * `disk_size_autoscaling`: Automatic storage expansion settings for a {{ CH }} subcluster:
+                    * `disk_size_autoscaling`: Automatic storage size increase settings for {{ CH }}:
                       
                         {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
 
@@ -966,11 +976,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     
                     {% endnote %}
                     
-                    * `resources.resource_preset_id`: Host class ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.resource_preset_id`: Host class ID. You can get the list of available host classes with their IDs by calling the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: Disk type.
 
-                    * `disk_size_autoscaling`: Automatic storage expansion settings for a {{ ZK }} subcluster:
+                    * `disk_size_autoscaling`: Automatic storage size increase settings for {{ ZK }}:
                       
                         {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 
@@ -1020,7 +1030,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
-            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -1033,7 +1043,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             grpcurl \
@@ -1087,7 +1097,7 @@ To create a {{ CH }} cluster copy:
         export CLICKHOUSE_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
     1. Import the original {{ CH }} cluster settings to the {{ TF }} configuration:
 

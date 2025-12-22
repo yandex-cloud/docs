@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mrd-full-name }}'
-description: This page provides information about the {{ TF }} provider's resources and data sources that {{ mrd-name }} supports.
+description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ mrd-name }}.
 ---
 
 # {{ TF }} reference for {{ mrd-full-name }}
@@ -22,4 +22,5 @@ description: This page provides information about the {{ TF }} provider's resour
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_redis_cluster]({{ tf-provider-datasources-link }}/mdb_redis_cluster) | [Cluster](./concepts/index.md) details |
+| [yandex_mdb_redis_cluster]({{ tf-provider-datasources-link }}/mdb_redis_cluster) | [Cluster](./concepts/index.md) information |
+| [yandex_mdb_redis_user]({{ tf-provider-datasources-link }}/mdb_redis_user) | {{ VLK }} user information |

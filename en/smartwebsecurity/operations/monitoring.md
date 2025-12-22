@@ -14,7 +14,7 @@ You can view the dashboards using one of the following options:
 * On the {{ sws-name }} page, select **{{ ui-key.yacloud.common.monitoring }}**.
 * Under **{{ ui-key.yacloud.common.monitoring }}**, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** at the top right.
 * On the {{ alb-name }} page:
-  1. Select the load balancer with a linked security profile.
+  1. Select the load balancer with an associated security profile.
   1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**.
   1. Go to the **Smart Web Security** tab.
 
@@ -40,7 +40,7 @@ All the dashboards currently available for {{ sws-name }} are listed on the {{ m
 
 * **Redirected to SmartCaptcha RPS**: Number of incoming requests per second routed to {{ captcha-name }} for additional verification.
 
-    Metric: `load_balancer.smart_web_security.requests_per_second` filtered by `antirobot_verdict`=`captcha`.
+    Metric: `load_balancer.smart_web_security.requests_per_second` filtered by the `antirobot_verdict`=`captcha` label.
 
     {% note info %}
 
@@ -50,17 +50,21 @@ All the dashboards currently available for {{ sws-name }} are listed on the {{ m
 
 * **Allowed by ARL Profile RPS**: Number of incoming requests per second not exceeding the ARL profile limit.
 
-  Metric: `load_balancer.smart_web_security.arl_requests_per_second` filtered by `arl_verdict`=`allow`.
+  Metric: `load_balancer.smart_web_security.arl_requests_per_second` filtered by the `arl_verdict`=`allow` label.
 
 * **Denied by ARL Profile RPS**: Number of incoming requests per second exceeding the ARL profile limit and blocked.
 
-  Metric: `load_balancer.smart_web_security.arl_requests_per_second` filtered by `arl_verdict`=`deny`.
+  Metric: `load_balancer.smart_web_security.arl_requests_per_second` filtered by the `arl_verdict`=`deny` label.
 
     {% note info %}
 
     The total number of requests for **Allowed by ARL Profile RPS** and **Denied by ARL Profile RPS** matches the **Allowed by Security Profile RPS** value at any given time.
 
     {% endnote %}
+
+* **Redirected to SmartCaptcha by ARL Profile RPS**: Number of incoming requests per second the ARL profile routes to {{ captcha-name }} for additional verification.
+
+    Metric: `load_balancer.smart_web_security.arl_requests_per_second` filtered by `arl_verdict`=`captcha`.
 
 You can combine multiple metrics in a single chart and [configure your own dashboards](../../monitoring/operations/dashboard/create.md) in {{ monitoring-short-name }}.
 

@@ -8,7 +8,7 @@
 
 Аутентификация в сервисах {{ yandex-cloud }} выполняется от имени сервисного аккаунта с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md). IAM-токен содержится в контексте [обработчика функции](../../functions/operations/function-sa.md), которая программирует диалог пользователя с ботом.
 
-Запросы от бота будет принимать API-шлюз {{ api-gw-full-name }} и перенаправлять их функции {{ sf-full-name }} для обработки.
+Запросы от бота будет принимать [API-шлюз](../../api-gateway/concepts/index.md) {{ api-gw-full-name }} и перенаправлять их [функции](../../functions/concepts/function.md) {{ sf-full-name }} для обработки.
 
 Чтобы создать бота:
 
@@ -38,7 +38,7 @@
 ## Подготовьте ресурсы {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `recognizer-bot-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `ai.editor`, `{{ roles-functions-editor }}` на ваш каталог.
-1. [Скачайте](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz) архив с пакетом FFmpeg для корректной работы Python SDK {{ speechkit-name }} в [среде выполнения функции](../../functions/concepts/runtime/index.md).
+1. [Скачайте](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-09-30-15-36/ffmpeg-N-117275-g04182b5549-linux64-gpl.tar.xz) архив с пакетом FFmpeg для корректной работы Python SDK {{ speechkit-name }} в [среде выполнения функции](../../functions/concepts/runtime/index.md).
 1. Извлеките из архива бинарные файлы `ffmpeg`, `ffprobe` и сделайте их исполняемыми, выполнив команды:
 
     ```bash
@@ -233,13 +233,13 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
 
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+     1. Нажмите **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. Введите имя функции — `for-recognizer-bot`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
   1. Создайте версию функции:
 
-     1. Выберите среду выполнения `Python`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Выберите среду выполнения `Python`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` и выберите [созданный ранее](#prepare) бакет. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_object}}** укажите имя файла `index.zip`.
      1. Укажите точку входа `index.handler`.
      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
@@ -251,7 +251,7 @@
 
           * `TELEGRAM_TOKEN` — токен вашего бота в Telegram.
 
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+     1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
@@ -410,7 +410,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать API-шлюз.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите `recognizer-bot-api-gw`.
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
 
@@ -434,7 +434,7 @@
      * `function_id` — идентификатор функции `for-recognizer-bot`;
      * `service_account_id` — идентификатор сервисного аккаунта `recognizer-bot-sa`.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
   1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** — оно потребуется в дальнейшем.
 
 - CLI {#cli}
@@ -555,8 +555,8 @@
 
 ```bash
 curl --request POST \
-  --url https://api.telegram.org/bot<токен_бота>/setWebhook \
-  --header 'content-type: application/json' \ 
+  --url 'https://api.telegram.org/bot<токен_бота>/setWebhook' \
+  --header 'content-type: application/json' \
   --data '{"url": "<домен_API-шлюза>/for-recognizer-bot-function"}'
 ```
 
@@ -600,7 +600,7 @@ curl --request POST \
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
+Чтобы не [платить](#paid-resources) за ресурсы, которые вам больше не нужны, удалите их:
 
 * [удалите](../../api-gateway/operations/api-gw-delete.md) API-шлюз {{ api-gw-name }};
 * [удалите](../../functions/operations/function/function-delete.md) функцию {{ sf-name }}.

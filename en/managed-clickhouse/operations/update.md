@@ -9,12 +9,13 @@ After creating a cluster, you can:
 
 * [Change the service account settings](#change-service-account).
 * [Change the host class](#change-resource-preset).
-* [Change the disk type and expand the storage](#change-disk-size).
+* [Change the disk type and increase the storage size](#change-disk-size).
+* [Enable the coordination service](#coordination).
 * [Enable user and database management via SQL](#SQL-management).
 * [Change additional cluster settings](#change-additional-settings).
 * [Move the cluster](#move-cluster) to another folder.
 * [Change cluster security groups](#change-sg-set).
-* [Changing hybrid storage settings](#change-hybrid-storage).
+* [Change the hybrid storage settings](#change-hybrid-storage).
 
 Learn more about other cluster updates:
 
@@ -23,7 +24,7 @@ Learn more about other cluster updates:
 * [Changing {{ CH }} settings at the query level](change-query-level-settings.md).
 
 
-## Changing service account settings {#change-service-account}
+## Changing the service account settings {#change-service-account}
 
 
 To attach a service account to a {{ mch-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
@@ -37,7 +38,7 @@ To attach a service account to a {{ mch-name }} cluster, [assign](../../iam/oper
 
     To change the service account settings:
 
-    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. In the [management console]({{ link-console-main }}), select the folder where the cluster is located.
     1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, select your service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up a service account, see [{#T}](s3-access.md).
@@ -55,7 +56,7 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
 
 When changing the host class:
 
-* Your single-host cluster will be unavailable for a few minutes with database connections terminated.
+* A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
 * Using a [special FQDN](connect/fqdn.md#auto) does not guarantee a stable database connection: user sessions may be terminated.
 
@@ -90,7 +91,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
      {{ yc-mdb-ch }} cluster update --help
      ```
 
-  1. Get the list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
+  1. Get the list of available host classes (the `ZONE IDS` column lists the availability zones you can select a class in):
 
      
      ```bash
@@ -121,7 +122,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, change the `resource_preset_id` value in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
@@ -157,7 +158,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -205,7 +206,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
             Where:
 
-            * `updateMask`: Comma-separated list of settings you want to update.
+            * `updateMask`: Comma-separated string of settings you want to update.
 
                 Specify the relevant parameters:
                 * `configSpec.clickhouse.resources.resourcePresetId`: To change the {{ CH }} host class.
@@ -218,11 +219,11 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
             You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
-        1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -230,7 +231,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
     1. Get the list of available host classes:
 
-        1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -367,7 +368,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, change the `disk_size` and `disk_type_id` values in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
@@ -405,7 +406,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -440,7 +441,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             Specify the relevant parameters:
 
@@ -460,7 +461,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -511,9 +512,9 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
             Specify the relevant parameters:
 
-            * `config_spec.clickhouse.resources.disk_size`: To increase the storage size of {{ CH }} hosts.
+            * `config_spec.clickhouse.resources.disk_size`: To expand the storage of {{ CH }} hosts.
             * `config_spec.clickhouse.resources.disk_type_id`: To change the disk type for {{ CH }} hosts.
-            * `config_spec.zookeeper.resources.disk_size`: To increase the storage size of {{ ZK }} hosts.
+            * `config_spec.zookeeper.resources.disk_size`: To expand the storage of {{ ZK }} hosts.
             * `config_spec.zookeeper.resources.disk_type_id`: To change the disk type for {{ ZK }} hosts.
 
             In our request example, we are resizing the storage and updating the disk type for both {{ CH }} and {{ ZK }} hosts.
@@ -526,6 +527,91 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+## Enabling the coordination service {#coordination}
+
+You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordination) if it has not been set. You can [change the settings](#change-coordination) of the active coordination service.
+
+### Turning on the coordination service {#enable-coordination}
+
+{% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}** in the top-right corner of the page.
+  1. Under **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}**, select the [coordination service](../concepts/replication.md).
+  1. Configure the following settings depending on the service you selected:
+      
+      * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}** coordination service:
+
+        * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md).
+        * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, select the [disk type](../concepts/storage.md) and storage size. Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ ZK }}.
+
+        * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**:
+          
+          * Optionally, change the settings of the automatically added {{ ZK }} hosts.
+        
+            To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host and specify the following:
+          
+            * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
+            * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Select the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+
+          * To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
+          
+            This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+            
+            Once this option is enabled, you cannot disable it.
+
+      * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** coordination service:
+
+        * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md).
+        * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}**, select the [disk type](../concepts/storage.md) and storage size. Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ CK }}.
+        * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-hosts }}**:
+        
+          * Optionally, change the settings of the automatically added {{ CK }} hosts as appropriate.
+        
+            To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host and specify the following:
+          
+            * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
+            * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Select the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+
+          * To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
+          
+            This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+            
+            Once this option is enabled, you cannot disable it.
+
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+{% endlist %}
+
+### Changing the settings of the active coordination service {#change-coordination}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. Configure the following settings depending on the coordination service you selected:
+      
+      * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** coordination service:
+
+        * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md).
+        * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}**, select the [disk type](../concepts/storage.md) and storage size. Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ CK }}.
+
+      * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}** coordination service:
+
+        * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md).
+        * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, select the [disk type](../concepts/storage.md) and storage size. Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ ZK }}.
+
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 {% endlist %}
 
@@ -588,7 +674,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. {% include [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
 
@@ -608,7 +694,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -634,7 +720,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             Specify the relevant parameters:
 
@@ -654,7 +740,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -702,7 +788,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
             In our request example, both user and database management via SQL are enabled.
 
-        * `config_spec.admin_password`: `admin` password.
+        * `config_spec.admin_password`: `admin` user password.
         * `config_spec.sql_user_management`: User management via SQL, `true` or `false`.
         * `config_spec.sql_database_management`: Database management via SQL, `true` or `false`. For that, you also need to enable user management via SQL.
 
@@ -721,20 +807,14 @@ You cannot disable settings for user or database management via SQL once they ar
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
-     * Optionally, set the [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ CH }} subcluster:
-
-       {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
-
-       The automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. New shards will use the settings of the oldest shard.
-
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**:
-  
-     * Optionally, set the [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ ZK }} subcluster:
+     * Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ CH }}:
 
        {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
-  
+
+       The automatic storage size increase settings for {{ CH }} apply to all existing shards. New shards will use the settings of the oldest shard.
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, change the following additional cluster settings:
 
      {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
@@ -797,17 +877,17 @@ You cannot disable settings for user or database management via SQL once they ar
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
 
-    * `--yandexquery-access=true`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
+    * `--yandexquery-access=true`: Enables access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
 
     * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    * `--disk-size-autoscaling`: Storage autoscaling setting:
+    * `--disk-size-autoscaling`: Automatic storage size increase settings:
         
         {% include [disk-size-autoscaling-cli](../../_includes/mdb/mch/disk-size-autoscaling-cli.md) %}
     
-    * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
+    * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for stopped clusters), where `type` is the maintenance type:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -817,7 +897,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. To change the backup start time, add the `backup_window_start` section to the {{ mch-name }} cluster description:
 
@@ -832,7 +912,7 @@ You cannot disable settings for user or database management via SQL once they ar
         }
         ```
 
-    1. To enable cluster access from other services and allow [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, edit relevant fields in the `access` section:
+    1. To enable cluster access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, edit the values of the appropriate fields in the `access` section:
 
         
         ```hcl
@@ -889,7 +969,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -947,7 +1027,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
             Where:
 
-            * `updateMask`: Comma-separated list of settings you want to update.
+            * `updateMask`: Comma-separated string of settings you want to update.
 
             * {% include [backup-windows-start-rest](../../_includes/mdb/api/backup-windows-start-rest.md) %}
 
@@ -955,26 +1035,26 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
 
-            * `configSpec.clickhouse.diskSizeAutoscaling`: Automatic storage expansion settings for a {{ CH }} subcluster:
+            * `configSpec.clickhouse.diskSizeAutoscaling`: Automatic storage size increase settings for {{ CH }}:
             
                 {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
             
-            * `configSpec.zookeeper.diskSizeAutoscaling`: Automatic storage expansion settings for a {{ ZK }} subcluster:
+            * `configSpec.zookeeper.diskSizeAutoscaling`: Automatic storage size increase settings for {{ ZK }}:
                       
                 {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
             
-            * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters). Select one of these options:
+            * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, including those for stopped clusters. Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             curl \
@@ -991,7 +1071,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1064,28 +1144,28 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
 
-            * `config_spec.clickhouse.disk_size_autoscaling`: Automatic storage expansion settings for a {{ CH }} subcluster:
+            * `config_spec.clickhouse.disk_size_autoscaling`: Automatic storage size increase settings for {{ CH }}:
             
                 {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
 
-            * `config_spec.zookeeper.disk_size_autoscaling`: Automatic storage expansion settings for a {{ ZK }} subcluster:
+            * `config_spec.zookeeper.disk_size_autoscaling`: Automatic storage size increase settings for {{ ZK }}:
                       
                 {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 
-            * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters). Select one of these options:
+            * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including those for stopped clusters. Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             grpcurl \
@@ -1107,21 +1187,21 @@ You cannot disable settings for user or database management via SQL once they ar
 
 ### {{ connection-manager-name }} {#conn-man}
 
-If the {{ connection-manager-name }} integration is not enabled for your cluster, turn on **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. This option is only available in the [management console]({{ link-console-main }}).
+If you cluster has no integration with {{ connection-manager-name }}, enable **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. You can only do it in the [management console]({{ link-console-main }}).
 
-The system will create the following resources for each database user:
+The following resources will be created for each database user:
 
 * [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) containing database connection details.
 
-* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) containing the user password. Storing passwords in {{ lockbox-name }} ensures their security.
+* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) containing the user password. {{ lockbox-name }} provides secure storage for passwords.
 
-  The system will create connections and secrets for each new database user. To see all connections, select the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
+  The connection and secret will be created for each new database user. To view all connections, open the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
 
-  Viewing connection details requires the `connection-manager.viewer` role. You can [use {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md) to configure access to connections.
+  You need the `connection-manager.viewer` role to view connection info. You can [use {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md) to configure access to connections.
 
   {% note info %}
 
-  {{ connection-manager-name }} and any secrets created with it are free of charge.
+  {{ connection-manager-name }} and secrets created with it are free of charge.
 
   {% endnote %}
 
@@ -1147,13 +1227,13 @@ The system will create the following resources for each database user:
 
     To move a cluster:
 
-    1. See the description of the CLI command for moving a cluster:
+    1. View the description of the CLI command for moving a cluster:
 
         ```bash
         {{ yc-mdb-ch }} cluster move --help
         ```
 
-    1. Specify the destination folder in that command:
+    1. Specify the destination folder in the command for moving a cluster:
 
         ```bash
         {{ yc-mdb-ch }} cluster move <cluster_name_or_ID> \
@@ -1191,7 +1271,7 @@ The system will create the following resources for each database user:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1216,7 +1296,7 @@ The system will create the following resources for each database user:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1257,7 +1337,7 @@ The system will create the following resources for each database user:
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the security groups for cluster network traffic.
 
 - CLI {#cli}
 
@@ -1284,7 +1364,7 @@ The system will create the following resources for each database user:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Edit the `security_group_ids` value in the cluster description:
 
@@ -1309,7 +1389,7 @@ The system will create the following resources for each database user:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1333,7 +1413,7 @@ The system will create the following resources for each database user:
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             Here, we only specified a single setting, `securityGroupIds`.
 
@@ -1341,7 +1421,7 @@ The system will create the following resources for each database user:
 
             {% note warning %}
 
-            The list of security groups assigned to the cluster will be completely overwritten by the list in the `securityGroupIds` parameter.
+            The list of security groups assigned to the cluster will be completely overwritten by the list provided in the `securityGroupIds` parameter.
 
             Before running your request, make sure the list includes all the required security group IDs, including existing ones.
 
@@ -1353,7 +1433,7 @@ The system will create the following resources for each database user:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1394,7 +1474,7 @@ The system will create the following resources for each database user:
 
             {% note warning %}
 
-            The list of security groups assigned to the cluster will be completely overwritten by the list in the `security_group_ids` parameter.
+            The list of security groups assigned to the cluster will be completely overwritten by the list provided in the `security_group_ids` parameter.
 
             Before running your request, make sure the list includes all the required security group IDs, including existing ones.
 
@@ -1408,12 +1488,12 @@ The system will create the following resources for each database user:
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
 
-## Changing hybrid storage settings {#change-hybrid-storage}
+## Changing the hybrid storage settings {#change-hybrid-storage}
 
 {% list tabs group=instructions %}
 
@@ -1423,7 +1503,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
+  To change the [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
 
   1. View the description of the CLI command for updating a cluster:
 
@@ -1440,7 +1520,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
       {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
-  1. Provide a list of settings to update:
+  1. Provide the list of settings to update:
 
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
@@ -1456,7 +1536,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1486,7 +1566,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
         * `configSpec.cloudStorage`: Hybrid storage settings:
 
@@ -1498,7 +1578,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1545,7 +1625,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

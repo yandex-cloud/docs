@@ -20,7 +20,7 @@ Event name | Description
 `DisableFolders`                | [Disabling](../../../datalens/settings/navigation.md#disable-folder-navigation) folder navigation
 `DisableTenantBilling`          | User scheduled Business plan deactivation for the beginning of the next month
 `EnableBillingInstanceService`  | Receiving a notification from {{ billing-name }} that the [billing account](../../../billing/concepts/billing-account.md) linked to {{ datalens-name }} is active
-`EnableTenantBilling`           | User enabled the Business plan
+`EnableTenantBilling`           | User enabled the Business plan ^1^
 `FolderEntryBatchModifyPermissions` | Bulk updating access permissions for folder objects
 `FolderEntryModifyPermissions`   | Updating access permissions for folder objects
 `MigrateEntriesToWorkbook`       | Migrating objects to a workbook
@@ -41,3 +41,5 @@ Event name | Description
 `UpdateEntry`                    | Updating an object
 `UpdateWorkbook`               | Updating a workbook
 `UpdateWorkbookAccessBindings` | Updating access permissions for a workbook
+
+^1^ Starting December 1, 2025, events will no longer be delivered due to the discontinuation of the [Business plan](../../../datalens/pricing-changes.md).

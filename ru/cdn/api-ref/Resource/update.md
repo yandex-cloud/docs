@@ -404,6 +404,28 @@ apiPlayground:
             type: array
             items:
               type: string
+      FollowRedirectsOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True - the option is enabled and its [flag](#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is applied to the resource.
+              False - the option is disabled and its default value of the [flag](#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is used for the resource.
+            type: boolean
+          codes:
+            description: |-
+              **string** (int64)
+              Add the redirect HTTP status codes that the source returns.
+            type: array
+            items:
+              type: string
+              format: int64
+          useCustomHost:
+            description: |-
+              **boolean**
+              Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option.
+            type: boolean
       ResourceOptions:
         type: object
         properties:
@@ -531,6 +553,12 @@ apiPlayground:
               Manage the state of the IP access policy option.
               The option controls access to content from the specified IP addresses.
             $ref: '#/definitions/IPAddressACLOption'
+          followRedirects:
+            description: |-
+              **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption)**
+              Manage the state of the Redirection from origin option.
+              If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect.
+            $ref: '#/definitions/FollowRedirectsOption'
       SSLCertificateCMData:
         type: object
         properties:
@@ -761,6 +789,13 @@ The maximum string length in characters is 50. ||
       "exceptedValues": [
         "string"
       ]
+    },
+    "followRedirects": {
+      "enabled": "boolean",
+      "codes": [
+        "string"
+      ],
+      "useCustomHost": "boolean"
     }
   },
   "originProtocol": "string",
@@ -917,6 +952,10 @@ Secure token to protect contect and limit access by IP addresses and time limits
 
 Manage the state of the IP access policy option.
 The option controls access to content from the specified IP addresses. ||
+|| followRedirects | **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption)**
+
+Manage the state of the Redirection from origin option.
+If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption}
@@ -1200,6 +1239,22 @@ The policy type. One of allow or deny value.
 The list of IP addresses to be allowed or denied. ||
 |#
 
+## FollowRedirectsOption {#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+True - the option is enabled and its [flag](#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is applied to the resource.
+False - the option is disabled and its default value of the [flag](#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is used for the resource. ||
+|| codes[] | **string** (int64)
+
+Add the redirect HTTP status codes that the source returns. ||
+|| useCustomHost | **boolean**
+
+Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option. ||
+|#
+
 ## SSLTargetCertificate {#yandex.cloud.cdn.v1.SSLTargetCertificate}
 
 A set of the personal SSL certificate parameters.
@@ -1422,6 +1477,13 @@ ID of the custom certificate. ||
         "exceptedValues": [
           "string"
         ]
+      },
+      "followRedirects": {
+        "enabled": "boolean",
+        "codes": [
+          "string"
+        ],
+        "useCustomHost": "boolean"
       }
     },
     "secondaryHostnames": [
@@ -1711,6 +1773,10 @@ Secure token to protect contect and limit access by IP addresses and time limits
 
 Manage the state of the IP access policy option.
 The option controls access to content from the specified IP addresses. ||
+|| followRedirects | **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption2)**
+
+Manage the state of the Redirection from origin option.
+If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption2}
@@ -1992,6 +2058,22 @@ The policy type. One of allow or deny value.
 || exceptedValues[] | **string**
 
 The list of IP addresses to be allowed or denied. ||
+|#
+
+## FollowRedirectsOption {#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+True - the option is enabled and its [flag](#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption2) is applied to the resource.
+False - the option is disabled and its default value of the [flag](#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption2) is used for the resource. ||
+|| codes[] | **string** (int64)
+
+Add the redirect HTTP status codes that the source returns. ||
+|| useCustomHost | **boolean**
+
+Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option. ||
 |#
 
 ## SSLCertificate {#yandex.cloud.cdn.v1.SSLCertificate}

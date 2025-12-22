@@ -15587,7 +15587,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.5
+        tag: v1.0.6
     yc_ingress-nginx:
       helmChart:
         name: >-

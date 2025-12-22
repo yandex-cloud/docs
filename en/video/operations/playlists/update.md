@@ -7,7 +7,7 @@ description: Follow this guide to edit a playlist in {{ video-name }}.
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
@@ -25,13 +25,14 @@ description: Follow this guide to edit a playlist in {{ video-name }}.
 
        {% endnote %}
 
-     * To add a video or completed broadcast to a playlist, click **Add video**. In the window that opens:
+     * To add a video or completed broadcast to a playlist, click **Add video**. In the window that opens, do the following:
 
        1. On the `Videos` or `Broadcasts` tab, select the videos or broadcasts you want to add.
 
           In playlists, only videos with [permanent links](../../concepts/videos.md#permanent-link) will be available for viewing.
 
        1. Click **{{ ui-key.yacloud_video.common.action_add }}**.
+  1. In the **{{ ui-key.yacloud_video.presets.label_style-preset }}** list, select a player [preset](../../concepts/presets.md) from those available in the channel or create a new one.
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 {% endlist %}

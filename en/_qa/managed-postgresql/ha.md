@@ -1,10 +1,10 @@
-#### How to exclude a host from the master selection? {#excluded-host}
+#### How to remove a host from the master selection process? {#excluded-host}
 
 You can exclude a host from the master selection when replacing the master host automatically or manually. To do this, set up [cascade replication](../../managed-postgresql/concepts/replication.md#replication-manual): [specify](../../managed-postgresql/operations/hosts.md#update) a replication source for the host you want to exclude.
 
 {% note warning %}
 
-To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha) during maintenance, your cluster must have at least one replica host without a replication source.
+To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha) during maintenance, your cluster must have at least one replica without a replication source.
 
 {% endnote %}
 
@@ -16,17 +16,17 @@ Error message:
 cluster should have at least 2 HA hosts to use cascade host
 ```
 
-The error occurs if you specify a replication source for a single non-cascading replica.
+This error occurs if you specify a replication source for the only non-cascading replica.
 
-To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), your cluster must have at least one replica without a replication source. During maintenance or if the master host fails, this replica will take over as the master.
+To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), your cluster must have at least one replica without a replication source. This replica will be promoted to master if the master host fails during maintenance.
 
-To learn more about replication, see [this guide](../../managed-postgresql/concepts/replication.md).
+To learn more about replication, see [this article](../../managed-postgresql/concepts/replication.md).
 
-#### How do I always connect to the master host? {#connect-to-master-ha}
+#### How to ensure I am always connecting to the master host? {#connect-to-master-ha}
 
-To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). It has this format: `c-<cluster_ID>.rw.{{ dns-zone }}`. When connected to this FQDN, you will be able to perform read and write operations.
+To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) in the `c-<cluster_ID>.rw.{{ dns-zone }}` format. This FQDN supports read and write access.
 
-{% cut "Example of command for connection to a master" %}
+{% cut "Example command for connecting to the master host" %}
 
   ```bash
   psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
@@ -38,11 +38,11 @@ To connect to the current master host, use a [special FQDN](../../managed-postgr
 
 {% endcut %}
 
-#### How do I always connect to the most recent replica? {#connect-to-replica-ha}
+#### How to ensure I am always connecting to the most up-to-date replica? {#connect-to-replica-ha}
 
-To connect to the most recent replica, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). It has this format: `c-<cluster_ID>.ro.{{ dns-zone }}`. When connected to this FQDN, you can perform only read operations. 
+To connect to the most up-to-date replica, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) in the `c-<cluster_ID>.ro.{{ dns-zone }}` format. This FQDN only supports read access. 
 
-{% cut "Example of command for connection to a replica" %}
+{% cut "Example command for connecting to a replica" %}
 
 ```bash
 psql "host=c-<cluster_ID>.ro.{{ dns-zone }} \
@@ -56,42 +56,41 @@ psql "host=c-<cluster_ID>.ro.{{ dns-zone }} \
 
 If there are no active replicas in the cluster, this FQDN will point to the current master host.
 
-#### Why did the master and the replicas switch places? {#failover}
+#### Why did the master and replicas swap roles? {#failover}
 
-This means the master has [failed over](../../architecture/fault-tolerance.md#mdb-ha) to the replica host. Failover ensures cluster availability during maintenance or if the master fails.
+This means the master has [failed over](../../architecture/fault-tolerance.md#mdb-ha) to the replica. Automatic master failover guarantees cluster availability during maintenance or in the event of the master host failure.
 
-Use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) to always connect to the current master.
+To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns).
 
 {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
-#### Can I configure multimaster in a cluster or between two clusters? {#setting-multimaster}
+#### Can I configure multi-master within a single cluster or between two clusters? {#setting-multimaster}
 
-No, {{ mpg-name }} does not support multimaster configuration.
+No, {{ mpg-name }} does not support multi-master configuration.
 
-For more information on how to ensure high availability of a cluster, see [{#T}](../../architecture/fault-tolerance.md#mdb-ha).
+For more details on high availability cluster configuration, see [{#T}](../../architecture/fault-tolerance.md#mdb-ha).
 
-#### How do I configure load balancing so that read requests only go to replicas? {#balancing-replicas}
+#### How to configure load balancing so that all read requests are redirected to replicas? {#balancing-replicas}
 
-As {{ mpg-name }} does not perform any load balancing, you need to configure it in your application backend. To send read requests to replicas, the application must independently recognize master and replica hosts, e.g., using `libpq`. For more information, see [this {{ PG }} article](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-TARGET-SESSION-ATTRS).
+As {{ mpg-name }} does not provide load balancing, you need to configure it in your application backend. To send read requests to replicas, your application must first identify the master and replica hosts, e.g., by using `libpq`. For more information, see [this {{ PG }} article](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-TARGET-SESSION-ATTRS).
 
-Alternatively, use a [special FQDN](../../managed-postgresql/operations/connect.md#fqdn-replica) that points to the most recent replica.
+Alternatively, use a [special FQDN](../../managed-postgresql/operations/connect.md#fqdn-replica) pointing to the most up-to-date replica.
 
 For more information, see [High availability](../../managed-postgresql/concepts/high-availability.md).
 
-#### Why does the master fail over to a randomly selected host when autofailover is off? {#auto-failover-master}
+#### When does automatic failover occur? {#auto-failover}
 
-Even with autofailover disabled, the master host may switch to another host during [maintenance](../../managed-postgresql/concepts/maintenance.md) or [cluster updates](../../managed-postgresql/operations/update.md). This helps keep the cluster working correctly during these operations.
+The master host can automatically fail over to another host:
+
+* During [cluster updates](../../managed-postgresql/operations/update.md).
+* On master host failure.
+* Upon cluster recovery.
+* During [maintenance](../../managed-postgresql/concepts/high-availability.md#maintenance-settings).
+
+Master failover ensures the cluster works correctly under the listed conditions.
 
 {% note info %}
 
 To ensure [high availability](../../managed-postgresql/concepts/high-availability.md), the cluster always has at least one replica without an explicitly defined [replication source](../../managed-postgresql/concepts/replication.md#replication-manual). This replica can take over as master when needed.
 
 {% endnote %}
-
-#### Why does the cluster switch masters after recovery, even though autofailover is disabled? {#auto-failover-restore}
-
-Even with autofailover disabled, the master host may switch to another host after recovery. This helps keep the cluster working correctly under such conditions. For more information, see [{#T}](../../managed-postgresql/concepts/high-availability.md).
-
-#### Why does the master fails over automatically during maintenance operations, even though autofailover is off? {#auto-failover-maintenance}
-
-Even with autofailover disabled, the master host may switch to another host to allow [maintenance](../../managed-postgresql/concepts/high-availability.md#maintenance-settings).

@@ -48,6 +48,10 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
 
     {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
 
+1. In the **{{ ui-key.yacloud_video.presets.label_style-preset }}** list, select a player [preset](concepts/presets.md) from the list of available presets in the channel or create a new one.
+
+     If no preset is selected, your video will get the default one, which was added when creating the channel.
+
 1. {% include [add-summarization-optional](../_includes/video/add-summarization-optional.md) %}
 1. {% include [add-subtitles-optional](../_includes/video/add-subtitles-optional.md) %}
 1. {% include [add-translation-optional](../_includes/video/add-translation-optional.md) %}
@@ -75,5 +79,7 @@ In the video settings window that opens, wait until the video is completely uplo
 
 * [{#T}](streaming.md)
 * [{{ video-full-name }} overview](./concepts/index.md)
+* [Uploading a video](operations/video/upload.md)
+* [Configuring a player preset](operations/style-presets/update.md)
 * [Configuring ads](operations/channels/settings.md#ad-settings)
 * [{#T}](troubleshooting.md)
