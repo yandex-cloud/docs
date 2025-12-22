@@ -7,13 +7,14 @@ description: В этой инструкции вы научитесь созда
 
 {% include [preview](../_includes/note-service-preview.md) %}
 
-Сервис {{ mspqr-name }} позволяет создавать и поддерживать кластеры шардированного {{ PG }} ([SPQR](https://pg-sharding.tech/welcome)) в инфраструктуре {{ yandex-cloud }}.
+Сервис {{ mspqr-name }} позволяет создавать и поддерживать кластеры шардированного {{ PG }} ([SPQR](https://pg-sharding.tech/welcome)) в инфраструктуре {{ yandex-cloud }}. {{ SPQR }} использует протокол {{ PG }}, поэтому настраивать правила шардирования и выполнять запросы к базе данных можно с помощью клиента `psql`. Настройка правил шардирования выполняется через консоль администратора (SPQR router admin console). При подключении к консоли администратора укажите имя пользователя `spqr-console` и имя базы данных `spqr-console`.
 
 Чтобы начать работу с сервисом:
 
 1. [Создайте кластер {{ SPQR }}](#cluster-create).
-1. [Создайте шард в кластере {{ SPQR }}](#shard-create).
-1. [Подключитесь к БД](#connect).
+1. [Создайте шарды в кластере {{ SPQR }}](#shard-create).
+1. [Настройте окружение](#setup_environment).
+1. [Настройте правила шардирования](#setting-up-sharding).
 1. [Отправьте запросы к БД](#query-db).
 
 ## Перед началом работы {#before-you-begin}
@@ -91,7 +92,9 @@ description: В этой инструкции вы научитесь созда
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 1. Дождитесь, когда кластер будет готов к работе: его статус сменится на **Running**, а состояние — на **Alive**. Чтобы проверить состояние, наведите курсор на статус кластера в столбце **{{ ui-key.yacloud.common.availability }}**.
 
-## Создайте шард в кластере {#shard-create}
+## Создайте шарды в кластере {#shard-create}
+
+Создайте два шарда в кластере {{ mspqr-name }}. Чтобы создать шард:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором [создан](#cluster-create) кластер {{ SPQR }}.
 1. [Cоздайте кластер](../managed-postgresql/operations/cluster-create.md#create-cluster) {{ mpg-name }} в той же облачной сети, что и кластер {{ SPQR }}.
@@ -104,17 +107,15 @@ description: В этой инструкции вы научитесь созда
 
       Кластер {{ mpg-name }} должен находиться в том же каталоге и в той же облачной сети, что и кластер {{ mspqr-name }}.
 
-## Подключитесь к БД {#connect}
-
 
 {% note warning %}
 
-Если вы используете группы безопасности для облачной сети, [настройте их](operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+Убедитесь, что роутер может подключаться к хостам шарда. Для этого шарды и кластер {{ mspqr-name }} должны находиться в одной [группе безопасности](../vpc/concepts/security-groups.md), разрешающей входящие и исходящие TCP-подключения на порт `6432`.
 
 {% endnote %}
 
 
-Чтобы подключиться к БД кластера {{ SPQR }}:
+## Настройте окружение {#setup_environment}
 
 {% list tabs group=operating_system %}
 
@@ -137,19 +138,6 @@ description: В этой инструкции вы научитесь созда
         sudo apt update && sudo apt install -y postgresql-client
         ```
 
-    1. Подключитесь к БД:
-
-        ```bash
-        psql "host=<FQDN_хоста> \
-              port={{ port-mpg }} \
-              sslmode=verify-full \
-              dbname=<имя_БД> \
-              user=<имя_пользователя> \
-              target_session_attrs=read-write"
-        ```
-
-        [Подробнее о получении FQDN хоста](operations/connect.md#fqdn).
-
 - Windows (PowerShell) {#windows}
 
     1. Установите [{{ PG }} для Windows](https://www.postgresql.org/download/windows/) последней версии. Выберите только установку _Command Line Tools_.
@@ -162,29 +150,165 @@ description: В этой инструкции вы научитесь созда
 
         Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
 
-    1. Установите переменные окружения для подключения:
-
-        ```powershell
-        $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
-        ```
-
-    1. Подключитесь к БД:
-
-        ```powershell
-        & "C:\Program Files\PostgreSQL\<мажорная_версия_{{ PG }}>\bin\psql.exe" `
-            --host=<FQDN_хоста>.{{ dns-zone }} `
-            --port={{ port-mpg }} `
-            --username=<имя_пользователя> `
-            <имя_БД>
-        ```
-
-        [Подробнее о получении FQDN хоста](operations/connect.md#fqdn).
-
 {% endlist %}
+
+## Настройте правила шардирования {#setting-up-sharding}
+
+
+{% note warning %}
+
+Если вы используете группы безопасности для облачной сети, [настройте их](operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+
+{% endnote %}
+
+
+1. Подключитесь к консоли администратора:
+
+    {% list tabs group=operating_system %}
+
+    - Linux (Bash)/macOS (Zsh) {#linux-macos}
+
+      ```bash
+      psql "host=<FQDN_хоста> \
+           port={{ port-mpg }} \
+           sslmode=verify-full \
+           sslrootcert=~/.postgresql/root.crt \
+           dbname=spqr-console \
+           user=spqr-console"
+      ```
+
+      [Подробнее о подключении к кластеру {{ mspqr-name }}](operations/connect.md).
+
+    - Windows (PowerShell) {#windows}
+
+      ```powershell
+      & "C:\Program Files\PostgreSQL\<мажорная_версия_{{ PG }}>\bin\psql.exe" `
+          --host=<FQDN_хоста> `
+          --port={{ port-mpg }} `
+          --username=spqr-console `
+          --dbname=spqr-console `
+          --set=sslmode=verify-full `
+          --set=sslrootcert=$HOME\.postgresql\root.crt
+      ```
+
+      [Подробнее о подключении к кластеру {{ mspqr-name }}](operations/connect.md).
+
+    {% endlist %}
+
+1. Создайте правило шардирования:
+
+    ```sql
+    CREATE DISTRIBUTION ds1 COLUMN TYPES int;
+    ```
+
+    Будет создано правило шардирования с именем `ds1` для столбцов типа `int`.
+
+1. Привяжите таблицу к правилу и укажите [ключ шардирования](concepts/sharding-keys.md):
+
+    ```sql
+    ALTER DISTRIBUTION ds1 ATTACH RELATION customers DISTRIBUTION KEY id;
+    ```
+
+    Таблица `customers` будет привязана к правилу `ds1`. Ключ шардирования для таблицы `customers` — столбец `id`.
+
+1. Создайте диапазоны значений ключа для распределения данных по шардам:
+
+    ```sql
+    CREATE KEY RANGE krid2 FROM 1000 ROUTE TO <имя_шарда_2> FOR DISTRIBUTION ds1;
+    CREATE KEY RANGE krid1 FROM 1 ROUTE TO <имя_шарда_1> FOR DISTRIBUTION ds1;
+    ```
+
+    {% note warning %}
+
+    Создавайте диапазоны значений ключа, начиная с наибольшего значения. Нарушение этого порядка приведет к ошибке `key range krid2 intersects with key range krid1 in QDB`. Для диапазона с наибольшим значением ключа правая граница будет равна бесконечности.
+
+    {% endnote %}
+
+1. Чтобы выйти из консоли администратора, выполните команду `\q`.
 
 ## Отправьте запросы к БД {#query-db}
 
-{% include [query-db](../_includes/mdb/pg-spqr-query-db.md) %}
+1. Подключитесь к БД:
+
+    {% list tabs group=operating_system %}
+
+    - Linux (Bash)/macOS (Zsh) {#linux-macos}
+
+      ```bash
+      psql "host=<FQDN_хоста> \
+           port={{ port-mpg }} \
+           sslmode=verify-full \
+           sslrootcert=~/.postgresql/root.crt \
+           dbname=<имя_БД> \
+           user=<имя_пользователя> \
+           target_session_attrs=read-write"
+      ```
+
+      [Подробнее о подключении к кластеру {{ mspqr-name }}](operations/connect.md).
+
+    - Windows (PowerShell) {#windows}
+
+      ```powershell
+      & "C:\Program Files\PostgreSQL\<мажорная_версия_{{ PG }}>\bin\psql.exe" `
+          --host=<FQDN_хоста> `
+          --port={{ port-mpg }} `
+          --username=<имя_пользователя> `
+          --dbname=<имя_БД> `
+          --set=target_session_attrs=read-write `
+          --set=sslmode=verify-full `
+          --set=sslrootcert=$HOME\.postgresql\root.crt
+      ```
+
+      [Подробнее о подключении к кластеру {{ mspqr-name }}](operations/connect.md).
+
+    {% endlist %}
+
+1. Создайте таблицу `customers`:
+
+    ```sql
+    CREATE TABLE customers (
+        id INT,
+        name VARCHAR,
+        phone VARCHAR,
+        acctbal NUMERIC
+    );
+    ```
+
+1. Начните транзакцию:
+
+    ```sql
+    BEGIN;
+    ```
+
+1. Добавьте строки:
+
+    1. Добавьте строку в шард с диапазоном значений `krid1`:
+
+        ```sql
+        INSERT INTO customers (id, name, phone, acctbal) VALUES (28, 'Иван Иванов', '123-45-67', 1500.50);
+        ```
+
+    1. Добавьте строку в шард с диапазоном значений `krid2`:
+
+        ```sql
+        INSERT INTO customers (id, name, phone, acctbal) VALUES (3200, 'Дмитрий Кузнецов', '555-66-77', -50.75);
+        ```
+
+1. Завершите транзакцию:
+
+    ```sql
+    COMMIT;
+    ```
+
+1. Посмотрите строки, указав значение ключа в запросе, например:
+
+    ```sql
+    SELECT * FROM customers WHERE id = 28;
+    ```
+
+    Запрос `SELECT * FROM customers;` приведет к ошибке, так как строки распределены по разным шардам. Одновременно можно получить строки только с одного шарда. Чтобы проверить распределение строк по шардам, [подключитесь к каждому шарду](../managed-postgresql/operations/connect.md) и посмотрите добавленные записи.
+
+1. Чтобы выйти из базы данных, выполните команду `\q`.
 
 ## Что дальше {#whats-next}
 

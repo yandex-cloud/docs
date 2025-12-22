@@ -65,7 +65,7 @@ See also [Example of sharding](../tutorials/sharding.md#example).
 
 - You can [create a sharded](../operations/cluster-create.md#creating-a-sharded-cluster) cluster or [enable sharding](../operations/shards.md#enable) later.
 
-- In {{ mmg-name }}, sharding is managed by the hosts with the `MONGOS` (routing user queries) and `MONGOCFG` (storing shard configuration) roles.
+- In {{ mmg-name }}, sharding is managed by the hosts with the `MONGOS` (routing user queries) and `MONGOCFG` (storing shard configuration) roles. For more information, see [Host types](../../managed-kafka/concepts/storage.md).
 
 - In {{ mmg-name }}, you can enable two types of sharding:
   - **Standard**: Cost-effective sharding for clusters that do not have any special requirements for sharding management hosts.
@@ -79,6 +79,8 @@ See also [Example of sharding](../tutorials/sharding.md#example).
 - In a sharded cluster:
   - All queries to {{ mmg-name }} must be redirected to `MONGOS` or `MONGOINFRA` hosts instead of `MONGOD`.
   - You cannot disable sharding or completely remove the hosts that support sharding: the cluster will always support a minimum number of `MONGOS` and `MONGOCFG` or `MONGOINFRA` hosts.
+
+For more information, see [Host types](../../managed-kafka/concepts/storage.md).
 
 ## Use cases {#examples}
 

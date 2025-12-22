@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mmy-full-name }}
-description: Access management in {{ MY }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ MY }}, a solution for creating and managing databases. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mmy-name }}
@@ -9,12 +9,12 @@ description: Access management in {{ MY }}, a database creation and management s
 In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Roles this service has](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `mdb.admin` role, `managed-mysql.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, the `managed-mysql.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -23,6 +23,8 @@ To assign a role for a resource, a user should have the `mdb.admin` role, `manag
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
+
+You can assign a role for a separate cluster from the [management console]({{ link-console-main }}) or via the [API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 

@@ -15,7 +15,7 @@ In this section, you can find the {{ mch-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=2febafd8c375#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=2febafd8c375#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -67,7 +67,7 @@ The minimum billing unit is one minute (for example, 90 seconds of host operatio
 
 You are charged for the following:
 
-* Storage allocated for DB clusters.
+* Storage allocated for database clusters.
 
    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
         * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
@@ -94,7 +94,7 @@ You are charged for the following:
 
    * {{ mch-short-name }}'s automatic backup function does not create a new backup each time but saves the DB changes from the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 90 seconds (1.5 minutes) costs the same as for 2 minutes.
 
 
 ### Example of cluster cost calculation {#example}
@@ -117,7 +117,7 @@ Let’s calculate the cost of using a cluster with the following properties for 
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mch-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mch-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

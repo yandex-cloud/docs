@@ -34,9 +34,10 @@ To view detailed information on the state of a {{ mch-name }} cluster:
 
 ### Available charts {#monitoring-dashboards}
 
-If the cluster consists of {{ CH }} and [{{ ZK }}](../concepts/replication.md#zk) hosts, the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** page will have the following tabs:
+If your cluster includes a coordination service, the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** page shows the following tabs depending on the selected service:
 
 * **{{ ui-key.yacloud.clickhouse.title_clickhouse }}**: State information for whole {{ CH }} cluster and its hosts.
+* **{{ ui-key.yacloud.clickhouse.title_keeper }}**: State information for {{ CK }} hosts.
 * **{{ ui-key.yacloud.clickhouse.title_zookeeper }}**: State information for {{ ZK }} hosts.
 
 If the cluster consists of only {{ CH }} hosts, the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** page will have the **{{ ui-key.yacloud.clickhouse.switch_list }}** tab with information aligned with the **{{ ui-key.yacloud.clickhouse.title_clickhouse }}** tab.
@@ -121,43 +122,69 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
     * **Network data sent per host**: Network data send rate per {{ CH }} subcluster host.
     * **Network usage per host**: Network data exchange rate per {{ CH }} subcluster host.
 
+- {{ ui-key.yacloud.clickhouse.title_keeper }}
+
+  The tab displays the following charts:
+
+  * Under **Service Metrics**:
+
+    * **Transactions**: Number of transactions per second.
+    * **Outstanding requests per Keeper host**: Number of requests being processed per {{ CK }} host.
+    * **Connections per Keeper host**: Number of connections per {{ CK }} host.
+    * **Transactions per {{ CH }} host**: Number of transactions per second for each {{ CH }} host.
+    * **Average transaction time per {{ CH }} host**: Average transaction time per {{ CH }} host. It shows the time {{ CH }} spends to access {{ CK }}.
+    * **Average latency per Keeper host**: Average response latency per {{ CK }} host.
+    * **Znodes**: Number of znodes.
+    * **Ephemeral nodes**: Number of ephemeral nodes.
+    * **Watches**: Number of watches.
+
+  * Under **System Metrics**:
+
+    * **CPU usage per host, cores**: Number of CPU cores used per host.
+    * **Memory usage per host, bytes**: RAM used per {{ CK }} subcluster host.
+    * **CPU usage per host, %**: CPU core workload per host.
+    * **Memory usage per host, %**: Percentage of RAM used per host.
+    * **Disk read per host**: Disk read rate per host.
+    * **Disk write per host**: Disk write rate per host.
+    * **Disk usage per host**: Speed of disk operations per host.
+    * **Network usage per host**: Network data exchange rate per host.
+    * **Network data received per host**: Network data receive rate per host.
+    * **Network data sent per host**: Network data send rate per host.
+
 - {{ ui-key.yacloud.clickhouse.title_zookeeper }}
 
   The tab displays the following charts:
 
-  * **Transactions**: Number of transactions per second.
-  * **Outstanding requests per {{ ZK }} host**: Number of requests being processed per {{ ZK }} host.
-  * **Connections per {{ ZK }} host**: Number of connections per {{ ZK }} host.
-  * **Transactions per {{ CH }} host**: Number of transactions per second for each {{ CH }} host.
-  * **Average transaction time per {{ CH }} host**: Average transaction time per {{ CH }} host. It shows the time {{ CH }} spends to access {{ ZK }}.
-  * **Average latency per {{ ZK }} host**: Average response latency per {{ ZK }} host.
-  * **Znodes**: Number of znodes.
-  * **Ephemeral nodes**: Number of ephemeral nodes.
-  * **Watches**: Number of watches.
+  * Under **Service Metrics**:
+
+    * **Transactions**: Number of transactions per second.
+    * **Outstanding requests per {{ ZK }} host**: Number of requests being processed per {{ ZK }} host.
+    * **Connections per {{ ZK }} host**: Number of connections per {{ ZK }} host.
+    * **Transactions per {{ CH }} host**: Number of transactions per second for each {{ CH }} host.
+    * **Average transaction time per {{ CH }} host**: Average transaction time per {{ CH }} host. It shows the time {{ CH }} spends to access {{ ZK }}.
+    * **Average latency per {{ ZK }} host**: Average response latency per {{ ZK }} host.
+    * **Znodes**: Number of znodes.
+    * **Ephemeral nodes**: Number of ephemeral nodes.
+    * **Watches**: Number of watches.
   
-  {% note info %}
+    {% note info %}
 
-  For more information about znodes, ephemeral nodes, and watches, see [this {{ ZK }} guide](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
+    For more information about znodes, ephemeral nodes, and watches, see [this {{ ZK }} guide](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
 
-  {% endnote %}
+    {% endnote %}
 
-  * **CPU cores usage**: Number of CPU cores used in a {{ ZK }} subcluster.
-  * You can use the following charts to monitor RAM usage:
-      * **Memory usage** for a {{ ZK }} subcluster.
-      * **Memory usage** per {{ ZK }} subcluster host.
-  * You can use the following charts to monitor disk space usage:
-      * **Disk space usage** for a {{ ZK }} subcluster.
-      * **Disk space usage** per {{ ZK }} subcluster host.
-  * **CPU cores usage per host**: Number of CPU cores used per host.
-  * **CPU usage per host**: CPU core workload per host.
-  * **Memory usage per host**: RAM usage percentage per host.
-  * **Disk space usage per host**: Disk space usage percentage per host.
-  * **Disk read per host**: Disk read rate per host.
-  * **Disk write per host**: Disk write rate per host.
-  * **Disk usage per host**: Speed of disk operations per host.
-  * **Network data received per host**: Network data receive rate per host.
-  * **Network data sent per host**: Network data send rate per host.
-  * **Network usage per host**: Network data exchange rate per host.
+  * Under **System Metrics**:
+
+    * **CPU usage per host, cores**: Number of CPU cores used per host.
+    * **Memory usage per host, bytes**: RAM used per {{ ZK }} subcluster host.
+    * **CPU usage per host, %**: CPU core workload per host.
+    * **Memory usage per host, %**: Percentage of RAM used per host.
+    * **Disk read per host**: Disk read rate per host.
+    * **Disk write per host**: Disk write rate per host.
+    * **Disk usage per host**: Speed of disk operations per host.
+    * **Network usage per host**: Network data exchange rate per host.
+    * **Network data received per host**: Network data receive rate per host.
+    * **Network data sent per host**: Network data send rate per host.
 
 {% endlist %}
 
@@ -176,7 +203,7 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 
   1. Navigate to the **Hosts** tab and select the host.
     
-      Host type, `CLICKHOUSE` or `ZOOKEEPER`, is specified for each host.
+      Host type, `CLICKHOUSE`, `KEEPER` or `ZOOKEEPER`, is specified for each host.
 
       {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -188,47 +215,82 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 
   The following charts are displayed for {{ CH }} hosts:
 
-  * **Availability**: Host availability.
-  * **Quearies**: Number of queries per second for each type.
-  * **Connections**: Number of HTTP and TCP connections.
-  * **Failed queries**: Percentage of failed queries for each type.
-  * **Average query time**: Average query time for each type.
-  * **Locks**: Number of active and waiting read and write locks.
-  * **Processed data**: Speed of reading, inserting, and merging data.
-  * **Processed rows**: Speed of reading, inserting, and merging rows per second.
-  * **Background tasks**: Number of merge and mutation, extract and move tasks in the background pool.
-  * **Max replication delay across tables**: Maximum replication delay across tables. Values greater than a few seconds may indicate excessive load or replication issues.
-  * **Replication queue**: Replication queue size.
-  * **Max data parts per partition**: Maximum number of data parts per partition. This value is limited by the [DBMS settings](../concepts/settings-list.md#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
-  * **CPU usage, %**: CPU core usage percentage.
-  * **Memory usage, %**: RAM usage percentage.
-  * **Disk space usage, %**: Disk space usage percentage.
-  * **CPU usage, cores**: Number of CPU cores used.
-  * **Memory usage, bytes**: RAM usage.
-  * **Disk space usage, bytes**: Disk space usage.
-  * **Disk throughput**: Disk throughput.
-  * **Disk IOPS**: Number of disk read and write operations.
-  * **Network throughput**: Network throughput.
+  * Under **Service Metrics**:
+
+    * **Availability**: Host availability.
+    * **Quearies**: Number of queries per second for each type.
+    * **Connections**: Number of HTTP and TCP connections.
+    * **Failed queries**: Percentage of failed queries for each type.
+    * **Average query time**: Average query time for each type.
+    * **Locks**: Number of active and waiting read and write locks.
+    * **Processed data**: Speed of reading, inserting, and merging data.
+    * **Processed rows**: Speed of reading, inserting, and merging rows per second.
+    * **Background tasks**: Number of merge and mutation, extract and move tasks in the background pool.
+    * **Max replication delay across tables**: Maximum replication delay across tables. Values greater than a few seconds may indicate excessive load or replication issues.
+    * **Replication queue**: Replication queue size.
+    * **Max data parts per partition**: Maximum number of data parts per partition. This value is limited by the [DBMS settings](../concepts/settings-list.md#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
+    * **Threads**: Number of threads used by {{ CH }}.
+
+  * Under **System Metrics**:  
+    * **CPU usage, %**: CPU core usage percentage.
+    * **Memory usage, %**: RAM usage percentage.
+    * **Disk space usage, %**: Disk space usage percentage.
+    * **CPU usage, cores**: Number of CPU cores used.
+    * **Memory usage, bytes**: RAM usage.
+    * **Disk space usage, bytes**: Disk space usage.
+    * **Disk throughput**: Disk throughput.
+    * **Disk IOPS**: Number of disk read and write operations.
+    * **Network throughput**: Network throughput.
+
+- {{ ui-key.yacloud.clickhouse.title_keeper }}
+
+  The following charts are displayed for {{ CK }} hosts:
+
+  * Under **Service Metrics**:
+
+    * **Availability**: Host availability.
+    * **Role**: Host role, Leader or Follower, in a {{ CK }} subcluster.
+    * **Objects**: Number of znodes, ephemeral nodes, and watches.
+    * **Connections**: Number of active database connections to the host.
+    * **Outstanding requests**: Number of outstanding requests.
+    * **Latency**: Number of requests with delayed response.
+  
+  * Under **System Metrics**:
+
+    * **CPU usage, %**: CPU core usage percentage.
+    * **Memory usage, %**: RAM usage percentage.
+    * **Disk space usage, %**: Disk space usage percentage.
+    * **CPU usage, cores**: Number of CPU cores used.
+    * **Memory usage, bytes**: RAM usage.
+    * **Disk space usage, bytes**: Disk space usage.
+    * **Disk throughput**: Disk throughput.
+    * **Disk IOPS**: Number of disk read and write operations.
+    * **Network throughput**: Network throughput.
 
 - {{ ZK }}
 
   The following charts are displayed for {{ ZK }} hosts:
 
-  * **Availability**: Host availability.
-  * **Role**: Host role, Leader or Follower, in a {{ ZK }} subcluster.
-  * **Objects**: Number of znodes, ephemeral nodes, and watches.
-  * **Connections**: Number of active database connections to the host.
-  * **Outstanding requests**: Number of outstanding requests to {{ ZK }}.
-  * **Request time**: Read and write operation processing time.
-  * **CPU usage, %**: CPU core usage percentage.
-  * **Memory usage, %**: RAM usage percentage.
-  * **Disk space usage, %**: Disk space usage percentage.
-  * **CPU usage, cores**: Number of CPU cores used.
-  * **Memory usage, bytes**: RAM usage.
-  * **Disk space usage, bytes**: Disk space usage.
-  * **Disk throughput**: Disk throughput.
-  * **Disk IOPS**: Number of disk read and write operations.
-  * **Network throughput**: Network throughput.
+  * Under **Service Metrics**:
+
+    * **Availability**: Host availability.
+    * **Role**: Host role, Leader or Follower, in a {{ ZK }} subcluster.
+    * **Objects**: Number of znodes, ephemeral nodes, and watches.
+    * **Connections**: Number of active database connections to the host.
+    * **Outstanding requests**: Number of outstanding requests.
+    * **Request time**: Read and write operation processing time.
+  
+  * Under **System Metrics**:
+
+    * **CPU usage, %**: CPU core usage percentage.
+    * **Memory usage, %**: RAM usage percentage.
+    * **Disk space usage, %**: Disk space usage percentage.
+    * **CPU usage, cores**: Number of CPU cores used.
+    * **Memory usage, bytes**: RAM usage.
+    * **Disk space usage, bytes**: Disk space usage.
+    * **Disk throughput**: Disk throughput.
+    * **Disk IOPS**: Number of disk read and write operations.
+    * **Network throughput**: Network throughput.
 
 {% endlist %}
 

@@ -46,6 +46,8 @@ description: На странице представлен список поша�
 ## Расширения {{ GP }} {#extensions}
 
 * [Управление расширениями](./extensions/cluster-extensions.md)
+* [Использование gp_relsizes_stats](./extensions/gp-relsizes-stats.md)
+* [Использование gp_url_tools](./extensions/gp-url-tools.md)
 * [Использование pgcrypto](./extensions/pgcrypto.md)
 * [Использование uuid-cb](./extensions/uuid-cb.md)
 

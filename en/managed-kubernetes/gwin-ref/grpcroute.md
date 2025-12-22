@@ -181,7 +181,7 @@ metadata:
     gwin.yandex.cloud/rules.rbac.principals.admin.check-ip.ip.remoteIp: "10.0.0.0/8"  # allowed IP range
     gwin.yandex.cloud/hosts.rbac.action: "DENY"  # host-level RBAC action
     
-    # Rule-specific configuration (overrides global settings)
+    # Rule-specific configuration (conflict with global settings is an error)
     gwin.yandex.cloud/rule.service-rule.backends.balancing.mode: "LEAST_REQUEST"  # per-rule balancing
     gwin.yandex.cloud/rule.service-rule.timeout: "30s"  # per-rule timeout
     gwin.yandex.cloud/rule.service-rule.idleTimeout: "120s"  # per-rule idle timeout

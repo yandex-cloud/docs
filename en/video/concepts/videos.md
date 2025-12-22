@@ -44,6 +44,8 @@ You can change the following basic video playback settings when [generating](../
 
 {% include [iframe-settings](../../_includes/video/iframe-settings.md) %}
 
+You can also configure some player settings, e.g., widget color palette and layout, using [presets](presets.md).
+
 ## Video viewing statistics {#video-statistics}
 
 For each video, you can [look up the viewing statistics](../operations/video/get-statistics.md) and flexibly customize the statistics period.

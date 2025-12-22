@@ -1,12 +1,23 @@
 # Access management in {{ video-full-name }}
 
-User access to {{ video-name }} depends on relevant permissions granted within an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
+In this section, you will learn about:
+
+* [What resources you can assign a role for](#resources).
+* [What roles exist in this service](#roles-list).
+
+## Access management {#about-access-control}
+
+Access to {{ video-name }} is controlled by assigning permissions within the [organization](../../organization/concepts/organization.md). Organizations are managed using [{{ org-full-name }}](../../organization/index.yaml).
 
 The operations available to {{ video-name }} users are determined by their roles. You can assign roles to a Yandex account, [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). For more information about access management in {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
 To assign a role for a resource, a user should have the `video.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
+
+## Resources you can assign a role for {#resources}
+
+You can assign a role for a [channel](../concepts/index.md#channels) from the {{ video-name }} [interface]({{ link-video-main }}) or via the [API](../api-ref/authentication.md).
 
 ## Adding a user to {{ video-name }} {#add-user}
 

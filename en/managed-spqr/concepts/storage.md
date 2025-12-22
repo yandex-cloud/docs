@@ -1,15 +1,9 @@
 ---
-title: '{{ mspqr-full-name }} storage'
+title: Storage in {{ mspqr-full-name }}
 description: In this article, you will learn what a storage is in {{ mspqr-name }} and how to select the right disk type when creating a cluster.
 ---
 
-# {{ mspqr-full-name }} storage
-
-{% note info %}
-
-At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ mspqr-name }} does not use a storage, but you cannot create a cluster without one. You will need a storage later to aggregate data that does not fit into the RAM of the `SPQRINFRA` and `SPQRROUTER` hosts.
-
-{% endnote %}
+# Storage in {{ mspqr-full-name }}
 
 With {{ mspqr-name }}, you can use network storage drives to set up your cluster storage. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure.
 

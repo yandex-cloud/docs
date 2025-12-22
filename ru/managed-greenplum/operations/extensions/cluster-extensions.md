@@ -65,6 +65,9 @@ CREATE EXTENSION <имя_расширения>;
 || [gp_internal_tools]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-managing-monitor.html#creating-the-session_level_memory_consumption-view)
 Содержит различные внутренние утилиты для {{ GP }}.
 | 1.0.0 ||
+|| [gp_relsizes_stats](https://github.com/open-gpdb/gp_relsizes_stats)
+Собирает статистику о размере файлов и таблиц. Подробнее см. в разделе [Использование gp_relsizes_stats](./gp-relsizes-stats.md).
+| 1.0 ||
 || [gp_url_tools](https://github.com/open-gpdb/gp_url_tools)
 Содержит функции для работы с URL-адресами. Подробнее см. в разделе [Использование gp_url_tools](./gp-url-tools.md).
 | 1.0 ||

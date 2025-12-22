@@ -54,6 +54,12 @@ items:
         href: operations/logging.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+  - name: Практические руководства
+    items:
+      - name: >-
+          Настройка печати с {{ cloud-desktop-name }} на локальный принтер в
+          Linux
+        href: tutorials/desktop-linux-printer.md
   - name: Концепции
     items:
       - name: Рабочие столы и их группы

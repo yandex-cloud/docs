@@ -1,12 +1,12 @@
-* `planned_usage_threshold`: {{ ZK }} subcluster storage utilization threshold to trigger a storage expansion during the next maintenance window, in percent. The default value is `0` (automatic expansion disabled).
+* `planned_usage_threshold`: Utilization threshold for the {{ ZK }} storage capacity, in percent, to trigger an increase during the next maintenance window. The default value is `0` (auto increase disabled).
                       
   The valid values range from `0` to `100`.
                       
-* `emergency_usage_threshold`: {{ ZK }} subcluster storage utilization threshold to trigger an immediate storage expansion, in percent. The default value is `0` (automatic expansion disabled).
+* `emergency_usage_threshold`: Utilization threshold for the {{ ZK }} storage capacity, in percent, to trigger an immediate increase. The default value is `0` (auto increase disabled).
                       
   The valid values range from `0` to `100`.
                       
-* `disk_size_limit`: Maximum storage size for a {{ ZK }} subcluster, in bytes.
+* `disk_size_limit`: Maximum {{ ZK }} storage size, in bytes.
                       
 {% note warning %}
                       

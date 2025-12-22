@@ -95,7 +95,7 @@ items:
         href: operations/add-member.md
   - name: Tutorials
     items:
-      - name: Out-of-the-box video layout solutions in IFrame
+      - name: Out-of-the-box solutions for video design in IFrame
         href: tutorials/video-iframe.md
   - name: Concepts
     items:
@@ -107,6 +107,8 @@ items:
         href: concepts/streams.md
       - name: Playlists
         href: concepts/playlists.md
+      - name: Player presets
+        href: concepts/presets.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Video Player
@@ -116,13 +118,20 @@ items:
         href: concepts/player.md
       - name: Control
         href: operations/player-control.md
-      - name: Troubleshooting
-        href: troubleshooting.md
-      - name: Protected content
-        hidden: true
-        href: troubleshooting-drm.md
-      - name: Browser autoplay policy
-        href: autoplay-policy.md
+      - name: Player presets
+        items:
+          - name: Creating a template
+            href: operations/style-presets/create.md
+          - name: Updating or duplicating a preset
+            href: operations/style-presets/update.md
+          - name: Getting preset info
+            href: operations/style-presets/get.md
+          - name: Setting a default preset
+            href: operations/style-presets/set-default.md
+          - name: Selecting a preset
+            href: operations/style-presets/assign-to-video.md
+          - name: Deleting a preset
+            href: operations/style-presets/delete.md
       - name: SDK
         items:
           - name: Overview
@@ -166,6 +175,13 @@ items:
                         href: api-ref/javascript/interfaces/PlayerSdkSourceParams.md
                       - name: PlayerSdkState
                         href: api-ref/javascript/interfaces/PlayerSdkState.md
+      - name: Troubleshooting
+        href: troubleshooting.md
+      - name: Protected content
+        hidden: true
+        href: troubleshooting-drm.md
+      - name: Browser autoplay policy
+        href: autoplay-policy.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

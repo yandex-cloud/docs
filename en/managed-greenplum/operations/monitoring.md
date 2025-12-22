@@ -1,9 +1,9 @@
 ---
-title: Monitoring the state of a {{ GP }} cluster and hosts
-description: Follow this guide to get detailed information about a {{ GP }} cluster state.
+title: Monitoring the state of a {{ GP }} cluster and its hosts
+description: Follow this guide to get detailed information about a {{ GP }} cluster's state.
 ---
 
-# Monitoring the state of a {{ GP }} cluster and hosts
+# Monitoring the state of a {{ GP }} cluster and its hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -53,7 +53,7 @@ To view detailed information on the state of a {{ GP }} cluster:
         * **admin_group**: In the administrative group.
         * **default_group**: In the default group.
 
-    * **Group resource memory**: Processor core workload by process group:
+    * **Group resource cpu**: Processor core workload by process group:
 
         * **admin_group**: In the administrative group.
         * **default_group**: In the default group.
@@ -131,7 +131,7 @@ To view detailed information on the state of individual {{ GP }} hosts:
     * **Disk read and write**: Amount of data in disk operations (in bytes).
     * **Disk read and write time**: Duration of disk reads and writes.
     * **Disk usage**: Disk space usage (two charts are displayed, in bytes and %).
-    * **Memory usage**: Use of RAM, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
+    * **Memory usage**: Amount of RAM used, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
     * **Network**: Amount of network traffic, in bytes.
 
 {% endlist %}
@@ -254,22 +254,22 @@ To view a dashboard for a {{ GP }} cluster, do the following:
             * **waiting**: Waiting for a command.
             * **idle in transaction**: Started the transaction, but the query is idle (e.g., pending `COMMIT`).
         * **Number of live segments**: Number of running segment instances including mirrors.
-        * **Queries sent to the cluster**: Number of accepted and interrupted (cancelled) queries.
+        * **Queries sent to the cluster**: Number of accepted and interrupted (canceled) queries.
 
     * **Segments health**:
         * **Idle CPU**: Unused CPU capacity by segment host; the lower the value, the higher the host load.
         * **Reserved memory**: RAM usage (in bytes) by segment host. To avoid errors, remember to keep the value within the limit.
         * **IOPS**: Total size of disk operations (in bytes) across all segment hosts.
         * **Number of network packets**: Number of received and sent packets on network interfaces by segment host. Values close to the limit may cause delays in processing queries.
-        * **Number of network packets in queues**: Number of packets in queues on network interfaces by segment host. Approaching the limit may result in delays in processing queries.
+        * **Number of network packets in queues**: Number of packets in queues on network interfaces by segment host. Values close to the limit may cause delays in processing queries.
         * **Network traffic**: Bandwidth utilization for incoming network traffic by segment host. Values close to the limit may cause delays in processing queries.
         * **Ping time**: Time of running a ping from the master host to the cluster's segment hosts.
         * **Query execution time per segment**: Total execution time for query slices on each of the cluster's segment hosts.
 
     * **Database internal metrics**:
-        * **Free memory for resource groups**: Available RAM by [resource group](../concepts/resource-groups.md).
-        * **Summary CPU usage for resource groups**: Total CPU usage by resource groups on the cluster. This value is collected from all cluster hosts and may be over 100%.
-        * **CPU throttle time for cgroups**: Indicates how long resource group processes need to wait for CPU time due to its full utilization (by host). An exponential increase in this value (from milliseconds to minutes) may cause delays in processing queries.
+        * **Free memory for resource groups**: Indicates available RAM by [resource group](../concepts/resource-groups.md).
+        * **Summary CPU usage for resource groups**: Total CPU usage by resource groups on the cluster. This value is collected from all cluster hosts and may exceed 100%.
+        * **CPU throttle time for cgroups**: Time period during which resource group processes need to wait for CPU time due to its full utilization (by host). An exponential increase in this value (from milliseconds to minutes) may cause delays in processing queries.
         * **Summary spill size**: Total size of temporary (spill) files created as a result of RAM shortage.
         * **Interconnect quality**: Percentage of packet retransmissions between segments ([{{ GP }} Interconnect]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect) traffic) in the total volume of packets sent from each segment host. The higher the value, the less stable the network.
         * **Background activity - the number of sessions**: Number of system sessions on each segment in the following states:
@@ -280,9 +280,48 @@ To view a dashboard for a {{ GP }} cluster, do the following:
 
 {% endlist %}
 
+## Monitoring resource groups {#monitoring-resgroup}
+
+To view information on {{ GP }} resource groups:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ mgp-short-name }}**.
+    1. Click the cluster name and select ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups**.
+
+    This page displays the following charts:
+ 
+    * **CPU Usage**: Total CPU usage across all hosts in a resource group.
+    * **Memory Usage**: Total memory usage across all hosts in a resource group.
+    * **Running queries**: Current number of active transactions in a resource group.
+    * **Queueing queries**: Current number of queueing transactions for this resource group.
+    * **Executed queries**: Total number of transactions executed in a resource group since the most recent cluster startup (excluding **Running queries**).
+    * **Queued queries**: Total number of transactions enqueued for this resource group since the most recent cluster startup (excluding **Queueing queries**).
+
+{% endlist %}
+
+
+You can also view information on resource groups for each {{ GP }} cluster host:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ mgp-short-name }}**.
+    1. Click the cluster name and select ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups per host**.
+
+    This page displays the following charts:
+ 
+    * **CPU Usage**: Total CPU usage in a resource group within a host.
+    * **Memory Usage**: Total memory usage in a resource group within a host.
+
+{% endlist %}
+
 ## Integration with {{ monitoring-full-name }} {#monitoring-integration}
 
-To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) state indicator alerts:
+To configure state indicator alerts for a [cluster](#monitoring-cluster) and [hosts](#monitoring-hosts):
 
 {% list tabs group=instructions %}
 
@@ -312,7 +351,7 @@ For a complete list of supported metrics, see this [{{ monitoring-name }} articl
 To check the cluster’s state and status:
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-1. Locate the cluster you need in the list, and hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
+1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster health {#cluster-health}
 

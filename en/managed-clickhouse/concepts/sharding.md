@@ -44,7 +44,7 @@ For example, you can set up the following shard configuration within a single {{
 - Group `A` comprised of two shards with `s2.small` [hosts](instance-types.md): Used as the main one for a distributed table with a low load. Data in the distributed table data is stored in the same shard group.
 - Group `B` comprised of two shards with `s2.medium` hosts: Used as the main one for a distributed table with a constant high load. The data in the distributed table is stored in another group, `C`, comprised of five shards with high-performance `m2.large` hosts.
 
-To learn more about operating distributed tables, see the [documentation for {{ CH }}]({{ ch.docs }}/engines/table-engines/special/distributed/).
+To learn more about operating distributed tables, see [this {{ CH }} guide]({{ ch.docs }}/engines/table-engines/special/distributed/).
 
 ## Sharding management in {{ mch-name }} {#shard-management}
 
@@ -60,7 +60,7 @@ To learn more about operating distributed tables, see the [documentation for {{ 
     Shards with multiple hosts require running replication. Therefore:
 
     * Clusters with a multi-host shard have {{ CK }} or {{ ZK }} replication already running, which means you can immediately add hosts to the shard.
-    * In clusters with single-host shards, you need to [add at least three {{ ZK }} hosts](../operations/zk-hosts.md#add-zk), and only then add hosts to the shard.
+    * In clusters with single-host shards, you should first [turn on the {{ CK }} or {{ ZK }} coordination service](../operations/update.md#enable-coordination) and only then proceed to add hosts to the shard.
 
     For more information about replication, {{ CK }}, and {{ ZK }}, see [Replication](replication.md).
 

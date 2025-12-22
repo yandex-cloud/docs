@@ -15,7 +15,7 @@ In this section, you can find the {{ mmg-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -38,17 +38,17 @@ The {{ mmg-name }} usage cost includes:
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-### DB host usage {#rules-hosts-uptime}
+### Database host usage {#rules-hosts-uptime}
 
 The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ SD }} host is unable to perform its main functions.
+The minimum billing unit is one minute, e.g., you will be charged for 2 minutes when using a host for 90 seconds (1.5 minutes). You will not be charged for the time when the {{ SD }} host is unavailable for basic operations.
 
 ### Disk space usage {#rules-storage}
 
 You are charged for the following:
 
-* Storage allocated for DB clusters.
+* Storage allocated for database clusters.
 
     * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
@@ -58,7 +58,7 @@ You are charged for the following:
 
     For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 
-* Space occupied by DB backups beyond the storage size specified for the cluster.
+* Amount of storage used by database backups that exceeds the allocated cluster storage.
 
     * Backups are stored free of charge as long as the combined size of the DB and all its backups is smaller than the selected storage size.
 
@@ -66,7 +66,7 @@ You are charged for the following:
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 90 seconds (1.5 minutes) costs the same as for 2 minutes.
 
 ### Example of cluster cost calculation {#example}
 
@@ -103,7 +103,7 @@ The prices for computing resources are the same for all types of hosts: `mongod`
 
 {% note info %}
 
-The prices for Intel Ice Lake (Compute Optimized) and AMD Zen 4 HighFreq is effective December 18, 2025.
+The prices for Intel Ice Lake (Compute Optimized) and AMD Zen 4 HighFreq will apply starting December 18, 2025.
 
 {% endnote %}
 
@@ -118,7 +118,7 @@ The prices for Intel Ice Lake (Compute Optimized) and AMD Zen 4 HighFreq is effe
 
 {% note info %}
 
-Access to ultra high-speed network storage with three replicas (SSD) is available upon request. If you need one, contact [our support]({{ link-console-support }}) or your account manager.
+Access to ultra high-speed network storage with three replicas (SSD) is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

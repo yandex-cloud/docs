@@ -63,7 +63,7 @@ items:
             href: operations/performance-diagnostics.md
           - name: Performance analysis tools
             href: operations/tools.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Monitoring the state of a cluster and its hosts
             href: operations/monitoring.md
   - name: Tutorials
     items:
@@ -80,7 +80,7 @@ items:
       - name: '{{ SD }} performance analysis and tuning'
         href: tutorials/profiling.md
       - name: >-
-          Delivering data from {{ mkf-full-name }} using {{
+          Transferring data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/migration-from-kafka.md
   - name: Concepts
@@ -89,7 +89,7 @@ items:
         href: concepts/index.md
       - name: Host classes
         items:
-          - name: Active host classes
+          - name: Available host classes
             href: concepts/instance-types.md
           - name: Archive
             items:
@@ -111,6 +111,8 @@ items:
         href: concepts/replication.md
       - name: Sharding
         href: concepts/sharding.md
+      - name: Host types
+        href: concepts/host-roles.md
       - name: Users and roles
         href: concepts/users-and-roles.md
       - name: Maintenance

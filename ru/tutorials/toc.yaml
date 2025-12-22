@@ -847,6 +847,10 @@ items:
             href: infrastructure/gta-v-server.md
           - name: Конвертация видео в GIF на Python
             href: serverless/video-converting-queue.md
+          - name: >-
+              Настройка печати с {{ cloud-desktop-name }} на локальный принтер в
+              Linux
+            href: applied/desktop-linux-printer.md
   - name: Построение Data Platform
     items:
       - name: Все руководства

@@ -7,6 +7,22 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.185.0 (22.12.25) {#version0.185.0}
+
+#### Изменения в CLI {#cli}
+
+Исправлена ошибка при вызове команд бета-версии CLI {{ yandex-cloud }}.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 0.184.0 (22.12.25) {#version0.184.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ container-registry-name }}
+
+В команде `yc container registry configure-docker` исправлен парсинг версии Docker.
+
 ### Версия 0.183.0 (18.12.25) {#version0.183.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services-0.183.0}
@@ -22,8 +38,6 @@ description: На странице представлены релизы CLI, а
 * Добавлены команды для создания и обновления каталогов {{ GP }} в {{ mtr-name }}:
 * `yc managed trino catalog create greenplum`;
 * `yc managed trino catalog update greenplum`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.182.0 (15.12.25) {#version0.182.0}
 

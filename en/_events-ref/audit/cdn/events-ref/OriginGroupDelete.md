@@ -104,7 +104,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| authentication | **[Authentication](#yandex.cloud.audit.Authentication)** ||
+|| authentication | **[IamAuthentication](#yandex.cloud.audit.IamAuthentication)** ||
 || authorization | **[Authorization](#yandex.cloud.audit.Authorization)** ||
 || resourceMetadata | **[ResourceMetadata](#yandex.cloud.audit.ResourceMetadata)** ||
 || requestMetadata | **[RequestMetadata](#yandex.cloud.audit.RequestMetadata)** ||
@@ -123,22 +123,18 @@ The error result of the operation in case of failure or cancellation. ||
 || response | **object** ||
 |#
 
-## Authentication {#yandex.cloud.audit.Authentication}
+## IamAuthentication {#yandex.cloud.audit.IamAuthentication}
 
 #|
 ||Field | Description ||
 || authenticated | **boolean** ||
-|| subjectType | **enum** (SubjectType)
+|| subjectType | **enum** (IamSubjectType)
 
 - `YANDEX_PASSPORT_USER_ACCOUNT`
 - `SERVICE_ACCOUNT`
 - `FEDERATED_USER_ACCOUNT`
-- `GROUP`
 - `SSH_USER`
-- `DB_NATIVE_USER`
-- `KUBERNETES_USER`
-- `DATALENS_SYSTEM_USER`
-- `INVITEE` ||
+- `KUBERNETES_USER` ||
 || subjectId | **string** ||
 || subjectName | **string** ||
 || federationId | **string** ||
@@ -147,27 +143,23 @@ The error result of the operation in case of failure or cancellation. ||
 
 - `GLOBAL_FEDERATION`
 - `PRIVATE_FEDERATION` ||
-|| tokenInfo | **[IamTokenInfo](#yandex.cloud.audit.Authentication.IamTokenInfo)** ||
+|| tokenInfo | **[IamTokenInfo](#yandex.cloud.audit.IamAuthentication.IamTokenInfo)** ||
 |#
 
-## IamTokenInfo {#yandex.cloud.audit.Authentication.IamTokenInfo}
+## IamTokenInfo {#yandex.cloud.audit.IamAuthentication.IamTokenInfo}
 
 #|
 ||Field | Description ||
 || maskedIamToken | **string** ||
 || iamTokenId | **string** ||
 || impersonatorId | **string** ||
-|| impersonatorType | **enum** (SubjectType)
+|| impersonatorType | **enum** (IamSubjectType)
 
 - `YANDEX_PASSPORT_USER_ACCOUNT`
 - `SERVICE_ACCOUNT`
 - `FEDERATED_USER_ACCOUNT`
-- `GROUP`
 - `SSH_USER`
-- `DB_NATIVE_USER`
-- `KUBERNETES_USER`
-- `DATALENS_SYSTEM_USER`
-- `INVITEE` ||
+- `KUBERNETES_USER` ||
 || impersonatorName | **string** ||
 || impersonatorFederationId | **string** ||
 || impersonatorFederationName | **string** ||

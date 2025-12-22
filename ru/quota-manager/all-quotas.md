@@ -253,7 +253,7 @@ description: Во многих сервисах {{ yandex-cloud }} действ�
 
 ## {{ network-load-balancer-full-name }} {#load-balancer}
 
-Сервис — `network-load-balancer`, тип ресурса — `resource-manager.cloud`.
+Сервис — `ylb`, тип ресурса — `resource-manager.cloud`.
 
 {% include notitle [load-balancer-quotas](../_includes/load-balancer-limits.md#load-balancer-quotas) %}
 

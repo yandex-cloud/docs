@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ certificate-manager-full-name }}
-description: Access management in {{ certificate-manager-full-name }}, a service used to issue and update Let's Encrypt TLS certificates and upload custom certificates. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ certificate-manager-full-name }}, a service used to issue and update Let's Encrypt TLS certificates and upload custom certificates. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ certificate-manager-name }}
@@ -20,7 +20,7 @@ To assign a role for a resource, a user should have the `certificate-manager.adm
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a [custom certificate](../concepts/imported-certificate.md) via the {{ yandex-cloud }} [CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/add-access-binding.md) or [API](../api-ref/authentication.md).
+You can assign a role for a [Let's Encrypt certificate](../concepts/managed-certificate.md) or [custom certificate](../concepts/imported-certificate.md) via the {{ yandex-cloud }} [CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/add-access-binding.md), [{{ TF }}]({{ tf-provider-resources-link }}/cm_certificate_iam_binding), or the [API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 

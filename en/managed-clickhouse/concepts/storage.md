@@ -3,7 +3,7 @@ title: Storage in {{ mch-full-name }}
 description: In this article, you will learn about disk types in {{ mch-name }}, some features of hybrid storage, and discover how to select the right disk type when creating a cluster.
 ---
 
-# {{ mch-name }} storage
+# Storage in {{ mch-name }}
 
 
 {{ mch-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
@@ -95,16 +95,16 @@ For more information about storage policies and their settings, see the [{{ CH }
 
 A {{ mch-name }} cluster with enabled hybrid storage has the following settings:
 
-* `data_cache_enabled`: Enables temporary storage in cluster storage of data requested from object storage. Default value: `true` (enabled).
+* `data_cache_enabled`: Enables temporary storage in cluster storage of data requested from object storage. The default value is `true` (enabled).
 
     In this case, <q>cold</q> data requested from object storage is written to fast drives where data processing takes less time.
 
-* `data_cache_max_size`: Sets the maximum cache size (in bytes) allocated in cluster storage for temporarily storage of data requested from object storage. Default value: `1073741824` (1 GB).
-* `move_factor`: Sets the minimum share of free space in cluster storage. If the minimum share is below this value, the data will be moved to {{ objstorage-full-name }}. Minimum value: `0`; maximum value: `1`; default: `0.01`.
+* `data_cache_max_size`: Sets the maximum cache size (in bytes) allocated in cluster storage for temporarily storage of data requested from object storage. The default value is `1073741824` (1 GB).
+* `move_factor`: Sets the minimum percentage of free space in the cluster storage. If your free space percentage is below this value, the data will be moved to {{ objstorage-full-name }}. The minimum value is `0`, the maximum value is `1`, and the default value is `0.01`.
 
     Data parts are queued up in descending order by size, and then as many of them are moved as will satisfy the `move_factor` condition.
 
-* `prefer_not_to_merge`: Disables [merging of data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) in cluster and object storages. The merge functionality is enabled by default.
+* `prefer_not_to_merge`: Disables [merging of data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) in a cluster and object storage. The merge functionality is enabled by default.
 
     Once inserted into the table, the data is saved as a data part and sorted based on the primary key. Next the data parts belonging to the same partition are merged in the background into a larger data part within 10 to 15 minutes after the insertion. You can use the [system.parts]({{ ch.docs }}/operations/system-tables/parts#system_tables-parts) system table to view the merged data parts and partitions.
 
@@ -151,26 +151,26 @@ To monitor storage utilization, [set up alerts in {{ monitoring-full-name }}](..
 
 ### Automatic increase of storage size {#autoscaling}
 
-To prevent situations where the disk runs out of free space and insert queries, background merges, and mutations get suspended, [set up automatic storage size increase](../operations/update.md#change-additional-settings) for {{ CH }} and {{ ZK }} subclusters. This will trigger storage increase when you reach a preset threshold defined as a percentage of the total storage size. There are two thresholds:
+To prevent situations where the disk runs out of free space and insert queries, background merges, and mutations get suspended, [set up automatic storage size increase](../operations/update.md#change-additional-settings) for {{ CH }} and a coordination service, {{ CK }} or {{ ZK }}. This will trigger storage increase when you reach a preset threshold defined as a percentage of the total storage size. There are two thresholds:
 
 * Scheduled increase threshold: To plan this increase, an algorithm analyzes data from the last few hours and estimates how quickly the storage is filling up. If the calculations show that the specified threshold will be exceeded by the start of the nearest [maintenance window](maintenance.md#maintenance-window), the system schedules a storage increase. When initiating maintenance, the system will check whether the threshold is indeed exceeded, and if so, increase the storage size.
 
-* Immediate increase threshold: When reached, the storage size increases immediately.
+* Immediate increase threshold: When reached, the storage expands immediately.
 
 You can use either one or both thresholds. If you set both, make sure the immediate increase threshold is not lower than the scheduled one.
 
-For a scheduled increase, you need to set the [maintenance window](maintenance.md#maintenance-window) schedule.
+For a scheduled expansion, you need to set up a [maintenance window](maintenance.md#maintenance-window) schedule.
 
 {% include [storage-resize-steps](../../_includes/mdb/mch/storage-resize-steps.md) %}
 
-Automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. New shards will use the settings of the oldest shard.
+The automatic storage size increase settings for {{ CH }} apply to all existing shards. New shards will use the settings of the oldest shard.
 
 You can configure automatic increase of storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/update.md#change-additional-settings).
 
 {% note warning %}
 
-* You cannot decrease the storage size.
-* While resizing the storage, cluster hosts will be unavailable.
+* You cannot reduce the storage size.
+* During storage resize, the cluster hosts will be unavailable.
 
 {% endnote %}
 

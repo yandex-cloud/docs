@@ -1,7 +1,6 @@
 ---
-title: '{{ monitoring-full-name }}. Service overview'
+title: '{{ monitoring-full-name }}. Overview'
 description: '{{ monitoring-full-name }} allows you to collect and store metrics and display them as charts on dashboards. {{ monitoring-full-name }} automatically collects data on the status of your resources in {{ yandex-cloud }} and displays them on service dashboards. You can use the API to upload custom metrics.'
-sourcePath: en/monitoring_includes/concepts/index.md
 ---
 
 # {{ monitoring-name }} overview
@@ -18,7 +17,7 @@ With {{ monitoring-name }}, you can:
 * Set up alerts for metric changes. Multiple notification channels are available.
 * Configure an escalation policy to define the order of notifications for critical metric changes.
 
-## How {{ monitoring-name }} works {#how-it-works}
+## How it works {#how-it-works}
 
 {{ monitoring-name }} collects and stores metrics as [time series](https://en.wikipedia.org/wiki/Time_series). The service uses labels to identify and describe the time series characteristics. Labels map metrics to services, provide metric definitions, etc. For more information, see [{#T}](data-model.md).
 
