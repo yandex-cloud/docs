@@ -221,7 +221,7 @@ metadata:
     gwin.yandex.cloud/rules.rbac.principals.admin.any.any: "true"  # match any request
     gwin.yandex.cloud/hosts.rbac.action: "DENY"  # host-level RBAC action
     
-    # Rule-specific configuration (overrides global settings)
+    # Rule-specific configuration (conflict with global settings is an error)
     gwin.yandex.cloud/rule.api-rule.backends.balancing.mode: "LEAST_REQUEST"  # per-rule balancing
     gwin.yandex.cloud/rule.api-rule.timeout: "30s"  # per-rule timeout
     gwin.yandex.cloud/rule.api-rule.idleTimeout: "120s"  # per-rule idle timeout

@@ -20,11 +20,11 @@ If only some cluster hosts have public access, an [automatic master failover](..
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
-Rule settings depend on the chosen connection method:
+Rule settings depend on the connection method you select:
 
 {% list tabs group=connection_method %}
 
-- Via the internet {#internet}
+- Over the internet {#internet}
 
   [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port 6432 from any IP address. To do this, create the following ingress rule:
 
@@ -42,7 +42,7 @@ Rule settings depend on the chosen connection method:
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
 
-  1. [Configure the VM security group](../../vpc/operations/security-group-add-rule.md) to allow VM connections and traffic between the VM and the cluster hosts.
+  1. [Configure the VM security group](../../vpc/operations/security-group-add-rule.md) to allow VM connections and traffic between the VM and cluster hosts.
 
      For example, you can set the following rules for your VM:
 
@@ -52,7 +52,7 @@ Rule settings depend on the chosen connection method:
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-       This rule allows VM [connections](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
+       This rule allows inbound VM [connections](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 
      * For outgoing traffic:
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
@@ -66,9 +66,9 @@ Rule settings depend on the chosen connection method:
 
 {% note info %}
 
-You can specify more granular rules for your security groups, such as allowing traffic only within specific subnets.
+You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
 
-All subnets containing cluster hosts must have properly configured security groups. With incomplete or incorrect security group settings, you may lose access to the cluster if a [manual](hosts.md#update) or [automatic](../concepts/replication.md#replication-auto) master failover occurs.
+Make sure to configure the security groups correctly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster if a [manual](hosts.md#update) or [automatic](../concepts/replication.md#replication-auto) master failover occurs.
 
 {% endnote %}
 
@@ -92,7 +92,7 @@ To connect to a host, you will need its [FQDN](../concepts/network.md#hostname).
 * View the FQDN in the management console:
 
    1. Navigate to the cluster page.
-   1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
 Cluster hosts also use [special FQDNs](#special-fqdns).
@@ -105,7 +105,7 @@ Alongside [regular FQDNs](#fqdn), {{ mpg-name }} offers special FQDNs that can b
 
 ### Current master {#fqdn-master}
 
-An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host in the cluster. You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host in the cluster. You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
 When connecting to this FQDN, you can perform read and write operations.
 
@@ -113,7 +113,7 @@ When connecting to this FQDN, you can perform read and write operations.
 
 ### Most recent replica {#fqdn-replica}
 
-An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to the most up-to-date [replica](../concepts/replication.md). You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to the most up-to-date [replica](../concepts/replication.md). You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 **Specifics:**
 
@@ -123,7 +123,7 @@ An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to the most up-to-da
 
 ## Selecting an FQDN and cluster connection method {#automatic-master-host-selection}
 
-You can connect to a cluster using its [host FQDNs](#fqdn) or [special FQDNs](#special-fqdns): If the cluster [consists of multiple hosts](../concepts/planning-cluster-topology.md) and has [autofailover](../concepts/replication.md#replication-auto) enabled, you must account for this when connecting. This is important because the current master can become a replica at any moment, and vice versa.
+You can connect to a cluster using its [host FQDNs](#fqdn) or [special FQDNs](#special-fqdns). If the cluster [consists of several hosts](../concepts/planning-cluster-topology.md), keep in mind that the current master can become a replica at any moment, and vice versa.
 
 {% note warning %}
 
@@ -211,9 +211,9 @@ Use one of the following methods to connect to the host with read access:
 
 {% note info %}
 
-You can use the `target_session_attrs` parameter when connecting via a client utilizing the `libpq` library.
+You can use the `target_session_attrs` setting when connecting via a client utilizing the `libpq` library.
 
-Support for the `read-write` value in this parameter was introduced in `libpq` [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+Support for the `read-write` value in this setting was introduced in `libpq` [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
 
 {% cut "How to update the library version used by `psql`" %}
 
@@ -257,7 +257,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
      1. On the **SSH/SSL** tab:
          1. Enable **Use SSL**.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-  1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
   1. Click **OK** to save the data source.
 
 - DBeaver {#dbeaver}
@@ -274,7 +274,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
      1. On the **SSL** tab:
          1. Enable **Use SSL**.
          1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
-  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
   1. Click **Done** to save the database connection settings.
 
 {% endlist %}
@@ -338,7 +338,7 @@ Connections from [{{ google-looker }}](https://lookerstudio.google.com/overview)
 
     * **Host name or IP address**: [Master FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
     * **Port**: `{{ port-mpg }}`.
-    * **Database**: Target database name.
+    * **Database**: DB to connect to.
     * **Username**: Username used to establish the connection.
     * **Password**: User password.
 
@@ -353,7 +353,7 @@ Connections from [{{ google-looker }}](https://lookerstudio.google.com/overview)
 
 ## Before you connect from a Docker container {#connection-docker}
 
-To connect to a {{ mpg-name }} cluster from a Docker container, add the following lines to the Dockerfile:
+To connect to a {{ mpg-name }} cluster from a Docker container, add the following lines to your Dockerfile:
 
 
 {% list tabs group=connection %}

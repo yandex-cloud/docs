@@ -8,6 +8,18 @@
 
    {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
+
+* **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Account user programs can use to manage the cluster. For more information, see [{#T}](../../../managed-clickhouse/security.md).
+
+* **{{ ui-key.yacloud.mdb.forms.label_disk-encryption }}**: This option enables disk encryption with a [custom KMS key](../../../kms/concepts/key.md). Set a key in one of the following ways:
+
+   * To [create](../../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+   * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+
+   To learn more about disk encryption, see [Storage](../../../managed-clickhouse/concepts/storage.md#disk-encryption).
+
+
 * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**: This option enables you to analyze cluster data in [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
 

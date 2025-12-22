@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mos-full-name }}
-description: Access management in {{ OS }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ OS }}, a solution for creating and managing databases. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Managing access to {{ mos-name }}
@@ -16,7 +16,7 @@ To use the service, log in to the management console with your [Yandex account](
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `mdb.admin` role, `managed-opensearch.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, the `managed-opensearch.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -25,6 +25,8 @@ To assign a role for a resource, a user should have the `mdb.admin` role, `manag
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 To allow access to {{ mos-name }} resources (clusters and hosts, cluster backups, and accounts), assign the user the appropriate roles for a folder, cloud, or organization containing these resources.
+
+You can assign a role for a separate cluster from the [management console]({{ link-console-main }}) or via the [API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 

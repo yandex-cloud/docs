@@ -14,7 +14,7 @@ In this section, you will learn:
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `mdb.admin` role, `managed-clickhouse.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, the `managed-clickhouse.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
@@ -23,6 +23,8 @@ To assign a role for a resource, a user should have the `mdb.admin` role, `manag
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
 {% include [assign-roles-mdb](../_includes/iam/assign-roles-mdb.md) %}
+
+You can assign a role for a separate cluster in the [management console]({{ link-console-main }}) or via the [API](./api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 

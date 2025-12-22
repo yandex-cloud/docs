@@ -253,7 +253,7 @@ Service: `monitoring`, resource type: `resource-manager.cloud`.
 
 ## {{ network-load-balancer-full-name }} {#load-balancer}
 
-Service: `network-load-balancer`, resource type: `resource-manager.cloud`.
+Service: `ylb`, resource type: `resource-manager.cloud`.
 
 {% include notitle [load-balancer-quotas](../_includes/load-balancer-limits.md#load-balancer-quotas) %}
 

@@ -342,6 +342,9 @@ ARL allows limiting the number of requests to the protected resource to prevent 
       1. Optionally, enable **Case-sensitive** to put properties with the same values in different cases into different groups.
 
   1. Specify the request limit and select the time interval, e.g., `1000` requests per `1` minute.
+  
+  1. {% include [arl-rule-action-over-limit](../_includes/smartwebsecurity/arl-rule-action-over-limit.md) %}
+  
   1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
 
 {% endlist %}

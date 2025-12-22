@@ -37,6 +37,10 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
       {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
+  1. In the **{{ ui-key.yacloud_video.presets.label_style-preset }}** list, select a player [preset](../../concepts/presets.md) from those available in the channel or create a new one.
+
+     If no template is selected, the video will use the [default template](../style-presets/set-default.md) assigned to the channel.
+
   1. {% include [add-summarization-optional](../../../_includes/video/add-summarization-optional.md) %}
   1. {% include [add-subtitles-optional](../../../_includes/video/add-subtitles-optional.md) %}
   1. {% include [add-translation-optional](../../../_includes/video/add-translation-optional.md) %}

@@ -55,6 +55,15 @@ description: Step-by-step guides on how to use the streaming and video hosting s
 
 * [{#T}](player-control.md)
 
+## Player presets {#style-presets}
+
+* [{#T}](style-presets/create.md)
+* [{#T}](style-presets/update.md)
+* [{#T}](style-presets/get.md)
+* [{#T}](style-presets/set-default.md)
+* [{#T}](style-presets/assign-to-video.md)
+* [{#T}](style-presets/delete.md)
+
 ## Members {#members}
 
 * [{#T}](add-member.md)

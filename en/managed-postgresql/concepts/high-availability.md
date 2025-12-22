@@ -25,12 +25,12 @@ A cluster with three or more hosts located in three different availability zones
 
 For more information, see [Planning cluster topology](planning-cluster-topology.md).
 
-## Replication and master failover settings {#replication-settings}
+## Replication settings {#replication-settings}
 
-High availability is achived through [replication and master failover](replication.md), which work as follows:
+High availability is achieved through [replication and master failover](replication.md), which work as follows:
 
 * Clusters uses streaming replication. Each replica host receives a replication stream from another host, typically the master. {{ mpg-name }} manages replication streams in the cluster [automatically](replication.md#replication-auto), but you can [manage them manually](../operations/hosts.md#update) if you need to. When you set the replication source manually, the replicas will [have a number of limitations](replication.md#replication-manual).
-* By default, clusters provide automatic failover of master hosts. You can disable auto failover, but if the master fails, you will need to select a new master and [perform the failover](../operations/update.md#start-manual-failover) manually.
+* The cluster uses automatic master selection and failover in case the current master fails.
 * If you use public access for the host, you must also enable it for the replicas, otherwise the cluster will become unavailable following master failover.
 
 {% note warning %}

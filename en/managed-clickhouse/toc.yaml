@@ -31,6 +31,8 @@ items:
                 href: operations/hosts.md
               - name: Managing {{ ZK }} hosts
                 href: operations/zk-hosts.md
+              - name: Managing {{ CK }} hosts
+                href: operations/ck-hosts.md
               - name: Migrating hosts to a different availability zone
                 href: operations/host-migration.md
           - name: Managing backups
@@ -51,12 +53,14 @@ items:
         items:
           - name: SQL queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
-          - name: Database management
+          - name: Managing databases
             href: operations/databases.md
           - name: DB user management
             href: operations/cluster-users.md
       - name: Storing and processing data
         items:
+          - name: Managing extensions
+            href: operations/cluster-extensions.md
           - name: Managing a custom geobase
             href: operations/geobase.md
           - name: Connecting external dictionaries
@@ -77,7 +81,7 @@ items:
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Monitoring the state of a cluster and its hosts
             href: operations/monitoring.md
           - name: Connecting from {{ datalens-name }}
             href: operations/datalens-connect.md
@@ -93,7 +97,7 @@ items:
         href: tutorials/ch-to-mch-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
-      - name: Using a hybrid storage
+      - name: Using hybrid storage
         href: tutorials/hybrid-storage.md
       - name: Fetching data from {{ mkf-name }}
         href: tutorials/fetch-data-from-mkf.md
@@ -191,7 +195,7 @@ items:
         href: concepts/index.md
       - name: Host classes
         items:
-          - name: Active host classes
+          - name: Available host classes
             href: concepts/instance-types.md
           - name: Archive
             items:

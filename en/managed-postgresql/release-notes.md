@@ -5,6 +5,10 @@ description: This section contains {{ mpg-name }} release notes.
 
 # {{ mpg-full-name }} release notes
 
+## October 2025 {#oct-2025}
+
+Removed the option to disable automatic master failover. This feature is now enabled for all {{ mpg-name }} clusters.
+
 ## July 2025 {#jul-2025}
 
 Now you can [upgrade clusters](operations/cluster-version-update.md) to {{ PG }} version 17 using standard tools without {{ data-transfer-full-name }}.

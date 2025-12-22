@@ -37,8 +37,6 @@ Specifics of automatic replication in {{ mpg-name }}:
 * When the master host fails, its most recent replica becomes the new master.
 * When the master changes, the replication source for all replica hosts automatically switches to the new master host.
 
-You can disable autofailover [by changing additional cluster settings](../operations/update.md#change-additional-settings). If the current master host fails, you will have to run the selection of a new master or assign this role to one of the replicas [manually](../operations/update.md#start-manual-failover).
-
 ### Manual management of replication streams {#replication-manual}
 
 When you manage replication streams manually, a cluster host other than the master will serve as the replication source for a replica.

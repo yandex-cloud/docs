@@ -23,3 +23,5 @@ You can change the following basic video playback settings for a playlist when [
 * Displaying video controls in the player.
 
 {% include [iframe-settings](../../_includes/video/iframe-settings.md) %}
+
+You can also configure some player settings, e.g., widget color palette and layout, using [presets](presets.md).

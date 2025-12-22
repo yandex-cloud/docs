@@ -270,6 +270,12 @@ Service name: `trino`.
 
 {% include [mtr-events](../../_includes/audit-trails/events/managed-trino-events.md) %}
 
+## {{ msp-full-name }} {#managed-service-for-spark}
+
+Service name: `spark`.
+
+{% include [managed-spark-events](../../_includes/audit-trails/events/managed-spark-events.md) %}
+
 ## {{ mrd-full-name }} {#managed-service-for-redis}
 
 Service name: `mdb.redis`.
