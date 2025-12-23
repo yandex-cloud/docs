@@ -10,11 +10,23 @@ To use an example:
 
 - Python {#python}
 
-  {% include [ai-before-beginning](../../../_includes/ai-studio/yandexgpt/ai-before-beginning.md) %}
+  1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `ai.assistants.editor` and `ai.languageModels.user` [roles](../../security/index.md#service-roles) to it.
+  1. [Get](../get-api-key.md#run-client) and save the service account's [API key](../../../iam/concepts/authorization/api-key.md) with `yc.ai.foundationModels.execute` for its [scope](../../../iam/concepts/authorization/api-key.md#scoped-api-keys).
+
+      {% include [sdk-windows-wsl-notice](../../../_includes/ai-studio/sdk-windows-wsl-notice.md) %}
+
+  1. {% include [sdk-before-begin-step3](../../../_includes/ai-studio/sdk-before-begin-step3.md) %}
+  1. {% include [sdk-before-begin-step4](../../../_includes/ai-studio/sdk-before-begin-step4.md) %}
+  1. {% include [sdk-before-begin-step5](../../../_includes/ai-studio/sdk-before-begin-step5.md) %}
+  1. Install the OpenAI [library](https://github.com/openai/openai-python) for Python:
+
+      ```bash
+      pip install openai
+      ```
 
 {% endlist %}
 
-## Create the agent {#create-agent}
+## Create an agent {#create-agent}
 
 {% list tabs group=programming_language %}
 
@@ -207,3 +219,7 @@ To use an example:
       {% endcut %}
 
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](./create-prechunked-search-agent.md)

@@ -20,41 +20,15 @@ description: Следуя данной инструкции, вы настрои
 
         - IAM-токен (Base64)
 
-          1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md) для [аккаунта на Яндексе](../../../iam/operations/iam-token/create.md) или [сервисного аккаунта](../../../iam/operations/iam-token/create-for-sa.md), от имени которых вы будете выполнять аутентификацию.
-          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
-
-              ```text
-              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
-              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
-              always-auth=true
-              ```
-          1. Создайте переменную окружения `NPM_AUTH`, содержащую строку `iam:<IAM-токен>` в кодировке [Base64](https://www.base64encode.org/):
+          1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md) для [аккаунта на Яндексе](../../../iam/operations/iam-token/create.md) или [сервисного аккаунта](../../../iam/operations/iam-token/create-for-sa.md), от имени которого вы будете выполнять аутентификацию.
+          1. Создайте переменную окружения `NPM_AUTH`:
 
               ```bash
               export NPM_AUTH=$(echo -n 'iam:<IAM-токен>' | base64)
               ```
 
-              Где `<IAM-токен>` — полученный ранее IAM-токен.
+              Где `NPM_AUTH` — тело полученного ранее IAM-токена в кодировке [Base64](https://www.base64encode.org/).
 
-        - IAM-токен
-
-          1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md) для [аккаунта на Яндексе](../../../iam/operations/iam-token/create.md) или [сервисного аккаунта](../../../iam/operations/iam-token/create-for-sa.md), от имени которых вы будете выполнять аутентификацию.
-          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
-
-              ```text
-              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
-              //{{ cloud-registry }}/npm/:_authToken=${NPM_AUTH_TOKEN}
-              always-auth=true
-              ```
-          1. Создайте переменную окружения `NPM_AUTH_TOKEN`, содержащую полученный ранее IAM-токен:
-
-              ```bash
-              export NPM_AUTH_TOKEN="<IAM-токен>"
-              ```
-
-        - OAuth-токен (Base64)
-
-          1. [Получите]({{ link-cloud-oauth }}) OAuth-токен для аккаунта на Яндексе, от имени которого вы будете выполнять аутентификацию.
           1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
 
               ```text
@@ -62,12 +36,62 @@ description: Следуя данной инструкции, вы настрои
               //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
               always-auth=true
               ```
-          1. Создайте переменную окружения `NPM_AUTH`, содержащую строку `oauth:<OAuth-токен>` в кодировке [Base64](https://www.base64encode.org/):
+
+        - IAM-токен
+
+          1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md) для [аккаунта на Яндексе](../../../iam/operations/iam-token/create.md) или [сервисного аккаунта](../../../iam/operations/iam-token/create-for-sa.md), от имени которого вы будете выполнять аутентификацию.
+          1. Создайте переменную окружения `NPM_AUTH`:
+
+              ```bash
+              export NPM_AUTH="<IAM-токен>"
+              ```
+
+              Где `NPM_AUTH` — тело полученного ранее IAM-токена.
+
+          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
+
+              ```text
+              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
+              //{{ cloud-registry }}/npm/:_authToken=${NPM_AUTH}
+              always-auth=true
+              ```
+
+        - OAuth-токен (Base64)
+
+          1. [Получите]({{ link-cloud-oauth }}) OAuth-токен для [аккаунта на Яндексе](../../../iam/concepts/users/accounts.md#passport), от имени которого вы будете выполнять аутентификацию.
+          1. Создайте переменную окружения `NPM_AUTH`:
 
               ```bash
               export NPM_AUTH=$(echo -n 'oauth:<OAuth-токен>' | base64)
               ```
 
-              Где `<OAuth-токен>` — полученный ранее [OAuth-токен](../../../iam/concepts/authorization/oauth-token.md).
+              Где `NPM_AUTH` — тело полученного ранее [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md) в кодировке [Base64](https://www.base64encode.org/).
+
+          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
+
+              ```text
+              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
+              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
+              always-auth=true
+              ```
+
+        - API-ключ (Base64)
+
+          1. [Создайте](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого вы будете выполнять аутентификацию.
+          1. Создайте переменную окружения `NPM_AUTH`:
+
+              ```bash
+              export NPM_AUTH=$(echo -n 'api_key:<API-ключ>' | base64)
+              ```
+
+              Где `NPM_AUTH` — тело созданного ранее [API-ключа](../../../iam/concepts/authorization/api-key.md) в кодировке [Base64](https://www.base64encode.org/).
+
+          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
+
+              ```text
+              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
+              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
+              always-auth=true
+              ```
 
         {% endlist %}

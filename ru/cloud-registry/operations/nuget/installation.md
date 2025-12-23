@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы настрои
 
 # Настроить NuGet
 
+1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
 1. Выполните настройки файла конфигурации [NuGet](../../concepts/art-nuget.md):
 
     {% list tabs %}
@@ -42,6 +43,7 @@ description: Следуя данной инструкции, вы настрои
           При использовании dotnet CLI файл конфигурации расположен по пути `~/.nuget/NuGet/NuGet.Config`, при использовании NuGet CLI — по пути `~/.config/NuGet/NuGet.Config`.
 
           {% endnote %}
+
       1. Замените конфигурацию файла на следующую:
 
           ```xml
@@ -59,35 +61,5 @@ description: Следуя данной инструкции, вы настрои
             </packageSourceCredentials>
           </configuration>
           ```
-
-    {% endlist %}
-
-1. В зависимости от способа аутентификации:
-
-    {% list tabs group=registry_auth %}
-
-    - IAM-токен {#iam-token}
-
-      1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md) для [аккаунта на Яндексе](../../../iam/operations/iam-token/create.md) или [сервисного аккаунта](../../../iam/operations/iam-token/create-for-sa.md), от имени которых вы будете выполнять аутентификацию.
-      1. Создайте переменные окружения `REGISTRY_USERNAME` и `REGISTRY_PASSWORD`, содержащие данные для аутентификации по IAM-токену:
-
-          ```bash
-          export REGISTRY_USERNAME="iam"
-          export REGISTRY_PASSWORD="<IAM-токен>"
-          ```
-
-          Где `<IAM-токен>` — полученный ранее IAM-токен.
-
-    - OAuth-токен {#oauth-token}
-
-      1. [Получите]({{ link-cloud-oauth }}) OAuth-токен для аккаунта на Яндексе, от имени которого вы будете выполнять аутентификацию.
-      1. Создайте переменные окружения `REGISTRY_USERNAME` и `REGISTRY_PASSWORD`, содержащие данные для аутентификации по OAuth-токену:
-
-          ```bash
-          export REGISTRY_USERNAME="oauth"
-          export REGISTRY_PASSWORD="<OAuth-токен>"
-          ```
-
-          Где `<OAuth-токен>` — полученный ранее [OAuth-токен](../../../iam/concepts/authorization/oauth-token.md).
 
     {% endlist %}

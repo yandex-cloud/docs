@@ -48,17 +48,6 @@ Maximum number of tokens per response in the [management console]({{ link-consol
 **[Text classification](../ai-studio/concepts/classifier/index.md)** |
 Number of classes in prompt-based classifiers | 20
 Number of classes in fine-tuned classifiers | 100
-**[Assistants](../ai-studio/concepts/assistant/index.md)**|
-Maximum number of assistants | 1,000
-Maximum number of threads | 10,000
-Maximum number of users | 10,000
-Maximum number of files to upload | 10,000
-Maximum file size | 128 MB
-Number of files per upload | 100
-Maximum number of files per search index | 10,000
-Maximum number of messages per thread | 100,000
-Maximum number of search indexes | 1,000
-Maximum number of indexing operations to run | 10
 **[Image generation](../ai-studio/concepts/generation/index.md)** |
 Maximum [prompt](../ai-studio/concepts/index.md#prompt) length | 500 characters
 **[MCP servers](../ai-studio/concepts/mcp-hub/index.md#servers)**

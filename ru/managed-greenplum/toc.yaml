@@ -41,7 +41,7 @@ items:
             href: operations/resource-groups.md
           - name: Правила аутентификации пользователей
             href: operations/user-auth-rules.md
-          - name: Мониторинг и управление сессиями и запросами в командном центре
+          - name: Работа с командным центром
             href: operations/command-center.md
           - name: Управление клиентскими процессами и сессиями пользователей
             href: operations/cluster-process.md

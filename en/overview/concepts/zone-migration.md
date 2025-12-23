@@ -83,17 +83,11 @@ To migrate a VM that is connected to an L7 load balancer, you need to enable tra
 
 ### {{ vpc-name }} {#vpc}
 
-Subnet migration allows you to maintain the original addressing and the IP addresses configured for the listeners of the internal load balancers. Note that you can only migrate empty subnets that do not have any connected resources, such as VMs, DB hosts, {{ managed-k8s-name }} nodes, etc.
-
-You can [migrate](../../vpc/operations/subnet-relocate.md) subnets using the `relocate` command.
-
-#### IP address migration {#ip-addresses}
-
-You cannot migrate public IP addresses between zones. To save the public address for incoming traffic, [reserve](../../vpc/operations/get-static-ip.md) this address and then assign it to the network balancer handler. Next, you can migrate the VM and connect it to a network balancer.
+You cannot migrate public IP addresses between availability zones. To save the public address for incoming traffic, [reserve](../../vpc/operations/get-static-ip.md) this address and then assign it to the network balancer handler. Next, you can migrate the VM and connect it to a network balancer.
 
 Note: This way, you can save the IP address for incoming traffic only. For example, if the IP address of a VM is licensed, you cannot use the public IP address of the balancer to check it.
 
-If you need an IP address with open port `25` in a new zone, order a new one in advance through support.
+If you need an IP address with open port `25` in a new availability zone, request a new one in advance through support.
 
 ### {{ api-gw-name }}, {{ sf-name }}, {{ serverless-containers-name }} {#serverless}
 

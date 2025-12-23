@@ -5,8 +5,6 @@ description: You can access {{ ytsaurus-name }} resources through the web interf
 
 # Authentication in {{ ytsaurus-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 You can access {{ myt-name }} resources:
 * [through the {{ ytsaurus-name }} web interface](#users) (for users).
 * [with an IAM token or API key](#service-accounts) (for service accounts).

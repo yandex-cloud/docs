@@ -1,5 +1,6 @@
 ---
-noIndex: true
+title: Running a PySpark job using {{ maf-full-name }}
+description: In this tutorial, you will learn how to run a PySpark job using {{ maf-full-name }}
 canonical: '{{ link-docs }}/tutorials/dataplatform/airflow-spark-min'
 ---
 

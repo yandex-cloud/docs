@@ -16,13 +16,9 @@ To use the examples:
 - Python {#python}
 
   1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `ai.assistants.editor` and `ai.languageModels.user` [roles](../../security/index.md#service-roles) to it.
-  1. [Get](../get-api-key.md#run-client) and save the service account's [API key](../../../iam/concepts/authorization/api-key.md).
+  1. [Get](../get-api-key.md#run-client) and save the service account's [API key](../../../iam/concepts/authorization/api-key.md) with `yc.ai.foundationModels.execute` for its [scope](../../../iam/concepts/authorization/api-key.md#scoped-api-keys).
   
-        {% note info %}
-        
-        If you are using [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows), we recommend [installing](https://learn.microsoft.com/en-us/windows/wsl/install) the [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) shell first and using it to proceed.
-        
-        {% endnote %}
+      {% include [sdk-windows-wsl-notice](../../../_includes/ai-studio/sdk-windows-wsl-notice.md) %}
 
   1. {% include [sdk-before-begin-step3](../../../_includes/ai-studio/sdk-before-begin-step3.md) %}
   1. {% include [sdk-before-begin-step4](../../../_includes/ai-studio/sdk-before-begin-step4.md) %}
@@ -35,7 +31,7 @@ To use the examples:
 
 {% endlist %}
 
-## Upload the source files {#upload-files}
+## Uploading source files {#upload-files}
 
 Before creating a search index, upload the files you want to index to {{ vector-store-name }}:
 
@@ -111,9 +107,9 @@ Before creating a search index, upload the files you want to index to {{ vector-
 
 {% endlist %}
 
-## Create a {{ vector-store-name }} search index {#create-index}
+## Creating a {{ vector-store-name }} search index {#create-index}
 
-Create a search index from the files uploaded in the previous step:
+Create a search index from the pre-uploaded files:
 
 {% list tabs group=programming_language %}
 
@@ -196,11 +192,11 @@ Create a search index from the files uploaded in the previous step:
       Vector store is ready for use.
       ```
 
-      Save the resulting index ID. You will need it to execute a search query.
+      Save the index ID. You will need it later to execute a search query.
 
 {% endlist %}
 
-## Run a search through the {{ vector-store-name }} index {#search-index}
+## Searching for information in the {{ vector-store-name }} index {#search-index}
 
 To run a search through the index, provide the index ID and the text of your query to the {{ vector-store-name }} API:
 
@@ -283,7 +279,7 @@ To run a search through the index, provide the index ID and the text of your que
 
 {% endlist %}
 
-## Remove one of the source files from the index {#remove-file}
+## Removing a source file from the index {#remove-file}
 
 To remove a source file from the search index, provide the index ID and the file ID to the {{ vector-store-name }} API:
 
@@ -346,7 +342,7 @@ To remove a source file from the search index, provide the index ID and the file
 
 {% endlist %}
 
-## Delete the {{ vector-store-name }} search index {#delete-index}
+## Deleting the {{ vector-store-name }} search index {#delete-index}
 
 To delete the entire search index, provide its ID to the {{ vector-store-name }} API:
 
@@ -403,4 +399,4 @@ To delete the entire search index, provide its ID to the {{ vector-store-name }}
 #### See also {#see-also}
 
 * [{#T}](../../concepts/search/vectorstore.md)
-* [{#T}](../assistant/create-with-searchindex.md)
+* [{#T}](./create-filesearch-text-agent.md)

@@ -6,8 +6,6 @@ editable: false
 
 # Quotas and limits in {{ myt-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 {{ myt-name }} has the following limitations:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

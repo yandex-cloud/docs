@@ -43,7 +43,7 @@ items:
         href: tutorials/airflow-automation.md
       - name: Working with an {{ objstorage-name }} table from a PySpark job
         href: tutorials/spark-simple-rw-job.md
-      - name: '{{ msp-full-name }} integration with {{ metastore-full-name }}'
+      - name: Integrating {{ msp-full-name }} with {{ metastore-full-name }}
         href: tutorials/metastore-and-spark.md
       - name: Running a PySpark job using {{ maf-full-name }}
         href: tutorials/airflow-spark-min.md
@@ -65,6 +65,8 @@ items:
     href: pricing.md
   - name: '{{ monitoring-full-name }} metrics'
     href: metrics.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

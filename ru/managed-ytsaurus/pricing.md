@@ -8,18 +8,15 @@ editable: false
 
 
 
-{% include [preview](../_includes/managed-ytsaurus/note-preview.md) %}
-
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ myt-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы. За потребление других ресурсов {{ yandex-cloud }}, которые вы используете в процессе работы с сервисом, взимается плата в соответствии с их тарифами.
+
 
 {% note tip %}
 
-
 Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=9845e5c24dd9#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
 
-
-
 {% endnote %}
+
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

@@ -5,9 +5,18 @@ description: This section contains {{ myt-name }} release notes.
 
 # {{ myt-full-name }} release notes
 
+## December 2025 {#december-2025}
+
+The {{ myt-full-name }} service is now in [General Availability](../overview/concepts/launch-stages.md).
+
+## October 2025 {#october-2025}
+
+* Added the ability to perform operations on an {{ ytsaurus-name }} cluster via the [{{ yandex-cloud }} CLI](../cli/cli-ref/managed-ytsaurus/cli-ref/index.md).
+* Added [quotas](concepts/limits.md) for GPUs.
+
 ## September 2025 {#september-2025}
 
-Enabled operations on an {{ ytsaurus-name }} cluster via [{{ TF }}](tf-ref.md) and [API](api-ref/authentication.md).
+Added the ability to perform operations on an {{ ytsaurus-name }} cluster via [{{ TF }}](tf-ref.md) and [API](api-ref/authentication.md).
 
 ## July 2025 {#july-2025}
 

@@ -9,6 +9,7 @@ default:
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
   ai-playground: AI Playground
+  ai-search-name: AI Search
   ai-studio-full-name: Yandex Cloud AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
@@ -9778,8 +9779,6 @@ default:
         file-input:
           button_choose: Choose a file
           button_choose-multiple: Choose files
-      filters:
-        action_select-all: Select all
       marketplace_v2:
         common:
           menu_ticket: Ticket
@@ -11347,6 +11346,7 @@ default:
             label_field-session-rsgid: OID resource group
             label_field-session-rsgname: Resource group
             label_field-session-waiting: Waiting
+            label_field-session-waiting-reason: Reason for wait
             label_field-session-xact-start: Transaction start time
             label_field-spill-total-bytes: Spill
             label_field-state-changed: Status changed
@@ -11377,9 +11377,18 @@ default:
             label_field-total-system_stat-wchar: Chars written
             label_field-user: User
             label_field-write-bytes: Disk W
+            label_filter-application: 'Application name:'
+            label_filter-at-time: 'At time:'
+            label_filter-client-ssid: 'SSID:'
             label_filter-entity-query: Queries
             label_filter-entity-session: Sessions
+            label_filter-group-by: 'Group by:'
+            label_filter-group-by-query-id: Query ID
+            label_filter-group-by-user: user
+            label_filter-monitoring-connections: Connections
             label_filter-monitoring-cpu-usage: CPU usage
+            label_filter-monitoring-net-usage: Net usage
+            label_filter-user: 'User:'
             label_interconnect-active-connections-num: Interconnect active connections num
             label_interconnect-buffer-counting-time: Interconnect buffer counting time
             label_interconnect-capacity-counting-time: Interconnect capacity counting time
@@ -11412,7 +11421,9 @@ default:
             label_query-field-max-time: Max time
             label_query-field-min-time: Min time
             label_query-field-net-recv-chunks: Packets recv
+            label_query-field-net-recv-total-bytes: Net recv
             label_query-field-net-sent-chunks: Packets sent
+            label_query-field-net-sent-total-bytes: Net sent
             label_query-field-nloops: Cycles count
             label_query-field-plan-id: Plan ID
             label_query-field-query-id: Query ID
@@ -11447,6 +11458,7 @@ default:
             label_section_resources: Resources
             label_section_session-info: Session info
             label_section_session-queries: Queries
+            label_tab-session-history: Session history
             section_command-center: Command center
             title_consumption-history: Usage history
             title_current-state: Current state
@@ -11488,6 +11500,12 @@ default:
         LoggingSection:
           commandCenter_e9fKV: Command Center logs
           greenplum_pN6jU: Greenplum logs
+        perf-diag:
+          label_query-status-canceled: Canceled
+          label_query-status-error: Error
+          label_session-status-active: Active
+          label_session-status-idle: Idle
+          label_session-status-idle-transaction: Idle transaction
         section_background-activities: Managing background processes
         section_cloud-storage: Hybrid storage
         section_resource-master: Master
@@ -11598,6 +11616,7 @@ default:
             label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
             label_managed-clickhouse: Managed Service for&nbsp;ClickHouse
             label_managed-gitlab: Managed Service for&nbsp;GitLab
+            label_managed-greenplum: Yandex MPP Analytics&nbsp;for&nbsp;PostgreSQL
             label_managed-kafka: Managed Service for&nbsp;Kafka
             label_managed-kubernetes: Managed Service for&nbsp;Kubernetes
             label_managed-mongodb: Yandex StoreDoc
@@ -12448,6 +12467,16 @@ default:
           switch_monitoring: Monitoring
           switch_shards: Shards
           switch_users: Users
+        ClusterForm:
+          ClusterFormBase:
+            section_mongocfg-resources_1cuU2: Mongocfg Resources
+            section_mongod-resources_ncXUZ: Mongod Resources
+            section_mongoinfra-resources_13TPT: Mongoinfra Resources
+            section_mongos-resources_wBGnr: Mongos Resources
+          sections:
+            option_sharding-type-disabled_3ErMk: Disabled
+            option_sharding-type-extended_9NHmb: Advanced
+            option_sharding-type-standard_afrPq: Standard
         EnableShardingForm:
           option_sharding-type-extended_8Vip4: Advanced
           option_sharding-type-standard_ezqnu: Standard

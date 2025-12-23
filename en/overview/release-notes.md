@@ -32,6 +32,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ mpg-full-name }}](../managed-postgresql/release-notes.md)
 * [{{ mtr-full-name }}](../managed-trino/release-notes.md)
 * [{{ mrd-full-name }}](../managed-redis/release-notes.md)
+* [{{ myt-full-name}}](../managed-ytsaurus/release-notes.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/release-notes/index.md)
 * [{{ websql-full-name }}](../websql/release-notes/index.md)
 

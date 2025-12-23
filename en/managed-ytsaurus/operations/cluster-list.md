@@ -5,8 +5,6 @@ description: You can get detailed information about each {{ ytsaurus-name }} clu
 
 # Information about existing clusters
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 You can get detailed information about each {{ ytsaurus-name }} cluster you created.
 
 ## Getting a list of clusters in a folder {#list-clusters}

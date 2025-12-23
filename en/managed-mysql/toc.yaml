@@ -33,11 +33,11 @@ items:
             href: operations/connect.md
           - name: SQL queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
-          - name: Database management
+          - name: Managing databases
             href: operations/databases.md
       - name: '{{ MY }} users'
         items:
-          - name: User management
+          - name: Managing users
             href: operations/cluster-users.md
           - name: Managing user permissions
             href: operations/grant.md
@@ -47,7 +47,7 @@ items:
             href: operations/cluster-logs.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Monitoring the state of a cluster and its hosts
             href: operations/monitoring.md
           - name: Connecting from {{ datalens-name }}
             href: operations/datalens-connect.md
@@ -67,9 +67,9 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: High availability clusters
+      - name: High cluster availability
         href: concepts/high-availability.md
-      - name: Network in Managed Service for MySQL
+      - name: Networking in Managed Service for MySQL
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -87,7 +87,7 @@ items:
         href: concepts/settings-list.md
       - name: SQL command limits
         href: concepts/sql-limits.md
-      - name: Comparing {{ MY }} versions 5.7 and 8.0
+      - name: Comparing {{ MY }} 5.7 and 8.0
         href: concepts/mysql-57-80-comparison.md
   - name: Tutorials
     items:
@@ -108,16 +108,16 @@ items:
       - name: Migrating a database from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
       - name: >-
-          Delivering data from {{ mkf-full-name }} using {{
+          Transferring data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-mmy-data-transfer.md
       - name: >-
-          Delivering data to {{ mkf-full-name }} using {{
+          Transferring data to {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
-      - name: Delivering data to {{ mkf-full-name }} using Debezium
+      - name: Transferring data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
-      - name: WordPress website on a {{ MY }} database
+      - name: WordPress website with a {{ MY }} database
         items:
           - name: Overview
             href: tutorials/wordpress-mysql.md
@@ -537,7 +537,7 @@ items:
         href: qa/mysql.md
       - name: Connection
         href: qa/connection.md
-      - name: Cluster read/write issues
+      - name: Cluster read and write issues
         href: qa/read-write.md
       - name: Performance issues
         href: qa/performance.md

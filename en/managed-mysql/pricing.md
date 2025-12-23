@@ -15,7 +15,7 @@ In this section, you can find the {{ mmy-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=7f776c1fc309#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using {{ mmy-name }}, use our [calculator](https://yandex.cloud/en/prices?state=7f776c1fc309#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
 
 
 {% endnote %}
@@ -40,7 +40,7 @@ The {{ mmy-name }} usage cost includes:
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 
-### DB host usage {#rules-hosts-uptime}
+### Database host usage {#rules-hosts-uptime}
 
 There are different ways to calculate the cost depending on the [host type](concepts/index.md):
 
@@ -51,19 +51,19 @@ There are different ways to calculate the cost depending on the [host type](conc
 
 * Dedicated hosts
 
-  The cost is made up of two components: [the cost of {{ compute-full-name }}](../compute/pricing.md#prices) computing resources and {{ mmy-name }} charges for these resources.
+  The cost is a sum of the [price for {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup on these resources.
 
 
 You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ MY }} host is unable to perform its main functions.
+The minimum billing unit is one minute, e.g., you will be charged for 2 minutes when using a host for 90 seconds (1.5 minutes). You will not be charged for the time when the {{ MY }} host is unavailable for basic operations.
 
 
 ### Disk space usage {#rules-storage}
 
 You are charged for the following:
 
-* Storage allocated for DB clusters.
+* Storage allocated for database clusters.
 
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
                 * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
@@ -71,13 +71,13 @@ You are charged for the following:
 
     * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
-* Space occupied by DB backups beyond the storage size specified for the cluster.
+* Amount of storage used by database backups that exceeds the allocated cluster storage.
 
-    * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
+    * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 90 seconds (1.5 minutes) costs the same as for 2 minutes.
 
 
 ### Example of cluster cost calculation {#example}
@@ -108,7 +108,7 @@ Calculation for the storage cost and total cost:
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mmy-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mmy-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -149,7 +149,7 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 #### Dedicated hosts {#dedicated-hosts}
 
-The cost is made up of two components: [the cost of {{ compute-full-name }}](../compute/pricing.md#prices) computing resources and {{ mmy-name }} charges for these resources.
+The cost is a sum of the [price for {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup on these resources.
 
 
 
@@ -172,7 +172,7 @@ The cost is made up of two components: [the cost of {{ compute-full-name }}](../
 
 - Dedicated hosts
 
-  The cost is made up of two components: the [{{ compute-full-name }} storage cost](../compute/pricing.md#prices) and the {{ mmy-name }} price for it. All prices are per GB, per month.
+  The cost is a sum of the [price for {{ compute-full-name }} storage](../compute/pricing.md#prices) and the {{ mmy-name }} charge for it. All prices are per GB, per month.
 
   {% include [usd-storage-dedicated.md](../_pricing/managed-mysql/usd-storage-dedicated.md) %}
 

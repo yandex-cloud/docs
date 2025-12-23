@@ -9,8 +9,6 @@ keywords:
 
 # Creating an {{ ytsaurus-name }} cluster
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 Each {{ myt-name }} cluster consists of a number of {{ ytsaurus-name }} components.
 
 Configurable components:

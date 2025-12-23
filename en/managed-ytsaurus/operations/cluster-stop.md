@@ -5,8 +5,6 @@ description: You can stop and restart a {{ ytsaurus-name }} cluster as needed. W
 
 # Stopping and starting a {{ ytsaurus-name }} cluster
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 If necessary, you can stop and restart an {{ ytsaurus-name }} cluster. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
 
 ## Stopping a cluster {#stop-cluster}

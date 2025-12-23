@@ -63,7 +63,7 @@ To transfer data:
 
 1. [Create a service account](../iam/operations/sa/create.md).
 1. [Add the service account to the namespace](operations/space/add-user-to-space.md) with the `speech-sense.data.editor` role. To learn more about the roles available in the service, see [{#T}](security/index.md).
-1. [Create an API key](../iam/operations/authentication/manage-api-keys.md#create-api-key) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
+1. Create for your service account an [API key](../iam/operations/authentication/manage-api-keys.md#create-api-key) with `yc.speech-sense.use` as the specified [scope](../iam/concepts/authorization/api-key.md#scoped-api-keys) or an [IAM token](../iam/operations/iam-token/create-for-sa.md) to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
 1. Upload your audio data ([split](operations/data/upload-data-split.md) or [not split](operations/data/upload-data.md) into chunks) or [chat history data](operations/data/upload-chat-text.md) using a Python data transfer script.
 
     Use one message for the whole audio.

@@ -11,7 +11,7 @@ description: '{{ mcp-hub-name }} is a {{ foundation-models-full-name }} tool for
 
 _{{ mcp-hub-name }}_ is a {{ foundation-models-name }} tool for creating, managing, and monitoring MCP servers. {{ mcp-hub-name }} allows you to hook up external MCP servers or create your own either from scratch or using pre-configured templates.
 
-To access MCP servers in {{ mcp-hub-name }}, you need the `serverless.mcpGateways.invoker` [role](../../security/index.md#serverless-mcpGateways-invoker) or higher. To access external MCP servers and MCP servers created from a template, you will additionally need the `serverless.mcpGateways.anonymousInvoker` [role](../../security/index.md#serverless-mcpGateways-anonymousInvoker) or higher.
+To access MCP servers in {{ mcp-hub-name }}, you will also need the `serverless.mcpGateways.invoker` [role](../../security/index.md#serverless-mcpGateways-invoker) or higher. To access external MCP servers and MCP servers created from a template, you will additionally need the `serverless.mcpGateways.anonymousInvoker` [role](../../security/index.md#serverless-mcpGateways-anonymousInvoker) or higher.
 
 ## MCP servers {#servers}
 
@@ -76,7 +76,7 @@ For more information, see [{#T}](../../operations/mcp-servers/create-brand-new.m
 
 MCP servers in {{ mcp-hub-name }} can be either private or public.
 
-Unauthenticated access to a private MCP server in a folder is only allowed for AI agents initiated by the user or service account assigned a [role](../../security/index.md#serverless-mcpGateways-invoker) permitting access to MCP servers in this folder. Other agents must authenticate with a service account's [IAM token](../../../iam/concepts/authorization/iam-token.md) or [API key](../../../iam/concepts/authorization/api-key.md) to connect to a private MCP server.
+Unauthenticated access to a private MCP server in a folder is only allowed for AI agents initiated by the user or service account assigned a [role](../../security/index.md#serverless-mcpGateways-invoker) permitting access to MCP servers in this folder. To connect to a private MCP server, other agents must authenticate using the service account's [IAM token](../../../iam/concepts/authorization/iam-token.md) or [API key](../../../iam/concepts/authorization/api-key.md) with `yc.serverless.mcpGateways.invoke` as the specified [scope](../../../iam/concepts/authorization/api-key.md#scoped-api-keys).
 
 Public MCP servers allow unauthenticated access for all agents.
 

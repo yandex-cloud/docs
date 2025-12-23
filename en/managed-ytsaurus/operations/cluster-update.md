@@ -9,8 +9,6 @@ keywords:
 
 # Updating an cluster {{ ytsaurus-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 After creating a cluster, you can edit its basic and advanced settings.
 
 {% list tabs group=instructions %}

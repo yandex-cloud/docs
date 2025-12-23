@@ -141,6 +141,7 @@ Create an API key for the `speechsense-sa` service account.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense-sa` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
+  1. In the window that opens, select the `yc.speech-sense.use` [scope](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) in the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Save the ID and secret key.
 
@@ -250,7 +251,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
   1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent or the customer.
 
-      By default, connections include keys with the date, direction, and language of the call. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}.
+      By default, connections include keys with the date, direction, and language of the call. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}.
 
       To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
@@ -271,13 +272,13 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
   1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
   1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}**, specify the keys from the metadata file. This file contains the dialog information collected from chats, CRM systems, or other sources.
 
-      By default, connections include keys with agent's, customer's, and bot's names and IDs. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}.
+      By default, connections include keys with agent's, customer's, and bot's names and IDs. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}.
 
       To specify additional agent, customer, and bot metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
   1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent, customer, and bot.
 
-      By default, keys with date, direction, and dialog language are added to the connection. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}.
+      By default, keys with date, direction, and dialog language are added to the connection. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}.
 
       To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
@@ -340,7 +341,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
           key_algorithm: RSA_2048
           ```
       
-          For more information about the `yc iam key create` command, see this [CLI reference](../../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+          For more information about the `yc iam key create` command, see the [CLI reference](../../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
        1. Create a profile to execute operations under the `deploy-sa` service account:
 
@@ -452,8 +453,8 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
     Where:  
 
-    * `source_system_id`: Data source ID to use in metadata. Specify any unique string value. For example: `000001`.
-    * `lockbox_secret_id`: ID of the {{ lockbox-name }} secret you [created earlier](#create-secret). For example: `e6qigo0vbci2********`.
+    * `source_system_id`: Data source ID to use in metadata. Specify any unique string value, e.g., `000001`.
+    * `lockbox_secret_id`: ID of the {{ lockbox-name }} secret you [created earlier](#create-secret), e.g., `e6qigo0vbci2********`.
     * `source_system_desc`: Data source description. Here is an example: `Uploading telephony data`.
 
 1. Copy the `pg_metadata.sql` file contents and run the resulting query with {{ websql-name }}.
@@ -467,7 +468,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
         1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** tab.
         1. Click the connection name that ends with `-uploader`.
         1. On the {{ websql-name }} home page, click the database name: `uploader`.
-        1. Paste the query to the editor and click **Run**.
+        1. Paste the query to the editor and click **Execute**.
 
     {% endlist %}
 
@@ -560,7 +561,7 @@ To upload a file to {{ speechsense-name }}, first prepare the file metadata in `
       "client_name": "Jane Smith",
       "date": "2024-08-30T19:32:11Z",
       "direction_outgoing": "0",
-      "language": "RU",
+      "language": "ru-ru",
       "file_name": "my_audio.ogg"
     }
   ]
@@ -577,7 +578,7 @@ Where:
 
     * `file_name`: Name of the file to upload.
 
-  * Parameters that have to be be provided to {{ speechsense-name }}:
+  * Parameters that have to be provided to {{ speechsense-name }}:
   
     * `id`: File ID, unique across the {{ speechsense-name }} space.
 
@@ -593,7 +594,7 @@ Where:
 
     * `direction_outgoing`: Call direction, `0` for outgoing call, `1` for incoming call.
 
-    * `language`: Dialog language, `RU` for the Russian language.
+    * `language`: Dialog language, `ru-ru` for the Russian language.
 
   * Additional parameters for analytics in {{ speechsense-name }}:
 
@@ -607,7 +608,7 @@ Metadata can contain a single entry or an array of entries.
 
 {% note warning %}
 
-Do not transmit more than 100 records at the same time: this may lead to a data loss because the {{ sf-name }} function has an execution timeout.
+Do not transmit more than 100 records at the same time: this may lead to a data loss, because the {{ sf-name }} function has an execution timeout.
 
 If there are more than 100 files to upload, split their metadata into separate JSON files of 100 entries each.
 
@@ -735,7 +736,7 @@ To check that the files were successfully uploaded into {{ speechsense-name }}:
 
 ## Delete resources {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them.
+Some resources incur charges. Delete the resources you no longer need to avoid paying for them.
 
 1. [Delete](../../../storage/operations/buckets/delete.md) objects from the {{ objstorage-name }} bucket and the bucket itself.
 1. [Delete](../../../managed-postgresql/operations/cluster-delete.md) the {{ mpg-name }} cluster.

@@ -5,8 +5,6 @@ description: Чтобы начать работать с {{ myt-full-name }}, с
 
 # Как начать работать с {{ myt-full-name }}
 
-{% include [preview](../_includes/managed-ytsaurus/note-preview.md) %}
-
 Чтобы начать работу с сервисом {{ myt-name }}:
 
 1. [Создайте demo-кластер](#cluster-create).

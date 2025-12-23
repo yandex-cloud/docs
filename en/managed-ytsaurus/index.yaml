@@ -10,10 +10,11 @@ description:
     href="/docs/security/conform">protected</a> pursuant to the Russian Federal
     Law No. 152-FZ on Personal Data.
   - >-
-    The service is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview</a> stage and provided
-    upon <a
-    href="https://yandex.cloud/ru/services/managed-ytsaurus#preview-form">request</a>.
+    This service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla/en/">service level agreement</a>.
+    The service level is set out in the document titled <a
+    href="https://yandex.com/legal/cloud_sla_yt/en/">Yandex Managed Service for
+    YTsaurus Service Level</a>.
 links:
   - title: Getting started
     description: Create your first {{ ytsaurus-name }} cluster

@@ -1,8 +1,10 @@
-# File search tool
+# File Search tool
 
-The file search tool extends the models' capabilities by enabling hybrid search through the user's files when generating the response. You can enable the tool in the {{ responses-api }}. For the prices, see [{#T}](../../../pricing.md).
+The file search tool extends the models' capabilities by enabling hybrid search through the user's files when generating the response. You can enable the tool in the {{ responses-api }} and {{ realtime-api }}.
 
-To allow the model to search for information through the files, specify the `"file_search"` tool and the [{{ vector-store-name }} search index](../../../operations/agents/manage-searchindex.md) ID. The search index contains the information on the files that will be used for the search. You can use the `max_num_results` parameter to limit the number of results you get.
+To allow the model to search for information through the files in {{ responses-api }}, specify the `file_search` tool and the [{{ vector-store-name }}](../../../operations/agents/manage-searchindex.md) search index ID. The search index contains the information on the files that will be used for the search. 
+
+Found chunks with relevant information will be added to the model context, thus increasing the number of consumed tokens. If the search index is big, use the `max_num_results` parameter to limit the number of results it returns to prevent the model from hitting the context window limits too quickly. For the prices, see [{#T}](../../../pricing.md).
 
 {% list tabs group=programming_language %}
 
@@ -23,6 +25,13 @@ To allow the model to search for information through the files, specify the `"fi
   ```
 
 {% endlist %}
+
+
+{% note warning %}
+
+You can connect only one search index to a model at a time.
+
+{% endnote %}
 
 ## Annotations {#annotations}
 
@@ -50,6 +59,6 @@ The file search tool can prove useful in various scenarios:
 * **New staff onboarding**: Answers to trainee's questions on internal policies and project architecture.
 * **Sales**: Searching for successful deals in the presentations and bids directory.
 
-#### See also {#see-also}
+## Use cases {#examples}
 
 [{#T}](../../../operations/agents/create-filesearch-text-agent.md)

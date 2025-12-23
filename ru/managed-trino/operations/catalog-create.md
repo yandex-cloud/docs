@@ -1645,7 +1645,7 @@ description: Следуя этой инструкции, вы создадите
     * `--connection-manager-connection-id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ MY }}.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * `--connection-manager-connection-properties` — список настроек подключения {{ MY }} в формате `ключ=значение`.

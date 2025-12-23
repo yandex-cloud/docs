@@ -36,7 +36,15 @@ description: Следуя данной инструкции, вы сможете
 
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
 
-  1. {% include [mmg-settings-host-class](../../_includes/mdb/mmg/settings-host-class.md) %}
+  1. В зависимости от выбранного [типа шардирования](../concepts/sharding.md#shard-management), перейдите к блоку ресурсов кластера, которые нужно изменить: **Ресурсы**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}** или **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
+
+  
+  1. Выберите:
+
+     * Одну из доступных [платформ](../../compute/concepts/vm-platforms.md).
+     * Тип конфигурации: **memory-optimized**, **cpu-optimized**, **standard** или **burstable**.
+     * [Класс хостов](../../storedoc/concepts/instance-types.md) — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. При изменении класса хостов для кластера меняются характеристики всех созданных хостов.
+
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -103,6 +111,7 @@ description: Следуя данной инструкции, вы сможете
 
       {{ mmg-short-name }} запустит операцию изменения класса хостов для кластера.
 
+
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -134,6 +143,7 @@ description: Следуя данной инструкции, вы сможете
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -247,7 +257,8 @@ description: Следуя данной инструкции, вы сможете
   1. Перейдите на [страницу каталога]({{ link-console-main }}).
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+  1. В зависимости от выбранного [типа шардирования](../concepts/sharding.md#shard-management), перейдите к блоку ресурсов кластера, которые нужно изменить: **Ресурсы**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}** или **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
       * Выберите [тип диска](../concepts/storage.md).
       * Укажите нужный размер диска.
@@ -306,6 +317,7 @@ description: Следуя данной инструкции, вы сможете
 
       Если все условия выполнены, {{ mmg-short-name }} запустит операцию по изменению параметров хранилища.
 
+
 - {{ TF }} {#tf}
 
   Чтобы изменить тип диска и увеличить размер хранилища для кластера:
@@ -340,6 +352,7 @@ description: Следуя данной инструкции, вы сможете
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -653,6 +666,7 @@ description: Следуя данной инструкции, вы сможете
 
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -703,6 +717,7 @@ description: Следуя данной инструкции, вы сможете
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -921,6 +936,7 @@ description: Следуя данной инструкции, вы сможете
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -947,6 +963,7 @@ description: Следуя данной инструкции, вы сможете
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -1066,6 +1083,7 @@ description: Следуя данной инструкции, вы сможете
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

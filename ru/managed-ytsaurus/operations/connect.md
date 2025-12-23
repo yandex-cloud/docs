@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Подключение к кластеру {{ ytsaurus-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 К кластеру {{ ytsaurus-name }} можно подключиться:
 
 * С виртуальных машин {{ yandex-cloud }}.

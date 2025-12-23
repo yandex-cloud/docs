@@ -6,8 +6,6 @@ editable: false
 
 # Квоты и лимиты в {{ myt-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 В сервисе {{ myt-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

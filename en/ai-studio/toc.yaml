@@ -38,20 +38,12 @@ items:
             href: concepts/tuning/index.md
           - name: Tokens
             href: concepts/generation/tokens.md
-          - name: TBD units
-            hidden: true
       - name: '{{ agents-atelier-name }}'
         items:
           - name: Overview of AI agents
             href: concepts/agents/index.md
           - name: Voice agents
             href: concepts/agents/realtime.md
-          - name: Tools
-            items:
-              - name: Web search
-                href: concepts/agents/tools/websearch.md
-              - name: File search
-                href: concepts/agents/tools/filesearch.md
           - name: '{{ assistant-api }}'
             hidden: true
             items:
@@ -73,8 +65,14 @@ items:
                     href: concepts/assistant/rephraser.md
       - name: AI Search
         items:
+          - name: AI Search overview
+            href: concepts/search/index.md
           - name: '{{ vector-store-name }} search indexes'
             href: concepts/search/vectorstore.md
+          - name: File search tool
+            href: concepts/agents/tools/filesearch.md
+          - name: Web search tool
+            href: concepts/agents/tools/websearch.md
       - name: '{{ mcp-hub-name }}'
         items:
           - name: Overview
@@ -159,35 +157,37 @@ items:
                 href: operations/tuning/create-embeddings.md
       - name: '{{ agents-atelier-name }}'
         items:
-          - name: Developing AI agents
+          - name: Creating a simple text agent
+            href: operations/agents/create-simple-text-agent.md
+          - name: Creating a text agent with a function call
+            href: operations/agents/create-function-text-agent.md
+          - name: Creating a voice agent via {{ realtime-api }}
+            href: operations/agents/create-voice-agent.md
+          - name: '{{ assistant-api }}'
+            hidden: true
             items:
-              - name: Creating a voice agent via {{ realtime-api }}
-                href: operations/agents/create-voice-agent.md
-              - name: Creating a simple text agent
-                href: operations/agents/create-simple-text-agent.md
-              - name: Creating a text agent with a function call
-                href: operations/agents/create-function-text-agent.md
-              - name: Creating a text agent with file search
-                href: operations/agents/create-filesearch-text-agent.md
-              - name: Managing {{ vector-store-name }} search index
-                href: operations/agents/manage-searchindex.md
-              - name: '{{ assistant-api }}'
-                hidden: true
-                items:
-                  - name: Creating a simple assistant
-                    href: operations/assistant/create.md
-                  - name: >-
-                      Creating an assistant with the {{ retrieval-tool-name }}
-                      tool
-                    href: operations/assistant/create-with-searchindex.md
-                  - name: Creating a search assistant with file and index metadata
-                    href: operations/assistant/create-with-labels.md
-                  - name: Creating an assistant with the WebSearch tool
-                    href: operations/assistant/create-with-websearch.md
-                  - name: Getting intermediate response generation results
-                    href: operations/assistant/request-chunked-response.md
-                  - name: Rephrasing queries using the model
-                    href: operations/assistant/rephraser.md
+              - name: Creating a simple assistant
+                href: operations/assistant/create.md
+              - name: Creating an assistant with the {{ retrieval-tool-name }} tool
+                href: operations/assistant/create-with-searchindex.md
+              - name: Creating a search assistant with file and index metadata
+                href: operations/assistant/create-with-labels.md
+              - name: Creating an assistant with the WebSearch tool
+                href: operations/assistant/create-with-websearch.md
+              - name: Getting intermediate response generation results
+                href: operations/assistant/request-chunked-response.md
+              - name: Rephrasing queries using the model
+                href: operations/assistant/rephraser.md
+      - name: AI Search
+        items:
+          - name: Creating a text agent with web search
+            href: operations/agents/create-websearch-text-agent.md
+          - name: Creating a text agent with file search
+            href: operations/agents/create-filesearch-text-agent.md
+          - name: Creating a text agent with search based on pre-created chunks
+            href: operations/agents/create-prechunked-search-agent.md
+          - name: Working with the {{ vector-store-name }} search index
+            href: operations/agents/manage-searchindex.md
       - name: '{{ mcp-hub-name }}'
         items:
           - name: Connecting an external MCP server
