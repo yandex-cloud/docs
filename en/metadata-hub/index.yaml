@@ -16,12 +16,14 @@ links:
     description: Creating and managing Apache Hive™ Metastore clusters.
     href: concepts/metastore
   - title: '{{ schema-registry-name }}'
-    description: Centralized repository for managing and validating data schemas.
+    description: >-
+      Centralized repository for managing and validating data schemas. The
+      service is at the Preview stage.
     href: concepts/schema-registry
   - title: '{{ data-catalog-name }}'
     description: >-
       Tool for collecting, analyzing, and marking up metadata from various
-      sources.
+      sources. The service is at the Preview stage.
     href: concepts/data-catalog
   - title: Quotas and limits
     description: Technical and organizational limitations

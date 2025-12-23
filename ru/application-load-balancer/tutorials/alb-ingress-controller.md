@@ -1,4 +1,5 @@
 ---
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/alb-ingress-controller'
 ---
 

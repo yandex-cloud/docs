@@ -72,7 +72,7 @@ editable: false
 * [{{ mtr-full-name }}](../managed-trino/pricing.md)
 * [{{ mrd-full-name }}](../managed-redis/pricing.md)
 * [{{ ydb-full-name }}](../ydb/pricing/index.md)
-* {{ preview-stage }} [{{ myt-full-name }}](../managed-ytsaurus/pricing.md)
+* [{{ myt-full-name }}](../managed-ytsaurus/pricing.md)
 * [{{ message-queue-full-name }}](../message-queue/pricing.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
 * [{{ monitoring-full-name }}](../monitoring/pricing.md)

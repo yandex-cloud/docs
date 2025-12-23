@@ -1,6 +1,5 @@
 title: Yandex MetaData Hub
 href: index.yaml
-stage: preview
 items:
   - name: About {{ metadata-hub-full-name }}
     href: concepts/index.md

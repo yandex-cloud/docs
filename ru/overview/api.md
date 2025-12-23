@@ -39,7 +39,7 @@
 | {{ lockbox-name }}  | [gRPC](../lockbox/api-ref/grpc/)<br>[REST](../lockbox/api-ref/) |
 | {{ maf-full-name }}                     | [gRPC](../managed-airflow/api-ref/grpc/)<br>[REST](../managed-airflow/api-ref/) |
 | {{ mkf-full-name }}                     | [gRPC](../managed-kafka/api-ref/grpc/)<br>[REST](../managed-kafka/api-ref/) |
-| {{ msp-full-name }} {{ preview-stage }} | [gRPC](../managed-spark/api-ref/grpc/) |
+| {{ msp-full-name }}                     | [gRPC](../managed-spark/api-ref/grpc/) |
 | {{ mch-full-name }}                     | [gRPC](../managed-clickhouse/api-ref/grpc/)<br>[REST](../managed-clickhouse/api-ref/) |
 | {{ mgp-full-name }}                     | [gRPC](../managed-greenplum/api-ref/grpc/)<br>[REST](../managed-greenplum/api-ref/) |
 | {{ managed-k8s-full-name }}<sup>®</sup> | [gRPC](../managed-kubernetes/managed-kubernetes/api-ref/grpc/)<br>[REST](../managed-kubernetes/managed-kubernetes/api-ref/) |
@@ -50,6 +50,7 @@
 | {{ mtr-full-name }}                     | [gRPC](../managed-trino/api-ref/grpc/)<br>[REST](../managed-trino/api-ref/) |
 | {{ mrd-full-name }}                     | [gRPC](../managed-redis/api-ref/grpc/)<br>[REST](../managed-redis/api-ref/) |
 | {{ ydb-full-name }}                     | [gRPC](../ydb/api-ref/grpc/)<br>[REST](../ydb/api-ref/)<br>[Document API](../ydb/docapi/api-ref/) |
+| {{ myt-full-name }}                     | [gRPC](../managed-ytsaurus/api-ref/grpc/)<br>[REST](../managed-ytsaurus/api-ref/) |
 | {{ message-queue-full-name }}           | [REST](../message-queue/api-ref/) |
 | {{ monitoring-full-name }}              | [gRPC](../monitoring/api-ref/api-ref-grpc/)<br>[REST](../monitoring/api-ref/) |
 | {{ network-load-balancer-full-name }}   | [gRPC](../network-load-balancer/api-ref/grpc/)<br>[REST](../network-load-balancer/api-ref/) |

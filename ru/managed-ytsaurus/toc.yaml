@@ -1,6 +1,5 @@
 title: '{{ myt-full-name }}'
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     href: quickstart.md

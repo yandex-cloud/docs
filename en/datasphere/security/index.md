@@ -24,6 +24,8 @@ You can also grant access permissions through the [{{ org-name }} interface in {
 
 ## Roles this service has {#roles-list}
 
+{% include [roles-datasphere](../../_mermaid/roles/datasphere.md) %}
+
 ### Service roles {#service-roles}
 
 #### datasphere.community-projects.viewer {#datasphere-communityprojects-viewer}

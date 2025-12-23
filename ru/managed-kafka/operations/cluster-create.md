@@ -17,7 +17,10 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Рассчитайте [минимальный размер хранилища](../concepts/storage.md#minimal-storage-size) для топиков.
-1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mkf.editor }} или выше](../security/index.md#roles-list).
+1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+   * [{{ roles.mkf.editor }} или выше](../security/index.md#roles-list) — чтобы создать кластер;
+   * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+   * [kms.keys.user](../../kms/security/index.md#kms-keys-user) — чтобы управлять [шифрованием диска](../concepts/storage.md#disk-encryption).
 
 Если вы указываете идентификаторы групп безопасности при создании кластера {{ mkf-name }}, для подключения к нему может понадобиться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
@@ -130,7 +133,8 @@
         --assign-public-ip <разрешить_публичный_доступ_к_кластеру> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
         --deletion-protection \
-        --kafka-ui-enabled <true_или_false>
+        --kafka-ui-enabled <true_или_false> \
+        --disk-encryption-key-id <идентификатор_ключа_KMS>
      ```
 
 
@@ -154,6 +158,7 @@
 
      
      * {% include [kafka-ui-enabled](../../_includes/mdb/cli/kafka-ui-enabled.md) %}
+     * {% include [disk-encryption-key-id-kafka](../../_includes/mdb/cli/disk-encryption-key-id-kafka.md) %}
 
 
      {% note tip %}
@@ -203,12 +208,12 @@
      
      ```hcl
      resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
-       environment         = "<окружение>"
-       name                = "<имя_кластера>"
-       network_id          = "<идентификатор_сети>"
-       subnet_ids          = ["<список_идентификаторов_подсетей>"]
-       security_group_ids  = ["<список_идентификаторов_групп_безопасности_кластера>"]
-       deletion_protection = <защитить_кластер_от_удаления>
+       environment            = "<окружение>"
+       name                   = "<имя_кластера>"
+       network_id             = "<идентификатор_сети>"
+       subnet_ids             = ["<список_идентификаторов_подсетей>"]
+       security_group_ids     = ["<список_идентификаторов_групп_безопасности_кластера>"]
+       deletion_protection    = <защитить_кластер_от_удаления>
 
        config {
          version          = "<версия>"
@@ -253,6 +258,7 @@
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
      
+     * `disk_encryption_key_id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
      * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
 
 
@@ -281,6 +287,10 @@
      ```
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
+
+     
+     {% include [disk-encryption-key](../../_includes/mdb/mkf/terraform/disk-encryption-key.md) %}
+
 
   1. Проверьте корректность настроек.
 
@@ -389,7 +399,8 @@
                   "hour": "<час_дня_по_UTC>"
                 }
               },
-              "deletionProtection": <защитить_кластер_от_удаления>
+              "deletionProtection": <защитить_кластер_от_удаления>,
+              "diskEncryptionKeyId": "<идентификатор_ключа_KMS>"
             }
             ```
 
@@ -454,6 +465,16 @@
             * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
+            
+            
+            * `diskEncryptionKeyId` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+              {% note warning %}
+                  
+              Включить шифрование дисков можно только при создании кластера.
+                  
+              {% endnote %}
+
 
             
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
@@ -573,7 +594,8 @@
                   "hour": "<час_дня_по_UTC>"
                 }
               },
-              "deletion_protection": <защитить_кластер_от_удаления>
+              "deletion_protection": <защитить_кластер_от_удаления>,
+              "disk_encryption_key_id": "<идентификатор_ключа_KMS>"
             }
             ```
 
@@ -639,6 +661,16 @@
             * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
+            
+            
+            * `disk_encryption_key_id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+              {% note warning %}
+                  
+              Включить шифрование дисков можно только при создании кластера.
+                  
+              {% endnote %}
+
 
             
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
@@ -777,7 +809,8 @@
         --assign-public-ip <разрешить_публичный_доступ_к_кластеру> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
         --deletion-protection \
-        --kafka-ui-enabled <true_или_false>
+        --kafka-ui-enabled <true_или_false> \
+        --disk-encryption-key-id <идентификатор_ключа_KMS>
      ```
 
 
@@ -807,6 +840,7 @@
 
      
      * {% include [kafka-ui-enabled](../../_includes/mdb/cli/kafka-ui-enabled.md) %}
+     * {% include [disk-encryption-key-id-kafka](../../_includes/mdb/cli/disk-encryption-key-id-kafka.md) %}
 
 
      {% note tip %}
@@ -941,6 +975,10 @@
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
+     
+     {% include [disk-encryption-key](../../_includes/mdb/mkf/terraform/disk-encryption-key.md) %}
+
+
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -1048,7 +1086,8 @@
                   "hour": "<час_дня_по_UTC>"
                 }
               },
-              "deletionProtection": <защитить_кластер_от_удаления>
+              "deletionProtection": <защитить_кластер_от_удаления>,
+              "diskEncryptionKeyId": "<идентификатор_ключа_KMS>"
             }
             ```
 
@@ -1121,6 +1160,16 @@
             * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
+            
+            
+            * `diskEncryptionKeyId` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+              {% note warning %}
+                  
+              Включить шифрование дисков можно только при создании кластера.
+                  
+              {% endnote %}
+
 
             
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
@@ -1240,7 +1289,8 @@
                   "hour": "<час_дня_по_UTC>"
                 }
               },
-              "deletion_protection": <защитить_кластер_от_удаления>
+              "deletion_protection": <защитить_кластер_от_удаления>,
+              "disk_encryption_key_id": "<идентификатор_ключа_KMS>"
             }
             ```
 
@@ -1313,6 +1363,16 @@
             * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
+            
+            
+            * `disk_encryption_key_id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+              {% note warning %}
+                  
+              Включить шифрование дисков можно только при создании кластера.
+                  
+              {% endnote %}
+
 
             
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).

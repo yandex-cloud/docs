@@ -9,8 +9,6 @@ keywords:
 
 # Изменение кластера {{ ytsaurus-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 После создания кластера вы можете изменить его основные и дополнительные настройки.
 
 {% list tabs group=instructions %}

@@ -7,4 +7,6 @@ description:
     To try the beta version commands, use the <code>yc beta</code> prefix before
     the command:
   - <pre><code> yc beta compute instance list </code></pre>
+meta:
+  noIndex: true
 links: []

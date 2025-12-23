@@ -18,12 +18,14 @@ links:
     description: Создание и управление кластерами Apache Hive™ Metastore.
     href: concepts/metastore
   - title: '{{ schema-registry-name }}'
-    description: Централизованное хранилище для управления и проверки схем данных.
+    description: >-
+      Централизованное хранилище для управления и проверки схем данных. Сервис
+      находится на стадии Preview.
     href: concepts/schema-registry
   - title: '{{ data-catalog-name }}'
     description: >-
       Инструмент для сбора, анализа и разметки метаданных из различных
-      источников.
+      источников. Сервис находится на стадии Preview.
     href: concepts/data-catalog
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса

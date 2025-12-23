@@ -811,6 +811,8 @@ default:
   speechsense-hybrid-name: SpeechSense Hybrid
   speechsense-name: SpeechSense
   SPQR: Sharded PostgreSQL
+  spqr:
+    docs: https://docs.pg-sharding.tech
   SPRK: Apache Spark™
   src-full-name: SourceCraft
   src-name: SourceCraft
@@ -9782,8 +9784,6 @@ default:
         file-input:
           button_choose: Выбрать файл
           button_choose-multiple: Выбрать файлы
-      filters:
-        action_select-all: Выбрать все
       marketplace_v2:
         common:
           menu_ticket: Тикет заявки
@@ -11357,6 +11357,7 @@ default:
             label_field-session-rsgid: OID ресурсной группы
             label_field-session-rsgname: Ресурсная группа
             label_field-session-waiting: Ожидание
+            label_field-session-waiting-reason: Причина ожидания
             label_field-session-xact-start: Время начала транзакции
             label_field-spill-total-bytes: Spill
             label_field-state-changed: Статус изменён
@@ -11387,9 +11388,18 @@ default:
             label_field-total-system_stat-wchar: Chars written
             label_field-user: Пользователь
             label_field-write-bytes: Disk W
+            label_filter-application: 'Имя приложения:'
+            label_filter-at-time: 'На момент времени:'
+            label_filter-client-ssid: 'SSID:'
             label_filter-entity-query: Запросы
             label_filter-entity-session: Сессии
+            label_filter-group-by: 'Группировать по:'
+            label_filter-group-by-query-id: ID запроса
+            label_filter-group-by-user: пользователю
+            label_filter-monitoring-connections: Connections
             label_filter-monitoring-cpu-usage: CPU usage
+            label_filter-monitoring-net-usage: Net usage
+            label_filter-user: 'Пользователь:'
             label_interconnect-active-connections-num: Interconnect active connections num
             label_interconnect-buffer-counting-time: Interconnect buffer counting time
             label_interconnect-capacity-counting-time: Interconnect capacity counting time
@@ -11422,7 +11432,9 @@ default:
             label_query-field-max-time: Max time
             label_query-field-min-time: Min time
             label_query-field-net-recv-chunks: Packets recv
+            label_query-field-net-recv-total-bytes: Net recv
             label_query-field-net-sent-chunks: Packets sent
+            label_query-field-net-sent-total-bytes: Net sent
             label_query-field-nloops: Cycles count
             label_query-field-plan-id: Идентификатор плана
             label_query-field-query-id: Идентификатор запроса
@@ -11457,6 +11469,7 @@ default:
             label_section_resources: Ресурсы
             label_section_session-info: Информация о сессии
             label_section_session-queries: Запросы
+            label_tab-session-history: История сессии
             section_command-center: Командный центр
             title_consumption-history: История потребления
             title_current-state: Текущее состояние
@@ -11498,6 +11511,12 @@ default:
         LoggingSection:
           commandCenter_e9fKV: Логи командного центра
           greenplum_pN6jU: Логи Greenplum
+        perf-diag:
+          label_query-status-canceled: Canceled
+          label_query-status-error: Error
+          label_session-status-active: Active
+          label_session-status-idle: Idle
+          label_session-status-idle-transaction: Idle transaction
         section_background-activities: Управление фоновыми процессами
         section_cloud-storage: Гибридное хранилище
         section_resource-master: Master
@@ -11608,6 +11627,7 @@ default:
             label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
             label_managed-clickhouse: Managed Service for&nbsp;ClickHouse
             label_managed-gitlab: Managed Service for&nbsp;GitLab
+            label_managed-greenplum: Yandex MPP Analytics for&nbsp;PostgreSQL
             label_managed-kafka: Managed Service for&nbsp;Kafka
             label_managed-kubernetes: Managed Service for&nbsp;Kubernetes
             label_managed-mongodb: Yandex StoreDoc
@@ -12458,6 +12478,16 @@ default:
           switch_monitoring: Мониторинг
           switch_shards: Шарды
           switch_users: Пользователи
+        ClusterForm:
+          ClusterFormBase:
+            section_mongocfg-resources_1cuU2: Ресурсы Mongocfg
+            section_mongod-resources_ncXUZ: Ресурсы Mongod
+            section_mongoinfra-resources_13TPT: Ресурсы Mongoinfra
+            section_mongos-resources_wBGnr: Ресурсы Mongos
+          sections:
+            option_sharding-type-disabled_3ErMk: Выключено
+            option_sharding-type-extended_9NHmb: Расширенное
+            option_sharding-type-standard_afrPq: Стандартное
         EnableShardingForm:
           option_sharding-type-extended_8Vip4: Расширенное
           option_sharding-type-standard_ezqnu: Стандартное

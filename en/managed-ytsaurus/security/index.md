@@ -5,8 +5,6 @@ description: Access management in {{ ytsaurus-name }}, a cluster creation and ma
 
 # Access management in {{ myt-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).

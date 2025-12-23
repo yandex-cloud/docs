@@ -1,6 +1,7 @@
 You can upload files of the following [MIME types](https://en.wikipedia.org/wiki/Media_type): 
 
 * `application/json`
+* `application/jsonlines`
 * `application/msword`
 * `application/pdf`
 * `application/vnd.ms-excel`

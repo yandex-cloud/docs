@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как работать с {
 
 # Пошаговые инструкции для {{ myt-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 ## Кластеры {#clusters}
 
 * [Информация об имеющихся кластерах](cluster-list.md)

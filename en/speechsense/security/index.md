@@ -5,11 +5,20 @@ description: Access management in {{ speechsense-full-name }}, a speech analytic
 
 # Access management in {{ speechsense-name }}
 
-User access to {{ speechsense-full-name }} depends on relevant permissions granted within an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
+Access to {{ speechsense-full-name }} is managed by assigning [roles](../../iam/concepts/access-control/roles.md) in the [organization](../../organization/concepts/organization.md). Organizations are managed using [{{ org-full-name }}](../../organization/index.yaml).
+
+In this section, you will learn about:
+
+* [What resources you can assign a role for](#resources).
+* [What roles exist in this service](#roles-list).
+
+## Access management {#about-access-control}
 
 The operations available to {{ speechsense-name }} users are determined by their roles. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). For more information about access management in {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
-Only users with the `admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role for a resource can assign roles for this resource.
+To assign a role for a resource, a user should have the `speech-sense.admin` role or one of the following roles for that resource:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 ## Resources you can assign a role for {#resources}
 

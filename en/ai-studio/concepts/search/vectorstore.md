@@ -21,7 +21,13 @@ In {{ vector-store-name }}, you can [upload](../../operations/agents/manage-sear
 
 When [creating](../../operations/agents/manage-searchindex.md#create-index) {{ vector-store-name }} search indexes, the uploaded files are automatically broken down into fragments which the embedding model, in turn, transforms into numeric vectors. A vector reflects the semantic meaning of a fragment, which allows searching the index not only by matching words, but also by semantic relevance.
 
-When breaking the information down into fragments, the semantic meaning is ignored, so the text may be split mid-sentence. This creates incomplete context. To minimize information loss due to broken context, some text in adjacent fragments _overlaps_.
+When fragmenting the information, the semantics are ignored, so the text may be split mid-sentence. This creates incomplete context. To minimize information loss due to broken context, some text in adjacent fragments _overlaps_.
+
+{% note tip %}
+
+To avoid possible loss of meaning when fragmenting files, you can do it yourself and upload the chunks to the search index in [JSONL](https://jsonlines.org/) format. For more information, see [{#T}](../../operations/agents/create-prechunked-search-agent.md).
+
+{% endnote %}
 
 By default, when creating {{ vector-store-name }} search indexes, the standard {{ foundation-models-name }} [embedding models](../embeddings.md#yandexgpt-embeddings) are used. To improve vector search quality depending on the input file features, you may use [fine-tuned embedding models](../../operations/tuning/create-embeddings.md).
 
@@ -50,7 +56,7 @@ A [search](../../operations/agents/manage-searchindex.md#search-index) through a
 
 ## Managing a search index {#managing-index}
 
-You can add new files to the existing {{ vector-store-name }} search indexes as well as delete files from them. 
+You can add new files to existing {{ vector-store-name }} search indexes and [remove](../../operations/agents/manage-searchindex.md#remove-file) files from them. 
 
 The {{ vector-store-name }} API enables you to set up automatic deletion of unused search indexes. To do this, in the `expires_after` field, specify a value for any one of these properties:
 * `created_at`: Sets the search index lifetime since its creation.
@@ -66,7 +72,7 @@ You can integrate {{ vector-store-name }} search indexes with AI agents to imple
 
     * The knowledge base with instructions and answers to common customer questions is uploaded to a {{ vector-store-name }} search index.
     * The search index is connected to the AI agent.
-    * The user asks a question, e.g., `How much luggage may I carry?`.
+    * The user asks a question: `How much luggage may I carry?`.
     * The search finds the relevant fragment in the knowledge base: `One bag up to 23 kg`.
     * The AI agent returns the response with a link to the document.
 
@@ -80,13 +86,13 @@ You can integrate {{ vector-store-name }} search indexes with AI agents to imple
 * **Call center AI assistant**
 
     * The knowledge base with instructions and answers to common customer questions is uploaded to a {{ vector-store-name }} search index.
-    * During a call, the agent types or says a question, e.g., `How do I reset the user password?`.
+    * During a call, the agent types or says a question: `How do I reset the user password?`.
     * The AI agent connected to a search index immediately provides the relevant steps from the knowledge base.
 
 * **Analysis of large documents**
 
     * Reports, studies, or contracts are uploaded to a {{ vector-store-name }} search index.
-    * Send your request to the search index to quickly find the relevant fragments, e.g., `Show all mentions of KPIs for 2024`.
+    * Send your request to the search index to quickly find the relevant fragments: `Show all mentions of KPIs for 2024`.
     
         This is especially helpful when processing hundreds of pages of information.
 

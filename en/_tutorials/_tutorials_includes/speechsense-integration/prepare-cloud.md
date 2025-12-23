@@ -36,7 +36,7 @@ Create a service account with the `speech-sense.data.editor` [role](../../../spe
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, click **{{ ui-key.yacloud_portal.filters.action_select-all }}**.
+  1. In the window that opens, select the `yc.speech-sense.use` [scope](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) in the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Save the ID and secret key for later.
 

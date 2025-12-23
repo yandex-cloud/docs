@@ -45,3 +45,4 @@ description: In this article, you will learn how to work with {{ maf-full-name }
 * [Monitoring cluster state](monitoring.md)
 * [Viewing cluster logs](cluster-logs.md)
 * [Transferring cluster logs to {{ cloud-logging-full-name }}](af-logging.md)
+* [Getting DAG execution logs](export-dag-logs.md)

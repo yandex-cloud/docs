@@ -9,8 +9,6 @@ keywords:
 
 # Удаление кластера {{ ytsaurus-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 Вы можете удалить кластер {{ ytsaurus-name }}, если он вам больше не нужен.
 
 ## Удалить кластер {#delete}

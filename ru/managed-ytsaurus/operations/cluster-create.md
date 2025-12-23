@@ -9,8 +9,6 @@ keywords:
 
 # Создание кластера {{ ytsaurus-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 Каждый [кластер](../../glossary/cluster.md) {{ myt-name }} состоит из набора компонентов {{ ytsaurus-name }}.
 
 Компоненты, доступные для настройки:
