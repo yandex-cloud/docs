@@ -78,6 +78,8 @@ keywords:
 
         {% include [extra-settings](../../_includes/mdb/mspqr/console/extra-settings.md) %}
 
+    1. Чтобы задать [настройки СУБД уровня кластера](../concepts/settings-list.md), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
+
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}

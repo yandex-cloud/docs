@@ -5,8 +5,6 @@ description: Follow this guide to connect to a {{ ytsaurus-name }} cluster.
 
 # Connecting to a cluster {{ ytsaurus-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 You can connect to a {{ ytsaurus-name }} cluster:
 
 * From {{ yandex-cloud }} VMs.

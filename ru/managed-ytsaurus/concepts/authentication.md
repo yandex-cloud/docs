@@ -5,8 +5,6 @@ description: Доступ к ресурсам {{ ytsaurus-name }} возможе
 
 # Аутентификация в {{ ytsaurus-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 Доступ к ресурсам сервиса {{ myt-name }} возможен:
 * [через веб-интерфейс {{ ytsaurus-name }}](#users) — для пользователей;
 * [с помощью IAM-токена или API-ключа](#service-accounts) — для сервисных аккаунтов.

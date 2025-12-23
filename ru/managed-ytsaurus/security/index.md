@@ -5,8 +5,6 @@ description: Управление доступом в сервисе по соз
 
 # Управление доступом в {{ myt-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 В этом разделе вы узнаете:
 
 * [на какие ресурсы можно назначить роль](#resources);

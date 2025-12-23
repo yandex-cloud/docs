@@ -32,6 +32,8 @@ items:
         href: concepts/storage.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Настройки {{ SPQR }}
+        href: concepts/settings-list.md
   - name: Управление доступом
     href: security.md
   - name: Правила тарификации

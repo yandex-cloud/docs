@@ -51,6 +51,9 @@ items:
         href: concepts/tasks.md
       - name: Варианты заданий
         href: concepts/captcha-variants.md
+      - name: Схема проверки капчи с метаданными
+        href: concepts/metadata-scheme.md
+        hidden: true
       - name: Методы подключения виджета
         href: concepts/widget-methods.md
       - name: Ключи капчи

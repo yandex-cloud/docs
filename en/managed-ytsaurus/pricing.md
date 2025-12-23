@@ -8,15 +8,8 @@ editable: false
 
 
 
-{% include [preview](../_includes/managed-ytsaurus/note-preview.md) %}
-
 In this section, you can find the {{ myt-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
 
-{% note tip %}
-
-
-
-{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

@@ -1,6 +1,6 @@
 ---
 title: Authentication in the {{ mmy-full-name }} API
-description: To perform operations via the API in the {{ MY }} database management service - {{ mmy-full-name }}, you need to obtain an IAM token for your account.
+description: To perform operations via the API in {{ mmy-full-name }}, a service for managing {{ MY }} databases, get an IAM token for your account.
 ---
 
 # Authentication in the {{ mmy-name }} API

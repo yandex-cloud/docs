@@ -44,17 +44,17 @@ To check the result in the {{ AF }} web interface:
 
 {% list tabs group=instructions %}
    
-- {{ AF }} version below 3.0 {#version-2}
+- {{ AF }} version lower than 3.0 {#version-2}
 
-  1. In the **DAGs** section, click `get_iam_token`.
+  1. In the **DAGs** section, click the `get_iam_token` graph.
   1. Go to the **Graph** section.
   1. Select **print_iam_token**.
   1. Go to **Logs**.
   1. Make sure the logs contain the `"token: " <iam_token_value>` line. This means the query was successful.
 
-- {{ AF }} version 3.0 or higher {#version-3}
+- {{ AF }} version: 3.0 or higher {#version-3}
 
-  1. In the **DAGs** section, click `get_iam_token`.
+  1. In the **DAGs** section, click the `get_iam_token` graph.
   1. Go to **Tasks**.
   1. Select **print_iam_token**.
   1. Go to **Tasks Instances**.

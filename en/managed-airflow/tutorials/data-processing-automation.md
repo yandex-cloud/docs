@@ -1,5 +1,5 @@
 ---
-noIndex: true
+title: Automating {{ dataproc-full-name }} operations
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-processing-and-airflow'
 ---
 

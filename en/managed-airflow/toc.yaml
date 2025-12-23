@@ -61,6 +61,8 @@ items:
             href: operations/cluster-logs.md
           - name: Transferring logs from {{ AF }} to {{ cloud-logging-name }}
             href: operations/af-logging.md
+          - name: Getting DAG execution logs
+            href: operations/export-dag-logs.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -219,6 +221,8 @@ items:
                 href: api-ref/Operation/cancel.md
   - name: '{{ monitoring-full-name }} metrics'
     href: metrics.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Release notes
     href: release-notes.md
   - name: FAQ

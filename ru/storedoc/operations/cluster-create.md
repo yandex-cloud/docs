@@ -50,25 +50,65 @@ description: Следуя данной инструкции, вы сможете
           * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
 
       * Укажите версию СУБД.
+      * Выберите тип шардирования:
+          * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-disabled_3ErMk }}** — кластер будет состоять только из хостов `MONGOD`.
+          * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-standard_afrPq }}** — кластер будет состоять из хостов `MONGOD` и `MONGOINFRA`.
+          * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-extended_9NHmb }}** — кластер будет состоять из хостов `MONGOD`, `MONGOS` и `MONGOCFG`.
 
-  1. {% include [mmg-settings-host-class](../../_includes/mdb/mmg/settings-host-class.md) %}
+  
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+      * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
+      * Группы безопасности для сетевого трафика кластера. Для подключения к кластеру может потребоваться [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
-      * Выберите [тип диска](../concepts/storage.md).
 
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+  1. Задайте конфигурацию вычислительных ресурсов:
 
-      * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. в разделе [Резервные копии](../concepts/backup.md).
+      * для нешардированного кластера — в блоке **Ресурсы**;
+      * для кластера со стандартным шардированием — в блоках **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}** и **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**;
+      * для кластера с расширенным шардированием — в блоках **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}** и **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**.
 
-      
-      * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
+     Чтобы задать конфигурацию вычислительных ресурсов:
 
-        * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+     1. Выберите платформу, тип виртуальной машины и класс хостов — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных экземпляров.
 
-        * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
+        {% note info %}
 
-        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+        Тип конфигурации **memory-optimized** недоступен для хостов `MONGOS`.
+
+        {% endnote %}
+
+     
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
+
+         * Выберите [тип диска](../concepts/storage.md).
+
+             {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
+         * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
+
+         * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+             * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+             * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
+
+             Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** добавьте хосты БД, создаваемые вместе с кластером:
+
+         
+         * Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+         * Выберите [зону доступности](../../overview/concepts/geo-scope.md).
+         * Выберите [подсеть](../../vpc/concepts/network.md#subnet) в указанной зоне доступности. Если подсети нет, создайте ее.
+         * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+
+         
+         Чтобы обеспечить отказоустойчивость, для типов диска `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
+
+         
+         По умолчанию хосты создаются в разных зонах доступности. См. подробнее об [управлении хостами](hosts.md).
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
@@ -78,28 +118,8 @@ description: Следуя данной инструкции, вы сможете
         {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
       * Имя пользователя.
-      * Пароль пользователя. Минимум 8 символов.
+      * Пароль пользователя. Минимум 8 символов. 
 
-  
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
-
-      * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
-      * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
-
-
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** добавьте хосты БД, создаваемые вместе с кластером:
-
-     
-     * Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
-     * Выберите [зону доступности](../../overview/concepts/geo-scope.md).
-     * Выберите [подсеть](../../vpc/concepts/network.md#subnet) в указанной зоне доступности. Если подсети нет, создайте ее.
-     * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
-
-     
-     Чтобы обеспечить отказоустойчивость, для типов диска `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
-
-     По умолчанию хосты создаются в разных зонах доступности. См. подробнее об [управлении хостами](hosts.md).
-  
   1. При необходимости задайте дополнительные настройки кластера:
 
       {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
@@ -136,12 +156,15 @@ description: Следуя данной инструкции, вы сможете
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
 
+      {% cut "Для нешардированного кластера" %}
+
       
       ```bash
       {{ yc-mdb-mg }} cluster create \
         --name <имя_кластера> \
         --environment=<окружение> \
-        --network-name <имя_сети> \
+        --network-name <имя_сети> \\
+        --security-group-ids <идентификаторы_групп_безопасности> \ 
         --host zone-id=<зона_доступности>,`
               `subnet-id=<идентификатор_подсети>,`
               `assign-public-ip=<разрешить_публичный_доступ_к_хосту>,`
@@ -158,23 +181,120 @@ description: Следуя данной инструкции, вы сможете
         --deletion-protection
       ```
 
-      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
+      {% endcut %}
+
+      {% cut "Для кластера со стандартным шардированием" %}
+
+      
+      ```bash
+      {{ yc-mdb-mg }} cluster create \
+        --name <имя_кластера> \
+        --environment=<окружение> \
+        --mongodb-version <версия_Yandex_StoreDoc> \          
+        --network-name <имя_сети> \
+        --security-group-ids <идентификаторы_групп_безопасности> \      
+        --user name=<имя_пользователя>,password=<пароль_пользователя> \
+        --database name=<имя_БД> \
+        --mongod-resource-preset <класс_хоста> \
+        --mongod-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
+        --mongod-disk-size <размер_хранилища_ГБ> \
+        --host type=mongod,`
+              `zone-id=<зона_доступности>,`
+              `subnet-id=<идентификатор_подсети>,`
+              `hidden=<скрыть_хост>,`
+              `secondary-delay-secs=<отставание_реплики_в_секундах>,`
+              `priority=<приоритет_хоста> \
+        --mongoinfra-resource-preset <класс_хоста> \
+        --mongoinfra-disk-type <network-hdd|network-ssd> \
+        --mongoinfra-disk-size <размер_хранилища_ГБ> \
+        --host type=mongoinfra,`
+              `zone-id=<зона_доступности>,`
+              `subnet-id=<идентификатор_подсети>,`
+              `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
+        --disk-encryption-key-id <идентификатор_ключа_KMS> \
+        --performance-diagnostics=<включить_диагностику> \
+        --deletion-protection
+      ```
+
+
+      {% endcut %}
+
+      {% cut "Для кластера с расширенным шардированием" %}
+
+      
+      ```bash
+      {{ yc-mdb-mg }} cluster create \
+        --name <имя_кластера> \
+        --environment=<окружение> \
+        --mongodb-version <версия_Yandex_StoreDoc> \          
+        --network-name <имя_сети> \
+        --security-group-ids <идентификаторы_групп_безопасности> \      
+        --user name=<имя_пользователя>,password=<пароль_пользователя> \
+        --database name=<имя_БД> \
+        --mongod-resource-preset <класс_хоста> \
+        --mongod-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
+        --mongod-disk-size <размер_хранилища_ГБ> \
+        --host type=mongod,`
+              `zone-id=<зона_доступности>,`
+              `subnet-id=<идентификатор_подсети>,`
+              `hidden=<скрыть_хост>,`
+              `secondary-delay-secs=<отставание_реплики_в_секундах>,`
+              `priority=<приоритет_хоста> \
+        --mongos-resource-preset <класс_хоста> \
+        --mongos-disk-type <network-hdd|network-ssd> \
+        --mongos-disk-size <размер_хранилища_ГБ> \
+        --host type=mongos,`
+              `zone-id=<зона_доступности>,`
+              `subnet-id=<идентификатор_подсети>,`
+              `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
+        --mongocfg-resource-preset <класс_хоста> \
+        --mongocfg-disk-type <network-hdd|network-ssd> \
+        --mongocfg-disk-size <размер_хранилища_ГБ> \
+        --host type=mongocfg,`
+              `zone-id=<зона_доступности>,`
+              `subnet-id=<идентификатор_подсети> \
+        --disk-encryption-key-id <идентификатор_ключа_KMS> \
+        --performance-diagnostics=<включить_диагностику> \
+        --deletion-protection
+      ```
+
+
+      {% endcut %}
 
       Где:
 
       * `--environment` — окружение: `prestable` или `production`.
 
       
-      * `--host` — параметры хоста:
-         * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
-         * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
-         * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-         * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).
-         * `secondary-delay-secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
-         * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+      * `--security-group-ids` — список идентификаторов групп безопасности.
+      * `--database name` — имя базы данных.
+        
+        {% note info %}
 
-      * `--mongod-disk-type` — тип диска.
+        {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+        {% endnote %}
+
+      * `--host` — параметры хоста:
+        * `type` — тип хоста: `mongod`, `mongoinfra`, `mongos` или `mongocfg`. По умолчанию хост имеет тип `mongod`.
+        * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+        * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Указывается, если в выбранной зоне доступности создано больше одной подсети.
+        * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
+        * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузку на кластер).
+        * `secondary-delay-secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
+        * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+          
+          {% note info %}
+
+          Параметры `hidden`, `secondary-delay-secs` и `priority` используются только для хостов `MONGOD`.
+
+          {% endnote %}
+
+      * `--mongod-resource-preset` — класс хостов `MONGOD`.
+      * `--mongoinfra-resource-preset`, `--mongos-resource-preset`, `--mongocfg-resource-preset` — классы хостов `MONGOINFRA`, `MONGOS`, `MONGOCFG` соответственно (только для шардированных кластеров).
+      * `--mongod-disk-type` — тип диска хостов `MONGOD`.
+      * `--mongoinfra-disk-type`, `--mongos-disk-type`, `--mongocfg-disk-type` — типы дисков хостов `MONGOINFRA`, `MONGOS`, `MONGOCFG` соответственно (только для шардированных кластеров).
       * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
@@ -186,13 +306,12 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
-
       {% note info %}
 
       По умолчанию при создании кластера устанавливается режим [технического обслуживания](../concepts/maintenance.md) `anytime` — в любое время. Вы можете установить конкретное время обслуживания при [изменении настроек кластера](update.md#change-additional-settings).
 
       {% endnote %}
+
 
 - {{ TF }} {#tf}
 
@@ -212,7 +331,8 @@ description: Следуя данной инструкции, вы сможете
 
      Пример структуры конфигурационного файла:
 
-     
+     {% cut "Для нешардированного кластера" %}
+
      ```hcl
      resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
@@ -232,6 +352,7 @@ description: Следуя данной инструкции, вы сможете
        }
 
        host {
+         type             = "mongod"
          zone_id          = "<зона_доступности>"
          subnet_id        = yandex_vpc_subnet.<имя_подсети>.id
          assign_public_ip = <разрешить_публичный_доступ_к_хосту>
@@ -240,6 +361,19 @@ description: Следуя данной инструкции, вы сможете
            secondary_delay_secs = <отставание_реплики_в_секундах>
            priority             = <приоритет_хоста>
          }
+       }
+
+       resources_mongoinfra {
+         resource_preset_id = "<класс_хоста>"
+         disk_type_id       = "<тип_диска>"
+         disk_size          = <размер_хранилища_ГБ>
+       }
+
+       host {
+         type             = "mongoinfra"
+         zone_id          = "<зона_доступности>"
+         subnet_id        = yandex_vpc_subnet.<имя_подсети>.id
+         assign_public_ip = <разрешить_публичный_доступ_к_хосту>
        }
      }
 
@@ -271,6 +405,169 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
+     {% endcut %}
+
+     {% cut "Для кластера со стандартным шардированием" %}
+
+     ```hcl
+     resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
+       name                = "<имя_кластера>"
+       environment         = "<окружение>"
+       network_id          = yandex_vpc_network.<имя_сети>.id
+       security_group_ids  = [ "<список_идентификаторов_групп_безопасности>" ]
+       deletion_protection = <защитить_кластер_от_удаления>
+
+       cluster_config {
+         version = "<версия_Yandex_StoreDoc>"
+       }
+
+       resources_mongod {
+         resource_preset_id = "<класс_хоста>"
+         disk_type_id       = "<тип_диска>"
+         disk_size          = <размер_хранилища_ГБ>
+       }
+
+       host {
+         type             = "mongod"
+         zone_id          = "<зона_доступности>"
+         subnet_id        = yandex_vpc_subnet.<имя_подсети>.id
+         host_parameters {
+           hidden               = <скрыть_хост>
+           secondary_delay_secs = <отставание_реплики_в_секундах>
+           priority             = <приоритет_хоста>
+         }
+       }
+
+       resources_mongoinfra {
+         resource_preset_id = "<класс_хоста>"
+         disk_type_id       = "<тип_диска>"
+         disk_size          = <размер_хранилища_ГБ>
+       }
+
+       host {
+         type             = "mongoinfra"
+         zone_id          = "<зона_доступности>"
+         subnet_id        = yandex_vpc_subnet.<имя_подсети>.id
+         assign_public_ip = <разрешить_публичный_доступ_к_хосту>
+       }
+     }
+
+     resource "yandex_mdb_mongodb_database" "<имя_БД>" {
+       cluster_id = yandex_mdb_mongodb_cluster.<имя_кластера>.id
+       name       = "<имя_БД>"
+     }
+
+     resource "yandex_mdb_mongodb_user" "<имя_пользователя>" {
+       cluster_id = yandex_mdb_mongodb_cluster.<имя_кластера>.id
+       name       = "<имя_пользователя>"
+       password   = "<пароль>"
+       permission {
+         database_name = "<имя_БД>"
+         roles         = [ "<список_ролей_пользователя>" ]
+       }
+       depends_on = [
+         yandex_mdb_mongodb_database.<имя_БД>
+       ]
+     }
+
+     resource "yandex_vpc_network" "<имя_сети>" { name = "<имя_сети>" }
+
+     resource "yandex_vpc_subnet" "<имя_подсети>" {
+       name           = "<имя_подсети>"
+       zone           = "<зона_доступности>"
+       network_id     = yandex_vpc_network.<имя_сети>.id
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+
+     {% endcut %}
+
+     {% cut "Для кластера с расширенным шардированием" %}
+
+     ```hcl
+     resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
+       name                = "<имя_кластера>"
+       environment         = "<окружение>"
+       network_id          = yandex_vpc_network.<имя_сети>.id
+       security_group_ids  = [ "<список_идентификаторов_групп_безопасности>" ]
+       deletion_protection = <защитить_кластер_от_удаления>
+
+       cluster_config {
+         version = "<версия_Yandex_StoreDoc>"
+       }
+
+       resources_mongod {
+         resource_preset_id = "<класс_хоста>"
+         disk_type_id       = "<тип_диска>"
+         disk_size          = <размер_хранилища_ГБ>
+       }
+
+       host {
+         type             = "mongod"
+         zone_id          = "<зона_доступности>"
+         subnet_id        = yandex_vpc_subnet.<имя_подсети>.id
+         host_parameters {
+           hidden               = <скрыть_хост>
+           secondary_delay_secs = <отставание_реплики_в_секундах>
+           priority             = <приоритет_хоста>
+         }
+       }
+
+       resources_mongos {
+         resource_preset_id = "<класс_хоста>"
+         disk_type_id       = "<тип_диска>"
+         disk_size          = <размер_хранилища_ГБ>
+       }
+
+       host {
+         type             = "mongos"
+         zone_id          = "<зона_доступности>"
+         subnet_id        = yandex_vpc_subnet.<имя_подсети>.id
+         assign_public_ip = <разрешить_публичный_доступ_к_хосту>
+       }
+
+       resources_mongocfg {
+         resource_preset_id = "<класс_хоста>"
+         disk_type_id       = "<тип_диска>"
+         disk_size          = <размер_хранилища_ГБ>
+       }
+
+       host {
+         type             = "mongocfg"
+         zone_id          = "<зона_доступности>"
+         subnet_id        = yandex_vpc_subnet.<имя_подсети>.id
+       }
+     }
+
+     resource "yandex_mdb_mongodb_database" "<имя_БД>" {
+       cluster_id = yandex_mdb_mongodb_cluster.<имя_кластера>.id
+       name       = "<имя_БД>"
+     }
+
+     resource "yandex_mdb_mongodb_user" "<имя_пользователя>" {
+       cluster_id = yandex_mdb_mongodb_cluster.<имя_кластера>.id
+       name       = "<имя_пользователя>"
+       password   = "<пароль>"
+       permission {
+         database_name = "<имя_БД>"
+         roles         = [ "<список_ролей_пользователя>" ]
+       }
+       depends_on = [
+         yandex_mdb_mongodb_database.<имя_БД>
+       ]
+     }
+
+     resource "yandex_vpc_network" "<имя_сети>" { name = "<имя_сети>" }
+
+     resource "yandex_vpc_subnet" "<имя_подсети>" {
+       name           = "<имя_подсети>"
+       zone           = "<зона_доступности>"
+       network_id     = yandex_vpc_network.<имя_сети>.id
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+
+     {% endcut %}
 
      Где:
 
@@ -278,11 +575,18 @@ description: Следуя данной инструкции, вы сможете
      * `host` — параметры хоста:
        * `zone_id` — зона доступности.
        * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
-       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
        * `host_parameters` — дополнительные параметры хоста:
-         * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).
+         * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузку на кластер).
          * `secondary_delay_secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+
+        {% note info %}
+
+        Параметры `hidden`, `secondary_delay_secs` и `priority` используются только для хостов `MONGOD`.
+
+        {% endnote %}
+     
      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -293,7 +597,6 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-     
      Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
 
        ```hcl
@@ -305,7 +608,6 @@ description: Следуя данной инструкции, вы сможете
        ```
 
        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
-
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmg }}).
 
@@ -321,6 +623,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -328,6 +631,8 @@ description: Следуя данной инструкции, вы сможете
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        {% cut "Для нешардированного кластера" %}
 
         
         ```json
@@ -401,8 +706,7 @@ description: Следуя данной инструкции, вы сможете
               "zoneId": "<зона_доступности>",
               "subnetId": "<идентификатор_подсети>",
               "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
-              "type": "<тип_хоста>",
-              "shardName": "<имя_шарда>",
+              "type": "MONGOD",
               "hidden": <скрыть_хост>,
               "secondaryDelaySecs": "<отставание_реплики_в_секундах>",
               "priority": "<приоритет_хоста>",
@@ -411,10 +715,233 @@ description: Следуя данной инструкции, вы сможете
             { <аналогичный_набор_настроек_для_хоста_2> },
             { ... },
             { <аналогичный_набор_настроек_для_хоста_N> }
-          ],
+          ]
         }
         ```
 
+
+        {% endcut %}
+
+        {% cut "Для кластера со стандартным шардированием" %}
+
+        
+        ```json
+        {
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "networkId": "<идентификатор_сети>",
+          "securityGroupIds": [
+            "<идентификатор_группы_безопасности_1>",
+            "<идентификатор_группы_безопасности_2>",
+            ...
+            "<идентификатор_группы_безопасности_N>"
+          ],
+          "deletionProtection": <защитить_кластер_от_удаления>,
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          },
+          "configSpec": {
+            "version": "<версия_Yandex_StoreDoc>",
+            "mongodb": {
+              "mongod": {
+                "resources": {
+                  "resourcePresetId": "<класс_хоста>",
+                  "diskSize": "<размер_хранилища_в_байтах>",
+                  "diskTypeId": "<тип_диска>"
+                }
+              },
+              "mongoinfra": {
+                "resources": {
+                  "resourcePresetId": "<класс_хоста>",
+                  "diskSize": "<размер_хранилища_в_байтах>",
+                  "diskTypeId": "<тип_диска>"
+                }
+              }
+            },
+            "backupWindowStart":  {
+              "hours": "<часы>",
+              "minutes": "<минуты>",
+              "seconds": "<секунды>",
+              "nanos": "<наносекунды>"
+            },  
+            "backupRetainPeriodDays": "<время_хранения_резервных_копий_в_днях>",
+            "performanceDiagnostics": {
+              "profilingEnabled": <включить_профилировщик>
+            }
+          },
+          "databaseSpecs": [
+            {
+              "name": "<имя_БД>"
+            },
+            { <аналогичный_набор_настроек_для_БД_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_БД_N> }
+          ],
+          "userSpecs": [
+            {
+              "name": "<имя_пользователя>",
+              "password": "<пароль_пользователя>",
+              "permissions": [
+                {
+                  "databaseName": "<имя_БД>",
+                  "roles": [
+                    "<роль_1>", "<роль_2>", ..., "<роль_N>"
+                  ]
+                }
+              ]
+            },
+            { <аналогичный_набор_настроек_для_пользователя_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_пользователя_N> }
+          ],
+          "hostSpecs": [
+            {
+              "zoneId": "<зона_доступности>",
+              "subnetId": "<идентификатор_подсети>",
+              "type": "MONGOD",
+              "shardName": "<имя_шарда>",
+              "hidden": <скрыть_хост>,
+              "secondaryDelaySecs": "<отставание_реплики_в_секундах>",
+              "priority": "<приоритет_хоста>",
+              "tags": "<метки_хоста>"
+            },
+            {
+              "zoneId": "<зона_доступности>",
+              "subnetId": "<идентификатор_подсети>",
+              "type": "MONGOINFRA",
+              "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
+              "tags": "<метки_хоста>"
+            },
+            { <аналогичный_набор_настроек_для_хоста_3> },
+            { ... },
+            { <аналогичный_набор_настроек_для_хоста_N> }
+          ]
+        }
+        ```
+
+
+        {% endcut %}
+
+        {% cut "Для кластера с расширенным шардированием" %}
+
+        
+        ```json
+        {
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "networkId": "<идентификатор_сети>",
+          "securityGroupIds": [
+            "<идентификатор_группы_безопасности_1>",
+            "<идентификатор_группы_безопасности_2>",
+            ...
+            "<идентификатор_группы_безопасности_N>"
+          ],
+          "deletionProtection": <защитить_кластер_от_удаления>,
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          },
+          "configSpec": {
+            "version": "<версия_Yandex_StoreDoc>",
+            "mongodb": {
+              "mongod": {
+                "resources": {
+                  "resourcePresetId": "<класс_хоста>",
+                  "diskSize": "<размер_хранилища_в_байтах>",
+                  "diskTypeId": "<тип_диска>"
+                }
+              },
+              "mongos": {
+                "resources": {
+                  "resourcePresetId": "<класс_хоста>",
+                  "diskSize": "<размер_хранилища_в_байтах>",
+                  "diskTypeId": "<тип_диска>"
+                }
+              },
+              "mongocfg": {
+                "resources": {
+                  "resourcePresetId": "<класс_хоста>",
+                  "diskSize": "<размер_хранилища_в_байтах>",
+                  "diskTypeId": "<тип_диска>"
+                }
+              }
+            },
+            "backupWindowStart":  {
+              "hours": "<часы>",
+              "minutes": "<минуты>",
+              "seconds": "<секунды>",
+              "nanos": "<наносекунды>"
+            },  
+            "backupRetainPeriodDays": "<время_хранения_резервных_копий_в_днях>",
+            "performanceDiagnostics": {
+              "profilingEnabled": <включить_профилировщик>
+            }
+          },
+          "databaseSpecs": [
+            {
+              "name": "<имя_БД>"
+            },
+            { <аналогичный_набор_настроек_для_БД_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_БД_N> }
+          ],
+          "userSpecs": [
+            {
+              "name": "<имя_пользователя>",
+              "password": "<пароль_пользователя>",
+              "permissions": [
+                {
+                  "databaseName": "<имя_БД>",
+                  "roles": [
+                    "<роль_1>", "<роль_2>", ..., "<роль_N>"
+                  ]
+                }
+              ]
+            },
+            { <аналогичный_набор_настроек_для_пользователя_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_пользователя_N> }
+          ],
+          "hostSpecs": [
+            {
+              "zoneId": "<зона_доступности>",
+              "subnetId": "<идентификатор_подсети>",
+              "type": "MONGOD",
+              "shardName": "<имя_шарда>",
+              "hidden": <скрыть_хост>,
+              "secondaryDelaySecs": "<отставание_реплики_в_секундах>",
+              "priority": "<приоритет_хоста>",
+              "tags": "<метки_хоста>"
+            },
+            {
+              "zoneId": "<зона_доступности>",
+              "subnetId": "<идентификатор_подсети>",
+              "type": "MONGOS",
+              "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
+              "tags": "<метки_хоста>"
+            },
+            {
+              "zoneId": "<зона_доступности>",
+              "subnetId": "<идентификатор_подсети>",
+              "type": "MONGOCFG",
+              "tags": "<метки_хоста>"
+            },
+            { <аналогичный_набор_настроек_для_хоста_4> },
+            { ... },
+            { <аналогичный_набор_настроек_для_хоста_N> }
+          ]
+        }
+        ```
+
+
+        {% endcut %}
 
         Где:
 
@@ -442,7 +969,7 @@ description: Следуя данной инструкции, вы сможете
         * `configSpec` — настройки кластера:
 
             * `version` — версия {{ SD }}: 5.0, 6.0 или 7.0.
-            * `mongod` — тип хоста.
+            * `mongod`, `mongoinfra`, `mongos`, `mongocfg` — типы хостов.
 
               * `resources` — ресурсы кластера:
 
@@ -481,15 +1008,22 @@ description: Следуя данной инструкции, вы сможете
 
         * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
-          * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+                    * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
           * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.
-          * `shardName` — имя шарда в шардированном кластере.
-          * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).
+          * `tags`— метки хоста.
+          * `shardName` — имя шарда в шардированном кластере (только для хостов `MONGOD`).
+          * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузку на кластер).
           * `secondaryDelaySecs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
           * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
-          * `tags`— метки хоста.
+
+          {% note info %}
+
+          Параметры `shardName`, `hidden`, `secondaryDelaySecs` и `priority` используются только для хостов `MONGOD`.
+
+          {% endnote %}
+
 
   1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -512,6 +1046,8 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        {% cut "Для нешардированного кластера" %}
 
         
         ```json
@@ -585,8 +1121,7 @@ description: Следуя данной инструкции, вы сможете
               "zone_id": "<зона_доступности>",
               "subnet_id": "<идентификатор_подсети>",
               "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
-              "type": "<тип_хоста>",
-              "shard_name": "<имя_шарда>",
+              "type": "MONGOD",
               "hidden": <скрыть_хост>,
               "secondary_delay_secs": "<отставание_реплики_в_секундах>",
               "priority": "<приоритет_хоста>",
@@ -599,6 +1134,229 @@ description: Следуя данной инструкции, вы сможете
         }
         ```
 
+
+        {% endcut %}
+
+        {% cut "Для кластера со стандартным шардированием" %}
+
+        
+        ```json
+        {
+          "folder_id": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "network_id": "<идентификатор_сети>",
+          "security_group_ids": [
+            "<идентификатор_группы_безопасности_1>",
+            "<идентификатор_группы_безопасности_2>",
+            ...
+            "<идентификатор_группы_безопасности_N>"
+          ],
+          "deletion_protection": <защитить_кластер_от_удаления>,
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          },
+          "config_spec": {
+            "version": "<версия_Yandex_StoreDoc>",
+            "mongodb": {
+              "mongod": {
+                "resources": {
+                  "resource_preset_id": "<класс_хоста>",
+                  "disk_size": "<размер_хранилища_в_байтах>",
+                  "disk_type_id": "<тип_диска>"
+                }
+              },
+              "mongoinfra": {
+                "resources": {
+                  "resource_preset_id": "<класс_хоста>",
+                  "disk_size": "<размер_хранилища_в_байтах>",
+                  "disk_type_id": "<тип_диска>"
+                }
+              }
+            },
+            "backup_window_start": {
+              "hours": "<часы>",
+              "minutes": "<минуты>",
+              "seconds": "<секунды>",
+              "nanos": "<наносекунды>"
+            },
+            "backup_retain_period_days": "<время_хранения_резервных_копий_в_днях>",
+            "performance_diagnostics": {
+              "profiling_enabled": <включить_профилировщик>
+            }
+          },
+          "database_specs": [
+            {
+              "name": "<имя_БД>"
+            },
+            { <аналогичный_набор_настроек_для_БД_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_БД_N> }
+          ],
+          "user_specs": [
+            {
+              "name": "<имя_пользователя>",
+              "password": "<пароль_пользователя>",
+              "permissions": [
+                {
+                  "database_name": "<имя_БД>",
+                  "roles": [
+                    "<роль_1>", "<роль_2>", ..., "<роль_N>"
+                  ]
+                }
+              ]
+            },
+            { <аналогичный_набор_настроек_для_пользователя_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_пользователя_N> }
+          ],
+          "host_specs": [
+            {
+              "zone_id": "<зона_доступности>",
+              "subnet_id": "<идентификатор_подсети>",
+              "type": "MONGOD",
+              "shard_name": "<имя_шарда>",
+              "hidden": <скрыть_хост>,
+              "secondary_delay_secs": "<отставание_реплики_в_секундах>",
+              "priority": "<приоритет_хоста>",
+              "tags": "<метки_хоста>"
+            },
+            {
+              "zone_id": "<зона_доступности>",
+              "subnet_id": "<идентификатор_подсети>",
+              "type": "MONGOINFRA",
+              "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
+              "tags": "<метки_хоста>"
+            },
+            { <аналогичный_набор_настроек_для_хоста_3> },
+            { ... },
+            { <аналогичный_набор_настроек_для_хоста_N> }
+          ]
+        }
+        ```
+
+
+        {% endcut %}
+
+        {% cut "Для кластера с расширенным шардированием" %}
+
+        
+        ```json
+        {
+          "folder_id": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "network_id": "<идентификатор_сети>",
+          "security_group_ids": [
+            "<идентификатор_группы_безопасности_1>",
+            "<идентификатор_группы_безопасности_2>",
+            ...
+            "<идентификатор_группы_безопасности_N>"
+          ],
+          "deletion_protection": <защитить_кластер_от_удаления>,
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          },
+          "config_spec": {
+            "version": "<версия_Yandex_StoreDoc>",
+            "mongodb": {
+              "mongod": {
+                "resources": {
+                  "resource_preset_id": "<класс_хоста>",
+                  "disk_size": "<размер_хранилища_в_байтах>",
+                  "disk_type_id": "<тип_диска>"
+                }
+              },
+              "mongos": {
+                "resources": {
+                  "resource_preset_id": "<класс_хоста>",
+                  "disk_size": "<размер_хранилища_в_байтах>",
+                  "disk_type_id": "<тип_диска>"
+                }
+              },
+              "mongocfg": {
+                "resources": {
+                  "resource_preset_id": "<класс_хоста>",
+                  "disk_size": "<размер_хранилища_в_байтах>",
+                  "disk_type_id": "<тип_диска>"
+                }
+              }
+            },
+            "backup_window_start": {
+              "hours": "<часы>",
+              "minutes": "<минуты>",
+              "seconds": "<секунды>",
+              "nanos": "<наносекунды>"
+            },
+            "backup_retain_period_days": "<время_хранения_резервных_копий_в_днях>",
+            "performance_diagnostics": {
+              "profiling_enabled": <включить_профилировщик>
+            }
+          },
+          "database_specs": [
+            {
+              "name": "<имя_БД>"
+            },
+            { <аналогичный_набор_настроек_для_БД_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_БД_N> }
+          ],
+          "user_specs": [
+            {
+              "name": "<имя_пользователя>",
+              "password": "<пароль_пользователя>",
+              "permissions": [
+                {
+                  "database_name": "<имя_БД>",
+                  "roles": [
+                    "<роль_1>", "<роль_2>", ..., "<роль_N>"
+                  ]
+                }
+              ]
+            },
+            { <аналогичный_набор_настроек_для_пользователя_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_пользователя_N> }
+          ],
+          "host_specs": [
+            {
+              "zone_id": "<зона_доступности>",
+              "subnet_id": "<идентификатор_подсети>",
+              "type": "MONGOD",
+              "shard_name": "<имя_шарда>",
+              "hidden": <скрыть_хост>,
+              "secondary_delay_secs": "<отставание_реплики_в_секундах>",
+              "priority": "<приоритет_хоста>",
+              "tags": "<метки_хоста>"
+            },
+            {
+              "zone_id": "<зона_доступности>",
+              "subnet_id": "<идентификатор_подсети>",
+              "type": "MONGOS",
+              "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
+              "tags": "<метки_хоста>"
+            },
+            {
+              "zone_id": "<зона_доступности>",
+              "subnet_id": "<идентификатор_подсети>",
+              "type": "MONGOCFG",
+              "tags": "<метки_хоста>"
+            },
+            { <аналогичный_набор_настроек_для_хоста_4> },
+            { ... },
+            { <аналогичный_набор_настроек_для_хоста_N> }
+          ]
+        }
+        ```
+
+
+        {% endcut %}
 
         Где:
 
@@ -626,7 +1384,7 @@ description: Следуя данной инструкции, вы сможете
         * `config_spec` — настройки кластера:
 
           * `version` — версия {{ SD }}: 5.0, 6.0 или 7.0.
-            * `mongod` — тип хоста.
+            * `mongod`, `mongoinfra`, `mongos`, `mongocfg` — типы хостов.
 
               * `resources` — ресурсы кластера:
 
@@ -665,15 +1423,22 @@ description: Следуя данной инструкции, вы сможете
 
         * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
-          * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+                    * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+          * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
           * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.
+          * `tags`— метки хоста.
           * `shard_name` — имя шарда в шардированном кластере.
-          * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).
+          * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузку на кластер).
           * `secondaryDelaySecs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
           * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
-          * `tags`— метки хоста.
+
+          {% note info %}
+
+          Параметры `shard_name`, `hidden`, `secondaryDelaySecs` и `priority` используются только для хостов `MONGOD`.
+
+          {% endnote %}
+
 
   1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
@@ -700,6 +1465,7 @@ description: Следуя данной инструкции, вы сможете
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
 {% endnote %}
+
 
 
 ## Создать копию кластера {#duplicate}
@@ -778,6 +1544,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+
 ## Примеры {#examples}
 
 ### Создание кластера с одним хостом {#creating-a-single-host-cluster}
@@ -785,8 +1552,6 @@ description: Следуя данной инструкции, вы сможете
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-
-  Чтобы создать кластер с одним хостом, передайте один параметр `--host`.
 
   Создайте кластер {{ mmg-name }} с тестовыми характеристиками:
 
@@ -821,6 +1586,7 @@ description: Следуя данной инструкции, вы сможете
   ```
 
 
+
 - {{ TF }} {#tf}
 
   Создайте кластер {{ mmg-name }} и сеть для него с тестовыми характеристиками:
@@ -838,10 +1604,7 @@ description: Следуя данной инструкции, вы сможете
     * Зона доступности — `{{ region-id }}-a`.
     * Диапазон — `10.5.0.0/24`.
 
-  
   * Группа безопасности — `mymg-sg`. Правила группы разрешают TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
-
-
   * Хранилище на сетевых SSD-дисках — `{{ disk-type-example }}`.
   * Размер хранилища — 20 ГБ.
   * Пользователь — `user1`.
@@ -851,7 +1614,6 @@ description: Следуя данной инструкции, вы сможете
 
   Конфигурационный файл для кластера с одним хостом:
 
-  
   ```hcl
   resource "yandex_mdb_mongodb_cluster" "mymg" {
     name                = "mymg"
@@ -924,7 +1686,7 @@ description: Следуя данной инструкции, вы сможете
 
 Кластер {{ mmg-name }} можно создать со [стандартным](#std-sharding) или [расширенным](#adv-sharding) шардированием. Подробнее о видах шардирования см. в разделе [Особенности управления шардированием](../concepts/sharding.md#shard-management).
 
-#### Стандартное шардирование {#std-sharding}
+##### **Стандартное шардирование** {#std-sharding}
 
 Создайте кластер {{ mmg-name }} и сеть для него с несколькими хостами:
 
@@ -947,18 +1709,21 @@ description: Следуя данной инструкции, вы сможете
 
 Сетевые характеристики:
 
-* Сеть — `mynet`.
-* Группа безопасности — `mymg-sg` с идентификатором `{{ security-group }}`. В {{ TF }} группа создается с правилом, которое разрешает TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
-
-* Подсеть — `mysubnet`. 
 * Зона доступности — `{{ region-id }}-a`.
+* Сеть — `mynet`.
+
+
+* Группа безопасности — `mymg-sg` с идентификатором `{{ security-group }}`. В {{ TF }} группа создается с правилом, которое разрешает TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
+* Подсеть — `mysubnet`. 
 * Диапазон — `10.5.0.0/24` (только для {{ TF }}).
+
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
   Выполните команду, чтобы создать кластер {{ mmg-name }} со стандартным шардированием:
+
 
   ```bash
   {{ yc-mdb-mg }} cluster create \
@@ -989,6 +1754,8 @@ description: Следуя данной инструкции, вы сможете
      --network-name mynet \
      --security-group-ids {{ security-group }}
   ```
+
+
 
 - {{ TF }} {#tf}
 
@@ -1041,6 +1808,7 @@ description: Следуя данной инструкции, вы сможете
       subnet_id = yandex_vpc_subnet.mysubnet.id
       type      = "mongoinfra"
     }
+  }
 
   resource "yandex_mdb_mongodb_database" "db1" {
     cluster_id = yandex_mdb_mongodb_cluster.mymg.id
@@ -1083,9 +1851,10 @@ description: Следуя данной инструкции, вы сможете
   }
   ```
 
+
 {% endlist %}
 
-#### Расширенное шардирование {#adv-sharding}
+##### **Расширенное шардирование** {#adv-sharding}
 
 Создайте кластер {{ mmg-name }} и сеть для него с несколькими хостами:
 
@@ -1108,17 +1877,21 @@ description: Следуя данной инструкции, вы сможете
 
 Сетевые характеристики:
 
+* Зона доступности — `{{ region-id }}-a`.
 * Сеть — `mynet`.
+
+
 * Группа безопасности — `mymg-sg` с идентификатором `{{ security-group }}`. В {{ TF }} группа создается с правилом, которое разрешает TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
 * Подсеть — `mysubnet`. 
-* Зона доступности — `{{ region-id }}-a`.
 * Диапазон — `10.5.0.0/24` (только для {{ TF }}).
+
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
   Выполните команду, чтобы создать кластер {{ mmg-name }} с расширенным шардированием:
+
 
   ```bash
   {{ yc-mdb-mg }} cluster create \
@@ -1158,6 +1931,8 @@ description: Следуя данной инструкции, вы сможете
     --network-name mynet \
     --security-group-ids {{ security-group }}
   ```
+
+
 
 - {{ TF }} {#tf}
 
@@ -1270,5 +2045,6 @@ description: Следуя данной инструкции, вы сможете
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+
 
 {% endlist %}

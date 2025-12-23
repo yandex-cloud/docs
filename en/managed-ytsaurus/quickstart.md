@@ -5,8 +5,6 @@ description: To get started with {{ myt-full-name }}, create a service cluster a
 
 # Getting started with {{ myt-full-name }}
 
-{% include [preview](../_includes/managed-ytsaurus/note-preview.md) %}
-
 To get started with {{ myt-name }}:
 
 1. [Create a demo cluster](#cluster-create).

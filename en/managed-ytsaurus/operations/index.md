@@ -5,8 +5,6 @@ description: In this article, you will learn how to work with {{ myt-full-name }
 
 # Step-by-step guides for {{ myt-name }}
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 ## Clusters {#clusters}
 
 * [Information about existing clusters](cluster-list.md)

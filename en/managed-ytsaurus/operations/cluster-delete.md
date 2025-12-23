@@ -9,8 +9,6 @@ keywords:
 
 # Deleting an {{ ytsaurus-name }} cluster
 
-{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
-
 You can delete an {{ ytsaurus-name }} cluster if you no longer need it.
 
 ## Deleting a cluster {#delete}

@@ -15,7 +15,7 @@
 [Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwq-32b` | 32,768 ||
 || **Llama 3.3 70B Instruct**^\*^ 
 [Model card](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
-[Llama 3.3 license](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE) | `gpt://<folder_ID>/llama3.3-70b-instruct` | 8,192 ||
+[Llama 3.3 license](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE) | `gpt://<folder_ID>/llama3.3-70b-instruct` | 16,384 ||
 || **Llama 3.1 70B Instruct**^\*^
 [Model card](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct)
 [Llama 3.1 license](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct/blob/main/LICENSE)  | `gpt://<folder_ID>/llama3.1-70b-instruct` | 8,192 ||
@@ -43,7 +43,7 @@ Based on Llama-3.3-70B-Instruct. [Llama-3.3-70B-Instruct Terms of Use](https://h
 [Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-12b-it` | 65,536 ||
 || **Gemma 3 27B it**
 [Model card](https://huggingface.co/google/gemma-3-4b-it)
-[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-27b-it` | 32,768 ||
+[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-27b-it` | 30,720 ||
 || **Qwen3 0.6B** 
 [Model card](https://huggingface.co/Qwen/Qwen3-0.6B)
 [Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen3-0.6b` | 32,768 ||
@@ -76,8 +76,8 @@ Based on Llama-3.3-70B-Instruct. [Llama-3.3-70B-Instruct Terms of Use](https://h
 
 #|
 || **Model** | **URI** | **Context** ||
-|| **Qwen2 VL 7B**</br>[Model card](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen2-vl-7b-instruct/` | 4,096 ||
-|| **Qwen2.5 VL 7B**</br>[Model card](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license  | `gpt://<folder_ID>/qwen2.5-vl-7b-instruct/` | 4,096 ||
+|| **Qwen2 VL 7B**</br>[Model card](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen2-vl-7b-instruct/` | 16,384 ||
+|| **Qwen2.5 VL 7B**</br>[Model card](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license  | `gpt://<folder_ID>/qwen2.5-vl-7b-instruct/` | 16,384 ||
 || **Qwen 2.5 VL 32B Instruct**</br>[Model card](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen2.5-vl-32b-instruct/` | 4,096 ||
 || **DeepSeek VL2**</br>[Model card](https://huggingface.co/deepseek-ai/deepseek-vl2)</br>[DeepSeek license](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/LICENSE-MODEL) | `gpt://<folder_ID>/deepseek-vl2/` | 4,096 ||
 || **DeepSeek VL2 Tiny**</br>[Model card](https://huggingface.co/deepseek-ai/deepseek-vl2-tiny)</br>[DeepSeek license](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/LICENSE-MODEL) | `gpt://<folder_ID>/deepseek-vl2-tiny/` | 4,096 ||

@@ -58,11 +58,13 @@ You can learn more about integration with {{ dataproc-name }} [here](concepts/da
 
 Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you increase the project size [quota]({{ link-console-quotas }}), the entire requested [storage capacity](#prices-storage) exceeding {{ ml-project-size }} is paid for separately. For more information about quotas and limits, see [{#T}](concepts/limits.md).
 
-You will be charged separately for the data stored inside [datasets](#prices-storage) and file storages.
+You will be charged separately for the data stored inside [datasets](concepts/dataset.md) and file storages.
 
 If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In this case, you will pay for data storage according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 
-[Storing models](#prices-storage) is charged separately. Its pricing depends on the model size that is calculated in GB and rounded up to an integer.
+There is a separate charge for [storing your models](concepts/models/index.md) and [Docker images](concepts/docker.md) in {{ ml-platform-name }}. The pricing depends on model size in GB, rounded up to an integer.
+
+The charges for storing Docker images in {{ container-registry-full-name }} are based on the [{{ container-registry-name }} pricing policy](../container-registry/pricing.md#prices-storage). 
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
