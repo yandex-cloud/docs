@@ -17,6 +17,8 @@ description: Управление доступом в сервисе для по
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [search-api](../../_mermaid/roles/search-api.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### search-api.webSearch.user {#search-api-webSearch-user}

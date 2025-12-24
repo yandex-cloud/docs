@@ -12,6 +12,9 @@ description: На этой странице приведен справочни�
 ```text
 {{ at-event-prefix }}.audit.apploadbalancer.<имя_события>
 ```
+
+{% include [about-events-ref](../_includes/audit-trails/about-events-ref.md) %}
+
 ## Справочник событий уровня конфигурации {#control-plane-events}
 
 {% include [alb-events](../_includes/audit-trails/events/alb-events.md) %}

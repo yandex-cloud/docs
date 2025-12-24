@@ -37,9 +37,9 @@ API сервиса {{ foundation-models-name }} совместим с {{ openai 
 
 {% endlist %}
 
-Для работы с Completions API укажите эндпоинт `https://llm.api.cloud.yandex.net/v1`.
-Для запросов к Responses API и Vector Store API используйте эндпоинт `https://rest-assistant.api.cloud.yandex.net/v1`.
-Для создания голосового агента и работы с Realtime API через веб-сокеты укажите `wss://rest-assistant.api.cloud.yandex.net/v1/realtime/openai?model=gpt://<идентификатор_каталога>/speech-realtime-250923`.
+Все сервисы доступны по адресу `https://ai.api.cloud.yandex.net/v1`.
+
+Для создания голосового агента и работы с Realtime API через веб-сокеты укажите `wss://ai.api.cloud.yandex.net/v1/realtime/openai?model=gpt://<идентификатор_каталога>/speech-realtime-250923`.
 
 [Как получить API-ключ](../operations/get-api-key.md) для работы с {{ foundation-models-name }}. 
 

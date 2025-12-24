@@ -17,6 +17,8 @@ description: Управление доступом в сервисе компь�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [vision](../../_mermaid/roles/vision.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### ai.vision.user {#vision-user}

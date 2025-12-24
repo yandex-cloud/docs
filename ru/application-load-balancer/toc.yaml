@@ -771,6 +771,76 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Справочник аудитных логов
+    items:
+      - name: AddBackendGroupBackend
+        href: events-ref/AddBackendGroupBackend.md
+      - name: AddLoadBalancerListener
+        href: events-ref/AddLoadBalancerListener.md
+      - name: AddLoadBalancerSniMatch
+        href: events-ref/AddLoadBalancerSniMatch.md
+      - name: AddTargetGroupTargets
+        href: events-ref/AddTargetGroupTargets.md
+      - name: CancelZonalShift
+        href: events-ref/CancelZonalShift.md
+      - name: CreateBackendGroup
+        href: events-ref/CreateBackendGroup.md
+      - name: CreateHttpRouter
+        href: events-ref/CreateHttpRouter.md
+      - name: CreateLoadBalancer
+        href: events-ref/CreateLoadBalancer.md
+      - name: CreateTargetGroup
+        href: events-ref/CreateTargetGroup.md
+      - name: CreateVirtualHost
+        href: events-ref/CreateVirtualHost.md
+      - name: DeleteBackendGroup
+        href: events-ref/DeleteBackendGroup.md
+      - name: DeleteHttpRouter
+        href: events-ref/DeleteHttpRouter.md
+      - name: DeleteLoadBalancer
+        href: events-ref/DeleteLoadBalancer.md
+      - name: DeleteTargetGroup
+        href: events-ref/DeleteTargetGroup.md
+      - name: DeleteVirtualHost
+        href: events-ref/DeleteVirtualHost.md
+      - name: LoadBalancerHTTPAccessLog
+        href: events-ref/LoadBalancerHTTPAccessLog.md
+      - name: LoadBalancerTCPAccessLog
+        href: events-ref/LoadBalancerTCPAccessLog.md
+      - name: RemoveBackendGroupBackend
+        href: events-ref/RemoveBackendGroupBackend.md
+      - name: RemoveLoadBalancerListener
+        href: events-ref/RemoveLoadBalancerListener.md
+      - name: RemoveLoadBalancerSniMatch
+        href: events-ref/RemoveLoadBalancerSniMatch.md
+      - name: RemoveTargetGroupTargets
+        href: events-ref/RemoveTargetGroupTargets.md
+      - name: RemoveVirtualHostRoute
+        href: events-ref/RemoveVirtualHostRoute.md
+      - name: StartLoadBalancer
+        href: events-ref/StartLoadBalancer.md
+      - name: StartZonalShift
+        href: events-ref/StartZonalShift.md
+      - name: StopLoadBalancer
+        href: events-ref/StopLoadBalancer.md
+      - name: UpdateBackendGroup
+        href: events-ref/UpdateBackendGroup.md
+      - name: UpdateBackendGroupBackend
+        href: events-ref/UpdateBackendGroupBackend.md
+      - name: UpdateHttpRouter
+        href: events-ref/UpdateHttpRouter.md
+      - name: UpdateLoadBalancer
+        href: events-ref/UpdateLoadBalancer.md
+      - name: UpdateLoadBalancerListener
+        href: events-ref/UpdateLoadBalancerListener.md
+      - name: UpdateLoadBalancerSniMatch
+        href: events-ref/UpdateLoadBalancerSniMatch.md
+      - name: UpdateTargetGroup
+        href: events-ref/UpdateTargetGroup.md
+      - name: UpdateVirtualHost
+        href: events-ref/UpdateVirtualHost.md
+      - name: UpdateVirtualHostRoute
+        href: events-ref/UpdateVirtualHostRoute.md
   - name: Логи L7-балансировщика
     href: logs-ref.md
   - name: История изменений

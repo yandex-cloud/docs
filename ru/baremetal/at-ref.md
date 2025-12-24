@@ -13,4 +13,6 @@ description: На этой странице приведен справочни�
 {{ at-event-prefix }}.audit.baremetal.<имя_события>
 ```
 
+{% include [about-events-ref](../_includes/audit-trails/about-events-ref.md) %}
+
 {% include [baremetal-events](../_includes/audit-trails/events/baremetal-events.md) %}

@@ -13,6 +13,8 @@ description: В данном разделе приведены описания 
 {{ at-event-prefix }}.audit.<имя_сервиса>.<имя_события>
 ```
 
+{% include [about-events-ref](../../_includes/audit-trails/about-events-ref.md) %}
+
 Ниже описаны события для сервисов:
 
 {% include [cp-events-service-list](../../_includes/audit-trails/cp-events-service-list.md) %}
