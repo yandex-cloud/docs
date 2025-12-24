@@ -204,8 +204,6 @@ items:
             href: operations/mcp-servers/create-brand-new.md
   - name: Переход с {{ assistant-api }} на {{ responses-api }}
     href: concepts/agents/assistant-responses-migration.md
-  - name: Совместимость с {{ openai }}
-    href: concepts/openai-compatibility.md
   - name: '{{ ml-sdk-full-name }}'
     items:
       - name: О {{ ml-sdk-full-name }}
@@ -377,6 +375,84 @@ items:
           - name: Result types for models
             href: sdk-ref/types/model_results
             hidden: true
+  - name: Совместимость с {{ openai }}
+    href: concepts/openai-compatibility.md
+  - name: OpenAI-совместимый API
+    items:
+      - name: Chat Completions
+        items:
+          - name: Overview
+            href: chat/index.md
+          - name: listChatCompletions
+            href: chat/listChatCompletions.md
+          - name: createChatCompletion
+            href: chat/createChatCompletion.md
+          - name: getChatCompletion
+            href: chat/getChatCompletion.md
+          - name: updateChatCompletion
+            href: chat/updateChatCompletion.md
+          - name: deleteChatCompletion
+            href: chat/deleteChatCompletion.md
+      - name: Conversations
+        items:
+          - name: Overview
+            href: conversations/index.md
+          - name: createConversationItems
+            href: conversations/createConversationItems.md
+          - name: listConversationItems
+            href: conversations/listConversationItems.md
+          - name: getConversationItem
+            href: conversations/getConversationItem.md
+          - name: deleteConversationItem
+            href: conversations/deleteConversationItem.md
+          - name: createConversation
+            href: conversations/createConversation.md
+          - name: getConversation
+            href: conversations/getConversation.md
+          - name: deleteConversation
+            href: conversations/deleteConversation.md
+          - name: updateConversation
+            href: conversations/updateConversation.md
+      - name: Embeddings
+        items:
+          - name: Overview
+            href: embeddings/index.md
+          - name: createEmbedding
+            href: embeddings/createEmbedding.md
+      - name: Files
+        items:
+          - name: Overview
+            href: files/index.md
+          - name: listFiles
+            href: files/listFiles.md
+          - name: createFile
+            href: files/createFile.md
+          - name: deleteFile
+            href: files/deleteFile.md
+          - name: retrieveFile
+            href: files/retrieveFile.md
+          - name: downloadFile
+            href: files/downloadFile.md
+      - name: Models
+        items:
+          - name: Overview
+            href: models/index.md
+          - name: listModels
+            href: models/listModels.md
+      - name: Responses
+        items:
+          - name: Overview
+            href: responses/index.md
+          - name: createResponse
+            href: responses/createResponse.md
+          - name: getResponse
+            href: responses/getResponse.md
+          - name: deleteResponse
+            href: responses/deleteResponse.md
+          - name: cancelResponse
+            href: responses/cancelResponse.md
+          - name: listInputItems
+            href: responses/listInputItems.md
   - name: Справочники API
     items:
       - name: Обзор

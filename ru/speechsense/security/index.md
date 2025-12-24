@@ -26,6 +26,8 @@ description: Управление доступом в сервисе речев�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [speechsense](../../_mermaid/roles/speechsense.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### speech-sense.auditor {#speechsense-auditor}

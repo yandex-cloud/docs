@@ -14,6 +14,8 @@ description: На этой странице приведен справочни�
 {{ at-event-prefix }}.audit.compute.<имя_события>
 ```
 
+{% include [about-events-ref](../_includes/audit-trails/about-events-ref.md) %}
+
 ## Справочник событий уровня конфигурации {#control-plane-events}
 
 {% include [compute-events](../_includes/audit-trails/events/compute-events.md) %}

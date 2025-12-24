@@ -17,6 +17,8 @@ description: Управление доступом в сервисе для ин
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [vision](../../_mermaid/roles/translate.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### ai.translate.user {#translate-user}

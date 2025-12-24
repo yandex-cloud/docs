@@ -8,6 +8,8 @@
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [ai-studio](../../_mermaid/roles/ai-studio.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### ai.playground.user {#ai-playground-user}

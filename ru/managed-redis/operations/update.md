@@ -41,6 +41,8 @@ description: Из статьи вы узнаете, как изменить на
 
 * [Изменение настроек пользователя {{ VLK }}](user-update.md).
 
+* [Подключение и изменение параметров модулей {{ VLK }}](modules.md).
+
 ## Изменить имя и описание кластера {#change-name-and-description}
 
 {% list tabs group=instructions %}

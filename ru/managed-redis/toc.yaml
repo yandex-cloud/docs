@@ -17,6 +17,8 @@ items:
             href: operations/update.md
           - name: Обновление версии {{ VLK }}
             href: operations/cluster-version-update.md
+          - name: Работа с модулями {{ VLK }}
+            href: operations/modules.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
           - name: Управление хостами кластера
@@ -93,6 +95,8 @@ items:
         href: concepts/memory-management.md
       - name: Доступные команды
         href: concepts/supported-features.md
+      - name: Модули {{ VLK }}
+        href: concepts/modules.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Хранилище
