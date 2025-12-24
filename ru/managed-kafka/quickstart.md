@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы создать кластер:
 1. В консоли управления выберите каталог, в котором нужно создать кластер.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.common.create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mkf-name }} сменится на `Running`, а состояние — на `Alive`. Это может занять некоторое время.
@@ -64,7 +64,7 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы создать топик:
 1. В консоли управления выберите каталог, в котором находится кластер.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Нажмите на имя созданного ранее кластера, затем выберите вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.kafka.button_create-topic }}**.
 1. Задайте настройки топика и нажмите кнопку **{{ ui-key.yacloud.common.create }}**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-topics.md).
@@ -79,7 +79,7 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы создать пользователя:
 1. В консоли управления выберите каталог, в котором находится кластер.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Нажмите на имя созданного ранее кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 1. Введите имя пользователя и пароль (от 8 до 128 символов).

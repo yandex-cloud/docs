@@ -1528,6 +1528,48 @@ default:
         12_month|string: "928\_200,00\_₸"
         3_month|string: "1\_037\_400,00\_₸"
         6_month|string: "1\_015\_560,00\_₸"
+      la-i100-h:
+        1_day|string: "83\_000,00\_₸"
+        1_month|string: "80\_510,00\_₸"
+        12_month|string: "70\_550,00\_₸"
+        3_month|string: "78\_850,00\_₸"
+        6_month|string: "77\_190,00\_₸"
+      la-i101-h:
+        1_day|string: "83\_000,00\_₸"
+        1_month|string: "80\_510,00\_₸"
+        12_month|string: "70\_550,00\_₸"
+        3_month|string: "78\_850,00\_₸"
+        6_month|string: "77\_190,00\_₸"
+      la-i102-s:
+        1_day|string: "92\_000,00\_₸"
+        1_month|string: "89\_240,00\_₸"
+        12_month|string: "78\_200,00\_₸"
+        3_month|string: "87\_400,00\_₸"
+        6_month|string: "85\_560,00\_₸"
+      la-i104-sh:
+        1_day|string: "94\_000,00\_₸"
+        1_month|string: "91\_180,00\_₸"
+        12_month|string: "79\_900,00\_₸"
+        3_month|string: "89\_300,00\_₸"
+        6_month|string: "87\_420,00\_₸"
+      la-i105-sh:
+        1_day|string: "108\_000,00\_₸"
+        1_month|string: "104\_760,00\_₸"
+        12_month|string: "91\_800,00\_₸"
+        3_month|string: "102\_600,00\_₸"
+        6_month|string: "100\_440,00\_₸"
+      la-i107-s-1-10g:
+        1_day|string: "61\_000,00\_₸"
+        1_month|string: "61\_000,00\_₸"
+        12_month|string: "61\_000,00\_₸"
+        3_month|string: "61\_000,00\_₸"
+        6_month|string: "61\_000,00\_₸"
+      la-i108-s-1-10g:
+        1_day|string: "62\_500,00\_₸"
+        1_month|string: "62\_500,00\_₸"
+        12_month|string: "62\_500,00\_₸"
+        3_month|string: "62\_500,00\_₸"
+        6_month|string: "62\_500,00\_₸"
   sku|KZT|cdn:
     api:
       network:
@@ -4087,6 +4129,48 @@ default:
         12_month|string: "185\_640,00\_₽"
         3_month|string: "207\_480,00\_₽"
         6_month|string: "203\_112,00\_₽"
+      la-i100-h:
+        1_day|string: "16\_600,00\_₽"
+        1_month|string: "16\_102,00\_₽"
+        12_month|string: "14\_110,00\_₽"
+        3_month|string: "15\_770,00\_₽"
+        6_month|string: "15\_438,00\_₽"
+      la-i101-h:
+        1_day|string: "16\_600,00\_₽"
+        1_month|string: "16\_102,00\_₽"
+        12_month|string: "14\_110,00\_₽"
+        3_month|string: "15\_770,00\_₽"
+        6_month|string: "15\_438,00\_₽"
+      la-i102-s:
+        1_day|string: "18\_400,00\_₽"
+        1_month|string: "17\_848,00\_₽"
+        12_month|string: "15\_640,00\_₽"
+        3_month|string: "17\_480,00\_₽"
+        6_month|string: "17\_112,00\_₽"
+      la-i104-sh:
+        1_day|string: "18\_800,00\_₽"
+        1_month|string: "18\_236,00\_₽"
+        12_month|string: "15\_980,00\_₽"
+        3_month|string: "17\_860,00\_₽"
+        6_month|string: "17\_484,00\_₽"
+      la-i105-sh:
+        1_day|string: "21\_600,00\_₽"
+        1_month|string: "20\_952,00\_₽"
+        12_month|string: "18\_360,00\_₽"
+        3_month|string: "20\_520,00\_₽"
+        6_month|string: "20\_088,00\_₽"
+      la-i107-s-1-10g:
+        1_day|string: "12\_200,00\_₽"
+        1_month|string: "12\_200,00\_₽"
+        12_month|string: "12\_200,00\_₽"
+        3_month|string: "12\_200,00\_₽"
+        6_month|string: "12\_200,00\_₽"
+      la-i108-s-1-10g:
+        1_day|string: "12\_500,00\_₽"
+        1_month|string: "12\_500,00\_₽"
+        12_month|string: "12\_500,00\_₽"
+        3_month|string: "12\_500,00\_₽"
+        6_month|string: "12\_500,00\_₽"
   sku|RUB|cdn:
     api:
       network:
@@ -6483,6 +6567,48 @@ default:
         12_month|string: "1\_546,999381\_$"
         3_month|string: "1\_728,999308\_$"
         6_month|string: "1\_692,599323\_$"
+      la-i100-h:
+        1_day|string: "138,333278\_$"
+        1_month|string: "134,183280\_$"
+        12_month|string: "117,583286\_$"
+        3_month|string: "131,416614\_$"
+        6_month|string: "128,649949\_$"
+      la-i101-h:
+        1_day|string: "138,333278\_$"
+        1_month|string: "134,183280\_$"
+        12_month|string: "117,583286\_$"
+        3_month|string: "131,416614\_$"
+        6_month|string: "128,649949\_$"
+      la-i102-s:
+        1_day|string: "153,333272\_$"
+        1_month|string: "148,733274\_$"
+        12_month|string: "130,333281\_$"
+        3_month|string: "145,666608\_$"
+        6_month|string: "142,599943\_$"
+      la-i104-sh:
+        1_day|string: "156,666604\_$"
+        1_month|string: "151,966606\_$"
+        12_month|string: "133,166613\_$"
+        3_month|string: "148,833274\_$"
+        6_month|string: "145,699942\_$"
+      la-i105-sh:
+        1_day|string: "179,999928\_$"
+        1_month|string: "174,599930\_$"
+        12_month|string: "152,999939\_$"
+        3_month|string: "170,999932\_$"
+        6_month|string: "167,399933\_$"
+      la-i107-s-1-10g:
+        1_day|string: "101,666626\_$"
+        1_month|string: "101,666626\_$"
+        12_month|string: "101,666626\_$"
+        3_month|string: "101,666626\_$"
+        6_month|string: "101,666626\_$"
+      la-i108-s-1-10g:
+        1_day|string: "104,166625\_$"
+        1_month|string: "104,166625\_$"
+        12_month|string: "104,166625\_$"
+        3_month|string: "104,166625\_$"
+        6_month|string: "104,166625\_$"
   sku|USD|cdn:
     api:
       network:
@@ -8622,6 +8748,7 @@ default:
         info:
           action_go: Перейти
           action_leave-request: Оставить заявку
+          context_response-critical: Критичный
         tariff-card:
           title_business: Бизнес
           title_free: Базовый
@@ -9756,6 +9883,8 @@ default:
       support:
         switch_tickets: Обращения
         tickets:
+          common:
+            label_ticket-type-v2-high-problem: Проблема
           label_search-placeholder: Опишите проблему или задайте вопрос
           table:
             label_column_ticket_type: Тип обращения

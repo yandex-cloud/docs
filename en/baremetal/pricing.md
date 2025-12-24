@@ -22,6 +22,12 @@ The monthly prices are based on 720 hours per month.
 
 ## Prices for the Russia region {#prices}
 
+{% note info %}
+
+Prices for configurations BA-i100-H, BA-i101-H, BA-i102-S, BA-i104-SH and BA-i105-SH are valid until 4th of January, 2026. After that, billing will take place at the prices of the LA-i100-H, LA-i101-H, LA-i102-S, LA-i104-SH and LA-i105-SH configurations, respectively.
+
+{% endnote %}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

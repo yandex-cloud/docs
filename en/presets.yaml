@@ -1523,6 +1523,48 @@ default:
         12_month|string: ₸928200.00
         3_month|string: ₸1037400.00
         6_month|string: ₸1015560.00
+      la-i100-h:
+        1_day|string: ₸83000.00
+        1_month|string: ₸80510.00
+        12_month|string: ₸70550.00
+        3_month|string: ₸78850.00
+        6_month|string: ₸77190.00
+      la-i101-h:
+        1_day|string: ₸83000.00
+        1_month|string: ₸80510.00
+        12_month|string: ₸70550.00
+        3_month|string: ₸78850.00
+        6_month|string: ₸77190.00
+      la-i102-s:
+        1_day|string: ₸92000.00
+        1_month|string: ₸89240.00
+        12_month|string: ₸78200.00
+        3_month|string: ₸87400.00
+        6_month|string: ₸85560.00
+      la-i104-sh:
+        1_day|string: ₸94000.00
+        1_month|string: ₸91180.00
+        12_month|string: ₸79900.00
+        3_month|string: ₸89300.00
+        6_month|string: ₸87420.00
+      la-i105-sh:
+        1_day|string: ₸108000.00
+        1_month|string: ₸104760.00
+        12_month|string: ₸91800.00
+        3_month|string: ₸102600.00
+        6_month|string: ₸100440.00
+      la-i107-s-1-10g:
+        1_day|string: ₸61000.00
+        1_month|string: ₸61000.00
+        12_month|string: ₸61000.00
+        3_month|string: ₸61000.00
+        6_month|string: ₸61000.00
+      la-i108-s-1-10g:
+        1_day|string: ₸62500.00
+        1_month|string: ₸62500.00
+        12_month|string: ₸62500.00
+        3_month|string: ₸62500.00
+        6_month|string: ₸62500.00
   sku|KZT|cdn:
     api:
       network:
@@ -4082,6 +4124,48 @@ default:
         12_month|string: ₽185640.00
         3_month|string: ₽207480.00
         6_month|string: ₽203112.00
+      la-i100-h:
+        1_day|string: ₽16600.00
+        1_month|string: ₽16102.00
+        12_month|string: ₽14110.00
+        3_month|string: ₽15770.00
+        6_month|string: ₽15438.00
+      la-i101-h:
+        1_day|string: ₽16600.00
+        1_month|string: ₽16102.00
+        12_month|string: ₽14110.00
+        3_month|string: ₽15770.00
+        6_month|string: ₽15438.00
+      la-i102-s:
+        1_day|string: ₽18400.00
+        1_month|string: ₽17848.00
+        12_month|string: ₽15640.00
+        3_month|string: ₽17480.00
+        6_month|string: ₽17112.00
+      la-i104-sh:
+        1_day|string: ₽18800.00
+        1_month|string: ₽18236.00
+        12_month|string: ₽15980.00
+        3_month|string: ₽17860.00
+        6_month|string: ₽17484.00
+      la-i105-sh:
+        1_day|string: ₽21600.00
+        1_month|string: ₽20952.00
+        12_month|string: ₽18360.00
+        3_month|string: ₽20520.00
+        6_month|string: ₽20088.00
+      la-i107-s-1-10g:
+        1_day|string: ₽12200.00
+        1_month|string: ₽12200.00
+        12_month|string: ₽12200.00
+        3_month|string: ₽12200.00
+        6_month|string: ₽12200.00
+      la-i108-s-1-10g:
+        1_day|string: ₽12500.00
+        1_month|string: ₽12500.00
+        12_month|string: ₽12500.00
+        3_month|string: ₽12500.00
+        6_month|string: ₽12500.00
   sku|RUB|cdn:
     api:
       network:
@@ -6478,6 +6562,48 @@ default:
         12_month|string: $1546.999381
         3_month|string: $1728.999308
         6_month|string: $1692.599323
+      la-i100-h:
+        1_day|string: $138.333278
+        1_month|string: $134.183280
+        12_month|string: $117.583286
+        3_month|string: $131.416614
+        6_month|string: $128.649949
+      la-i101-h:
+        1_day|string: $138.333278
+        1_month|string: $134.183280
+        12_month|string: $117.583286
+        3_month|string: $131.416614
+        6_month|string: $128.649949
+      la-i102-s:
+        1_day|string: $153.333272
+        1_month|string: $148.733274
+        12_month|string: $130.333281
+        3_month|string: $145.666608
+        6_month|string: $142.599943
+      la-i104-sh:
+        1_day|string: $156.666604
+        1_month|string: $151.966606
+        12_month|string: $133.166613
+        3_month|string: $148.833274
+        6_month|string: $145.699942
+      la-i105-sh:
+        1_day|string: $179.999928
+        1_month|string: $174.599930
+        12_month|string: $152.999939
+        3_month|string: $170.999932
+        6_month|string: $167.399933
+      la-i107-s-1-10g:
+        1_day|string: $101.666626
+        1_month|string: $101.666626
+        12_month|string: $101.666626
+        3_month|string: $101.666626
+        6_month|string: $101.666626
+      la-i108-s-1-10g:
+        1_day|string: $104.166625
+        1_month|string: $104.166625
+        12_month|string: $104.166625
+        3_month|string: $104.166625
+        6_month|string: $104.166625
   sku|USD|cdn:
     api:
       network:
@@ -8617,6 +8743,7 @@ default:
         info:
           action_go: Go
           action_leave-request: Send a request
+          context_response-critical: Critical
         tariff-card:
           title_business: Business
           title_free: Basic
@@ -9751,6 +9878,8 @@ default:
       support:
         switch_tickets: Tickets
         tickets:
+          common:
+            label_ticket-type-v2-high-problem: Problem
           label_search-placeholder: Describe issue or ask a question
           table:
             label_column_ticket_type: Ticket type

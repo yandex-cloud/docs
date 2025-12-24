@@ -437,6 +437,44 @@ items:
     href: logs-ref.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Справочник аудитных логов
+    items:
+      - name: CachePrefetch
+        href: events-ref/CachePrefetch.md
+      - name: CachePurge
+        href: events-ref/CachePurge.md
+      - name: OriginCreate
+        href: events-ref/OriginCreate.md
+      - name: OriginDelete
+        href: events-ref/OriginDelete.md
+      - name: OriginGroupCreate
+        href: events-ref/OriginGroupCreate.md
+      - name: OriginGroupDelete
+        href: events-ref/OriginGroupDelete.md
+      - name: OriginGroupUpdate
+        href: events-ref/OriginGroupUpdate.md
+      - name: OriginUpdate
+        href: events-ref/OriginUpdate.md
+      - name: ProviderActivate
+        href: events-ref/ProviderActivate.md
+      - name: RawLogsActivate
+        href: events-ref/RawLogsActivate.md
+      - name: RawLogsDeactivate
+        href: events-ref/RawLogsDeactivate.md
+      - name: RawLogsUpdate
+        href: events-ref/RawLogsUpdate.md
+      - name: ResourceCreate
+        href: events-ref/ResourceCreate.md
+      - name: ResourceDelete
+        href: events-ref/ResourceDelete.md
+      - name: ResourceRuleCreate
+        href: events-ref/ResourceRuleCreate.md
+      - name: ResourceRuleDelete
+        href: events-ref/ResourceRuleDelete.md
+      - name: ResourceRuleUpdate
+        href: events-ref/ResourceRuleUpdate.md
+      - name: ResourceUpdate
+        href: events-ref/ResourceUpdate.md
   - name: История изменений
     href: release-notes.md
   - name: Решение проблем

@@ -23,7 +23,9 @@
 Подробнее о том, какие роли нужны для пользования сервисом {{ data-transfer-name }}, см. в разделе [Какие роли необходимы](security/index.md#required-roles).
 
 
-Для работы с сервисом в консоли управления перейдите на страницу каталога и выберите сервис [**{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**]({{ link-console-main }}/link/data-transfer/). 
+Для работы с сервисом в консоли управления:
+1. Перейдите на страницу каталога.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис [**{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**]({{ link-console-main }}/link/data-transfer/). 
 
 ## Настройте источник и приемник {#db-settings}
 
@@ -76,7 +78,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. Убедитесь, что в поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** указано `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
@@ -95,7 +98,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. Убедитесь, что в поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** указано `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
@@ -114,7 +118,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
   1. Укажите имя трансфера.
@@ -137,7 +142,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Нажмите значок ![ellipsis](../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 

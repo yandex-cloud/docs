@@ -2,27 +2,31 @@
 
 {{ websql-name }} — это сервис {{ yandex-cloud }}, который позволяет подключаться к кластерам управляемых баз данных, работать с БД, таблицами и схемами и выполнять запросы. Сервис работает в браузере, не требует дополнительной авторизации и предлагает удобные подсказки для работы с SQL-командами.
 
-Чтобы подключаться из {{ websql-name }} к кластеру {{ mpg-name }}, необходимо создать подключение:
+Для подключения из {{ websql-name }} в настройках кластера должна быть включена опция **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**. Опцию можно включить при [создании](../../../managed-postgresql/operations/cluster-create.md) или [изменении](../../../managed-postgresql/operations/update.md#change-additional-settings) кластера.
 
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите на имя нужного кластера.
-1. [Включите опцию](../../../managed-postgresql/operations/update.md#change-additional-settings) **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** в настройках кластера, если она еще не включена.
-1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_create-connection }}** и укажите параметры подключения:
-    * **Имя** подключения.
-    * **Тип базы данных** — {{ PG }}.
-    * **Кластер** — будет автоматически выбран текущий кластер {{ PG }}.
-    * **Имя пользователя**, от лица которого вы будете подключаться к базе данных в кластере.
-    * **Пароль** пользователя.
-    * **Базы данных**, к которым вы хотите подключиться. Вы можете подключиться только к существующим в этом кластере БД. У пользователя, которого вы указали, должен быть настроен доступ к ним.
-1. Нажмите кнопку **Создать**.
+В кластере {{ mpg-name }} для каждого пользователя БД автоматически создается [подключение {{ connection-manager-name }}](../../../metadata-hub/concepts/connection-manager.md), которое можно использовать для подключения к БД из {{ websql-name }}. При необходимости вы также можете [создать новое подключение](../../../websql/operations/create-connection.md#connect-cluster).
 
-Чтобы открыть SQL-редактор, нажмите на созданное подключение на вкладке **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}**. Справочник по поддерживаемым запросам можно найти в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql.html).
+Чтобы подключиться к БД из {{ websql-name }}:
 
-{% note info %}
+{% list tabs group=instructions %}
 
-С помощью команд SQL нельзя выполнять действия, требующие прав суперпользователя.
+- Консоль управления {#console}
 
-{% endnote %}
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
+  1. Выберите нужное подключение.
+
+      Откроется подключение в сервисе {{ websql-name }}. Чтобы перейти в редактор запросов, выберите нужную БД. 
+      
+      Справочник по поддерживаемым запросам можно найти в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql.html).
+
+      {% note info %}
+      
+      С помощью команд SQL нельзя выполнять действия, требующие прав суперпользователя.
+      
+      {% endnote %}
+    
+{% endlist %}
 
 Подробнее о работе с {{ websql-name }} см. в [документации сервиса](../../../websql/operations/index.md).

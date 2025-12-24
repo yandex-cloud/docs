@@ -207,7 +207,12 @@ description: Следуя данной инструкции, вы сможете
         --backup-window-start <время> \
         --disk-encryption-key-id <идентификатор_ключа_KMS> \
         --deletion-protection \
-        --announce-hostnames <использование_FQDN_вместо_IP-адресов>
+        --announce-hostnames <использование_FQDN_вместо_IP-адресов> \
+        --valkey-modules enable-valkey-search=<включить_модуль_Valkey-Search>,`
+                         `valkey-search-reader-threads=<количество_потоков_обработки_запросов>,`
+                         `valkey-search-writer-threads=<количество_потоков_индексации>,`
+                         `enable-valkey-json=<включить_модуль_Valkey-JSON>,`
+                         `enable-valkey-bloom=<включить_модуль_Valkey-Bloom>
       ```
 
 
@@ -248,6 +253,15 @@ description: Следуя данной инструкции, вы сможете
       * `--announce-hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
+
+      * `--valkey-modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
+         * `enable-valkey-search` — подключить модуль `Valkey-Search`: `true` или `false`.
+         * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
+         * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
+         * `enable-valkey-json` — подключить модуль `Valkey-JSON`: `true` или `false`.
+         * `enable-valkey-bloom` — подключить модуль `Valkey-Bloom`: `true` или `false`.
+
+         {% include [modules-warn](../../_includes/mdb/mrd/enable-modules-note.md) %}
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
@@ -418,6 +432,19 @@ description: Следуя данной инструкции, вы сможете
             },
             "redis": {
               "password": "<пароль_пользователя>"
+            },
+            "modules": {
+              "valkeySearch": {
+                "enabled": "<включить_модуль_Valkey-Search>",
+                "readerThreads": "<количество_потоков_обработки_запросов>",
+                "writerThreads": "<количество_потоков_индексации>"
+              },
+              "valkeyJson": {
+                "enabled": "<включить_модуль_Valkey-JSON>"
+              },
+              "valkeyBloom": {
+                "enabled": "<включить_модуль_Valkey-Bloom>"
+              }
             }
           },
           "hostSpecs": [
@@ -464,13 +491,23 @@ description: Следуя данной инструкции, вы сможете
                 * `diskSize` — размер диска в байтах;
                 * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-            {% include [autoscale-description](../../_includes/mdb/mrd/api/autoscaling-rest.md) %}    
+            {% include [autoscale-description](../../_includes/mdb/mrd/api/autoscaling-rest.md) %}
 
             
             * `access.webSql` — доступ к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса [{{ websql-full-name }}](../../websql/index.yaml): `true` или `false`.
 
 
             * `redis.password` — пароль пользователя.
+
+            * `modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
+
+               * `valkeySearch.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
+                   * `valkeySearch.readerThreads` — количество потоков обработки запросов.
+                   * `valkeySearch.writerThreads` — количество потоков индексации.
+               * `valkeyJson.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
+               * `valkeyBloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
+
+               {% include [modules-warn](../../_includes/mdb/mrd/enable-modules-note.md) %}
 
         * `hostSpecs` — параметры хоста:
 
@@ -562,6 +599,19 @@ description: Следуя данной инструкции, вы сможете
             },
             "redis": {
               "password": "<пароль_пользователя>"
+            },
+            "modules": {
+              "valkey_search": {
+                "enabled": "<включить_модуль_Valkey-Search>",
+                "reader_threads": "<количество_потоков_обработки_запросов>",
+                "writer_threads": "<количество_потоков_индексации>"
+              },
+              "valkey_json": {
+                "enabled": "<включить_модуль_Valkey-JSON>"
+              },
+              "valkey_bloom": {
+                "enabled": "<включить_модуль_Valkey-Bloom>"
+              }
             }
           },
           "host_specs": [
@@ -608,13 +658,23 @@ description: Следуя данной инструкции, вы сможете
                 * `disk_size` — размер диска в байтах;
                 * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-            {% include [autoscale-description](../../_includes/mdb/mrd/api/autoscaling-grpc.md) %}    
+            {% include [autoscale-description](../../_includes/mdb/mrd/api/autoscaling-grpc.md) %}
 
             
             * `access.web_sql` — доступ к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса [{{ websql-full-name }}](../../websql/index.yaml): `true` или `false`.
 
 
             * `redis.password` — пароль пользователя.
+
+            * `modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
+
+               * `valkey_search.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
+                   * `valkey_search.reader_threads` — количество потоков обработки запросов.
+                   * `valkey_search.writer_threads` — количество потоков индексации.
+               * `valkey_json.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
+               * `valkey_bloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
+
+               {% include [modules-warn](../../_includes/mdb/mrd/enable-modules-note.md) %}
 
         * `host_specs` — параметры хоста:
 
@@ -657,7 +717,7 @@ description: Следуя данной инструкции, вы сможете
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
         * `persistence_mode` — режим [персистентности данных](../concepts/replication.md#persistence).
-        
+
             {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
 
     1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
