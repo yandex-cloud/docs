@@ -7,7 +7,7 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 
 ## Clusters {#clusters}
 
-* [Getting information on existing clusters](cluster-list.md)
+* [Getting information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
 * [Updating cluster settings](update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
@@ -47,5 +47,5 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 
 * [Viewing cluster logs](cluster-logs.md)
 * [Performance diagnostics](performance-diagnostics.md)
-* [Monitoring the state of clusters and hosts](monitoring.md)
+* [Cluster and host status monitoring](monitoring.md)
 * [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md)

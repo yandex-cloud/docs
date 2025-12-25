@@ -1,10 +1,10 @@
 ---
-title: Pricing policy for {{ ydb-full-name }} with dedicated instances
-description: "In this tutorial, you will learn about\_the pricing policy for {{ ydb-full-name }} with dedicated instances."
+title: Pricing policy for Dedicated mode in {{ ydb-full-name }}
+description: In this article, you will learn about the pricing policy for Dedicated mode in {{ ydb-full-name }}.
 editable: false
 ---
 
-# Pricing policy for {{ ydb-name }} with dedicated instances
+# Pricing policy for Dedicated mode in {{ ydb-name }}
 
 
 
@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -28,7 +28,7 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 ## What goes into the cost of using {{ ydb-name }} {#rules}
 
-When using {{ ydb-name }} in dedicated-instance mode, you pay for the following:
+When using {{ ydb-name }} in *Dedicated* mode, you pay for:
 
 * Type and size of [storage groups](../concepts/resources.md#storage-groups) allocated for the DB.
 * [Computing resources](../concepts/resources.md#resource-presets) allocated to the DB.
@@ -74,7 +74,7 @@ The price covers one month of use. The minimum billing unit is 1 GB/hr (e.g., st
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
 
-{{ ydb-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ ydb-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

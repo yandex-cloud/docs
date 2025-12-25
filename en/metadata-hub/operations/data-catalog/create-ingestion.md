@@ -23,7 +23,7 @@
       * In the **{{ ui-key.yacloud.common.name }}** field, enter a unique name for the ingestion.
       * Optionally, describe the ingestion.
       * Select a data source or create one.
-      * Under **{{ ui-key.data-catalog.console.form.ingestion.PostgresConfigForm.title }}**:
+      * Specify the ingestion configuration for the data source:
 
          * Select an ingestion schedule:
 

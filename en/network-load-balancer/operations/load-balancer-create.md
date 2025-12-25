@@ -26,6 +26,16 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
       {% include [name-format](../../_includes/name-format.md) %}
 
+  1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** field:
+      * Enable DDoS protection.
+      * Enable load balancer deletion protection.
+
+        {% note warning %}
+
+        This does not apply to its listeners or target groups.
+
+        {% endnote %}
+
   1. Assign a public IP address to the load balancer. You can have the IP address assigned automatically or select it from the list of reserved addresses.
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, add a [listener](../concepts/listener.md):
       1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
@@ -63,7 +73,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -80,6 +90,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
      ```bash
      yc load-balancer network-load-balancer create <load_balancer_name> \
+        --deletion-protection \
         --listener name=<listener_name>,`
                   `port=<port>,`
                   `target-port=<target_port>,`
@@ -98,6 +109,14 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
      Where:
 
+     * `--deletion-protection`: Deletion protection for the network load balancer. You cannot delete a load balancer with this option enabled.
+
+       {% note warning %}
+
+       This does not apply to its listeners or target groups.
+
+       {% endnote %}
+
      {% include [listener-cli-description](../../_includes/network-load-balancer/listener-cli-description.md) %}
 
      {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
@@ -110,12 +129,12 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
   1. Describe the network load balancer settings in the configuration file.
 
-     Here is the configuration file example:
+     Here is a configuration file example:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "<load_balancer_name>"
-       deletion_protection = "<deletion_protection>"
+       deletion_protection = <balancer_deletion_protection>
        listener {
          name = "<listener_name>"
          port = <port_number>
@@ -139,7 +158,14 @@ Before you create a network load balancer, make sure to [create](target-group-cr
      Where:
 
      * `name`: Name of the network load balancer.
-     * `deletion_protection`: Deletion protection for the network load balancer. You cannot delete a load balancer with this option enabled. This does not apply to its listeners or target groups. The default value is `false`.
+     * `deletion_protection`: Deletion protection for the network load balancer. You cannot delete a load balancer with this option enabled. The default value is `false`.
+
+       {% note warning %}
+
+       This does not apply to its listeners or target groups.
+
+       {% endnote %}
+
      * `listener`: Listener settings:
        * `name`: Listener name.
        * `port`: Port in the range from `1` to `32767` the network load balancer will receive incoming traffic at.
@@ -191,7 +217,6 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "test-load-balancer-1"
-       deletion_protection = "true"
      }
      ```
 

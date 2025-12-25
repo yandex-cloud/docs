@@ -46,4 +46,4 @@ You can only restore a backup to a new cluster.
 
 #### Can I restore a single database from a backup? {#restore-one-database}
 
-No, you cannot select specific databases. You can only restore the entire cluster with all its databases.
+No, you cannot restore a specific database. You can only restore the entire cluster with all its databases.

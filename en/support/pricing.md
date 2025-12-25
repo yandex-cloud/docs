@@ -30,6 +30,7 @@ For a cost calculation, use [our calculator](https://yandex.cloud/en/prices?stat
 
 
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 The cost depends on the service plan you choose, which covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support of multiple organizations that may have different support service plans. For the services available under various plans, see [Requesting technical support](overview.md).

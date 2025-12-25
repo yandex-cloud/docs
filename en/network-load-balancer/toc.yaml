@@ -17,6 +17,8 @@ items:
             href: operations/internal-lb-create.md
           - name: Stopping and starting a load balancer
             href: operations/load-balancer-start-and-stop.md
+          - name: Configuring deletion protection
+            href: operations/deletion-protection.md
           - name: Changing load balancer settings
             href: operations/load-balancer-update.md
           - name: Moving a VM to a target group in a new availability zone

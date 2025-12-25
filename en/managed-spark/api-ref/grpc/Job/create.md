@@ -102,10 +102,14 @@ Creates a job for Spark cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the cluster to create Spark job in. ||
+Required field. ID of the cluster to create Spark job in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Optional. Name of the job. ||
+Optional. Name of the job.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || spark_job | **[SparkJob](#yandex.cloud.spark.v1.SparkJob)**
 
 Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`. ||
@@ -117,7 +121,9 @@ Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`.
 Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`. ||
 || service_account_id | **string**
 
-Service account used to access Cloud resources. ||
+Service account used to access Cloud resources.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## SparkJob {#yandex.cloud.spark.v1.SparkJob}
@@ -390,10 +396,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Spark cluster. ||
+Required field. ID of the Spark cluster.
+
+The maximum string length in characters is 50. ||
 || job_id | **string**
 
-ID of the Spark job. ||
+ID of the Spark job.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Job {#yandex.cloud.spark.v1.Job}
@@ -428,7 +438,6 @@ The id of the user who created the job ||
 
 Status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job created and is waiting to acquire.
 - `PENDING`: Job acquired and is waiting for execution.
 - `RUNNING`: Job is running.

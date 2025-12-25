@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
     1. На панели слева выберите раздел ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.

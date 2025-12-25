@@ -1,6 +1,6 @@
 ---
 title: Deleting a PostgreSQL cluster
-description: After you delete a PostgreSQL database cluster, its backups are retained and can be used for recovery for seven days. To restore a deleted cluster from a backup, you will need its ID, so make sure to securely save the cluster ID before deleting the cluster.
+description: After you delete a PostgreSQL database cluster, its backups are retained and can be used for recovery for seven days. To restore a deleted cluster from a backup, you will need its ID. Therefore, be sure to securely save the cluster ID prior to deletion.
 ---
 
 # Deleting a {{ PG }} cluster
@@ -39,7 +39,7 @@ Deleting a cluster will permanently remove all its users and databases, includin
   {{ yc-mdb-pg }} cluster delete <cluster_name_or_ID>
   ```
 
-  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name and ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -49,11 +49,11 @@ Deleting a cluster will permanently remove all its users and databases, includin
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Cluster.Delete](../api-ref/Cluster/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Cluster.Delete](../api-ref/Cluster/delete.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -62,18 +62,18 @@ Deleting a cluster will permanently remove all its users and databases, includin
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>'
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -89,8 +89,8 @@ Deleting a cluster will permanently remove all its users and databases, includin
        yandex.cloud.mdb.postgresql.v1.ClusterService.Delete
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

@@ -28,6 +28,13 @@ To create an internal network load balancer:
 
   1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}** field, select `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`. 
   1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** field, enable load balancer protection from deletion.
+
+      {% note warning %}
+
+      This does not apply to its listeners or target groups. 
+
+      {% endnote %}
+
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, add a [listener](../concepts/listener.md):
       1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
       1. In the window that opens, specify these listener settings:
@@ -37,7 +44,7 @@ To create an internal network load balancer:
 
               * `{{ ui-key.yacloud.common.label_auto }}`: For the listener to automatically get a free IP address from the selected subnet range.
               * `{{ ui-key.yacloud.common.label_list }}`: To manually reserve a particular IP address for the listener in the subnet you select.
-              
+
                   In the **{{ ui-key.yacloud.component.internal-v4-address-field.label_internal-address-title }}** field that opens, select a previously reserved IP address or click **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}** to reserve a new one. In the window that opens, specify the parameters of the reserved IP address:
 
                   * **{{ ui-key.yacloud.common.name }}**.
@@ -64,8 +71,8 @@ To create an internal network load balancer:
           * Click **{{ ui-key.yacloud.common.create }}**.
       1. Optionally, under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify the [resource health check](../concepts/health-check.md) settings:
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**.
-          * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**, choose one of the options:
-          
+          * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**, select one of these options:
+
               * `{{ ui-key.yacloud.common.label_http }}`. Additionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field, specify the path for health checks.
               * `{{ ui-key.yacloud.common.label_tcp }}`.
               * `{{ ui-key.yacloud.common.label_http2 }}`. Additionally, in the **{{ ui-key.yacloud.compute.group.overview.label_host }}** and **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** fields, specify the host address and path for health checks.
@@ -98,6 +105,7 @@ To create an internal network load balancer:
      ```bash
      yc load-balancer network-load-balancer create <load_balancer_name> \
         --type=internal \
+        --deletion-protection \
         --listener name=<listener_name>,`
                    `port=<port>,`
                    `target-port=<target_port>,`
@@ -119,6 +127,14 @@ To create an internal network load balancer:
      Where:
 
      * `--type`: Load balancer type.
+     * `--deletion-protection`: Deletion protection for the network load balancer. You cannot delete a load balancer with this option enabled.
+
+         {% note warning %}
+
+         This does not apply to its listeners or target groups. 
+
+         {% endnote %}
+
      * `--listener`: Listener settings:
          * `name`: Listener name.
          * `port`: Port on which the load balancer will listen to incoming traffic. The possible values range from `1` to `32767`.
@@ -150,7 +166,7 @@ To create an internal network load balancer:
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "<load_balancer_name>"
        type = "internal"
-       deletion_protection = "<deletion_protection>"
+       deletion_protection = <balancer_deletion_protection>
        listener {
          name = "<listener_name>"
          port = <port_number>
@@ -177,7 +193,14 @@ To create an internal network load balancer:
 
      * `name`: Name of the network load balancer.
      * `type`: Type of the network load balancer. Use `internal` to create an internal load balancer.
-     * `deletion_protection`: Deletion protection for the internal network load balancer. You cannot delete a load balancer with this option enabled. This does not apply to its listeners or target groups. The default value is `false`.
+     * `deletion_protection`: Deletion protection for the internal network load balancer. You cannot delete a load balancer with this option enabled. The default value is `false`.
+
+       {% note warning %}
+
+       This does not apply to its listeners or target groups. 
+
+       {% endnote %}
+
      * `listener`: Listener settings:
        * `name`: Listener name.
        * `port`: Port number (ranging from `1` to `32767`) on which the load balancer will listen to incoming traffic.

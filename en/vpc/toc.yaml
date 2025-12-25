@@ -33,8 +33,6 @@ items:
             href: operations/subnet-get-info.md
           - name: Moving a subnet between folders
             href: operations/subnet-move.md
-          - name: Moving a subnet to a different availability zone
-            href: operations/subnet-relocate.md
           - name: Viewing a list of used addresses
             href: operations/subnet-used-addresses.md
       - name: IP address
@@ -45,6 +43,8 @@ items:
             href: operations/set-static-ip.md
           - name: Converting a static public IP address to dynamic
             href: operations/set-dynamic-ip.md
+          - name: Configuring deletion protection
+            href: operations/deletion-protection.md
           - name: Moving an address between folders
             href: operations/address-move.md
           - name: Getting IP address info
@@ -246,8 +246,8 @@ items:
           - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}
             href: tutorials/vpc-cr-access.md
           - name: >-
-              Synchronizing {{ KF }} topics in {{ objstorage-name }} without
-              using the internet
+              Synchronizing {{ KF }} topics in {{ objstorage-name }} with no web
+              access
             href: tutorials/kafka-topic-s3-sync-private.md
       - name: Additional settings and tools
         items:

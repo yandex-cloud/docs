@@ -16,10 +16,8 @@ items:
         href: operations/ri-create.md
       - name: Изменить параметры Routing Instance
         href: operations/ri-update.md
-      - name: Изменить список IP-префиксов в Routing Instance
+      - name: Управлять сетями и IP-префиксами в Routing Instance
         href: operations/ri-prefixes-upsert.md
-      - name: Удалить IP-префиксы из Routing Instance
-        href: operations/ri-prefixes-remove.md
       - name: Добавить приватное соединение в Routing Instance
         href: operations/ri-priv-con-add.md
       - name: Удалить приватное соединение из Routing Instance

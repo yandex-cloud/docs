@@ -441,6 +441,8 @@ items:
                 href: operations/data-catalog/search-metadata.md
               - name: Analyzing links between metadata
                 href: operations/data-catalog/analysis-metadata.md
+              - name: Getting a data profile
+                href: operations/data-catalog/get-data-profile.md
               - name: Queries against datasets with {{ websql-full-name }}
                 href: operations/data-catalog/web-sql-query.md
       - name: Concepts

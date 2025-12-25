@@ -21,7 +21,6 @@ description: This page provides a list of step-by-step guides for {{ vpc-name }}
 - [{#T}](subnet-update.md)
 - [{#T}](subnet-get-info.md)
 - [{#T}](subnet-move.md)
-- [{#T}](subnet-relocate.md)
 - [{#T}](subnet-used-addresses.md)
 
 ## Addresses {#addresses}
@@ -29,6 +28,7 @@ description: This page provides a list of step-by-step guides for {{ vpc-name }}
 - [{#T}](get-static-ip.md)
 - [{#T}](set-static-ip.md)
 - [{#T}](set-dynamic-ip.md)
+- [{#T}](deletion-protection.md)
 - [{#T}](address-move.md)
 - [{#T}](address-get-info.md)
 - [{#T}](address-delete.md)

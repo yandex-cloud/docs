@@ -1,3 +1,3 @@
-| Услуга                                                                                                                                 | Цена, <br>вкл. НДС |
-|----------------------------------------------------------------------------------------------------------------------------------------| ----- |
-| 1 запрос на [генерацию изображения](../../ai-studio/operations/generation/yandexart-request.md) с помощью {{ yandexart-name }} | {{ sku|RUB|foundation_models.image_generation.v1|string }} |
+| Услуга                                                                                                                                 | Цена до 31.12.2025, <br>вкл. НДС | Цена с 01.01.2026, <br>вкл. НДС |
+|----------------------------------------------------------------------------------------------------------------------------------------| ----- | ----- |
+| 1 запрос на [генерацию изображения](../../ai-studio/operations/generation/yandexart-request.md) с помощью {{ yandexart-name }} | {{ sku|RUB|foundation_models.image_generation.v1|string }} | {% calc [currency=RUB] round(({{ sku|RUB|foundation_models.image_generation.v1|number }} / 120 × 122) × 100) / 100 %} |

@@ -3,6 +3,7 @@ title: Настройки оформления в {{ datalens-full-name }}
 description: Настройки оформления в {{ datalens-full-name }} позволяют изменить внешний вид интерфейса.
 ---
 
+
 # Настройки оформления в {{ datalens-full-name }}
 
 Настройки оформления позволяют изменить настройки внешнего вида интерфейса для всей организации:
@@ -19,6 +20,8 @@ description: Настройки оформления в {{ datalens-full-name }}
 
    ![image](../../_assets/datalens/settings/customization.png)
 
+
+
 ## Стилизация интерфейса {#ui-customization}
 
 Стилизация интерфейса в {{ datalens-short-name }} позволяет настроить внешний вид интерфейса вашей инсталляции сервиса: цвета, логотип и оформление отдельных элементов.
@@ -32,11 +35,13 @@ description: Настройки оформления в {{ datalens-full-name }}
 1. Выберите вкладку **Оформление**.
 1. В разделе **Стилизация интерфейса** нажмите кнопку ![image](../../_assets/console-icons/palette.svg) **Настроить**.
 
+
    {% cut "Настроить стилизацию" %}
 
    ![image](../../_assets/datalens/settings/ui-customization.png)
 
    {% endcut %}
+
 
 1. Настройте оформление:
 
@@ -101,3 +106,5 @@ description: Настройки оформления в {{ datalens-full-name }}
 ### Настроить цветовую палитру по умолчанию {#default-palette}
 
 {% include [default-palette](../../_includes/datalens/settings/default-palette.md) %}
+
+

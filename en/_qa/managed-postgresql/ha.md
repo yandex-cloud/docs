@@ -1,6 +1,6 @@
 #### How to remove a host from the master selection process? {#excluded-host}
 
-You can exclude a host from the master selection when replacing the master host automatically or manually. To do this, set up [cascade replication](../../managed-postgresql/concepts/replication.md#replication-manual): [specify](../../managed-postgresql/operations/hosts.md#update) a replication source for the host you want to exclude.
+You can exclude a host from the master selection process during an automatic or manual failover. To do this, set up [cascading replication](../../managed-postgresql/concepts/replication.md#replication-manual) by [specifying](../../managed-postgresql/operations/hosts.md#update) a replication source for the host you want to exclude.
 
 {% note warning %}
 

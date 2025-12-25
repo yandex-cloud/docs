@@ -1,10 +1,10 @@
-* [Why did the cluster change its status to _Updating_ during an unscheduled backup?](#updating-while-backup)
+* [Why did my cluster switch to the _Updating_ status during an unscheduled backup?](#updating-while-backup)
 
 * [Can I create two {{ PG }} databases at the same time?](#multi-db)
 
-* [Can I change the number of connections available to a user?](#user-conn-number)
+* [How can I change the number of connections available for a user?](#user-conn-number)
 
-* [Can I change the class of an existing host (standard, memory-optimized, burstable)?](#host-class)
+* [Can I change the host class (standard, memory-optimized, burstable) for an existing host?](#host-class)
 
 * [Can I change the disk type in an existing cluster?](#disk-type)
 
@@ -12,4 +12,4 @@
 
 * [Can I create a database using SQL commands?](#create-db-sql)
 
-* [How to recover a cluster from read-only mode?](#read-only-exit)
+* [How do I take a cluster out of read-only mode?](#read-only-exit)

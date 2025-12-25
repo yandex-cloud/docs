@@ -23,11 +23,11 @@ Some extensions require shared libraries to be loaded. To load a library, specif
 * `pg_stat_query_plans`: Required for the [pg_stat_query_plans](https://github.com/postgredients/pg_stat_query_plans) extension.
 * `pgaudit`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 * `pglogical`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
-* `timescaledb`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+* `timescaledb`: Required for the [TimescaleDB](https://github.com/timescale/timescaledb) extension.
 
 {% note warning %}
 
-Loading a shared library will cause {{ PG }} the master host to restart.
+Loading a shared library will cause {{ PG }} on the master host to restart.
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 - Management console {#console}
 
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** section.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** section.
   1. The **{{ ui-key.yacloud.mdb.cluster.databases.column_extensions }}** column will show the list of extensions loaded for each database.
 
 - CLI {#cli}
@@ -58,11 +58,11 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Database.Get](../../api-ref/Database/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Database.Get](../../api-ref/Database/get.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -71,7 +71,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/databases/<DB_name>'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
+     You can get the cluster ID from the [folder’s cluster list](../cluster-list.md#list-clusters), and the database name from the [cluster’s database list](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/Database/get.md#responses) to make sure your request was successful.
 
@@ -79,12 +79,12 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService.Get](../../api-ref/grpc/Database/get.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [DatabaseService.Get](../../api-ref/grpc/Database/get.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -101,7 +101,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Get
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
+     You can get the cluster ID from the [folder’s cluster list](../cluster-list.md#list-clusters), and the database name from the [cluster’s database list](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/grpc/Database/get.md#yandex.cloud.mdb.postgresql.v1.Database) to make sure your request was successful.
 
@@ -140,11 +140,11 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create this file, see [Creating a cluster](../cluster-create.md).
+     To learn how to create this file, see [Creating clusters](../cluster-create.md).
 
      For a complete list of configurable {{ mpg-name }} cluster database settings, refer to the [{{ TF }} provider guides]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
-  1. Add one or more `extension` sections to the relevant cluster database configuration, with one section per extension:
+  1. Add one or more `extension` sections to your cluster database configuration, with one section per extension:
 
       ```hcl
       resource "yandex_mdb_postgresql_database" "<DB_name>" {
@@ -156,21 +156,21 @@ Loading a shared library will cause {{ PG }} the master host to restart.
       }
       ```
 
-  1. Check if the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Database.Update](../../api-ref/Database/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Database.Update](../../api-ref/Database/update.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
      {% include [note-updatemask](../../../_includes/note-api-updatemask.md) %}
 
@@ -203,20 +203,20 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
        * `name`: Extension name.
 
-       Use a name from the [list of supported {{ PG }}](#postgresql) extensions and utilities.
+       Use names from the [list of supported {{ PG }}](#postgresql) extensions and utilities.
 
-     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
+     You can get the cluster ID from the [folder’s cluster list](../cluster-list.md#list-clusters), and the database name from the [cluster’s database list](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/Database/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService.Update](../../api-ref/grpc/Database/update.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [DatabaseService.Update](../../api-ref/grpc/Database/update.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
      {% include [note-grpc-updatemask](../../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -258,9 +258,9 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
        * `name`: Extension name.
 
-       Use a name from the [list of supported {{ PG }}](#postgresql) extensions and utilities.
+       Use names from the [list of supported {{ PG }}](#postgresql) extensions and utilities.
 
-     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
+     You can get the cluster ID from the [folder’s cluster list](../cluster-list.md#list-clusters), and the database name from the [cluster’s database list](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -289,8 +289,8 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[clickhouse_fdw](https://github.com/adjust/clickhouse_fdw)</p><p>Adds a [foreign data wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing {{ CH }} databases, with support for `SELECT FROM` and `INSERT INTO` operations.</p><p>The extension is not supported in {{ PG }} version 16 and above. Use [{{ data-transfer-full-name }}](../../../data-transfer/tutorials/rdbms-to-clickhouse.md) to import data into a {{ CH }} database.</p> | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 | - | - ||
 || <p>[cube]({{ pg-docs }}/static/cube.html)</p><p>Contains the `cube` data type for representing multidimensional cubes.</p> | 1.4 | 1.4 | 1.4 | 1.5 | 1.5 | 1.5 | 1.5 ||
 || <p>[dblink]({{ pg-docs }}/static/dblink.html)</p><p>Enables connections to other {{ PG }} databases from within the current session.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
-|| <p>[dict_int]({{ pg-docs }}/static/dict-int.html)</p><p>Contains an example of an additional dictionary template for full-text search. This template helps to control the size of the unique word list, which improves search performance.</p><p>For full-text search, you can also use [Hunspell dictionaries](hunspell.md) alongside the extension.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[dict_xsyn]({{ pg-docs }}/static/dict-xsyn.html)</p><p>(Extended Synonym Dictionary) contains an example of an add-on dictionary template for full-text search. It allows searching for a word using any of its synonyms.</p><p>For full-text search, you can also use [Hunspell dictionaries](hunspell.md) alongside the extension.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | - ||
+|| <p>[dict_int]({{ pg-docs }}/static/dict-int.html)</p><p>Contains an example of an additional dictionary template for full-text search. This template helps to control the size of the unique word list, which improves search performance.</p><p>For full-text search, you can also use [Hunspell dictionaries](hunspell.md) alongside this extension.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
+|| <p>[dict_xsyn]({{ pg-docs }}/static/dict-xsyn.html)</p><p>Contains an example of an extended synonym dictionary template for full-text search, which expands search results by including all synonyms of the target word.</p><p>For full-text search, you can also use [Hunspell dictionaries](hunspell.md) alongside this extension.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | - ||
 || <p>[earthdistance]({{ pg-docs }}/static/earthdistance.html)</p><p>Provides a module for calculating distances between geographical points. Distance calculation is performed using two methods:
 * Using the `cube` data type, which requires you to enable the `cube` extension.
 * Using the built-in `point` data type.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
@@ -310,7 +310,7 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[oracle_fdw](https://github.com/laurenz/oracle_fdw)</p><p>Adds a [foreign data wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing Oracle databases.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || <p>[orafce](https://github.com/orafce/orafce)</p><p>Provides functions and operators emulating Oracle database functions and packages.</p> | 3.18 | 3.18 | 3.18 | 3.18 | 3.25 | 4.6 | 4.13 ||
 || <p>[pg_buffercache]({{ pg-docs }}/pgbuffercache.html)</p><p>Provides functions for shared buffer cache monitoring.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.4 | 1.5 ||
-|| <p>[pg_cron](https://github.com/citusdata/pg_cron)</p><p>Enables you to schedule database jobs and execute SQL queries directly within them.</p><p>Requires [enabling the `pg_cron` shared library](#libraries-connection).</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p><p>Loading this extension will cause all hosts to restart. For more information, see [Using pg_cron](./pg_cron.md).</p> | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.5 | 1.6 ||
+|| <p>[pg_cron](https://github.com/citusdata/pg_cron)</p><p>Enables you to schedule database jobs and execute SQL queries directly within them.</p><p>Using this extension requires you to [enable the `pg_cron` shared library](#libraries-connection).</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p><p>Loading this extension will cause all hosts to restart. For more information, see [Using pg_cron](./pg_cron.md).</p> | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.5 | 1.6 ||
 || <p>[pg_hint_plan](http://pghintplan.osdn.jp/)</p><p>Provides functions for managing the {{ PG }} planner.</p><p>Using this extension requires you to [enable the `pg_hint_plan` shared library](#libraries-connection).</p> | 1.3.4 | 1.3.5 | 1.3.7 | 1.4 | 1.5 | 1.6.0 | 1.7.0 ||
 || <p>[pg_partman](https://github.com/pgpartman/pg_partman)</p><p>Adds advanced table partitioning options, including time-based and sequence-based partitioning.</p>  | 4.0.0 | 4.2.0 | 4.4.0 | 4.6.0 | 4.7.0 | 4.7.4 | 5.1.0 ||
 || <p>[pg_prewarm]({{ pg-docs }}/pgprewarm.html)</p><p>Enables loading relation data into the OS cache or the {{ PG }} buffer cache.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
@@ -364,6 +364,6 @@ Command syntax:
 
 Using this utility requires you to enable the `pgstattuple` extension.
 
-To use it, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.
+Also, to use it you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
