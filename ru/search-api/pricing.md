@@ -32,7 +32,7 @@ editable: false
 
 - Цены в рублях {#prices-rub}
 
-  {% include notitle [rub.md](../_pricing/search-api/rub.md) %}
+  {% include notitle [rub](../_pricing/search-api/rub.md) %}
 
 - Цены в тенге {#prices-kzt}
 

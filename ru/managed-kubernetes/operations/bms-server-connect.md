@@ -1,4 +1,5 @@
 ---
+noIndex: true
 title: Как подключить сервер {{ baremetal-full-name }} как внешний узел к кластеру {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы сможете подключить сервер {{ baremetal-name }} к кластеру {{ managed-k8s-name }} в качестве внешнего узла.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/k8s-connect-bms-as-node'

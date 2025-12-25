@@ -1,6 +1,6 @@
 * [Is `autovacuum` enabled for all tables by default?](#autovacuum)
 
-* [What are the default LC_COLLATE and LC_CTYPE values for databases?](#lc-default)
+* [What are the default values for LC_COLLATE and LC_CTYPE database settings?](#lc-default)
 
 * [Can I change the LC_COLLATE and LC_CTYPE values?](#lc-edit)
 

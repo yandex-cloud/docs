@@ -1,5 +1,5 @@
-| Услуга                            | Цена за единицу тарификации, <br>вкл. НДС     |
-|-----------------------------------|-----------------------------------------|
-| Входящее аудио, за 1 секунду | {{ sku|RUB|foundation_models.realtime_audio.input.v1|string }} |
-| Исходящее аудио, за 1 секунду | {{ sku|RUB|foundation_models.realtime_audio.output.v1|string }} |
-| Генерация текста, за 1000 токенов | {% calc [currency=RUB] 4 × {{ sku|RUB|foundation_models.text_generation.v1|number }} %} |
+| Услуга                            | Цена за единицу тарификации до 31.12.2025, <br>вкл. НДС     | Цена за единицу тарификации с 01.01.2026, <br>вкл. НДС     |
+|-----------------------------------|-----------------------------------------|-----------------------------------------|
+| Входящее аудио, за 1 секунду | {{ sku|RUB|foundation_models.realtime_audio.input.v1|string }} | {% calc [currency=RUB] round(({{ sku|RUB|foundation_models.realtime_audio.input.v1|number }} / 120 × 122) × 10000) / 10000 %} |
+| Исходящее аудио, за 1 секунду | {{ sku|RUB|foundation_models.realtime_audio.output.v1|string }} | {% calc [currency=RUB] round(({{ sku|RUB|foundation_models.realtime_audio.output.v1|number }} / 120 × 122) × 100) / 100 %} |
+| Генерация текста, за 1000 токенов | {% calc [currency=RUB] 4 × {{ sku|RUB|foundation_models.text_generation.v1|number }} %} | {% calc [currency=RUB] round((4 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} |

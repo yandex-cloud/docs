@@ -63,7 +63,8 @@ Creates a Spark cluster.
     },
     "metastore": {
       "cluster_id": "string"
-    }
+    },
+    "spark_version": "string"
   },
   "network": {
     "subnet_ids": [
@@ -98,26 +99,36 @@ Creates a Spark cluster.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to create Spark cluster in. ||
+Required field. ID of the folder to create Spark cluster in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the Spark cluster. The name must be unique within the folder. ||
+Required field. Name of the Spark cluster. The name must be unique within the folder.
+
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-z][-a-z0-9]{1,61}[a-z0-9]$ `. ||
 || description | **string**
 
-Description of the Spark cluster. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>) ||
+Description of the Spark cluster. 0-256 characters long.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || config | **[ClusterConfig](#yandex.cloud.spark.v1.ClusterConfig)**
 
-Required field.  ||
+Required field. ||
 || network | **[NetworkConfig](#yandex.cloud.spark.v1.NetworkConfig)**
 
-Required field.  ||
+Required field. ||
 || deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
 || service_account_id | **string**
 
-Required field. Service account that will be used to access YC resources ||
+Required field. Service account that will be used to access YC resources
+
+The maximum string length in characters is 50. ||
 || logging | **[LoggingConfig](#yandex.cloud.spark.v1.LoggingConfig)**
 
 Cloud logging configuration ||
@@ -132,7 +143,7 @@ Window of maintenance operations. ||
 ||Field | Description ||
 || resource_pools | **[ResourcePools](#yandex.cloud.spark.v1.ResourcePools)**
 
-Required field.  ||
+Required field. ||
 || history_server | **[HistoryServerConfig](#yandex.cloud.spark.v1.HistoryServerConfig)**
 
 Configuration for HistoryServer ||
@@ -142,6 +153,9 @@ Container custom environment dependencies ||
 || metastore | **[Metastore](#yandex.cloud.spark.v1.Metastore)**
 
 Metastore Cluster ||
+|| spark_version | **string**
+
+Spark version. Format: "Major.Minor" ||
 |#
 
 ## ResourcePools {#yandex.cloud.spark.v1.ResourcePools}
@@ -150,10 +164,10 @@ Metastore Cluster ||
 ||Field | Description ||
 || driver | **[ResourcePool](#yandex.cloud.spark.v1.ResourcePool)**
 
-Required field.  ||
+Required field. ||
 || executor | **[ResourcePool](#yandex.cloud.spark.v1.ResourcePool)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## ResourcePool {#yandex.cloud.spark.v1.ResourcePool}
@@ -162,10 +176,12 @@ Required field.  ||
 ||Field | Description ||
 || resource_preset_id | **string**
 
-Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.). ||
+Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
+
+The maximum string length in characters is 50. ||
 || scale_policy | **[ScalePolicy](#yandex.cloud.spark.v1.ScalePolicy)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## ScalePolicy {#yandex.cloud.spark.v1.ScalePolicy}
@@ -184,15 +200,21 @@ Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 
 #|
 ||Field | Description ||
-|| size | **int64** ||
+|| size | **int64**
+
+Acceptable values are 1 to 100, inclusive. ||
 |#
 
 ## AutoScale {#yandex.cloud.spark.v1.ScalePolicy.AutoScale}
 
 #|
 ||Field | Description ||
-|| min_size | **int64** ||
-|| max_size | **int64** ||
+|| min_size | **int64**
+
+Acceptable values are 0 to 100, inclusive. ||
+|| max_size | **int64**
+
+Acceptable values are 1 to 100, inclusive. ||
 |#
 
 ## HistoryServerConfig {#yandex.cloud.spark.v1.HistoryServerConfig}
@@ -214,7 +236,9 @@ Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 
 #|
 ||Field | Description ||
-|| cluster_id | **string** ||
+|| cluster_id | **string**
+
+The maximum string length in characters is 50. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.spark.v1.NetworkConfig}
@@ -236,8 +260,12 @@ User security groups ||
 || enabled | **bool** ||
 || folder_id | **string**
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `folder_id`, `log_group_id`. ||
 || log_group_id | **string**
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folder_id`, `log_group_id`. ||
 |#
@@ -267,7 +295,6 @@ Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 ||Field | Description ||
 || day | enum **WeekDay**
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -277,7 +304,9 @@ Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC. ||
+Hour of the day in UTC.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -346,7 +375,8 @@ Hour of the day in UTC. ||
       },
       "metastore": {
         "cluster_id": "string"
-      }
+      },
+      "spark_version": "string"
     },
     "status": "Status",
     "network": {
@@ -466,7 +496,9 @@ Spark cluster.
 || id | **string**
 
 Required field. Unique ID of the Spark cluster.
-This ID is assigned by Cloud in the process of creating a Spark cluster. ||
+This ID is assigned by Cloud in the process of creating a Spark cluster.
+
+The maximum string length in characters is 50. ||
 || folder_id | **string**
 
 ID of the folder that the Spark cluster belongs to. ||
@@ -502,7 +534,9 @@ Cluster status.
 Deletion Protection inhibits deletion of the cluster ||
 || service_account_id | **string**
 
-Service account that will be used to access a YC resources ||
+Service account that will be used to access a YC resources
+
+The maximum string length in characters is 50. ||
 || logging | **[LoggingConfig](#yandex.cloud.spark.v1.LoggingConfig2)**
 
 Cloud logging configuration. ||
@@ -531,7 +565,7 @@ Maintenance operation planned at nearest maintenance_window. ||
 ||Field | Description ||
 || resource_pools | **[ResourcePools](#yandex.cloud.spark.v1.ResourcePools2)**
 
-Required field.  ||
+Required field. ||
 || history_server | **[HistoryServerConfig](#yandex.cloud.spark.v1.HistoryServerConfig2)**
 
 Configuration for HistoryServer ||
@@ -541,6 +575,9 @@ Container custom environment dependencies ||
 || metastore | **[Metastore](#yandex.cloud.spark.v1.Metastore2)**
 
 Metastore Cluster ||
+|| spark_version | **string**
+
+Spark version. Format: "Major.Minor" ||
 |#
 
 ## ResourcePools {#yandex.cloud.spark.v1.ResourcePools2}
@@ -549,10 +586,10 @@ Metastore Cluster ||
 ||Field | Description ||
 || driver | **[ResourcePool](#yandex.cloud.spark.v1.ResourcePool2)**
 
-Required field.  ||
+Required field. ||
 || executor | **[ResourcePool](#yandex.cloud.spark.v1.ResourcePool2)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## ResourcePool {#yandex.cloud.spark.v1.ResourcePool2}
@@ -561,10 +598,12 @@ Required field.  ||
 ||Field | Description ||
 || resource_preset_id | **string**
 
-Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.). ||
+Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
+
+The maximum string length in characters is 50. ||
 || scale_policy | **[ScalePolicy](#yandex.cloud.spark.v1.ScalePolicy2)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## ScalePolicy {#yandex.cloud.spark.v1.ScalePolicy2}
@@ -583,15 +622,21 @@ Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 
 #|
 ||Field | Description ||
-|| size | **int64** ||
+|| size | **int64**
+
+Acceptable values are 1 to 100, inclusive. ||
 |#
 
 ## AutoScale {#yandex.cloud.spark.v1.ScalePolicy.AutoScale2}
 
 #|
 ||Field | Description ||
-|| min_size | **int64** ||
-|| max_size | **int64** ||
+|| min_size | **int64**
+
+Acceptable values are 0 to 100, inclusive. ||
+|| max_size | **int64**
+
+Acceptable values are 1 to 100, inclusive. ||
 |#
 
 ## HistoryServerConfig {#yandex.cloud.spark.v1.HistoryServerConfig2}
@@ -613,7 +658,9 @@ Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 
 #|
 ||Field | Description ||
-|| cluster_id | **string** ||
+|| cluster_id | **string**
+
+The maximum string length in characters is 50. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.spark.v1.NetworkConfig2}
@@ -635,8 +682,12 @@ User security groups ||
 || enabled | **bool** ||
 || folder_id | **string**
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `folder_id`, `log_group_id`. ||
 || log_group_id | **string**
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folder_id`, `log_group_id`. ||
 |#
@@ -674,7 +725,6 @@ Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 ||Field | Description ||
 || day | enum **WeekDay**
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -684,14 +734,18 @@ Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC. ||
+Hour of the day in UTC.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.spark.v1.MaintenanceOperation}
 
 #|
 ||Field | Description ||
-|| info | **string** ||
+|| info | **string**
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || latest_maintenance_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || next_maintenance_window_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||

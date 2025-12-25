@@ -9,10 +9,10 @@ description: Следуя данной инструкции, вы сможете
 
 Возможность недоступна для следующих типов чартов:
 
-* [{#T}](../../visualization-ref/indicator-chart.md)
-* [{#T}](../../visualization-ref/table-chart.md)
-* [{#T}](../../visualization-ref/pivot-table-chart.md)
-* [{#T}](../../visualization-ref/map-chart.md)
+* [Индикатор](../../visualization-ref/indicator-chart.md)
+* [Таблица](../../visualization-ref/table-chart.md)
+* [Сводная таблица](../../visualization-ref/pivot-table-chart.md)
+* [Карта](../../visualization-ref/map-chart.md)
 
 Чтобы открыть чарт в виде таблицы, воспользуйтесь одним из способов:
 

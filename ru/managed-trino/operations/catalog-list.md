@@ -11,7 +11,8 @@ description: Следуя этой инструкции, сможете полу
 
 - Консоль управления {#console}
 
-    1. На странице [каталога ресурсов]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Нажмите на имя нужного кластера.
     1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
 
@@ -95,7 +96,8 @@ description: Следуя этой инструкции, сможете полу
 
 - Консоль управления {#console}
 
-    1. На странице [каталога ресурсов]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Нажмите на имя нужного кластера.
     1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
     1. Нажмите на имя нужного каталога {{ TR }}.

@@ -97,6 +97,12 @@ items:
                 href: api-ref/grpc/Cluster/stop.md
               - name: ListOperations
                 href: api-ref/grpc/Cluster/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Job
             items:
               - name: Overview

@@ -2,7 +2,7 @@
 
   {{ PG }} transaction log archiving interval (ms).
 
-  The valid values range from `10000` to `86400000`. The default value is `30000`.
+  The minimum value is `10000`, the maximum is `86400000`, and the default is `30000`.
 
   For more information, see the `archive_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-ARCHIVE-TIMEOUT).
 
@@ -82,7 +82,7 @@
 
   Fraction of changed or deleted rows in a table that will trigger the [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) process to run the `ANALYZE` command for statistics collection.
 
-  The valid values range from `0.0` to `1.0`. The default value is `0.0001`.
+  The minimum value is `0.0`, the maximum is `1.0`, and the default is `0.0001`.
 
   For more information, see the `autovacuum_analyze_scale_factor` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-SCALE-FACTOR).
 
@@ -98,7 +98,7 @@
 
   Determines the minimum interval (in ms) between [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) jobs. To avoid overloading the database during periods of frequent data changes, increase this setting.
 
-  The valid values range from `1000` to `86400000`. The default value is `15000`.
+  The minimum value is `1000`, the maximum is `86400000`, and the default is `15000`.
 
   For more information, see the `autovacuum_naptime` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME).
 
@@ -140,7 +140,7 @@
 
   Fraction of a table’s size that is added to [Autovacuum vacuum insert threshold](#setting-autovacuum-vacuum-insert-threshold) to determine the condition for triggering an [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
 
-  The valid values range from `0.0` to `1.0`. The default value is `0.2`.
+  The minimum value is `0.0`, the maximum is `1.0`, and the default is `0.2`.
 
   {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
@@ -199,7 +199,7 @@
 
   Time (in ms) between background writer runs. This process writes new or changed pages from the {{ PG }} buffer cache to the disk. The delay prevents rewriting the same page on every update, thus reducing disk load.
 
-  The valid values range from `10` to `10000`. The default value is `200`.
+  The minimum value is `10`, the maximum is `10000`, and the default is `200`.
 
   For more information, see the `bgwriter_delay` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-DELAY).
 
@@ -207,7 +207,7 @@
 
   Maximum amount of data (in KB) processed by the background writer. When this limit is exceeded, the DBMS instructs the OS to flush the data to disk. This setting limits the amount of <q>dirty</q> data in the kernel page cache, reducing the risk of slowdowns when executing `fsync` at the end of a checkpoint or during the OS’s background writeback process.
 
-  The valid values range from `0` to `2048`. The default value is `512`.
+  The minimum value is `0`, the maximum is `2048`, and the default is `512`.
 
   For more information, see the `bgwriter_flush_after` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-FLUSH-AFTER).
 
@@ -215,7 +215,7 @@
 
   Maximum number of {{ PG }} buffer cache pages the background writer can save per activity round. A value of zero disables background writing.
 
-  The valid values range from `0` to `1073741823`. The default value is `100`.
+  The minimum value is `0`, the maximum is `1073741823`, and the default is `100`.
 
   For more information, see the `bgwriter_lru_maxpages` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MAXPAGES).
 
@@ -223,7 +223,7 @@
 
   Multiplier determining the factor by which the average number of buffers held by the background writeback process will be increased during the next round.
 
-  The valid values range from `0` to `10`. The default value is `2`.
+  The minimum value is `0`, the maximum is `10`, and the default is `2`.
 
   For more information, see the `bgwriter_lru_multiplier` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MULTIPLIER).
 
@@ -242,7 +242,7 @@
 
   Fraction of the checkpoint interval determining the maximum allowed time for a checkpoint to complete. For example, if this value is set to `0.5`, the checkpoint will finish with about half the time left until the next checkpoint.
 
-  The valid values range from `0.0` to `1.0`. The default value is `0.5`.
+  The minimum value is `0.0`, the maximum is `1.0`, and the default is `0.5`.
 
   For more information, see the `checkpoint_completion_target` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/wal-configuration.html).
 
@@ -250,7 +250,7 @@
 
   The amount of dirty data in memory (in KB) that triggers a flush during a checkpoint. Pages beyond this limit will be flushed to disk and deleted from the OS page cache.
 
-  The valid values range from `0` to `2048`. The default value is `256`.
+  The minimum value is `0`, the maximum is `2048`, and the default is `256`.
 
   For more information, see the `checkpoint_flush_after` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-FLUSH-AFTER).
 
@@ -258,7 +258,7 @@
 
   Interval between checkpoints (in ms).
 
-  The valid values range from `30000` to `86400000`. The default value is `300000`.
+  The minimum value is `30000`, the maximum is `86400000`, and the default is `300000`.
 
   For more information, see the `checkpoint_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-TIMEOUT).
 
@@ -274,7 +274,7 @@
 
 - **Client min messages**{#setting-client-min-messages} {{ tag-all }}
 
-  Level of logging messages sent to client applications. Possible values (in ascending order of severity): `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal`, and `panic` (for {{ TF }}, API, and CLI, `LOG_LEVEL_DEBUG5`, `LOG_LEVEL_DEBUG4`, `LOG_LEVEL_DEBUG3`, `LOG_LEVEL_DEBUG2`, `LOG_LEVEL_DEBUG1`, `LOG_LEVEL_INFO`, `LOG_LEVEL_NOTICE`, `LOG_LEVEL_WARNING`, `LOG_LEVEL_ERROR`, `LOG_LEVEL_LOG`, `LOG_LEVEL_FATAL`, and `LOG_LEVEL_PANIC`).
+  Logging level for messages sent to client applications. Possible values (in ascending order of severity): `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal`, and `panic` (for {{ TF }}, API, and CLI, `LOG_LEVEL_DEBUG5`, `LOG_LEVEL_DEBUG4`, `LOG_LEVEL_DEBUG3`, `LOG_LEVEL_DEBUG2`, `LOG_LEVEL_DEBUG1`, `LOG_LEVEL_INFO`, `LOG_LEVEL_NOTICE`, `LOG_LEVEL_WARNING`, `LOG_LEVEL_ERROR`, `LOG_LEVEL_LOG`, `LOG_LEVEL_FATAL`, and `LOG_LEVEL_PANIC`).
 
   The default value is `NOTICE`.
 
@@ -284,7 +284,7 @@
 
   Allows the planner to use table constraints for query optimization.
 
-  Allowed values:
+  The allowed values are:
 
   - `on` (`CONSTRAINT_EXCLUSION_ON` for {{ TF }}, API, and CLI): Use constraints for all tables.
   - `off` (`CONSTRAINT_EXCLUSION_OFF` for {{ TF }}, API, and CLI): Do not use constraints.
@@ -298,7 +298,7 @@
 
   Defines the planner's estimate for the fraction of rows that will be retrieved via a cursor.
 
-  The valid values range from `0.0` to `1.0`. The default value is `0.1`.
+  The minimum value is `0.0`, the maximum is `1.0`, and the default is `0.1`.
 
   For more information, see the `cursor_tuple_fraction` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CURSOR-TUPLE-FRACTION).
 
@@ -306,7 +306,7 @@
 
   Timeout period (in ms) before the system will check for a deadlock condition.
 
-  The valid values range from `1` to `2147483647`. The default value is `1000`.
+  The minimum value is `1`, the maximum is `2147483647`, and the default is `1000`.
 
   For more information, see the `deadlock_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-DEADLOCK-TIMEOUT).
 
@@ -316,7 +316,7 @@
 
   For more accurate planner estimates, increase this setting.
 
-  The valid values range from `1` to `10000`. The default value is `1000`.
+  The minimum value is `1`, the maximum is `10000`, and the default is `1000`.
 
   For more information, see the `default_statistics_target` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET).
 
@@ -324,7 +324,7 @@
 
   This setting determines the default isolation level for new SQL transactions.
 
-  Allowed values:
+  The allowed values are:
 
   - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` for {{ TF }}, API, and CLI): A query can only see rows that were committed before it started.
   - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` for {{ TF }}, API, and CLI): In {{ PG }}, this isolation level is identical to `read committed`.
@@ -370,7 +370,7 @@
 
   Maximum of concurrent disk I/O operations per database session. A higher value increases the number of operations that a {{ PG }} session will try to run concurrently.
 
-  The valid values range from `0` to `1000`. The default value is `1`.
+  The minimum value is `0`, the maximum is `1000`, and the default is `1`.
 
   For more information, see the `effective_io_concurrency` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-EFFECTIVE-IO-CONCURRENCY).
 
@@ -389,7 +389,7 @@
   Allows the planner to perform a Bitmap Index Scan, even if it is not explicitly specified in the query. This access method is similar to a regular index scan, but occurs in two stages:
 
   1. A Bitmap Index Scan builds a bitmap, marking all relevant row locations.
-  1. Then the system performs a Bitmap Heap Scan on the table. In this case, the following applies:
+  1. Then the system performs a Bitmap Heap Scan on the table. This approach has the following benefits:
 
      - Sequential page reads increase the chance of hitting the OS cache.
      - The system reads each page only once.
@@ -572,7 +572,7 @@
 
   As long as the number of elements in the `FROM` clause does not exceed this setting, the query planner will merge subqueries with the outer query. Decreasing this value reduces planning time, but can result in a less efficient query plan.
 
-  The valid values range from `1` to `2147483647`. The default value is `8`.
+  The minimum value is `1`, the maximum is `2147483647`, and the default is `8`.
 
   For more information, see the `from_collapse_limit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT).
 
@@ -590,7 +590,7 @@
 
   A higher value increases query planning time but also raises the probability of selecting an efficient query plan. This setting does not directly control the algorithm; instead, it is used to calculate default values for other settings.
 
-  The valid values range from `1` to `10`. The default value is `5`.
+  The minimum value is `1`, the maximum is `10`, and the default is `5`.
 
   For more information, see the `geqo_effort` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-EFFORT).
 
@@ -620,7 +620,7 @@
 
   Changing this setting alters the set of join paths explored, which may either improve or degrade the effectiveness of the resulting path.
 
-  The valid values range from `0` to `1`. The default value is `0`.
+  The minimum value is `0`, the maximum is `1`, and the default is `0`.
 
   For more information, see the `geqo_seed` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SEED).
 
@@ -628,7 +628,7 @@
 
   Defines the selection pressure within the [GEQO](https://www.postgresql.org/docs/current/geqo.html) population.
 
-  The valid values range from `1.50` to `2.00`. The default value is `2.00`.
+  The minimum value is `1.50`, the maximum is `2.00`, and the default is `2.00`.
 
   For more information, see the `geqo_selection_bias` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SELECTION-BIAS).
 
@@ -638,7 +638,7 @@
 
   For small queries, it is generally better to use the standard planner performing an exhaustive search. However, for queries involving a large number of tables, an exhaustive search method may take longer than just using a suboptimal plan.
 
-  The valid values range from `2` to `2147483647`. The default value is `12`.
+  The minimum value is `2`, the maximum is `2147483647`, and the default is `12`.
 
   For more information, see the `geqo_threshold` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-THRESHOLD).
 
@@ -654,7 +654,7 @@
 
   Defines the maximum amount of memory available for hash table operations. The total amount is calculated as this setting’s value multiplied by [Work mem](#setting-work-mem).
 
-  The valid values range from `0.0` to `1000.0`. The default value is `1.0`.
+  The minimum value is `0.0`, the maximum is `1000.0`, and the default is `1.0`.
 
   {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
@@ -664,7 +664,7 @@
 
   Open transaction idle timeout (in ms). If exceeded, the transaction's session will be terminated.
 
-  The valid values range from `0` to `2147483647`. The default value is `0`.
+  The minimum value is `0`, the maximum is `2147483647`, and the default is `0`.
 
   For more information, see the `idle_in_transaction_session_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT).
 
@@ -680,7 +680,7 @@
 
   Defines a threshold for the number of elements in the `FROM` list. Until it is exceeded, the planner will transfer explicit `JOIN` constructs (with the exception of `FULL JOIN`) into the list. Decreasing this value reduces planning time, but can result in a less efficient query plan.
 
-  The valid values range from `1` to `2147483647`. The default value is `8`.
+  The minimum value is `1`, the maximum is `2147483647`, and the default is `8`.
 
   For more information, see the `join_collapse_limit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT).
 
@@ -778,7 +778,7 @@
 
 - **Log min error statement**{#setting-log-min-error-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Defines the logging level for SQL runtime errors. The system logs statement execution information if the statement completes with an error of the specified severity level or higher. Possible values: `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
+  Defines the logging level for SQL runtime errors. The system logs statement execution information if the statement completes with an error of the specified severity level or higher. The possible values are `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL` and `PANIC`.
 
   The default value is `ERROR`. This means {{ PG }} will log all statements that ended with an error of the `ERROR`, `LOG`, `FATAL`, or `PANIC` severity level.
 
@@ -788,7 +788,7 @@
 
 - **Log min messages**{#setting-log-min-messages} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Defines the {{ PG }} logging level. The system logs all messages with the selected severity level or higher. Possible values (in ascending order of severity): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
+  Defines the {{ PG }} logging level. The system logs all messages with the selected severity level or higher. The possible values, from least to most severe, are: `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
 
   The default value is `WARNING`. This means {{ PG }} will log all messages with the `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC` severity level.
 
@@ -834,7 +834,7 @@
 
   Filter for SQL statements to be logged by {{ PG }}:
 
-  - `none` (`LOG_STATEMENT_NONE` for {{ TF }}, CLI, and API): The filter is disabled, no SQL statements are logged.
+  - `none` (`LOG_STATEMENT_NONE` for {{ TF }}, CLI, and API): No SQL statements are logged.
   - `ddl` (`LOG_STATEMENT_DDL` for {{ TF }}, CLI, and API): System logs DDL statements, e.g., `CREATE`, `ALTER`, `DROP` etc.
   - `mod` (`LOG_STATEMENT_MOD` for {{ TF }}, CLI, and API): System logs `ddl`-statements along with data modification commands, e.g., `INSERT`, `UPDATE`, etc.
   - `all` (`LOG_STATEMENT_ALL` for {{ TF }}, CLI, and API): System logs all SQL statements.
@@ -849,7 +849,7 @@
 
   Fraction of SQL statements that will be logged as a supplement to statements logged for other reasons.
 
-  The valid values range from `0.0` to `1.0`. The default value is `0.0`.
+  The minimum value is `0.0`, the maximum is `1.0`, and the default is `0.0`.
 
   {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
@@ -867,7 +867,7 @@
 
   Fraction of transactions whose statements will be logged as a supplement to statements logged for other reasons.
 
-  The valid values range from `0.0` to `1.0`. The default value is `0.0`.
+  The minimum value is `0.0`, the maximum is `1.0`, and the default is `0.0`.
 
   {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-12.md) %}
 
@@ -887,7 +887,7 @@
 
   Maximum concurrent disk I/O operations per session during {{ PG }} maintenance involving `VACUUM`, `CREATE INDEX`, and `ALTER TABLE ADD FOREIGN KEY` statements. Increasing this value will allow more {{ PG }} maintenance statements to run in parallel.
 
-  The valid values range from `0` to `1000`. The default value is `10`.
+  The minimum value is `0`, the maximum is `1000`, and the default is `10`.
 
   {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
@@ -923,7 +923,7 @@
 
   Average number of objects that can be locked by a single transaction. Individual transactions can lock more objects as long as the total number of objects locked by all transactions fits in the lock table.
 
-  The valid values range from `10` to `2147483647`. The default value is `64`.
+  The minimum value is `10`, the maximum is `2147483647`, and the default is `64`.
 
   For more information, see the `max_locks_per_transaction` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-LOCKS-PER-TRANSACTION).
 
@@ -939,7 +939,7 @@
 
   Maximum number of parallel {{ PG }} processes that can be initiated by a single maintenance statement, e.g., `CREATE INDEX`.
 
-  The valid values range from `0` to `1024`. The default value is `2`.
+  The minimum value is `0`, the maximum is `1024`, and the default is `2`.
 
   For more information, see the `max_parallel_maintenance_workers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-MAINTENANCE-WORKERS).
 
@@ -947,7 +947,7 @@
 
   Maximum number of parallel {{ PG }} processes.
 
-  The valid values range from `0` to `1024`. The default value is `8`.
+  The minimum value is `0`, the maximum is `1024`, and the default is `8`.
 
   For more information, see the `max_parallel_workers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS).
 
@@ -955,7 +955,7 @@
 
   Maximum number of parallel processes that can be launched by a single [Gather](https://www.postgresql.org/docs/current/how-parallel-query-works.html) node.
 
-  The valid values range from `0` to `1024`. The default value is `2`.
+  The minimum value is `0`, the maximum is `1024`, and the default is `2`.
 
   For more information, see the `max_parallel_workers_per_gather` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER).
 
@@ -971,7 +971,7 @@
 
   Maximum number of transactions that can be in a [prepared state](https://www.postgresql.org/docs/current/sql-prepare-transaction.html) simultaneously.
 
-  The valid values range from `0` to `262143`. The default value is `0`.
+  The minimum value is `0`, the maximum is `262143`, and the default is `0`.
 
   For more information, see the `max_prepared_transactions` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS).
 
@@ -1005,7 +1005,7 @@
 
   Maximum number of parallel connections allowed from replication source hosts.
 
-  The valid values range from `20` to `100`. By default, the system uses the minimum value.
+  This setting can range from `20` to `100`. By default, the system uses the minimum value.
 
   For more information, see the `max_wal_senders` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
 
@@ -1021,7 +1021,7 @@
 
   Maximum number of {{ PG }} background processes that can be run on the current system.
 
-  The valid values range from `0` to `1024`. The default value is `8`.
+  The minimum value is `0`, the maximum is `1024`, and the default is `8`.
 
   For more information, see the `max_worker_processes` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES).
 
@@ -1108,7 +1108,7 @@
 
 - **Pg qualstats resolve oids**{#setting-pg-qualstats-resolve-oids} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Enables table `OID`-to-name recovery during query statistics collection for the `pg_qualstats` module. This setting simplifies data analysis, but requires more disk space to store statistics. This setting only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is on.
+  Enables table `OID`-to-name recovery during query statistics collection for the `pg_qualstats` module. This setting simplifies data analysis, but requires more disk space to store statistics. It only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is on.
 
   This setting is disabled by default.
 
@@ -1226,7 +1226,7 @@
 
   Maximum statement runtime (in ms) before it is aborted.
 
-  The valid values range from `0` to `2147483647`. The default value is `0`.
+  The minimum value is `0`, the maximum is `2147483647`, and the default is `0`.
 
   For more information, see the `statement_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT).
 
@@ -1242,27 +1242,27 @@
 
   Determines the [WAL](https://www.postgresql.org/docs/current/wal-intro.html) processing stage at which a transaction is considered committed.
 
-  Allowed values:
+  The allowed values are:
 
   {% list tabs group=instructions %}
 
   - Management console/CLI {#console}
 
-    - `on`: Transaction is committed once its WAL record is written both to the master’s disk and to the disks of every quorum replica.
-    - `off`: Transaction is committed even before its data has been written to the WAL. Due to the asynchronous nature of writes, transaction data in this case can be lost in the event of a disk subsystem failure.
+    - `on`: Transaction is committed once its WAL record is written to the master’s disk and to the disks of the quorum of replicas.
+    - `off`: Transaction is committed even if its data has not yet been flushed to WAL. Due to the asynchronous nature of writes, transaction data in this case can be lost in the event of a disk subsystem failure.
     - `local`: Transaction is committed once its WAL record is written to the master’s disk.
-    - `remote_write`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replicas have received the WAL and provided it to the OS for writing to disk. If the master’s disk fails and the operating systems on quorum replicas crash, transaction data with this synchronization level can be lost.
-    - `remote_apply`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replicas have received the WAL and applied the changes it contains.
+    - `remote_write`: Transaction is committed once its WAL record is written to the master’s disk and every quorum replica has received the WAL and passed it to its operating system for writing to disk. If the master’s disk fails and the operating system on a quorum replica crashes, transaction data with this synchronization level can be lost.
+    - `remote_apply`: Transaction is committed once its WAL record is written to the master’s disk and every quorum replica has received and processed the changes from the WAL.
 
     The default value is `on`.
 
   - {{ TF }} {#tf}
 
-    - `1` or `"SYNCHRONOUS_COMMIT_ON"`: Transaction is committed once its WAL record is written both to the master’s disk and to the disks of every quorum replica.
+    - `1` or `"SYNCHRONOUS_COMMIT_ON"`: Transaction is committed once its WAL record is written both to the master’s disk and to the disk of every quorum replica.
     - `2` or `"SYNCHRONOUS_COMMIT_OFF"`: Transaction is committed even before its data has been written to the WAL. Due to the asynchronous nature of writes, transaction data in this case can be lost in the event of a disk subsystem failure.
     - `3` or `"SYNCHRONOUS_COMMIT_LOCAL"`: Transaction is committed once its WAL record is written to the master’s disk.
-    - `4` or `"SYNCHRONOUS_COMMIT_REMOTE_WRITE"`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replicas have received the WAL and provided it to the OS for writing to disk. If the master’s disk fails and the operating systems on quorum replicas crash, transaction data with this synchronization level can be lost.
-    - `5` or `"SYNCHRONOUS_COMMIT_REMOTE_APPLY"`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replica have received the WAL and applied the changes it contains.
+    - `4` or `"SYNCHRONOUS_COMMIT_REMOTE_WRITE"`: Transaction is committed once its WAL record is written to the master’s disk, and every quorum replica has received the WAL and passed it to its operating system for writing to disk. If the master’s disk fails and the operating system on a quorum replica crashes, transaction data with this synchronization level can be lost.
+    - `5` or `"SYNCHRONOUS_COMMIT_REMOTE_APPLY"`: Transaction is committed once its WAL record is written to the master’s disk and every quorum replica has received and processed the changes from the WAL.
 
     The default value is `"SYNCHRONOUS_COMMIT_ON"`.
 
@@ -1271,8 +1271,8 @@
     - `SYNCHRONOUS_COMMIT_ON`: Transaction is committed once its WAL record is written both to the master’s disk and to the disks of every quorum replica.
     - `SYNCHRONOUS_COMMIT_OFF`: Transaction is committed even before its data has been written to the WAL. Due to the asynchronous nature of writes, transaction data in this case can be lost in the event of a disk subsystem failure.
     - `SYNCHRONOUS_COMMIT_LOCAL`: Transaction is committed once its WAL record is written to the master’s disk.
-    - `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replicas have received the WAL and provided it to the OS for writing to disk. If the master’s disk fails and the operating systems on quorum replicas crash, transaction data with this synchronization level can be lost.
-    - `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replicas have received the WAL and applied the changes it contains.
+    - `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Transaction is committed once its WAL record is written to the master’s disk and every quorum replica has received the WAL and passed it to its operating system for writing to disk. If the master’s disk fails and the operating system on a quorum replica crashes, transaction data with this synchronization level can be lost.
+    - `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Transaction is committed once its WAL record is written to the master’s disk and every quorum replica has received and processed the changes from the WAL.
 
     The default value is `SYNCHRONOUS_COMMIT_ON`.
 
@@ -1296,7 +1296,7 @@
 
   Large queries are executed on disk rather than in memory. Excessively large queries overload the disk and impede the execution of other queries. This setting prevents the execution of performance-degrading queries by limiting the size of temporary files.
 
-  The minimum value is `-1` (no limits); the maximum value is `2147483647` (2 GB); the default value is `-1`.
+  The default value is `-1` (no limits), and the maximum is `2147483647` (2 GB).
 
   For more information, see the `temp_file_limit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-FILE-LIMIT).
 
@@ -1314,7 +1314,7 @@
 
   Memory (in bytes) per active session to store the text of the currently executed statement.
 
-  The valid values range from `100` to `102400`. The default value is `1024`.
+  The minimum value is `100`, the maximum is `102400`, and the default is `1024`.
 
   For more information, see the `track_activity_query_size` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-ACTIVITY-QUERY-SIZE).
 
@@ -1340,7 +1340,7 @@
 
   Idle time (in ms) for a `VACUUM` or `ANALYZE` process that has exceeded the [vacuum cost limit](#setting-vacuum-cost-limit).
 
-  The valid values range from `0` to `100`. The default value is `0`.
+  The minimum value is `0`, the maximum is `100`, and the default is `0`.
 
   For more information, see the `vacuum_cost_delay` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-VACUUM-COST).
 
@@ -1348,7 +1348,7 @@
 
   Accumulated cost threshold at which the `VACUUM` process will enter sleep mode.
 
-  The valid values range from `1` to `10000`. The default value is `200`.
+  The minimum value is `1`, the maximum is `10000`, and the default is `200`.
 
   For more information, see the `vacuum_cost_limit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-LIMIT).
 
@@ -1356,7 +1356,7 @@
 
   Estimated cost of a `VACUUM` operation processing a previously unmodified block.
 
-  The valid values range from `0` to `10000`. The default value is `20`.
+  The minimum value is `0`, the maximum is `10000`, and the default is `20`.
 
   For more information, see the `vacuum_cost_page_dirty` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-DIRTY).
 
@@ -1364,7 +1364,7 @@
 
   Estimated cost of vacuuming a buffer found in shared cache.
 
-  The valid values range from `0` to `10000`. The default value is `1`.
+  The minimum value is `0`, the maximum is `10000`, and the default is `1`.
 
   For more information, see the `vacuum_cost_page_hit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-HIT).
 
@@ -1372,7 +1372,7 @@
 
   Estimated cost of vacuuming a buffer that must be read from disk.
 
-  The valid values range from `0` to `10000`. The default value is `10`.
+  The minimum value is `0`, the maximum is `10000`, and the default is `10`.
 
   For more information, see the `vacuum_cost_page_miss` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
 
@@ -1380,7 +1380,7 @@
 
   Maximum age of a <q>frozen</q>, i.e., completed, transaction measured in the number of transactions that have been started after it. Once this threshold is reached, the system runs the `VACUUM` process to prevent transaction ID wraparound.
 
-  The valid values range from `0` to `2100000000`. The default value is `1600000000`.
+  The minimum value is `0`, the maximum is `2100000000`, and the default is `1600000000`.
 
   {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
@@ -1390,7 +1390,7 @@
 
   Maximum age of a <q>frozen</q>, i.e., completed, [multi-transaction](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND) measured in the number of multi-transactions that have been started after it. Once this threshold is reached, the system runs the `VACUUM` process to prevent multixact ID wraparound.
 
-  The valid values range from `0` to `2100000000`. The default value is `1600000000`.
+  The minimum value is `0`, the maximum is `2100000000`, and the default is `1600000000`.
 
   {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 

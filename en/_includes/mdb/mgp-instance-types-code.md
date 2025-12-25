@@ -1,2 +1,2 @@
-* **s2**, **s3**: Standard configurations with 4:1 RAM GB to vCPU ratio.
-* **i2**, **i3**: Configurations with an increased GB RAM to vCPU ratio (8:1). These configurations may be useful for clusters with higher cache requirements. Hosts with this configuration run in a [software-accelerated network](../../vpc/concepts/software-accelerated-network.md), and their use significantly affects [cluster pricing](../../managed-greenplum/pricing/index.md#prices-hosts).
+* **s2**, **s3**: Standard configurations with 4 GB:1 RAM-to-vCPU ratio.
+* **i2**, **i3**: Configurations with 8 GB:1 RAM-to-vCPU ratio. These configurations are well suited for clusters with high cache requirements. Hosts with this configuration run in a [software-accelerated network](../../vpc/concepts/software-accelerated-network.md), which substantially affects [cluster costs](../../managed-greenplum/pricing/index.md#prices-hosts).

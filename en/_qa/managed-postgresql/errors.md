@@ -9,9 +9,9 @@ Hint: Upgrade your license to 'timescale' to use this free community feature.
 
 This error occurs when you attempt to use a function available only in TimescaleDB Community Edition.
 
-The community edition is distributed under the [Timescale license (TSL)](https://www.timescale.com/legal/licenses). Clause 2.2 of the license prohibits using TimescaleDB Community Edition to provide DbaaS (Database as a Service) services, so this version is not available in {{ yandex-cloud }}.
+The community edition is distributed under the [Timescale license (TSL)](https://www.timescale.com/legal/licenses). Due to clause 2.2 of this license, which prohibits using TimescaleDB Community Edition for DbaaS (Database as a Service) offerings, this version is not available in {{ yandex-cloud }}.
 
-The version installed in a {{ mpg-name }} cluster is TimescaleDB Apache 2 Edition, and its features are limited compared to the community version.
+The version installed in a {{ mpg-name }} cluster is TimescaleDB Apache 2 Edition, which has reduced functionality compared to the Community Edition.
 
 #### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
@@ -22,33 +22,33 @@ curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x800
 The revocation function was unable to check revocation for the certificate
 ```
 
-This means, when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
+This indicates that the service was unable to verify the site’s certificate against the revocation list during the connection attempt.
 
 To fix this error:
 
-* Make sure the corporate network settings do not block the check.
-* Run the command with the `--ssl-no-revoke` parameter.
+* Make sure your corporate network policies are not blocking the verification.
+* Run the following command with the `--ssl-no-revoke` flag.
 
     ```powershell
     mkdir $HOME\.postgresql; curl.exe --ssl-no-revoke -o $HOME\.postgresql\root.crt {{ crt-web-path }}
     ```
 
-#### What should I do if I get the `SSL is required` error when connecting? {#ssl-req}
+#### What should I do if I get an `SSL is required` error when connecting? {#ssl-req}
 
-The error occurs because you are trying to connect to the cluster with a [public host](../../managed-postgresql/concepts/network.md#public-access-to-a-host). These hosts only support connections with an SSL certificate. However, you can:
+This error occurs because you are trying to connect to a cluster with a [publicly accessible host](../../managed-postgresql/concepts/network.md#public-access-to-a-host). Such hosts require an SSL certificate to connect. You have the following options:
 
-* [Obtain an SSL certificate](../../managed-postgresql/operations/connect.md#get-ssl-cert) and add it to the application you are using to connect to the cluster.
+* [Obtain an SSL certificate](../../managed-postgresql/operations/connect.md#get-ssl-cert) and add it to the application you use to connect.
 * [Disable public access to hosts](../../managed-postgresql/operations/hosts.md#update) and connect to the cluster from a VM located in the same cloud network.
 
-#### What should I do if I get the `too many active clients for user` error when connecting? {#connection-limit-error}
+#### What should I do if I get a `too many active clients for user` error when connecting? {#connection-limit-error}
 
-Connecting to cluster hosts may fail with the following error:
+An attempt to connect to a cluster host may fail with the following error:
 
 ```text
 too many active clients for user (pool_size for user <username> reached <limit_value>)
 ```
 
-By default, a cluster reserves 50 connections per host for each user. If the connection limit per user is reached, any attempt to establish a new connection will fail with an error.
+By default, a cluster reserves 50 connections per host for each user. If the user’s connection limit is reached, new connection attempts will fail.
 
 Solution: Increase the connection limit in the [**Conn limit** setting](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit).
 
@@ -56,37 +56,37 @@ For instructions on updating {{ PG }} settings at the user level, see [this guid
 
 #### Why do I get an error when connecting to a custom database? {#database-error}
 
-Connecting to a custom database may fail with the following error:
+An attempt to connect to a custom database may fail with the following error:
 
 ```text
 ERROR: odyssey: ce3ea075f4ffa: route for '<DB_name>.<username>' is not found
 ```
 
-The error means that the connection parameters contain an invalid database name.
+This error indicates that your connection settings contain an incorrect database name.
 
-#### Why do I get an error when creating a dump using pg_dumpall? {#dump-error}
+#### Why do I get an error when creating a dump with pg_dumpall? {#dump-error}
 
-You get this error when creating a dump using `pg_dumpall`:
+You can get this error when creating a dump with `pg_dumpall`:
 
 ```text
 ERROR: odyssey: c16b9035a1f78: route for 'template1.<username>' is not found
 ```
 
-This error is there because `pg_dumpall` tries to export all databases: both custom and system ones.
+This error occurs because `pg_dumpall` tries to export all databases, including both custom and system ones.
 
-You cannot create a dump of all {{ mpg-name }} databases at the same time. Export dumps using `pg_dump` for each custom database one by one, excluding the system ones.
+You cannot create a dump of all {{ mpg-name }} databases at once. Instead, use `pg_dump` to dump each custom database individually, skipping the system ones.
 
-#### Why do I get an error when connecting to a postgres database? {#database-postgres-error}
+#### Why do I get an error when connecting to the postgres database? {#database-postgres-error}
 
-Connecting to the `postgres` database fails with the following error:
+An attempt to connect to the `postgres` database may fail with the following error:
 
 ```text
 ERROR: odyssey: c76e2c1283a7a: route for 'postgres.<username>' is not found
 ```
 
-`postgres` is a system database; connecting to it is prohibited in {{ mpg-name }}. Specify a different database in the connection parameters.
+This error occurs because `postgres` is a system database and connecting to it is prohibited by {{ mpg-name }}. Specify a different database in your connection settings.
 
-#### Why does a connection terminate with `terminating connection due to administrator command`? {#connection-error}
+#### Why does my connection terminate with a `terminating connection due to administrator command` message? {#connection-error}
 
 A {{ mpg-name }} cluster connection may be terminated with the following message:
 
@@ -94,25 +94,25 @@ A {{ mpg-name }} cluster connection may be terminated with the following message
 FATAL: terminating connection due to administrator command
 ```
 
-This message does not indicate an error, it means that the session/transaction duration has exceeded the [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout) setting value (default value: 12 hours).
+This message is not an error; it indicates that the session/transaction duration has exceeded the [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout) setting (12 hours by default).
 
 #### Why cannot I connect to cluster hosts? {#host-error}
 
-Connecting to cluster hosts may fail with the following error:
+An attempt to connect to a cluster’s host may fail with the following error:
 
 ```text
 could not translate host name "<regular or special FQDN>" to address: Name or service not known
 ```
 
-This error occurs if public access to the host is denied or users are using custom DNS servers that do not allow domain names in the `mdb.yandexcloud.net` zone.
+This error occurs if public access to the host is restricted or if you are using a custom DNS server that cannot resolve domain names in the `mdb.yandexcloud.net` zone.
 
 Solution:
 
-* Enable public access for the host you are connecting to. When using a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns), enable public access for the host the special FQDN points to.
+* Enable public access to your target host. When using a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns), enable public access for the host associated with that FQDN.
 
   {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
-* We recommend that you enable public access for all cluster hosts. This will avoid connection errors during automatic master failover.
+* We recommend that you enable public access for all cluster hosts. This will prevent connection errors during automatic master failover.
 * For custom DNS servers, configure DNS forwarding for the `mdb.yandexcloud.net` zone.
 
 #### Why cannot I stop a cluster? {#stop-cluster}
@@ -123,38 +123,38 @@ Error message:
 ERROR: rpc error: code = FailedPrecondition desc = Cluster has no backups
 ```
 
-A cluster that has no backups cannot be [stopped](../../managed-postgresql/operations/cluster-stop.md#stop-cluster). To fix the error and stop the cluster, [create its backup](../../managed-postgresql/operations/cluster-backups.md#create-backup).
+You cannot [stop](../../managed-postgresql/operations/cluster-stop.md#stop-cluster) a cluster if it does not have any backups. To stop such a cluster, first [create a backup](../../managed-postgresql/operations/cluster-backups.md#create-backup) for it.
 
-#### Why do I get the `max_connections is less than sum of users connection limit` error when modifying a cluster? {#max-connections-error}
+#### Why do I get a max_connections is less than sum of users connection limit error when modifying a cluster? {#max-connections-error}
 
-This error may occur when downgrading a host class in a cluster if the sum of connection limits for all users is less then the total cluster connection limit ([Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections)).
+This error may occur when downgrading a host class in a cluster if the sum of all user connection limits becomes less than the total cluster connection limit specified in [Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections).
 
-Solution: First reduce the limits set for users so their sum is less than `<Max_connections_value> — 15` and then proceed with host class downgrade.
+Solution: First, reduce the per-user connection limits until their combined total is less than `<Max_connections_value> — 15`, and then lower the host class.
 
-#### Why does a data transfer through creating and restoring a logical dump fail with an error? {#backup-error}
+#### Why do I get an error when transferring data by creating and restoring a logical dump? {#backup-error}
 
 [Restoring a logical dump](../../managed-postgresql/tutorials/data-migration.md#backup) may fail with one of the following errors:
 
 * `ERROR: role "<source_username>" does not exist`
 * `ERROR: must be member of role "<source_username>"`
 
-The errors occur because the target cluster does not have the user (or the privileges of the user) who created the logical dump in the source cluster.
+These errors occur because the target cluster lacks the user account or the user privileges that were used to create the logical dump in the source cluster.
 
-To resolve the errors:
+To resolve these errors:
 
 1. In the target cluster, [add a user](../../managed-postgresql/operations/cluster-users.md#adduser) with access to the migrated database and the same name as the user who created the logical dump in the source cluster.
-1. As this user, [restore the logical dump](../../managed-postgresql/tutorials/data-migration.md#restore) or [grant their privileges](../../managed-postgresql/operations/grant.md#grant-privilege) to another account you want to use to restore the logical dump.
+1. [Restore the logical dump](../../managed-postgresql/tutorials/data-migration.md#restore) on behalf of this user or [grant their privileges](../../managed-postgresql/operations/grant.md#grant-privilege) to another account you want to use to restore the logical dump.
 
-#### What should I do if I get the `replication slot already exists` error when performing logical replication? {#repl-slot-exists}
+#### What should I do if I get a replication slot already exists error during logical replication? {#repl-slot-exists}
 
-By default, when you [create a subscription](../../tutorials/dataplatform/postgresql-data-migration.md#create-publication-subscription), a replication slot is also created. The `replication slot already exists` error means that a replication slot already exists.
+By default, the system creates a replication slot when you [create a subscription](../../tutorials/dataplatform/postgresql-data-migration.md#create-publication-subscription). The `replication slot already exists` error means that the replication slot already exists.
 
-You can fix this error by doing one of the following:
+You can resolve this error in one of the following ways:
 
-1. Link your subscription to an existing replication slot. To do this, add the `create_slot = false` parameter to the request to create a subscription.
+1. Link your subscription to an existing replication slot. To do this, add `create_slot = false` to your command for creating a subscription.
 1. [Delete the existing replication slot](../../managed-postgresql/operations/replication-slots.md#delete) and try creating the subscription again.
 
-#### Why do I get an `extension... is not available` error when migrating my DB to {{ mpg-short-name }}? {#extension-is-not-available}
+#### Why do I get an extension... is not available error when migrating my database to {{ mpg-short-name }}? {#extension-is-not-available}
 
 Error message:
 
@@ -162,24 +162,24 @@ Error message:
 extension "<extension_name>" is not available
 ```
 
-You may get this error when migrating a DB to {{ mpg-short-name }} with a script attempting to install and use the [{{ PG }} extension](../../managed-postgresql/operations/extensions/cluster-extensions.md). The reason for the error is that in {{ mpg-short-name }} clusters, you cannot use SQL commands to manage {{ PG }} extensions.
+This error may occur during a database migration to {{ mpg-short-name }} using a script that attempts to install and use the [{{ PG }} extension](../../managed-postgresql/operations/extensions/cluster-extensions.md). The error occurs because {{ PG }} extensions cannot be managed via SQL in {{ mpg-short-name }} clusters.
 
 To avoid this error:
 
-1. If the script or logical dump is in text format, remove the operators for creating {{ PG }} extensions from them.
+1. For scripts and dumps in text format, remove any {{ PG }} extension creation commands from them.
 1. [Install](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) all required extensions in the target database using the {{ yandex-cloud }} interfaces.
 
-#### Why do I get the `must be owner of extension` error when deploying a logical dump? {#owner-of-extension}
+#### Why do I get a must be owner of extension error when restoring a logical dump? {#owner-of-extension}
 
-[Restoring a logical dump](../../managed-postgresql/tutorials/data-migration.md#backup) may fail with this error: `ERROR: must be owner of extension`.
+[Restoring a logical dump](../../managed-postgresql/tutorials/data-migration.md#backup) may fail with the following error: `ERROR: must be owner of extension`.
 
-The error is there because the logical dump contains installation or update operations of [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md). In {{ mpg-short-name }} clusters, you cannot manage extensions using SQL commands.
+The error is caused by the presence of [{{ PG }} extension](../../managed-postgresql/operations/extensions/cluster-extensions.md) installation or update operations in the logical dump. In {{ mpg-short-name }} clusters, you cannot manage extensions using SQL commands.
 
-To fix this error:
+To resolve this error, do the following:
 
 1. Before restoring the dump, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) all required extensions in the target database.
-1. Exclude any operations with extensions from the dump. For example, you can comment out lines related to installation of extensions.
-1. Perform logical dump recovery again.
+1. Remove any operations with extensions from the dump. For example, comment out the lines related to installing extensions.
+1. Repeat the logical dump recovery attempt.
 
 #### Why do I get an error when setting up cascading replication? {#cascade-errors}
 
@@ -189,15 +189,15 @@ Error message:
 cluster should have at least 2 HA hosts to use cascade host
 ```
 
-The error occurs if you specify a replication source for a single non-cascading replica.
+This error occurs if you specify a replication source for the only non-cascading replica.
 
-To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), your cluster must have at least one replica without a replication source. During maintenance or if the master host fails, this replica will take over as the master.
+To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), your cluster must contain at least one replica without a defined replication source. This replica will be promoted to master if the master host fails during maintenance.
 
 To learn more about replication, see [this section](../../managed-postgresql/concepts/replication.md).
 
-#### Why do I get the `cannot execute <SQL_command> in a read-only transaction` error? {#read-only-error}
+#### Why do I get a cannot execute <SQL_command> in a read-only transaction error? {#read-only-error}
 
-Error options:
+Error variations:
 
 ```text
 ERROR: cannot execute ALTER EXTENSION in a read-only transaction
@@ -215,21 +215,21 @@ ERROR: cannot execute UPDATE in a read-only transaction
 ERROR: cannot execute INSERT in a read-only transaction
 ```
 
-Such errors can occur after master [failover](../../architecture/fault-tolerance.md#mdb-ha) if you connected to a read-only replica.
+Such errors may occur after master [failover](../../architecture/fault-tolerance.md#mdb-ha) when you are connected to a read-only replica.
 
-To prevent such errors, use any of the following ways:
+You can prevent these errors in one of the following ways:
 
 * Connect to the cluster using a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) that always points to the current master.
 
   {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
-* When connecting, specify the `target_session_attrs=read-write` parameter and list all cluster hosts. This way, you will connect to the master host with read and write access.
+* When connecting, specify `target_session_attrs=read-write` and list all cluster hosts. This way, you will connect to the master host with read and write access.
 
-For more information on how to connect to the master host, see [Connecting to a database](../../managed-postgresql/operations/connect.md#automatic-master-host-selection).
+For more details on connecting to the master host, see [Connecting to a database](../../managed-postgresql/operations/connect.md#automatic-master-host-selection).
 
-#### What should I do if logs display the `too many connections for role "monitor"` error? {#monitor-role-error}
+#### What should I do if I see a too many connections for role "monitor" error in the logs? {#monitor-role-error}
 
-The `monitor` user is reserved for monitoring purposes in a {{ mpg-name }} cluster. You can ignore `too many connections` warnings for this user.
+The `monitor` user is reserved for monitoring purposes in the {{ mpg-name }} cluster. You can ignore `too many connections` warnings for this user.
 
 #### Why do I get an error when trying to install multiple extensions in the CLI? {#cli-extensions-errors}
 

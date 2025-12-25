@@ -5,7 +5,7 @@ description: Access management in {{ message-queue-full-name }}, the cross-appli
 
 # Access management in {{ message-queue-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources in accordance with the roles assigned to them. As long as a user has no roles assigned, all operations are forbidden.
+{% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
 To allow access to {{ message-queue-full-name }} resources, assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
@@ -28,6 +28,8 @@ To grant the user permissions:
 ## Roles this service has {#roles-list}
 
 The list below shows all roles used for access control in {{ service-name }}.
+
+{% include [message-queue](../../_mermaid/roles/message-queue.md) %}
 
 ### Service roles {#service-roles}
 

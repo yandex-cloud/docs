@@ -1,9 +1,9 @@
-| Услуга  | Цена за единицу тарификации, вкл. НДС |
-|---|---|
-| Распознавание печатного текста                        | {{ sku|KZT|vision_ocr.printed_text_detection.v1|string }} |
-| Распознавание таблиц                                  | {{ sku|KZT|vision_ocr.text_and_table_text_detection.v1|string }} |
-| Распознавание документов (паспорт)                    | {{ sku|KZT|vision_ocr.passport_text_detection.v1|string }} |
-| Распознавание документов (водительское удостоверение) | {{ sku|KZT|vision_ocr.driver_license_text_detection.v1|string }} |
-| Распознавание документов (СТС)                        | {{ sku|KZT|vision_ocr.vehicle_certificate_text_detection.v1|string }} |
-| Распознавание рукописного текста                      | {{ sku|KZT|vision_ocr.handwriting_and_printed_text_detection.v1|string }} |
-| Распознавание регистрационных номеров автомобилей     | {{ sku|KZT|vision_ocr.license_plates.v1|string }} |
+| Услуга  | Цена за единицу тарификации до 31.12.2025, вкл. НДС | Цена за единицу тарификации с 01.01.2026, вкл. НДС |
+|---|---|---|
+| Распознавание печатного текста                        | {{ sku|KZT|vision_ocr.printed_text_detection.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|vision_ocr.printed_text_detection.v1|number }} / 112 × 116) × 100) / 100 %} |
+| Распознавание таблиц                                  | {{ sku|KZT|vision_ocr.text_and_table_text_detection.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|vision_ocr.text_and_table_text_detection.v1|number }} / 112 × 116) × 100) / 100 %} |
+| Распознавание документов (паспорт)                    | {{ sku|KZT|vision_ocr.passport_text_detection.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|vision_ocr.passport_text_detection.v1|number }} / 112 × 116) × 100) / 100 %} |
+| Распознавание документов (водительское удостоверение) | {{ sku|KZT|vision_ocr.driver_license_text_detection.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|vision_ocr.driver_license_text_detection.v1|number }} / 112 × 116) × 100) / 100 %} |
+| Распознавание документов (СТС)                        | {{ sku|KZT|vision_ocr.vehicle_certificate_text_detection.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|vision_ocr.vehicle_certificate_text_detection.v1|number }} / 112 × 116) × 100) / 100 %} |
+| Распознавание рукописного текста                      | {{ sku|KZT|vision_ocr.handwriting_and_printed_text_detection.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|vision_ocr.handwriting_and_printed_text_detection.v1|number }} / 112 × 116) × 100) / 100 %} |
+| Распознавание регистрационных номеров автомобилей     | {{ sku|KZT|vision_ocr.license_plates.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|vision_ocr.license_plates.v1|number }} / 112 × 116) × 100) / 100 %} |

@@ -791,7 +791,7 @@ items:
             href: iot/message-delivery-check.md
           - name: Emulating multiple IoT devices
             href: testing/iot-emulation.md
-          - name: Writing data from a device to a database
+          - name: Writing device data to a database
             href: iot/data-recording.md
       - name: Alice
         items:
@@ -830,59 +830,59 @@ items:
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          Transferring data from {{ mmy-name }} to {{ mkf-name }} using {{
+          Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mmy.md
-      - name: Transferring data from {{ mmy-name }} to {{ mkf-name }} using Debezium
+      - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/debezium-mmy.md
       - name: >-
-          Transferring data from {{ mpg-name }} to {{ mkf-name }} using {{
+          Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mpg.md
-      - name: Transferring data from {{ mpg-name }} to {{ mkf-name }} using Debezium
+      - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/debezium-mpg.md
       - name: >-
-          Transferring data from {{ ydb-name }} to {{ mkf-name }} using {{
+          Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/ydb-mkf-replication.md
       - name: >-
-          Transferring data from {{ mkf-name }} to {{ mch-name }} using {{
+          Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mch.md
       - name: >-
-          Transferring data from {{ mkf-name }} to {{ mgp-name }} using {{
+          Delivering data from {{ mkf-name }} to {{ mgp-name }} using {{
           data-transfer-name }}
         href: dataplatform/managed-kafka-to-greenplum.md
       - name: >-
-          Transferring data from {{ mkf-name }} to {{ mmg-name }} using {{
+          Delivering data from {{ mkf-name }} to {{ mmg-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mmg.md
       - name: >-
-          Transferring data from {{ mkf-name }} to {{ mmy-name }} using {{
+          Delivering data from {{ mkf-name }} to {{ mmy-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mmy.md
       - name: >-
-          Transferring data from {{ mkf-name }} to {{ mos-name }} using {{
+          Delivering data from {{ mkf-name }} to {{ mos-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mos.md
       - name: >-
-          Transferring data from {{ mkf-name }} to {{ mpg-name }} using {{
+          Delivering data from {{ mkf-name }} to {{ mpg-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-to-mpg.md
       - name: >-
-          Transferring data from {{ mkf-name }} to {{ ydb-name }} using {{
+          Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-ydb-stream.md
       - name: >-
-          Transferring data from {{ mkf-name }} to {{ yds-name }} using {{
+          Delivering data from {{ mkf-name }} to {{ yds-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
       - name: >-
-          Transferring data from {{ yds-name }} to {{ ydb-name }} using {{
+          Delivering data from {{ yds-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-ydb.md
       - name: >-
-          Transferring data from {{ yds-name }} to {{ mkf-name }} using {{
+          Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md
       - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
@@ -915,12 +915,12 @@ items:
         href: dataplatform/airflow-test-smtp-notification.md
       - name: Adding data to a {{ CH }} DB
         href: dataplatform/insert-data-ch.md
-      - name: Migrating data to {{ mch-name }} using {{ CH }} tools
+      - name: Migrating data to {{ mch-name }} using {{ CH }}
         href: dataplatform/clickhouse-migration.md
       - name: Migrating data to {{ mch-name }} using {{ data-transfer-name }}
         href: dataplatform/ch-to-mch-migration.md
       - name: >-
-          Transferring data from {{ mmy-name }} to {{ mch-name }} using {{
+          Delivering data from {{ mmy-name }} to {{ mch-name }} using {{
           data-transfer-name }}
         href: dataplatform/mysql-to-clickhouse.md
       - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
@@ -934,7 +934,7 @@ items:
       - name: Fetching data from {{ mkf-name }} to ksqlDB
         href: dataplatform/use-ksqldb-with-mkf.md
       - name: >-
-          Transferring data from {{ mkf-name }} to {{ mch-name }} using {{
+          Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mch.md
         hidden: true
@@ -1003,8 +1003,8 @@ items:
           metastore-name }}
         href: dataplatform/metastore-import.md
       - name: >-
-          Importing data from {{ objstorage-name }}, processing it, and
-          exporting it to {{ mch-name }}
+          Importing data from {{ objstorage-name }}, processing, and exporting
+          it to {{ mch-name }}
         href: dataplatform/s3-data-processing-ch.md
       - name: Working with jobs {{ dataproc-name }}
         items:
@@ -1066,10 +1066,10 @@ items:
         href: dataplatform/sqoop-mmy.md
         hidden: true
       - name: >-
-          Transferring data from {{ mmy-name }} to {{ mkf-name }} using {{
+          Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/./data-transfer-mmy.md
-      - name: Transferring data from {{ mmy-name }} to {{ mkf-name }} using Debezium
+      - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/./debezium-mmy.md
       - name: >-
           Migrating a database from {{ mmy-name }} to {{ ydb-name }} using {{
@@ -1135,16 +1135,16 @@ items:
         href: dataplatform/rdbms-to-clickhouse.md
         hidden: true
       - name: >-
-          Transferring data from {{ mpg-name }} to {{ mkf-name }} using {{
+          Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/./data-transfer-mpg.md
-      - name: Transferring data from {{ mpg-name }} to {{ mkf-name }} using Debezium
+      - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/./debezium-mpg.md
       - name: Importing data from {{ mpg-name }} to {{ dataproc-name }} using Sqoop
         href: dataplatform/sqoop-mpg.md
         hidden: true
       - name: >-
-          Transferring data from {{ mpg-name }} to {{ ydb-name }} using {{
+          Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
       - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
@@ -1192,12 +1192,12 @@ items:
       - name: Using a {{ mrd-name }} cluster as a PHP session storage
         href: dataplatform/redis-as-php-sessions-storage.md
       - name: >-
-          Transferring data from {{ ydb-name }} to {{ mkf-name }} using {{
+          Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/ydb-mkf-replication.md
         hidden: true
       - name: >-
-          Transferring data from {{ mkf-name }} to {{ ydb-name }} using {{
+          Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-ydb-stream.md
         hidden: true
@@ -1207,7 +1207,7 @@ items:
         href: dataplatform/mmy-ydb-migration.md
         hidden: true
       - name: >-
-          Transferring data from {{ mpg-name }} to {{ ydb-name }} using {{
+          Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
         hidden: true

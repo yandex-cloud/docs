@@ -1,5 +1,5 @@
-| Услуга | Цена, <br>вкл. НДС |
-| ----- | ----- |
-| 1 запрос (1 000 токенов) на [классификацию с помощью {{ gpt-lite }}](../../ai-studio/operations/classifier/readymade.md)  | {{ sku|KZT|foundation_models.text_classification.v1|string }} |
-| 1 запрос (250 токенов) на [классификацию с помощью {{ gpt-pro }}](../../ai-studio/operations/classifier/readymade.md) | {{ sku|KZT|foundation_models.text_classification.v1|string }} |
-| 1 запрос (250 токенов) к [дообученному классификатору](../../ai-studio/operations/classifier/additionally-trained.md)  | {{ sku|KZT|foundation_models.text_classification.v1|string }} |
+| Услуга | Цена до 31.12.2025, <br>вкл. НДС | Цена с 01.01.2026, <br>вкл. НДС |
+| ----- | ----- | ----- |
+| 1 запрос (1 000 токенов) на [классификацию с помощью {{ gpt-lite }}](../../ai-studio/operations/classifier/readymade.md)  | {{ sku|KZT|foundation_models.text_classification.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|foundation_models.text_classification.v1|number }} / 112 × 116) × 100) / 100 %} |
+| 1 запрос (250 токенов) на [классификацию с помощью {{ gpt-pro }}](../../ai-studio/operations/classifier/readymade.md) | {{ sku|KZT|foundation_models.text_classification.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|foundation_models.text_classification.v1|number }} / 112 × 116) × 100) / 100 %} |
+| 1 запрос (250 токенов) к [дообученному классификатору](../../ai-studio/operations/classifier/additionally-trained.md)  | {{ sku|KZT|foundation_models.text_classification.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|foundation_models.text_classification.v1|number }} / 112 × 116) × 100) / 100 %} |

@@ -7,6 +7,20 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ## 2025 {#2025}
 
+
+### November {#nov25}
+
+#### New features {#new-features-nov25}
+
+* Added an MCP server for {{ data-catalog-name }}, enabling the use of AI agents to search metadata, view catalogs, get metadata by ID, and retrieve metadata links.
+
+* You can now add queries in {{ websql-name }}.
+
+#### Fixed issues {#problems-solved-nov25}
+
+Improved metadata profiling and contextual search.
+
+
 ### October {#oct25}
 
 #### New features {#new-features-oct25}

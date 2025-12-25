@@ -17,8 +17,8 @@ description: Follow this guide to add the {{ sf-full-name }} extension using the
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}**: Service account for authorization when accessing the function. If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
-        * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_functions_payload_format_version_name }}**: Function request format version. The possible values are 0.1 and 1.0. The default version is 0.1.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** (optional): Service account for authorization when accessing the function. If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_functions_payload_format_version_name }}** (optional): Function request format version. The possible values are 0.1, 1.0, and 2.0. The default version is 0.1.
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_functions_info }}**: [Function](../../../functions/concepts/function.md) name and function [version tag](../../../functions/concepts/function.md#tag).
     1. Optionally, paste or upload operation context, i.e., any object in YAML or JSON format.
     1. Click **{{ ui-key.yacloud.common.add }}**.

@@ -13,7 +13,7 @@ Parameter | Type | Description
 `function_id` | `string` | [Function](../../../functions/concepts/function.md) ID.
 `tag` | `string` | This is an optional parameter. It specifies the [tag of the function version](../../../functions/concepts/function.md#tag). The default value is `$latest`. <br>The parameters are subsituted into `tag`.
 `service_account_id` | `string` | ID of the service account used for authorization when accessing the function. [Invoking](../../../functions/operations/function/auth.md) a function requires a service account with the `{{ roles-functions-invoker }}` [role](../../../functions/security/index.md#functions-functionInvoker) or higher for that function. If you omit the parameter, the `service_account_id` [top-level](./index.md#top-level) parameter value will be used. If the top-level parameter is also missing, the function is invoked without authorization.
-`payload_format_version` | `string` | Function call format version. It can be either [`0.1`](#request_v0) or [`1.0`](#request_v1). [`0.1`](#request_v0) is the default version.
+`payload_format_version` | `string` | Function call format version. The possible values are [`0.1`](#request_v0), [`1.0`](#request_v1), and [`2.0`](#request_v2). [`0.1`](#request_v0) is the default version.
 `context` | `object` | This is an optional parameter. It provides the operation context, i.e., an object in `YAML` or `JSON` format. It is provided to a function within a [request](../../../functions/concepts/function-invoke.md#request) in the `requestContext.apiGateway.operationContext` field. The parameters are subsituted into `context`.
 
 ## Extension specification {#spec}
@@ -105,33 +105,120 @@ The request JSON structure for version `1.0` is compatible with the request form
 Structure of the `requestContext` element:
 
 ```json
-    {
-        "identity": <a set of key:value pairs to authenticate the user>,
-        "httpMethod": <DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT>,
-        "requestId": <request ID generated in the router>,
-        "requestTime": <request time in CLF format>,
-        "requestTimeEpoch": <request time in Unix format>,
-        "authorizer": <dictionary with authorization context>,
-        "apiGateway": <dictionary with specific data transmitted by API gateway during function invocation>,
-        "connectionId": <web socket connection ID>",
-        "connectedAt": <web socket connection time>,
-        "eventType": <type of web socket event or operation: CONNECT, MESSAGE, DISCONNECT>,
-        "messageId": <ID of the message received from the web socket>,
-        "disconnectStatusCode": <web socket close code>,
-        "disconnectReason": <text description of the reason the web socket was closed>
-    }
+{
+    "identity": <a set of key:value pairs to authenticate the user>,
+    "httpMethod": <DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT>,
+    "requestId": <request ID generated in the router>,
+    "requestTime": <request time in CLF format>,
+    "requestTimeEpoch": <request time in Unix format>,
+    "authorizer": <dictionary with authorization context>,
+    "apiGateway": <dictionary with specific data transmitted by API gateway during function invocation>,
+    "connectionId": <web socket connection ID>,
+    "connectedAt": <web socket connection time>,
+    "eventType": <type of web socket event or operation: CONNECT, MESSAGE, DISCONNECT>,
+    "messageId": <ID of the message received from the web socket>,
+    "disconnectStatusCode": <web socket close code>,
+    "disconnectReason": <text description of the reason the web socket was closed>
+}
 ```
 
 Structure of the `authorizer` element:
 ```json
+{
+    "jwt": { // Field filled in by the API Gateway JWT authorizer. It contains the token data about the user and the user's permissions'
+      "claims": <dictionary of JWT body fields>,
+      "scopes": <list of JWT owner permissions>
+    }
+    // Other authorization context fields returned from the authorizer function
+}
+```
+
+## Request structure for v2.0 {#request_v2}
+
+The request JSON structure for version `2.0` is compatible with the request format for [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html) version `2.0` with some additional fields:
+
+```json
+{
+    "version": <request format version>,
+    "rawPath": <path without query string>,
+    "rawQueryString": <query string in "parameter1=value1&parameter2=value2" format>,
+    "cookies": <array of strings, each representing a cookie file in "name=value" format>,
+    "headers": <dictionary with comma-separated HTTP header string values>,
+    "queryStringParameters": <dictionary of comma-separated queryString parameters>,
+    "requestContext": <dictionary with request context>,
+    "body": <request contents>,
+    "isBase64Encoded": <true or false>,
+    "pathParameters": <dictionary of request path parameter values>,
+    // additional fields:    
+    "parameters": <dictionary of request parameter values as described in the OpenAPI spec>,
+    "multiValueParameters": <dictionary with request parameter value lists as described in the OpenAPI spec>,
+    "operationId": <operationId matching the request in the OpenAPI spec>
+}
+```
+
+Structure of the `requestContext` element:
+
+```json
+{
+    "authorizer": <authorization information>,
+    "http": <HTTP request details>,
+    "requestId": <request ID generated in the router>,
+    "time": <date and time in ISO 8601 format>, 
+    "timeEpoch": <numeric time value>,
+    "apiGateway": <dictionary with specific data transmitted by API gateway during function invocation>
+}
+```
+
+Structure of the `http` element:
+
+```json
+{
+    "method": <Request HTTP method>,
+    "path": <Request URL>,
+    "sourceIp": <IP address of the client sending the request>,
+    "userAgent": <User-Agent information>
+}
+```
+
+Structure of the `apiGateway` element:
+
+```json
+{
+    "operationContext": <operation parameters and states>,
+    "operationToken": <token for operation identification and authentication>
+}
+```
+
+Structure of the `operationToken` element:
+
+```json
+{
+    "token_type": <token type>,
+    "access_token": <token>,
+    "expires_in": <token lifetime>
+}
+```
+
+Structure of the `authorizer` element:
+
+* When authorizing via a JWT:
+
+    ```json
     {
-        "jwt": { // Field filled in by the API Gateway JWT authorizer. It contains the token data about the user and the user's permissions'
+        "jwt": { // Field filled in by the {{ api-gw-name }} JWT authorizer. It contains the token data about the user and the user's permissions'
           "claims": <dictionary of JWT body fields>,
           "scopes": <list of JWT owner permissions>
-        }
-        // Other authorization context fields returned from the authorizer function
+        } // Other authorization context fields returned from the authorizer function
     }
-```
+    ```
+
+* When authorizing using a function from {{ sf-name }}:
+
+    ```json
+    {
+        "function": <function parameters>
+    }
+    ```
 
 ## Use cases {#examples}
 

@@ -1,16 +1,16 @@
-{% note warning "Time limits" %}
+{% note warning "Timeouts" %}
 
-A {{ TF }} provider sets the timeout for {{ mpg-name }} cluster operations:
+The {{ TF }} provider sets the following timeouts for {{ mpg-name }} cluster operations:
 
-* Creating a cluster, including restoring from a backup: 30 minutes.
-* Editing a cluster: 60 minutes.
+* Creating a cluster, including restoration from a backup: 30 minutes.
+* Updating a cluster: 60 minutes.
 * Deleting a cluster: 15 minutes.
 
-Operations exceeding the set timeout are interrupted.
+Operations exceeding the timeout are aborted.
 
-{% cut "How do I change these limits?" %}
+{% cut "How can I change these timeouts?" %}
 
-Add the `timeouts` block to the cluster description, for example:
+Add a `timeouts` section to the cluster description, e.g.:
 
 ```hcl
 resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {

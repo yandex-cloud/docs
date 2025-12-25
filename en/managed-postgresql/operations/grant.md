@@ -1,6 +1,6 @@
 ---
 title: Assigning privileges and roles to {{ PG }} users
-description: '{{ PG }} manages database access permissions using roles. Roles can own database objects and have privileges. In {{ PG }}, a user is a role that can log in to the database. To learn more about access permissions, see {{ PG }} guides. The user created for a new {{ mpg-name }} cluster is the owner of its first database. You can create more users and configure their permissions as needed.'
+description: In {{ PG }}, individual permissions are called privileges, while groups of permissions are called roles. To learn more about access permissions, see {{ PG }} guides. The user created for a new {{ mpg-name }} cluster is the owner of its first database. You can create more users and configure their permissions as needed.
 ---
 
 # Assigning privileges and roles to {{ PG }} users
@@ -21,7 +21,7 @@ For more information about [creating users](https://www.postgresql.org/docs/curr
 
 ## Editing user’s roles {#grant-role}
 
-To assign a role to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by the `GRANT` request are canceled during the next database operation.
+To assign a role to a user, use the {{ yandex-cloud }} interfaces. A role assigned via a `GRANT` statement will be revoked during the next database operation.
 
 {% include [users-and-roles](../../_includes/mdb/mpg/users-and-roles.md) %}
 
@@ -54,7 +54,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To assign roles to a cluster user, provide the list of required roles in the `--grants` parameter. This will completely overwrite the existing roles. To add or remove roles, first, run the `{{ yc-mdb-pg }} user get` command to get the list of current roles together with the user info.
+  To assign roles to a cluster user, provide the list of required roles in the `--grants` argument. This will completely overwrite the existing roles. To add or remove roles from the current list, you must first retrieve the user’s current roles using the `{{ yc-mdb-pg }} user get` command.
 
   To assign roles, run this command:
 
@@ -72,11 +72,11 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
     1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-        For information on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more information about creating this file, see [this guide](cluster-create.md).
 
         For a complete list of configurable fields of {{ mpg-name }} cluster user accounts, refer to the [{{ TF }} provider guides]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
-    1. Locate the `yandex_mdb_postgresql_user` resource for the user in question.
+    1. Locate the user's `yandex_mdb_postgresql_user` resource.
     1. Add the `grants` attribute with the list of required roles:
   
         ```hcl
@@ -88,21 +88,21 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
         }
         ```
 
-    1. Check if the settings are correct.
+    1. Validate your configuration.
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. To check the list of current roles, call the [User.Get](../api-ref/User/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  1. To check the list of current roles, call the [User.Get](../api-ref/User/get.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -115,7 +115,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
      You can find the list of current roles in the `grants` field of the command output.
 
-  1. To change the list of roles for a user, use the [User.Update](../api-ref/User/update.md) method to execute the following request:
+  1. To change the list of roles for a user, call the [User.Update](../api-ref/User/update.md) method, for instance, via the following request:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -150,12 +150,12 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. To check the list of current roles, call [UserService.Get](../api-ref/grpc/User/get.md) via {{ api-examples.grpc.tool }} or another preferred tool:
+  1. To check the list of current roles, call [UserService.Get](../api-ref/grpc/User/get.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -174,7 +174,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
      You can find the list of current roles in the `grants` field of the command output.
 
-  1. To change the list of roles for a user, call [UserService.Update](../api-ref/grpc/User/update.md) as follows:
+  1. To change the list of roles for a user, call [UserService.Update](../api-ref/grpc/User/update.md) method, for instance, via the following request:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -214,7 +214,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
        * `mdb_replication`
        * `mdb_superuser`
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the username, with the [list of users in the cluster](cluster-users.md#list-users).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters), and the username from the [list of cluster users](cluster-users.md#list-users).
 
   1. Check the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -227,7 +227,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 - SQL
 
     1. [Connect](connect.md) to the database using the owner's account.
-    1. Run the `GRANT` command. For full command syntax, see this [{{ PG }} guide](https://www.postgresql.org/docs/current/sql-grant.html).
+    1. Run the `GRANT` command. For full command syntax, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/sql-grant.html).
 
 - {{ TF }} {#tf}
 
@@ -255,7 +255,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
     1. Open the {{ TF }} configuration file describing your infrastructure.
   
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more information about creating this file, see [this guide](cluster-create.md).
 
     1. Add the `postgresql` provider and configure it to access your target database using its owner’s credentials:
 
@@ -293,11 +293,11 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
         * `<resource_name>`: Name of the {{ TF }} resource that grants the privileges. This name must be unique within the {{ TF }} manifest.
         * `database`: Name of the target database for granting privileges.
         * `role`: Name of the user receiving the privileges.
-        * `object_type`: Type of {{ PG }} object for which the privileges are granted. Possible values: `database`, `schema`, `table`, `sequence`, `function`, `procedure`, `routine`, `foreign_data_wrapper`, `foreign_server`, `column`.
-        * `privileges`: Array of privileges to grant. Possible values: `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, `REFERENCES`, `TRIGGER`, `CREATE`, `CONNECT`, `TEMPORARY`, `EXECUTE`, and `USAGE`. For privilege descriptions see this [{{ PG }} article](https://www.postgresql.org/docs/current/ddl-priv.html).
-        * `schema`: Target schema for granting privileges. You cannot use this parameter with the `database` object type.
-        * `objects`: Array of target objects for granting privileges. This is an optional argument. If you omit it, the system will grant privileges on all objects of the specified type. You cannot use this parameter with `database` and `schema` object types. For the `column` object type, the array of target objects cannot contain more than one item.
-        * `columns`: Array of target columns for granting privileges. This parameter is required for the `column` object type and cannot be used with any other type.
+        * `object_type`: Type of the target {{ PG }} object for granting privileges. The possible values are: `database`, `schema`, `table`, `sequence`, `function`, `procedure`, `routine`, `foreign_data_wrapper`, `foreign_server`, `column`.
+        * `privileges`: Array of privileges. The possible values are `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, `REFERENCES`, `TRIGGER`, `CREATE`, `CONNECT`, `TEMPORARY`, `EXECUTE` and `USAGE`. For privilege descriptions see [this {{ PG }} article](https://www.postgresql.org/docs/current/ddl-priv.html).
+        * `schema`: Target schema for granting privileges. You cannot use this option with the `database` object type.
+        * `objects`: Array of target objects for granting privileges. This is an optional argument. If you omit it, the system will grant privileges on all objects of the specified type. You cannot use this option with `database` and `schema` object types. For the `column` object type, the array of target objects cannot contain more than one item.
+        * `columns`: Array of target columns for granting privileges. This argument is required for the `column` object type and cannot be used with any other type.
         * `with_grant_option`: If `true`, a user with the granted privileges can grant them to other users. This is an optional argument. The default value is `false`.
 
     1. Reinitialize {{ TF }}:
@@ -306,11 +306,11 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
         terraform init
         ```
 
-    1. Check if the settings are correct.
+    1. Validate your configuration.
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -323,7 +323,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 - SQL
 
     1. [Connect](connect.md) to the database using the owner's account.
-    1. Run the `REVOKE` command. For full command syntax, see this [{{ PG }} guide](https://www.postgresql.org/docs/current/sql-revoke.html).
+    1. Run the `REVOKE` command. For full command syntax, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/sql-revoke.html).
 
 - {{ TF }} {#tf}
 
@@ -334,11 +334,11 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
         To revoke all privileges, leave the `privileges` array empty or remove the entire `postgresql_grant` section.
 
-    1. Check if the settings are correct.
+    1. Validate your configuration.
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

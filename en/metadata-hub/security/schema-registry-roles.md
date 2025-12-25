@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ schema-registry-name }}
-description: Access management in {{ schema-registry-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ schema-registry-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Service roles for managing data schemas using {{ schema-registry-name }}
@@ -16,6 +16,8 @@ description: Access management in {{ schema-registry-name }}. This section descr
 
 
 With {{ schema-registry-name }} service roles, you can view namespaces, subjects, and schemas in a schema registry, as well as create, edit, and delete namespaces and schemas.
+
+{% include [roles-schema-registry](../../_mermaid/roles/schema-registry.md) %}
 
 ### schema-registry.auditor {#schema-registry-auditor}
 

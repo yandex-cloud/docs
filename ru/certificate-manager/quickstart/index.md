@@ -6,58 +6,51 @@
 
 Чтобы начать работать с {{ certificate-manager-name }} вам понадобится:
 
-1. Каталог в {{ yandex-cloud }}. Если каталога еще нет, создайте новый каталог:
+{% list tabs group=instructions %}
 
-    {% include [create-folder](../../_includes/create-folder.md) %}
+- Консоль управления {#console}
 
-1. Домен не ниже третьего уровня, для которого будет выпущен сертификат от Let's Encrypt.
+    1. Каталог в {{ yandex-cloud }}. Если каталога еще нет, создайте новый каталог:
 
-    {% note info %}
+         {% include [create-folder](../../_includes/create-folder.md) %}
 
-    Чтобы пройти процедуру проверки прав на домен, он должен находиться под вашим управлением.
+    1. Домен не ниже третьего уровня, для которого будет выпущен сертификат от Let's Encrypt.
 
-    {% endnote %}
+         {% note info %}
 
-1. Публичный бакет в Object Storage с точно таким же именем, что и домен. Если бакета еще нет, создайте его:
+         Чтобы пройти процедуру проверки прав на домен, он должен находиться под вашим управлением.
 
-    {% list tabs group=instructions %}
+         {% endnote %}
 
-    - Консоль управления {#console}
+    1. Публичный бакет в Object Storage с точно таким же именем, что и домен. Если бакета еще нет, создайте его:
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-        1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
         1. Введите имя бакета в точности совпадающее с именем домена.
         1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
         1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
-    {% endlist %}
+    1. Настройте [хостинг](../../storage/operations/hosting/setup.md) в бакете:
 
-1. Настройте [хостинг](../../storage/operations/hosting/setup.md) в бакете:
-
-    {% list tabs group=instructions %}
-
-    - Консоль управления {#console}
-
-        1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
         1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
         1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
         1. Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`. и укажите главную страницу сайта.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}** для завершения операции.
 
-    {% endlist %}
+    1. Настройте [алиас](../../storage/operations/hosting/own-domain.md) для бакета у своего провайдера [DNS](../../glossary/dns.md) или на собственном DNS-сервере.
 
-1. Настройте [алиас](../../storage/operations/hosting/own-domain.md) для бакета у своего провайдера [DNS](../../glossary/dns.md) или на собственном DNS-сервере.
+        Например, для домена `www.example.com` необходимо добавить запись:
 
-    Например, для домена `www.example.com` необходимо добавить запись:
+        ```text
+        www.example.com CNAME www.example.com.{{ s3-web-host }}
+        ```
 
-    ```text
-    www.example.com CNAME www.example.com.{{ s3-web-host }}
-    ```
-
-1. Установите и настройте AWS CLI по [инструкции](../../storage/tools/aws-cli.md#before-you-begin).
+{% endlist %}
 
 ## Создание запроса на получение сертификата от Let's Encrypt {#request-certificate}
 
@@ -66,7 +59,7 @@
 - Консоль управления {#console}
 
     1. Перейдите в [консоль управления]({{ link-console-main }}).
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
     1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
     1. В открывшемся окне задайте имя сертификата.
@@ -85,7 +78,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Перейдите в [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Выберите в списке нужный сертификат со статусом `Validating` и нажмите на него.
   1. В блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**:
       1. Скопируйте ссылку из поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}**:
@@ -101,7 +95,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Перейдите в [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
   1. Справа сверху нажмите **{{ ui-key.yacloud.storage.bucket.button_create }}** и создайте папку `.well-known`.
   1. В `.well-known` создайте папку `acme-challenge`.
@@ -117,6 +112,7 @@
 
 - AWS CLI {#cli}
 
+  1. Установите и настройте AWS CLI по [инструкции](../../storage/tools/aws-cli.md#before-you-begin).
   1. Загрузите файл в бакет так, чтобы он располагался в папке `.well-known/acme-challenge`:
 
       ```bash
@@ -146,8 +142,8 @@
 
 - Консоль управления {#console}
 
-    1. Войдите в [консоль управления]({{ link-console-main }}).
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Перейдите в [консоль управления]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
     1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
     1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.

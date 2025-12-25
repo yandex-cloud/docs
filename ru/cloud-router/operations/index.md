@@ -5,7 +5,6 @@
 - [{#T}](ri-create.md)
 - [{#T}](ri-update.md)
 - [{#T}](ri-prefixes-upsert.md)
-- [{#T}](ri-prefixes-remove.md)
 - [{#T}](ri-priv-con-add.md)
 - [{#T}](ri-priv-con-del.md)
 - [{#T}](ri-delete.md)

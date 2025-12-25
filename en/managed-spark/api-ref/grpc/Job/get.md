@@ -24,10 +24,14 @@ Returns the specified Spark job.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Spark cluster. ||
+Required field. ID of the Spark cluster.
+
+The maximum string length in characters is 50. ||
 || job_id | **string**
 
-Required field. ID of the Spark job to return. ||
+Required field. ID of the Spark job to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Job {#yandex.cloud.spark.v1.Job}
@@ -155,7 +159,6 @@ The id of the user who created the job ||
 
 Status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job created and is waiting to acquire.
 - `PENDING`: Job acquired and is waiting for execution.
 - `RUNNING`: Job is running.

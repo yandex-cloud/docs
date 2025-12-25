@@ -26,20 +26,28 @@ Returns a log for Spark job.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Spark cluster. ||
+Required field. ID of the Spark cluster.
+
+The maximum string length in characters is 50. ||
 || job_id | **string**
 
-Required field. ID of the Spark job to return. ||
+Required field. ID of the Spark job to return.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum length of job output per papge that should be returned.
 If the number of available output is larger tha `page_size`, the service returns
 a `next_page_token` that can be used to get the next page of job output in subsequent ListLog requests.
-Acceptable values are 0 to 1048576. Default value: 1048576. ||
+Acceptable values are 0 to 1048576. Default value: 1048576.
+
+The maximum value is 1048576. ||
 || page_token | **string**
 
 Page token. Set `page_token` to the `next_page_token` returned by a previous ListLog
-request to get the next page of results. ||
+request to get the next page of results.
+
+The maximum string length in characters is 200. ||
 |#
 
 ## ListJobLogResponse {#yandex.cloud.spark.v1.ListJobLogResponse}
@@ -62,5 +70,7 @@ This token allows you to get the next page of results for ListLog requests,
 if the number of results is larger than `page_size` specified in the request.
 To get the next page, specify the value of `next_page_token` as a value for
 the `page_token` parameter in the next ListLog request. Subsequent ListLog
-requests will have their own `next_page_token` to continue paging through the results. ||
+requests will have their own `next_page_token` to continue paging through the results.
+
+The maximum string length in characters is 200. ||
 |#

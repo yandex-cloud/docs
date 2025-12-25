@@ -46,7 +46,7 @@ description: В этой инструкции вы научитесь созда
 1. Предоставьте сервисному аккаунту доступ к бакету {{ objstorage-name }}, в котором будут храниться код и данные для заданий на кластере:
 
    1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Откройте [созданный ранее](#create-s3-bucket) бакет.
       1. Перейдите в раздел **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
       1. Нажмите на кнопку ![image](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
@@ -64,7 +64,7 @@ description: В этой инструкции вы научитесь созда
 - Консоль управления
 
   1. В консоли управления выберите каталог, в котором нужно создать кластер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Задайте имя кластера.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите [созданный ранее](#before-you-begin) сервисный аккаунт.

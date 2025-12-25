@@ -1,4 +1,5 @@
 ---
+noIndex: true
 title: Редактирование изображений для сайтов с помощью приложения Thumbor
 description: Как настроить редактирование изображений для сайтов с помощью приложения Thumbor в {{ yandex-cloud }}.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/metrics-provider'

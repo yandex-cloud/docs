@@ -22,9 +22,14 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-   1. In the window that opens:
+   1. In the window that opens, do the following:
        * In the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field, select the availability zone where you want to reserve the address.
-       * (Optional) Under **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}**, enable **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** and **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+       * Optionally, under **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}**, enable **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** and **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+       * Optionally, specify labels.
+       * Optionally, to add a DNS record, expand the **{{ ui-key.yacloud.vpc.addresses.label_dns-spec-title }}** list and click **{{ ui-key.yacloud.dns.button_add-record }}**. In the section that opens, do the following:
+           * Select a DNS zone.
+           * Specify an FQDN. You can create a new domain or use a domain whose name matches the DNS zone name.
+           * In the **{{ ui-key.yacloud.dns.label_ttl }}** field, specify the record lifetime in seconds.
    1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - CLI {#cli}
@@ -42,8 +47,14 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
    1. Reserve the address by specifying the availability zone:
 
       ```bash
-      yc vpc address create --external-ipv4 zone={{ region-id }}-a
+      yc vpc address create --external-ipv4 zone={{ region-id }}-a --deletion-protection
       ```
+
+      Where:
+
+      * `--external-ipv4`: IPv4 address description:
+        * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
+      * `--deletion-protection`: Enables protection of a static public IP address against deletion. You cannot delete an IP address with this option enabled.
 
       Result:
 
@@ -56,6 +67,9 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
         zone_id: {{ region-id }}-a
         requirements: {}
       reserved: true
+      type: EXTERNAL
+      ip_version: IPV4
+      deletion_protection: true
       ```
 
       The static public IP address is reserved.
@@ -66,7 +80,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      * `name`: Static public IP address name. The name format is as follows:
 
@@ -81,7 +95,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
      ```hcl
      resource "yandex_vpc_address" "addr" {
        name = "<IP_address_name>"
-       deletion_protection = "<deletion_protection>"
+       deletion_protection = "<protect_address_from_deletion>"
        external_ipv4_address {
          zone_id = "<availability_zone>"
        }
@@ -110,5 +124,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
       {% include [name-format](../../_includes/name-format.md) %}
 
     * ID of the [availability zone](../../overview/concepts/geo-scope.md) the address will reside in, in the `externalIpv4AddressSpec.zoneId` parameter.
+
+  To protect a static public IP address against deletion, provide `deletionProtection` set to `true` in the request.
 
 {% endlist %}

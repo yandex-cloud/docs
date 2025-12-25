@@ -22,6 +22,7 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} agen
 
           To add multiple variables, click **Add variable** as many times as required.
 
+      1. Optionally, in the **Message** field, enter the incoming message to provide to the agent together with the prompt.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
