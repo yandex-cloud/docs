@@ -63,8 +63,8 @@ You can lease a new dedicated public subnet or convert an existing [ephemeral pu
        
        {% include [name-format](../../_includes/name-format.md) %}
        
-     * `--description`: Subnet description. This is an optional parameter.
-     * `--labels`: Subnet [labels](../../resource-manager/concepts/labels.md). This is an optional parameter.
+     * `--description`: Subnet description. This is an optional setting.
+     * `--labels`: Subnet [labels](../../resource-manager/concepts/labels.md). This is an optional setting.
 
 {% endlist %}
 
@@ -116,8 +116,8 @@ You can only convert an ephemeral public subnet to a dedicated public subnet of 
        {% include [link-public-subnet](../../_includes/baremetal/instruction-steps/link-public-subnet.md) %}
      
      * `--name`: Subnet name.
-     * `--description`: Subnet description. This is an optional parameter.
-     * `--labels`: Subnet [labels](../../resource-manager/concepts/labels.md). This is an optional parameter.
+     * `--description`: Subnet description. This is an optional setting.
+     * `--labels`: Subnet [labels](../../resource-manager/concepts/labels.md). This is an optional setting.
 
 {% endlist %}
 

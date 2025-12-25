@@ -1,4 +1,5 @@
 ---
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/dataplatform/opensearch-to-object-storage'
 ---
 

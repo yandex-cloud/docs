@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ metadata-hub-full-name }}
-description: Access management in {{ metadata-hub-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ metadata-hub-full-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ metadata-hub-name }}
@@ -10,15 +10,15 @@ description: Access management in {{ metadata-hub-full-name }}. This section des
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user needs the `connection-manager.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `connection-manager.admin` [role](./connection-manager-roles.md#connection-manager-admin) (to assign roles for [connections](../concepts/connection-manager.md)), the `data-catalog.admin` [role](./data-catalog-roles.md#data-catalog-admin) (to assign roles for [metadata catalogs](../concepts/data-catalog.md)), or one of the following roles:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 ## Resources you can assign a role for {#resources}
 
-You can assign a role for an [organization](../../organization/quickstart.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [connection](../concepts/connection-manager.md). The roles assigned to organizations, clouds, and folders also apply to their nested resources.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a connection in the [management console]({{ link-console-main }}).
+You can assign a role for a [connection](../concepts/connection-manager.md) or [metadata catalog](../concepts/data-catalog.md) in the [management console]({{ link-console-main }}).
 
 ## Roles existing in {{ metadata-hub-name }} {#roles-list}
 

@@ -1,22 +1,22 @@
-When creating a cluster, you can select the following disk types for data storage:
+When creating a cluster, you can select the following disk types for storage:
 
-* **Network HDDs** (`network-hdd`): Most cost-effective option for clusters that do not require high read/write performance.
-* **Network SSDs** (`network-ssd`): Balanced solution. Such disks are slower than local SSD storage, but, unlike local disks, they ensure data integrity if {{ yandex-cloud }} hardware fails.
-* **Non-replicated SSD** (`network-ssd-nonreplicated`): Network disks with enhanced performance achieved by eliminating redundancy.
+* **Network HDDs** (`network-hdd`): Most cost-effective choice for clusters with low requirements for read and write performance.
+* **Network SSDs** (`network-ssd`): Balanced compromise between speed and reliability. While slower than local SSDs, network SSDs ensure data integrity in the event of {{ yandex-cloud }} hardware failure.
+* **Non-replicated SSD** (`network-ssd-nonreplicated`): Network disks with higher performance, achieved by eliminating redundancy.
 
-  You can increase the size of such disks only in increments of 93 GB.
-
-
-* **Ultra high-speed network SSDs with three replicas** (`network-ssd-io-m3`): Network disks with the same performance characteristics as non-replicated ones. This disk type provides redundancy.
-
-  You can increase the size of such disks only in increments of 93 GB.
+  The size of these disks can only be increased in 93 GB increments.
 
 
-* **Local SSDs** (`local-ssd`): Disks with the best performance.
+* **Ultra high-speed network SSDs with three replicas** (`network-ssd-io-m3`): Deliver performance equivalent to non-replicated SSDs, while maintaining full data redundancy.
 
-  The size of such a storage can be increased:
+  The size of these disks can only be increased in 93 GB increments.
+
+
+* **Local SSDs** (`local-ssd`): Deliver the highest possible disk performance.
+
+  The storage size can be increased as follows:
   * For **Intel Broadwell** and **Intel Cascade Lake**: Only in 100 GB increments.
-  * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments only.
+  * For **Intel Ice Lake**: Only in {{ local-ssd-v3-step }} increments.
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
 

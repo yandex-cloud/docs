@@ -1,35 +1,35 @@
-#### Why did the cluster change its status to `Updating` during an unscheduled backup? {#updating-while-backup}
+#### Why did my cluster switch to the _Updating_ status during an unscheduled backup? {#updating-while-backup}
 
-The cluster changes its status to **Updating** right after the backup process is launched. You cannot cancel this operation. Wait for it to complete instead.
+Once the backup process is started, the cluster changes its status to **Updating**. You cannot cancel this operation. Please wait for it to complete.
 
-The time this operation is performed depends on a number of factors, such as DB size, cluster configuration, and the nature of data being stored. The average speed when [recovering a cluster from a backup](../../managed-postgresql/operations/cluster-backups.md#restore) is about 100 Mbps.
+The operation’s duration depends on a number of factors, including database size, cluster configuration, and the nature of the stored data. The average [cluster restoration speed](../../managed-postgresql/operations/cluster-backups.md#restore) is approximately 100 MB/s.
 
 #### Can I create two {{ PG }} databases at the same time? {#multi-db}
 
-You cannot apply multiple transactions to a cluster at the same time. It is an architectural feature of the technologies utilized by {{ yandex-cloud }}.
+You cannot perform multiple cluster operations simultaneously due to architectural constraints of the technologies used in {{ yandex-cloud }}.
 
-#### Can I change the number of connections available to a user? {#user-conn-number}
+#### How can I change the number of connections available for a user? {#user-conn-number}
 
-Yes, you can. To do this, [change the values of the relevant settings](../../managed-postgresql/operations/cluster-users.md#update-settings):
-* [**Conn limit**](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit): Maximum number of host connections per user. The default is 50. The minimum is 10.
-* [**Max connections**](../../managed-postgresql/concepts/settings-list.md#setting-max-connections): Maximum number of connections reserved for all users. The default value is `200 × <number_of_vCPUs_per_host>`. You have to keep in mind that this number includes 15 service connections, e.g., given a cluster with `"max_connections": 100`, you can reserve a maximum of 85 connections per cluster host for users.
+You can change the number of connections by [updating the following settings](../../managed-postgresql/operations/cluster-users.md#update-settings):
+* [**Conn limit**](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit): Maximum number of host connections per user. The default value is 50. The minimum value is 10.
+* [**Max connections**](../../managed-postgresql/concepts/settings-list.md#setting-max-connections): Maximum number of connections reserved for all users. The default value is `200 × <number_of_vCPUs_per_host>`. Note that this number includes 15 system connections. For example, with `"max_connections": 100`, you can reserve no more than 85 user connections per cluster host.
 
-#### Can I change the class of an existing host (standard, memory-optimized, burstable)? {#host-class}
+#### Can I change the host class (standard, memory-optimized, burstable) for an existing host? {#host-class}
 
-Yes, you can by following the procedure in [Changing cluster settings](../../managed-postgresql/operations/update.md#change-resource-preset).
+Yes, you can do this by following the procedure in [Changing cluster settings](../../managed-postgresql/operations/update.md#change-resource-preset).
 
-#### Can I change the an existing cluster's disk type? {#disk-type}
+#### Can I change the disk type in an existing cluster? {#disk-type}
 
-Yes, you can. To do this, [restore the cluster from a backup](../../managed-postgresql/operations/cluster-backups.md#restore) and specify the desired disk type when configuring the new cluster.
+Yes, you can. To do this, [restore the cluster from a backup](../../managed-postgresql/operations/cluster-backups.md#restore) and specify the required disk type when configuring the new cluster.
 
 #### Can I manage a cluster using SQL commands? {#sql-control}
 
-There are some restrictions for cluster management using SQL commands. For more information, see [{#T}](../../managed-postgresql/concepts/sql-limits.md).
+Cluster management via SQL commands has certain restrictions. For more information, see [{#T}](../../managed-postgresql/concepts/sql-limits.md).
 
 #### Can I create a database using SQL commands? {#create-db-sql}
 
-No, you cannot create a database using SQL commands. In a {{ mpg-name }} cluster, you can create databases only using {{ yandex-cloud }} interfaces.
+No, you cannot create a database via SQL. {{ mpg-name }} clusters only support database creation via {{ yandex-cloud }} interfaces.
 
-#### How to recover a cluster from read-only mode? {#read-only-exit}
+#### How to take a cluster out of read-only mode? {#read-only-exit}
 
 Follow the steps described in [{#T}](../../managed-postgresql/concepts/storage.md#read-only-solutions) and [{#T}](../../managed-postgresql/operations/storage-space.md#read-only-solutions).

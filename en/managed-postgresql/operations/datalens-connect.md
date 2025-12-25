@@ -1,6 +1,6 @@
 ---
 title: How to connect to a {{ PG }} cluster from {{ datalens-name }}
-description: Follow this guide to connect to a {{ PG }} cluster from {{ datalens-name }}.
+description: In this tutorial, you will learn how to connect to a {{ PG }} cluster from {{ datalens-name }}.
 ---
 
 # Connecting to a {{ PG }} cluster from {{ datalens-name }}
@@ -9,7 +9,7 @@ description: Follow this guide to connect to a {{ PG }} cluster from {{ datalens
 
 To use an existing cluster as a data source for {{ datalens-full-name }}:
 1. [Activate {{ datalens-name }}](#activate-datalens).
-1. [Enable access to the cluster from {{ datalens-name }}](#allow-access).
+1. [Enable {{ datalens-name }} access to the cluster](#allow-access).
 1. [Create a cluster connection in {{ datalens-name }}](#create-connector).
 
 ## Activating {{ datalens-name }} {#activate-datalens}
@@ -28,24 +28,24 @@ To allow {{ datalens-name }} to connect to your cluster and work with its data, 
 
 - Management console {#console}
 
-  1. Make sure {{ datalens-name }} is [activated](#activate-datalens) in the relevant folder and has [permission](#allow-access) to access the cluster.
+  1. Make sure {{ datalens-name }} is [activated](#activate-datalens) in your target folder and has [permission](#allow-access) to access the cluster.
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
      ![screen02](../../_assets/managed-postgresql/operations/datalens-connect/screen02.png)
 
-  1. Click the relevant cluster’s name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
 
      ![screen03](../../_assets/managed-postgresql/operations/datalens-connect/screen03.png)
 
-     {% cut "I have no **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button" %}
+     {% cut "I do not see the **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button" %}
 
-     If you see the _{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}_ message instead of the **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button, you have either not yet activated {{ datalens-name }} or activated it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow [this {{ datalens-name }} guide](../../datalens/operations/connection/create-postgresql.md).
+     If you see the _{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}_ message instead of the **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button, you have either not yet activated {{ datalens-name }} or you activated it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow [this {{ datalens-name }} guide](../../datalens/operations/connection/create-postgresql.md).
 
      {% endcut %}
 
-  1. [Set up your connection](#connector-settings).
-  1. Check that the settings are correct by clicking **Check connection**.
+  1. [Configure connection settings](#connector-settings).
+  1. Verify the settings are correct by clicking **Check connection**.
   1. After a successful connection test, click **Create connection**.
 
      ![screen04](../../_assets/managed-postgresql/operations/datalens-connect/screen04.png)
@@ -56,10 +56,10 @@ To allow {{ datalens-name }} to connect to your cluster and work with its data, 
 
 {% endlist %}
 
-After creating the connection, you can:
+Once the connection is created, you can:
 * [Update](#update-connector) or [delete](#delete-connector) this connection.
-* Use this connection to [create datasets](../../datalens/dataset/index.md) from the cluster data.
-* Visualize the datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
+* Use this connection to [create datasets](../../datalens/dataset/index.md) from the cluster’s data.
+* Visualize datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
 ## Viewing a list of cluster connections {#connectors-list}
 
@@ -82,12 +82,12 @@ After creating the connection, you can:
 
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
-  1. Select the connection from the list.
+  1. Select the relevant connection from the list.
 
      ![screen12](../../_assets/managed-postgresql/operations/datalens-connect/screen12.png)
 
-  1. Change the [settings](#connector-settings).
-  1. Check that the settings are correct by clicking **Check connection**.
+  1. Change the connection [settings](#connector-settings).
+  1. Verify the settings are correct by clicking **Check connection**.
   1. After a successful connection test, click **Save changes**.
 
      ![screen06](../../_assets/managed-postgresql/operations/datalens-connect/screen06.png)
@@ -102,7 +102,7 @@ After creating the connection, you can:
 
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
-  1. Select the connection from the list.
+  1. Select the relevant connection from the list.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) at the top of the page and select **Delete**.
 
      ![screen07](../../_assets/managed-postgresql/operations/datalens-connect/screen07.png)
@@ -122,10 +122,10 @@ After creating the connection, you can:
   1. If your cluster and {{ datalens-name }} are in the same organization:
      1. Navigate to the **Select in organization** tab.
      1. Select the cloud and folder where your cluster is located.
-     1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the folder with {{ datalens-name }} by clicking **Create new**.
+     1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the same folder as {{ datalens-name }} by clicking **Create new**.
      1. Leave the **Port** setting unchanged.
      1. Select **Path to database** from the drop-down list.
-     1. Select the user from the drop-down list.
+     1. Select a user from the drop-down list.
      1. Enter this user's password.
      1. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      1. Configure the **Raw SQL level**.

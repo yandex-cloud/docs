@@ -1,20 +1,20 @@
-* `diskSizeAutoscaling`: Automatic storage size increase settings:
-  * `plannedUsageThreshold`: Storage utilization threshold to trigger a storage increase during the next maintenance window, in percent. This is an optional setting. The default value is `0` (automatic increase is disabled).
+* `diskSizeAutoscaling`: Storage autoscaling setting:
+  * `plannedUsageThreshold`: Storage usage percentage threshold triggering a storage expansion during the next maintenance window. This is an optional setting. The default value is `0` (autoscale disabled).
            
-    The possible values range from `0` to `100`.
+    Values for this setting can range from `0` to `100`.
 
-  * `emergencyUsageThreshold`: Storage utilization threshold to trigger a storage increase right away, in percent. This is an optional setting. The default value is `0` (automatic increase is disabled).
+  * `emergencyUsageThreshold`: Storage usage percentage threshold triggering an immediate storage expansion. This is an optional setting. The default value is `0` (autoscale disabled).
            
-    The possible values range from `0` to `100`. 
+    Values for this setting can range from `0` to `100`. 
 
-  * `diskSizeLimit`: Maximum object size after increase, in bytes. 
+  * `diskSizeLimit`: Maximum storage capacity after expansion, in bytes. 
 
   {% note warning %}
   
-  * When using `plannedUsageThreshold`, make sure to specify the `maintenanceWindow` setting.
+  * When using the `plannedUsageThreshold` setting, make sure to specify `maintenanceWindow`.
         
-  * If you specify both thresholds, `emergencyUsageThreshold` must not be less than `plannedUsageThreshold`.
+  * If you specify both thresholds, make sure `emergencyUsageThreshold` is greater than or equal to `plannedUsageThreshold`.
 
   {% endnote %}
 
-    For more information about storage increase conditions, see [this section](../../../managed-postgresql/concepts/storage.md#auto-rescale). 
+    For more information about storage scaling rules, see [this section](../../../managed-postgresql/concepts/storage.md#auto-rescale). 

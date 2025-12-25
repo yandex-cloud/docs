@@ -10,50 +10,50 @@ keywords:
 
 # Hunspell dictionaries for full-text search
 
-[Dictionaries]({{ pg-docs }}/textsearch-dictionaries.html) are used to configure full-text search in documents stored in {{ PG }}. {{ mpg-name }} clusters have pre-installed [Hunspell](https://hunspell.github.io/) spell checker dictionaries supporting multiple languages.
+{{ PG }} uses [Dictionaries]({{ pg-docs }}/textsearch-dictionaries.html) to configure full-text search in its documents. {{ mpg-name }} clusters come with pre-installed [Hunspell](https://hunspell.github.io/) spell checker dictionaries supporting multiple languages.
 
-Below, we provide instructions on how to add an [English](#en) dictionary, as an example.
+The following examples show how to add an [English](#en) dictionary.
 
 ## Adding a dictionary {#add-dictionary}
 
-1. [Connect to the database](../connect.md#bash) using `psql`.
-1. To find out which languages are available, get a list of preset configurations for full-text search:
+1. [Connect to the database](../connect.md#bash) via `psql`.
+1. To see which languages are available, get a list of pre-installed full-text search configurations:
 
    ```sql
    SELECT cfgname FROM pg_catalog.pg_ts_config;
    ```
 
-   The result includes the configuration names represented as language names.
+   The result will show configurations named after their respective languages.
 
-1. Create the `public.my_config` configuration for full-text search:
+1. Create the `public.my_config` full-text search configuration:
 
    ```sql
    CREATE TEXT SEARCH CONFIGURATION public.my_config ( COPY = pg_catalog.<configuration> );
    ```
 
-   In your SQL query, specify the language configuration obtained in the previous step.
+   In your SQL query, specify the language configuration from the previous step.
 
-1. Create a dictionary named `my_dictionary` in the DB:
+1. Create a dictionary called `my_dictionary` in your database:
 
    ```sql
    CREATE TEXT SEARCH DICTIONARY my_dictionary (
       TEMPLATE = ispell,
-      DictFile = <words_in_dictionary>,
+      DictFile = <dictionary_words>,
       AffFile = <affixes>,
-      Stopwords = <stopwords>
+      Stopwords = <stop_words>
    );
    ```
 
-   SQL query properties:
+   SQL query parameters:
 
-   * `TEMPLATE`: Template used to create a dictionary. You can learn more about Ispell dictionaries [here]({{ pg-docs }}/textsearch-dictionaries.html#TEXTSEARCH-ISPELL-DICTIONARY).
-   * `DictFile`: Preset file with words organized in a dictionary.
-   * `AffFile`: Preset file with affixes (prefixes, suffixes, and endings) you can add to words in the dictionary.
-   * `Stopwords`: Stopwords to disregard in full-text searches. Such words may include articles, prepositions and interjections.
+   * `TEMPLATE`: Dictionary template. Learn more about Ispell dictionaries [here]({{ pg-docs }}/textsearch-dictionaries.html#TEXTSEARCH-ISPELL-DICTIONARY).
+   * `DictFile`: Pre-installed dictionary file.
+   * `AffFile`: Pre-installed affix file containing prefixes, suffixes, and endings for expanding dictionary words.
+   * `Stopwords`: Words to ignore in full-text searches, such as articles, prepositions, and interjections.
 
-   Files with dictionaries and affixes preset in {{ mpg-name }} clusters:
+   Dictionary and affix files pre-installed in {{ mpg-name }} clusters:
 
-   | Language | `DictFile` dictionary | `AffFile` affixes |
+   | Language | Dictionary (`DictFile`) | Affixes (`AffFile`) |
    | ----------- | ----------- |----------- |
    | English | `en_gb.dict` | `en_GB.affix` |
    | Danish | `da_dk.dict` | `da_DK.affix` |
@@ -67,25 +67,25 @@ Below, we provide instructions on how to add an [English](#en) dictionary, as an
 
    There are also [examples of {{ PG }} dictionaries](https://github.com/postgres/postgres/tree/master/src/backend/tsearch/dicts):
 
-   | `DictFile` dictionary | `AffFile` affixes |
+   | Dictionary (`DictFile`) | Affixes (`AffFile`) |
    | ----------- |----------- |
    | `hunspell_sample_long.dict` | `hunspell_sample_long.affix` |
    | `hunspell_sample_num.dict` | `hunspell_sample_num.affix` |
    | `ispell_sample.dict` | `ispell_sample.affix` |
 
-   In the `CREATE TEXT SEARCH DICTIONARY` SQL query, do not use the `.dict` and `.affix` extensions in the file names.
+   Do not specify the `.dict` and `.affix` file extensions in the `CREATE TEXT SEARCH DICTIONARY` SQL query.
 
-1. Link the dictionary named `my_dictionary` and other dictionaries with the `word` token type.
+1. Link `my_dictionary` and other dictionaries to the `word` token type.
 
-   Token is a word or phrase being searched for. It is specified in the search query and displayed in the full-text search results.
+   A token is a search word or phrase. You specify it in the search query and it appears in the full-text search results.
 
    ```sql
    ALTER TEXT SEARCH CONFIGURATION public.my_config
       ALTER MAPPING FOR word
-      WITH my_dictionary,<list of_dictionaries>;
+      WITH my_dictionary,<dictionary_list>;
    ```
 
-   In the `WITH` row, specify the publicly available dictionaries with a broader range of words, e.g., `english_ispell` or `english_stem`. The broader the dictionary, the further down it should be listed in the `WITH` row.
+   Use the `WITH` clause to specify publicly available dictionaries with more extensive vocabulary, such as `english_ispell` or `english_stem`. Dictionaries should be ordered in the `WITH` clause from more specific to more general.
 
 1. Set `public.my_config` as the default configuration:
 
@@ -93,7 +93,7 @@ Below, we provide instructions on how to add an [English](#en) dictionary, as an
    SET default_text_search_config = 'public.my_config';
    ```
 
-1. Make sure the default configuration is set to `public.my_config`:
+1. Verify that the default configuration is `public.my_config`:
 
    ```sql
    SHOW default_text_search_config;
@@ -108,38 +108,38 @@ Below, we provide instructions on how to add an [English](#en) dictionary, as an
    (1 row)
    ```
 
-1. Make sure the full-text search works:
+1. Verify that the full-text search is working:
 
    ```sql
    SELECT * FROM ts_debug('<token>');
    ```
 
-   Specify a word that can be found in the DB documents as the token.
+   For the token, specify the word that can be found in the documents within your database.
 
    Result:
 
    ```text
     alias |    description    |  token  |       dictionaries       |           dictionary           +   lexemes
    -------+-------------------+---------+--------------------------+--------------------------------+------------
-    word  | Word, all letters | <token> | {<used_dictionaries>} | <dictionary_with_found_lexeme> | {<lexemes>}
+    word  | Word, all letters | <token> | {<dictionaries_used>} | <dictionary_with_the_lexem_found> | {<lexemes>}
    (1 row)
    ```
 
-   Here, a lexeme is a word that replaces cognate words in full-text searches. For example, if a DB document contains such words as _cloud_, _clouds_, and _cloud's_, {{ PG }} can recognize them as a single lexeme, "cloud".
+   Here, a lexeme is a word that replaces all its morphological variants in full-text searches. For example, if a document in your database contains the words <q>flying</q>, <q>flies</q>, and <q>flew</q>, {{ PG }} will recognize them as a single lexeme, <q>fly</q>.
 
 ## Examples {#examples}
 
 
 ### Adding an English dictionary {#en}
 
-1. [Connect to the database](../connect.md#bash) using `psql`.
-1. Create the `public.my_english_config` configuration for full-text search:
+1. [Connect to the database](../connect.md#bash) via `psql`.
+1. Create the `public.my_english_config` full-text search configuration:
 
    ```sql
    CREATE TEXT SEARCH CONFIGURATION public.my_english_config ( COPY = pg_catalog.english );
    ```
 
-1. Create a dictionary in the DB:
+1. Create a dictionary in your database:
 
    ```sql
    CREATE TEXT SEARCH DICTIONARY english_hunspell (
@@ -150,7 +150,7 @@ Below, we provide instructions on how to add an [English](#en) dictionary, as an
    );
    ```
 
-1. Link dictionaries named `english_hunspell` and `english_stem` with the `word` token type:
+1. Link `english_hunspell` and `english_stem` dictionaries to the `word` token type:
 
    ```sql
    ALTER TEXT SEARCH CONFIGURATION public.my_english_config
@@ -164,7 +164,7 @@ Below, we provide instructions on how to add an [English](#en) dictionary, as an
    SET default_text_search_config = 'public.my_english_config';
    ```
 
-1. Make sure the default configuration is set to `public.my_english_config`:
+1. Verify that the default configuration is `public.my_english_config`:
 
    ```sql
    SHOW default_text_search_config;
@@ -179,13 +179,13 @@ Below, we provide instructions on how to add an [English](#en) dictionary, as an
    (1 row)
    ```
 
-1. Make sure the full-text search works:
+1. Verify that the full-text search is working:
 
    ```sql
    SELECT * FROM ts_debug('<token>');
    ```
 
-   Specify a word that can be found in the DB documents as the token.
+   For the token, specify the word that can be found in the documents within your database.
 
    Result:
 

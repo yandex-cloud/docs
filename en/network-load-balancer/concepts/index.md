@@ -5,9 +5,9 @@ description: Network load balancers (NLBs) are designed to build fault-tolerant 
 
 # Network load balancer. Overview
 
-*Network load balancers* (NLBs) are designed to build fault-tolerant and scalable applications and services in {{ yandex-cloud }}. 
+*Network load balancers* (NLBs) are designed to build fault-tolerant and scalable applications and services in {{ yandex-cloud }}.
 
-Fault tolerance and scalability are achieved by distributing the traffic entering the load balancer among the cloud resources behind it. 
+Fault tolerance and scalability are achieved by distributing the traffic entering the load balancer among the cloud resources behind it.
 
 Network load balancers operate at Level 4 of the OSI network model. Yet they employ technologies operating at Level 3 to accelerate data packet processing.
 
@@ -28,6 +28,8 @@ The structure of the network load balancer includes the following key components
 * [Resource health checker for target groups](health-check.md) checks the availability of resources in the target group.
 
 You can create a network load balancer by specifying only its name. The other parameters are optional. An [external balancer](#nlb-types) is created by default. Traffic listeners and target groups can be created later and linked to the previously created network load balancer.
+
+To prevent unintended deletion of a network load balancer, enable deletion protection for it. You can now enable deletion protection for a [load balancer](../operations/deletion-protection.md#enable-deletion-protection) that already exists or when creating a new [external](../operations/load-balancer-create.md) or [internal](../operations/internal-lb-create.md) load balancer.
 
 ## Deployment tools {#tools}
 

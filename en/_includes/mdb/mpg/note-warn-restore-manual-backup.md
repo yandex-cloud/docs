@@ -1,8 +1,8 @@
 {% note warning %}
 
-For backups created manually:
+For manually created backups:
 
-* You cannot set any recovery time.
-* You can only restore a cluster to the state when the backup is completed.
+* Point-in-time recovery to an arbitrary timestamp is not available.
+* You can only restore the cluster to its state right after backup completion.
 
 {% endnote %}

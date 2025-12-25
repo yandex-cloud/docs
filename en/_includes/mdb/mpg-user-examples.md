@@ -8,25 +8,25 @@
 
     {% note alert %}
 
-    Do not use this example if a user is created using {{ TF }}: subsequent changes made via {{ TF }} may cancel the user's privileges granted through SQL.
+    Do not use this example for users created with {{ TF }} as subsequent changes made via {{ TF }} may overwrite privileges granted via SQL.
 
     {% endnote %}
 
-    To add a new user (`user2`) to an existing cluster with read-only access to the `db1` database:
+    To add a new `user2` account with read-only access for the `db1` database to an existing cluster:
 
-    1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser) named `user2`. Select the databases that the user should have access to.
-    1. [Connect](../../managed-postgresql/operations/connect.md#connection-string) to the `db1` database under the database owner account.
+    1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser) named `user2`. While creating the user, specify which databases they can access.
+    1. [Connect](../../managed-postgresql/operations/connect.md#connection-string) to the `db1` database as the owner.
     1. Grant `user2` the required permissions.
 
         Examples:
 
-        * Grant access only to the `Products` table in the default `public` schema:
+        * Grant access to the `Products` table in the default `public` schema:
 
             ```sql
             GRANT SELECT ON public.Products TO user2;
             ```
 
-        * Grant access to objects in `myschema`:
+        * Grant access to all objects in `myschema`:
 
             ```sql
             GRANT USAGE ON SCHEMA myschema TO user2;
@@ -39,7 +39,7 @@
             GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA myschema to user2;
             ```
 
-        * Allow calling `my_function` in `myschema`:
+        * Grant execution permission for `my_function` in `myschema`:
 
             ```sql
             GRANT EXECUTE ON FUNCTION myschema.my_function TO user2;
@@ -52,21 +52,21 @@
             ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT USAGE, SELECT ON SEQUENCES TO user2;
             ```
 
-            The `ALTER DEFAULT PRIVILEGES` commands allow you to change access permissions for new objects you will create later (in this case, `myschema` tables and sequences) but do not affect permissions granted for existing objects.
+            The `ALTER DEFAULT PRIVILEGES` commands allow you to change the default access privileges for future objects, without affecting existing ones. In the example above, we change default privileges for new `myschema` tables and sequences.
 
-            To update privileges for existing objects, use the `GRANT` and `REVOKE` commands.
+            To update privileges for existing objects, use the `GRANT` and `REVOKE` statements.
 
 - {{ TF }} {#tf}
 
-    You can grant user privileges via {{ TF }} only in a cluster with public hosts.
+    You can only grant user privileges via {{ TF }} in a cluster with publicly accessible hosts.
 
-    User privileges are granted via {{ TF }} using a third-party provider, [{{ TF }} Provider for PostgreSQL](https://github.com/cyrilgdn/terraform-provider-postgresql).
+    You can grant user privileges via {{ TF }} using the third-party [{{ TF }} Provider for PostgreSQL](https://github.com/cyrilgdn/terraform-provider-postgresql).
 
     {% include [pg-provider-disclaimer](../../_includes/mdb/mpg/terraform/pg-provider-disclaimer.md) %}
 
-    For more information about granting privileges, see [{#T}](../../managed-postgresql/operations/grant.md#grant-privilege).
+    To learn more about granting privileges, see [{#T}](../../managed-postgresql/operations/grant.md#grant-privilege).
 
-    Let's say you have a cluster named `mypg` with `user1` as the owner. To add a new user (`user2`) to this cluster with read-only access to `db1` tables with the `public` schema:
+    Suppose you have a cluster named `mypg` with a user named `user1` as its owner. To add a new cluster account `user2` with read-only access to the tables in the `public` schema of the `db1` database, do the following:
 
     1. Add the `postgresql` provider to the `required_providers` section in the provider configuration file:
 
@@ -82,7 +82,7 @@
         }
         ```
 
-    1. Open the {{ TF }} configuration file with the infrastructure plan.
+    1. Open the {{ TF }} configuration file describing your infrastracture.
     1. Add the `yandex_mdb_postgresql_user` resource:
 
         ```hcl
@@ -96,7 +96,7 @@
         }
         ```
 
-    1. Add the `postgresql` provider and configure its access permissions to `db1`:
+    1. Add the `postgresql` provider and configure its access permissions to the `db1` database:
 
         ```hcl
         provider "postgresql" {
@@ -120,40 +120,40 @@
         }
         ```
 
-    1. Initialize {{ TF }} once again:
+    1. Reinitialize {{ TF }}:
 
         ```bash
         terraform init
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 {% endlist %}
 
-### Revoking permissions {#revoke-access}
+### Revoking privileges {#revoke-access}
 
 {% list tabs group=instructions %}
 
 - SQL {#sql}
 
-    1. [Connect](../../managed-postgresql/operations/connect.md#connection-string) to the `db1` database under the database owner account.
-    1. Revoke the relevant access permissions from `user2`.
+    1. [Connect](../../managed-postgresql/operations/connect.md#connection-string) to the `db1` database as the owner.
+    1. Revoke access privileges from `user2`.
 
         Examples:
 
-        1. Revoke all privileges for tables in the `myschema` schema:
+        1. Revoke all privileges for the tables within the `myschema` schema:
 
             ```sql
             REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA myschema FROM user2;
             ```
 
-        1. Revoke access for the `Products` table in the default `public` schema:
+        1. Revoke access to the `Products` table in the default `public` schema:
 
             ```sql
             REVOKE SELECT ON public.Products FROM user2;
@@ -165,7 +165,7 @@
             REVOKE SELECT ON ALL TABLES IN SCHEMA myschema FROM user2;
             ```
 
-        1. Revoke access for objects in the `myschema` schema:
+        1. Revoke access to all objects in `myschema`:
 
             ```sql
             REVOKE USAGE ON SCHEMA myschema FROM user2;
@@ -173,11 +173,11 @@
 
 - {{ TF }} {#tf}
 
-    1. Open the {{ TF }} configuration file you used to [grant privileges](#user-readonly).
+    1. Open the {{ TF }} configuration file used for [granting privileges](#user-readonly).
 
-    1. In the `postgresql_grant` section, remove the privilege you want to revoke from the `privileges` parameter.
+    1. In the `postgresql_grant` section, remove the privilege you want to revoke from the `privileges` attribute.
 
-        To revoke all privileges, leave the `privileges` array empty or completely remove the `postgresql_grant` resource.
+        To revoke all privileges, leave the `privileges` array empty or remove the entire `postgresql_grant` section.
 
         ```hcl
         resource "postgresql_grant" "readonly_tables" {
@@ -189,11 +189,11 @@
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}** нажмите **{{ ui-key.yacloud.lockbox.button_add-version }}**.
     1. Добавьте следующие параметры:
@@ -87,7 +87,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}** нажмите **{{ ui-key.yacloud.lockbox.button_add-version }}**.
     1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** версии.
@@ -218,7 +218,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}** будет показан список всех версий секрета и информация о них.
     1. Нажмите на нужную версию, чтобы получить информацию о ее парах ключ — значение.
@@ -255,7 +255,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/console-icons/ellipsis.svg).
     1. Выберите пункт **{{ ui-key.yacloud.lockbox.button_action-open-version-add-dialog }}**.
@@ -318,7 +318,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/console-icons/ellipsis.svg).
     1. Выберите пункт **{{ ui-key.yacloud.lockbox.field_make-version-current }}**.
@@ -337,7 +337,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/console-icons/ellipsis.svg).
     1. Выберите пункт **{{ ui-key.yacloud.lockbox.button_action-schedule-for-destruction }}**.

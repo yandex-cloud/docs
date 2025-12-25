@@ -2,6 +2,8 @@
 
 With {{ metastore-name }} service roles, you can view {{ metastore-name }} cluster metadata and manage clusters.
 
+{% include [roles-metastore](../../_mermaid/roles/metastore.md) %}
+
 ## {{ roles.metastore.auditor }} {#managed-metastore-auditor}
 
 {% include [managed-metastore.auditor](../../_roles/managed-metastore/auditor.md) %}

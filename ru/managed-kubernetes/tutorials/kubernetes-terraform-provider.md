@@ -1,4 +1,5 @@
 ---
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/kubernetes-terraform-provider'
 ---
 

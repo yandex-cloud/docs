@@ -143,7 +143,7 @@ items:
         href: pricing/index.md
       - name: Serverless mode
         items:
-          - name: Pricing policy for serverless mode
+          - name: Serverless mode pricing policy
             href: pricing/serverless.md
           - name: Request cost for YQL
             href: pricing/ru-yql.md
@@ -154,7 +154,9 @@ items:
           - name: Cost of topic operations
             href: pricing/ru-topics.md
       - name: Dedicated mode
-        href: pricing/dedicated.md
+        items:
+          - name: Dedicated mode pricing policy
+            href: pricing/dedicated.md
   - name: CLI reference
     items:
       - name: Overview

@@ -2,7 +2,7 @@
 
 {{ yq-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
-{{ yandex-cloud }} users can only perform operations on resources in accordance with the roles assigned to them. Without assigned roles, a user cannot perform most operations.
+{% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
 To allow access to {{ yq-full-name }} resources, assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
@@ -24,13 +24,9 @@ To assign a role to a user:
 
 ## Roles this service has {#roles-list}
 
-You can manage access to {{ yq-name }} objects using both service and primitive roles. The chart below shows the roles existing in the service and their permission inheritance. For example, `editor` inherits all the `viewer` permissions. You can find the role descriptions below the chart.
+You can manage access to {{ yq-name }} objects using both service and primitive roles. The chart below shows the roles existing in the service and their permission inheritance. For example, `editor` inherits all `viewer` permissions. You can find the role descriptions below the chart.
 
-<center>
-
-![image](../../_assets/query/service-roles-hierarchy.svg)
-
-</center>
+{% include [query](../../_mermaid/roles/query.md) %}
 
 The list below shows all roles used for access control in {{ yq-name }}.
 

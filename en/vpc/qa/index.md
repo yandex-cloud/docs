@@ -33,6 +33,10 @@ You can have public IP addresses assigned to cloud resources automatically or se
 
 You can convert a public IP address to [static](../operations/set-static-ip.md) using the {{ vpc-short-name }} **{{ ui-key.yacloud.vpc.switch_addresses }}** tab in the [management console]({{ link-console-main }}).
 
+#### Can I protect a public IP address against accidental deletion? {#deletion-protection}
+
+Yes, you can [protect a public IP address against accidental deletion](../operations/deletion-protection.md).
+
 #### What limitations apply when creating subnets? {#create-subnet-limits}
 
 Subnets can only use private IPv4 addresses from the ranges defined by [RFC 1918](https://tools.ietf.org/html/rfc1918).
@@ -74,7 +78,6 @@ If you need port 25, assign your virtual machine a new IP address:
 1. [Associate](../../compute/operations/vm-control/vm-attach-public-ip.md) the new IP address you got from the support team.
 
 We reserve the right to block an IP address and/or suspend a VM if we receive complaints about spam originating from that IP address.
-
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}
 

@@ -26,20 +26,28 @@ Retrieves a list of jobs for Spark cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the cluster to list Spark jobs of. ||
+Required field. ID of the cluster to list Spark jobs of.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a `next_page_token` that can be used
 to get the next page of results in subsequent ListJobs requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. Set `page_token` to the `next_page_token` returned by a previous ListJobs
-request to get the next page of results. ||
+request to get the next page of results.
+
+The maximum string length in characters is 200. ||
 || filter | **string**
 
-String that describes a display filter. ||
+String that describes a display filter.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListJobsResponse {#yandex.cloud.spark.v1.ListJobsResponse}
@@ -153,7 +161,9 @@ This token allows you to get the next page of results for ListJobs requests,
 if the number of results is larger than `page_size` specified in the request.
 To get the next page, specify the value of `next_page_token` as a value for
 the `page_token` parameter in the next ListClusters request. Subsequent ListClusters
-requests will have their own `next_page_token` to continue paging through the results. ||
+requests will have their own `next_page_token` to continue paging through the results.
+
+The maximum string length in characters is 200. ||
 |#
 
 ## Job {#yandex.cloud.spark.v1.Job}
@@ -188,7 +198,6 @@ The id of the user who created the job ||
 
 Status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job created and is waiting to acquire.
 - `PENDING`: Job acquired and is waiting for execution.
 - `RUNNING`: Job is running.

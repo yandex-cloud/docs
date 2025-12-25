@@ -57,7 +57,7 @@
 Создать Routing Instance | Да | [Описание](../../cloud-router/operations/ri-create.md)
 Изменить параметры Routing Instance | Да | [Описание](../../cloud-router/operations/ri-update.md)
 Изменить список IP-префиксов в Routing Instance | [Описание](../../cloud-router/tutorials/ri-prefixes-upsert.md) | [Описание](../../cloud-router/operations/ri-prefixes-upsert.md)
-Удалить IP-префиксы из Routing Instance | Да | [Описание](../../cloud-router/operations/ri-prefixes-remove.md)
+Удалить IP-префиксы из Routing Instance | Да | [Описание](../../cloud-router/operations/ri-prefixes-upsert.md#remove-prefixes)
 Добавить приватное соединение в Routing Instance | Да | [Описание](../../cloud-router/operations/ri-priv-con-add.md)
 Удалить приватное соединение из Routing Instance | Да | [Описание](../../cloud-router/operations/ri-priv-con-del.md)
 Удалить Routing Instance | Да | [Описание](../../cloud-router/operations/ri-delete.md)

@@ -15,13 +15,13 @@
 ```
 Where:
 
-* `disk_size_limit`: Maximum object size after increase, in gibibytes.
-* `emergency_usage_threshold`: Storage utilization threshold to trigger a storage increase right away, in percent. This is an optional setting. The default value is `0` (automatic increase is disabled).
+* `disk_size_limit`: Maximum storage capacity after expansion, in GB.
+* `emergency_usage_threshold`: Storage usage percentage threshold triggering an immediate storage expansion. This is an optional setting. The default value is `0` (autoscale disabled).
 
-  The possible values range from `0` to `100`.
+  Values for this setting can range from `0` to `100`.
      
-* `planned_usage_threshold`: Storage utilization threshold to trigger a storage increase during the next maintenance window, in percent. This is an optional setting. The default value is `0` (automatic increase is disabled).
+* `planned_usage_threshold`: Storage usage percentage threshold triggering a storage expansion during the next maintenance window. This is an optional setting. The default value is `0` (autoscale disabled).
        
-  The possible values range from `0` to `100`.
+  Values for this setting can range from `0` to `100`.
 
-For more information about storage increase conditions, see [this section](../../../../managed-postgresql/concepts/storage.md#auto-rescale).
+For more information on storage scaling rules, see [this section](../../../../managed-postgresql/concepts/storage.md#auto-rescale).

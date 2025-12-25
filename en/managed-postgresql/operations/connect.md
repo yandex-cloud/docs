@@ -42,9 +42,9 @@ Rule settings depend on the connection method you select:
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
 
-  1. [Configure the VM security group](../../vpc/operations/security-group-add-rule.md) to allow VM connections and traffic between the VM and cluster hosts.
+  1. [Configure the VM's security group](../../vpc/operations/security-group-add-rule.md) to allow inbound connections and traffic between the VM and the cluster hosts.
 
-     For example, you can set the following rules for your VM:
+     VM rules example:
 
      * For incoming traffic:
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`
@@ -52,7 +52,7 @@ Rule settings depend on the connection method you select:
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-       This rule allows inbound VM [connections](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
+       This rule permits inbound VM [connections](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 
      * For outgoing traffic:
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
@@ -60,13 +60,13 @@ Rule settings depend on the connection method you select:
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-       This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
+       This rule permits all outbound traffic, allowing you to install on your VM certificates and utilities necessary for public access to the cluster.
 
 {% endlist %}
 
 {% note info %}
 
-You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
+You can define more granular security group rules, for example, allowing traffic only from specific subnets.
 
 Make sure to configure the security groups correctly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster if a [manual](hosts.md#update) or [automatic](../concepts/replication.md#replication-auto) master failover occurs.
 
@@ -88,8 +88,8 @@ Publicly accessible {{ PG }} hosts only support encrypted connections. You must 
 To connect to a host, you will need its [FQDN](../concepts/network.md#hostname). You can get it using one of the following methods:
 
 * [Request a list of cluster hosts](../operations/hosts.md#list-hosts).
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
-* View the FQDN in the management console:
+* In the [management console]({{ link-console-main }}), copy the cluster connection command. This command contains the host FQDN. To get it, navigate to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* Locate the FQDN in the management console:
 
    1. Navigate to the cluster page.
    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
@@ -111,9 +111,9 @@ When connecting to this FQDN, you can perform read and write operations.
 
 {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
-### Most recent replica {#fqdn-replica}
+### Most up-to-date replica {#fqdn-replica}
 
-An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to the most up-to-date [replica](../concepts/replication.md). You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to the most up-to-date [replica](../concepts/replication.md). You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
 **Specifics:**
 
@@ -217,7 +217,7 @@ Support for the `read-write` value in this setting was introduced in `libpq` [ve
 
 {% cut "How to update the library version used by `psql`" %}
 
-* For Debian-based Linux distributions, install the `postgresql-client-10` package or a newer version (e.g., from the [official APT repository](https://www.postgresql.org/download/linux/ubuntu/)).
+* For Debian-based Linux distributions, install the `postgresql-client-10` package or a newer version from the [official APT repository](https://www.postgresql.org/download/linux/ubuntu/) (or another source of your choice).
 * For RPM-based operating systems, install the {{ PG }} distribution from the [yum repository](https://yum.postgresql.org/).
 
 {% endcut %}
@@ -229,7 +229,7 @@ Support for the `read-write` value in this setting was introduced in `libpq` [ve
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
+Connections from graphical IDEs are only permitted to publicly accessible cluster hosts and require an SSL certificate.
 
 {% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
@@ -253,10 +253,10 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
           jdbc:postgresql://<{{ PG }}_host_1>:{{ port-mpg }},...,<{{ PG }}_host_N>:{{ port-mpg }}/<DB_name>
           ```
 
-        * Click **Download** to download the connection driver.
+        * Click **Download** to download the database driver.
      1. On the **SSH/SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+         1. In the **CA file** field, specify the path to the [SSL certificate file for your connection](#get-ssl-cert).
   1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
   1. Click **OK** to save the data source.
 
@@ -273,7 +273,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
         * Under **Authentication**, specify the database user name and password.
      1. On the **SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
+         1. In the **Root certificate** field, specify the path to the [SSL certificate](#get-ssl-cert) file you saved previously.
   1. Click **Test Connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
   1. Click **Done** to save the database connection settings.
 
@@ -297,8 +297,8 @@ Connections from {{ pgadmin }} are only permitted to publicly accessible cluster
 
 Create a new server connection:
 
-1. Select **Object** → **Register** → **Server...**
-1. On the **General** tab, in the **Name** field, specify the cluster name to be shown in the {{ pgadmin }} interface. You can set any name.
+1. In the menu, select **Object** → **Register** → **Server...**
+1. In the **Name** field of the **General** tab, specify the cluster name for the {{ pgadmin }} interface. You can choose any name.
 1. In the **Connection** tab, specify the connection settings:
 
     * **Host name/address**: [Master FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
@@ -309,8 +309,8 @@ Create a new server connection:
 
 1. In the **Parameters** tab:
 
-    * Set the **SSL mode** parameter to `verify-full`.
-    * Add a new **Root certificate** parameter and specify the path to the saved SSL certificate file in it.
+    * Set the **SSL mode** to `verify-full`.
+    * Add the **Root certificate** parameter and specify the path to your previously saved SSL certificate file as its value.
 
 1. Click **Save** to save the server connection settings.
 
@@ -330,7 +330,7 @@ Connections from [{{ google-looker }}](https://lookerstudio.google.com/overview)
 
     During certificate creation, the program will ask you to modify several settings. Press **Enter** to keep the default values.
 
-    You will see two files in your local directory: `cert.pem` and `private.pem`.
+    You will see two new files in your local directory: `cert.pem` and `private.pem`.
 
 1. On the [{{ google-looker }} navigation page](https://lookerstudio.google.com/navigation/reporting), select **Create** → **Data source**.
 1. Select {{ PG }}.
@@ -400,4 +400,4 @@ You can connect to a cluster using either regular host [FQDNs](../concepts/netwo
 
 {% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
-If your cluster connection and test query are successful, you will see the {{ PG }} version. One exception is the [userver framework example](#cpp-userver), where the `SELECT 1 as ping` test query will be executed for periodic {{ PG }} cluster availability checks.
+If the connection to the cluster and the test query are successful, you will see the {{ PG }} version. One exception is the [userver framework example](#cpp-userver), where the `SELECT 1 as ping` test query will be executed for periodic {{ PG }} cluster availability checks.

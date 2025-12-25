@@ -1,6 +1,6 @@
 ---
 title: Migrating {{ PG }} cluster hosts to a different availability zone
-description: Follow this guide to migrate {{ PG }} cluster hosts to a different availability zone.
+description: In this tutorial, you will learn how to migrate {{ PG }} cluster hosts to a different availability zone.
 ---
 
 # Migrating {{ PG }} cluster hosts to a different availability zone
@@ -22,7 +22,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
          * Target availability zone for your hosts.
          * New subnet.
-         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
+         * If needed, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to allow external access to the host from outside {{ yandex-cloud }}.
 
       1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -42,7 +42,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
                `assign-public-ip=<allow_public_access_to_host>
       ```
 
-      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the target availability zone for your hosts.
+      You can get the cluster name from the [folder’s cluster list](cluster-list.md#list-clusters). In the `zone-id` argument, specify the target availability zone for your hosts.
 
    - {{ TF }} {#tf}
 
@@ -59,23 +59,23 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
          }
          ```
 
-         In the `zone` parameter, specify the target availability zone for your hosts.
+         In the `zone` attribute, specify the target availability zone for your hosts.
 
-      1. Check if the settings are correct.
+      1. Validate your configuration.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
          ```bash
          curl \
@@ -94,18 +94,18 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
                     }'
          ```
 
-         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+         You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
       1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-      1. Call the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+      1. Call [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
          ```bash
          grpcurl \
@@ -128,7 +128,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
             yandex.cloud.mdb.postgresql.v1.ClusterService.AddHosts
          ```
 
-         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+         You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -164,8 +164,8 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
    - {{ TF }} {#tf}
 
-      1. In your {{ TF }} infrastructure configuration file, delete the `host` resource sections with the source availability zone from your cluster’s description.
-      1. Check if the settings are correct.
+      1. In your {{ TF }} infrastructure configuration file, delete the `host` resource blocks for the source availability zone from your cluster’s description.
+      1. Validate your configuration.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -175,7 +175,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
    - REST API {#api}
 
-      1. Call the [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+      1. Call the [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
          ```bash
          curl \
@@ -192,13 +192,13 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
          Where `hostNames` is the array containing the host you want to delete.
 
-         You can provide only one host FQDN per request. If you need to delete multiple hosts, make a separate request for each of them.
+         You can only specify one host FQDN per request. If you need to delete multiple hosts, make a separate request for each of them.
 
       1. Check the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
-      1. Call the [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+      1. Call the [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
          ```bash
          grpcurl \
@@ -225,7 +225,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
    {% endlist %}
 
-1. Wait for the cluster status to change to **Alive**. In the management console, [go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster status to change to **Alive**. In the management console, [go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**. You can see the cluster’s status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

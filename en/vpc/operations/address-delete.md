@@ -7,11 +7,13 @@ description: Follow this guide to delete a static public IP address.
 
 {% note alert %}
 
-Before deleting a [static IP address](../concepts/address.md), you should release it by deleting the resource it is assigned to.
-If deletion protection is enabled for the IP address, disable it first.
 You cannot restore an address after it is deleted.
 
 {% endnote %}
+
+Before deleting a static IP address, you should release it by deleting the resource it is assigned to.
+
+If deletion protection is enabled for the static address, [disable it](./deletion-protection.md#disable) before deleting the address.
 
 {% list tabs group=instructions %}
 
@@ -102,15 +104,15 @@ You cannot restore an address after it is deleted.
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

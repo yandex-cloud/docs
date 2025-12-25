@@ -1,4 +1,5 @@
 ---
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/security/search-events-audit-logs/examples'
 ---
 

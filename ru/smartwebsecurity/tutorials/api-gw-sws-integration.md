@@ -1,4 +1,5 @@
 ---
+noIndex: true
 title: Защита {{ api-gw-full-name }} при помощи {{ sws-full-name }}
 description: Как настроить защиту {{ api-gw-name }} от DDoS-атак и ботов с помощью {{ sws-name }}.
 canonical: '{{ link-docs }}/tutorials/serverless/api-gw-sws-integration'

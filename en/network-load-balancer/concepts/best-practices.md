@@ -32,6 +32,10 @@ You can use the [Network Load Balancer](../../application-load-balancer/index.ya
 
 The multi-level balancing schemes, where an L3 load balancer distributes traffic to L7 load balancers downstream of it, are not supported and are not recommended.
 
+### Protect a load balancer against deletion {#deletion-protection}
+
+To prevent accidental deletion of a load balancer, [enable deletion protection for it](../operations/deletion-protection.md).
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/web-service.md)

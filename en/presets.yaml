@@ -988,7 +988,9 @@ default:
       models:
         v1|number: 0.0065
     mt:
+      detect|number: 2461
       detect|string: ₸2461.00
+      translate|number: 2461
       translate|string: ₸2461.00
   sku|KZT|airflow:
     cluster:
@@ -1868,13 +1870,17 @@ default:
       v1|string: ₸0.27
   sku|KZT|foundation_models:
     image_generation:
+      v1|number: 11
       v1|string: ₸11.00
     realtime_audio:
       input:
+        v1|number: 0.13
         v1|string: ₸0.13
       output:
+        v1|number: 0.1
         v1|string: ₸0.10
     text_classification:
+      v1|number: 0.75
       v1|string: ₸0.75
     text_embedding:
       v1|number: 0.05
@@ -2831,11 +2837,14 @@ default:
         v3|string: ₸150.00
       image:
         sync:
+          v3|number: 4500
           v3|string: ₸4500.00
       night:
         async:
+          v3|number: 125
           v3|string: ₸125.00
         sync:
+          v3|number: 1800
           v3|string: ₸1800.00
       sync:
         v3|number: 2400
@@ -2936,8 +2945,10 @@ default:
       v1|string: ₸6600.00
     tts:
       v3_bvcc_request:
+        v1|number: 0.8
         v1|string: ₸0.80
       v3_bvprem_request:
+        v1|number: 0.8
         v1|string: ₸0.80
       v3_request:
         v1|number: 0.8
@@ -2956,7 +2967,9 @@ default:
         v2|pricingRate:
           100000|number: 5.1
           100000|string: ₸5.10
+          1000000|number: 2.1
           1000000|string: ₸2.10
+          2500000|number: 1.5
           2500000|string: ₸1.50
           500000|number: 3
           500000|string: ₸3.00
@@ -3410,18 +3423,25 @@ default:
         v1|string: ₸5.40
   sku|KZT|vision_ocr:
     driver_license_text_detection:
+      v1|number: 3.5
       v1|string: ₸3.50
     handwriting_and_printed_text_detection:
+      v1|number: 7.5
       v1|string: ₸7.50
     license_plates:
+      v1|number: 0.65
       v1|string: ₸0.65
     passport_text_detection:
+      v1|number: 3.5
       v1|string: ₸3.50
     printed_text_detection:
+      v1|number: 0.65
       v1|string: ₸0.65
     text_and_table_text_detection:
+      v1|number: 6
       v1|string: ₸6.00
     vehicle_certificate_text_detection:
+      v1|number: 3.5
       v1|string: ₸3.50
   sku|KZT|vpc:
     gateway:
@@ -3589,7 +3609,9 @@ default:
       models:
         v1|number: 0.0013
     mt:
+      detect|number: 492.2
       detect|string: ₽492.20
+      translate|number: 492.2
       translate|string: ₽492.20
   sku|RUB|airflow:
     cluster:
@@ -4469,13 +4491,17 @@ default:
       v1|string: ₽0.0540
   sku|RUB|foundation_models:
     image_generation:
+      v1|number: 2.2
       v1|string: ₽2.20
     realtime_audio:
       input:
+        v1|number: 0.026
         v1|string: ₽0.0260
       output:
+        v1|number: 0.02
         v1|string: ₽0.02
     text_classification:
+      v1|number: 0.15
       v1|string: ₽0.15
     text_embedding:
       v1|number: 0.01
@@ -5435,11 +5461,14 @@ default:
         v3|string: ₽30.00
       image:
         sync:
+          v3|number: 900
           v3|string: ₽900.00
       night:
         async:
+          v3|number: 25
           v3|string: ₽25.00
         sync:
+          v3|number: 360
           v3|string: ₽360.00
       sync:
         v3|number: 480
@@ -5540,8 +5569,10 @@ default:
       v1|string: ₽1320.00
     tts:
       v3_bvcc_request:
+        v1|number: 0.16
         v1|string: ₽0.16
       v3_bvprem_request:
+        v1|number: 0.16
         v1|string: ₽0.16
       v3_request:
         v1|number: 0.16
@@ -5560,7 +5591,9 @@ default:
         v2|pricingRate:
           100000|number: 1.02
           100000|string: ₽1.02
+          1000000|number: 0.42
           1000000|string: ₽0.42
+          2500000|number: 0.3
           2500000|string: ₽0.30
           500000|number: 0.6
           500000|string: ₽0.60
@@ -6014,18 +6047,25 @@ default:
         v1|string: ₽1.08
   sku|RUB|vision_ocr:
     driver_license_text_detection:
+      v1|number: 0.7
       v1|string: ₽0.70
     handwriting_and_printed_text_detection:
+      v1|number: 1.5
       v1|string: ₽1.50
     license_plates:
+      v1|number: 0.13
       v1|string: ₽0.13
     passport_text_detection:
+      v1|number: 0.7
       v1|string: ₽0.70
     printed_text_detection:
+      v1|number: 0.13
       v1|string: ₽0.13
     text_and_table_text_detection:
+      v1|number: 1.2
       v1|string: ₽1.20
     vehicle_certificate_text_detection:
+      v1|number: 0.7
       v1|string: ₽0.70
   sku|RUB|vpc:
     gateway:
@@ -8614,30 +8654,8 @@ default:
             ProfilingConfigForm:
               enabled:
                 title: Enable Profiling
-              include_field_distinct_count:
-                title: include_field_distinct_count
-              include_field_max_value:
-                title: include_field_max_value
-              include_field_mean_value:
-                title: include_field_mean_value
-              include_field_median_value:
-                title: include_field_median_value
-              include_field_min_value:
-                title: include_field_min_value
-              include_field_null_count:
-                title: include_field_null_count
-              include_field_sample_values:
-                title: include_field_sample_values
-              include_field_stddev_value:
-                title: include_field_stddev_value
               max_workers:
                 title: Max Workers
-              profile_table_level_only:
-                title: Profile Table Level Only
-              profile_table_row_limit:
-                title: Table Row Count Limit
-              profile_table_size_limit:
-                title: Table Size Limit (GB)
               sample_size:
                 title: Sample Size
               use_sampling:

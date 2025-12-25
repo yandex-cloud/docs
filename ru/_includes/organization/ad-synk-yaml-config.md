@@ -35,12 +35,39 @@ sync_settings:
   interval: "600s"
   allow_to_capture_users: true|false
   allow_to_capture_groups: true|false
-  # Remove the following line if you don't need to replace domain
+  # Remove the replacement_domain line if you don't need to replace domain
   replacement_domain: "<домен_пула_пользователей>"
+  # Remove the user_attribute_mapping section if you don't need to remap default user attribute names
+  # If you need remapping, the user_attribute_mapping section should only contain the attributes you need to remap
+  user_attribute_mapping:
+    # The following syntax allows to reconfigure the default mapping ('displayName' --> 'full_name')
+    # to custom mapping ('CustomAttributeName' --> 'full_name')
+    - source: "CustomAttributeName"
+      target: "FullName"
+      type: "direct"
+    # The following syntax allows to disable synchronization for attribute 'given_name'
+    - source: ""
+      target: "GivenName"
+      type: "empty"
+  # Remove the group_attribute_mapping section if you don't need to remap default group attribute names
+  # If you need remapping, the group_attribute_mapping section should only contain the attributes you need to remap
+  group_attribute_mapping:
+    # The following syntax allows to reconfigure the default mapping ('name' --> 'name')
+    # to custom mapping ('CustomAttributeName' --> 'name')
+    - source: "CustomAttributeName"
+      target: "Name"
+      type: "direct"
+    # The following syntax allows to disable synchronization for attribute 'description'
+    - source: ""
+      target: "Description"
+      type: "empty"
   filter:
     domain: "<имя_домена_в_Active_Directory>"
     organization_units:
       - OU=IdPUsersOU,DC=example,DC=com
       - OU=IdPGroupsOU,DC=example,DC=com
+    groups:
+      - "GroupName1"
+      - "GroupName2"
   remove_user_behavior: "remove|block"
 ```
