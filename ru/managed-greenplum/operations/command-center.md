@@ -68,8 +68,8 @@ description: Используя командный центр, вы можете
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-vm-peak-kb }}** — максимальное количество памяти, которое потребовалось для обработки запроса за все время жизни кластера.
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-read-bytes }}** — память в байтах, которая понадобилась для чтения данных.
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-write-bytes }}** — память в байтах, которая понадобилась для записи данных в БД.
-        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-spill-total-bytes }}** — дополнительный объем памяти, который потребовался для выполнения запросов.
-        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-total-time }}** — суммарное количество памяти в байтах, затраченное на обработку запроса.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-spill-total-bytes }}** — дополнительный объем дисковой памяти, который потребовался для выполнения запросов.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-total-time }}** — суммарное время, затраченное на обработку запросов.
 
         После того как вы выберете показатель потребления, отобразится график с деталями и список запросов. На графике указаны значение показателя, пользователь, который выполнил запрос, и время выполнения запроса.
 
