@@ -439,6 +439,8 @@ Metastore configuration.
 ||Field | Description ||
 || hive | **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
 
+Apache Hive Metastore.
+
 Includes only one of the fields `hive`. ||
 |#
 
@@ -463,8 +465,12 @@ Configuration of file system used by a connector.
 ||Field | Description ||
 || s3 | **object**
 
+Yandex Cloud S3 filesystem.
+
 Includes only one of the fields `s3`, `externalS3`. ||
 || externalS3 | **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
+
+External S3 filesystem.
 
 Includes only one of the fields `s3`, `externalS3`. ||
 |#
@@ -477,16 +483,16 @@ Describes External S3 compatible file system.
 ||Field | Description ||
 || awsAccessKey | **string**
 
-Required field. ||
+Required field. AWS access key. ||
 || awsSecretKey | **string**
 
-Required field. ||
+Required field. AWS secret key. ||
 || awsEndpoint | **string**
 
-Required field. ||
+Required field. AWS endpoint. ||
 || awsRegion | **string**
 
-Required field. ||
+Required field. AWS region. ||
 |#
 
 ## IcebergConnector {#yandex.cloud.trino.v1.IcebergConnector}
@@ -543,8 +549,12 @@ No more than 256 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || onPremise | **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
 
+Connection configured manually.
+
 Includes only one of the fields `onPremise`, `connectionManager`. ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
+
+Connection configured using Yandex Cloud Connection Manager.
 
 Includes only one of the fields `onPremise`, `connectionManager`. ||
 |#
@@ -557,7 +567,7 @@ Includes only one of the fields `onPremise`, `connectionManager`. ||
 
 Required field. Connection to the Postgresql.
 
-Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
+Value must match the regular expression ` ^jdbc:postgresql://(?:.+:\d+)/(?:.*)$ `. ||
 || userName | **string**
 
 Required field. Name of the Postgresql user.
@@ -611,8 +621,12 @@ No more than 256 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || onPremise | **[OnPremise](#yandex.cloud.trino.v1.ClickhouseConnection.OnPremise)**
 
+Connection configured manually.
+
 Includes only one of the fields `onPremise`, `connectionManager`. ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.trino.v1.ClickhouseConnection.ConnectionManager)**
+
+Connection configured using Yandex Cloud Connection Manager.
 
 Includes only one of the fields `onPremise`, `connectionManager`. ||
 |#
@@ -625,7 +639,7 @@ Includes only one of the fields `onPremise`, `connectionManager`. ||
 
 Required field. Connection to the Clickhouse.
 
-Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
+Value must match the regular expression ` ^jdbc:clickhouse://(?:.+:\d+)/(?:.*)$ `. ||
 || userName | **string**
 
 Required field. Name of the Clickhouse user.
@@ -701,6 +715,8 @@ No more than 256 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || onPremise | **[OnPremise](#yandex.cloud.trino.v1.OracleConnection.OnPremise)**
 
+Connection configured manually.
+
 Includes only one of the fields `onPremise`. ||
 |#
 
@@ -712,7 +728,7 @@ Includes only one of the fields `onPremise`. ||
 
 Required field. Connection to the Oracle.
 
-Value must match the regular expression ` ^jdbc:[a-z0-9]+:(?s:.*)$ `. ||
+Value must match the regular expression ` ^jdbc:oracle:(?s:.*)$ `. ||
 || userName | **string**
 
 Required field. Name of the Oracle user.
@@ -745,6 +761,8 @@ No more than 256 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || onPremise | **[OnPremise](#yandex.cloud.trino.v1.SQLServerConnection.OnPremise)**
 
+Connection configured manually.
+
 Includes only one of the fields `onPremise`. ||
 |#
 
@@ -756,7 +774,7 @@ Includes only one of the fields `onPremise`. ||
 
 Required field. Connection to the SQLServer.
 
-Value must match the regular expression ` ^jdbc:[a-z0-9]+:(?s:.*)$ `. ||
+Value must match the regular expression ` ^jdbc:sqlserver:(?s:.*)$ `. ||
 || userName | **string**
 
 Required field. Name of the SQLServer user.
@@ -806,8 +824,12 @@ No more than 256 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || onPremise | **[OnPremise](#yandex.cloud.trino.v1.MysqlConnection.OnPremise)**
 
+Connection configured manually.
+
 Includes only one of the fields `onPremise`, `connectionManager`. ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.trino.v1.MysqlConnection.ConnectionManager)**
+
+Connection configured using Yandex Cloud Connection Manager.
 
 Includes only one of the fields `onPremise`, `connectionManager`. ||
 |#
@@ -820,7 +842,7 @@ Includes only one of the fields `onPremise`, `connectionManager`. ||
 
 Required field. Connection to the MySQL.
 
-Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
+Value must match the regular expression ` ^jdbc:mysql://(?:.+:\d+)(?:/?.*)$ `. ||
 || userName | **string**
 
 Required field. Name of the MySQL user.
@@ -869,8 +891,12 @@ No more than 256 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || onPremise | **[OnPremise](#yandex.cloud.trino.v1.GreenplumConnection.OnPremise)**
 
+Connection configured manually.
+
 Includes only one of the fields `onPremise`, `connectionManager`. ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.trino.v1.GreenplumConnection.ConnectionManager)**
+
+Connection configured using Yandex Cloud Connection Manager.
 
 Includes only one of the fields `onPremise`, `connectionManager`. ||
 |#
@@ -883,7 +909,7 @@ Includes only one of the fields `onPremise`, `connectionManager`. ||
 
 Required field. Connection to the Greenplum/Cloudberry.
 
-Value must match the regular expression ` ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$ `. ||
+Value must match the regular expression ` ^jdbc:postgresql://(?:.+:\d+)/(?:.*)$ `. ||
 || userName | **string**
 
 Required field. Name of the Greenplum/Cloudberry user.

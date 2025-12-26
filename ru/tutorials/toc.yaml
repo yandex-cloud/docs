@@ -240,6 +240,8 @@ items:
                 href: security/single-sign-on/grafana/oidc-grafana.md
           - name: Grafana OSS
             href: security/single-sign-on/oidc-grafana-oss.md
+          - name: 1С:Предприятие
+            href: security/single-sign-on/oidc-1c-enterprise.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'

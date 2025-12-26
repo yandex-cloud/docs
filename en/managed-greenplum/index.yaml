@@ -14,9 +14,9 @@ description:
     systems, where scaling is limited to a single node.
   - >-
     Yandex MPP Analytics for PostgreSQL also supports <a
-    href="https://cloudberry.apache.org">Cloudberry</a>. Based on
-    Greenplum<sup>®</sup> version 7, it will be the basic distribution for new
-    major versions of the core.
+    href="https://cloudberry.apache.org">Apache Cloudberry<sup>™</sup></a>.
+    Based on Greenplum<sup>®</sup> version 7, it will be the basic distribution
+    for new major versions of the core.
   - >-
     Learn more about Greenplum<sup>®</sup> and Yandex MPP Analytics for
     PostgreSQL in <a
@@ -37,6 +37,10 @@ description:
     <em>Greenplum<sup>®</sup> and Greenplum Database<sup>®</sup> are registered
     trademarks or trademarks of Broadcom Inc. in the United States and/or other
     countries.</em>
+  - >-
+    <em>Apache<sup>®</sup> and Apache Cloudberry<sup>™</sup> are the registered
+    trademarks or the trademarks of The Apache Software Foundation in the United
+    States of America and/or other countries.</em>
 links:
   - title: Getting started
     description: Create your first cluster

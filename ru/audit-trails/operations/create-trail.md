@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
     1. Введите имя трейла. Оно должно быть уникальным в рамках каталога.
     1. (Опционально) Введите описание трейла.

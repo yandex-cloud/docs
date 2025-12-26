@@ -1,90 +1,83 @@
 title: '{{ foundation-models-full-name }}'
 href: index.yaml
 items:
+  - name: О сервисе {{ foundation-models-full-name }}
+    href: concepts/index.md
   - name: Начало работы с {{ model-gallery-name }}
     href: quickstart/yandexgpt.md
-  - name: Концепции
-    expanded: true
+  - name: '{{ model-gallery-name }}'
     items:
-      - name: О сервисе {{ foundation-models-full-name }}
-        href: concepts/index.md
-      - name: '{{ model-gallery-name }}'
+      - name: Обзор
+        href: concepts/generation/index.md
+      - name: Модели базового инстанса
+        href: concepts/generation/models.md
+      - name: Модели выделенного инстанса
+        href: concepts/generation/dedicated-instance.md
+      - name: Пакетная обработка данных
+        href: concepts/generation/batch-processing.md
+      - name: Вызов функций
+        href: concepts/generation/function-call.md
+      - name: Режим рассуждений
+        href: concepts/generation/chain-of-thought.md
+      - name: Форматирование ответов моделей
+        href: concepts/generation/structured-output.md
+      - name: Классификаторы
         items:
-          - name: Обзор
-            href: concepts/generation/index.md
-          - name: Модели базового инстанса
-            href: concepts/generation/models.md
-          - name: Модели выделенного инстанса
-            href: concepts/generation/dedicated-instance.md
-          - name: Пакетная обработка данных
-            href: concepts/generation/batch-processing.md
-          - name: Вызов функций
-            href: concepts/generation/function-call.md
-          - name: Режим рассуждений
-            href: concepts/generation/chain-of-thought.md
-          - name: Форматирование ответов моделей
-            href: concepts/generation/structured-output.md
-          - name: Классификаторы
+          - name: Поддерживаемые виды классификации
+            href: concepts/classifier/index.md
+          - name: Доступные модели классификаторов
+            href: concepts/classifier/models.md
+      - name: Эмбеддинги
+        href: concepts/embeddings.md
+      - name: Датасеты
+        href: concepts/resources/dataset.md
+      - name: Дообучение
+        href: concepts/tuning/index.md
+      - name: Токены
+        href: concepts/generation/tokens.md
+  - name: '{{ agents-atelier-name }}'
+    items:
+      - name: Обзор AI-агентов
+        href: concepts/agents/index.md
+      - name: Голосовые агенты
+        href: concepts/agents/realtime.md
+      - name: '{{ assistant-api }}'
+        hidden: true
+        items:
+          - name: AI-Ассистенты
+            href: concepts/assistant/index.md
+          - name: Файлы-источники
+            href: concepts/assistant/files.md
+          - name: Поисковые индексы {{ assistant-api }}
+            href: concepts/assistant/search-index.md
+          - name: Инструменты
             items:
-              - name: Поддерживаемые виды классификации
-                href: concepts/classifier/index.md
-              - name: Доступные модели классификаторов
-                href: concepts/classifier/models.md
-          - name: Эмбеддинги
-            href: concepts/embeddings.md
-          - name: Датасеты
-            href: concepts/resources/dataset.md
-          - name: Дообучение
-            href: concepts/tuning/index.md
-          - name: Токены
-            href: concepts/generation/tokens.md
-      - name: '{{ agents-atelier-name }}'
-        items:
-          - name: Обзор AI-агентов
-            href: concepts/agents/index.md
-          - name: Голосовые агенты
-            href: concepts/agents/realtime.md
-          - name: '{{ assistant-api }}'
-            hidden: true
-            items:
-              - name: AI-Ассистенты
-                href: concepts/assistant/index.md
-              - name: Файлы-источники
-                href: concepts/assistant/files.md
-              - name: Поисковые индексы {{ assistant-api }}
-                href: concepts/assistant/search-index.md
-              - name: Инструменты
-                items:
-                  - name: Обзор
-                    href: concepts/assistant/tools/index.md
-                  - name: '{{ retrieval-tool-name }}'
-                    href: concepts/assistant/tools/vector-store.md
-                  - name: WebSearch
-                    href: concepts/assistant/tools/web-search.md
-                  - name: Перефразирование запросов
-                    href: concepts/assistant/rephraser.md
-      - name: AI Search
-        items:
-          - name: Обзор AI Search
-            href: concepts/search/index.md
-          - name: Поисковые индексы {{ vector-store-name }}
-            href: concepts/search/vectorstore.md
-          - name: Инструмент поиска по файлам
-            href: concepts/agents/tools/filesearch.md
-          - name: Инструмент поиска в интернете
-            href: concepts/agents/tools/websearch.md
-      - name: '{{ mcp-hub-name }}'
-        items:
-          - name: Обзор
-            href: concepts/mcp-hub/index.md
-          - name: Шаблоны MCP-серверов
-            href: concepts/mcp-hub/templates.md
-      - name: '{{ sw-full-name }}'
-        href: ../serverless-integrations/concepts/workflows/workflow.md
-      - name: Квоты и лимиты
-        href: concepts/limits.md
-      - name: Термины и определения
-        href: concepts/glossary.md
+              - name: Обзор
+                href: concepts/assistant/tools/index.md
+              - name: '{{ retrieval-tool-name }}'
+                href: concepts/assistant/tools/vector-store.md
+              - name: WebSearch
+                href: concepts/assistant/tools/web-search.md
+              - name: Перефразирование запросов
+                href: concepts/assistant/rephraser.md
+  - name: AI Search
+    items:
+      - name: Обзор AI Search
+        href: concepts/search/index.md
+      - name: Поисковые индексы {{ vector-store-name }}
+        href: concepts/search/vectorstore.md
+      - name: Инструмент поиска по файлам
+        href: concepts/agents/tools/filesearch.md
+      - name: Инструмент поиска в интернете
+        href: concepts/agents/tools/websearch.md
+  - name: '{{ mcp-hub-name }}'
+    items:
+      - name: Обзор
+        href: concepts/mcp-hub/index.md
+      - name: Шаблоны MCP-серверов
+        href: concepts/mcp-hub/templates.md
+  - name: '{{ sw-full-name }}'
+    href: ../serverless-integrations/concepts/workflows/workflow.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -204,261 +197,90 @@ items:
             href: operations/mcp-servers/create-brand-new.md
   - name: Переход с {{ assistant-api }} на {{ responses-api }}
     href: concepts/agents/assistant-responses-migration.md
-  - name: '{{ ml-sdk-full-name }}'
-    items:
-      - name: О {{ ml-sdk-full-name }}
-        href: sdk/index.md
-      - name: Справочник SDK (англ.)
-        items:
-          - name: Overview
-            href: sdk-ref/index
-          - name: SDK
-            items:
-              - name: Overview
-                href: sdk-ref/sync/sdk
-              - name: Models domain
-                href: sdk-ref/sync/models/domain
-              - name: Assistants domain
-                href: sdk-ref/sync/assistants
-              - name: Tools domain
-                href: sdk-ref/sync/tools
-              - name: Files domain
-                href: sdk-ref/sync/files
-              - name: Threads domain
-                href: sdk-ref/sync/threads
-              - name: Runs domain
-                href: sdk-ref/sync/runs
-              - name: Search indexes domain
-                href: sdk-ref/sync/search_indexes
-              - name: Search API domain
-                href: sdk-ref/sync/search_api
-              - name: Datasets domain
-                href: sdk-ref/sync/datasets
-              - name: Tuning domain
-                href: sdk-ref/sync/tuning
-              - name: Batch domain
-                href: sdk-ref/sync/batch
-              - name: Chat domain
-                href: sdk-ref/sync/chat/domain
-          - name: Async SDK
-            items:
-              - name: Overview
-                href: sdk-ref/async/sdk
-              - name: Models domain
-                href: sdk-ref/async/models/domain
-              - name: Assistants domain
-                href: sdk-ref/async/assistants
-              - name: Tools domain
-                href: sdk-ref/async/tools
-              - name: Files domain
-                href: sdk-ref/async/files
-              - name: Threads domain
-                href: sdk-ref/async/threads
-              - name: Runs domain
-                href: sdk-ref/async/runs
-              - name: Search indexes domain
-                href: sdk-ref/async/search_indexes
-              - name: Search API domain
-                href: sdk-ref/async/search_api
-              - name: Datasets domain
-                href: sdk-ref/async/datasets
-              - name: Tuning domain
-                href: sdk-ref/async/tuning
-              - name: Batch domain
-                href: sdk-ref/async/batch
-              - name: Chat domain
-                href: sdk-ref/async/chat/domain
-          - name: Authentication
-            href: sdk-ref/auth
-          - name: Types
-            items:
-              - name: Overview
-                href: sdk-ref/types/index
-              - name: Assistant types
-                href: sdk-ref/types/assistants
-              - name: Tools
-                href: sdk-ref/types/tools
-              - name: Operation
-                href: sdk-ref/types/operation
-              - name: Tuning
-                href: sdk-ref/types/tuning
-              - name: Result types for models
-                href: sdk-ref/types/model_results
-              - name: Datasets
-                href: sdk-ref/types/datasets
-              - name: Search API
-                href: sdk-ref/types/search_api
-              - name: Messages
-                href: sdk-ref/types/message
-              - name: Run types
-                href: sdk-ref/types/runs
-              - name: Search index types
-                href: sdk-ref/types/search_indexes
-              - name: Other types
-                href: sdk-ref/types/other
-              - name: Batch
-                href: sdk-ref/types/batch
-          - name: Request retries
-            href: sdk-ref/retry
-          - name: Base classes
-            href: sdk-ref/internals/bases
-            hidden: true
-          - name: Other types
-            href: sdk-ref/types/other
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/models/completions
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/models/text_embeddings
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/models/text_classifiers
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/models/image_generation
-            hidden: true
-          - name: Assistant types
-            href: sdk-ref/types/assistants
-            hidden: true
-          - name: Search API
-            href: sdk-ref/types/search_api
-            hidden: true
-          - name: Tools
-            href: sdk-ref/types/tools
-            hidden: true
-          - name: Messages
-            href: sdk-ref/types/message
-            hidden: true
-          - name: Run types
-            href: sdk-ref/types/runs
-            hidden: true
-          - name: Search index types
-            href: sdk-ref/types/search_indexes
-            hidden: true
-          - name: Operation
-            href: sdk-ref/types/operation
-            hidden: true
-          - name: Datasets
-            href: sdk-ref/types/datasets
-            hidden: true
-          - name: Tuning
-            href: sdk-ref/types/tuning
-            hidden: true
-          - name: Batch
-            href: sdk-ref/types/batch
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/chat/completions
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/chat/text_embeddings
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/models/completions
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/models/text_embeddings
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/models/text_classifiers
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/models/image_generation
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/chat/completions
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/chat/text_embeddings
-            hidden: true
-          - name: Result types for models
-            href: sdk-ref/types/model_results
-            hidden: true
   - name: Совместимость с {{ openai }}
     href: concepts/openai-compatibility.md
-  - name: OpenAI-совместимый API
-    items:
-      - name: Chat Completions
-        items:
-          - name: Overview
-            href: chat/index.md
-          - name: listChatCompletions
-            href: chat/listChatCompletions.md
-          - name: createChatCompletion
-            href: chat/createChatCompletion.md
-          - name: getChatCompletion
-            href: chat/getChatCompletion.md
-          - name: updateChatCompletion
-            href: chat/updateChatCompletion.md
-          - name: deleteChatCompletion
-            href: chat/deleteChatCompletion.md
-      - name: Conversations
-        items:
-          - name: Overview
-            href: conversations/index.md
-          - name: createConversationItems
-            href: conversations/createConversationItems.md
-          - name: listConversationItems
-            href: conversations/listConversationItems.md
-          - name: getConversationItem
-            href: conversations/getConversationItem.md
-          - name: deleteConversationItem
-            href: conversations/deleteConversationItem.md
-          - name: createConversation
-            href: conversations/createConversation.md
-          - name: getConversation
-            href: conversations/getConversation.md
-          - name: deleteConversation
-            href: conversations/deleteConversation.md
-          - name: updateConversation
-            href: conversations/updateConversation.md
-      - name: Embeddings
-        items:
-          - name: Overview
-            href: embeddings/index.md
-          - name: createEmbedding
-            href: embeddings/createEmbedding.md
-      - name: Files
-        items:
-          - name: Overview
-            href: files/index.md
-          - name: listFiles
-            href: files/listFiles.md
-          - name: createFile
-            href: files/createFile.md
-          - name: deleteFile
-            href: files/deleteFile.md
-          - name: retrieveFile
-            href: files/retrieveFile.md
-          - name: downloadFile
-            href: files/downloadFile.md
-      - name: Models
-        items:
-          - name: Overview
-            href: models/index.md
-          - name: listModels
-            href: models/listModels.md
-      - name: Responses
-        items:
-          - name: Overview
-            href: responses/index.md
-          - name: createResponse
-            href: responses/createResponse.md
-          - name: getResponse
-            href: responses/getResponse.md
-          - name: deleteResponse
-            href: responses/deleteResponse.md
-          - name: cancelResponse
-            href: responses/cancelResponse.md
-          - name: listInputItems
-            href: responses/listInputItems.md
   - name: Справочники API
     items:
       - name: Обзор
         href: concepts/api.md
       - name: Аутентификация в API
         href: api-ref/authentication.md
+      - name: OpenAI-совместимые API (англ.)
+        items:
+          - name: Chat Completions
+            items:
+              - name: Overview
+                href: chat/index.md
+              - name: listChatCompletions
+                href: chat/listChatCompletions.md
+              - name: createChatCompletion
+                href: chat/createChatCompletion.md
+              - name: getChatCompletion
+                href: chat/getChatCompletion.md
+              - name: updateChatCompletion
+                href: chat/updateChatCompletion.md
+              - name: deleteChatCompletion
+                href: chat/deleteChatCompletion.md
+          - name: Conversations
+            items:
+              - name: Overview
+                href: conversations/index.md
+              - name: createConversationItems
+                href: conversations/createConversationItems.md
+              - name: listConversationItems
+                href: conversations/listConversationItems.md
+              - name: getConversationItem
+                href: conversations/getConversationItem.md
+              - name: deleteConversationItem
+                href: conversations/deleteConversationItem.md
+              - name: createConversation
+                href: conversations/createConversation.md
+              - name: getConversation
+                href: conversations/getConversation.md
+              - name: deleteConversation
+                href: conversations/deleteConversation.md
+              - name: updateConversation
+                href: conversations/updateConversation.md
+          - name: Embeddings
+            items:
+              - name: Overview
+                href: embeddings/index.md
+              - name: createEmbedding
+                href: embeddings/createEmbedding.md
+          - name: Files
+            items:
+              - name: Overview
+                href: files/index.md
+              - name: listFiles
+                href: files/listFiles.md
+              - name: createFile
+                href: files/createFile.md
+              - name: deleteFile
+                href: files/deleteFile.md
+              - name: retrieveFile
+                href: files/retrieveFile.md
+              - name: downloadFile
+                href: files/downloadFile.md
+          - name: Models
+            items:
+              - name: Overview
+                href: models/index.md
+              - name: listModels
+                href: models/listModels.md
+          - name: Responses
+            items:
+              - name: Overview
+                href: responses/index.md
+              - name: createResponse
+                href: responses/createResponse.md
+              - name: getResponse
+                href: responses/getResponse.md
+              - name: deleteResponse
+                href: responses/deleteResponse.md
+              - name: cancelResponse
+                href: responses/cancelResponse.md
+              - name: listInputItems
+                href: responses/listInputItems.md
       - name: Text Generation API (англ.)
         items:
           - name: REST
@@ -1050,7 +872,7 @@ items:
                     href: tuning/api-ref/grpc/Tuning/archive.md
                   - name: EnableBilling
                     href: tuning/api-ref/grpc/Tuning/enableBilling.md
-      - name: '{{ mcp-hub-name }} API (англ.)'
+      - name: MCP Gateway API (англ.)
         items:
           - name: REST
             items:
@@ -1121,6 +943,177 @@ items:
                     href: mcp-gateway/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: mcp-gateway/api-ref/grpc/Operation/cancel.md
+  - name: '{{ ml-sdk-full-name }}'
+    items:
+      - name: О {{ ml-sdk-full-name }}
+        href: sdk/index.md
+      - name: Справочник SDK (англ.)
+        items:
+          - name: Overview
+            href: sdk-ref/index
+          - name: SDK
+            items:
+              - name: Overview
+                href: sdk-ref/sync/sdk
+              - name: Models domain
+                href: sdk-ref/sync/models/domain
+              - name: Assistants domain
+                href: sdk-ref/sync/assistants
+              - name: Tools domain
+                href: sdk-ref/sync/tools
+              - name: Files domain
+                href: sdk-ref/sync/files
+              - name: Threads domain
+                href: sdk-ref/sync/threads
+              - name: Runs domain
+                href: sdk-ref/sync/runs
+              - name: Search indexes domain
+                href: sdk-ref/sync/search_indexes
+              - name: Search API domain
+                href: sdk-ref/sync/search_api
+              - name: Datasets domain
+                href: sdk-ref/sync/datasets
+              - name: Tuning domain
+                href: sdk-ref/sync/tuning
+              - name: Batch domain
+                href: sdk-ref/sync/batch
+              - name: Chat domain
+                href: sdk-ref/sync/chat/domain
+          - name: Async SDK
+            items:
+              - name: Overview
+                href: sdk-ref/async/sdk
+              - name: Models domain
+                href: sdk-ref/async/models/domain
+              - name: Assistants domain
+                href: sdk-ref/async/assistants
+              - name: Tools domain
+                href: sdk-ref/async/tools
+              - name: Files domain
+                href: sdk-ref/async/files
+              - name: Threads domain
+                href: sdk-ref/async/threads
+              - name: Runs domain
+                href: sdk-ref/async/runs
+              - name: Search indexes domain
+                href: sdk-ref/async/search_indexes
+              - name: Search API domain
+                href: sdk-ref/async/search_api
+              - name: Datasets domain
+                href: sdk-ref/async/datasets
+              - name: Tuning domain
+                href: sdk-ref/async/tuning
+              - name: Batch domain
+                href: sdk-ref/async/batch
+              - name: Chat domain
+                href: sdk-ref/async/chat/domain
+          - name: Authentication
+            href: sdk-ref/auth
+          - name: Types
+            items:
+              - name: Overview
+                href: sdk-ref/types/index
+              - name: Assistant types
+                href: sdk-ref/types/assistants
+              - name: Tools
+                href: sdk-ref/types/tools
+              - name: Operation
+                href: sdk-ref/types/operation
+              - name: Tuning
+                href: sdk-ref/types/tuning
+              - name: Result types for models
+                href: sdk-ref/types/model_results
+              - name: Datasets
+                href: sdk-ref/types/datasets
+              - name: Search API
+                href: sdk-ref/types/search_api
+              - name: Messages
+                href: sdk-ref/types/message
+              - name: Run types
+                href: sdk-ref/types/runs
+              - name: Search index types
+                href: sdk-ref/types/search_indexes
+              - name: Other types
+                href: sdk-ref/types/other
+              - name: Batch
+                href: sdk-ref/types/batch
+          - name: Request retries
+            href: sdk-ref/retry
+          - name: Base classes
+            href: sdk-ref/internals/bases
+            hidden: true
+          - name: Other types
+            href: sdk-ref/types/other
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/text_classifiers
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/image_generation
+            hidden: true
+          - name: Assistant types
+            href: sdk-ref/types/assistants
+            hidden: true
+          - name: Search API
+            href: sdk-ref/types/search_api
+            hidden: true
+          - name: Tools
+            href: sdk-ref/types/tools
+            hidden: true
+          - name: Messages
+            href: sdk-ref/types/message
+            hidden: true
+          - name: Run types
+            href: sdk-ref/types/runs
+            hidden: true
+          - name: Search index types
+            href: sdk-ref/types/search_indexes
+            hidden: true
+          - name: Operation
+            href: sdk-ref/types/operation
+            hidden: true
+          - name: Datasets
+            href: sdk-ref/types/datasets
+            hidden: true
+          - name: Tuning
+            href: sdk-ref/types/tuning
+            hidden: true
+          - name: Batch
+            href: sdk-ref/types/batch
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/chat/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/chat/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/text_classifiers
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/image_generation
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/chat/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/chat/text_embeddings
+            hidden: true
+          - name: Result types for models
+            href: sdk-ref/types/model_results
+            hidden: true
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -1273,16 +1266,20 @@ items:
                 href: prompts/yandexart/architectural-design-exterior.md
               - name: Дизайн-проект офиса
                 href: prompts/yandexart/architectural-design-office.md
-  - name: Управление доступом
-    href: security/index.md
+  - name: Квоты и лимиты
+    href: concepts/limits.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Публичные материалы
     href: public-talks.md
   - name: История изменений
     href: release-notes/index.md
+  - name: Термины и определения
+    href: concepts/glossary.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы о моделях

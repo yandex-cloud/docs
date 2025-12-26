@@ -14,9 +14,9 @@ description:
     в которых масштабирование ограничено одним узлом.
   - >-
     В Yandex MPP Analytics for PostgreSQL также доступна СУБД <a
-    href="https://cloudberry.apache.org">Cloudberry</a>. Она основана на
-    Greenplum<sup>®</sup> версии 7 и будет базовым дистрибутивом для новых
-    мажорных версий ядра сервиса.
+    href="https://cloudberry.apache.org">Apache Cloudberry<sup>™</sup></a>. Она
+    основана на Greenplum<sup>®</sup> версии 7 и будет базовым дистрибутивом для
+    новых мажорных версий ядра сервиса.
   - >-
     Подробнее о Greenplum<sup>®</sup> и Yandex MPP Analytics for PostgreSQL см.
     в разделе <a href="/docs/managed-greenplum/concepts/overview">Обзор</a>.
@@ -31,6 +31,10 @@ description:
     <em>Greenplum<sup>®</sup> и Greenplum Database<sup>®</sup> являются
     зарегистрированными товарными знаками или товарными знаками Broadcom Inc в
     США и/или других странах.</em>
+  - >-
+    <em>Apache<sup>®</sup> и Apache Cloudberry<sup>™</sup> являются
+    зарегистрированными товарными знаками или товарными знаками Apache Software
+    Foundation в США и/или других странах.</em>
 links:
   - title: Начало работы
     description: Создайте первый кластер

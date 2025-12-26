@@ -26,7 +26,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного подкластера и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Введите или выберите нужное количество хостов в поле **{{ ui-key.yacloud.mdb.forms.base_field_hosts-count }}**.
@@ -98,7 +99,7 @@ description: Следуя данной инструкции, вы сможете
     Чтобы изменить [класс хостов](../concepts/instance-types.md) для подкластера:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, в котором нужно изменить подкластер.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и выберите нужный кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и выберите нужный кластер.
     1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного подкластера и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Выберите нужную платформу и конфигурацию в блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
@@ -207,7 +208,8 @@ description: Следуя данной инструкции, вы сможете
 
     Чтобы настроить автомасштабирование для подкластеров:
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Выберите кластер и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
     1. Нажмите на значок ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) для нужного подкластера и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_scaling }}** включите настройку **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**, если она выключена.
@@ -335,7 +337,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить размер хранилища для подкластера:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, в котором нужно изменить подкластер.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и выберите нужный кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и выберите нужный кластер.
     1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного подкластера и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Введите или выберите нужный объем хранилища в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
@@ -414,7 +416,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
     1. Нажмите на имя нужного хоста.
     1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.

@@ -19,7 +19,8 @@ description: Следуя данной инструкции, вы сможете
 
    * Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+      1. Перейдите на [страницу каталога]({{ link-console-main }}).
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
       1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
       1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
       1. Чтобы логи записывались в лог-группу по умолчанию, выберите значение **{{ ui-key.yacloud.common.folder }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
@@ -91,7 +92,7 @@ description: Следуя данной инструкции, вы сможете
    * Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `default`.
 
       На открывшейся странице отобразятся записи.
@@ -150,7 +151,8 @@ description: Следуя данной инструкции, вы сможете
 
    * Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+      1. Перейдите на [страницу каталога]({{ link-console-main }}).
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
       1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
       1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
       1. Чтобы логи записывались в пользовательскую лог-группу, выберите значение **{{ ui-key.yacloud.logging.label_loggroup }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
@@ -216,7 +218,7 @@ description: Следуя данной инструкции, вы сможете
    * Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `airflow-log-group`.
 
       На открывшейся странице отобразятся записи.

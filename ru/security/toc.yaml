@@ -103,6 +103,8 @@ items:
         items:
           - name: Настройка единого входа в Grafana Cloud по стандарту OIDC
             href: tutorials/single-sign-on/oidc-grafana.md
+          - name: Настройка единого входа в 1С:Предприятие по стандарту OIDC
+            href: tutorials/single-sign-on/oidc-1c-enterprise.md
           - name: Настройка единого входа в Grafana Cloud по стандарту SAML
             href: tutorials/single-sign-on/saml-grafana.md
           - name: Настройка единого входа в {{ mgl-name }} по стандарту SAML

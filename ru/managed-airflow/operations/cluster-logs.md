@@ -14,7 +14,7 @@ description: Из статьи вы узнаете, как посмотреть 
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
     1. Укажите **Уровень** логов и период времени, за который нужно отобразить лог.
 

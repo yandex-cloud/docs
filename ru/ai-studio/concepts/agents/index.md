@@ -17,7 +17,7 @@ AI-агенты — это современный подход к построе
 
 {{ ai-studio-name }} позволяет создавать агентов разными способами:
 
-* в [{{ ai-playground }}]({{ link-console-main }}/link/ml/ai-studio/agents);
+* в [консоли управления]({{ link-console-main }}/link/ml/ai-studio/agents);
 * с помощью [конструктора спецификаций]({{ link-console-main }}/link/serverless-integrations/workflows/workflows) {{ sw-full-name }};
 * с помощью {{ responses-api }} или {{ realtime-api }};
 * через опенсорс-фреймворки, например OpenAI SDK, LangGraph или LangChain.

@@ -245,6 +245,8 @@ items:
                 href: tutorials/single-sign-on/grafana/oidc-grafana.md
           - name: Grafana OSS
             href: tutorials/single-sign-on/oidc-grafana-oss.md
+          - name: 1С:Предприятие
+            href: tutorials/single-sign-on/oidc-1c-enterprise.md
           - name: '{{ mos-name }}'
             href: tutorials/single-sign-on/saml-opensearch.md
           - name: '{{ OS }}'

@@ -7,10 +7,7 @@
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. Убедитесь, что у вас есть нужные [роли](./concepts/access-control/roles.md):
 
-    1. В консоли управления в списке слева выберите нужное облако. Пример:
-
-        ![image](../_assets/resource-manager/switch-cloud-n-n.png)
-
+    1. В консоли управления на панели сверху нажмите ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. В строке поиска введите свою учетную запись.
     1. Проверьте, что для вашей учетной записи указаны роли:
@@ -28,8 +25,7 @@
 - Консоль управления {#console}
   
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
-    1. Войдите в [консоль управления]({{ link-console-main }}).
-    1. В списке слева выберите нужное облако.
+    1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. В правом верхнем углу нажмите на значок ![icon-users](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
     1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
