@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
   1. Нажмите **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
      ![screen01](../../_assets/smartcaptcha/create-captcha/screen01.png)

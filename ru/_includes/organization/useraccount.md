@@ -18,9 +18,7 @@
 
     1. Войдите в [консоль управления]({{ link-console-main }}) с учетной записью администратора облака.
 
-    1. В списке слева выберите нужное облако. Пример:
-
-        ![image](../../_assets/resource-manager/switch-cloud-n-n.png)
+    1. На панели сверху нажмите ![image](../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
 
     1. В правом верхнем углу экрана нажмите на значок ![icon-users](../../_assets/console-icons/ellipsis.svg) и выберите ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
 

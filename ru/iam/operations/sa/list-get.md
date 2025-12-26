@@ -11,7 +11,7 @@ description: С помощью этой инструкции вы научите
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, список сервисных аккаунтов которого вы хотите получить.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, список сервисных аккаунтов которого вы хотите получить.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. На странице **{{ ui-key.yacloud.iam.folder.service-accounts.label_title }}** отобразится список всех сервисных аккаунтов каталога.

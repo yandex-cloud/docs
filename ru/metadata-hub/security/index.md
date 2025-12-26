@@ -18,7 +18,11 @@ description: Управление доступом в сервисе {{ metadata
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+Чтобы разрешить доступ к ресурсам сервиса {{ metadata-hub-name }}, назначьте пользователю нужные роли на каталог, облако или организацию, в которых содержатся эти ресурсы.
+
 Роль на [подключение](../concepts/connection-manager.md) и [каталог метаданных](../concepts/data-catalog.md) можно назначить в [консоли управления]({{ link-console-main }}).
+
+Роль на отдельный [кластер](../concepts/metastore.md) можно назначить в [консоли управления]({{ link-console-main }}) или через [CLI](../../cli).
 
 ## Какие роли действуют в сервисе {{ metadata-hub-name }} {#roles-list}
 

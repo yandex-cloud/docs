@@ -32,7 +32,7 @@ links:
     href: pricing
   - title: Страница с демо
     description: Посмотрите на то, как работает SmartCaptcha
-    href: https://{{ captcha-domain }}/demo
+    href: https://smartcaptcha.cloud.yandex.ru/demo
 meta:
   title: Yandex SmartCaptcha
   description: >-

@@ -28,7 +28,7 @@ links:
     href: pricing
   - title: Demo page
     description: See how SmartCaptcha works
-    href: https://{{ captcha-domain }}/demo
+    href: https://smartcaptcha.cloud.yandex.ru/demo
 meta:
   title: Yandex SmartCaptcha
   description: Yandex SmartCaptcha can tell human system users from computers.

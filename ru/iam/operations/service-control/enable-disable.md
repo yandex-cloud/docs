@@ -18,7 +18,7 @@ description: С помощью этой инструкции вы научите
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужное облако.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
   1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
   1. В строке с нужным сервисом нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите ![image](../../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.iam.ssa.action_enable-access }}**.
 
@@ -72,7 +72,7 @@ description: С помощью этой инструкции вы научите
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужное облако.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
   1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
   1. В строке с нужным сервисом нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите ![image](../../../_assets/console-icons/ban.svg) **{{ ui-key.yacloud.iam.ssa.action_disable-access }}**.
 

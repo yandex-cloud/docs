@@ -65,6 +65,9 @@ items:
             href: operations/origin-groups/get-group-info.md
           - name: Удалить группу источников
             href: operations/origin-groups/delete-group.md
+      - name: Миграция ресурса из EdgeCDN
+        href: operations/migration.md
+        hidden: true
   - name: Практические руководства
     items:
       - name: Все практические руководства

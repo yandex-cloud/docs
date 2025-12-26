@@ -8,7 +8,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-cloud }}) выберите каталог для настройки. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный каталог. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
   1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-dialog }}**.
   1. В открывшемся окне **{{ ui-key.yacloud_components.notify-subs.label_subscribers-dialog-header }}** выберите:

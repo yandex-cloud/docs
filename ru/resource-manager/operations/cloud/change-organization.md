@@ -25,7 +25,7 @@ description: Из статьи вы узнаете, как изменить ор
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужное облако.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
   1. В правом верхнем углу нажмите кнопку ![***](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.component.console-dashboard.button_action-change-org }}**.
   1. Выберите новую организацию из списка и нажмите **{{ ui-key.yacloud.iam.cloud.change-org.button_change }}**.
 
