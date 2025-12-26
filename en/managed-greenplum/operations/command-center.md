@@ -68,8 +68,8 @@ To view the resource consumption history for completed queries:
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-vm-peak-kb }}**: Maximum memory the cluster used to process a query during its lifetime.
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-read-bytes }}**: Memory used for data reads, in bytes.
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-write-bytes }}**: Memory used for data writes to the DB, in bytes.
-        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-spill-total-bytes }}**: Additional memory used for query execution.
-        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-total-time }}**: Total memory used for query processing, in bytes.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-spill-total-bytes }}**: Additional disk space used for query execution.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-total-time }}**: Total time spent for query processing, in seconds.
 
         Once you select the consumption metric, you will see a chart with details and a list of queries. The chart will show the metric value, the user who ran the query, and the query execution time.
 
