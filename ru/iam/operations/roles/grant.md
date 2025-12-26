@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите нужное облако или каталог.
+   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите облако или каталог.
    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к облаку или каталогу.
@@ -288,7 +288,7 @@ description: Следуя данной инструкции, вы сможете
 
    Чтобы назначить роль на ресурс:
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ресурс.
+   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится ресурс.
    1. Откройте его страницу.
    1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ресурсу.

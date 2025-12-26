@@ -10,7 +10,7 @@
 
 1. Предоставьте пользователю доступ к созданному каталогу:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/chevron-down.svg) и выберите каталог.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
     1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.user-accounts }}**.

@@ -22,6 +22,7 @@ description: Различные практические руководства 
 ## Безопасность и стандарты {#security-and-standards}
 
 * [{#T}](single-sign-on/oidc-grafana.md)
+* [{#T}](single-sign-on/oidc-1c-enterprise.md)
 * [{#T}](single-sign-on/saml-grafana.md)
 * [{#T}](single-sign-on/saml-managed-gitlab.md)
 * [{#T}](single-sign-on/saml-zabbix.md)

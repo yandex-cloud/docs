@@ -220,6 +220,7 @@ default:
   folder-id-example: b1g86q4m5vej********
   forms-full-name: Yandex Forms
   forms-name: Forms
+  forms-short-name: Forms
   foundation-models-full-name: Yandex AI Studio
   foundation-models-name: AI Studio
   GL: GitLab
@@ -905,6 +906,7 @@ default:
   websql-name: WebSQL
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
+  wiki-short-name: Wiki
   ya-360: Yandex 360 for Business
   ya-oauth-url: https://oauth.yandex.com
   yagpt-full-name: YandexGPT API
@@ -1568,13 +1570,6 @@ default:
         3_month|string: ₸62500.00
         6_month|string: ₸62500.00
   sku|KZT|cdn:
-    api:
-      network:
-        inet:
-          egress|string: ₸5.1840
-    logs:
-      raw|string: ₸27000.00
-      shielding|string: ₸18900.00
     yc:
       bytes:
         sent:
@@ -4189,13 +4184,6 @@ default:
         3_month|string: ₽12500.00
         6_month|string: ₽12500.00
   sku|RUB|cdn:
-    api:
-      network:
-        inet:
-          egress|string: ₽1.0368
-    logs:
-      raw|string: ₽5400.00
-      shielding|string: ₽3780.00
     yc:
       bytes:
         sent:
@@ -6645,13 +6633,6 @@ default:
         3_month|string: $104.166625
         6_month|string: $104.166625
   sku|USD|cdn:
-    api:
-      network:
-        inet:
-          egress|string: $0.008640
-    logs:
-      raw|string: $44.999982
-      shielding|string: $31.499987
     yc:
       bytes:
         sent:
@@ -9906,6 +9887,9 @@ default:
         title_oslogin-profiles: OS Login Profiles
         title_ssh-keys: SSH keys
       users:
+        refresh_tokens:
+          placeholder_client-id-search: Search by client ID
+          placeholder_client-search: Search by client
         title_invitations: Invitations
     yacloud_portal:
       acl:
@@ -10449,6 +10433,7 @@ default:
         label_cache-hit-ratio: Cache hit ratio
         label_certificate-type: Certificate type
         label_content-query-type: Content query
+        label_copy-config: Copy a configuration
         label_custom-host-header: Header value
         label_dns-settings_title: DNS settings
         label_headers: Header
@@ -10507,6 +10492,7 @@ default:
         label_status-active: Active
         label_status-backup: Backup
         label_use-bucket-site: Use bucket site
+        md_value_certificate-le: Let's Encrypt^®^
         value_active: Active
         value_backup: Backup
         value_certificate-custom: Use from Certificate Manager
@@ -10755,7 +10741,9 @@ default:
         remove: Delete
         resource-acl:
           button_assign-binding: Edit roles
+          button_cloud-info: Cloud details
           button_configure-access: Configure access
+          button_folder-info: Folder information
           button_invite-users: Invite users
           button_new-bindings: Assign roles
           button_remove-bindings: Remove bindings
@@ -11278,6 +11266,10 @@ default:
         DashboardPage:
           AiStudioSection:
             section_title_1sDGx: AI Studio
+          CloudInfoDialog:
+            title_cloud-info-dialog_ddcbY: Cloud details
+          CloudInfoTooltip:
+            cloud-id_rncSU: Cloud ID
           CreateResourceDialog:
             search_kV4c1: Search services
           QuickActions:
@@ -11287,6 +11279,11 @@ default:
           ResourcesSection:
             create-resources_rGA1t: Create resource
             title_7kYbU: Resources
+        FoldersSelector:
+          FolderInfoDialog:
+            folder-id_6KQJv: Folder ID
+          FolderInfoTooltip:
+            title_folder-info-dialog_c4F7i: Folder information
         label_access_2bch9: Access rights
         label_create-resource_4KN3M: Create resource
         label_notifications_uWDue: Service notifications

@@ -222,6 +222,7 @@ default:
   folder-id-example: b1g86q4m5vej********
   forms-full-name: Яндекс Формы
   forms-name: Формы
+  forms-short-name: Forms
   foundation-models-full-name: Yandex AI Studio
   foundation-models-name: AI Studio
   GL: GitLab
@@ -910,6 +911,7 @@ default:
   websql-name: WebSQL
   wiki-full-name: Яндекс Вики
   wiki-name: Вики
+  wiki-short-name: Wiki
   ya-360: Яндекс 360 для бизнеса
   ya-oauth-url: https://oauth.yandex.ru
   yagpt-full-name: YandexGPT API
@@ -1573,13 +1575,6 @@ default:
         3_month|string: "62\_500,00\_₸"
         6_month|string: "62\_500,00\_₸"
   sku|KZT|cdn:
-    api:
-      network:
-        inet:
-          egress|string: "5,1840\_₸"
-    logs:
-      raw|string: "27\_000,00\_₸"
-      shielding|string: "18\_900,00\_₸"
     yc:
       bytes:
         sent:
@@ -4194,13 +4189,6 @@ default:
         3_month|string: "12\_500,00\_₽"
         6_month|string: "12\_500,00\_₽"
   sku|RUB|cdn:
-    api:
-      network:
-        inet:
-          egress|string: "1,0368\_₽"
-    logs:
-      raw|string: "5\_400,00\_₽"
-      shielding|string: "3\_780,00\_₽"
     yc:
       bytes:
         sent:
@@ -6650,13 +6638,6 @@ default:
         3_month|string: "104,166625\_$"
         6_month|string: "104,166625\_$"
   sku|USD|cdn:
-    api:
-      network:
-        inet:
-          egress|string: "0,008640\_$"
-    logs:
-      raw|string: "44,999982\_$"
-      shielding|string: "31,499987\_$"
     yc:
       bytes:
         sent:
@@ -9911,6 +9892,9 @@ default:
         title_oslogin-profiles: Профили OS Login
         title_ssh-keys: SSH-ключи
       users:
+        refresh_tokens:
+          placeholder_client-id-search: Поиск по ID клиента
+          placeholder_client-search: Поиск по клиенту
         title_invitations: Приглашения
     yacloud_portal:
       acl:
@@ -10458,6 +10442,7 @@ default:
         label_cache-hit-ratio: Снижение нагрузки на источники
         label_certificate-type: Тип сертификата
         label_content-query-type: Запрос контента
+        label_copy-config: Копирование конфигурации
         label_custom-host-header: Значение заголовка
         label_dns-settings_title: Настройки DNS
         label_headers: Заголовок
@@ -10516,6 +10501,7 @@ default:
         label_status-active: Основной
         label_status-backup: Резервный
         label_use-bucket-site: Использовать сайт бакета
+        md_value_certificate-le: Let's Encrypt^®^
         value_active: Основной
         value_backup: Резервный
         value_certificate-custom: Сертификат из Certificate Manager
@@ -10764,7 +10750,9 @@ default:
         remove: Удалить
         resource-acl:
           button_assign-binding: Изменить роли
+          button_cloud-info: Информация об облаке
           button_configure-access: Настроить доступ
+          button_folder-info: Информация о каталоге
           button_invite-users: Пригласить пользователей
           button_new-bindings: Назначить роли
           button_remove-bindings: Отозвать роли
@@ -11289,6 +11277,10 @@ default:
         DashboardPage:
           AiStudioSection:
             section_title_1sDGx: AI Studio
+          CloudInfoDialog:
+            title_cloud-info-dialog_ddcbY: Информация об облаке
+          CloudInfoTooltip:
+            cloud-id_rncSU: Идентификатор облака
           CreateResourceDialog:
             search_kV4c1: Поиск по сервисам
           QuickActions:
@@ -11298,6 +11290,11 @@ default:
           ResourcesSection:
             create-resources_rGA1t: Создать ресурс
             title_7kYbU: Ресурсы
+        FoldersSelector:
+          FolderInfoDialog:
+            folder-id_6KQJv: Идентификатор каталога
+          FolderInfoTooltip:
+            title_folder-info-dialog_c4F7i: Информация о каталоге
         label_access_2bch9: Права доступа
         label_create-resource_4KN3M: Создать ресурс
         label_notifications_uWDue: Сервисные уведомления

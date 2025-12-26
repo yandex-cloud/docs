@@ -51,7 +51,8 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы создать кластер:
 
-1. В консоли управления откройте каталог, в котором нужно создать кластер, и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. В консоли управления откройте каталог, в котором нужно создать кластер.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_empty-create }}**.
 1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Дождитесь, когда кластер будет готов к работе: его состояние сменится на **Alive**. Это может занять некоторое время.

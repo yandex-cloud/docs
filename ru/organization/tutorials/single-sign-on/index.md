@@ -9,6 +9,7 @@ description: Настройка интеграции {{ org-full-name }} с вн
    * [{#T}](./grafana/saml-grafana.md)
    * [{#T}](./grafana/oidc-grafana.md)
 * [Grafana OSS](./oidc-grafana-oss.md)
+* [1С:Предприятие](./oidc-1c-enterprise.md)
 * [{{ mgl-name }}](./saml-managed-gitlab.md)
 * [Zabbix](./saml-zabbix.md)
 * [{{ mos-name }}](./saml-opensearch.md)

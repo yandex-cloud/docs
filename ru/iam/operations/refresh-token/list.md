@@ -17,8 +17,8 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева нажмите ![userpool](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.users }}**.
   1. Найдите в списке нужного вам пользователя. При необходимости воспользуйтесь фильтром или поиском в верхней части экрана.
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}**.
-  1. (Опционально) В поле **Поиск по клиенту** введите имя OAuth-приложения, список refresh-токенов для которого вы хотите получить.
-  1. (Опционально) В поле **Поиск по ID токена** введите идентификатор OAuth-приложения, список refresh-токенов для которого вы хотите получить. Например: идентификатор {{ yandex-cloud }} CLI — `yc.oauth.public-sdk`.
+  1. (Опционально) В поле **{{ ui-key.yacloud_org.users.refresh_tokens.placeholder_client-search }}** введите имя OAuth-приложения, список refresh-токенов для которого вы хотите получить.
+  1. (Опционально) В поле **{{ ui-key.yacloud_org.users.refresh_tokens.placeholder_client-id-search }}** введите идентификатор OAuth-приложения, список refresh-токенов для которого вы хотите получить. Например: идентификатор {{ yandex-cloud }} CLI — `yc.oauth.public-sdk`.
   1. (Опционально) Чтобы изменить отображаемые столбцы, нажмите ![settings](../../../_assets/console-icons/gear.svg) в правом верхнем углу списка.
 
 - CLI {#cli}

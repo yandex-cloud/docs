@@ -16,7 +16,7 @@ description: С помощью этой инструкции вы научите
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужное облако.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
   1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
 
 - CLI {#cli}
@@ -68,7 +68,7 @@ description: С помощью этой инструкции вы научите
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужное облако.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
   1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
   1. В поле **{{ ui-key.yacloud.iam.ssa.label_filter-by-service-placeholder }}** введите название нужного сервиса.
 

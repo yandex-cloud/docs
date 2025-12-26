@@ -6,7 +6,7 @@
 
 - Консоль управления {#console}
 
-  1. Выберите каталог на [стартовой странице]({{ link-console-cloud }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный каталог. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Выберите срок удаления каталога, по истечении которого каталог будет удален. Выберите один из возможных периодов или `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. По умолчанию срок удаления каталога — 7 дней.
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
