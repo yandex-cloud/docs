@@ -125,7 +125,13 @@ Service name: `storage`.
 
 Service name: `accesstransparency`.
 
-{% include [sd-events-dp](../../_includes/audit-trails/events/sd-events-dp.md) %}
+{% include [sd-at-events-dp](../../_includes/audit-trails/events/sd-at-events-dp.md) %}
+
+### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
+
+Service name: `kspm`.
+
+{% include [sd-kspm-events-dp](../../_includes/audit-trails/events/sd-kspm-events-dp.md) %}
 
 ## {{ speechkit-full-name }} {#speechkit}
 

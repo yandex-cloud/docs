@@ -30,6 +30,7 @@
 `idp.DeleteUserpool` | Удаление пула пользователей
 `idp.DeleteUserpoolDomain` | Удаление привязки домена к пулу пользователей
 `idp.ReactivateUser` | Активация локального пользователя
+`idp.RemoveUserBlock` | Удаление блокировки пользователя
 `idp.SetUserPassword` | Установка пароля локального пользователя
 `idp.SetUserpoolAccessBindings` | Назначение прав доступа к пулу пользователей
 `idp.SuspendUser` | Деактивация локального пользователя

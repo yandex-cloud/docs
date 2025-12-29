@@ -9,24 +9,25 @@
 {% list tabs group=residents %}
 
 
-- Residents of Russia {#russia}
+ - Residents of Russia {#russia}
 
-   Residents of Russia as well as tax residents of Belarus can learn more about the terms of the agreement in [Legal documents]({{ billing-oferta-url }}).
+   Residents of Russia as well as tax residents of Belarus can learn more about the terms of the agreement in [Yandex Legal documents]({{ billing-oferta-url }}).
 
 
-- Residents of Kazakhstan {#kazakhstan}
+ - Residents of Kazakhstan {#kazakhstan}
 
    You can learn more about the terms of the agreement in [Yandex Legal documents](https://yandex.com/legal/cloud_oferta_kz/?lang=en).
 
-- Non-residents of Russia and Kazakhstan {#nonresidents}
+ - Non-residents of Russia and Kazakhstan {#nonresidents}
 
    Depending on which company you signed the agreement with, you can find the agreement terms in _Yandex Legal documents_ for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
 
-{% endlist %}
+{% endlist %} 
 
 #### Is it an option to have a bilateral agreement? {#contract}
 
-Businesses may conclude a bilateral agreement. To do this, submit a request using the **Ask a question** form on the [Contact us]({{ link-console-support }}) page. A {{ yandex-cloud }} manager will contact you to discuss the terms.
+Businesses may conclude a bilateral agreement. For this, submit a request via the [form](/#contact-form). A {{ yandex-cloud }} manager will contact you to discuss the terms. This may take about 14 days.
+
 
 #### How do I reference a signed agreement? {#refer-to-contract}
 
@@ -36,4 +37,4 @@ The agreement is comprised of _Legal documents_. Depending on which company you 
 
 #### How do I get a hard copy of the agreement? {#paper-contract}
 
-Contact [technical support]({{ link-console-support }}). A {{ yandex-cloud }} manager will contact you to discuss the terms. It will take about two weeks to prepare the agreement: a company representative will sign it and we will send it to you by mail.
+You can request it via [this form](/#contact-form). A {{ yandex-cloud }} manager will contact you to discuss the terms. This may take about 14 days.

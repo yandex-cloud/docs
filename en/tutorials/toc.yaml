@@ -489,6 +489,8 @@ items:
                 href: routing/ipsec/index.md
               - name: Unassisted implementation with {{ yandex-cloud }}
                 href: routing/ipsec/ipsec-vpn.md
+              - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
+                href: routing/ipsec/s2s-vpn.md
               - name: SGW solution by the {{ yandex-cloud }} architect team
                 href: routing/ipsec/sgw.md
           - name: Connecting to a cloud network using OpenVPN
@@ -1163,7 +1165,7 @@ items:
           Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
           data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
-      - name: Fixing string sorting issues in {{ PG }} after upgrading glibc
+      - name: Fixing string sorting issues in {{ PG }} after a glibc upgrade
         href: dataplatform/postgresql-glibc-collation-issues.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md

@@ -1,0 +1,1 @@
+To transfer dashboards from existing {{ grafana-name }} installations, use the [import script](https://github.com/yandex-cloud-examples/yc-monitoring-dashboard-importer). It automates the workflow and prevents errors when transferring configurations manually.

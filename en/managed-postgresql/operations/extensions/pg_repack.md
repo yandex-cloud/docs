@@ -5,9 +5,9 @@ description: In this tutorial, you will learn how to install and use pg_repack a
 
 # Using pg_repack in {{ mpg-name }}
 
-{{ PG }} tables and indexes may become bloated. During transactions that update data in tables and indexes, the old data is kept to allow for rollback if needed. This causes tables and indexes to bloat during bulk data updates. You can use the [pgstattuple](./cluster-extensions.md#postgresql) extension or the [pgsql-bloat-estimation](https://github.com/ioguix/pgsql-bloat-estimation) queries to assess bloat.
+{{ PG }} tables and indexes may be given to _bloating_. During transactions that update data in tables and indexes, the old data is kept to allow for rollback if needed. This causes tables and indexes to bloat during bulk data updates. You can use the [pgstattuple](./cluster-extensions.md#postgresql) extension or the [pgsql-bloat-estimation](https://github.com/ioguix/pgsql-bloat-estimation) queries to assess bloat.
 
-The system does not automatically purge old data versions. To free up storage space and eliminate bloat, you can purge data you no longer need using the [VACUUM FULL]({{ pg-docs }}/sql-vacuum.html) or [CLUSTER]({{ pg-docs }}/sql-cluster.html) commands. These commands require an exclusive table lock, which may not be convenient or acceptable.
+The system does not automatically purge old data versions. To free up storage space and eliminate the bloat, you can delete the data you no longer need using the [VACUUM FULL]({{ pg-docs }}/sql-vacuum.html) or [CLUSTER]({{ pg-docs }}/sql-cluster.html) commands. These commands require an exclusive table lock, which may not be convenient or acceptable.
 
 The [pg_repack](https://github.com/reorg/pg_repack) extension allows you to remove bloat from tables and indexes by repacking them. `pg_repack` does not require an exclusive table lock, unlike other methods. For more information, see the [extension page](https://reorg.github.io/pg_repack/).
 
@@ -15,7 +15,7 @@ The [pg_repack](https://github.com/reorg/pg_repack) extension allows you to remo
 
 1. [Enable](./cluster-extensions.md#update-extensions) the `pg_repack` extension in your database.
 
-1. [Assign](../grant.md#grant-role) the `mdb_admin` or `mdb_superuser` role to the database owner, if not assigned yet.
+1. [Assign](../grant.md#grant-role) the `mdb_admin` role to the owner of this database, if not assigned yet.
 
     You can get the owner's name from the [cluster’s database list](../databases.md#list-db).
 
@@ -117,7 +117,7 @@ To install the client:
 
 {% note tip %}
 
-Run `pg_repack` when the {{ PG }} cluster is least busy, as database object repacking will create extra load.
+Run `pg_repack` when the {{ PG }} cluster load is minimal: repacking database objects will put extra load on your cluster.
 
 [Cluster and host status](../monitoring.md) data is available in the management console.
 
@@ -125,9 +125,9 @@ Run `pg_repack` when the {{ PG }} cluster is least busy, as database object repa
 
 To run `pg_repack` and repack database objects:
 
-1. [Make sure the cluster has enough free storage space](../monitoring.md#monitoring-cluster): at least twice the total volume of all tables and indexes to be repacked.
+1. [Make sure the cluster has enough free storage space](../monitoring.md#monitoring-cluster): at least twice the total size of the tables and indexes to repack.
 
-    During its operation, `pg_repack` creates copies of tables and indexes, which requires additional storage space.
+    During a repack, `pg_repack` works with copies of tables and indexes, which requires additional storage space.
 
 1. Run the `pg_repack` client with your preferred options.
 

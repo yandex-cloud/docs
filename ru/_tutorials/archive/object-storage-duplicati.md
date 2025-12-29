@@ -1,4 +1,4 @@
-# Резервное копирование в {{ objstorage-full-name }} через Duplicati
+# Резервное копирование в {{ objstorage-full-name }} с помощью Duplicati
 
 {{ objstorage-full-name }} можно использовать для резервного копирования и восстановления данных с помощью утилиты [Duplicati](https://www.duplicati.com/).
 

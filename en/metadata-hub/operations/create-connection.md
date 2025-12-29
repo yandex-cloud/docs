@@ -89,7 +89,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -108,7 +108,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -164,9 +164,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -244,7 +244,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -263,7 +263,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -319,9 +319,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -399,7 +399,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -418,7 +418,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -474,9 +474,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -552,7 +552,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -571,7 +571,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -627,9 +627,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -706,7 +706,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -723,7 +723,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -770,9 +770,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -850,7 +850,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -869,7 +869,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -925,9 +925,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1021,7 +1021,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -1038,7 +1038,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1091,7 +1091,7 @@ You can create connections of the following types:
           * `sasl`: SASL authentication parameters.
             
             * `user`: Username to connect to the cluster.
-            * `password.raw`: Password.
+            * `password.raw`: User password.
             * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
@@ -1101,7 +1101,7 @@ You can create connections of the following types:
           
           * `disabled`: Disables authentication.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1182,7 +1182,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -1201,7 +1201,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1257,9 +1257,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1353,7 +1353,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1421,7 +1421,7 @@ You can create connections of the following types:
 
       * `--labels`: Labels in `"<key>" = "<value>"` format.
 
-      * `params.postgresql`: Parameters for connecting to the custom {{ PG }} installation.
+      * `params.postgresql`: Parameters for connecting to the custom {{ PG }} installation:
         
         * `cluster.hosts`: Host list. For each host, specify `host` and `port`.
 
@@ -1434,9 +1434,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1522,7 +1522,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<http_port>:<tcp_port>:<shard_name>` format.
       
@@ -1545,7 +1545,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1632,9 +1632,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1726,7 +1726,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1807,9 +1807,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1889,7 +1889,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>:<shard_name>` format.
       
@@ -1912,7 +1912,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -1996,9 +1996,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2086,7 +2086,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -2167,9 +2167,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2249,7 +2249,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--coordinator`: Coordinator parameters in `<host>:<port>` format.
       
@@ -2268,7 +2268,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -2329,9 +2329,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2413,7 +2413,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>` format.
       
@@ -2432,7 +2432,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -2504,9 +2504,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2594,7 +2594,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -2675,9 +2675,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2779,7 +2779,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: Password.
+      * `--password`: User password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>` format.
       
@@ -2798,7 +2798,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating:
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -2876,7 +2876,7 @@ You can create connections of the following types:
           * `sasl`: SASL authentication parameters.
             
             * `user`: Username to connect to the cluster.
-            * `password.raw`: Password.
+            * `password.raw`: User password.
             * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
@@ -2886,7 +2886,7 @@ You can create connections of the following types:
           
           * `disabled`: Disables authentication.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2979,7 +2979,7 @@ You can create connections of the following types:
 
   1. In the configuration file, describe the resource you are creating.
   
-      Here is the configuration file example:
+      Here is a configuration file example:
   
       ```hcl
       resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -3060,9 +3060,9 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: Password.
+        * `auth.user_password.password.raw`: User password.
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   

@@ -42,34 +42,27 @@ description: Следуя этой инструкции, вы сможете с�
       ```python
       import openai
 
+      # 1. Настройки подключения
+      YANDEX_CLOUD_FOLDER = "<идентификатор_каталога>"
+      YANDEX_CLOUD_API_KEY = "<API-ключ>"
       YANDEX_CLOUD_MODEL = "yandexgpt"
 
       client = openai.OpenAI(
           api_key=YANDEX_CLOUD_API_KEY,
-          base_url="https://rest-assistant.{{ api-host }}/v1",
-          project=YANDEX_CLOUD_FOLDER
+          project=YANDEX_CLOUD_FOLDER,
+          base_url="https://ai.api.cloud.yandex.net/v1",
       )
 
       response = client.responses.create(
-          prompt={
-              "id": "........",
-              "variables": {
-                  "city": "Чита",
-                  "friends_number": "0"
-              }
-          },
-          input="Куда пойти вечером? Где понюхать багульник?",
+          model=f"gpt://{YANDEX_CLOUD_FOLDER}/{YANDEX_CLOUD_MODEL}",
+          input="Куда пойти вечером в Чите? Где понюхать багульник?",
+          temperature=0.4,
+          max_output_tokens=1500
       )
 
-      print(response.output[0].content[0].text)
+      print(response.output_text)
       ```
 
-  1. Сохраните данные для аутентификации в переменные окружения:
-
-      ```bash
-      export YANDEX_CLOUD_FOLDER=<идентификатор_каталога>
-      export YANDEX_CLOUD_API_KEY=<API-ключ>
-      ```
 
   1. Выполните созданный файл:
 

@@ -3,7 +3,7 @@ title: Using an AI assistant to manage {{ yandex-cloud }} resources
 description: This guide describes how to use an AI assistant to manage {{ yandex-cloud }} resources in the management console interface.
 ---
 
-# Managing {{ yandex-cloud }} resources using an AI assistant
+# Managing {{ yandex-cloud }} resources with an AI assistant
 
 {% include [preview-pp](../../_includes/preview-pp.md) %}
 
@@ -73,7 +73,7 @@ To use an AI assistant for resource management:
 
           Name: web-security-group
           Network: my-new-network
-          These rules can be:
+          Rules:
 
           ✅ Incoming traffic (Ingress):
           TCP port 80 (HTTP) from any IP address (0.0.0.0/0)
@@ -83,7 +83,7 @@ To use an AI assistant for resource management:
           Security group is active and ready to connect to your VMs.
           ```
 
-          If you use the AI assistant, you do not need to create resources one by one: you can request multiple resources in a single message.
+          When using the AI assistant, you do not have to create resources one by one: you can specify several resources in a single request.
 
           {% cut "For example:" %}
 
@@ -94,7 +94,7 @@ To use an AI assistant for resource management:
           The AI assistant will then define the parameters of the new resoures and the order in which to create them and ask you to confirm the action plan:
 
           ```text
-          Thank you for your request! So, you would like to create three resources: a network, subnet, and security group. This is a complex project, so let me outline the plan first.
+          Thank you for your request! So, you would like to create three resources: a network, a subnet, and a security group. This is a complex project, so let me outline the plan first.
 
           Suggested plan:
 

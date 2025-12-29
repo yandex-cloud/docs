@@ -94,6 +94,8 @@ description: Следуя данной инструкции, вы сможете
 
     Также вы можете [задать дополнительные параметры](#installation-parameters) Container Storage Interface для S3.
 
+    Подробнее об [обновлении с разных версий k8s-csi-s3](https://github.com/yandex-cloud/k8s-csi-s3/tree/master#upgrading).
+
 ## Параметры для установки с помощью Helm-чарта {#installation-parameters}
 
 При установке приложения Container Storage Interface для S3 обязательными являются параметры `secret.accessKey` и `secret.secretKey`. Вы можете не указывать остальные параметры, либо переопределить их в команде установки с помощью ключа `--set <имя_параметра>=<новое_значение>`.

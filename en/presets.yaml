@@ -571,6 +571,7 @@ default:
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
   resmgr-name: Resource Manager
+  resmgr-short-name: Resource Manager
   responses-api: Responses API
   retrieval-tool-name: Retrieval
   RMQ: RabbitMQ
@@ -840,6 +841,7 @@ default:
   t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>All interfaces</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
+  tag-center: <code><b><small>Cloud Center</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-con: <code><b><small>Management console</small></b></code>
   tag-preview: <code><b><small>Preview</small></b></code>
@@ -6964,6 +6966,23 @@ default:
         cpu|string: $0.021150
         ram|month|string: $4.082399
         ram|string: $0.005670
+  sku|USD|gost_gateway:
+    hw100_c:
+      subscription:
+        monthly_usage:
+          v1|string: $416.666500
+    hw1000_d:
+      subscription:
+        monthly_usage:
+          v1|string: $1458.332750
+    hw2000_q5:
+      subscription:
+        monthly_usage:
+          v1|string: $1958.332550
+    hw5000_q2:
+      subscription:
+        monthly_usage:
+          v1|string: $2374.999050
   sku|USD|interconnect:
     trunk:
       direct:
@@ -10910,6 +10929,9 @@ default:
       components:
         AsideNavigation:
           label_all-services_6sGQy: All services
+        JsonSchemaField:
+          mode_json-schema_5eGi4: JSON schema
+          mode_wysiwyg_v3RqJ: Form
       compute:
         attach-disk:
           button_attach: Attach
@@ -11922,6 +11944,10 @@ default:
             field_tunnel-mode: Enable tunnel mode
             label_logging-enabled: Write logs
             label_maintenance-weekly: Weekly schedule
+            label_master-computing-resources: Computing resources
+            label_master-preset-group-cpu-optimized: CPU-optimized
+            label_master-preset-group-memory-optimized: Memory-optimized
+            label_master-preset-group-standard: Standard
             label_stream-cluster-autoscaler: Cluster Autoscaler logs
             label_stream-events: Event logs
             label_stream-kube-apiserver: Kubernetes API server logs
@@ -13589,13 +13615,78 @@ default:
         train-modal: Fine-tune model
         use-context: Use context
         YaGPT:
+          ConnectMcpTools:
+            add-mcp-tool_dyEgv: Add tools
           create-instance_3Ltog: Deploy instance
           CreateExperiment:
             foundation-models_playground_image-generation_title_rZxwV: Image generation
             foundation-models_playground_text-generation_title_xpmcC: Text generation
             foundation-models_playground_text-generation-with-context_title_uYBhM: Context-based text generation
+          CreateMcpServerForm:
+            access-type_aPzxZ: Access
+            access-type_private_b4gkg: Private
+            access-type_public_inkAF: Public
+            form-view_connect_bS8yQ: Connect
+            form-view_create_8RLHn: Create
+            newtwork_enable_ndkhL: Select network
+            service-account_h3ujf: Service account
+            tools_gkQfS: Tools
+            type_dZSaw: Add method
+          FunctionCallToolCard:
+            function-tool_vSycC: Cloud Functions
+          FunctionCallToolForm:
+            function_nqzGL: Function
+            instruct-for-agent_qcH1R: Instructions for agent
+            tool-name_wys4v: Tool name
+          HttpCallTool:
+            http-tool_7afuQ: HTTPS query
+          HttpCallToolCallParams:
+            http-call-tool-call-params_body_pbgxV: Request body
+            http-call-tool-call-params_headers_8ziH9: Request headers
+            http-call-tool-call-params_query_aWDHd: Query parameters
+            http-call-tool-call-params_tBsF4: HTTPS method parameters
+          HttpCallToolForm:
+            auth-type_service-account_wB63B: Service account
+            auth-type_use-authorization-header_io1Qx: Access token
+            extra_3crF8: Additional parameters
+            instruct-for-agent_gXCHg: Instructions for agent
+            method_delete_dzg1G: DELETE
+            method_get_rrb42: GET
+            method_head_1gdE5: HEAD
+            method_options_oi6ea: OPTIONS
+            method_patch_qxnSP: PATCH
+            method_post_omtdL: POST
+            method_wzMu6: Method
+            tool-name_1jNyn: Tool name
+            url_w32Uc: URL
           instances-title_j9Cpb: Instances
+          mcp-servers-list-title_snWTf: MCP servers
+          McpCallToolForm:
+            add_47STV: Add
+            add-header_bbBV5: Add header
+            add-tools_ih6PU: Add tools
+            auth-header_h6kre: Authorization header
+            connect_xY9Zw: Connect
+            headers_wBENR: Headers
+            mcp-authorization_header_fdGKe: Access token
+            mcp-authorization_no-authorization_iqvfQ: No authorization
+            transport_q3nD6: Transport
+            transport_sse_55Cwp: HTTP with SSE
+            transport_streamable_eV7Rb: Streamable HTTP
+            url_bUhZ1: URL
+          McpServersList:
+            label_create-mcp-gateway_3o3Vu: Create MCP server
           navigation-group_agents_eDBFf: Agent Atelier
+          ToolParams:
+            tool-params_d87zq: Tool parameters
+          Tools:
+            add-tool_86ss3: Add tool
+          WorkflowCallToolCard:
+            workflow-tool_k663q: Workflows
+          WorkflowCallToolForm:
+            instruct-for-agent_3aVyw: Instructions for agent
+            tool-name_1by52: Tool name
+            workflow_oHNAL: Workflow
       ydb:
         browse:
           button_create: Create
@@ -15750,7 +15841,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.6
+        tag: v1.0.7
     yc_ingress-nginx:
       helmChart:
         name: >-

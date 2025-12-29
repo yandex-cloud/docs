@@ -9,6 +9,9 @@ links:
   - title: Concepts
     description: Learn more about the service's concepts and resources
     href: concepts/
+  - title: Pricing policy
+    description: Service pricing and cost calculation
+    href: pricing
 meta:
   title: '{{ gost-gateway-name }}'
   description: >-

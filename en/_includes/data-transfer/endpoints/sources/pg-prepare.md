@@ -17,7 +17,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
         
         1. [Create a user](../../../../managed-postgresql/operations/cluster-users.md#adduser).
         
-        1. For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the `mdb_replication` role](../../../../managed-postgresql/operations/grant.md#grant-role) to this user.
+        1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the `mdb_replication` role](../../../../managed-postgresql/operations/grant.md#grant-role) to this user.
         
         1. [Connect to the database](../../../../managed-postgresql/operations/connect.md) you want to migrate as the database owner and [configure privileges](../../../../managed-postgresql/operations/grant.md#grant-privilege):
             
@@ -28,8 +28,12 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
     1. Configure the [number of user connections](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) to the database.
 
-    1. If the replication source is a cluster, [enable](../../../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This will allow replication to continue even after changing the master host. In some cases, a transfer may end in an error after you replace a master in your cluster. For more information, see [Troubleshooting](../../../../data-transfer/troubleshooting/index.md#master-change).
-    
+    1. If the replication source is a cluster, configure it as follows:
+
+        * [Enable](../../../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This will allow replication to continue even after changing the master host. In some cases, a transfer may end in an error after you replace a master in your cluster. For more information, see [Troubleshooting](../../../../data-transfer/troubleshooting/index.md#master-change).
+
+        * In the cluster, specify the `Wal keep size` [setting](../../../../managed-postgresql/concepts/settings-list.md#setting-wal-keep-size) value. When you change the master host, [WAL](https://www.postgresql.org/docs/current/wal-intro.html) should have enough records on the new master to resume replication from the same place. If there are not enough records, the transfer may fail with an [error](../../../../data-transfer/operations/endpoint/source/postgresql.md#no-wal-story). As the minimum `Wal keep size`, use the average value from the **Source Buffer Size** chart in the [{{ data-transfer-name }} monitoring dashboard](../../../../data-transfer/operations/monitoring.md). If disk has enough capacity, specify a value with some margin.
+
     1. {% include [Tables without primary keys](../../primary-keys-postgresql.md) %}
     
     1. Disable the transfer of external keys when creating a source endpoint. Recreate them once the transfer is completed.
@@ -56,7 +60,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
         1. To monitor storage or disk space usage, [use monitoring tools to set up an alert](../../../../managed-postgresql/operations/monitoring.md#monitoring-hosts) (see the `disk.used_bytes` description).
         
-        1. Set the maximum WAL size for replication in the `Max slot wal keep size` [setting](../../../../managed-postgresql/concepts/settings-list.md#setting-max-slot-wal-keep-size). The value of this setting can be edited as of {{ PG }} version 13. To urgently disable a transfer to perform data reads, [delete the replication slot](../../../../managed-postgresql/operations/replication-slots.md#delete). 
+        1. Specify the maximum WAL size for replication in the `Max slot wal keep size` [setting](../../../../managed-postgresql/concepts/settings-list.md#setting-max-slot-wal-keep-size). The value of this setting can be edited as of {{ PG }} version 13. To urgently disable a transfer to perform data reads, [delete the replication slot](../../../../managed-postgresql/operations/replication-slots.md#delete). 
         
            {% note warning %}
         
@@ -79,51 +83,51 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
         1. Create a new user:
             
-            * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
+            * For the _{{ dt-type-copy }}_ transfer type, use this command to create a user:
             
                 ```sql
                 CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
                 ```
             
-            * For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, create a user with the `REPLICATION` privilege by running this command:
+            * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, create a user with the `REPLICATION` privilege by running this command:
             
                 ```sql
                 CREATE ROLE <username> WITH REPLICATION LOGIN ENCRYPTED PASSWORD '<password>';
                 ```
         
-        1. Grant the new user the `SELECT` privilege for all the database tables involved in the transfer:
+        1. Grant the new user the `SELECT` privilege for all the database tables within the transfer:
         
             ```sql
             GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <username>;
             ```
         
-        1. Grant the created user a privilege on all the transferred DB schemas:
+        1. Grant the new user a privilege for the schemas of the transferred DB:
 
-            * For the _{{ dt-type-copy }}_ transfer type grant the `USAGE` privilege:
+            * Grant the `USAGE` privilege for the _{{ dt-type-copy }}_ transfer type:
         
                 ```sql
                 GRANT USAGE ON SCHEMA <schema_name> TO <username>;
                 ```
 
-            * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types grant the `CREATE` and `USAGE` (`ALL PRIVILEGES`) privileges required for creating [service tables](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings):
+            * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, grant the `CREATE` and `USAGE` (`ALL PRIVILEGES`) privileges required to create [service tables](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings):
 
                 ```sql
                 GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <username>;
                 ```
 
-        1. Grant the new user the `SELECT` privilege for all the database table sequences involved in the transfer:
+        1. Grant the new user the `SELECT` privilege for all the database sequences within the transfer:
 
             ```sql
             GRANT SELECT ON ALL SEQUENCES IN SCHEMA <schema_name> TO <username>;
             ```
 
-        1. Grant the new user the `CONNECT` privilege if the source cluster default settings do not allow connections for new users:
+        1. Grant the new user the `CONNECT` privilege if the source cluster's default settings do not allow connections for new users:
 
             ```sql
             GRANT CONNECT ON DATABASE <database_name> TO <username>;
             ```
 
-    1. Set up {{ PG }} configuration:
+    1. Configure {{ PG }}:
     
         {% include [pg-on-premises-configure](../../../../_includes/data-transfer/endpoints/sources/pg-on-premises-configure.md) %}
 
@@ -179,7 +183,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
                     $VCTargetsPath='C:\Program Files\Microsoft Visual Studio\2022\Comminuty\MSBuild\Microsoft\VC\v150'
                     ```
                 
-                1. Run the build:
+                1. Build the project:
                 
                     ```powershell
                     & 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe' /p:Configuration=Release /p:Platform=x64

@@ -17,7 +17,7 @@ subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-redis-cpu-metrics}
 
-These metrics show CPU core workload.
+These metrics show the processor core workload.
 
 The consumption type goes into the `systag` label.
 
@@ -57,7 +57,7 @@ The consumption type goes into the `systag` label.
 | `disk.used_inodes`<br/>`DGAUGE`, count | Used inodes |
 
 
-## Disk operation metrics {#managed-redis-diskio-metrics}
+## Disk I/O metrics {#managed-redis-diskio-metrics}
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -215,11 +215,11 @@ The consumption type goes into the `systag` label.
 | `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Indicator of host failure due to user fault |
 | `iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress |
 | `ip_defaultttl`<br/>`DGAUGE`, string | Default TTL value inserted into the IP header for IP packets generated in this object when the transport layer protocol does not provide a TTL. |
-| `ip_forwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled |
+| `ip_forwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled.  |
 | `ip_forwdatagrams`<br/>`DGAUGE`, count | Number of inbound packets not destined for this object, triggering an attempt to find a forwarding route to the final IP destination. For objects not acting as IP gateways, this count includes only those packets that were source-routed through them and where the source route option was successfully processed. |
 | `ip_fragcreates`<br/>`DGAUGE`, count | Number of IP packet fragments generated due to fragmentation in the object in question |
-| `ip_fragfails`<br/>`DGAUGE`, count | Number of IP packets dropped due to failed fragmentation which was required in this object, e.g., because of the `Do not fragment` flag being set |
-| `ip_fragoks`<br/>`DGAUGE`, count | Number of successfully fragmented IP packets |
+| `ip_fragfails`<br/>`DGAUGE`, count | Number of IP packets dropped due to failed fragmentation which was required in this object, e.g., because of the `Do not fragment` flag being set. |
+| `ip_fragoks`<br/>`DGAUGE`, count | Number of successfully fragmented IP packets  |
 | `ip_inaddrerrors`<br/>`DGAUGE`, count | Number of inbound packets dropped due to an invalid destination IP address in the IP header for the object in question. This count includes invalid addresses, such as `0.0.0.0`, and addresses of unsupported classes, e.g., Class E. For objects that do not act as IP gateways and therefore do not forward packets, this counter includes packets dropped because the destination address was not a local one. |
 | `ip_indelivers`<br/>`DGAUGE`, count | Total IP packets delivered |
 | `ip_indiscards`<br/>`DGAUGE`, count | Number of inbound IP packets encountering no issues preventing their further processing but still dropped, e.g., due to lack of buffer space. This counter does not include packets dropped while awaiting reassembly. |
@@ -259,20 +259,20 @@ The consumption type goes into the `systag` label.
 | `redis_acl_access_denied_channel`<br/>`DGAUGE`, count | Number of access denials during channel operation attempts due to an incorrect ACL in {{ RD }} |
 | `redis_acl_access_denied_cmd`<br/>`DGAUGE`, count | Number of access denials when attempting to run commands disabled by ACL policies in {{ RD }} |
 | `redis_acl_access_denied_key`<br/>`DGAUGE`, count | Number of denials of access to keys protected by ACL policies in {{ RD }} |
-| `redis_aof_last_cow_size`<br/>`DGAUGE`, bytes | Size of data copied when creating an AOF file using [COW (copy-on-write)](https://en.wikipedia.org/wiki/Copy-on-write) |
+| `redis_aof_last_cow_size`<br/>`DGAUGE`, bytes | Size of data copied when creating an AOF file using [COW (copy-on-write)](https://en.wikipedia.org/wiki/Copy-on-write). |
 | `redis_blocked_clients`<br/>`DGAUGE`, count | Number of clients waiting for a connection per cluster host |
 | `redis_child_oom_count`<br/>`DGAUGE`, count | Number of {{ RD }} child process terminations, e.g., while creating snapshots or forks, due to out-of-memory (OOM) errors |
 | `redis_client_output_normal_hard`<br/>`DGAUGE`, bytes | Hard memory usage limit |
 | `redis_client_output_normal_soft`<br/>`DGAUGE`, bytes | Soft memory usage limit |
-| `redis_client_recent_max_input_buffer`<br/>`DGAUGE`, bytes | Maximum memory used to service client write connections |
-| `redis_client_recent_max_output_buffer`<br/>`DGAUGE`, bytes | Maximum memory used to service client read connections |
+| `redis_client_recent_max_input_buffer`<br/>`DGAUGE`, bytes | Maximum memory used for handling client write connections |
+| `redis_client_recent_max_output_buffer`<br/>`DGAUGE`, bytes | Maximum memory used for handling client read connections |
 | `redis_connected_clients`<br/>`DGAUGE`, count | Number of open connections per cluster host.<br/>In a sharded or replicated cluster, some connections will be used for data exchange between the cluster hosts.<br/>If cluster connection errors occur, perhaps, there are inactive apps that keep connections open for too long. If this is the case, [update the settings](../../../managed-redis/operations/update.md#change-redis-config) by editing the [Timeout](../../../managed-redis/concepts/settings-list.md#settings-timeout) value. |
 | `redis_connected_slaves`<br/>`DGAUGE`, count | Number of secondary nodes connected to the master node |
-| `redis_db_hashtable_overhead`<br/>`DGAUGE`, bytes | RAM used to store hash tables of all DBs |
+| `redis_db_hashtable_overhead`<br/>`DGAUGE`, bytes | RAM used for storing hash tables of all databases |
 | `redis_dbsize`<br/>`DGAUGE`, count | Number of keys stored in all the cluster databases |
 | `redis_evicted_keys`<br/>`DGAUGE`, count | Number of keys deleted from memory when inserting new data |
 | `redis_expired_keys`<br/>`DGAUGE`, count | Total number of {{ RD }} keys automatically deleted after expiration of their TTL |
-| `redis_hit_rate`<br/>`DGAUGE`, % | Percentage of requests for which {{ mrd-full-name }} finds data in the cache |
+| `redis_hit_rate`<br/>`DGAUGE`, % | Percentage of requests for which {{ mrd-full-name }} finds data in the cache. |
 | `redis_instantaneous_input_kbps`<br/>`DGAUGE`, Kbps | Current incoming traffic to the {{ RD }} shard in kilobits per second |
 | `redis_instantaneous_input_repl_kbps`<br/>`DGAUGE`, Kbps | Current incoming replication traffic to the {{ RD }} shard in kilobits per second |
 | `redis_instantaneous_ops_per_sec`<br/>`DGAUGE`, operations per second | Number of requests per second |
@@ -281,25 +281,25 @@ The consumption type goes into the `systag` label.
 | `redis_io_threaded_reads_processed`<br/>`DGAUGE`, count | Number of read operations processed using threaded I/O |
 | `redis_io_threaded_writes_processed`<br/>`DGAUGE`, count | Number of write operations processed using threaded I/O |
 | `redis_io_threads_active`<br/>`DGAUGE`, count | Number of active threads |
-| `redis_is_alive`<br/>`DGAUGE` | Host health indicator.<br/>`1` if the DB host is operational, `0` if not. |
+| `redis_is_alive`<br/>`DGAUGE` | Host health indicator.<br/>`1` if the database host is operational, `0` if not. |
 | `redis_is_master`<br/>`DGAUGE` | Host type indicator.<br/>`1` if the host is a database master server, `0` if not. |
 | `redis_keys_db`<br/>`DGAUGE`, count | Total number of keys stored in the {{ RD }} database on a given shard.<br/>The `db` special label is the database number. |
 | `redis_keyspace_hits`<br/>`DGAUGE`, count | Number of successful key lookups |
 | `redis_keyspace_misses`<br/>`DGAUGE`, count | Number of unsuccessful key lookups |
 | `redis_master_last_io_seconds_ago`<br/>`DGAUGE`, seconds | Time elapsed since the last communication with the master host |
-| `redis_maxmemory`<br/>`DGAUGE`, bytes | Maximum memory allocated for user data |
+| `redis_maxmemory`<br/>`DGAUGE`, bytes | Maximum amount of memory allocated for user data |
 | `redis_mem_aof_buffer`<br/>`DGAUGE`, bytes | RAM used for the AOF buffer |
-| `redis_mem_clients_normal`<br/>`DGAUGE`, bytes | RAM used to serve external connections |
+| `redis_mem_clients_normal`<br/>`DGAUGE`, bytes | RAM used for handling external connections |
 | `redis_mem_clients_slaves`<br/>`DGAUGE`, bytes | RAM used to serve replication connections |
 | `redis_mem_cluster_links`<br/>`DGAUGE`, bytes | Total memory allocated for network connections in cluster mode |
 | `redis_mem_fragmentation_ratio`<br/>`DGAUGE`, ratio | Allocated vs. used memory ratio on a given {{ RD }} shard (memory fragmentation index) |
-| `redis_mem_replication_backlog`<br/>`DGAUGE`, bytes | RAM used for the replication backlog buffer |
+| `redis_mem_replication_backlog`<br/>`DGAUGE`, bytes | RAM used for the replication backlog |
 | `redis_memory_limit`<br/>`DGAUGE`, bytes | Memory allocated to the host |
 | `redis_module_fork_last_cow_size`<br/>`DGAUGE`, bytes | Size of data copied during a `fork()` call using COW |
-| `redis_oom_count`<br/>`DGAUGE`, count | Number of out-of-memory errors, per hour |
+| `redis_oom_count`<br/>`COUNTER`, count | Number of out-of-memory errors |
 | `redis_rdb_last_cow_size`<br/>`DGAUGE`, bytes | Size of data copied when creating an RDB file |
-| `redis_repl_backlog_histlen`<br/>`DGAUGE`, bytes | Current size of memory used by the replication backlog buffer |
-| `redis_repl_backlog_size`<br/>`DGAUGE`, bytes | Maximum size of memory available for the replication backlog buffer |
+| `redis_repl_backlog_histlen`<br/>`DGAUGE`, bytes | Size of memory currently used by the replication backlog |
+| `redis_repl_backlog_size`<br/>`DGAUGE`, bytes | Maximum size of memory available for the replication backlog |
 | `redis_result_code`<br/>`DGAUGE`, code | Result code of the most recent {{ RD }} operation on a given shard |
 | `redis_total_commands_processed`<br/>`DGAUGE`, count | Total number of commands processed on a given {{ RD }} shard since its startup |
 | `redis_total_net_input_bytes`<br/>`DGAUGE`, bytes | Total bytes of incoming network traffic to a given {{ RD }} shard since its startup |
@@ -314,14 +314,14 @@ The consumption type goes into the `systag` label.
 | `redis_used_memory_overhead`<br/>`DGAUGE`, bytes | RAM used for internal management and data structures |
 | `redis_used_memory_rss`<br/>`DGAUGE`, bytes | Memory used by {{ RD }} processes |
 | `redis_used_memory_scripts`<br/>`DGAUGE`, bytes | RAM used for storing and running scripts |
-| `redis_used_memory_startup`<br/>`DGAUGE`, bytes | RAM utilization for the {{ RD }} processes at startup (e.g., after restarting a cluster) |
-| `redis_used_memory`<br/>`DGAUGE`, bytes | Actual host memory usage If `redis_used_memory` reaches `redis_maxmemory` when trying to insert new records, {{ mrd-full-name }} will apply the memory management mode defined by the [Maxmemory policy](../../../managed-redis/concepts/settings-list.md#settings-maxmemory-policy) setting |
+| `redis_used_memory_startup`<br/>`DGAUGE`, bytes | RAM used for {{ RD }} processes at startup, e.g., after restarting a cluster |
+| `redis_used_memory`<br/>`DGAUGE`, bytes | Actual host memory usage If `redis_used_memory` reaches `redis_maxmemory` when trying to insert new records, {{ mrd-full-name }} will apply the memory management mode defined by the [Maxmemory policy](../../../managed-redis/concepts/settings-list.md#settings-maxmemory-policy) setting. |
 | `sentinel_can_read`<br/>`DGAUGE`, 0/1 | {{ RD }} shard read access indicator based on Sentinel data.<br/>`1` if the shard is available for reads, `0` if not. |
 | `sentinel_can_write`<br/>`DGAUGE`, 0/1 | {{ RD }} shard write access indicator based on Sentinel data<br/>`1` if the shard is available for writes, `0` if not. |
 | `sentinel_connected_clients`<br/>`DGAUGE`, count | Number of clients currently connected to a given {{ RD }} Sentinel instance |
 | `sentinel_is_alive`<br/>`DGAUGE`, 0/1 | {{ RD }} Sentinel availability indicator.<br/>`1` if Sentinel is available, `0` if not. |
 | `sentinel_is_master`<br/>`DGAUGE`, 0/1 | Indicates whether a particular {{ RD }} shard is a master according to Sentinel data.<br/>`1` if the shard is a master, `0` if not. |
-| `sentinel_total_error_replies`<br/>`DGAUGE`, count | Total error responses clients received from {{ RD }} Sentinel since its startup |
+| `sentinel_total_error_replies`<br/>`DGAUGE`, count | Total error responses clients received from {{ RD }} Sentinel since its startup. |
 | `shared`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type |
 | `slab`<br/>`DGAUGE`, bytes | RAM usage, `slab` usage type |
 | `slowlog_max_len`<br/>`DGAUGE`, count | Maximum number of slow requests logged |
@@ -335,21 +335,21 @@ The consumption type goes into the `systag` label.
 | `tcp_activeopens`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition from the `CLOSED` state to `SYN-SENT`. |
 | `tcp_attemptfails`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition to the `CLOSED` state from either the `SYN-SENT` or `SYN-RCVD` state, plus the number of direct TCP connection transitions. |
 | `tcp_currestab`<br/>`DGAUGE`, count | Current number of TCP connections for the `ESTABLISHED` or `CLOSE WAIT` states |
-| `tcp_estabresets`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition to the `CLOSED` state from either the `ESTABLISHED` or `CLOSE-WAIT` state |
-| `tcp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received TCP packet has an invalid checksum |
+| `tcp_estabresets`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition to the `CLOSED` state from either the `ESTABLISHED` or `CLOSE-WAIT` state. |
+| `tcp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received TCP packet has an invalid checksum. |
 | `tcp_inerrs`<br/>`DGAUGE`, count | Total segments received with an error, such as invalid TCP checksums |
 | `tcp_insegs`<br/>`DGAUGE`, count | Total segments received, including those received in error |
 | `tcp_maxconn`<br/>`DGAUGE`, count | Maximum allowed number of TCP connections |
 | `tcp_outrsts`<br/>`DGAUGE`, count | Number of TCP segments sent with the `RST` flag |
 | `tcp_outsegs`<br/>`DGAUGE`, count | Total TCP segments sent |
 | `tcp_passiveopens`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition to the `SYN-RCVD` state from `LISTEN` |
-| `tcp_retranssegs`<br/>`DGAUGE`, count | Total segments retransmitted, i.e., number of TCP segments containing one or more previously transmitted octets that were retransmitted |
+| `tcp_retranssegs`<br/>`DGAUGE`, count | Total segments retransmitted, i.e., number of TCP segments containing one or more previously transmitted octets that were retransmitted. |
 | `tcp_rtoalgorithm`<br/>`DGAUGE` | Algorithm used to determine the timeout for retransmitting unacknowledged octets |
 | `tcp_rtomax`<br/>`DGAUGE`, milliseconds | Maximum TCP retransmission timeout, in milliseconds |
 | `tcp_rtomin`<br/>`DGAUGE`, milliseconds | Minimum TCP retransmission timeout, in milliseconds |
 | `total`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type |
 | `udp_ignoredmulti`<br/>`DGAUGE`, count | Number of UDP multicast packets ignored |
-| `udp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP packet contains an invalid kernel code checksum |
+| `udp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP packet contains an invalid kernel code checksum. |
 | `udp_indatagrams`<br/>`DGAUGE`, count | Total UDP packets received  |
 | `udp_inerrors`<br/>`DGAUGE`, count | Number of bad UDP packets received, excluding those with checksum errors |
 | `udp_memerrors`<br/>`DGAUGE`, errors | Number of UDP out-of-memory errors |
@@ -357,15 +357,15 @@ The consumption type goes into the `systag` label.
 | `udp_outdatagrams`<br/>`DGAUGE`, count | Total UDP packets sent from the object in question |
 | `udp_rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP receive buffer errors |
 | `udp_sndbuferrors`<br/>`DGAUGE`, count | Number of UDP send buffer errors |
-| `udplite_ignoredmulti`<br/>`DGAUGE`, count | Number of UDP-Lite multicast packets ignored |
-| `udplite_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP-Lite packet contains an invalid kernel code checksum |
-| `udplite_indatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets received |
-| `udplite_inerrors`<br/>`DGAUGE`, count | Total UDP-Lite packet receive errors |
+| `udplite_ignoredmulti`<br/>`DGAUGE`, count | Number of UDP-Lite multicast packets ignored  |
+| `udplite_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP-Lite packet contains an invalid kernel code checksum. |
+| `udplite_indatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets received  |
+| `udplite_inerrors`<br/>`DGAUGE`, count | Total UDP-Lite packet receive errors  |
 | `udplite_memerrors`<br/>`DGAUGE`, errors | Number of UDP-Lite out-of-memory errors |
 | `udplite_noports`<br/>`DGAUGE`, count | Total UDP-Lite packets received without a listener on the destination port. Irregularities in this counter may occur when reinitializing the management system and at other times, as indicated by the `udplite_statsdiscontinuitytime` value. |
-| `udplite_outdatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets sent |
-| `udplite_rcvbuferrors`<br/>`DGAUGE`, count | This value increases when no memory can be allocated to handle an inbound UDP-Lite packet |
-| `udplite_sndbuferrors`<br/>`DGAUGE`, count | This value increases when no memory can be allocated to send a UDP-Lite packet |
+| `udplite_outdatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets sent  |
+| `udplite_rcvbuferrors`<br/>`DGAUGE`, count | This value increases when no memory can be allocated to handle an inbound UDP-Lite packet. |
+| `udplite_sndbuferrors`<br/>`DGAUGE`, count | This value increases when no memory can be allocated to send a UDP-Lite packet. |
 | `uptime`<br/>`DGAUGE`, % | Uptime percentage |
 | `usage_guest_nice`<br/>`DGAUGE`, % | CPU core usage, `guest_nice` usage type |
 | `usage_guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |

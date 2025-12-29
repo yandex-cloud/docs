@@ -227,6 +227,11 @@ metadata:
 
 #### Backend TLS configuration
 
+TLS settings for backend connections. \
+Use when the load balancer must connect to its targets over TLS. \
+If you only need “TLS as is” (no SNI and no backend certificate verification), set `gwin.yandex.cloud/rules.backends.tls.sni: ""`. \
+Health check TLS settings work the same way, but are configured separately.
+
 | Annotation and description |
 |------------|
 | `gwin.yandex.cloud/rules.backends.tls.sni` <br> _(string)_ <br> Server Name Indication (SNI) for TLS connections to backends. <br> Example: `grpc.example.com` |

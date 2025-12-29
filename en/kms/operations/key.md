@@ -10,13 +10,13 @@ To create a key:
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}).
+  1. Log in to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
 
      * Any name and optional description.
-     * Encryption algorithm, e.g., `AES-256`.
+     * [Encryption algorithm](../concepts/key.md#parameters), e.g., `AES-256`.
      * [Rotation](../concepts/index.md#rotation) period (how often to change key versions).
      * (Optional) Enable deletion protection.
 
@@ -39,7 +39,7 @@ To create a key:
   Where:
 
   * `--name`: Key name.
-  * `--default-algorithm`: Encryption algorithm: `aes-128`, `aes-192`, or `aes-256`.
+  * `--default-algorithm`: [Encryption algorithms](../concepts/key.md#parameters), such as `aes-128`, `aes-192`, `aes-256`, `aes-256-hsm`, or `gost-r-3412-2015-k`.
   * `--rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `--rotation-period` parameter.
   * `--deletion-protection`: Key deletion protection. To create a key without deletion protection, do not specify the `--deletion-protection` parameter.
 
@@ -75,7 +75,7 @@ To edit a key:
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}).
+  1. Log in to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
@@ -98,7 +98,7 @@ To edit a key:
 
   * `--name`: Key name. If there are multiple keys with the same name in the folder, use the key ID.
   * `--new-name`: New key name.
-  * `--default-algorithm`: Encryption algorithm: `aes-128`, `aes-192`, or `aes-256`.
+  * `--default-algorithm`: [Encryption algorithms](../concepts/key.md#parameters), such as `aes-128`, `aes-192`, `aes-256`, `aes-256-hsm`, or `gost-r-3412-2015-k`.
   * `--rotation-period`: Key rotation period. To disable automatic rotation for an updated key, do not specify the `--rotation-period` parameter.
   * `--deletion-protection`: Key deletion protection. To disable deletion protection, specify the `--no-deletion-protection` parameter.
 
@@ -107,7 +107,7 @@ To edit a key:
   To edit a key:
   1. Open the {{ TF }} configuration file and change the required parameters of the `yandex_kms_symmetric_key` resource.
 
-     Here is an example of the configuration file structure:
+     Here is a configuration file example:
 
      ```hcl
      ...
@@ -173,7 +173,7 @@ To rotate a key:
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}).
+  1. Log in to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
@@ -211,7 +211,7 @@ To destroy a key:
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}).
+  1. Log in to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.

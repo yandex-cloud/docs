@@ -279,48 +279,114 @@ description: Вы можете запросить детальную инфор�
 
 ### Получить подробную информацию об операции {#get-operations-info}
 
-1. [Получите список операций](#get-operations) для кластера.
-1. Скопируйте идентификатор нужной операции.
-1. Получите подробную информацию об операции:
+{% list tabs group=instructions %}
 
-   {% list tabs group=instructions %}
+- Консоль управления {#console}
 
-   - CLI {#cli}
+    1. [Перейдите в список всех операций или операций для нужного кластера](#get-operations).
+    1. Нажмите на идентификатор операции, которую вы хотите посмотреть.
 
-     {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [operation-details](../../_includes/mdb/console/operation-details.md) %}
 
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+- CLI {#cli}
 
-     Выполните команду:
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-     ```bash
-     yc operation get <идентификатор_операции>
-     ```
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     Результат:
+    Чтобы получить подробную информацию об операции, выполните команду:
 
-     ```text
-     id: c9q2m9jrootm********
-     description: Create PostgreSQL cluster
-     created_at: "2024-08-06T06:38:13.724389Z"
-     created_by: ajej2i98kcjd********
-     modified_at: "2024-08-06T06:46:33.101402Z"
-     done: true
-     metadata:
-       '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.CreateClusterMetadata
-       cluster_id: c9qk2926qqu9********
-     response:
-       '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.Cluster
-     ...
-     ```
+    ```bash
+    yc operation get <идентификатор_операции>
+    ```
 
-   - REST API {#api}
+    Идентификатор операции можно получить со [списком операций](#get-operations) для кластера.
 
-     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    Пример выдачи для завершенной операции по созданию кластера:
+
+    ```text
+    id: c9qvtaeael629vooobjn
+    description: Create PostgreSQL cluster
+    created_at: "2025-12-29T01:00:10.342661Z"
+    created_by: ajefhe0o8uas********
+    modified_at: "2025-12-29T01:10:42.927393Z"
+    done: true
+    metadata:
+      '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.CreateClusterMetadata
+      cluster_id: c9qheabu83os********
+      operation_log:
+        entities:
+          - cluster_id: c9qheabu83os********
+            action: Preparing metadata
+            started_at: "2025-12-29T01:00:12.962815Z"
+            hosts:
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Preparing host
+                started_at: "2025-12-29T01:00:14.133616Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Preparing host
+                started_at: "2025-12-29T01:00:14.355756Z"
+          - cluster_id: c9qheabu83os********
+            action: Preparing backup storage
+            started_at: "2025-12-29T01:00:16.219396Z"
+          - cluster_id: c9qheabu83os********
+            action: Creating cluster
+            started_at: "2025-12-29T01:00:29.106594Z"
+            hosts:
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Reserving resources
+                started_at: "2025-12-29T01:00:31.926872Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Reserving resources
+                started_at: "2025-12-29T01:00:40.139058Z"
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Creating host
+                started_at: "2025-12-29T01:00:46.710067Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Creating host
+                started_at: "2025-12-29T01:00:48.757701Z"
+          - cluster_id: c9qheabu83os********
+            action: Installing software
+            started_at: "2025-12-29T01:01:48.454943Z"
+            hosts:
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Launching host
+                started_at: "2025-12-29T01:02:08.738499Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Launching host
+                started_at: "2025-12-29T01:02:18.973229Z"
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Updating database software
+                started_at: "2025-12-29T01:02:19.329133Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Updating database software
+                started_at: "2025-12-29T01:02:19.557436Z"
+          - cluster_id: c9qheabu83os********
+            action: Initializing database
+            started_at: "2025-12-29T01:05:20.261791Z"
+          - cluster_id: c9qheabu83os********
+            action: Infrastructure integration
+            started_at: "2025-12-29T01:10:33.044048Z"
+            hosts:
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Creating DNS records
+                started_at: "2025-12-29T01:10:33.306624Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Creating DNS records
+                started_at: "2025-12-29T01:10:33.595051Z"
+    response:
+      '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.Cluster
+      id: c9qheabu83os********
+      ...
+    ```
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-     1. Воспользуйтесь методом [Operation.Get](../api-ref/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Operation.Get](../api-ref/Operation/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -329,16 +395,18 @@ description: Вы можете запросить детальную инфор�
             --url 'https://{{ api-host-operation }}/operations/<идентификатор_операции>'
         ```
 
-     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Operation/get.md#yandex.cloud.operation.Operation).
+        Идентификатор операции можно получить со [списком операций](#get-operations) для кластера.
 
-   - gRPC API {#grpc-api}
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Operation/get.md#yandex.cloud.operation.Operation).
 
-     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-     1. Воспользуйтесь вызовом [OperationService.Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [OperationService.Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -354,9 +422,11 @@ description: Вы можете запросить детальную инфор�
             yandex.cloud.operation.OperationService.Get
         ```
 
-     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation).
+        Идентификатор операции можно получить со [списком операций](#get-operations) для кластера.
 
-   {% endlist %}
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
 
 ### См. также {#see-also}
 

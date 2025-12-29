@@ -10,14 +10,15 @@ You can change the primary version of the symmetric key at any time by specifyin
 
 A {{ kms-short-name }} symmetric key may have the following parameters:
 
-* ID: Unique key identifier in {{ yandex-cloud }}. It is used for working with keys via the SDK, API, and CLI.
-* Name: Non-unique key name. It can be used to work with keys in the CLI if the folder only contains a single key with this name.
-* Encryption algorithm: The algorithm to be used for encryption in new versions of the key. [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) supports the following symmetric encryption algorithms:
+* ID: Unique key ID in {{ yandex-cloud }}. It is used for managing keys via the SDK, API, and CLI.
+* Name: Non-unique key name. It can be used to manage keys in the CLI if the folder only contains one key with this name.
+* Encryption algorithm: Algorithm used to modify data using a key. The following algorithms are supported:
 
-    * `AES-128`: AES algorithm with 128-bit keys.
-    * `AES-192`: AES algorithm with 192-bit keys.
-    * `AES-256`: AES algorithm with 256-bit keys.
-    * `AES-256 HSM`: AES algorithm with 256-bit keys. Encryption keys are created and cryptographic operations handled in a [Hardware Security Module (HSM)](hsm.md).
+    * `AES-128`: AES algorithm with 128-bit keys in [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode.
+    * `AES-192`: AES algorithm with 192-bit keys in [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode.
+    * `AES-256`: AES algorithm with 256-bit keys in [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode.
+    * `AES-256 HSM`: AES algorithm with 256-bit keys in [CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) mode with [HMAC](https://en.wikipedia.org/wiki/HMAC). Encryption keys are created and cryptographic operations handled in a [Hardware Security Module (HSM)](hsm.md).
+    * `GOST_R_3412_2015_K`: [Grasshopper](https://en.wikipedia.org/wiki/Kuznyechik) algorithm with [OMAC](https://en.wikipedia.org/wiki/One-key_MAC), [GOST](https://protect.gost.ru/v.aspx?control=7&id=200990)-compliant.
 
 * Rotation period: Time span between automatic key rotations.
 * Deletion protection: Pprevents accidental key deletion. When enabled, you cannot delete the key without disabling this option first.

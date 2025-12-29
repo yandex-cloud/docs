@@ -29,7 +29,7 @@ To get a list of services whose access in the cloud can be managed:
 
       ```bash
       yc iam service-control list --help
-      ```
+      ``` 
 
   1. Run this command:
 
@@ -38,7 +38,7 @@ To get a list of services whose access in the cloud can be managed:
         --limit <number_of_services>
       ```
 
-      Where `--limit` is the number of services you need to list. This is an optional parameter.
+      Where `--limit` is the number of services you need to list. This is an optional setting.
 
       Result:
 
@@ -82,7 +82,7 @@ To get information about the [status](../../concepts/service-control.md#access-s
 
       ```bash
       yc iam service-control get --help
-      ```
+      ``` 
 
   1. [Get](#list) a list of services whose access can be managed.
 

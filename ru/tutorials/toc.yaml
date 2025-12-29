@@ -265,6 +265,40 @@ items:
     items:
       - name: Все руководства
         href: archive/index.md
+      - name: Резервное копирование в {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: archive/storage-backup-overview.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью aws s3
+              sync
+            href: archive/storage-backup-aws-s3-sync.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью rclone
+            href: archive/storage-backup-rclone.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью GeeseFS
+            href: archive/storage-backup-geesefs.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью MSP360
+              Backup (CloudBerry Desktop Backup)
+            href: archive/object-storage-cloudberry.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью Duplicati
+            href: archive/object-storage-duplicati.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
+            href: archive/backup-with-bacula.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью Veritas
+              Backup Exec
+            href: archive/object-storage-veritas.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью Veeam
+              Backup
+            href: archive/backup-with-veeam.md
+          - name: Резервное копирование ВМ с помощью Хайстекс Акура
+            href: infrastructure-management/hystax-backup.md
+          - name: >-
+              Резервное копирование кластера {{ managed-k8s-name }} в {{
+              objstorage-name }}
+            href: archive/kubernetes-backup.md
       - name: Миграция в {{ yandex-cloud }} с помощью Хайстекс Акура
         href: infrastructure-management/hystax-migration.md
       - name: Защита от сбоев с помощью Хайстекс Акура
@@ -279,26 +313,6 @@ items:
             href: archive/single-node-file-server/terraform.md
       - name: Настройка SFTP-сервера на Centos 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Резервное копирование ВМ с помощью Хайстекс Акура
-        href: infrastructure-management/hystax-backup.md
-      - name: >-
-          Резервное копирование в {{ objstorage-name }} с помощью MSP360 Backup
-          (CloudBerry Desktop Backup)
-        href: archive/object-storage-cloudberry.md
-      - name: Резервное копирование в {{ objstorage-name }} через Duplicati
-        href: archive/object-storage-duplicati.md
-      - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
-        href: archive/backup-with-bacula.md
-      - name: Резервное копирование в {{ objstorage-name }} с помощью Veeam Backup
-        href: archive/backup-with-veeam.md
-      - name: >-
-          Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup
-          Exec
-        href: archive/object-storage-veritas.md
-      - name: >-
-          Резервное копирование кластера {{ managed-k8s-name }} в {{
-          objstorage-name }}
-        href: archive/kubernetes-backup.md
       - name: >-
           Развертывание параллельной файловой системы GlusterFS в
           высокодоступном режиме

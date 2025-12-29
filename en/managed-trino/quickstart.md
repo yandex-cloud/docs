@@ -23,8 +23,10 @@ To get started:
 1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
     * [managed-trino.admin](security.md#managed-trino-admin): To create a cluster.
-    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) to use the cluster [network](../vpc/concepts/network.md#network).
-    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) to attach a service account to a cluster.
+    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): To use the cluster [network](../vpc/concepts/network.md#network).
+    * [{{ roles-logging-reader }}](../logging/security/index.md#logging-reader): To view cluster logs.
+    * [logging.editor](../logging/security/index.md#logging-editor): To manage cluster logging settings.
+    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user): To attach a service account to a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -75,7 +77,7 @@ To get started:
         1. Select **{{ ui-key.yacloud.logging.label_minlevel }}** from the list.
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
-    1. Wait until the cluster is ready: its status on the {{ mtr-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+    1. Wait until the cluster is ready: its status on the {{ mtr-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.
 
 {% endlist %}
 

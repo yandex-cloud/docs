@@ -144,7 +144,7 @@ If users do not have the `login` attribute, add it:
 
 {% endlist %}
 
-If you have configured user group mapping in SonarQube, add the user group attribute. To do this:
+If you have configured user group mapping in SonarQube, add the user group attribute. Proceed as follows:
 
 {% list tabs group=instructions %}
 
@@ -205,7 +205,7 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To ensure that your SAML app and integration with SonarQube are working correctly, authenticate to SonarQube as one of the users you added to the app. To do this:
+To ensure that your SAML app and integration with SonarQube are working correctly, authenticate to SonarQube as one of the users you added to the app. Proceed as follows:
 
 1. In your browser, navigate to the address of your SonarQube instance, e.g., `https://<your-domain>`.
 1. If you were logged in to SonarQube, log out.

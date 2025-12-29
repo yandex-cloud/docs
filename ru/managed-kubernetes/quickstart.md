@@ -21,7 +21,9 @@ description: В этой инструкции вы создадите класт
 1. Создайте [сервисные аккаунты](../iam/operations/sa/create.md):
 
    * Сервисный аккаунт с [ролями](security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на каталог, в котором создается кластер {{ managed-k8s-name }}. От имени этого сервисного аккаунта будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
-   * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) на каталог с [реестром](../container-registry/concepts/registry.md) [Docker-образов](../container-registry/concepts/docker-image.md). От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
+   * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) на каталог с реестром [Docker-образов](../container-registry/concepts/docker-image.md) в [{{ container-registry-full-name }}](../container-registry/concepts/index.md). От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
+
+     Если вы хотите использовать реестр [Docker-образов](../cloud-registry/concepts/docker-image.md) в [{{ cloud-registry-full-name }}](../cloud-registry/concepts/index.md), назначьте сервисному аккаунту роль [cloud-registry.artifacts.puller](../cloud-registry/security/index.md#cloud-registry-artifacts-puller).
 
    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 
@@ -36,7 +38,7 @@ description: В этой инструкции вы создадите класт
 1. Введите имя кластера {{ managed-k8s-name }}. Оно должно быть уникальным в рамках каталога.
 1. (Опционально) Введите описание кластера {{ managed-k8s-name }}.
 1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** — укажите [сервисный аккаунт](../iam/concepts/users/service-accounts.md) с ролями `k8s.clusters.agent` и `vpc.publicAdmin`, который будет использоваться для создания ресурсов.
-1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** — укажите сервисный аккаунт с ролью [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller), который будет использоваться узлами {{ managed-k8s-name }} для доступа к реестру Docker-образов.
+1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** — укажите сервисный аккаунт с ролью [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller), который будет использоваться узлами {{ managed-k8s-name }} для доступа к реестру [Docker-образов](../container-registry/concepts/docker-image.md) в {{ container-registry-full-name }}.
 1. Укажите [релизный канал](concepts/release-channels-and-updates.md). Эту настройку невозможно изменить после создания кластера {{ managed-k8s-name }}.
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** — выберите версию {{ k8s }}, которая будет установлена на [мастере {{ managed-k8s-name }}](concepts/index.md#master).

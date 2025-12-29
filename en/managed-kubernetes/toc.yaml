@@ -35,6 +35,8 @@ items:
         items:
           - name: Getting started with {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Installing Bitrix
+            href: operations/applications/bitrix.md
           - name: Installing Argo CD
             href: operations/applications/argo-cd.md
           - name: Installing Chaos Mesh
@@ -690,6 +692,8 @@ items:
             href: alb-ref/gwin-quickstart.md
           - name: Migrating apps from an ALB ingress controller to Gwin
             href: alb-ref/ingress-gwin-migration.md
+          - name: Migrating applications from NGINX Ingress to Gwin
+            href: alb-ref/nginx-gwin-migration.md
           - name: Resource configuration
             items:
               - name: Gateway

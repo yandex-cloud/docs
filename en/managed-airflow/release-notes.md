@@ -5,6 +5,11 @@ description: This section contains {{ maf-name }} release notes.
 
 # {{ maf-full-name }} release notes
 
+## October 2025 {#oct-2025}
+
+* Supported Airflow [versions](concepts/versions.md) 3.0 and 3.1.
+* Added a new component for Airflow versions 3.0 or higher: [DAG processor](concepts/index.md#components). You can set it up when [creating](operations/cluster-create.md) or [updating](operations/cluster-update.md) your cluster.
+
 ## May 2025 {#may-2025}
 
 Added the [**{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**](operations/cluster-maintenance.md) section to the management console.

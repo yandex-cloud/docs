@@ -92,7 +92,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is a configuration file example:
 
     
     ```hcl
@@ -145,7 +145,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is a configuration file example:
 
     
     ```hcl
@@ -223,7 +223,8 @@ Known issues when using a {{ PG }} endpoint:
 * [Unable to transfer child tables](#successor-tables).
 * [Insufficient replication slots in a source database](#replication-slots).
 * [No data transfer after changing a source endpoint](#no-data-transfer).
-* [Transfer error when changing a master host](#master-change).
+* [Transfer error when changing the master host](#master-change).
+* [WAL lacks records to continue replication after changing the master host](#no-wal-story).
 * [Error when transferring nested transactions](#inner-tables).
 * [Error transferring tables with deferred constraints](#deferrable-constr).
 * [Cannot create a replication slot at the activation step](#lock-replication).
@@ -257,6 +258,8 @@ For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/in
 {% include [no-data-transfer](../../../../_includes/data-transfer/troubles/postgresql/no-data-transfer.md) %}
 
 {% include [master-change](../../../../_includes/data-transfer/troubles/postgresql/master-change.md) %}
+
+{% include [no-wal-story](../../../../_includes/data-transfer/troubles/postgresql/no-wal-story.md) %}
 
 {% include [inner-tables](../../../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
 

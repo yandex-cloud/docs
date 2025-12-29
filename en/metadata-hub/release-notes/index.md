@@ -3,6 +3,15 @@ title: '{{ metadata-hub-full-name }} release notes'
 description: This section contains {{ metadata-hub-name }} release notes.
 ---
 
+<!-- Changelog begin -->
+
+
+
+
+
+
+<!-- Changelog end -->
+
 # {{ metadata-hub-full-name }} release notes
 
 ## 2025 {#2025}

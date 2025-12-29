@@ -73,7 +73,7 @@ items:
             href: operations/cluster-logs.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host status monitoring
             href: operations/monitoring.md
           - name: Connecting to DataLens
             href: operations/datalens-connect.md
@@ -183,7 +183,7 @@ items:
         href: concepts/index.md
       - name: Host classes
         items:
-          - name: Active host classes
+          - name: Available host classes
             href: concepts/instance-types.md
           - name: Archive
             items:

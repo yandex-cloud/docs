@@ -34,16 +34,16 @@ When leasing a sever, you can select your configurations based on redundant powe
 
 Any {{ baremetal-name }} server [configuration](./server-configurations.md) includes at least two [network interfaces](https://en.wikipedia.org/wiki/Network_interface_controller):
 
-* Network interface connected to a [public network](./network.md#public-network).
-* Network interface connected to a [private network](./network.md#private-network).
+* [Public](./network.md#public-network) network interface.
+* [Private](./network.md#private-network) network interface.
 
-In this case, there may be more than two network interfaces:
-* In configurations with NICs supporting connection speeds of 10 Gbps and 25 Gbps, in addition to the primary (high-speed) network interfaces, server diagnostic tools may display two more (inactive) network interfaces.
+In total, there may be more than two network interfaces:
+* In configurations with 10 Gbps and 25 Gbp NICs, in addition to the primary (high-speed) network interfaces, server diagnostic tools may display two more (inactive) network interfaces.
 
     These inactive interfaces belong to the integrated NICs of the server motherboard. They are not connected to any networks and do not require any configuration.
-* In configurations with the [MC-LAG](./mc-lag.md) network connection redundancy, the server is connected to each of the networks not through one interface, but simultaneously through two network interfaces.
+* In configurations with the [MC-LAG](./mc-lag.md) network connection redundancy, the server uses not one but two network interfaces at once to connect to each of the networks.
 
-    Network interfaces connected to the same network can be combined into aggregation groups at the operating system level, which ensures fault tolerance.
+    Network interfaces connected to the same network can be consolidated into aggregation groups at the OS level, which ensures fault tolerance.
 
 ## Server statuses {#server-status}
 
@@ -78,4 +78,3 @@ If a server is not restored for further use during the quarantine period, its qu
 #### See also {#see-also}
 
 * [{#T}](../../backup/tutorials/backup-baremetal.md)
-* [How to choose computing capacities for business and IT needs](https://yandex.cloud/ru/blog/dedicated-server-guide)

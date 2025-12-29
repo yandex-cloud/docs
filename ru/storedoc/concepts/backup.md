@@ -28,6 +28,8 @@ keywords:
 
 Для использования PITR в кластере должен быть выключен механизм [шардирования](../tutorials/sharding.md). PITR работает только для кластера с единичным набором реплик (replica set).
 
+{% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
+
 Чтобы восстановить кластер из резервной копии, [следуйте инструкциям](../operations/cluster-backups.md#restore).
 
 ## Создание резервной копии {#size}

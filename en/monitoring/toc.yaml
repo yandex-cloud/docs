@@ -161,7 +161,7 @@ items:
             href: operations/prometheus/querying/index.md
           - name: Remote Read
             href: operations/prometheus/querying/remote-read.md
-          - name: Visualization in {{ monitoring-name }}
+          - name: Visualization
             href: operations/prometheus/querying/monitoring.md
           - name: Grafana
             href: operations/prometheus/querying/grafana.md

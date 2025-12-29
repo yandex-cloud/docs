@@ -99,10 +99,12 @@ items:
             items:
               - name: Estimating prompt size in tokens
                 href: operations/generation/evaluate-request.md
-              - name: Sending a request in prompt mode
+              - name: Sending a request in synchronous mode
                 href: operations/generation/create-prompt.md
               - name: Sending a series of requests in chat mode
                 href: operations/generation/create-chat.md
+              - name: Sending a request in background mode
+                href: operations/generation/background-request.md
               - name: Sending an asynchronous request
                 href: operations/generation/async-request.md
               - name: Calling a function from a model
@@ -147,6 +149,8 @@ items:
                 href: operations/resources/create-dataset-gpt.md
               - name: Creating a dataset for tuning a text classifier
                 href: operations/resources/create-dataset-classifier.md
+              - name: Delete dataset
+                href: operations/resources/delete-dataset.md
           - name: Model tuning
             items:
               - name: Fine-tuning a text generation model
@@ -184,7 +188,7 @@ items:
             href: operations/agents/create-websearch-text-agent.md
           - name: Creating a text agent with file search
             href: operations/agents/create-filesearch-text-agent.md
-          - name: Creating a text agent with search based on pre-created chunks
+          - name: Creating a text agent with search by previously created chunks
             href: operations/agents/create-prechunked-search-agent.md
           - name: Working with the {{ vector-store-name }} search index
             href: operations/agents/manage-searchindex.md

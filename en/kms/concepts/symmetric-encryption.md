@@ -1,12 +1,15 @@
 # Symmetric encryption in {{ kms-short-name }}
 
-One of the available encryption modes in {{ kms-short-name }} is _symmetric encryption_. It uses the same (symmetric) key for both data encryption and decryption. {{ kms-short-name }} supports the [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) with 128, 192, or 256-bit keys in [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode.
+One of the available encryption modes in {{ kms-short-name }} is _symmetric encryption_. It uses the same (symmetric) key for encryption and decryption. {{ kms-short-name }} supports several symmetric algorithms:
+  * [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) with a 128, 192, or 256-bit key in [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode. 
+  * [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) with a 256-bit key in [CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) mode with [HMAC](https://en.wikipedia.org/wiki/HMAC).
+  * [Grasshopper](https://en.wikipedia.org/wiki/Kuznyechik) algorithm according to [GOST](https://protect.gost.ru/v.aspx?control=7&id=200990) with a 256-bit key and [OMAC](https://en.wikipedia.org/wiki/One-key_MAC).
 
 An important condition for secure encryption is the use of a cryptographically stable pseudo-random number generator (necessary for generating encryption keys and initialization vectors). {{ kms-short-name }} uses its own implementation of the [Fortuna](https://en.wikipedia.org/wiki/Fortuna_(PRNG)) algorithm, which collects entropy from various sources (RDSEED and RDRAND, /dev/urandom, host entropy).
 
 If you are using a [Hardware Security Module (HSM)](hsm.md), encryption keys are generated inside the HSM using a built-in reliable entropy generator.
 
-The crypto material contained in key versions is not available as plaintext outside {{ kms-short-name }}. Encryption and decryption in {{ kms-short-name }} is performed by two cryptographic operations: [encrypt](../api-ref/SymmetricCrypto/encrypt) and [decrypt](../api-ref/SymmetricCrypto/decrypt).
+The crypto material contained in key versions is not available as plaintext outside {{ kms-short-name }}. For encryption and decryption, {{ kms-short-name }} uses two cryptographic operations: [encrypt](../api-ref/SymmetricCrypto/encrypt) and [decrypt](../api-ref/SymmetricCrypto/decrypt).
 
 ## Encrypt operation {#encryption}
 
@@ -26,7 +29,7 @@ The encrypt operation is suitable for encrypting small amounts of data. The maxi
 1. Decrypts the text.
 1. Returns the resulting `plaintext`. 
 
-In {{ kms-short-name }}, the encrypt and decrypt operations support the transmission of AAD (Additional Authenticated Data) context as the parameter (`aadContext`) for extra encryption security.
+In {{ kms-short-name }}, the encrypt and decrypt operations support the transmission of AAD (Additional Authenticated Data) context as a parameter (`aadContext`) for extra encryption security.
 
 ## AAD context {#add-context}
 

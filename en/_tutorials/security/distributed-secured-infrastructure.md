@@ -452,7 +452,7 @@ Backend groups contain settings for traffic balancing and target [health checks]
       * Leave the **{{ ui-key.yacloud.alb.label_authority }}** field blank.
       * In the **{{ ui-key.yacloud.alb.label_security-profile-id }}** field, select the profile you created previously, `sws-profile`.
 
-  1. Specify these route properties:
+  1. Configure the route as follows:
 
       * Route name: `app-1`.
       * **{{ ui-key.yacloud.alb.label_path }}**: **{{ ui-key.yacloud.alb.label_match-prefix }}** followed by `/app1`.

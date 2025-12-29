@@ -22,3 +22,4 @@ description: Various {{ marketplace-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](thumbor.md)
 * [{#T}](istio.md)
 * [{#T}](hashicorp-vault.md)
+* [{#T}](s2s-vpn.md)

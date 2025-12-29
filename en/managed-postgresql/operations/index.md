@@ -25,7 +25,7 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 
 * [Connecting to a database in a cluster](connect.md)
 * [{#T}](web-sql-query.md)
-* [Copying and populating a table from a local machine](copy-write-data.md)
+* [Saving table data locally and populating a table from a local machine](copy-write-data.md)
 * [Managing databases](databases.md)
 
 ## {{ PG }} users {#users}

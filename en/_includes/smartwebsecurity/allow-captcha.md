@@ -10,6 +10,6 @@ Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-w
    * **Traffic**: `On condition`.
    * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`.
    * **Request path**: `Matches the regular expression`.
-   * Enter this expression: `{{ allowed-captcha-request }}`.
+   * Enter the `{{ allowed-captcha-request }}` expression.
 
 1. Click **{{ ui-key.yacloud.common.add }}**.

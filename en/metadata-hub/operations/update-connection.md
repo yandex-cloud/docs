@@ -54,7 +54,7 @@ To change connection settings:
 
           * `--user`: Username to connect to the cluster.
 
-          * `--password`: Password.
+          * `--password`: User password.
       
           * `--managed-cluster-id`: Cluster ID. You can get the cluster ID with the list of clusters in the folder.
 
@@ -101,7 +101,7 @@ To change connection settings:
           
           * `--user`: Username to connect to the cluster.
           
-          * `--password`: Password.
+          * `--password`: User password.
           
           * `--ca-certificate`: Path to your TLS CA certificate file.
           
@@ -272,7 +272,7 @@ To change connection settings:
           * `sasl`: SASL authentication parameters.
             
             * `user`: Username to connect to the cluster.
-            * `password.raw`: Password.
+            * `password.raw`: User password.
             * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
@@ -347,7 +347,7 @@ To change connection settings:
 
           {% note warning %}
 
-          Host parameters depend on the database type. For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+          Host parameters depend on the database type. For more information, see [this {{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
           {% endnote %}
 
@@ -371,7 +371,7 @@ To change connection settings:
           }
           ```
 
-      1. To update TLS parameters, update the values of the fields under `params.<database_type>.cluster.tls_params`:
+      1. To update TLS parameters, update the field values under `params.<database_type>.cluster.tls_params`:
 
           ```hcl
           resource "yandex_connectionmanager_connection" "<local_connection_name>" {
@@ -469,7 +469,7 @@ To change connection settings:
           * `sasl`: SASL authentication parameters.
             
             * `user`: Username to connect to the cluster.
-            * `password.raw`: Password.
+            * `password.raw`: User password.
             * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
