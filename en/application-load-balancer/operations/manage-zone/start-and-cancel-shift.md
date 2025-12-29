@@ -9,6 +9,8 @@ description: Follow this guide to disable/enable availability zones and test tra
 
 ## Disabling an availability zone {#disable-zones}
 
+{% include [disable-zone-ig-nlb-alb](../../../_includes/instance-groups/disable-zone-ig-nlb-alb.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -90,6 +92,8 @@ description: Follow this guide to disable/enable availability zones and test tra
 
 ## Enabling an availability zone {#enable-zones}
 
+{% include [enable-zone-ig-nlb-alb](../../../_includes/instance-groups/enable-zone-ig-nlb-alb.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -119,7 +123,7 @@ description: Follow this guide to disable/enable availability zones and test tra
         my-balancer \
         --zones {{ region-id }}-a
       ```
-
+      
       Result:
 
       ```text
@@ -146,3 +150,8 @@ description: Follow this guide to disable/enable availability zones and test tra
 Previously, the `start-zonal-shift` and `cancel-zonal-shift` CLI commands and the `StartZonalShift` and `CancelZonalShift` API methods were used to enable and disable availability zones. They are now deprecated and will soon be removed.
 
 {% endnote %}
+
+### See also {#see-also}
+
+* [Disabling and enabling availability zones for a {{ compute-full-name }} instance group](../../../compute/operations/instance-groups/disable-enable-zone.md)
+* [Disabling and enabling availability zones in {{ network-load-balancer-full-name }}](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)

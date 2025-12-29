@@ -3,6 +3,7 @@ Event name | Description
 `AcceptInvitation` | Accepting an invitation
 `ActivateMfaEnforcement` | Activating an [MFA](../../../organization/concepts/mfa.md) policy
 `AttachRegion` | Connecting a region
+`BindOrganizationAccessPolicy` | Binding an authorization policy in an organization
 `CreateGroup` | Creating a user group
 `CreateGroupMapping` | Configuring a federated user group mapping
 `CreateInvitations` | Creating an invitation
@@ -70,6 +71,7 @@ Event name | Description
 `saml.UpdateFederation` | Updating an identity federation
 `saml.UpdateSignatureCertificate` | Updating a signing certificate
 `saml.ValidateFederationDomain` | Validating a domain to associate with a federation 
+`UnbindOrganizationAccessPolicy` | Detaching an authorization policy in an organization
 `UpdateGroup` | Updating a user group
 `UpdateGroupAccessBindings` | Updating access permissions for a user group
 `UpdateGroupMapping` | Updating a federated user group mapping
@@ -78,6 +80,7 @@ Event name | Description
 `UpdateMfaEnforcementAudience` | Updating target users for an MFA policy
 `UpdateOrganization` | Updating an organization
 `UpdateOrganizationAccessBindings` | Updating access permissions for an organization
+`UpdateOrganizationAccessPolicyBindingParameters` | Editing authorization policy parameters in an organization
 `UpdateOsLoginProfile` | Updating an {{ oslogin }} profile
 `UpdateOsLoginSettings` | Editing {{ oslogin }} settings
 `UpdateSubscribers` | Updating a subscription list

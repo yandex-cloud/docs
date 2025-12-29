@@ -24,12 +24,14 @@ description: Следуя данной инструкции, вы сможете
   1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../concepts/index.md#node-group).
   1. Создайте [сервисные аккаунты](../../../iam/operations/sa/create.md):
-     * Сервисный аккаунт с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
-     * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) на каталог с [реестром](../../../container-registry/concepts/registry.md) [Docker-образов](../../../container-registry/concepts/docker-image.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+      * Сервисный аккаунт с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+      * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#container-registry-images-puller) на каталог с реестром [Docker-образов](../../../container-registry/concepts/docker-image.md) в [{{ container-registry-full-name }}](../../../container-registry/concepts/index.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
-     Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
+        Если вы хотите использовать реестр [Docker-образов](../../../cloud-registry/concepts/docker-image.md) в [{{ cloud-registry-full-name }}](../../../cloud-registry/concepts/index.md), назначьте сервисному аккаунту роль [cloud-registry.artifacts.puller](../../../cloud-registry/security/index.md#cloud-registry-artifacts-puller).
 
-     {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
+      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
+
+      {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
 
   1. [Создайте и настройте нужные группы безопасности](../connect/security-groups.md).
 
@@ -102,7 +104,7 @@ description: Следуя данной инструкции, вы сможете
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
      * `--service-account-id` — уникальный идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
-     * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для [узлов](../../concepts/index.md#node-group). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
+     * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для [узлов](../../concepts/index.md#node-group). От его имени узлы будут скачивать из реестра {{ container-registry-full-name }} необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
      * `--master-location` — конфигурация [мастера](../../concepts/index.md#master). Укажите в параметре зону доступности и подсеть, где будет размещен мастер.
 
         Количество параметров `--master-location` зависит от типа мастера:

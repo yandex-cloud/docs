@@ -36,6 +36,8 @@ keywords:
 
 Подробнее о PITR см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery.html).
 
+{% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
+
 Чтобы восстановить кластер из резервной копии, [следуйте инструкциям](../operations/cluster-backups.md).
 
 ## Создание резервной копии {#size}

@@ -46,3 +46,4 @@ When creating a disk, you also specify its type. You can view possible disk type
 When creating a VM, you need to specify the subnet it will be connected to. You can find more information about cloud networks [here](../../vpc/concepts/network.md).
 
 All {{ compute-short-name }} resources are created within folders. Learn more about the {{ yandex-cloud }} resource hierarchy [here](../../resource-manager/concepts/resources-hierarchy.md).
+

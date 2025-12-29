@@ -28,7 +28,7 @@
 
 
 
-* **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**: This option enables you to [import data from AppMetrica](https://appmetrica.yandex.ru/docs/common/cloud/about.html) to a cluster.
+* **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**: This option enables you to [import data from AppMetrica](https://appmetrica.yandex.ru/docs/en/common/cloud) to a cluster.
 
 * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../../functions/concepts/index.md). For more information about setting up access, see [this {{ sf-name }} guide](../../../functions/operations/database-connection.md).
 

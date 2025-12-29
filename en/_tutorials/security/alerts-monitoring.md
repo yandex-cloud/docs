@@ -141,6 +141,10 @@ The alert will send a notification that an unauthorized request has been sent to
 
 ## Set up a dashboard {#setup-dashboard}
 
+For ready-to-use trail status monitoring charts, open the [management console]({{ link-console-main }}) → **{{ at-name }}** → ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
+
+To monitor not just the trail status but the trail storage status as well, create a complex dashboard in {{ monitoring-name }}.
+
 ### Create a dashboard {#create-dashboard}
 
 {% list tabs group=instructions %}
@@ -255,6 +259,8 @@ Apart from the chart for missed event monitoring, you can add a chart for the de
 * **{{ yds-name }}**: See the [{{ ydb-full-name }}](../../ydb/) tutorials:
   * [{#T}](../../ydb/metrics.md)
   * [{#T}](../../ydb/concepts/limits.md)
+
+Learn more about resolving data write issues, see [{#T}](../../data-streams/tutorials/slow-writes-debug.md).
 
 
 

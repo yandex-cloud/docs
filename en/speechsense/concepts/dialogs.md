@@ -87,7 +87,7 @@ You can use multiple filters at the same time. They will be combined by the logi
 
 In some CRM systems, dialogs may be grouped by task. For example, you can group together all dialogs with a customer who has contacted support multiple times with the same request. When [creating a connection](../operations/connection/create.md) to [upload your data to {{ speechsense-name }}](../operations/data/upload-chat-text.md), you can specify the `ticket_id` additional parameter, and give it a name within {{ speechsense-name }}, e.g., `Task number`. The uploaded dialogs will then be regrouped as _related dialogs_. They will be grouped by task number specified in the `ticket_id` parameter.
 
-In each of the related dialogs, you will see the ![image](../../_assets/console-icons/link.svg) button you can use to [navigate](../operations/data/related-dialogs.md#list) to the task page that shows all the related dialogs. On that page, you can view the following dialog info:
+Each dialog in a group has ![image](../../_assets/console-icons/link.svg) button you can use to [navigate](../operations/data/related-dialogs.md#list) to the task page that shows all the related dialogs. On that page, you can view the following dialog info:
 
 * At the top of the page, the dialog metadata.
 * On the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialog }}** tab, the contents of all related dialogs. It also displays a tag hierarchy for each of them. You can use text search within a single dialog.

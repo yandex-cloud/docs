@@ -338,6 +338,14 @@ Service name: `searchapi`.
 
 {% include [searchapi-events](../../_includes/audit-trails/events/searchapi-events.md) %}
 
+## {{ sd-full-name }} {#security-deck}
+
+### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
+
+Service name: `kspm`.
+
+{% include [sd-kspm-events](../../_includes/audit-trails/events/sd-kspm-events.md) %}
+
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
 Service name: `serverless.containers`.

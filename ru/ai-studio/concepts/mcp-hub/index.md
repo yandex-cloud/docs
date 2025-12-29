@@ -88,3 +88,5 @@ MCP-серверы в {{ mcp-hub-name }} могут быть приватным�
 * [{#T}](../../operations/mcp-servers/connect-external.md)
 * [{#T}](../../operations/mcp-servers/create-from-template.md)
 * [{#T}](../../operations/mcp-servers/create-brand-new.md)
+* [{#T}](../../operations/mcp-servers/get-server-info.md)
+* [{#T}](../../operations/mcp-servers/delete-server.md)

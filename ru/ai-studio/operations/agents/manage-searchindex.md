@@ -43,9 +43,7 @@ description: Следуя этой инструкции, с помощью {{ ve
   1. Создайте файл `upload.py` и добавьте в него следующий код:
 
       ```python
-      import os
       import pathlib
-      import time
       from openai import OpenAI
 
       YANDEX_API_KEY = "<API-ключ>"
@@ -118,8 +116,6 @@ description: Следуя этой инструкции, с помощью {{ ve
   1. Создайте файл `index.py` и добавьте в него следующий код:
 
       ```python
-      import os
-      import pathlib
       import time
       from openai import OpenAI
 

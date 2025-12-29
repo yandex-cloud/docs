@@ -344,9 +344,9 @@ items:
                 href: tutorials/kubernetes-lockbox-secrets.md
               - name: Configuring Fluent Bit for {{ cloud-logging-name }}
                 href: tutorials/fluent-bit-logging.md
-              - name: Setting up Gateway API
+              - name: Setting up the Gateway API
                 href: tutorials/gateway-api.md
-              - name: Configuring an L7 {{ alb-name }} via an ingress controller
+              - name: Configuring an L7 {{ alb-name }} using an ingress controller
                 href: tutorials/alb-ingress-controller.md
               - name: >-
                   Configuring L7 {{ alb-name }} logging via an ingress
@@ -357,14 +357,14 @@ items:
                   through an {{ alb-name }} ingress controller
                 href: tutorials/alb-ingress-with-sws-profile.md
               - name: >-
-                  Performing health checks on {{ managed-k8s-name }} cluster
-                  applications via an L7 {{ alb-name }}
+                  Health checking applications in a {{ managed-k8s-name }}
+                  cluster via an L7 {{ alb-name }}
                 href: tutorials/custom-health-checks.md
-              - name: Using Jaeger to trace requests in {{ ydb-name }}
+              - name: Using Jaeger to trace queries in {{ ydb-name }}
                 href: tutorials/jaeger-over-ydb.md
               - name: Setting up Kyverno & Kyverno Policies
                 href: tutorials/kyverno.md
-              - name: Using {{ MP }} to stream metrics
+              - name: Using {{ MP }} to deliver metrics
                 href: tutorials/metrics-provider.md
               - name: Editing website images with Thumbor
                 href: tutorials/thumbor.md
@@ -372,6 +372,8 @@ items:
                 href: tutorials/istio.md
               - name: Using HashiCorp Vault to store secrets
                 href: tutorials/hashicorp-vault.md
+              - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
+                href: tutorials/s2s-vpn.md
       - name: Concepts
         items:
           - name: Subscription

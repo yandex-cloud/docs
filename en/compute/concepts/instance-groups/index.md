@@ -41,10 +41,11 @@ When creating a group, you need to describe the following:
 
 - [{#T}](policies/index.md) for scaling, deployment, and allocation.
 
-An instance group created in a folder can be accessed by all VMs connected to the same cloud network. For more information about networking, see the [{{ vpc-name }} documentation](../../../vpc/).
+An instance group created in a folder can be accessed by all VMs connected to the same cloud network. For more information about networking, see [this {{ vpc-name }} guide](../../../vpc/).
 
 ## See also {#see-also}
 
+* [{#T}](disable-enable-zone.md)
 * [{#T}](zonal-inc/overview.md)
 
 ## Use cases {#examples}

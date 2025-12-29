@@ -11,7 +11,7 @@ Event name | Description
 `CreateGpuCluster` | Creating a GPU cluster
 `CreateHostGroup` | Creating a group of dedicated hosts
 `CreateImage` | Creating a disk image
-`CreateInstance` | Creating a VM instance
+`CreateInstance` | Creating a VM
 `CreateReservedInstancePool` | Creating a reserved instance pool
 `CreateSnapshot` | Creating a disk snapshot
 `CreateSnapshotSchedule` | Creating a disk snapshot schedule
@@ -53,6 +53,8 @@ Event name | Description
 `instancegroup.CreateInstanceGroup` | Creating an instance group
 `instancegroup.DeleteInstanceGroup` | Deleting an instance group
 `instancegroup.DeleteInstanceGroupInstances` | Removing an instance from a group
+`instancegroup.DisableZones` | [Temporarily disabling](../../../compute/concepts/instance-groups/disable-enable-zone.md) availability zones
+`instancegroup.EnableZones` | Enabling availability zones
 `instancegroup.PauseInstanceGroup` | Pausing instance group management processes
 `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes
 `instancegroup.RollingRestartInstanceGroupInstances` | Restarting instances in a group one by one

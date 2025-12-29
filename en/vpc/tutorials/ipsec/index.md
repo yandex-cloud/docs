@@ -8,5 +8,6 @@ canonical: '{{ link-docs }}/tutorials/routing/ipsec'
 
 To set up network connectivity with IPsec gateways, use one of the following methods:
 
-* [{#T}](sgw.md)
 * [{#T}](ipsec-vpn.md)
+* [{#T}](s2s-vpn.md)
+* [{#T}](sgw.md)

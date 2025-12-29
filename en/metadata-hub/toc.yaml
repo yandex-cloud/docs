@@ -295,10 +295,12 @@ items:
                 href: operations/upload-schema-to-subject.md
               - name: Adding a schema to an existing subject
                 href: operations/add-schema.md
-              - name: Deleting a schema
-                href: operations/delete-schema.md
+              - name: Viewing a schema
+                href: operations/view-schema.md
               - name: Comparing schemas
                 href: operations/compare-schemas.md
+              - name: Deleting a schema
+                href: operations/delete-schema.md
           - name: Subjects
             items:
               - name: Creating a subject

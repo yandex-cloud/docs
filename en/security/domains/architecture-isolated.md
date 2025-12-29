@@ -171,11 +171,11 @@ There must be no external load balancers in cloud infrastructure. You may use in
 
 **Guides and solutions to use**:
 * Do not assign user [roles](../../network-load-balancer/security/) that enable creating external load balancers. Roles with permissions to create external load balancers are `admin`, `editor`, `load-balancer.admin`.
-* If there are any external load balancers, [delete](../../network-load-balancer/operations/load-balancer-delete) them.
+* If there are any external load balancers, [delete](../../network-load-balancer/operations/load-balancer-delete.md) them.
 
 ### {{ alb-name }} {#applicationloadbalancer}
 
-In [{{ alb-name }}](../../application-load-balancer/concepts/application-load-balancer), L7 load balancer listeners must not have public IP addresses. You may assign internal IP addresses to listeners.
+In [{{ alb-name }}](../../application-load-balancer/concepts/application-load-balancer.md), L7 load balancer listeners must not have public IP addresses. You may assign internal IP addresses to listeners.
 
 {% list tabs group=instructions %}
 
@@ -427,7 +427,7 @@ For more information about creating and configuring a {{ managed-k8s-name }} clu
 {% endlist %}
 
 **Guides and solutions to use**:
-* Do not assign user [roles](../../managed-clickhouse/security) that enable configuring public access to cluster hosts. `admin`, `editor`, `vpc.admin`, `vpc.publicAdmin`: Roles that allow configuring a public access to a host.
+* Do not assign user [roles](../../managed-clickhouse/security) that enable configuring public access to cluster hosts. Roles with permissions to configure public access to hosts are `admin`, `editor`, `vpc.admin`, and `vpc.publicAdmin`.
 * If there are cluster hosts with public access enabled, [disable](../../managed-clickhouse/operations/hosts.md#update) it.
 
 ### {{ sf-name }} and {{ serverless-containers-name }} {#cloudfunctionsiserverlesscontainers}

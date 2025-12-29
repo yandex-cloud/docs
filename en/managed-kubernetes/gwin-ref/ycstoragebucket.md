@@ -47,6 +47,46 @@ spec:
           weight: 100
 ```
 
+To use YCStorageBucket as a backend for Ingress, use [IngressBackendGroup](./ingressbackendgroup.md).
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: static-content-ingress
+  namespace: example-ns
+  annotations:
+    ...
+spec:
+  ingressClassName: gwin-default
+  rules:
+    - host: static.example.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/assets"
+            backend:
+              resource:
+                apiGroup: gwin.yandex.cloud
+                kind: IngressBackendGroup
+                name: static-bg
+---
+apiVersion: gwin.yandex.cloud/v1
+kind: IngressBackendGroup
+metadata:
+  name: static-bg
+  namespace: example-ns
+spec:
+  type: HTTP
+  backends:
+    - name: some-bucket
+      backendRef:
+        group: gwin.yandex.cloud
+        kind: YCStorageBucket
+        name: example-bucket
+        weight: 100
+```
+
 | Field | Description |
 |-------|-------------|
 | metadata | **ObjectMeta** <br> Standard Kubernetes metadata. |

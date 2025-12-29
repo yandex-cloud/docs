@@ -1,12 +1,15 @@
 To create a billing account:
 
-1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 1. {% include [create-ba-step2](../../billing/_includes/create-ba-step2.md) %}
+
+   When creating your organization, specify its name: `Example organization`. The organization will automatically get a new folder named `default`.
+   
+1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 1. {% include [create-ba-step3](../../billing/_includes/create-ba-step3.md) %}
 
    {% include [create-additional-ba-ui-notice](../../billing/_includes/create-additional-ba-ui-notice.md) %}
 
-   In the window that opens:
+   In the window that opens, do the following:
 
    1. {% include [choose-name-step](../../billing/_includes/choose-name-step.md) %}
    1. {% include [choose-org-step](../../billing/_includes/choose-org-step.md) %}

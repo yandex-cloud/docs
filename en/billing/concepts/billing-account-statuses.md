@@ -8,6 +8,7 @@ A billing account can have one of the following statuses:
 - `NEW`: Billing account is being created.
 - `PENDING`: Account confirmation required.
 - `PAYMENT_NOT_CONFIRMED`: Account confirmation required. An email with further instructions is sent to the email address specified in your Yandex or Yandex 360 account.
+- `PAY_OR_BIND`: Billing account has been created but has no associated credit/debit card.
 - `TRIAL_ACTIVE`: [Trial period](trial-period.md) is active, and there is at least one unspent grant.
 - `TRIAL_SUSPENDED`: Access to resources under the trial period has been suspended (e.g., due to a violation of antifraud requirements). 
 - `TRIAL_EXPIRED`: Trial period has ended or all available grants have been spent.
@@ -28,6 +29,7 @@ Status | Balance                                    | Description
 `NEW` | None | Account is being created.
 `PENDING` | None | Use of {{ yandex-cloud }} services is not allowed.<br/>The status persists until the account is validated by a {{ yandex-cloud }} manager.
 `PAYMENT_NOT_CONFIRMED` | None | Use of {{ yandex-cloud }} services is not allowed. <br/>The status persists until the account is validated by a {{ yandex-cloud }} manager.
+`PAY_OR_BIND` | None | Use of {{ yandex-cloud }} services is allowed but limited: you can only use free resources and create clouds. <br/>To use other services, [add](../operations/pin-card.md) a credit/debit card to your account or manually [top up](../operations/pay-the-bill.md) your balance. <br/>The status persists until you add a credit/debit card.
 `TRIAL_ACTIVE` | None (the initial grant has been provided) | Use of {{ yandex-cloud }} services is allowed but limited. <br/>The status persists until the trial period ends, the initial grant is spent, or the paid version is activated. 
 `TRIAL_SUSPENDED` | None | Use of {{ yandex-cloud }} services is not allowed. <br/>As part of the trial period, the initial grant can only be issued to one billing account, so you cannot use the trial period when re-registering. <br/>The status persists until you activate the paid version.
 `TRIAL_EXPIRED` | None | Use of {{ yandex-cloud }} services is not allowed. <br/>The trial period has ended and you have not upgraded to the paid version. <br/>You can upgrade to the paid version of {{ yandex-cloud }} at any time during the trial period or 60 days after it expires, without losing any data.

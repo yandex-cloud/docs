@@ -41,11 +41,18 @@ MCP-сервер [{{ tracker-full-name }}](https://360.yandex.ru/business/tracke
 
 Подробнее о получении аутентификационных данных см. в [документации](https://yandex.ru/support/tracker/ru/concepts/access) {{ tracker-full-name }}.
 
-## {{ search-api-full-name }} {#search-api}
+## Яндекс Поиск {#search-api}
 
-MCP-сервер [{{ search-api-full-name }}](../../../search-api/index.yaml) позволяет AI-агентам (таким как {{ foundation-models-name }}, Claude или Cursor) использовать [API](../../../search-api/api-ref/authentication.md) Яндекса для поиска в интернете и безопасно находить актуальную информацию с помощью сервиса {{ search-api-full-name }}.
+MCP-сервер `Яндекс Поиск` использует сервис [{{ search-api-full-name }}](../../../search-api/index.yaml) и позволяет AI-агентам (таким как {{ foundation-models-name }}, Claude или Cursor) использовать [API](../../../search-api/api-ref/authentication.md) Яндекса для поиска в интернете и безопасно находить актуальную информацию.
 
 Чтобы получить доступ к {{ search-api-name }}, необходим [API-ключ](../../../iam/concepts/authorization/api-key.md). Подробнее см. в [репозитории на GitHub](https://github.com/yandex/yandex-search-mcp-server).
+
+## {{ src-full-name }} {#sourcecraft}
+
+MCP-сервер для работы с платформой разработки [{{ src-full-name }}]({{ link-src-docs }}) позволяет управлять задачами, комментариями и метками, работать с репозиториями, предложениями изменений и рецензентами.
+
+Чтобы получить доступ к {{ src-full-name }}, необходимо передать заголовок с [персональным токеном]({{ link-src-docs }}/sourcecraft/security/pat).
+
 
 #### См. также {#see-also}
 

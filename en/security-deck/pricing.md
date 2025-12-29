@@ -41,6 +41,8 @@ When performing [data scan](operations/dspm/create-scan.md), {{ dspm-name }} sen
 ## Prices for the Russia region {#prices}
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 ### {{ atr-name }} {#atr-pricing}
 
 

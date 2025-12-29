@@ -3,8 +3,8 @@
 - {{ mmy-name }}
 
     
-    1. [Enable full binary logging](../../../../managed-mysql/operations/update.md#change-mysql-config) on the source by setting the [**Binlog row image** parameter](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) to `FULL` or `NOBLOB`.
-    
+    1. [Enable full binary logging](../../../../managed-mysql/operations/update.md#change-mysql-config) on the source by setting the [**Binlog row image**](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) parameter to `FULL` or `NOBLOB`.
+ 
     1. Optionally, [set a limit](../../../../managed-mysql/operations/update.md#change-mysql-config) on the size of data chunks to send using the **Max allowed packet** parameter.
     
     1. [Create a user](../../../../managed-mysql/operations/cluster-users.md#adduser) for connecting to the source.
@@ -17,7 +17,7 @@
     
        {% note info %}
     
-       If, when creating a primary key, you get an error saying _`Creating index 'PRIMARY' required more than 'innodb_online_alter_log_max_size' bytes of modification log. Please try again`_, [increase](../../../../managed-mysql/operations/update.md#change-mysql-config) the [`Innodb log file size` parameter](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) value in the DBMS settings.
+       If, when creating a primary key, you get an error saying _`Creating index 'PRIMARY' required more than 'innodb_online_alter_log_max_size' bytes of modification log. Please try again`_, [increase](../../../../managed-mysql/operations/update.md#change-mysql-config) the [`Innodb log file size`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) parameter value in the DBMS settings.
     
        {% endnote %}
     
@@ -30,6 +30,12 @@
     1. Make sure the source uses the MyISAM or InnoDB low-level storage subsystem. If you use other subsystems, the transfer may fail.
     
     1. [Enable full binary logging](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) on the source by setting the `binlog_row_image` parameter to `FULL` or `NOBLOB`.
+
+       {% note info %}
+
+       For MariaDB 11.4 or higher, set `binlog_legacy_event_pos = true`.
+
+       {% endnote %}    
     
     1. [Specify row format for the binary log](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) on the source by setting the `binlog_format` parameter to `ROW`.
 

@@ -82,3 +82,8 @@ To mitigate the effects of a zonal incident for such services, we recommend the 
 To compensate for lost capacity from the affected zone, set the maximum number of nodes or resource units with a performance buffer.
 
 {% endnote %}
+
+### See also {#see-also}
+
+* [{#T}](./multi-zonal.md)
+* [{#T}](../disable-enable-zone.md)

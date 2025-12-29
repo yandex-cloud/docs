@@ -69,6 +69,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](volumes/dynamic-create-pv.md)
 * [{#T}](volumes/static-create-pv.md)
 * [{#T}](volumes/manage-storage-class.md)
+* [{#T}](volumes/encrypted-disks.md)
 * [{#T}](volumes/volume-expansion.md)
 * [{#T}](volumes/mode-block.md)
 * [{#T}](volumes/s3-csi-integration.md)
@@ -76,9 +77,13 @@ description: Из статьи вы узнаете, как работать с �
 ## Управление кластером {{ managed-k8s-name }} {#kubernetes-cluster}
 
 * [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-operation-logs.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-namespace-create.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-access.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-configuration-list.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-get-stats.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-delete.md)
 
 ## Управление группой узлов {#node-group}
@@ -86,6 +91,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](node-group/node-group-list.md)
 * [{#T}](node-group/node-group-create.md)
 * [{#T}](node-connect-ssh.md)
+* [{#T}](node-connect-oslogin.md)
 * [{#T}](autoscale.md)
 * [{#T}](node-group/node-group-update.md)
 * [{#T}](node-group/node-label-management.md)
@@ -98,7 +104,3 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](external-nodes-connect-wireguard.md)
 * [{#T}](external-nodes-connect-ipsec.md)
 * [{#T}](bms-server-connect.md)
-
-## Получение дополнительной информации {#get-additional-info}
-
-* [{#T}](kubernetes-cluster/kubernetes-cluster-operation-logs.md)

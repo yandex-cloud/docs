@@ -7,25 +7,89 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.181.0 (11/12/25) {#version0.181.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.181.0}
+
+##### {{ api-gw-name }} {#api-gw-name-0.181.0}
+
+Added commands to stop and resume an API gateway:
+* `yc serverless api-gateway stop`
+* `yc serverless api-gateway resume`
+
+##### {{ baremetal-name }} {#baremetal-name-0.181.0}
+
+Added the `ephemeral-public-subnet` option for the `--network-interfaces` parameter in the `yc baremetal server create` and `yc baremetal server update` commands to explicitly specify an ephemeral public subnet. Also added validation of the number of transmitted subnets.
+
+##### {{ interconnect-name }} {#interconnect-name-0.181.0}
+
+Fixed updating of composite fields in the `yc cic private-connection update` command.
+
+##### {{ cloud-registry-name }} {#cloud-registry-name-0.181.0}
+
+Added commands for managing artifact lifecycle policies in registries:
+* `yc cloud-registry registry lifecycle-policy get`
+* `yc cloud-registry registry lifecycle-policy list`
+* `yc cloud-registry registry lifecycle-policy create`
+* `yc cloud-registry registry lifecycle-policy update`
+* `yc cloud-registry registry lifecycle-policy delete`
+* `yc cloud-registry registry lifecycle-policy change-state`
+
+##### {{ iam-name }} {#iam-name-0.181.0}
+
+Added the `yc iam access-key issue-ephemeral` command for issuing ephemeral static access keys.
+
+##### {{ org-name }} {#org-name-0.181.0}
+
+Added a list of supported values ​​for the `--acr-id` parameter in the `yc organization-manager mfa-enforcement create` and `yc organization-manager mfa-enforcement update` commands.
+
+##### {{ maf-name }} {#maf-name-0.181.0}
+
+Added the `--gitsync` parameter to the `yc managed-airflow cluster create` and `yc managed-airflow cluster update` commands to use a git repository as a source for the DAG.
+
+##### {{ msp-name }} {#msp-name-0.181.0}
+
+Added the `--spark-version` parameter to the `yc managed-spark cluster create` and `yc managed-spark cluster update` commands for selection of a specific {{ SPRK }} version when creating and modifying a cluster.
+
+##### {{ mspqr-name }} {#mspqr-name-0.181.0}
+
+In the `yc managed-sharded-postgresql cluster update-config` command, fixed a router configuration update error.
+
+##### {{ mtr-name }} {#mtr-name-0.181.0}
+
+To manage the configuration of resource groups and request parameters:
+* Added the following commands:
+  * `yc managed-trino cluster get-resource-groups`
+  * `yc managed-trino cluster set-resource-groups`
+  * `yc managed-trino cluster remove-resource-groups`
+* Added the `--resource-groups-from-file` parameter to the `yc managed-trino cluster create` command.
+* Added the `--query-properties` parameter to the `yc managed-trino cluster create` and `yc managed-trino cluster update` commands.
+
+##### {{ mmg-name }} {#mmg-name-0.181.0}
+
+Added the `--whitelist` and `--blacklist` parameters to the `yc managed-mongodb cluster restore` command for partial cluster recovery.
+
+## Previous releases {#previous-release}
+
 ### Version 0.180.0 (04/12/25) {#version0.180.0}
 
 ##### {{ mtr-short-name }}
+
 * Added the following commands for creating and updating a {{ TR }} catalog with a {{ MY }} connector for {{ mtr-name }}:
   * `yc managed trino catalog create mysql`
   * `yc managed trino catalog update mysql`
 
 ##### {{ org-name }}
+
 * Removed certain password policies from user pool management commands:
   * `yc organization-manager idp userpool create`
   * `yc organization-manager idp userpool update`
-
-## Previous releases {#previous-release}
 
 ### Version 0.179.0 (02/12/25) {#version0.179.0}
 
 #### Changes to the CLI {#cli}
 
-* Added the new `yc beta` command subtree with beta commands that use the updated interface.
+* Added the new `yc beta` command subtree with experimental commands that use the updated interface.
 
 #### Changes in {{ yandex-cloud }} services
 
@@ -66,7 +130,7 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ##### {{ ig-name }}
 
-* Added commands to manage the zonal shift in {{ ig-name }}:
+* Added commands to manage zonal shift modes in {{ ig-name }}:
   * `yc compute instance-group disable-zones`
   * `yc compute instance-group enable-zones`
 

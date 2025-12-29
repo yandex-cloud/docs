@@ -572,6 +572,7 @@ default:
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
   resmgr-name: Resource Manager
+  resmgr-short-name: Resource Manager
   responses-api: Responses API
   retrieval-tool-name: Retrieval
   RMQ: RabbitMQ
@@ -6969,6 +6970,23 @@ default:
         cpu|string: "0,021150\_$"
         ram|month|string: "4,082399\_$"
         ram|string: "0,005670\_$"
+  sku|USD|gost_gateway:
+    hw100_c:
+      subscription:
+        monthly_usage:
+          v1|string: "416,666500\_$"
+    hw1000_d:
+      subscription:
+        monthly_usage:
+          v1|string: "1\_458,332750\_$"
+    hw2000_q5:
+      subscription:
+        monthly_usage:
+          v1|string: "1\_958,332550\_$"
+    hw5000_q2:
+      subscription:
+        monthly_usage:
+          v1|string: "2\_374,999050\_$"
   sku|USD|interconnect:
     trunk:
       direct:
@@ -10919,6 +10937,9 @@ default:
       components:
         AsideNavigation:
           label_all-services_6sGQy: Все сервисы
+        JsonSchemaField:
+          mode_json-schema_5eGi4: JSON-схема
+          mode_wysiwyg_v3RqJ: Форма
       compute:
         attach-disk:
           button_attach: Подключить
@@ -11933,6 +11954,10 @@ default:
             field_tunnel-mode: Включить туннельный режим
             label_logging-enabled: Запись логов
             label_maintenance-weekly: Расписание по дням
+            label_master-computing-resources: Вычислительные ресурсы
+            label_master-preset-group-cpu-optimized: CPU optimized
+            label_master-preset-group-memory-optimized: Memory optimized
+            label_master-preset-group-standard: Standard
             label_stream-cluster-autoscaler: Логи Cluster Autoscaler
             label_stream-events: Логи событий
             label_stream-kube-apiserver: Логи API-сервера Kubernetes
@@ -13600,13 +13625,78 @@ default:
         train-modal: Дообучить модель
         use-context: Использовать контекст
         YaGPT:
+          ConnectMcpTools:
+            add-mcp-tool_dyEgv: Добавить инструменты
           create-instance_3Ltog: Развернуть инстанс
           CreateExperiment:
             foundation-models_playground_image-generation_title_rZxwV: Генерация изображений
             foundation-models_playground_text-generation_title_xpmcC: Генерация текста
             foundation-models_playground_text-generation-with-context_title_uYBhM: Генерация текста с учетом контекста
+          CreateMcpServerForm:
+            access-type_aPzxZ: Доступ
+            access-type_private_b4gkg: Приватный
+            access-type_public_inkAF: Публичный
+            form-view_connect_bS8yQ: Подключить
+            form-view_create_8RLHn: Создать
+            newtwork_enable_ndkhL: Указать сеть
+            service-account_h3ujf: Сервисный аккаунт
+            tools_gkQfS: Инструменты
+            type_dZSaw: Способ добавления
+          FunctionCallToolCard:
+            function-tool_vSycC: Cloud Functions
+          FunctionCallToolForm:
+            function_nqzGL: Функция
+            instruct-for-agent_qcH1R: Инструкция для агента
+            tool-name_wys4v: Имя инструмента
+          HttpCallTool:
+            http-tool_7afuQ: HTTPS-запрос
+          HttpCallToolCallParams:
+            http-call-tool-call-params_body_pbgxV: Тело запроса
+            http-call-tool-call-params_headers_8ziH9: Заголовки запроса
+            http-call-tool-call-params_query_aWDHd: Query-параметры
+            http-call-tool-call-params_tBsF4: Параметры HTTPS-метода
+          HttpCallToolForm:
+            auth-type_service-account_wB63B: Сервисный аккаунт
+            auth-type_use-authorization-header_io1Qx: Токен доступа
+            extra_3crF8: Дополнительные параметры
+            instruct-for-agent_gXCHg: Инструкция для агента
+            method_delete_dzg1G: DELETE
+            method_get_rrb42: GET
+            method_head_1gdE5: HEAD
+            method_options_oi6ea: OPTIONS
+            method_patch_qxnSP: PATCH
+            method_post_omtdL: POST
+            method_wzMu6: Метод
+            tool-name_1jNyn: Имя инструмента
+            url_w32Uc: URL
           instances-title_j9Cpb: Инстансы
+          mcp-servers-list-title_snWTf: MCP-серверы
+          McpCallToolForm:
+            add_47STV: Добавить
+            add-header_bbBV5: Добавить заголовок
+            add-tools_ih6PU: Добавление инструментов
+            auth-header_h6kre: Заголовок авторизации
+            connect_xY9Zw: Подключиться
+            headers_wBENR: Заголовки
+            mcp-authorization_header_fdGKe: Токен доступа
+            mcp-authorization_no-authorization_iqvfQ: Без авторизации
+            transport_q3nD6: Транспорт
+            transport_sse_55Cwp: HTTP with SSE
+            transport_streamable_eV7Rb: Streamable HTTP
+            url_bUhZ1: URL
+          McpServersList:
+            label_create-mcp-gateway_3o3Vu: Создать MCP-сервер
           navigation-group_agents_eDBFf: Agent Atelier
+          ToolParams:
+            tool-params_d87zq: Параметры инструмента
+          Tools:
+            add-tool_86ss3: Добавить инструмент
+          WorkflowCallToolCard:
+            workflow-tool_k663q: Workflows
+          WorkflowCallToolForm:
+            instruct-for-agent_3aVyw: Инструкция для агента
+            tool-name_1by52: Имя инструмента
+            workflow_oHNAL: Рабочий процесс
       ydb:
         browse:
           button_create: Создать
@@ -15761,7 +15851,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.6
+        tag: v1.0.7
     yc_ingress-nginx:
       helmChart:
         name: >-

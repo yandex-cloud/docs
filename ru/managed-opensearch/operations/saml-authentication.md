@@ -59,7 +59,8 @@ SAML (Security Assertion Markup Language) — это язык разметки �
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.opensearch.auth.section_auth }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Укажите параметры внешнего источника аутентификации:

@@ -96,6 +96,5 @@ To top up your personal account:
     Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Select the SBP top-up method and click **Pay via SBP**.
     
     Scan the QR code using your bank’s app and confirm the payment.
-
     
   {% endlist %}

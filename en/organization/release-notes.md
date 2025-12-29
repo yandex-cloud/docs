@@ -8,6 +8,22 @@ description: This section contains {{ org-name }} release notes.
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## November 2025 {#november-2025}
+
+* Added the ability to manage SAML applications via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/application/saml/) and [API](idp/application/saml/api-ref/Application/). {{ tag-cli }} {{ tag-api }}
+* Added support for domain management via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/domain/) and [API](idp/api-ref/Userpool/addDomain.md). {{ tag-cli }} {{ tag-api }}
+* Added the ability to [activate](operations/user-pools/activate-user.md) and [deactivate](operations/user-pools/deactivate-user.md) federated users via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/suspend.md) and [API](idp/api-ref/User/suspend.md). {{ tag-cli }} {{ tag-api }}
+* Implemented the ability to [reset](operations/user-pools/reset-user-password.md) a user's password via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/reset-password.md). {{ tag-cli }}
+* Added the ability to automatically generate a password when creating a user via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/create.md) and [API](idp/api-ref/User/create.md). {{ tag-cli }} {{ tag-api }}
+* Added service plans for {{ org-name }}. {{ tag-center }}
+* Added functionality for [synchronization of users and groups with {{ microsoft-idp.ad-short }}](operations/sync-ad.md).
+* Implemented the [My account](concepts/my-account.md) portal for user account management. {{ tag-con }}
+* Updated password quality policy fields in user pool management commands in the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/). {{ tag-cli }}
+* Added support for resources and data sources for SAML applications: `yandex_organizationmanager_idp_saml_application`. {{ tag-tf }}
+* Added support for resources and data sources for OAuth applications: `yandex_organizationmanager_idp_oauth_application`. {{ tag-tf }}
+* Added support for resources and data sources for user pools: `yandex_organizationmanager_idp_userpool`. {{ tag-tf }}
+* Added support for resources and data sources for users: `yandex_organizationmanager_idp_user`. {{ tag-tf }}
+
 ## October 2025 {#october-2025}
 
 * Implemented [MFA policy](./concepts/mfa.md#mfa-policies) management in an organization using the [CLI](../cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/) and [API](./api-ref/grpc/MfaEnforcement/). {{ tag-cli }} {{ tag-api }}

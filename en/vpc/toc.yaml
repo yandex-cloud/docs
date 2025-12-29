@@ -136,6 +136,8 @@ items:
                 href: tutorials/ipsec/index.md
               - name: Unaided implementation with {{ yandex-cloud }}
                 href: tutorials/ipsec/ipsec-vpn.md
+              - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
+                href: tutorials/ipsec/s2s-vpn.md
               - name: SGW solution by the {{ yandex-cloud }} architect team
                 href: tutorials/ipsec/sgw.md
           - name: ViPNet Coordinator in {{ yandex-cloud }}

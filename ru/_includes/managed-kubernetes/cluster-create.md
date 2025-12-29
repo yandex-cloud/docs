@@ -3,7 +3,7 @@
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Введите имя и описание кластера {{ managed-k8s-name }}. Имя кластера {{ managed-k8s-name }} должно быть уникальным в рамках {{ yandex-cloud }}.
 1. Укажите **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**, который будет использоваться для создания ресурсов.
-1. Укажите **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**, который будет использоваться [узлами {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) для доступа к [реестру Docker-образов](../../container-registry/concepts/registry.md) [{{ container-registry-full-name }}](../../container-registry/).
+1. Укажите **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**, который будет использоваться [узлами {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) для доступа к реестру [Docker-образов](../../container-registry/concepts/docker-image.md) в {{ container-registry-full-name }}.
 1. (Опционально) Укажите **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}**, который будет использоваться для [шифрования секретов](../../managed-kubernetes/concepts/encryption.md).
 
    {% include [write-once-settings](write-once-setting.md) %}

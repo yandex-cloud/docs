@@ -12,6 +12,7 @@ description: Страница содержит все инструкции дл�
 * [{#T}](generation/create-chat.md)
 * [{#T}](generation/async-request.md)
 * [{#T}](generation/background-request.md)
+* [{#T}](generation/multimodels-request.md)
 * [{#T}](generation/function-call.md)
 * [{#T}](./batch/create.md)
 * [{#T}](./generation/yandexart-request.md)
@@ -42,6 +43,8 @@ description: Страница содержит все инструкции дл�
 * [{#T}](./mcp-servers/connect-external.md)
 * [{#T}](./mcp-servers/create-from-template.md)
 * [{#T}](./mcp-servers/create-brand-new.md)
+* [{#T}](./mcp-servers/get-server-info.md)
+* [{#T}](./mcp-servers/delete-server.md)
 
 ## Пошаговые инструкции для создания AI-ассистентов с помощью {{ assistant-api }} {#assistants}
 

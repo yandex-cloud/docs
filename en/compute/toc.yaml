@@ -339,6 +339,8 @@ items:
             href: operations/instance-groups/update.md
           - name: Updating an instance group based on a YAML specification
             href: operations/instance-groups/update-from-yaml.md
+          - name: Disabling and enabling availability zones for an instance group
+            href: operations/instance-groups/disable-enable-zone.md
           - name: Moving an instance group to a different availability zone
             href: operations/instance-groups/move-group.md
           - name: >-
@@ -700,6 +702,8 @@ items:
                 href: concepts/instance-groups/zonal-inc/overview.md
               - name: Multi-zonal group with instances in the incident zone
                 href: concepts/instance-groups/zonal-inc/multi-zonal.md
+          - name: Temporarily disabling availability zones
+            href: concepts/instance-groups/disable-enable-zone.md
           - name: Access
             href: concepts/instance-groups/access.md
           - name: YAML specification

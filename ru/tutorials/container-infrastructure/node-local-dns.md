@@ -1,11 +1,11 @@
 ---
-title: Настройка NodeLocal DNS Cache в {{ managed-k8s-full-name }}
-description: Следуя данному руководству, вы сможете настроить NodeLocal DNS Cache в {{ managed-k8s-name }}.
+title: Настройка NodeLocal DNS в {{ managed-k8s-full-name }}
+description: Следуя данному руководству, вы сможете настроить NodeLocal DNS в {{ managed-k8s-name }}.
 ---
 
-# Настройка NodeLocal DNS Cache в {{ managed-k8s-full-name }}
+# Настройка NodeLocal DNS {{ managed-k8s-full-name }}
 
-Чтобы снизить нагрузку по [DNS-запросам](../../glossary/dns.md) в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), включите NodeLocal DNS Cache.
+Чтобы снизить нагрузку по [DNS-запросам](../../glossary/dns.md) в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), используйте компонент NodeLocal DNS.
 
 {% note tip %}
 

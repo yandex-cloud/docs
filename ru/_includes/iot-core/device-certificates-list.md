@@ -3,7 +3,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится устройство.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите реестр, в котором находится устройство.
    1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите устройство.

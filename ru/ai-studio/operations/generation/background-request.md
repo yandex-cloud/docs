@@ -21,19 +21,19 @@ description: Следуя данной инструкции, вы научите
   import openai
   import time
 
-  YANDEX_CLOUD_API_KEY = "<API-ключ>"
+  YANDEX_API_KEY = "<API-ключ>"
   YANDEX_FOLDER_ID = "<идентификатор_каталога>"
-  YANDEX_CLOUD_MODEL = "yandexgpt"
+  YANDEX_MODEL = "yandexgpt"
 
   client = openai.OpenAI(
-      api_key=YANDEX_CLOUD_API_KEY,
-      base_url="https://rest-assistant.{{ api-host }}/v1",
+      api_key=YANDEX_API_KEY,
+      base_url="https://ai.{{ api-host }}/v1",
       project=YANDEX_FOLDER_ID,
   )
 
   # --- 1. Создаем ответ в фоне
   resp = client.responses.create(
-      model=f"gpt://{YANDEX_FOLDER_ID}/{YANDEX_CLOUD_MODEL}",
+      model=f"gpt://{YANDEX_FOLDER_ID}/{YANDEX_MODEL}",
       input="Сделай краткое резюме текста: 'На платформе Yandex AI Studio доступно более 20 развёрнутых в облаке моделей в разных режимах работы. Самыми популярными по потреблению остаются модели семейства YandexGPT — на них приходится 62,7% от общего трафика на облачной платформе. Такой высокий спрос позволил снизить цены на собственные модели компании, сделав их более доступными. На втором и третьем местах — опенсорсные модели Qwen3‑235b от Alibaba Group (30,9%) и GPT‑OSS от OpenAI (5,7%).'",
       background=True,  # запускаем в фоне
   )
