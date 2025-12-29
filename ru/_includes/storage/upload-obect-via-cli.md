@@ -41,4 +41,8 @@
     upload: object.txt to s3://my-bucket/object.txt
     ```
 
+    {% cut "Настройка параметров для команды `yc storage s3 cp`" %}
+
     {% include [s3-cp-config](s3-cp-config.md) %}
+
+    {% endcut %}

@@ -311,5 +311,6 @@ To stop paying for the resources you created:
 * [Configuring CI/CD between {{ src-name }} and {{ sf-full-name }}](../../tutorials/serverless/ci-cd-sourcecraft-functions.md)
 * [Configuring a service connection to {{ yandex-cloud }} in {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/service-connections)
 * [Integration with GitHub Actions in {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gh-actions)
-* [serverless-functions]({{ link-src-main }}/yandex-cloud-examples/serverless-functions) repository in {{ src-name }}
-* [yc-ci-cd-serverless]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless) repository in {{ src-name }}
+* [serverless-functions repository in {{ src-name }}]({{ link-src-main }}/yandex-cloud-examples/serverless-functions)
+* [yc-ci-cd-serverless repository in {{ src-name }}]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless)
+* [Using a {{ GL }} pipeline in the {{ src-name }} CI/CD]({{ link-src-docs }}/sourcecraft/operations/gl-pipelines)

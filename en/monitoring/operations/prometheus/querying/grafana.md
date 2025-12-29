@@ -1,12 +1,16 @@
 ---
-title: How to read and visualize metrics with Grafana
-description: Follow this guide to read and visualize metrics with Grafana.
+title: How to read and visualize metrics with {{ grafana-name }}
+description: Follow this guide to read and visualize metrics with {{ grafana-name }}.
 sourcePath: en/monitoring_includes/operations/prometheus/querying/grafana.md
 ---
 
-# Reading and visualizing metrics with Grafana
+# Reading and visualizing metrics with {{ grafana-name }}
 
 {{ managed-prometheus-name }} supports the [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) and enables you to work with dashboards you or your community created in {{ grafana-name }}.
+
+The recommended visualization types are charts and dashboards in [{{ monitoring-name }}](monitoring.md).
+
+{% include [grafana-export](../../../../_includes/monitoring/grafana-export.md) %}
 
 ## Connecting a data source {#data-source}
 

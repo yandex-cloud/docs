@@ -104,6 +104,8 @@ items:
                 href: operations/generation/function-call.md
           - name: Генерация изображений
             href: operations/generation/yandexart-request.md
+          - name: Мультимодальные модели
+            href: operations/generation/multimodels-request.md
           - name: Пакетная обработка данных
             href: operations/batch/create.md
           - name: Работа с выделенными инстансами
@@ -189,12 +191,18 @@ items:
             href: operations/agents/manage-searchindex.md
       - name: '{{ mcp-hub-name }}'
         items:
-          - name: Подключить внешний MCP-сервер
-            href: operations/mcp-servers/connect-external.md
-          - name: Создать MCP-сервер из шаблона
-            href: operations/mcp-servers/create-from-template.md
-          - name: Создать MCP-сервер с нуля
-            href: operations/mcp-servers/create-brand-new.md
+          - name: Создать MCP-сервер
+            items:
+              - name: Подключить внешний MCP-сервер
+                href: operations/mcp-servers/connect-external.md
+              - name: Создать MCP-сервер из шаблона
+                href: operations/mcp-servers/create-from-template.md
+              - name: Создать MCP-сервер с нуля
+                href: operations/mcp-servers/create-brand-new.md
+          - name: Посмотреть информацию об MCP-сервере
+            href: operations/mcp-servers/get-server-info.md
+          - name: Удалить MCP-сервер
+            href: operations/mcp-servers/delete-server.md
   - name: Переход с {{ assistant-api }} на {{ responses-api }}
     href: concepts/agents/assistant-responses-migration.md
   - name: Совместимость с {{ openai }}

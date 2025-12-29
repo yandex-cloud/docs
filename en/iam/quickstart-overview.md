@@ -70,7 +70,7 @@ You can also [create federations and manage them](../organization/operations/set
 ## What's next {#whats-next}
 
 * Learn [how to get started with {{ org-name }}](../organization/quickstart.md).
-* Read about billing accounts: what they are for and [how to create one](../overview/quickstart.md).
+* Read about billing accounts: what they are for and [how to create one](../getting-started/individuals/registration.md).
 * Learn about [resources and access management {{ yandex-cloud }}](../overview/roles-and-resources.md).
 * [Learn how to manage access to resources](quickstart.md).
 * See [what account types exist in {{ yandex-cloud }}](concepts/users/accounts.md) and [how to work with service accounts](quickstart-sa.md).

@@ -10,8 +10,8 @@ description: Follow this guide to create a {{ PG }} cluster and connect to it.
 To get started:
 
 
-1. [Create a DB cluster](#cluster-create).
-1. [Connect to the DB](#connect).
+1. [Create a database cluster](#cluster-create).
+1. [Connect to the database](#connect).
 1. [Run database queries](#query-db).
 
 
@@ -59,8 +59,8 @@ To get started:
 
 1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**:
 
-    1. Specify the DB name. It must be unique within the folder.
-    1. Specify the user name of the DB owner.
+    1. Specify the database name. It must be unique within the folder.
+    1. Specify the username of the DB owner.
     1. Enter your password or generate one using [{{ connection-manager-name }}](../metadata-hub/concepts/connection-manager.md).
 
 1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**:
@@ -77,7 +77,7 @@ To get started:
 1. Wait until the cluster is ready to work: its status will change to **Running**, and its state to **Alive**. To check its state, hover over the cluster status in the **{{ ui-key.yacloud.common.availability }}** column.
 
 
-## Connect to the DB {#connect}
+## Connect to the database {#connect}
 
 {% note warning %}
 

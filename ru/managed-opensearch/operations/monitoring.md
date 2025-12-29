@@ -21,7 +21,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**.
 
         На странице отображаются следующие графики:
@@ -58,7 +59,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 Для просмотра детальной информации о состоянии отдельных хостов {{ mos-name }}:
 
-1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
 1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
 1. Выберите нужный хост из выпадающего списка.
@@ -115,7 +117,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 Для просмотра детальной информации о состоянии группы хостов {{ mos-name }}:
 
-1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
 1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
 1. Выберите нужную группу хостов из выпадающего списка.
@@ -130,7 +133,7 @@ description: Следуя этой инструкции, вы сможете п�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. В списке сервисов выберите ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
 
       * **{{ mos-name }}** для настройки алертов кластера;
@@ -179,7 +182,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
 - CLI {#cli}

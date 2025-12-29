@@ -1,9 +1,9 @@
 ---
-title: Monitoring the state of a {{ VLK }} cluster and its hosts
+title: '{{ VLK }} cluster and host status monitoring'
 description: You can monitor the state of a {{ mrd-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts.
 ---
 
-# Monitoring the state of a {{ VLK }} cluster and its hosts
+# {{ VLK }} cluster and host status monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -101,7 +101,7 @@ To view detailed information on the state of a {{ mrd-name }} cluster:
       * **mem_clients_normal**: For handling external client connections.
       * **mem_clients_slaves**: For handling replication connections.
       * **mem_replication_backlog**: For the replication backlog.
-      * **used_memory_startup**: For {{ VLK }} processes at startup (e.g., after a cluster restart).
+      * **used_memory_startup**: For {{ VLK }} processes at startup, e.g., after restarting a cluster.
       * **used_memory_dataset**: For storing data.
       * **mem_cluster_links**: For network connections in cluster mode.
 
@@ -113,7 +113,7 @@ To view detailed information on the state of a {{ mrd-name }} cluster:
       * **mem_clients_normal**: For handling external client connections.
       * **mem_clients_slaves**: For handling replication connections.
       * **mem_replication_backlog**: For the replication backlog.
-      * **used_memory_startup**: For {{ VLK }} processes at startup (e.g., after a cluster restart).
+      * **used_memory_startup**: For {{ VLK }} processes at startup, e.g., after restarting a cluster.
       * **used_memory_dataset**: For storing data.
       * **mem_cluster_links**: For network connections in cluster mode.
 
@@ -201,7 +201,7 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
 
 Below are the recommended thresholds for some metrics:
 
-| Metric                                                                                                   | Internal metric name         | `Alarm`                  | `Warning`                |
+| Metric                                                                                                   | Designation         | `Alarm`                  | `Warning`                |
 |----------------------------------------------------------------------------------------------------------:|:-------------------:|:------------------------:|:------------------------:|
 | Database write availability                                                                                  | `can_write`         | `Equal to 0`                | —                        |
 | Number of out-of-memory errors, per hour                                                                   | `redis_oom_count`   | `More than 2`               | `More than 0`               |

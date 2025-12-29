@@ -7,54 +7,55 @@ description: Videos of conferences and webinars on {{ mrd-full-name }}.
 
 ## Conferences and webinars {#conf-and-webinars}
 
+
 ### 2022: HighLoad++ {#highload-2022}
 
-* How we made fault-tolerant {{ RD }} in {{ yandex-cloud }}.
+* How we built fault-tolerant {{ RD }} in {{ yandex-cloud }}.
 
-  * [Click here to view the recording](https://highload.ru/moscow/2022/abstracts/9667).
+  * Click [here](https://highload.ru/moscow/2022/abstracts/9667) for the video.
 
 ### 2022: {{ yandex-cloud }} {#yc-2022}
 
-* About people. SRE in the cloud.
+* It all starts with people: Life of an SRE in the cloud.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=8YwepbGf1WM).
+  * Click [here](https://www.youtube.com/watch?v=8YwepbGf1WM) to watch the recording.
 
 ### 2021: Yandex Scale {#yandex-scale-2021}
 
-* Data platform news and plans.
+* Data platform updates and future plans.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=34azYnDBiYY).
+  * Click [here](https://www.youtube.com/watch?v=34azYnDBiYY) for the video.
 
 ### 2021: Yandex for Developers {#yfd-2021}
 
-* What a database is used for in the service.
+* Why your service needs a database.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=cddm8I0UgjU).
+  * Click [here](https://www.youtube.com/watch?v=cddm8I0UgjU) for the video.
 
 ### 2019: HighLoad++ {#highload-2019}
 
 * Backing up heavily loaded DBMS's.
 
-  * [Click here to view the recording](https://highload.ru/moscow/2019/abstracts/5981).
+  * Click [here](https://highload.ru/moscow/2019/abstracts/5981) for the video.
 
 ### 2019: {{ yandex-cloud }} {#yc-2019}
 
 * What's new in the {{ yandex-cloud }} database platform.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
+  * Click [here](https://www.youtube.com/watch?v=5OcUo3J4Wdc) for the video.
 
-* Structure of the database platform in {{ yandex-cloud }}.
+* {{ yandex-cloud }} database platform architecture.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=Cwdg425a_cw).
+  * Click [here](https://www.youtube.com/watch?v=Cwdg425a_cw) for the video.
 
 ### 2019: Articles {#article-2019}
 
 * How managed database services work in {{ yandex-cloud }}.
 
-  * [Article text](https://habr.com/ru/companies/yandex/articles/477860/).
+  * Click [here](https://habr.com/ru/companies/yandex/articles/477860/) to read the article.
 
 ### 2018: HighLoad++ {#highload-2018}
 
 * Cloud databases.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=xyMN1EA9p5Y).
+  * Click [here](https://www.youtube.com/watch?v=xyMN1EA9p5Y) for the video.

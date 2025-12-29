@@ -275,9 +275,9 @@ apiPlayground:
           type:
             description: |-
               **enum** (Type)
-              Required field.
-              - `STANDARD`
-              - `SOFTWARE_ACCELERATED`
+              Required field. Network type that specifies the network configuration for the node group instances.
+              - `STANDARD`: Standard network.
+              - `SOFTWARE_ACCELERATED`: Software accelerated network.
             type: string
             enum:
               - TYPE_UNSPECIFIED
@@ -291,9 +291,9 @@ apiPlayground:
           type:
             description: |-
               **enum** (Type)
-              Required field.
-              - `STANDARD`
-              - `SOFTWARE_ACCELERATED`
+              Required field. Type of container runtime.
+              - `STANDARD`: Standard network.
+              - `SOFTWARE_ACCELERATED`: Software accelerated network.
             type: string
             enum:
               - TYPE_UNSPECIFIED
@@ -305,7 +305,9 @@ apiPlayground:
         type: object
         properties:
           podMtu:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              MTU (Maximum Transmission Unit) size for pod network interfaces.
             type: string
             format: int64
       GpuSettings:
@@ -412,7 +414,10 @@ apiPlayground:
             items:
               $ref: '#/definitions/NetworkInterfaceSpec'
           placementPolicy:
-            description: '**[PlacementPolicy](#yandex.cloud.k8s.v1.PlacementPolicy)**'
+            description: |-
+              **[PlacementPolicy](#yandex.cloud.k8s.v1.PlacementPolicy)**
+              Placement policy configuration that controls physical placement of node group instances
+              in the cloud infrastructure for optimizing performance and reliability.
             $ref: '#/definitions/PlacementPolicy'
           networkSettings:
             description: |-
@@ -420,10 +425,14 @@ apiPlayground:
               this parameter allows to specify type of network acceleration used on nodes (instances)
             $ref: '#/definitions/NetworkSettings'
           containerRuntimeSettings:
-            description: '**[ContainerRuntimeSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings)**'
+            description: |-
+              **[ContainerRuntimeSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings)**
+              Container runtime settings for the node template.
             $ref: '#/definitions/ContainerRuntimeSettings'
           containerNetworkSettings:
-            description: '**[ContainerNetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings)**'
+            description: |-
+              **[ContainerNetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings)**
+              Container network settings for the node template.
             $ref: '#/definitions/ContainerNetworkSettings'
           gpuSettings:
             description: |-
@@ -1020,12 +1029,19 @@ Scheduling policy configuration. ||
 
 New api, to specify network interfaces for the node group compute instances.
 Can not be used together with 'v4_address_spec' ||
-|| placementPolicy | **[PlacementPolicy](#yandex.cloud.k8s.v1.PlacementPolicy)** ||
+|| placementPolicy | **[PlacementPolicy](#yandex.cloud.k8s.v1.PlacementPolicy)**
+
+Placement policy configuration that controls physical placement of node group instances
+in the cloud infrastructure for optimizing performance and reliability. ||
 || networkSettings | **[NetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.NetworkSettings)**
 
 this parameter allows to specify type of network acceleration used on nodes (instances) ||
-|| containerRuntimeSettings | **[ContainerRuntimeSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings)** ||
-|| containerNetworkSettings | **[ContainerNetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings)** ||
+|| containerRuntimeSettings | **[ContainerRuntimeSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings)**
+
+Container runtime settings for the node template. ||
+|| containerNetworkSettings | **[ContainerNetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings)**
+
+Container network settings for the node template. ||
 || gpuSettings | **[GpuSettings](#yandex.cloud.k8s.v1.GpuSettings)**
 
 GPU settings ||
@@ -1162,10 +1178,10 @@ Identifier of placement group ||
 ||Field | Description ||
 || type | **enum** (Type)
 
-Required field.
+Required field. Network type that specifies the network configuration for the node group instances.
 
-- `STANDARD`
-- `SOFTWARE_ACCELERATED` ||
+- `STANDARD`: Standard network.
+- `SOFTWARE_ACCELERATED`: Software accelerated network. ||
 |#
 
 ## ContainerRuntimeSettings {#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings}
@@ -1174,17 +1190,19 @@ Required field.
 ||Field | Description ||
 || type | **enum** (Type)
 
-Required field.
+Required field. Type of container runtime.
 
-- `DOCKER`
-- `CONTAINERD` ||
+- `DOCKER`: Docker container runtime.
+- `CONTAINERD`: Containerd container runtime. ||
 |#
 
 ## ContainerNetworkSettings {#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings}
 
 #|
 ||Field | Description ||
-|| podMtu | **string** (int64) ||
+|| podMtu | **string** (int64)
+
+MTU (Maximum Transmission Unit) size for pod network interfaces. ||
 |#
 
 ## GpuSettings {#yandex.cloud.k8s.v1.GpuSettings}
@@ -1867,12 +1885,19 @@ Scheduling policy configuration. ||
 
 New api, to specify network interfaces for the node group compute instances.
 Can not be used together with 'v4_address_spec' ||
-|| placementPolicy | **[PlacementPolicy](#yandex.cloud.k8s.v1.PlacementPolicy2)** ||
+|| placementPolicy | **[PlacementPolicy](#yandex.cloud.k8s.v1.PlacementPolicy2)**
+
+Placement policy configuration that controls physical placement of node group instances
+in the cloud infrastructure for optimizing performance and reliability. ||
 || networkSettings | **[NetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.NetworkSettings2)**
 
 this parameter allows to specify type of network acceleration used on nodes (instances) ||
-|| containerRuntimeSettings | **[ContainerRuntimeSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings2)** ||
-|| containerNetworkSettings | **[ContainerNetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings2)** ||
+|| containerRuntimeSettings | **[ContainerRuntimeSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings2)**
+
+Container runtime settings for the node template. ||
+|| containerNetworkSettings | **[ContainerNetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings2)**
+
+Container network settings for the node template. ||
 || gpuSettings | **[GpuSettings](#yandex.cloud.k8s.v1.GpuSettings2)**
 
 GPU settings ||
@@ -2009,10 +2034,10 @@ Identifier of placement group ||
 ||Field | Description ||
 || type | **enum** (Type)
 
-Required field.
+Required field. Network type that specifies the network configuration for the node group instances.
 
-- `STANDARD`
-- `SOFTWARE_ACCELERATED` ||
+- `STANDARD`: Standard network.
+- `SOFTWARE_ACCELERATED`: Software accelerated network. ||
 |#
 
 ## ContainerRuntimeSettings {#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings2}
@@ -2021,17 +2046,19 @@ Required field.
 ||Field | Description ||
 || type | **enum** (Type)
 
-Required field.
+Required field. Type of container runtime.
 
-- `DOCKER`
-- `CONTAINERD` ||
+- `DOCKER`: Docker container runtime.
+- `CONTAINERD`: Containerd container runtime. ||
 |#
 
 ## ContainerNetworkSettings {#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings2}
 
 #|
 ||Field | Description ||
-|| podMtu | **string** (int64) ||
+|| podMtu | **string** (int64)
+
+MTU (Maximum Transmission Unit) size for pod network interfaces. ||
 |#
 
 ## GpuSettings {#yandex.cloud.k8s.v1.GpuSettings2}

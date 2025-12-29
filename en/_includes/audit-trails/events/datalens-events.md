@@ -18,7 +18,7 @@ Event name | Description
 `DeleteWorkbooks`              | Deleting one or multiple workbooks
 `DisableBillingInstanceService` | Receiving a notification from {{ billing-name }} that the billing account linked to {{ datalens-name }} is inactive
 `DisableFolders`                | [Disabling](../../../datalens/settings/navigation.md#disable-folder-navigation) folder navigation
-`DisableTenantBilling`          | User scheduled Business plan deactivation for the beginning of the next month
+`DisableTenantBilling`          | User scheduled Business plan deactivation for the beginning of the next month ^1^
 `EnableBillingInstanceService`  | Receiving a notification from {{ billing-name }} that the [billing account](../../../billing/concepts/billing-account.md) linked to {{ datalens-name }} is active
 `EnableTenantBilling`           | User enabled the Business plan ^1^
 `FolderEntryBatchModifyPermissions` | Bulk updating access permissions for folder objects

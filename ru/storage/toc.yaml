@@ -109,6 +109,40 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Резервное копирование
+        items:
+          - name: Обзор
+            href: tutorials/storage-backup-overview.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью aws s3
+              sync
+            href: tutorials/storage-backup-aws-s3-sync.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью rclone
+            href: tutorials/storage-backup-rclone.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью GeeseFS
+            href: tutorials/storage-backup-geesefs.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
+              Desktop Backup
+            href: tutorials/object-storage-cloudberry.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью Duplicati
+            href: tutorials/object-storage-duplicati.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
+            href: tutorials/backup-with-bacula.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью Veritas
+              Backup Exec
+            href: tutorials/object-storage-veritas.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью Veeam
+              Backup
+            href: tutorials/backup-with-veeam.md
+          - name: Резервное копирование ВМ с помощью Хайстекс Акура
+            href: tutorials/hystax-backup.md
+          - name: >-
+              Резервное копирование кластера {{ managed-k8s-name }} в {{
+              objstorage-name }}
+            href: tutorials/kubernetes-backup.md
       - name: Получение статистики запросов к объекту с использованием S3 Select
         href: tutorials/server-logs.md
       - name: Получение статистики посещения сайта с использованием S3 Select
@@ -248,26 +282,6 @@ items:
         href: tutorials/data-from-yandex-query-visualization.md
       - name: Публикация обновлений для игр
         href: tutorials/prefetch.md
-      - name: Резервное копирование ВМ с помощью Хайстекс Акура
-        href: tutorials/hystax-backup.md
-      - name: >-
-          Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
-          Desktop Backup
-        href: tutorials/object-storage-cloudberry.md
-      - name: Резервное копирование в {{ objstorage-name }} через Duplicati
-        href: tutorials/object-storage-duplicati.md
-      - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
-        href: tutorials/backup-with-bacula.md
-      - name: Резервное копирование в {{ objstorage-name }} с помощью Veeam Backup
-        href: tutorials/backup-with-veeam.md
-      - name: >-
-          Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup
-          Exec
-        href: tutorials/object-storage-veritas.md
-      - name: >-
-          Резервное копирование кластера {{ managed-k8s-name }} в {{
-          objstorage-name }}
-        href: tutorials/kubernetes-backup.md
       - name: Разработка пользовательской интеграции в {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
       - name: Сокращатель ссылок

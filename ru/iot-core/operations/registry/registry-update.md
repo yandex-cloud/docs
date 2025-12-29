@@ -13,7 +13,7 @@
    Чтобы изменить имя реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить имя реестра.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Справа от имени нужного реестра нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Измените поле **{{ ui-key.yacloud.common.name }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -107,7 +107,7 @@
    Чтобы изменить описание реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить описание реестра.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Справа от имени нужного реестра нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Измените поле **{{ ui-key.yacloud.common.description }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -212,7 +212,7 @@
    Чтобы добавить метку реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите добавить метку реестра.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Справа от имени нужного реестра нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}**, **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -315,7 +315,7 @@
    Чтобы изменить метку реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить метку реестра.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Справа от имени нужного реестра нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Измените поля **{{ ui-key.yacloud.component.key-values-input.label_key }}**, **{{ ui-key.yacloud.component.key-values-input.label_value }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -415,7 +415,7 @@
    Чтобы удалить метку реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите удалить метку реестра.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Справа от имени нужного реестра нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Справа от удаляемой метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

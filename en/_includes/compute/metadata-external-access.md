@@ -10,8 +10,9 @@
 
   Here is a description of the available tabs:
   * **{{ ui-key.yacloud.common.overview }}** shows general information about the VM, including the [IP addresses](../../vpc/concepts/address.md) assigned to it.
-  * **Disks** provides information about the [disks](../../compute/concepts/disk.md) attached to the VM.
-  * **File storage** provides information about the [file storage](../../compute/concepts/filesystem.md) attached.
+  * **{{ ui-key.yacloud.compute.storage_uisyT }}** gives information about the [disks](../../compute/concepts/disk.md) and [file storages](../../compute/concepts/filesystem.md) attached to the VM.
+  * **{{ ui-key.yacloud.compute.instance.switch_backups }}** gives information about the VM [backups](../../backup/concepts/index.md).
+  * **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** gives information on the VM [access permissions](../../iam/concepts/access-control/index.md).
   * **{{ ui-key.yacloud.common.operations-key-value }}** lists operations on the VM and its resources, such as disks.
   * **{{ ui-key.yacloud.common.monitoring }}** shows information about VM resource consumption. You can only get this info from the management console or from within the VM.
   * **{{ ui-key.yacloud.compute.instance.switch_console }}** provides access to the [serial console](../../compute/operations/serial-console/index.md) if enabled when [creating](../../compute/operations/index.md#vm-create) the VM.
@@ -21,7 +22,7 @@
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  1. See the description of the command for getting the [serial port output](../../compute/operations/vm-info/get-serial-port-output.md):
+  1. View the description of the command for getting information about a VM:
 
      ```bash
      yc compute instance get --help

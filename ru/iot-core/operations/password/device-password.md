@@ -23,7 +23,7 @@
    Чтобы добавить пароль уже созданному устройству:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите добавить пароль уже созданному устройству.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке реестр с нужным устройством.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите в списке нужное устройство.
@@ -198,7 +198,7 @@
    Чтобы просмотреть список паролей устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите получить список паролей устройства.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке реестр с нужным устройством.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите в списке нужное устройство.
@@ -259,7 +259,7 @@
    Чтобы удалить пароль устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите удалить пароль устройства.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке реестр с нужным устройством.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите в списке нужное устройство.

@@ -29,6 +29,8 @@ keywords:
 
 Подробнее о PITR см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/continuous-archiving.html).
 
+{% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
+
 Чтобы восстановить кластер из резервной копии, [следуйте инструкциям](../operations/cluster-backups.md#restore).
 
 ## Создание резервной копии {#size}

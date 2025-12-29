@@ -18,10 +18,155 @@ description: Follow this guide to check your repositories.
 
 {{ yandex-cloud }} is connected to the following secret scanning tools:
 
-* [GitHub Secret scanning partner program](#github-secret-scanning)
-* [GitLab Secret Detection](#gitlab-secret-detection)
-* [Yandex search index](#secret-is-leaked)
-* [Helm charts in {{ marketplace-full-name }}](#helm-charts)
+* [{{ yandex-cloud }} secret scanning partner program](#leak-detection-affiliate-program).
+* [GitHub Secret scanning partner program](#github-secret-scanning).
+* [GitLab Secret Detection](#gitlab-secret-detection).
+* [Yandex search index](#secret-is-leaked).
+* [Helm charts in {{ marketplace-full-name }}](#helm-charts).
+
+## {{ yandex-cloud }} secret scanning partner program {#leak-detection-affiliate-program}
+
+{{ yandex-cloud }} runs a partner program of its own for detection of compromised secrets in public repositories and other open sources.
+
+You can join this partner program to make your services more secure.
+
+To join the program, you will need a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). We recommend [creating](../../organization/operations/enable-org.md#create-additional-org) a separate organization and a dedicated [cloud](../../resource-manager/operations/cloud/create.md) within it for the partner program. This way, you will not lose access to the partner program, even if your main cloud is suspended or deleted.
+
+### How the partner program works {#program-roadmap}
+
+To interact with {{ yandex-cloud }} as a member of the partner program, you will use a [service account](../../iam/concepts/users/service-accounts.md). When signing up for the program, you will give {{ yandex-cloud }} your service account ID and get a unique `leak_source` ID you will use for the API.
+
+As a member of the {{ yandex-cloud }} secret scanning partner program, you scan your public repositories and other sources for compromised secrets and provide to {{ yandex-cloud }} the information on the keys and tokens you find. {{ yandex-cloud }} runs a check on the secrets it gets from you.
+
+With the {{ yandex-cloud }} API, you follow these two steps:
+
+1. You request {{ yandex-cloud }} on a regular basis to provide the current list of [regular expressions](#regex) corresponding to known types of secrets:
+
+    * Request endpoint: `https://leak-detector.yandexcloud.net/secret-types`.
+    * Request method: `GET`.
+    * Request example:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer <IAM_token>" \
+          "https://leak-detector.yandexcloud.net/secret-types?leak_source_id=<leak_source_ID>"
+        ```
+
+        Where:
+        * `<IAM_token>`: [IAM token](../../iam/concepts/authorization/iam-token.md) you got for the service account registered in the partner program.
+        * `<leak_source_ID>`: Unique ID you got when registering for the partner program.
+
+    {% cut "Response example:" %}
+
+    ```json
+    [
+      {
+        "type": "yandex_cloud_api_key_v1",
+        "regex_matcher": "AQW9[A-Za-z0-9_-]{35,38}"
+      },
+      {
+        "type": "yandex_cloud_iam_access_secret",
+        "regex_matcher": "YC[a-zA-Z0-9_\\-]{38}"
+      },
+      {
+        "type": "yandex_cloud_iam_cookie_v1",
+        "regex_matcher": "c1\\.[A-Z0-9a-z_-]{200,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,910}[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}"
+      },
+      {
+        "type": "yandex_cloud_iam_key_v1",
+        "regex_matcher": "PLEASE DO NOT REMOVE THIS LINE\\! Yandex\\.Cloud SA Key ID (<|(\\\\u003[cC]))([0-9a-zA-Z+/=]*)(>|(\\\\u003[eE]))(\\s+)(-----BEGIN PRIVATE KEY-----(\\s+)([0-9a-zA-Z+/=]{64}(\\s+))*([0-9a-zA-Z+/=]{1,63}(\\s+))?-----END PRIVATE KEY-----\\s?)"
+      },
+      {
+        "type": "yandex_cloud_iam_refresh_token_v1",
+        "regex_matcher": "rt1\\.[A-Z0-9a-z_-]{200,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,910}[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}"
+      },
+      {
+        "type": "yandex_cloud_iam_token_v1",
+        "regex_matcher": "t1\\.[A-Z0-9a-z_-]{200,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,1000}[A-Z0-9a-z_-]{0,910}[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}"
+      },
+      {
+        "type": "yandex_cloud_lockbox_secret_v1",
+        "regex_matcher": "(yc|YC)[!-~]{18,254}"
+      },
+      {
+        "type": "yandex_cloud_smartcaptcha_server_key",
+        "regex_matcher": "ysc2_[a-zA-Z0-9]{40}[0-9a-f]{8}"
+      },
+      {
+        "type": "yandex_passport_oauth_token",
+        "regex_matcher": "y[0-6]_[-_A-Za-z0-9]{55,199}"
+      }
+    ]
+    ```
+
+    {% endcut %}
+
+1. You scan your data for matches against the list of regular expressions. If detecting such matches, you submit the data to {{ yandex-cloud }} to get checked:
+
+    * Request endpoint: `https://leak-detector.yandexcloud.net/suspects`.
+    * Request method: `POST`.
+    * Request example:
+
+        ```bash
+        curl \
+          --request POST \
+          --header "Content-Type: application/json" \
+          --header "Authorization: Bearer <IAM_token>" \
+          --data \
+                  '''
+                  {
+                    "leak_source_id": "my_leak_source",
+                    "suspects": [
+                      {
+                        "data_type": "yandex_cloud_lockbox_secret_v1",
+                        "uri": "https://www.example.com/vcs/sources/project1/my_data.yaml",
+                        "payload": "ycBHKGefu78t^%RD3gre387HO"
+                      },
+                      {
+                        "data_type": "yandex_cloud_iam_token_v1",
+                        "uri": "https://www.example.com/vcs/sources/project2/my_data.yaml",
+                        "payload": "t1.Aga0BCD123efGhIjkLmNoPqRsTuVwXyZ1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                      }
+                    ]
+                  }
+                  ''' \
+          "https://leak-detector.yandexcloud.net/suspects"
+        ```
+
+        Where:
+        * `<IAM_token>`: [IAM token](../../iam/concepts/authorization/iam-token.md) you got for the service account registered in the partner program.
+        * `<leak_source_ID>`: Unique ID you got when registering for the partner program.
+        * `suspects`: List of objects, each containing information about a single regular expression match.
+        * `data_type`: Secret type as it appears in the response to the GET request when retrieving the list of regular expressions.
+        * `uri`: URI of the resource containing a potential leak.
+        * `entries`: Body (content) of the detected secret.
+
+    * Response example:
+
+        ```json
+        ["NOT_CONFIRMED","CONFIRMED"]
+        ```
+
+        The response provides a list of statuses. The number and order of statuses returned match those of the secrets you sent in the `suspects` object of your GET request.
+
+        The following statuses are possible:
+
+        * `NOT_CONFIRMED`: Detected regular expression match is not a secret.
+        * `CONFIRMED`: Detected regular expression match is a secret.
+        * `TEMPORARILY_UNAVAILABLE`: Secret provider is unavailable. Retry the request for this secret later using [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff).
+
+### Terms of participation in the program {#conditions}
+
+The {{ yandex-cloud }} secret scanning partner program will be active for the duration of the period specified at your registration. If you do not submit an exit notice, the program will be automatically extended for another year. The number of such extensions is not limited.
+
+Your cooperation with {{ yandex-cloud }} under the secret scanning partner program does not imply any material remuneration and is intended as a joint effort to strengthen information security.
+
+{% note info "How to join the program" %}
+
+To join the program, use our [feedback form](https://forms.yandex.ru/surveys/13806106.25404433c712687b0fff48ef01ba08bbcf89ffb2) and provide your service account ID, information about your services, and your contact details. We will reach out to you with details on the terms of participation in our partner program.
+
+{% endnote %}
 
 ## GitHub {#github-secret-scanning}
 
@@ -55,7 +200,7 @@ If a valid secret is detected, the organization owner will get an email from the
 
 If your secret got leaked to a public repository:
 
-1. Re-issue or revoke the secret by following [this guide](../../iam/operations/compromised-credentials.md). Delete the affected resources, if required.
+1. Re-issue or revoke the secret according to [this guide](../../iam/operations/compromised-credentials.md). Delete the affected resources, if required.
 1. Delete the secret from the repository or commit history. To do this, follow the guides for [GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository) or [GitLab](https://docs.gitlab.com/ee/user/project/repository/reducing_the_repo_size_using_git.html#purge-files-from-repository-history).
 
 {% note warning %}

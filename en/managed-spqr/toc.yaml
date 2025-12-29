@@ -272,6 +272,10 @@ items:
                 href: api-ref/User/update.md
               - name: Delete
                 href: api-ref/User/delete.md
+  - name: Metrics {{ monitoring-name }}
+    href: metrics.md
+  - name: Public materials
+    href: public-talks.md
   - name: Release notes
     href: release-notes.md
   - name: FAQ

@@ -21,7 +21,7 @@ To use {{ ds-jobs }}, you need to get authenticated as a user account.
      * Using [{{ ds-cli }}](../../concepts/jobs/cli.md) and the `-t` option. Here is an example:
 
        ```bash
-       datasphere -t <OAuth_token> project job get --id <project_ID>
+       datasphere -t <OAuth_token> project job list -p <project_ID>
        ```
 
        {% include [get-project-id](../../../_includes/datasphere/get-project-id.md) %}

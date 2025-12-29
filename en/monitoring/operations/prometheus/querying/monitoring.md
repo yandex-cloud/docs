@@ -11,6 +11,11 @@ You can build charts based on {{ prometheus-name }} metrics:
 * Under **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**, for a quick overview of resource state.
 * Under **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**, for regular monitoring over certain indicators.
 
+{% note tip %}
+
+{% include [grafana-export](../../../../_includes/monitoring/grafana-export.md) %}
+
+{% endnote %}
 
 ## Adding charts in {{ monitoring-name }} {#prometheus-metrics}
 

@@ -34,7 +34,7 @@ sourcePath: ru/monitoring_includes/operations/prometheus/querying/monitoring.md
 
   {% note info %}
 
-  Для метрик {{ prometheus-name }} доступны все возможности, описанные в разделе [{#T}](../../metric/metric-explorer.md), кроме добавления параметров. Поэтому разбивка графиков по параметрам недоступна.
+  Для метрик {{ prometheus-name }} доступны все возможности, описанные в разделе [{#T}](../../metric/metric-explorer.md). В качестве параметра для разбивки графиков можно добавить идентификатор воркспейса.
 
   {% endnote %}
 

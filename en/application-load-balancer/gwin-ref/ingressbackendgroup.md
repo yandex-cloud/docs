@@ -303,6 +303,11 @@ Session affinity ensures that requests from the same client are routed to the sa
 
 ### BackendTLS
 
+TLS settings for backend connections. \
+Use when the load balancer must connect to its targets over TLS. \
+If you only need “TLS as is” (no SNI and no backend certificate verification), provide an empty `tls: {}` section.
+Health check TLS settings work the same way, but are configured separately.
+
 *Appears in*: [IngressBackend](#ingressbackend), [HealthCheckTransportSettings](#healthchecktransportsettings)
 
 | Field | Description |

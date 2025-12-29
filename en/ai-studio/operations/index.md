@@ -11,6 +11,7 @@ description: This page gives all the guides on how to work with {{ foundation-mo
 * [{#T}](generation/create-prompt.md)
 * [{#T}](generation/create-chat.md)
 * [{#T}](generation/async-request.md)
+* [{#T}](generation/background-request.md)
 * [{#T}](generation/function-call.md)
 * [{#T}](./batch/create.md)
 * [{#T}](./generation/yandexart-request.md)
@@ -58,6 +59,7 @@ description: This page gives all the guides on how to work with {{ foundation-mo
 * [{#T}](./resources/create-dataset.md)
 * [{#T}](./resources/create-dataset-gpt.md)
 * [{#T}](./resources/create-dataset-classifier.md)
+* [{#T}](./resources/delete-dataset.md)
 
 ### Managing instances {#instances}
 

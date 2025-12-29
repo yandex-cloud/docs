@@ -20,7 +20,7 @@ To grant access to user cloud resources to a service, you need enable the servic
 
   1. In the [management console]({{ link-console-main }}), select the relevant cloud.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
-  1. In the service row, click ![image](../../../_assets/console-icons/chevron-down.svg) and select ![image](../../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.iam.ssa.action_enable-access }}**.
+  1. In the row with the service at hand, click ![image](../../../_assets/console-icons/chevron-down.svg) and select ![image](../../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.iam.ssa.action_enable-access }}**.
 
 - CLI {#cli}
 

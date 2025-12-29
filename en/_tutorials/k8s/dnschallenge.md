@@ -100,7 +100,7 @@ The support cost for this solution includes:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete the public domain zone](../../dns/operations/zone-delete.md).

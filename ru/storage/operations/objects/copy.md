@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
       copy: s3://my-bucket/object.txt to s3://new-bucket/object-copy.txt
       ```
 
-      {% include [s3-cp-config](../../../_includes/storage/s3-cp-config.md) %}
+      Подробнее о настройке команды см. в подразделе [{#T}](#yc-s3-cp-config).
 
 - AWS CLI {#aws-cli}
 
@@ -139,9 +139,9 @@ description: Следуя данной инструкции, вы сможете
       copy: s3://my-bucket/object-n.txt to s3://new-bucket/object-n-copy.txt
       ```
 
-      {% include [s3-cp-config](../../../_includes/storage/s3-cp-config.md) %}
+      Подробнее о настройке команды см. в подразделе [{#T}](#yc-s3-cp-config).
 
-- AWS CLI {#cli}
+- AWS CLI {#aws-cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Выполните команду:
@@ -170,3 +170,28 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+
+## Настройка параметров для команды yc storage s3 cp {#yc-s3-cp-config}
+
+{% list tabs group=instructions %}
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [s3-cp-config](../../../_includes/storage/s3-cp-config.md) %}
+
+{% endlist %}
+
+## Ошибки при загрузке {#errors}
+
+При загрузке больших файлов с помощью {{ yandex-cloud }} CLI может возникнуть ошибка `fatal error: runtime: out of memory`. Объем памяти, необходимый для загрузки больших файлов, рассчитывается по формуле:
+
+```text
+s3.max-concurrent-requests × s3.multipart-chunksize
+```
+
+Где:
+
+* `s3.max-concurrent-requests` — максимальное количество одновременных запросов. Значение по умолчанию — `10`.
+* `s3.multipart-chunksize` — размер частей, на которые будет делиться объект при составной (multipart) загрузке. Значение по умолчанию — `8 MB`.
+
+Подробнее о настройке команды см. в подразделе [{#T}](#yc-s3-cp-config).

@@ -27,7 +27,7 @@ items:
         items:
           - name: Creating a data stream
             href: operations/aws-cli/create.md
-          - name: Getting stream information
+          - name: Getting stream info
             href: operations/aws-cli/describe.md
           - name: Sending data to a stream
             href: operations/aws-cli/send.md
@@ -133,6 +133,8 @@ items:
         href: tutorials/search-events-query.md
       - name: '{{ postbox-full-name }} integration with external systems via webhooks'
         href: tutorials/postbox-webhook.md
+      - name: Troubleshooting slow writes in {{ yds-full-name }}
+        href: tutorials/slow-writes-debug.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

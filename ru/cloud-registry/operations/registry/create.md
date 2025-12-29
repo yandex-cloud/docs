@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать реестр.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud.cloud-registry.title_registries }}**.
     1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.cloud-registry.action_registry-create }}**.
     1. Выберите формат реестра.

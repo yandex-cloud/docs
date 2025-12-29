@@ -13,6 +13,8 @@ You can enable and disable availability zones one by one or as a comma-separated
 
 ## Disabling availability zones {#disable-zone}
 
+{% include [disable-zone-ig-nlb-alb](../../../_includes/instance-groups/disable-zone-ig-nlb-alb.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -126,6 +128,8 @@ You cannot run the zone disable command more often than once every two minutes.
 
 ## Enabling availability zones {#enable-zone}
 
+{% include [enable-zone-ig-nlb-alb](../../../_includes/instance-groups/enable-zone-ig-nlb-alb.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -207,3 +211,8 @@ You cannot run the zone disable command more often than once every two minutes.
     ```
       
 {% endlist %}
+
+### See also {#see-also}
+
+* [Disabling and enabling availability zones for a {{ compute-full-name }} instance group](../../../compute/operations/instance-groups/disable-enable-zone.md)
+* [Disabling and enabling availability zones in {{ alb-full-name }}](../../../application-load-balancer/operations/manage-zone/start-and-cancel-shift.md)

@@ -263,7 +263,7 @@ metadata:
 
 | Annotation and description |
 |------------|
-| `gwin.yandex.cloud/groupName` <br> _(string)_ <br> Name of the ingress group to group multiple ingresses together. <br> Example: `my-ingress-group` |
+| `gwin.yandex.cloud/groupName` <br> _(string)_ <br> Name of the ingress group. Ingresses in the same group use the same load balancer. <br> Example: `my-ingress-group` |
 | `gwin.yandex.cloud/groupOrder` <br> _(number)_ <br> Processing order within the ingress group. <br> Example: `100` |
 
 #### Load Balancer Configuration
@@ -272,8 +272,8 @@ metadata:
 |------------|
 | `gwin.yandex.cloud/externalIPv4Address` <br> _(string)_ <br> External IPv4 address for the load balancer. Use `auto` to automatically allocate a new address. <br> Example: `5.4.3.2`, `auto` |
 | `gwin.yandex.cloud/internalIPv4Address` <br> _(string)_ <br> Internal IPv4 address for the load balancer inside VPC subnet. Format: `subnet-id/ip-address` or `subnet-id/auto` to automatically allocate an address. <br> Example: `subnet-id-1/10.1.1.1`, `subnet-id-1/auto` |
-| `gwin.yandex.cloud/subnets` <br> _(comma separated strings)_ <br> [Subnets](https://yandex.cloud/en/docs/vpc/concepts/network#subnet) of the zones where load balancer will be instantiated. <br> Example: `subnet-id-1,subnet-id-2` |
-| `gwin.yandex.cloud/securityGroups` <br> _(comma separated strings)_ <br> [Security groups](https://yandex.cloud/en/docs/vpc/concepts/security-groups) of load balancer. <br> Example: `sg-id-1,sg-id-2` |
+| `gwin.yandex.cloud/subnets` <br> _(comma separated strings)_ <br> [Subnets](https://yandex.cloud/en/docs/vpc/concepts/network#subnet) of the zones where load balancer will be instantiated. <br> By default, the balancer is placed in the mk8s cluster subnets. You can override this behavior by configuring `controller.defaultBalancerSubnets` in the Helm chart values. <br> Example: `subnet-id-1,subnet-id-2` |
+| `gwin.yandex.cloud/securityGroups` <br> _(comma separated strings)_ <br> [Security groups](https://yandex.cloud/en/docs/vpc/concepts/security-groups) of load balancer. <br> By default, the balancer network’s default security group is used. <br> Example: `sg-id-1,sg-id-2` |
 | `gwin.yandex.cloud/allowZonalShift` <br> _(boolean)_ <br> Specifies whether application load balancer is available to zonal shift. <br> Example: `true` |
 
 #### Cloud Logging
@@ -366,6 +366,11 @@ For `discardRule` annotations you can set up any name. It does not affect ALB co
 | `gwin.yandex.cloud/rules.backends.hc.transportSettings.tls.trustedCA.bytes` <br> _(string)_ <br> X.509 certificate contents in PEM format for health check TLS validation. <br> Example: `-----BEGIN CERTIFICATE-----...` |
 
 #### Backend TLS configuration
+
+TLS settings for backend connections. \
+Use when the load balancer must connect to its targets over TLS. \
+If you only need “TLS as is” (no SNI and no backend certificate verification), set `gwin.yandex.cloud/rules.backends.tls.sni: ""`. \
+Health check TLS settings work the same way, but are configured separately.
 
 | Annotation and description |
 |------------|
@@ -639,6 +644,38 @@ ServiceBackendPort is the service port being referenced.
 IngressTLS describes the transport layer security associated with an Ingress.
 
 *Appears in*: [IngressSpec](#ingressspec)
+
+{% note info %}
+
+If multiple Ingress resources are combined into the same Ingress group (via the `gwin.yandex.cloud/groupName` annotation), the same host must not appear in **different `spec.tls` sections** within the group (for example, with a different `secretName`). \
+The same host may be repeated across multiple Ingresses only if the corresponding **`spec.tls` sections are identical**. This allows you to split configuration across multiple Ingress resources (for example, to apply different `rules.*` annotations per route).
+
+```yaml
+kind: Ingress
+metadata:
+  annotations:
+    gwin.yandex.cloud/groupName: "my-ingress-group"
+    gwin.yandex.cloud/rules.timeout: 10s
+spec:
+  tls:
+    - hosts:
+        - example.com
+      secretName: cert-secret
+...
+kind: Ingress
+metadata:
+  annotations:
+    gwin.yandex.cloud/groupName: "my-ingress-group"
+    gwin.yandex.cloud/rules.timeout: 100s # differs from 10s
+spec:
+  tls:
+    - hosts:
+        - example.com
+      secretName: cert-secret
+...
+```
+
+{% endnote %}
 
 | Field | Description |
 |-------|-------------|

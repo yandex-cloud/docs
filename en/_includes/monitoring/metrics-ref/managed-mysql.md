@@ -15,7 +15,7 @@ subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-mysql-cpu-metrics}
 
-These metrics show CPU core workload.
+These metrics show the processor core workload.
 
 The consumption type goes into the `systag` label.
 
@@ -55,7 +55,7 @@ The consumption type goes into the `systag` label.
 | `disk.used_percent`<br/>`DGAUGE`, % | Percentage of used space |
 | `disk.used_percent_inodes`<br/>`DGAUGE`, % | Percentage of used inodes |
 
-## Disk operation metrics {#managed-mysql-diskio-metrics}
+## Disk I/O metrics {#managed-mysql-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
@@ -226,9 +226,9 @@ The consumption type goes into the `systag` label.
 | `mysql_config_max_connections`<br/>`DGAUGE`, count | Maximum number of concurrent connections | 
 | `mysql_config_table_open_cache`<br/>`DGAUGE`, count | Number of open tables across all threads | 
 | `mysql_config_thread_cache_size`<br/>`DGAUGE`, number | Number of threads to cache for reuse | 
-| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if the database host is healthy or `0` if it is not. | 
-| `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>It can be either `1` if the database host is a master or `0` if it is not. | 
-| `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>It can be either `1` if a DB host is a replica or `0` if it is not. | 
+| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if the database host is healthy, `0` if not. | 
+| `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>`1` if the database host is a master, `0` if not. | 
+| `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>`1` if the database host is a replica, `0` if not. | 
 | `mysql_latency_query_0.5`<br/>`DGAUGE`, milliseconds | Query execution time, median value | 
 | `mysql_latency_query_0.75`<br/>`DGAUGE`, milliseconds | Query execution time, 75th percentile | 
 | `mysql_latency_query_0.90`<br/>`DGAUGE`, milliseconds | Query execution time, 90th percentile | 

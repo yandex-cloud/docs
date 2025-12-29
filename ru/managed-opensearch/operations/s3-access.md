@@ -40,7 +40,7 @@ description: Из статьи вы узнаете, как настроить д
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хранится нужный бакет. Если бакета не существует — [создайте](../../storage/operations/buckets/create.md) его.
 
 
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите вкладку **{{ ui-key.yacloud.storage.buckets.label_title }}**.
     1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md):
         1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).

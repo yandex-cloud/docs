@@ -5,6 +5,15 @@ description: This section contains {{ mkf-name }} release notes.
 
 # {{ mkf-full-name }} release notes
 
+## November 2025 {#november-2025}
+
+[Kafbat UI](https://ui.docs.kafbat.io/) is now used for Kafka UI.
+
+## October 2025 {#october-2025}
+
+* Added new [metrics](metrics.md): `can_read`, `can_write`, `kafka_topic_partition_low_water_mark`, and `kafka_topic_partition_high_water_mark`.
+* Added new [host classes](concepts/instance-types.md): AMD Zen 4 and AMD Zen 4 HighFreq.
+
 ## September 2025 {#september-2025}
 
 * Added a new [service role](security/index.md#managed-kafka-interface-user), `managed-kafka.interfaceUser`, that enables you to use the {{ kafka-ui }}.
@@ -35,7 +44,7 @@ Added the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** section to 
 
 ## March 2025 {#mar-2025}
 
-* Added support for the new {{ KF }} 3.7, 3.8, and 3.9. These versions are available in the `PRODUCTION` environment. For more information about revisions, see the [{{ KF }} documentation](https://kafka.apache.org/documentation.html).
+* Added support for the new {{ KF }} 3.7, 3.8, and 3.9. These versions are available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} guide](https://kafka.apache.org/documentation.html).
 * Starting March 1, 2025, support for {{ KF }} versions 2.8, 3.0, 3.1, 3.2, and 3.3 is discontinued. You cannot create a cluster with these versions.
 
 ## July 2024 {#jul-2024}
@@ -48,11 +57,11 @@ Now you can [replace the availability zone](./operations/host-migration.md) for 
 
 ## Q4 2023 {#q4-2023}
 
-New {{ KF }} version 3.5.1 is available in the `PRODUCTION` environment. For more information about revisions, see the [{{ KF }} 3.5.0 documentation](https://archive.apache.org/dist/kafka/3.5.0/RELEASE_NOTES.html) and the [{{ KF }} 3.5.1 documentation](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html).
+New {{ KF }} version 3.5.1 is available in the `PRODUCTION` environment. For more information about revisions, see [this {{ KF }} 3.5.0 guide](https://archive.apache.org/dist/kafka/3.5.0/RELEASE_NOTES.html) and this [{{ KF }} 3.5.1 guide](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html).
 
 ## Q2 2023 {#q2-2023}
 
-New {{ KF }} version 3.4 is available in the `PRODUCTION` environment. For more information about revisions, see the [{{ KF }} documentation](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html).
+New {{ KF }} version 3.4 is available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} guide](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html).
 
 ## Q1 2023 {#q1-2023}
 

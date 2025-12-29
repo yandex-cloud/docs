@@ -147,8 +147,8 @@ metadata:
 
 | Annotation and description |
 |------------|
-| `gwin.yandex.cloud/subnets` <br> _(comma separated strings)_ <br> Subnets of the zones where load balancer will be instantiated. <br> Example: `subnet-id-1,subnet-id-2` |
-| `gwin.yandex.cloud/securityGroups` <br> _(comma separated strings)_ <br> Security groups of load balancer. <br> Example: `"sg-id-1,sg-id-2"` |
+| `gwin.yandex.cloud/subnets` <br> _(comma separated strings)_ <br> [Subnets](https://yandex.cloud/en/docs/vpc/concepts/network#subnet) of the zones where load balancer will be instantiated. <br> By default, the balancer is placed in the mk8s cluster subnets. You can override this behavior by configuring `controller.defaultBalancerSubnets` in the Helm chart values. <br> Example: `subnet-id-1,subnet-id-2` |
+| `gwin.yandex.cloud/securityGroups` <br> _(comma separated strings)_ <br> [Security groups](https://yandex.cloud/en/docs/vpc/concepts/security-groups) of load balancer. <br> By default, the balancer network’s default security group is used. <br> Example: `sg-id-1,sg-id-2` |
 | `gwin.yandex.cloud/allowZonalShift` <br> _(boolean)_ <br> Specifies whether application load balancer is available to zonal shift. Read more about concept [here](https://yandex.cloud/en/docs/application-load-balancer/operations/manage-zone/allow-and-deny-shift). <br> Example: `true` |
 
 #### Cloud Logging

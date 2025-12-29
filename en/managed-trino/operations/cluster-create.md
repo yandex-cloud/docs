@@ -7,7 +7,7 @@ keywords:
   - '{{ TR }}'
 ---
 
-# Creating a {{ TR }} cluster
+# Creating an {{ TR }} cluster
 
 Each {{ mtr-name }} cluster consists of a set of {{ TR }} components: a [coordinator](../concepts/index.md#coordinator) and workers – potentially several instances of these.
 
@@ -16,8 +16,10 @@ Each {{ mtr-name }} cluster consists of a set of {{ TR }} components: a [coordin
 To create a {{ mtr-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
 * [managed-trino.admin](../security.md#managed-trino-admin): To create a cluster.
-* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) to use the cluster [network](../../vpc/concepts/network.md#network).
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) to attach a service account to a cluster.
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
+* [{{ roles-logging-reader }}](../../logging/security/index.md#logging-reader): To view cluster logs.
+* [logging.editor](../../logging/security/index.md#logging-editor): To manage cluster logging settings.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To attach a service account to a cluster.
 
 Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the cluster's [service account](../../iam/concepts/users/service-accounts.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
@@ -55,8 +57,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         1. Select an **Object type for retry**.
            * **Task**: Retries the intermediate task within the query that caused worker failure.
            * **Query**: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
-        1. Optionally, specify additional parameters in `key: value` format in the **Retry parameters** field. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-        1. Optionally, specify additional Exchange Manager storage parameters in `key: value` format in the **Storage parameters** field. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+        1. Optionally, specify additional parameters in `key: value` format in the **Retry parameters** field. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        1. Optionally, specify additional Exchange Manager storage parameters in `key: value` format in the **Storage parameters** field. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
     1. Configure the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add the required [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
@@ -123,7 +125,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-    1. See the description of the CLI command for creating a cluster:
+    1. View the description of the CLI command for creating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster create --help
@@ -219,9 +221,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `task`: Retries the intermediate task within the query that caused worker failure.
             * `query`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
 
-        * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. For more information about parameters, see the [{{ TR }} documentation]({{ tr.docs}}/admin/fault-tolerant-execution.html#advanced-configuration).
+        * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. For more information about parameters, see [this {{ TR }} guide]({{ tr.docs}}/admin/fault-tolerant-execution.html#advanced-configuration).
         * `--retry-policy-exchange-manager-service-s3`: Use an S3 storage to write data when retrying queries.
-        * `--retry-policy-exchange-manager-additional-properties`: Additional storage parameters in `<key>=<value>` format. For more information about parameters, see the [{{ TR }} documentation]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).
+        * `--retry-policy-exchange-manager-additional-properties`: Additional storage parameters in `<key>=<value>` format. For more information about parameters, see [this {{ TR }} guide]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).
 
     1. To set up a maintenance window (including for disabled clusters), provide the required value in the `--maintenance-window` parameter:
 
@@ -287,7 +289,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -387,9 +389,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
                   * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
 
-               * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+               * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
-               * `additionalProperties`: Additional parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+               * `additionalProperties`: Additional parameters in `key: value` format. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
             
             * `version`: {{ TR }} version.
 
@@ -418,7 +420,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `logging`: Logging parameters:
 
             * `enabled`: Enables logging. Logs generated by {{ TR }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
-            * `minLevel`: Minimum logging level. The possible values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and`FATAL`.
+            * `minLevel`: Minimum logging level. The possible values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
             * `folderId`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `logGroupId`: Custom log group ID. Logs will be written to this group.
 
@@ -438,7 +440,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -540,9 +542,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
                   * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
 
-               * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+               * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
-               * `additional_properties`: Additional parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+               * `additional_properties`: Additional parameters in `key: value` format. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
             
             * `version`: {{ TR }} version.
 
@@ -571,7 +573,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `logging`: Logging parameters:
 
             * `enabled`: Enables logging. Logs generated by {{ TR }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
-            * `min_level`: Minimum logging level. The possible values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and`FATAL`.
+            * `min_level`: Minimum logging level. The possible values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
             * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `log_group_id`: Custom log group ID. Logs will be written to this group.
 

@@ -5,7 +5,7 @@ description: This article describes the format {{ search-api-name }}'s generativ
 
 # Generative response
 
-You can use {{ search-api-name }} text search together with [{{ yagpt-name }}'s](../../ai-studio/concepts/generation/index.md) generative AI capabilities to get a single concise and coherent _generative response_ to your query, to generate which the neural network analyzes relevant {{ search-api-name }} text search results across specified websites. The response can be generated in Russian, Kazakh and Uzbek. The generation language depends on the search type and query language.
+You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](../../ai-studio/concepts/generation/index.md)'s  generative AI capabilities to get a single concise and coherent _generative response_ to your query, to generate which the neural network analyzes relevant {{ search-api-name }} text search results across specified websites. The response can be generated in Russian, Kazakh and Uzbek. The generation language depends on the search type and query language.
 
 By default, you can send no more than one synchronous query per second to get a generative response. For more information about {{ search-api-name }} limits, see [{#T}](./limits.md).
 
@@ -95,17 +95,17 @@ Each query seeking a generative response must contain the following request body
   {% include [gen-response-legend-part1](../../_includes/search-api/gen-response-legend-part1.md) %}
 
   * `folderId`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-  * `fixMisspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixedMisspellQuery` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values are `true` or `false`.
-  * `enableNrfmDocs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enableNrfmDocs` to `true`. This is an optional parameter. The possible values are `true` or `false`.
-  * `searchFilters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional parameter. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
+  * `fixMisspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixedMisspellQuery` field is added to the response, containing the fixed query text that was sent to the model. This is an optional setting. The possible values are `true` or `false`.
+  * `enableNrfmDocs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enableNrfmDocs` to `true`. This is an optional setting. The possible values are `true` or `false`.
+  * `searchFilters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional setting. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
   * `searchType`: Search type, affects the search area and response language. The possible values are:
   
     * `SEARCH_TYPE_RU`: For the `Russian` search type. The response will be generated in Russian.
-    * `SEARCH_TYPE_KK`: For the `Kazakh` search type. If your query is in Russian, the response will be generated in Russian; if your query is in Kazakh, the response will be generated in Kazakh.
-    * `SEARCH_TYPE_UZ`: For the `Uzbek` search type. If your query is in Russian, the response will be generated in Russian; if your query is in Uzbek, the response will be generated in Uzbek.
+    * `SEARCH_TYPE_KK`: For the `Kazakh` search type.
+    * `SEARCH_TYPE_UZ`: For the `Uzbek` search type.
   
-  * `getPartialResults`: Decides whether to send intermediate response generation results or to wait for the final generation results and send the whole response. This is an optional parameter. The possible values are `true` or `false`. The default value is `false`.
-  * `metadata`: Additional search parameters. This is an optional parameter.
+  * `getPartialResults`: Decides whether to send intermediate response generation results or to wait for the final generation results and send the whole response. This is an optional setting. The possible values are `true` or `false`. The default value is `false`.
+  * `metadata`: Additional search parameters. This is an optional setting.
 
   {% cut "Request body example:" %}
 
@@ -206,17 +206,18 @@ Each query seeking a generative response must contain the following request body
   {% include [gen-response-legend-part1](../../_includes/search-api/gen-response-legend-part1.md) %}
 
   * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-  * `fix_misspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixed_misspell_query` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values are `true` or `false`.
-  * `enable_nrfm_docs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enable_nrfm_docs` to `true`. This is an optional parameter. The possible values are `true` or `false`.
-  * `search_filters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional parameter. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
+  * `fix_misspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixed_misspell_query` field is added to the response, containing the fixed query text that was sent to the model. This is an optional setting. The possible values are `true` or `false`.
+  * `enable_nrfm_docs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enable_nrfm_docs` to `true`. This is an optional setting. The possible values are `true` or `false`.
+  * `search_filters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional setting. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
   * `search_type`: Search type, affects the search area and response language. The possible values are:
   
     * `SEARCH_TYPE_RU`: For the `Russian` search type. The response will be generated in Russian.
-    * `SEARCH_TYPE_KK`: For the `Kazakh` search type. If your query is in Russian, the response will be generated in Russian; if your query is in Kazakh, the response will be generated in Kazakh.
-    * `SEARCH_TYPE_UZ`: For the `Uzbek` search type. If your query is in Russian, the response will be generated in Russian; if your query is in Uzbek, the response will be generated in Uzbek.
+    * `SEARCH_TYPE_KK`: For the `Kazakh` search type.
+    * `SEARCH_TYPE_UZ`: For the `Uzbek` search type.
   
-  * `get_partial_results`: Decides whether to send intermediate response generation results or to wait for the final generation results and send the whole response. This is an optional parameter. The possible values are `true` or `false`. The default value is `false`.
-  * `metadata`: Additional search parameters. This is an optional parameter.
+  * `get_partial_results`: Decides whether to send intermediate response generation results or to wait for the final generation results and send the whole response. This is an optional setting. The possible values are `true` or `false`. The default value is `false`.
+  * `metadata`: Additional search parameters. This is an optional setting.
+  
   {% cut "Request body example:" %}
 
   ```json
@@ -377,11 +378,11 @@ Provide the search query text in the `.run` method and use the relevant `search_
 
         Unlike `site`-based restrictions, `host`-based restrictions do not apply to subdomains. You also cannot provide a specific path to the search area in the `host` property.
     * `url`: Restricts the search to a specific array of pages, e.g., `{{ link-docs }}/serverless-containers/concepts/container` and `{{ link-docs }}/container-registry/concepts/docker-image`. Not more than 10 pages per search.
-* `fix_misspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixed_misspell_query` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values are `true` or `false`.
-* `enable_nrfm_docs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enable_nrfm_docs` to `true`. This is an optional parameter. The possible values are `true` or `false`.
-* `search_filters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional parameter.
+* `fix_misspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixed_misspell_query` field is added to the response, containing the fixed query text that was sent to the model. This is an optional setting. The possible values are `true` or `false`.
+* `enable_nrfm_docs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enable_nrfm_docs` to `true`. This is an optional setting. The possible values are `true` or `false`.
+* `search_filters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional setting.
 
-For the {{ ml-sdk-name }} library source code and use cases, visit [this GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk). You can learn more about {{ ml-sdk-full-name }} in [this {{ ai-studio-name }} guide](../../ai-studio/sdk/index.md).
+For the {{ ml-sdk-name }} library source code and use cases, visit [this GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk). For more information about {{ ml-sdk-full-name }}, see [this {{ ai-studio-name }} guide](../../ai-studio/sdk/index.md).
 
 ## Generative response {#response}
 

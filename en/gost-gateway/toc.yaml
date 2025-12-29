@@ -5,3 +5,5 @@ items:
     items:
       - name: About {{ gost-gateway-name }}
         href: concepts/index.md
+  - name: Pricing policy
+    href: pricing.md
