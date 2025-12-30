@@ -478,7 +478,7 @@ Optional:
 
 Required:
 
-- `disk_size_limit` (Number) Maximum possible size of disk in bytes.
+- `disk_size_limit` (Number) Maximum possible size of disk in gigabytes.
 
 Optional:
 
