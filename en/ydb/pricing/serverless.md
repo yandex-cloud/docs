@@ -150,11 +150,18 @@ Actual (on-demand) consumption of RUs per month will be:
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
-Monthly prices are provided for a 30-day month. The price is higher for shorter months and lower for longer months.
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|ydb }}']}
+    skuIds={['{{ pc|ydb.v1.serverless.requests }}', '{{ pc|ydb.v1.serverless.provisioned_rcu }}', 
+    '{{ pc|ydb.v1.serverless.storage }}', '{{ pc|ydb.db.backup.v1 }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

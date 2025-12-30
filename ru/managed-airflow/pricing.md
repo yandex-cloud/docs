@@ -40,6 +40,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Веб-сервер**: 1 экземпляр конфигурации `standard`: 1 × 100% vCPU, 4 ГБ RAM.
@@ -71,21 +73,16 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Вычислительные ресурсы кластера {#prices-computing-resources}
 
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-prices](../_pricing/managed-airflow/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-prices](../_pricing/managed-airflow/kzt.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.apache_airflow }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

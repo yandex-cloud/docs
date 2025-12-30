@@ -95,6 +95,6 @@ Let's create a workbook with a dataset. For source objects, we will use a [ready
 
 1. In the **Sample Superstore Copy** workbook, go to the **All objects** tab and delete everything except **Sample Superstore. Connection** and **Sample Superstore Dataset**. Do it by clicking ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **Delete** next to each object.
 
-Now your **Sample Superstore Copy** workbook only contains the connection called **Sample Superstore Connection** and the dataset called **Sample Superstore Dataset**. You can create charts and a dashboard in the workbook.
+Now your **Sample Superstore Copy** workbook only contains the connection called **Sample Superstore. Connection** and the dataset called **Sample Superstore Dataset**. You can create charts and a dashboard in the workbook.
 
 ![image](../../_assets/datalens/migration/store-workbook-copy.png)

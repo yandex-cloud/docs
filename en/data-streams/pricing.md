@@ -21,6 +21,8 @@ editable: false
 
 The pricing model is set individually for each data stream. By default, new {{ yds-name }} data streams use the provisioned capacity pricing model.
 
+Size of unit of written data is 40 KB.
+
 ## Provisioned capacity pricing model {#rules}
 
 In provisioned capacity mode, billing is based on allocated resources for data stream processing and the actually written data.
@@ -47,42 +49,23 @@ The cost of data processing per month (for a 31-day month) will be:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Price per write unit {#event}
-
-The first 2,000,000 units of written data per month are free of charge.
 
 
 
-
-{% include [usd.md](../_pricing/data-streams/usd-event.md) %}
-
-
-### Provisioned resource pricing {#resources}
-
-### Retention-based pricing {#time-limit}
-
-The price is specified per 1 hour of provisioned resource usage:
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|yds }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
+If the data storage time is 1 hour, the time of resource usage by multiple streams is summed up. For example, if two streams are running 24/7 during a month, the time of resource usage will be 2 × 24 × 30 = 1.440 hours. The first 744 hours are free of charge. They will be used up by the two streams in half a month. After that, you will start to be charged for the service.
 
+With extended storage time, data is stored for up to 7 days.
 
-
-#### Storage pricing with a segment throughput limit up to 1 MB/s {#up-to-1}
-
-
-
-
-{% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
-
-
-### Storage volume-based pricing {#storage-limit}
-
-Data is retained for up to 7 days.
-
-
-
-
-{% include [usd.md](../_pricing/data-streams/usd-resources-storage-limit.md) %}
+With the storage limit provided, the minimum storage capacity is 50 GB per segment.
 
 
 ## On-demand pricing {#on-demand}

@@ -270,9 +270,8 @@ You can grant access to your dashboard to other users:
 1. [Add](./security/add-new-user.md) users with a Yandex account to {{ datalens-short-name }}:
 
    1. In the left-hand panel, select ![image](../_assets/console-icons/sliders.svg) **Service settings**.
-   1. Under **User management**, click **Invite users**.
-
-      ![service-settings](../_assets/datalens/quickstart/service-settings.png)
+   1. Select the **Users** tab.
+   1. Under **Invite users**, do the following.
 
    1. Enter the email addresses of the users you want to invite, e.g., `{{ login-example }}`.
 
@@ -280,7 +279,9 @@ You can grant access to your dashboard to other users:
 
    1. Click **Send invitation**.
 
-   Once the user accepts the invitation and selects the account for login, they can log in to your organization and start using {{ datalens-short-name }}. The user will get the `{{ roles-datalens-creator }}` role in the organization with the current {{ datalens-short-name }} instance.
+   Once the user accepts the invitation and selects the account for login, they can log in to your organization and start using {{ datalens-short-name }}. The user will get the `{{ roles-datalens-creator }}` role in the organization with the current {{ datalens-short-name }} instance. To log in to {{ datalens-short-name }}, the user will need a [seat](./settings/seats.md).
+
+      ![image](../_assets/datalens/settings/users-settings.png)
 
 1. [Configure access permissions](./workbooks-collections/security.md) for a workbook:
 

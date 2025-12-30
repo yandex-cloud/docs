@@ -43,6 +43,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Драйвер**: два экземпляра конфигурации `standard`, [класс хоста](concepts/instance-types.md) `c4-m16`, фиксированное количество: 4 vCPU, 16 ГБ RAM.
@@ -77,20 +79,15 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Вычислительные ресурсы кластера {#prices-computing-resources}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|spark }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts](../_pricing/managed-spark/rub-hosts.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts](../_pricing/managed-spark/kzt-hosts.md) %}
-
-{% endlist %}
 
 
 

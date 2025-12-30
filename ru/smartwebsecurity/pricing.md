@@ -94,42 +94,7 @@ editable: false
   
 * Обработка правилами в режиме Dry run, если запрос достиг защищаемого ресурса.
 
-#### Запросы, обработанные правилами профиля безопасности {#requests-smart}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-requests](../_pricing/smartwebsecurity/rub-requests.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-requests](../_pricing/smartwebsecurity/kzt-requests.md) %}
-
-{% endlist %}
-
-
-
-#### Запросы, обработанные правилами WAF {#requests-waf}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-requests](../_pricing/smartwebsecurity/rub-requests-waf.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-requests](../_pricing/smartwebsecurity/kzt-requests-waf.md) %}
-
-{% endlist %}
-
-
-
 Чтобы дополнительно использовать защиту от DDoS-атак на уровнях 3 и 4 модели OSI, подключите [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). При этом будет взиматься оплата за [публичный IP-адрес](../vpc/pricing.md#prices-public-ip) и [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).
-
 
 #### Ресурсы прокси-сервера {#proxy-resources}
 
@@ -152,29 +117,23 @@ editable: false
 
 Защита трафика от DDoS-атак на уровнях L3–L4 тарифицируется по объему [легитимного](concepts/rules.md#rule-action) трафика в ГБ.
 
-{% note warning %}
 
-Цены на ресурсы прокси-сервера действуют с 10 ноября 2025 года.
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|sws }}']}
+    excludeSkuIds={['{{ pc|sws.waf.profile.v1 }}', '{{ pc|sws.arl.requests.v1 }}', '{{ pc|sws.arl.profile.v1 }}', '{{ pc|sws.waf.exclusion_rule.v1 }}', '{{ pc|sws.arl.rule.v1 }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% endnote %}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-domain](../_pricing/smartwebsecurity/rub-domain.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-domain](../_pricing/smartwebsecurity/kzt-domain.md) %}
-
-{% endlist %}
 
 
 
 
 #### Пример расчета стоимости {{ sws-name }} по запросам {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 {% cut "Готовые расчеты стоимости запросов" %}
 

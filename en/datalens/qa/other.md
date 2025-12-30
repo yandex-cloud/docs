@@ -6,7 +6,7 @@ description: This page covers FAQ about {{ datalens-name }}.
 # Other
 
 
-### Can I get logs of my operations in {{ yandex-cloud }}? {#logs}
+### How do I get the logs of my activity in the services? {#logs}
 
 You can get {{ yandex-cloud }} service logs on your own by connecting to [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md).
 
@@ -14,11 +14,15 @@ You can get {{ yandex-cloud }} service logs on your own by connecting to [{{ dat
 
 ### Can I install {{ datalens-short-name }} locally inside the company? {#datalens-local}
 
-{{ datalens-short-name }} is offered only as a cloud service. We would also like to note:
+{{ datalens-short-name }} offers the following deployment options:
 
-* {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. For more information, see [{{ yandex-cloud }} security](/security).
+* {{ datalens-short-name }} Enterprise can be deployed within the customer’s on-premise infrastructure for team collaboration. [Submit request]({{ link-datalens-main }}/#enterpise).
+* {{ datalens-full-name }} as a cloud service. Please, note:
 
-* For {{ datalens-short-name }}, you can [set up identity federations](../../organization/quickstart.md).
+  * {{ datalens-full-name }} is a {{ yandex-cloud }} service compliant with Federal Law No. 152 and industry security standards. For more information, see [{{ yandex-cloud }} security](/security).
+  * For {{ datalens-full-name }}, you can [set up an identity federation](../../organization/quickstart.md).
+
+* [{{ datalens-short-name }} Open Source]({{ link-datalens-main }}/opensource/) can be deployed locally for trial use with limited functionality.
 
 ### Why is the cloud with a {{ datalens-short-name }} instance blocked? {#datalens-suspended}
 
@@ -43,5 +47,6 @@ Learn more in [Automatic cloud suspension](../../overview/concepts/data-deletion
 {% include [main-page-error](../../_qa/datalens/main-page-error.md) %}
 
 ### What browser versions are supported by {{ datalens-short-name }}? {#browser-versions}
+
 
 {{ datalens-short-name }} supports the two latest major browser versions. For more information, see the [list of versions](https://browsersl.ist/#q=last+2+major+versions+and+last+2+years+and+fully+supports+es6+and+%3E+0.05%25%0Anot+dead%0Anot+op_mini+all%0Anot+and_qq+%3E+0%0Anot+and_uc+%3E+0%0AFirefox+ESR%0AChrome+%3E+0+and+last+2+years+and+%3E+0.05%25%0ASafari+%3E+0+and+last+2+years+and+%3E+0.05%25%0AFirefox+%3E+0+and+last+2+years+and+%3E+0.01%25).

@@ -5,7 +5,7 @@ sourcePath: en/_openapi/openai-compatible/files/index.md
 
 # REST: Files
 
-Files are used to upload documents that can be used with features like Assistants and Fine-tuning.
+Files are used to upload documents.
 
 ## Methods
 

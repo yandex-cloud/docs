@@ -5,35 +5,40 @@ description: In this tutorial, you will learn how to create and customize the in
 
 # Indicator ![](../../_assets/datalens/indicator.svg) in {{ datalens-full-name }}
 
-An indicator reflects the value of a single key measure. You can use several measures to build a more [complex](#markup-indicator) and meaningful indicator.
+An indicator reflects the value of a single key measure. To build a more [complex](#markup-indicator) and meaningful indicator, use several measures.
 
-You may want to use indicators when a dashboard contains values you need to monitor on a regular basis to understand the general picture. This could be, for example, the number of incidents for the previous day, plan performance percentage, or year-on-year sales growth.
+* You may want to use indicators when a dashboard contains values you need to monitor on a regular basis to understand the general picture. This could be, for example, the number of incidents for the previous day, plan performance percentage, or year-on-year sales growth.
 
-Indicators are most commonly placed at the top or on the right side of a dashboard. Put no more than six indicators per screen so they remain in focus without confusing the user. Use indicators of different sizes to build a hierarchy of metrics according to their significance.
+* Indicators are most commonly placed at the top or on the right side of a dashboard. Add no more than six indicators per screen so they remain in focus without confusing the user. Adjust widget sizes to reflect the importance of different metrics.
 
-![indicator-chart](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart.png)
+  ![indicator-chart](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart.png)
 
-You can set up the size and color of an indicator.
+* You can set up the size and color of an indicator.
 
-![indicator-chart-red](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-red.png)
+  {% list tabs %}
 
-{% cut "Source table" %}
+  - Visualization
 
-Year |	Sales|	
------|---------| 
-2022|	6M |	
-2021|	28M |	
-2020|	18M |	
-2019|	9M | 
-2018|	1M |
+    ![indicator-chart-red](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-red.png)
 
-{% endcut %}
+  - Source table
+
+    Year |	Sales|	
+    -----|---------| 
+    2022|	6M |	
+    2021|	28M |	
+    2020|	18M |	
+    2019|	9M | 
+    2018|	1M |
+
+  {% endlist %}
+
 
 ## Wizard sections {#wizard-sections}
 
 Wizard<br/> section| Description
 ----- | ----
-Measure  | Measure. One measure that determines the indicator value.
+Measure | Measure. One measure that determines the indicator value.
 Filters | Dimension or measure. Used as a filter.
 
 ## Creating an indicator {#create-diagram}
@@ -44,10 +49,10 @@ To create an indicator:
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
-1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select the **Indicator** chart type.
 1. Drag a dimension or measure from the dataset to the **Measure** section. The value is displayed as a number.
 
@@ -186,8 +191,4 @@ COLOR(SIZE('Tableau', '20px'), '#4D5DAB')
 
   ![indicator-chart-context](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-context.png)
 
-#### See also {#see-also}
-
-* [{#T}](../operations/dashboard/create.md)
-* [{#T}](../operations/dashboard/add-chart.md)
-* [{#T}](../operations/dashboard/add-selector.md)
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

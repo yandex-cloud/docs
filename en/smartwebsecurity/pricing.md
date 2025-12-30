@@ -84,23 +84,6 @@ You pay for the actual number of legitimate requests. For each request, you pay 
   
 * Processing by rules in the dry run mode if the request has reached the protected resource.
 
-#### Requests processed by security profile rules {#requests-smart}
-
-
-
-{% include [usd-requests](../_pricing/smartwebsecurity/usd-requests.md) %}
-
-
-#### Requests processed by WAF rules {#requests-waf}
-
-
-
-{% include [usd-requests](../_pricing/smartwebsecurity/usd-requests-waf.md) %}
-
-
-To use additional protection against DDoS attacks at OSI layers 3 and 4, enable [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). In this case, you will be billed for using the [public IP address](../vpc/pricing.md#prices-public-ip) and [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).
-
-
 #### Proxy server resources {#proxy-resources}
 
 When using domains, you pay for the actual usage of the computing resources of each active proxy server and for traffic protection from DDoS attacks at levels L3–L4.
@@ -122,15 +105,17 @@ The proxy server fee is per hour. You are charged for the minimum number of reso
 
 Traffic protection from DDoS attacks at levels L3–L4 is charged based on the amount of [legitimate](concepts/rules.md#rule-action) traffic in GB.
 
-{% note warning %}
-
-Proxy server resource prices are valid from November 10, 2025.
-
-{% endnote %}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|sws }}']}
+    excludeSkuIds={['{{ pc|sws.waf.profile.v1 }}', '{{ pc|sws.arl.requests.v1 }}', '{{ pc|sws.arl.profile.v1 }}', '{{ pc|sws.waf.exclusion_rule.v1 }}', '{{ pc|sws.arl.rule.v1 }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd-domain](../_pricing/smartwebsecurity/usd-domain.md) %}
 
 
 

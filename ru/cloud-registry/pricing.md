@@ -39,26 +39,15 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-{% note warning %}
 
-Цены действуют с 15 сентября 2025 года.
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cloud_registry }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% endnote %}
-
-### Хранение данных {#prices-storage}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/cloud-registry/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/cloud-registry/kzt.md) %}
-
-{% endlist %}
 
 
 

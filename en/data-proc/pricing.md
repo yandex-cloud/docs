@@ -86,20 +86,17 @@ The cost is calculated as follows:
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Host computing resources {#prices-hosts}
-
-#### Standard hosts {#standard-hosts}
 
 
-
-{% include [usd-standard-hosts](../_pricing/data-processing/usd-standard-hosts.md) %}
-
-
-#### Dedicated hosts {#dedicated-hosts}
-
-
-
-{% include [usd-dedicated-hosts](../_pricing/data-processing/usd-dedicated-hosts.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.dataproc }}']}
+    excludeSkuIds={['{{ pc|mdb.dataproc.gpu.ram }}', '{{ pc|mdb.dataproc.gpu.cpu.c100 }}', '{{ pc|mdb.dataproc.gpu.gpu }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

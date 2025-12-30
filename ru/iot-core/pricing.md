@@ -39,6 +39,8 @@ editable: false
 
 ### Пример расчета стоимости {#price-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 {% include [prices-example](../_includes/iot-core/prices-example.md) %}
 
 ## Тарифицируемые команды {#mqtt-commands}
@@ -56,22 +58,17 @@ editable: false
 
 {% include [prices-nds-note](../_includes/prices-nds-note.md) %}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Объем данных {#volumes}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|iot }}']}
+    excludeSkuIds={['{{ pc|iot.mqtt.basic_ingest }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub.md](../_pricing/iot-core/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt.md](../_pricing/iot-core/kzt.md) %}
-
-{% endlist %}
 
 

@@ -47,20 +47,33 @@ editable: false
 
 Тарификация почасовая. Цена за месяц использования указывается для справки из расчета 720 часов в месяц. Значение округлено.
 
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|kms }}']}
+    excludeSkuIds={['{{ pc|kms.api.v1.generatedatakey }}', '{{ pc|kms.api.v1.hsm.encryptdecrypt }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
+
+
+
+
+## Примеры расчета стоимости
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 ### Симметричное шифрование {#symmetric}
 
 
 {% list tabs group=pricing %}
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-symmetric](../_pricing/kms/rub-symmetric.md) %}
+- Расчет в рублях {#prices-rub}
 
   {% include [rub-symmetric](../_pricing_examples/kms/rub-symmetric.md) %}
 
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-symmetric](../_pricing/kms/kzt-symmetric.md) %}
+- Расчет в тенге {#prices-kzt}
 
   {% include [kzt-symmetric](../_pricing_examples/kms/kzt-symmetric.md) %}
 
@@ -74,19 +87,16 @@ editable: false
 
 {% list tabs group=pricing %}
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-asymmetric](../_pricing/kms/rub-asymmetric.md) %}
+- Расчет в рублях {#prices-rub}
 
   {% include [rub-asymmetric](../_pricing_examples/kms/rub-asymmetric.md) %}
 
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-asymmetric](../_pricing/kms/kzt-asymmetric.md) %}
+- Расчет в тенге {#prices-kzt}
 
   {% include [kzt-asymmetric](../_pricing_examples/kms/kzt-asymmetric.md) %}
 
 {% endlist %}
+
 
 
 

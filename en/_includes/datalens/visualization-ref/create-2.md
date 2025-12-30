@@ -1,0 +1,1 @@
+In the left-hand panel, select ![chart](../../../_assets/console-icons/chart-column.svg) **Charts**.

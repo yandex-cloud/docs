@@ -45,18 +45,17 @@ You are charged for disks whether the desktops are running or not.
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Computing resources {#prices-desktop-resources}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cloud_desktop }}']}
+    excludeSkuIds={['{{ pc|cloud_desktop.image.v1 }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd-desktop-resources.md](../_pricing/cloud-desktop/usd-desktop-resources.md) %}
-
-
-### Disks {#prices-storage}
-
-
-
-{% include [usd-storage.md](../_pricing/cloud-desktop/usd-storage.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

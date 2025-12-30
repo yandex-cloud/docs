@@ -75,41 +75,17 @@ Example of calculating the cost of a container with the following properties:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Invoking a container {#prices-invoking}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|serverless-containers }}']}
+    excludeSkuIds={['{{ pc|serverless-containers.compute.ephemeral_disk }}', '{{ pc|serverless-containers.compute.provisioned_request.ephemeral_disk}}', '{{ pc|serverless-containers.compute.provision_enabled.ephemeral_disk }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include notitle [usd-invocation.md](../_pricing/serverless-containers/usd-invocations.md) %}
-
-
-### RAM usage time when processing requests {#prices-ram}
-
-
-
-{% include notitle [usd-ram.md](../_pricing/serverless-containers/usd-ram.md) %}
-
-
-### CPU usage time when processing requests {#prices-cpu}
-
-
-
-{% include notitle [usd-cpu.md](../_pricing/serverless-containers/usd-cpu.md) %}
-
-
-### Provisioned instances {#provisioned-instances}
-
-#### RAM usage time {#prices-ram-provisioned-instances}
-
-
-
-{% include notitle [usd-ram-provisioned-instances.md](../_pricing/serverless-containers/usd-ram-provisioned-instances.md) %}
-
-
-#### CPU usage time {#prices-cpu-provisioned-instances}
-
-
-
-{% include notitle [usd-cpu-provisioned-instances.md](../_pricing/serverless-containers/usd-cpu-provisioned-instances.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

@@ -27,24 +27,35 @@ Tests run by multiple agents are charged as a sum of tests run by each agent.
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+You are charged:
+* based on the test runtime;
+* based on the runtime of tests whose results will be stored.
+
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|load-testing }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
+
+## Cost calculation example {#amount-example}
+
 ### Test running time {#test-time}
 
-You are charged based on the test runtime.
 
-
-
-{% include [test-time-usd](../_pricing/load-testing/test-time-usd.md) %}
 
 {% include [usd-test-time](../_pricing_examples/load-testing/usd-test-time.md) %}
 
 
 ### Storing test results {#test-results-storage}
 
-You are charged based on the runtime of tests whose results will be stored.
 
-
-
-{% include [test-results-usd](../_pricing/load-testing/test-results-usd.md) %}
 
 {% include [usd-test-results](../_pricing_examples/load-testing/usd-test-results.md) %}
+
+
 

@@ -18,7 +18,7 @@ editable: false
 
 Currently, you are charged for writing custom metrics via the [{{ monitoring-short-name }} API](api-ref/index.md) and writing any metrics via the [{{ prometheus-name }} Remote API](operations/prometheus/index.md), as well as reading any metrics via the [{{ monitoring-short-name }} API](api-ref/index.md).
 
-Reading metrics via the {{ prometheus-name }} Remote API is not yet billable.
+Writing {{ yandex-cloud }} resource metric values and reading metrics via the {{ prometheus-name }} Remote API are not billable.
 
 Pricing features:
 * After writing or reading the first 50,000,000 metric values via the {{ monitoring-short-name }} API, the writing fee is reduced. See  for details.
@@ -44,25 +44,22 @@ Pricing features:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-### {{ monitoring-short-name }} API {#monitoring-api}
-
+The minimum billing unit is one metric value. The cost is rounded up to the nearest ₽0.01, ₸0.01 or $0.01.
 
 
 
-The minimum billing unit is one metric value. The cost is rounded to the nearest $0.01.
 
 {% include [usd-api-example](../_pricing_examples/monitoring/usd-api-example.md) %}
 
-{% include [usd.md](../_pricing/monitoring/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|monitoring }}']}
+    excludeSkuIds={['{{ pc|monitoring.alerts.notifications.sms }}', '{{ pc|monitoring.alerts.notifications.phone }}', '{{ pc|monitoring.prometheus.point.remote_api.read }}', '{{ pc|monitoring.point.ui.read }}', '{{ pc|monitoring.metrics.stored }}', '{{ pc|monitoring.point.sp.write }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-
-### {{ prometheus-name }} Remote API {#prometheus-remote-api}
-
-
-
-
-{% include [usd-prometheus.md](../_pricing/monitoring/usd-prometheus.md) %}
 
 
 {% include [trademark](../_includes/monitoring/trademark.md) %}

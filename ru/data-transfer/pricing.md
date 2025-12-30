@@ -46,45 +46,22 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Количество строк, перенесенных трансфером {#data}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|datatransfer }}']}
+    excludeSkuIds={['{{ pc|datatransfer.compute.ram.preview.v1 }}', '{{ pc|datatransfer.rows.preview.v1 }}', '{{ pc|datatransfer.compute.cpu.preview.v1 }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-transfer/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-transfer/kzt.md) %}
-
-{% endlist %}
-
-
-
-### Вычислительные ресурсы {#cpu-ram}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-transfer/rub-cpu.md) %}
-
-  {% include [rub.md](../_pricing/data-transfer/rub-ram.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-transfer/kzt-cpu.md) %}
-
-  {% include [kzt.md](../_pricing/data-transfer/kzt-ram.md) %}
-
-{% endlist %}
 
 
 
 ## Примеры расчета стоимости {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 При расчете стоимости учитывайте, что один [воркер](concepts/index.md#worker) может использовать следующие вычислительные ресурсы:
 

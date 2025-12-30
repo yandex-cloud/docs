@@ -5,6 +5,14 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить видео в плейлист
 
+{% include [video-characteristic](../../../_includes/video/video-characteristic-multiple.md) %}
+
+{% include [video-multi-soundtracks](../../../_includes/video/video-multi-soundtracks.md) %}
+
+{% include [video-resolution-limits](../../../_includes/video/video-resolution-limits.md) %}
+
+Внешним видом плейлиста можно управлять через [шаблоны](../style-presets/create.md).
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ video-name }} {#console}

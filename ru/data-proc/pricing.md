@@ -43,6 +43,8 @@ editable: false
 
 ### Пример расчета стоимости стандартных хостов {#price-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость часа использования кластера из двух подкластеров со следующими параметрами:
 
 * Первый подкластер:
@@ -78,40 +80,17 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Вычислительные ресурсы хостов {#prices-hosts}
 
-#### Стандартные хосты {#standard-hosts}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-standard-hosts](../_pricing/data-processing/rub-standard-hosts.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-standard-hosts](../_pricing/data-processing/kzt-standard-hosts.md) %}
-
-{% endlist %}
-
-
-
-#### Выделенные хосты {#dedicated-hosts}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-dedicated-hosts](../_pricing/data-processing/rub-dedicated-hosts.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-dedicated-hosts](../_pricing/data-processing/kzt-dedicated-hosts.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.dataproc }}']}
+    excludeSkuIds={['{{ pc|mdb.dataproc.gpu.ram }}', '{{ pc|mdb.dataproc.gpu.cpu.c100 }}', '{{ pc|mdb.dataproc.gpu.gpu }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находятся адрес и конфигурация.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}**.
     1. Выберите адрес, к которому хотите привязать конфигурацию.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.

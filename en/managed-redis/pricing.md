@@ -107,25 +107,24 @@ A CVoS discount is only available for certain resource types. For unsupported re
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Host computing resources {#prices-hosts}
-
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
-
-
-{% include [usd-host.md](../_pricing/managed-redis/usd-host.md) %}
-
-
-### Storage and backups {#prices-storage}
-
-
-
-
-{% include [usd-storage.md](../_pricing/managed-redis/usd-storage.md) %}
-
-
 {% include [storage-limitations-mrd](../_includes/mdb/mrd/storage-limitations-note.md) %}
+
+
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.redis }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.redis.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.redis.highfreq-v3.cores }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
+
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

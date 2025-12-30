@@ -45,43 +45,24 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Вычислительные ресурсы {#prices-desktop-resources}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cloud_desktop }}']}
+    excludeSkuIds={['{{ pc|cloud_desktop.image.v1 }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-desktop-resources.md](../_pricing/cloud-desktop/rub-desktop-resources.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-desktop-resources.md](../_pricing/cloud-desktop/kzt-desktop-resources.md) %}
-
-{% endlist %}
-
-
-
-### Диски {#prices-storage}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../_pricing/cloud-desktop/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../_pricing/cloud-desktop/kzt-storage.md) %}
-
-{% endlist %}
 
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 ## Пример расчета стоимости {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Пример расчета стоимости {{ cloud-desktop-name }} за один месяц для группы из десяти рабочих столов следующей конфигурации:
 

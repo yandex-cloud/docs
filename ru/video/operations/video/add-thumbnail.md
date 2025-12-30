@@ -5,6 +5,12 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить обложку для видео
 
+{% include [video-characteristic](../../../_includes/video/video-characteristic-multiple.md) %}
+
+{% include [video-multi-soundtracks](../../../_includes/video/video-multi-soundtracks.md) %}
+
+{% include [video-resolution-limits](../../../_includes/video/video-resolution-limits.md) %}
+
 Чтобы добавить обложку для видео:
 
 {% list tabs group=instructions %}

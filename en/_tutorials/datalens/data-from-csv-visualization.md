@@ -194,7 +194,7 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter superheroes by `
    1. In the top-right corner of the dashboard, click **Save**.
    1. Enter `SuperHeroes dashboard` for the dashboard name and click **Create**.
 
-1. Your dashboard is ready.
+1. Your dashboard is ready for use.
 
    ![image](../../_assets/datalens/solution-01/16-dashboard-saved.png)
 

@@ -81,6 +81,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Хосты {{ PG }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
@@ -148,70 +150,10 @@ editable: false
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
-### Вычислительные ресурсы хостов {#prices-hosts}
-
-
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
-
-
-#### Цены в час {#host-price-per-hour}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host-resources-hourly](../_pricing/managed-postgresql/rub-host-resources-hourly.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host-resources-hourly](../_pricing/managed-postgresql/kzt-host-resources-hourly.md) %}
-
-{% endlist %}
-
-
-
-
-#### Цены в месяц {#host-price-per-month}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host-resources-monthly](../_pricing/managed-postgresql/rub-host-resources-monthly.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host-resources-monthly](../_pricing/managed-postgresql/kzt-host-resources-monthly.md) %}
-
-{% endlist %}
-
-
-
-
-
-
-### Хранилище и резервные копии {#prices-storage}
-
 {% include [ice-lake-local-ssd-note](../_includes/ice-lake-local-ssd-note.md) %}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../_pricing/managed-postgresql/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../_pricing/managed-postgresql/kzt-storage.md) %}
-
-{% endlist %}
-
-
 
 
 Особенности тарификации хранилища резервных копий:
@@ -226,5 +168,19 @@ editable: false
     * [Удалите резервные копии](./operations/cluster-backups.md#delete), созданные вручную.
 
 * {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.pg }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.pg.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.pg.highfreq-v3.cores }}' ]}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
+
+
+
+
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

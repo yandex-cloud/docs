@@ -73,6 +73,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Хосты {{ OS }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
@@ -143,63 +145,21 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Вычислительные ресурсы хостов {#prices-hosts}
-
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-#### Цены в час {#prices-hosts-hour}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-hour.md](../_pricing/managed-opensearch/rub-hosts-hour.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-hour.md](../_pricing/managed-opensearch/kzt-hosts-hour.md) %}
-
-{% endlist %}
-
-
-
-#### Цены в месяц {#prices-hosts-month}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-month.md](../_pricing/managed-opensearch/rub-hosts-month.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-month.md](../_pricing/managed-opensearch/kzt-hosts-month.md) %}
-
-{% endlist %}
-
-
-
-### Хранилище {#prices-storage}
 
 {% include [local-ssd for Intel Ice Lake only on request](../_includes/ice-lake-local-ssd-note.md) %}
 
 
-{% list tabs group=pricing %}
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../_pricing/managed-opensearch/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../_pricing/managed-opensearch/kzt-storage.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.opensearch }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.opensearch.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.opensearch.highfreq-v3.cores }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 

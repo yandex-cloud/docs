@@ -161,6 +161,8 @@ items:
         href: tutorials/data-ingestion.md
       - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
         href: tutorials/api-gw-sws-integration.md
+      - name: Создание AI-агента со стримингом ответа через веб-сокеты
+        href: tutorials/streaming-openai-agent.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

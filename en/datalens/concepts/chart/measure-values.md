@@ -31,7 +31,12 @@ You can edit grouping by table measure names. To do this, drag the `Measure Name
 
 **Example 2**
 
-Let's use the graph to show monthly sales during a year.
+Let's use the chart to show monthly sales during a year.
+
+To display the year’s data, add a filter by sales date. To do this, drag the `Order Date` dimension to **Filters** and set filtering conditions:
+* **Operation**: `Falls within the range`
+* **Start**: `Exact date`, `01.01.2017`
+* **End**: `Exact date`, `31.12.2017`
 
 ![image](../../../_assets/datalens/concepts/measure-values-1.png)
 
@@ -45,7 +50,12 @@ Add labels with measure values to each line. The chart uses two measures, but yo
 
 **Example 3**
 
-Compare the order count and average order value by region. Add the measures to the **Y** section to build a stacked column chart. The `Measure Names` field will be added automatically to the **Colors** section for grouping by measure name.
+Compare the number of orders and average spend by region:
+
+* [Add](../../concepts/calculations/index.md#chart) the `Sales per Order` field with the `sum([Sales])/COUNTD([Product ID])` formula to display the average spend.
+* Drag the `Order ID` dimension from the field list to the **Y** section to display the number of orders; the `Number of unique` aggregation will automatically apply to this dimension.
+
+Add the measures to the **Y** section to build a stacked column chart. The `Measure Names` field will be added automatically to the **Colors** section for grouping by measure name.
 
 ![image](../../../_assets/datalens/concepts/measure-names-4.png)
 

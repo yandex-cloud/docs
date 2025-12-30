@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится адрес.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/list-ul.svg) **{{ ui-key.yacloud.postbox.label_configuration-sets }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
     1. Введите имя и (опционально) описание конфигурации.

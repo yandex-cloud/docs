@@ -5,51 +5,72 @@ description: In this tutorial, you will learn how to create and customize the no
 
 # Normalized stacked area chart ![](../../_assets/datalens/normalized-area.svg) in {{ datalens-full-name }}
 
-A normalized stacked area chart shows variations in the amount each category contributes into a measure over a time interval. Areas are highlighted in different colors and located above each other. The chart shows the percentage of areas and not their absolute value. The width of an area indicates its ratio to the total amount represented as 100%. For example, the percentage of different expenses in the total budget amount.
+A normalized stacked area chart shows variations in the amount each category contributes into a measure over a time interval.
 
-![normalized-area-chart](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-chart.png)
+* Areas are highlighted in different colors and located above each other. The chart shows the percentage of areas and not their absolute value.
 
-{% cut "Source table" %}
+* The width of an area indicates its ratio to the total amount represented as 100%. For example, the percentage of different expenses in the total budget amount.
 
-Month |	Gasoline | Rent  | Food | Utility bills
------ | ---------| ---------- | ---------- | ---------- 
-January 2019	| 100	| 600	| 300	| 500
-February 2019	| 150	| 600	| 250	| 700
-March 2019	| 100	| 600	| 450	| 400
-April 2019	| 120	| 600	| 370	| 510
-May 2019	| 100	| 600	| 300	| 530
-June 2019	| 130	| 600	| 310	| 600
-July 2019	| 150	| 600	| 330	| 510
-August 2019	| 120	| 600	| 250	| 550
-September 2019	| 110	| 650	| 380	| 500
-October 2019	| 120	| 650	| 300	| 550
-November 2019	| 130	| 650	| 310	| 540
-December 2019	| 100	| 650	| 400	| 550
+  {% cut "Example" %}
 
-{% endcut %}
+  {% list tabs %}
 
-This type of chart is used to show a change to the proportion of categories, while their totals are not critical. For example, to show how the percentage of product categories changes in the total sales amount.
+  - Visualization
 
-![normalized-area-chart-subcategory](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-chart-subcategory.png)
+    ![normalized-area-chart](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-chart.png =800x)
 
-{% cut "Source table" %}
+  - Source table
 
-Month |	Home appliances |	Household goods  | Household cleaners
------ | ---------| ---------- | ---------- 
-January 2019|	128K |	55K | 26K
-February 2019|	97K |	79K | 18K
-March 2019|	187K |	105K | 41K
-April 2019|	188K | 137K | 34K
-May 2019|	230K |	121K | 43K
-June 2019|	256K |	162K | 59K
-July 2019|	284K |	206K | 67K	
-August 2019|	409K |	204K | 72K
-September 2019|	314K |	209K | 86K
-October 2019|	324K |	262K | 79K
-November 2019|	385K |	238K | 101K
-December 2019|	451K |	307K | 111K
+    Month |	Gasoline | Rent  | Food | Utility bills
+    ----- | ---------| ---------- | ---------- | ---------- 
+    January 2019	| 100	| 600	| 300	| 500
+    February 2019	| 150	| 600	| 250	| 700
+    March 2019	| 100	| 600	| 450	| 400
+    April 2019	| 120	| 600	| 370	| 510
+    May 2019	| 100	| 600	| 300	| 530
+    June 2019	| 130	| 600	| 310	| 600
+    July 2019	| 150	| 600	| 330	| 510
+    August 2019	| 120	| 600	| 250	| 550
+    September 2019	| 110	| 650	| 380	| 500
+    October 2019	| 120	| 650	| 300	| 550
+    November 2019	| 130	| 650	| 310	| 540
+    December 2019	| 100	| 650	| 400	| 550
 
-{% endcut %}
+  {% endlist %}
+
+  {% endcut %}
+
+* This type of chart is used to show a change to the proportion of categories, while their totals are not critical. For example, to show how the percentage of product categories changes in the total sales amount.
+
+  {% cut "Example" %}
+
+  {% list tabs %}
+
+  - Visualization
+
+    ![normalized-area-chart-subcategory](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-chart-subcategory.png =800x)
+
+  - Source table
+
+    Month |	Home appliances |	Household goods  | Household cleaners
+    ----- | ---------| ---------- | ---------- 
+    January 2019|	128K |	55K | 26K
+    February 2019|	97K |	79K | 18K
+    March 2019|	187K |	105K | 41K
+    April 2019|	188K | 137K | 34K
+    May 2019|	230K |	121K | 43K
+    June 2019|	256K |	162K | 59K
+    July 2019|	284K |	206K | 67K	
+    August 2019|	409K |	204K | 72K
+    September 2019|	314K |	209K | 86K
+    October 2019|	324K |	262K | 79K
+    November 2019|	385K |	238K | 101K
+    December 2019|	451K |	307K | 111K
+
+  {% endlist %}
+
+  {% endcut %}
+
 
 ## Wizard sections {#wizard-sections}
 
@@ -71,10 +92,10 @@ To create a normalized area chart:
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
-1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Normalized area chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as areas along the Y axis.
@@ -84,7 +105,9 @@ To create a normalized area chart:
 
 * {% include [category-text](../../_includes/datalens/datalens-category-text.md) %}
 * Do not display more than three to five areas on the chart.
-* To make it easier to track the dynamics, place the largest or most important categories closer to the chart base. To do this, drag the measure to the **Sorting** section or set up their order in the **Y** section. For example, when comparing budget expenses.
+* To make it easier to track the dynamics, place the largest or most important categories closer to the chart base. To do this, drag the measure to the **Sorting** section or set up their order in the **Y** section.
+
+  For example, when comparing budget expenses.
 
   {% cut "Chart example" %}
 
@@ -96,7 +119,7 @@ To create a normalized area chart:
 
   {% cut "Chart example" %}
 
-  ![normalized-area-rec-2](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-rec-2.png)
+  ![normalized-area-rec-2](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-rec-2.png =800x)
 
   {% endcut %}
 
@@ -104,22 +127,18 @@ To create a normalized area chart:
 
   {% cut "Chart example" %}
   
-  ![normalized-area-rec-3](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-rec-3.png)
+  ![normalized-area-rec-3](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-rec-3.png =800x)
 
   {% endcut %}
 
-* You can split a chart by dimension into a number of small charts that are convenient to compare to one another. To do this, drag a dimension from the dataset to the **Split** section.
+* {% include [split](../../_includes/datalens/visualization-ref/split.md) %}
 
   {% cut "Chart example" %}
 
-  ![normalized-area-chart-split](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-chart-split.png)
+  ![normalized-area-chart-split](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-chart-split.png =800x)
 
   {% endcut %}
 
 * To display the absolute values of variables, use an [area chart](area-chart.md).
 
-#### See also {#see-also}
-
-* [{#T}](../operations/dashboard/create.md)
-* [{#T}](../operations/dashboard/add-chart.md)
-* [{#T}](../operations/dashboard/add-selector.md)
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

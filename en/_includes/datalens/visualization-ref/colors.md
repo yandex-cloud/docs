@@ -1,0 +1,1 @@
+Dimension or measure. Affects the intensity of point fill.

@@ -29,11 +29,16 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Requests to queues {#requests-to-queues}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|ymq }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd.md](../_pricing/message-queue/usd.md) %}
 
 
 For pricing purposes, every 64 KB of request data is considered a separate request. For example, a 63 KB request is charged as one request, while a 65 KB request is charged as two requests (64 + 1).

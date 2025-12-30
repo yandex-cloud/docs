@@ -37,6 +37,8 @@ editable: false
 
 ## Пример расчета стоимости {#price-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Расчет стоимости 65 500 писем в месяц:
 
 
@@ -61,17 +63,15 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|postbox }}']}
+    excludeSkuIds={['{{ pc|postbox.email.size.v1 }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/postbox/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/postbox/kzt.md) %}
-
-{% endlist %}
 
 
 

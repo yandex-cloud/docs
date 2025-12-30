@@ -76,7 +76,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Moscow Populat
 
 Create a [heat map](../../datalens/visualization-ref/choropleth-map-chart.md) [chart](../../datalens/concepts/chart/index.md) to visualize the distribution of population across Moscow districts:
 
-1. On the dataset page, click **Create chart** in the top-right corner.
+1. Click **Create chart** in the top-right corner of the dataset page.
 1. Select the **Map** visualization type.
 
    ![image](../../_assets/datalens/solution-05/05-choose-map.png)
@@ -111,7 +111,7 @@ Create a [heat map](../../datalens/visualization-ref/choropleth-map-chart.md) [c
 
    ![image](../../_assets/datalens/solution-05/10-public.png)
 
-You can share this link with your colleagues, partners, and friends. When opening the chart link, authorization and authentication are not required.
+You can share this link with your colleagues, partners, and friends. To open the chart link, no authorization and authentication are required.
 
 **Also try**:
 

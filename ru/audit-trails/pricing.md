@@ -20,28 +20,28 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+
+
 {% include [prices-nds-note](../_includes/prices-nds-note.md) %}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub](../_pricing/audit-trails/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt](../_pricing/audit-trails/kzt.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|audit-trails }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
 
 
 ### Формула расчета стоимости {#price-formula}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Стоимость доставленных событий уровня сервисов рассчитывается пропорционально их количеству.
 

@@ -63,6 +63,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Хосты {{ VLK }}**: 3 хоста класса `hm3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
@@ -129,67 +131,24 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Вычислительные ресурсы хостов {#prices-hosts}
-
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
-
-#### Цены в час {#host-price-per-hour}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host-hourly](../_pricing/managed-redis/rub-host-hourly.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host-hourly](../_pricing/managed-redis/kzt-host-hourly.md) %}
-
-{% endlist %}
-
-
-
-#### Цены в месяц {#host-price-per-month}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host-monthly](../_pricing/managed-redis/rub-host-monthly.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host-monthly](../_pricing/managed-redis/kzt-host-monthly.md) %}
-
-{% endlist %}
-
-
-
-
-
-### Хранилище и резервные копии {#prices-storage}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../_pricing/managed-redis/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../_pricing/managed-redis/kzt-storage.md) %}
-
-{% endlist %}
-
-
-
-
 {% include [storage-limitations-mrd](../_includes/mdb/mrd/storage-limitations-note.md) %}
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.redis }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.redis.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.redis.highfreq-v3.cores }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
+
+
+
+
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

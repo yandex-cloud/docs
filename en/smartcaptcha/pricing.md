@@ -57,10 +57,17 @@ Examples of {{ captcha-name }} cost calculation:
 
 
 
-{% include [usd](../_pricing/smartcaptcha/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|smart-captcha }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 You pay for the actual number of requests.
 
 {% include [usd-smartcaptcha](../_pricing_examples/smartcaptcha/usd-smartcaptcha.md) %}
+
 
 

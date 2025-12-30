@@ -90,6 +90,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-example](../../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 
@@ -144,117 +146,28 @@ editable: false
 
 {% include [pricing-month-term](../../_includes/mdb/pricing-month-term.md) %}
 
-### Вычислительные ресурсы хостов {#prices-hosts}
-
-
-#### Стандартные хосты {#standard-hosts}
 
 {% include [Доступ к Compute Optimized по запросу](../../_includes/mdb/note-compute-optimized-request.md) %}
 
-Стоимость вычисляется по-разному в зависимости от [конфигурации хостов](../concepts/instance-types.md):
+Стоимость стандартных хостов вычисляется по-разному в зависимости от [конфигурации хостов](../concepts/instance-types.md):
 
-* Для хостов i2 и i3 (`io-optimized`) стоимость складывается из цены за вычислительные ресурсы хостов {{ GP }} (см. таблицу ниже) и [цены за использование программно-ускоренной сети](../../compute/pricing.md#software-accelerated-network).
-* Для хостов других конфигураций оплачиваются только их вычислительные ресурсы:
+* Для хостов i2 и i3 (`io-optimized`) стоимость складывается из цены за вычислительные ресурсы хостов {{ GP }} и [цены за использование программно-ускоренной сети](../../compute/pricing.md).
+* Для хостов других конфигураций оплачиваются только их вычислительные ресурсы.
 
-
-**Цены в час**
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-standard-hour](../../_pricing/managed-greenplum/rub-hosts-standard-hour.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-standard-hour](../../_pricing/managed-greenplum/kzt-hosts-standard-hour.md) %}
-
-{% endlist %}
+Стоимость выделенных хостов начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md) и наценки {{ mgp-name }} на эти ресурсы.
 
 
 
-
-**Цены в месяц**
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-standard-month](../../_pricing/managed-greenplum/rub-hosts-standard-month.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-standard-month](../../_pricing/managed-greenplum/kzt-hosts-standard-month.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.greenplum }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.greenplum.highfreq-v4a.cores.dedicated }}', '{{ pc|mdb.software_accelerated_network.greenplum.highfreq-v3.cores.dedicated }}',]}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
-
-
-
-#### Выделенные хосты {#dedicated-hosts}
-
-{% include [Доступ к Compute Optimized по запросу](../../_includes/mdb/note-compute-optimized-request.md) %}
-
-Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-dedicated](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-dedicated](../../_pricing/managed-greenplum/kzt-hosts-dedicated.md) %}
-
-{% endlist %}
-
-
-
-
-### Хранилище и резервные копии {#prices-storage}
-
-{% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
-
-
-#### Стандартные хосты {#storage-standard}
-
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage-standard](../../_pricing/managed-greenplum/rub-storage-standard.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage-standard](../../_pricing/managed-greenplum/kzt-storage-standard.md) %}
-
-{% endlist %}
-
-
-
-
-#### Выделенные хосты {#storage-dedicated}
-
-Стоимость начисляется из двух компонентов: [цены за хранилище {{ compute-full-name }}](../../compute/pricing.md#prices) и цены {{ mgp-name }} на него. Все цены указаны за 1 ГБ в месяц.
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage-dedicated](../../_pricing/managed-greenplum/rub-storage-dedicated.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage-dedicated](../../_pricing/managed-greenplum/kzt-storage-dedicated.md) %}
-
-{% endlist %}
 
 
 

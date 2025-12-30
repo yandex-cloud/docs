@@ -58,11 +58,19 @@ Calculating cost per hour:
 ## Prices for the Russia region {#prices}
 
 
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
-{% include [usd-lcu.md](../_pricing/application-load-balancer/usd-lcu.md) %}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|alb }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 

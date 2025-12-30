@@ -5,7 +5,7 @@ description: Follow this guide to export and import {{ datalens-full-name }} wor
 
 # Exporting and importing workbooks {{ datalens-full-name }}
 
-In {{ datalens-short-name }}, you can transfer [workbooks](./index.md) between installations using export and import tools. For example, you can export a ready-made workbook with its settings and connections from the cloud {{ datalens-full-name }} to an [open source](https://datalens.tech) installation.
+In {{ datalens-short-name }}, you can move [workbooks](./index.md) between installations using export and import tools. For example, you can export a ready-made workbook with its settings and connections from the cloud {{ datalens-full-name }} to an [open source](https://datalens.tech) installation.
 
 
 {% note info %}
@@ -87,7 +87,7 @@ When transferring workbooks with connections to [managed databases](../concepts/
 {% endnote %}
 
 
-If the workbook import fails, you will get an error [message](./export-and-import.md#import-notifications). Try to fix the error and re-import the workbook.
+If the workbook import fails, you will get an error [message](./export-import-notifications.md#import-notifications). Try to fix the error and re-import the workbook.
 
 
 ## Disabling workbook export {#workbooks-export-disable}

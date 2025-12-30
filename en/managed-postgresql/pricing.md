@@ -128,27 +128,10 @@ A CVoS discount is only available for certain resource types. For unsupported re
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
-### Host computing resources {#prices-hosts}
-
-
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
-
-
-{% include [usd-host-resources.md](../_pricing/managed-postgresql/usd-host-resources.md) %}
-
-
-
-### Storage and backups {#prices-storage}
-
 {% include [ice-lake-local-ssd-note](../_includes/ice-lake-local-ssd-note.md) %}
-
-
-
-
-{% include [usd-storage.md](../_pricing/managed-postgresql/usd-storage.md) %}
-
 
 Pricing for backup storage has the following specifics:
 
@@ -162,5 +145,19 @@ Pricing for backup storage has the following specifics:
     * [Delete the backups](./operations/cluster-backups.md#delete) created manually.
 
 * {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
+
+
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.pg }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.pg.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.pg.highfreq-v3.cores }}' ]}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
+
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

@@ -46,15 +46,16 @@ Price per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} Ã
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### API gateway requests {#request}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|api-gateway }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd.md](../_pricing/api-gateway/usd.md) %}
-
-You pay for the actual number of calls.
-
-> For example, 10,000 calls in excess of the free amount will cost {% calc [currency=USD] {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|number }} / 100 %}, if 1,000,000 calls cost {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }}.
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

@@ -5,8 +5,7 @@ sourcePath: en/_openapi/openai-compatible/files/createFile.md
 
 # REST: Upload file
 
-Upload a file that can be used across various endpoints. Individual files
-can be up to 128 MB.
+Upload a file that can be used across various endpoints. Individual files can be up to 128 MB.
 
 ## HTTP request
 
@@ -25,7 +24,8 @@ POST https://ai.api.cloud.yandex.net/v1/files
 Required field. The File object (not file name) to be uploaded. ||
 || purpose | **enum**
 
-Required field. The intended purpose of the uploaded file. One of: - `assistants`: Used in the Assistants API - `batch`: Used in the Batch API - `fine-tune`: Used for fine-tuning - `vision`: Images used for vision fine-tuning - `user_data`: Flexible file type for any purpose - `evals`: Used for eval data sets
+Required field. The intended purpose of the uploaded file. One of: - `assistants`: Used in the Assistants API - `batch`: Used in the Batch API - `fine-tune`: Used for fine-tuning - `vision`: Images used for vision fine-tuning - `user_data`: Flexible file type for any purpose - `evals`: Used for eval data sets 
+
 
 - `assistants`
 - `batch`
@@ -46,8 +46,7 @@ The expiration policy for a file. By default, files with `purpose=batch` expire 
 ||Field | Description ||
 || anchor | **enum**
 
-Required field. Anchor timestamp after which the expiration policy applies. Supported anchors: `created_at`.'
-
+Required field. Anchor timestamp after which the expiration policy applies. Supported anchors: `created_at`.
 
 - `created_at` ||
 || seconds | **integer**

@@ -87,22 +87,16 @@ Total instance cost calculation:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
-
-### Computing resources of instances {#prices-instance}
-
-The price of computing resources depends on the selected [approval rule](concepts/approval-rules.md) configuration:
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|managed-gitlab }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd-instance-resources.md](../_pricing/managed-gitlab/usd-instance-resources.md) %}
-
-
-### Storage and backups {#prices-storage}
-
-
-
-{% include [usd-storage.md](../_pricing/managed-gitlab/usd-storage.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

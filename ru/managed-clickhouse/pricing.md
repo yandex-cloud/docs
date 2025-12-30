@@ -98,6 +98,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-example](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Хосты {{ CH }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
@@ -146,141 +148,22 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-
-### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
-
-
-{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-
-#### Цены в час {#prices-clickhouse-hour}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch-hour.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host-ch.md](../_pricing/managed-clickhouse/kzt-host-ch-hour.md) %}
-
-{% endlist %}
-
-
-
-
-#### Цены в месяц {#prices-clickhouse-month}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch-month.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host-ch.md](../_pricing/managed-clickhouse/kzt-host-ch-month.md) %}
-
-{% endlist %}
-
-
-
-
-
-
-### Вычислительные ресурсы хостов {{ CH }} Keeper {#prices-keeper}
-
-{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-#### Цены в час {#prices-keeper-hour}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host-keeper-hour.md](../_pricing/managed-clickhouse/rub-host-keeper-hour.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host-keeper-hour.md](../_pricing/managed-clickhouse/kzt-host-keeper-hour.md) %}
-
-{% endlist %}
-
-
-
-
-#### Цены в месяц {#prices-keeper-month}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host-keeper-month.md](../_pricing/managed-clickhouse/rub-host-keeper-month.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host-keeper-month.md](../_pricing/managed-clickhouse/kzt-host-keeper-month.md) %}
-
-{% endlist %}
-
-
-
-
-
-### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
-
-
-{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-{% note info %}
-
 Заказать ресурсы хостов {{ ZK }} с помощью механизма CVoS невозможно.
 
-{% endnote %}
+
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.ch }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.keeper.clickhouse.highfreq-v3.cores }}', '{{ pc|mdb.keeper.clickhouse.v2.cpu.c5 }}', '{{ pc|v1.commitment.selfcheckout.m6.mdb.ch.ram.v4a }}', '{{ pc|mdb.keeper.clickhouse.v1.cpu.c5 }}', '{{ pc|mdb.software_accelerated_network.clickhouse.highfreq-v4a.cores }}' , '{{ pc|mdb.software_accelerated_network.keeper.clickhouse.highfreq-v4a.cores }}', '{{ pc|v1.commitment.selfcheckout.m6.mdb.ch.cpu.c100.v4a }}', '{{ pc|mdb.keeper.clickhouse.v2.cpu.c20 }}', '{{ pc|mdb.keeper.clickhouse.v1.cpu.c20 }}', '{{ pc|mdb.software_accelerated_network.zk.clickhouse.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.clickhouse.highfreq-v3.cores }}', '{{ pc|mdb.software_accelerated_network.zk.clickhouse.highfreq-v3.cores }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host-zoo.md](../_pricing/managed-clickhouse/rub-host-zoo.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host-zoo.md](../_pricing/managed-clickhouse/kzt-host-zoo.md) %}
-
-{% endlist %}
-
-
-
-
-
-### Хранилище и резервные копии {#prices-storage}
-
-{% include [local-ssd для Ice Lake только по запросу](../_includes/ice-lake-local-ssd-note.md) %}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../_pricing/managed-clickhouse/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../_pricing/managed-clickhouse/kzt-storage.md) %}
-
-{% endlist %}
 
 
 

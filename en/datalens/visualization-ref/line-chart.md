@@ -5,88 +5,130 @@ description: In this tutorial, you will learn how to create and customize the li
 
 # Line chart ![](../../_assets/datalens/line.svg) in {{ datalens-full-name }}
 
-This chart displays a change to one or more measures over a time interval. It indicates trends, seasonality, dynamics, and a ratio of multiple measures in a single point in time. A chart is built using points with (X, Y) coordinates that are then connected by a line. 
+The chart shows how one or more measures change over a period of time. The chart line connects points with coordinates (X, Y).
 
-It can show multiple measures with different lines. For example, the basic sales targets, optimistic sales targets, and actual sales can be represented as a dotted, dashed, and solid line, respectively.
+### What you can observe
 
-![line-chart-plan](../../_assets/datalens/visualization-ref/line-chart/line-chart-plan.png)
+The chart depicts trends, seasonal patterns, dynamics, and relationships between multiple measures at a the same point in time.
 
-{% cut "Source table" %}
+Multiple measures can be drawn using different lines on the same chart. For example, the basic sales targets, optimistic sales targets, and actual sales can be represented as a dotted, dashed, and solid line, respectively.
 
-Year |	Sales |	Basic targets |	Optimistic targets
------ | --------- | --------- | --------- 
-January 2019|	209K |	200K |	210K
-February 2019|	194K |	205K |	220K
-March 2019|	333K |	250K |	280K
-April 2019|	359K | 260K |	290K
-May 2019|	394K |	270K |	300K
-June 2019|	477K |	300K |	350K
-July 2019|	557K |	350K |	400K
-August 2019|	685K |	400K |	450K
-September 2019|	609K |	500K |	550K
-October 2019|	665K |	530K |	570K
-November 2019|	724K |	600K |	670K
-December 2019|	869K |	700K |	800K
+{% list tabs %}
 
-{% endcut %}
+- Line chart 
 
-If measure values differ significantly, you can place them on different Y axes. In this case, the values of each measure will be plotted on their own axis. For example, a chart for sales and customer count.
+  ![line-chart-plan](../../_assets/datalens/visualization-ref/line-chart/line-chart-plan.png =800x)
 
-![line-chart-2measures-2y](../../_assets/datalens/visualization-ref/line-chart/line-chart-2measures-2y.png)
+- Source table
 
-{% cut "Source table" %}
+  Year |	Sales |	Basic targets |	Optimistic targets
+  ----- | --------- | --------- | --------- 
+  January 2019|	209K |	200K |	210K
+  February 2019|	194K |	205K |	220K
+  March 2019|	333K |	250K |	280K
+  April 2019|	359K | 260K |	290K
+  May 2019|	394K |	270K |	300K
+  June 2019|	477K |	300K |	350K
+  July 2019|	557K |	350K |	400K
+  August 2019|	685K |	400K |	450K
+  September 2019|	609K |	500K |	550K
+  October 2019|	665K |	530K |	570K
+  November 2019|	724K |	600K |	670K
+  December 2019|	869K |	700K |	800K
 
-| Year | Sales | Number of customers |
-| ----- | ----- | ----- |
-| January 2019 | 298450 | 64 |
-| February 2019 |498052 | 84 |
-| March 2019 | 629201 | 99 |
-| April 2019 | 895075 | 147 |
-| May 2019 | 998557 | 166 |
-| June 2019 | 1050330 | 161 |
-| July 2019 | 1350246 | 244 |
-| August 2019 | 1452550 | 255 |
-| September 2019 | 1716182 | 273 |
-| October 2019 | 1670980 | 300 |
-| November 2019 | 1743450 | 326 |
-| December 2019 | 1935377 | 345 |
+{% endlist %}
 
-{% endcut %}
+### Extra options
 
-This chart lets you compare multiple categories by a single measure. Each category's line has its own color and form. For example, the sales amount for different product categories.
+* **Additional axes**
 
-![line-chart-groupped](../../_assets/datalens/visualization-ref/line-chart/line-chart-groupped.png)
+  When measure values vary greatly, you can use separate Y-axes for each measure.
 
-{% cut "Source table" %}
+  {% cut "Example" %}
 
-Year |	Home appliances |	Household goods  | Household cleaners
------ | ---------| ---------- | ---------- 
-January 2019|	128K |	55K | 26K
-February 2019|	97K |	79K | 18K
-March 2019|	187K |	105K | 41K
-April 2019|	188K | 137K | 34K
-May 2019|	230K |	121K | 43K
-June 2019|	256K |	162K | 59K
-July 2019|	284K |	206K | 67K	
-August 2019|	409K |	204K | 72K
-September 2019|	314K |	209K | 86K
-October 2019|	324K |	262K | 79K
-November 2019|	385K |	238K | 101K
-December 2019|	451K |	307K | 111K
+  {% list tabs %}
 
-{% endcut %}
+  - Sales and customer count chart
 
-If you use a single value on the X axis to build the chart, e.g., the value you got by filtering, the chart will display dots.
+    ![line-chart-2measures-2y](../../_assets/datalens/visualization-ref/line-chart/line-chart-2measures-2y.png =800x)
 
-![line-chart-single-values](../../_assets/datalens/visualization-ref/line-chart/line-chart-single-values.png)
+  - Source table
 
-{% cut "Source table" %}
+    | Year | Sales | Number of customers |
+    | ----- | ----- | ----- |
+    | January 2019 | 298,450 | 64 |
+    | February 2019 |498,052 | 84 |
+    | March 2019 | 629,201 | 99 |
+    | April 2019 | 895,075 | 147 |
+    | May 2019 | 998,557 | 166 |
+    | June 2019 | 1,050,330 | 161 |
+    | July 2019 | 1,350,246 | 244 |
+    | August 2019 | 1,452,550 | 255 |
+    | September 2019 | 1,716,182 | 273 |
+    | October 2019 | 1,670,980 | 300 |
+    | November 2019 | 1,743,450 | 326 |
+    | December 2019 | 1,935,377 | 345 |
 
-Year | Home appliances | Household goods | Household cleaners
------ | ---------| ---------- | ---------- 
-2018 | 25K | 21K | 16K
+  {% endlist %}
 
-{% endcut %}
+  {% endcut %}
+
+
+* **Additional categories**
+
+  The chart allows you to compare several categories based on the same measure. Each category has a line of a different color or shape.
+
+  {% cut "Example" %}
+
+  {% list tabs %}
+
+  - Total sales for different product categories
+
+    ![line-chart-groupped](../../_assets/datalens/visualization-ref/line-chart/line-chart-groupped.png =800x)
+
+  - Source table
+
+    Year |	Home appliances |	Household goods  | Household cleaners
+    ----- | ---------| ---------- | ---------- 
+    January 2019|	128K |	55K | 26K
+    February 2019|	97K |	79K | 18K
+    March 2019|	187K |	105K | 41K
+    April 2019|	188K | 137K | 34K
+    May 2019|	230K |	121K | 43K
+    June 2019|	256K |	162K | 59K
+    July 2019|	284K |	206K | 67K	
+    August 2019|	409K |	204K | 72K
+    September 2019|	314K |	209K | 86K
+    October 2019|	324K |	262K | 79K
+    November 2019|	385K |	238K | 101K
+    December 2019|	451K |	307K | 111K
+
+  {% endlist %}
+
+  {% endcut %}
+
+* **Points instead of lines**
+
+  If using single values on the X-axis, you will see nothing but points on the chart. This may happen due to [filtering](../dashboard/chart-chart-filtration.md).
+
+  {% cut "Example" %}
+
+  {% list tabs %}
+
+  - Individual points
+
+    ![line-chart-single-values](../../_assets/datalens/visualization-ref/line-chart/line-chart-single-values.png =800x)
+
+  - Source table
+
+    Year | Home appliances | Household goods | Household cleaners
+    ----- | ---------| ---------- | ---------- 
+    2018 | 25K | 21K | 16K
+
+  {% endlist %}
+
+  {% endcut %}
+
 
 ## Wizard sections {#wizard-sections}
 
@@ -110,10 +152,10 @@ To create a line chart:
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
-1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Line chart** as your chart type.
 1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as a chart on the Y axis.
@@ -127,22 +169,33 @@ To create a line chart:
 
 ## Recommendations {#recomendations}
 
-* The line chart data perception depends on its proportions. An upward or downward trend may intensify if the chart is compressed and become less evident if it is stretched out. 
-  
-  {% cut "Chart examples" %}
-  
-  ![line-chart-proportions](../../_assets/datalens/visualization-ref/line-chart/line-chart-proportions.png)
+* **Scale.** The line chart data perception depends on its proportions.
+
+  The lines may look steeper (rising or falling sharply) if the chart is compressed over a small segment. If the chart covers a longer segment, the lines appear smoother because the chart is stretched out. 
+
+  {% cut "Example" %}
+
+  {% list tabs %}
+
+  - Steep
+
+    ![line-chart-proportions](../../_assets/datalens/visualization-ref/line-chart/line-chart-proportions-1.png =400x)
+
+  - Smoother
+
+    ![line-chart-proportions](../../_assets/datalens/visualization-ref/line-chart/line-chart-proportions-2.png =400x)
+
+  {% endlist %}
 
   {% endcut %}
   
-* {% include [category-text](../../_includes/datalens/datalens-category-text.md) %}
-* When visualizing multiple measures, select colors carefully. They should be distinguishable and contrasting. We recommend using no more than 3-5 colors per chart. If you want to emphasize one certain measure above the others, highlight it in some bright color.
-* Disable the **Sum in tooltips** option in the [chart settings](../concepts/chart/settings.md#common-settings) if the chart lines represent different entities. For example, the sales amount and the number of customers.
-* Sign measure values on the chart. To do this, drag a measure from the dataset to the **Signatures** section. The chart will display its values.
+  For a closer look at the chart, make the axis longer.
+
+* **Labels.** Use labels to display measure values on the chart. To display values on the chart, drag a measure from the dataset to the **Labels** section.
 
   {% cut "Chart example" %}
 
-  ![line-chart-signatures-1](../../_assets/datalens/visualization-ref/line-chart/line-chart-signatures-1.png)
+  ![line-chart-signatures-1](../../_assets/datalens/visualization-ref/line-chart/line-chart-signatures-1.png =800x)
 
   {% endcut %}
 
@@ -150,25 +203,35 @@ To create a line chart:
 
   {% cut "Chart example" %}
 
-  ![line-chart-signatures-2](../../_assets/datalens/visualization-ref/line-chart/line-chart-signatures-2.png)
+  ![line-chart-signatures-2](../../_assets/datalens/visualization-ref/line-chart/line-chart-signatures-2.png =800x)
 
   {% endcut %}
 
   You can also sign only the last value on the chart by adding a calculated field with the `MAX` function. For more information, see [Demo dashboard](https://datalens.yandex/9fms9uae7ip02?tab=Are).
+
+* {% include [category-text](../../_includes/datalens/datalens-category-text.md) %}
+
+* **Colors.** For multiple measures, choose distinguishable and contrasting colors. Using more than 3-5 colors can make the chart harder to read.
+  To highlight one measure, select the brightest color for it.
+
+* Disable the **Sum in tooltips** option in the [chart settings](../concepts/chart/settings.md#common-settings) if the chart lines represent different entities. For example, the sales amount and the number of customers.
   
-* You can split a chart by dimension into a number of small charts that are convenient to compare to one another. To do this, drag a dimension from the dataset to the **Split** section.
+* {% include [split](../../_includes/datalens/visualization-ref/split.md) %}
 
   {% cut "Chart example" %}
 
-  ![line-chart-split](../../_assets/datalens/visualization-ref/line-chart/line-chart-split.png)
+  ![line-chart-split](../../_assets/datalens/visualization-ref/line-chart/line-chart-split.png =800x)
 
   {% endcut %}
 
-* For better visualization, use formatting in the [dimension](../concepts/chart/settings.md#measure-settings) and [measure](../concepts/chart/settings.md#indicator-settings) setup window. Check the data type for correct sorting and comparison of values. Specify additional parameters. For example, the format and units for numeric data and the number of decimal places for fractions.
+* For better visualization, use formatting in the [dimension](../concepts/chart/settings.md#measure-settings) and [measure](../concepts/chart/settings.md#indicator-settings) setup window.
+  Check the data type for correct sorting and comparison of values. Specify additional parameters. 
+
+  For example, the format and units for numeric data and the number of decimal places for fractions.
   
   {% cut "Example of measure settings" %}
   
-  ![line-chart-measure-settings](../../_assets/datalens/visualization-ref/line-chart/line-chart-measure-settings.png)
+  ![line-chart-measure-settings](../../_assets/datalens/visualization-ref/line-chart/line-chart-measure-settings.png =800x)
 
   {% endcut %}
 
@@ -179,8 +242,4 @@ To create a line chart:
 * [{#T}](../tutorials/datalens.md)
 
 
-#### See also {#see-also}
-
-* [{#T}](../operations/dashboard/create.md)
-* [{#T}](../operations/dashboard/add-chart.md)
-* [{#T}](../operations/dashboard/add-selector.md)
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

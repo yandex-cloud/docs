@@ -41,12 +41,6 @@ A public IP address can have one of the two statuses:
 1. **Active**: When a _dynamic_ or _static_ public IP address is associated with a running cloud resource.
 1. **Inactive**: When a _static_ public IP address is not associated with a cloud resource or it is associated with a stopped resource.
 
-
-
-
-{% include [usd-ip.md](../_pricing/vpc/usd-ip.md) %}
-
-
 The cost of an inactive public static address includes the cost of a public IP address plus the cost of reserving an inactive public static IP address.
 
 For example, the cost of an inactive public static address will be:
@@ -62,31 +56,27 @@ For example, the cost of an inactive public static address will be:
 You will be charged per hour of NAT gateway usage and for outgoing traffic via the gateway. Charges will apply as soon as you add a gateway to a route table.
 
 
+#### {{ ddos-protection-full-name }} {#prices-ddos-protection}
 
+Legitimate traffic is incoming traffic that passes through the DDoS Protection system to the user's cloud resources. You are only charged for the legitimate traffic.
 
-{% include notitle [usd-egress-nat.md](../_pricing/vpc/usd-egress-nat.md) %}
+For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded 2 GB of legitimate files from the internet to the VM. When the attack ended, the user downloaded another 2 GB of legitimate files. 
 
-
-##### Outgoing traffic via NAT gateways {#nat-gateway-egress-traffic}
-
-Outgoing traffic via a NAT gateway exceeding 100 GB per month is billable.
-
-Please note that the traffic transmitted via a NAT gateway is charged separately from other [outgoing traffic](#prices-traffic) but according to the same pricing policy.
-
-> Here is an example:
->
-> If you transmit 110 GB of outgoing traffic via a NAT gateway and 5 GB of outgoing traffic using other ways, per month, you pay for 10 GB of the outgoing traffic sent via the NAT gateway.
->
-> If you transmit 110 GB of outgoing traffic via a NAT gateway and 105 GB of outgoing traffic using other ways, per month, you pay for 10 GB of the outgoing traffic sent via the NAT gateway and 5 GB of the other outgoing traffic.
+In this case, the user will be charged only for these 4 GB of legitimate traffic: 2 GB that passed through DDoS Protection to the cloud resources during the attack and 2 GB downloaded after the attack ended. Malicious traffic is filtered at no charge to the user.
 
 
 
 
-The first 100 GB of outgoing traffic via NAT gateway are provided free of charge every month.
 
-The minimum charging unit is 1 MB.
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cloud_network }}']}
+    excludeSkuIds={['{{ pc|storage.api.network.inet.egress }}', '{{ pc|network.egress.nat }}', '{{ pc|network.public_fips.lb.deallocated }}', '{{ pc|network.public_fips.lb-key-value }}', '{{ pc|network.egress.inet }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include notitle [usd-egress-nat-traffic.md](../_pricing/vpc/usd-egress-nat-traffic.md) %}
 
 
 #### Using security groups {#prices-security-groups}
@@ -101,18 +91,6 @@ You can use [security groups](concepts/security-groups.md) free of charge.
 
 
 
-### {{ ddos-protection-full-name }} {#prices-ddos-protection}
-
-
-
-{% include [usd-ddos](../_pricing/vpc/usd-ddos.md) %}
-
-
-Legitimate traffic is incoming traffic that passes through the DDoS Protection system to the user's cloud resources. You are only charged for the legitimate traffic.
-
-For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded 2 GB of legitimate files from the internet to the VM. When the attack ended, the user downloaded another 2 GB of legitimate files. 
-
-In this case, the user will be charged only for these 4 GB of legitimate traffic: 2 GB that passed through DDoS Protection to the cloud resources during the attack and 2 GB downloaded after the attack ended. Malicious traffic is filtered at no charge to the user.
 
 ### {{ adv-ddos-protection }} {#prices-ddos-advanced}
 

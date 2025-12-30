@@ -8,6 +8,7 @@ description: Различные сценарии использования {{ f
 * [{#T}](./pdf-searchindex-ai-assistant.md)
 * [{#T}](./models-fine-tuning.md)
 * [{#T}](./create-ai-agent-function.md)
+* [{#T}](./streaming-openai-agent.md)
 * [{#T}](./ai-model-ide-integration.md)
 * [{#T}](./tg-bot-assistant.md)
 * [Разработка Telegram-бота с поддержкой AI-агента с помощью {{ sw-full-name }}](./telegram-ai-bot-workflows.md)

@@ -4,7 +4,9 @@
 
 {% include [video-characteristic](../../_includes/video/video-characteristic-multiple.md) %}
 
-В сервисе действуют [ограничения](limits.md) на разрешение публикуемых видео.
+{% include [video-multi-soundtracks](../../_includes/video/video-multi-soundtracks.md) %}
+
+{% include [video-resolution-limits](../../_includes/video/video-resolution-limits.md) %}
 
 Для видео доступна загрузка пользовательских обложек. Обложка будет отображаться в интерфейсе {{ video-name }}, а также в [плеере](./player.md) на сайте, где размещено видео.
 

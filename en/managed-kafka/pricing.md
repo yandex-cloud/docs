@@ -107,85 +107,26 @@ CVoS discount is only available for certain types of resources. If the relevant 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### {{ KF }} broker host computing resources {#prices-kafka-brokers}
-
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
-
-
-
-{% list tabs %}
-
-- Prices per hour
-
-  {% include [usd-hosts-standard-hour](../_pricing/managed-kafka/usd-hosts-standard-hour.md) %}
-
-- Prices per month
-
-  {% include [usd-hosts-standard-month](../_pricing/managed-kafka/usd-hosts-standard-month.md) %}
-
-{% endlist %}
-
-
-### Computing resources of {{ ZK }} hosts {#prices-zookeeper}
-
-
-{% note info %}
 
 You cannot order {{ ZK }} host resources via CVoS.
-
-{% endnote %}
-
-
-
-{% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-
-
-{% include notitle [USD: standard ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-standard.md) %}
-
-
-### Computing resources of {{ kraft-name }} hosts {#prices-kraft}
-
-
-{% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-
-
-{% list tabs %}
-
-- Prices per hour
-
-  {% include [usd-hosts-kraft-standard-hour](../_pricing/managed-kafka/usd-hosts-kraft-standard-hour.md) %}
-
-- Prices per month
-
-  {% include [usd-hosts-kraft-standard-month](../_pricing/managed-kafka/usd-hosts-kraft-standard-month.md) %}
-
-{% endlist %}
-
-
-### {{ kafka-ui }} computing resources {#prices-kafka-ui}
-
-
-
-
-{% include [USD: kafka-ui](../_pricing/managed-kafka/usd-kafka-ui.md) %}
-
-
-### Storage {#prices-storage}
 
 {% include [local-ssd for Intel Ice Lake only by request](../_includes/ice-lake-local-ssd-note.md) %}
 
 
 
 
-{% include notitle [USD: Storage prices](../_pricing/managed-kafka/usd-storage.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.kafka }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.zk.kafka.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.kafka.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.kafka.highfreq-v3.cores }}', '{{ pc|mdb.software_accelerated_network.zk.kafka.highfreq-v3.cores }}', '{{ pc|mdb.cluster.kafka.backup }}' ]}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

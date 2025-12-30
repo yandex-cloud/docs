@@ -5,11 +5,7 @@ description: В статье содержатся правила тарифик�
 
 # Правила тарификации в {{ org-full-name }}
 
-{% note info %}
 
-Цены действуют с 1 декабря 2025 года.
-
-{% endnote %}
 
 Стоимость использования сервиса {{ org-full-name }} входит в стоимость оплачиваемых сервисов. Дополнительно тарифицируется только подключение к внешним приложениям.
 
@@ -21,7 +17,6 @@ description: В статье содержатся правила тарифик�
 
 [Управлять тарификацией](#pricing-management) сервиса {{ org-name }} вы можете через [интерфейс {{ cloud-center }}]({{ link-org-cloud-center }}). Подробнее см. в разделе [{#T}](./operations/manage-billing.md).
 
-
 ## Цены для региона Россия {#prices}
 
 {% include [prices-nds-note](../_includes/prices-nds-note.md) %}
@@ -29,18 +24,13 @@ description: В статье содержатся правила тарифик�
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub](../_pricing/organization/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt](../_pricing/organization/kzt.md) %}
-
-{% endlist %}
-
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|identity-hub }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
@@ -74,6 +64,8 @@ description: В статье содержатся правила тарифик�
 
 
 ## Примеры расчета стоимости {#examples}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 ### Пример 1 {#example-1}
 

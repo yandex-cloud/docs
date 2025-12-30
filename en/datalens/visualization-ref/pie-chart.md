@@ -5,23 +5,35 @@ description: In this tutorial, you will learn how to create and customize the pi
 
 # Pie chart ![](../../_assets/datalens/pie.svg) in {{ datalens-full-name }}
 
-This chart shows a proportional relationship of different categories to a total using circle segments (sectors). The entire circle area is 100% and corresponds to the sum of all categories. The area of each segment corresponds to the percentage of a category in the total amount. Pie charts are a good choice for demonstrating proportions of a small number of segments.
+This chart shows relative proportions of different categories to the whole as circle slices (sectors). The circle represents the total of all categories and equals 100%. The size of each segment indicates the proportion of each category to the total amount.
 
-![pie-chart](../../_assets/datalens/visualization-ref/pie-chart/pie-chart.png)
+Pie charts are a good choice for demonstrating proportions of a small number of segments.
 
-{% cut "Source table" %}
+{% cut "Example" %}
 
-Product categories | Sales |	
------|---------| 
-Home appliances | 69M |
-Household goods | 57M |
-Household cleaners | 44M |
+{% list tabs %}
+
+- Visualization
+
+  ![pie-chart](../../_assets/datalens/visualization-ref/pie-chart/pie-chart.png =800x)
+
+- Source table
+
+  Product categories | Sales |	
+  -----|---------| 
+  Home appliances | 69M |
+  Household goods | 57M |
+  Household cleaners | 44M |
+
+{% endlist %}
 
 {% endcut %}
 
-You can highlight multiple small sectors belonging to a larger category with the same color.
+{% cut "Use one color for multiple small sectors belonging to a larger category" %}
 
-![pie-chart-subcategories](../../_assets/datalens/visualization-ref/pie-chart/pie-chart-subcategories.png)
+![pie-chart-subcategories](../../_assets/datalens/visualization-ref/pie-chart/pie-chart-subcategories.png =800x)
+
+{% endcut %}
 
 ## Wizard sections {#wizard-sections}
 
@@ -42,18 +54,24 @@ To create a pie chart:
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
-1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Pie chart** as the chart type.
 1. Drag a dimension from the dataset to the **Categories** section.
 1. Drag a dimension from the dataset to the **Color** section.
 1. Drag a measure from the dataset to the **Measures** section. The values will be displayed as pie chart areas.
 
+{% note info %}
+
+You cannot display negative and null values on this type of chart.
+
+{% endnote %}
+
 ## Recommendations {#recommendations}
 
-* If there are many segments, the chart looks cluttered and it becomes difficult to understand the data. If there are more than 4-6 segments in one chart, consider combining the smallest of them into one segment, e.g., `Other`. You can do this by processing the data, e.g., by creating a [calculated field](../concepts/calculations/index.md) in your dataset or chart.
+* **Segments.** With too many segments, your chart will look cluttered, making it difficult to interpret the data. If there are more than 4-6 segments in one chart, consider combining the smallest of them into one segment, e.g., `Other`. You can do this by processing the data, e.g., by creating a [calculated field](../concepts/calculations/index.md) in your dataset or chart.
 
   {% cut "Example of combining segments in a chart" %}
 
@@ -91,16 +109,11 @@ To create a pie chart:
 
   {% endcut %}
 
-* Combine small segments into larger groups:
+* **Segments.** Combine small segments into larger groups:
   
   * Use the **Categories** section to highlight segments.
   * Use the **Color** section to highlight groups.
 
-* You cannot display negative and null values on this type of chart.
 * Do not use pie charts to show changes to proportions over time or for precisely comparing data by category.
 
-#### See also {#see-also}
-
-* [{#T}](../operations/dashboard/create.md)
-* [{#T}](../operations/dashboard/add-chart.md)
-* [{#T}](../operations/dashboard/add-selector.md)
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

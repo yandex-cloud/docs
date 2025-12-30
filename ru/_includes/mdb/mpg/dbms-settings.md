@@ -580,7 +580,7 @@
 
   Включает генетическую оптимизацию запросов ([GEQO](https://www.postgresql.org/docs/current/geqo.html)).
 
-  Значение по умолчанию — `false` (генетическая оптимизация выключена).
+  Значение по умолчанию — `true` (генетическая оптимизация включена).
 
   Подробнее см. в описании настройки `geqo` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO).
 
@@ -1062,6 +1062,17 @@
   По умолчанию настройка включена.
 
   Подробнее см. в описании настройки `parallel_leader_participation` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-PARALLEL-LEADER-PARTICIPATION).
+
+- **Password Encryption**{#setting-password-encryption} {{ tag-con }} {{ tag-api }}
+
+  Определяет протокол проверки пароля. Возможные значения:
+
+  * **MD5**
+  * **SCRAM-SHA-256**
+
+  Значение по умолчанию — `MD5`.
+
+  Подробнее см. в описании настройки `password_encryption` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-PASSWORD-ENCRYPTION).
 
 - **Pg hint plan debug print**{#setting-pghint-plan-debug} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 

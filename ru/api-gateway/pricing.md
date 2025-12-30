@@ -27,6 +27,8 @@ editable: false
 
 ### Формула расчета стоимости {#price-formula}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 
 {% list tabs group=pricing %}
 
@@ -56,28 +58,15 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Запросы к API-шлюзам {#request}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|api-gateway }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/api-gateway/rub.md) %}
-  
-  Оплачивается фактическое количество вызовов.
-
-  > Например, 10 000 вызовов сверх нетарифицируемого объема стоят {% calc [currency=RUB] {{ sku|RUB|api-gateway.requests.v1|pricingRate.0.1|number }} / 100 %}, если 1 миллион запросов стоит {{ sku|RUB|api-gateway.requests.v1|pricingRate.0.1|string }}.
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/api-gateway/kzt.md) %}
-  
-  Оплачивается фактическое количество вызовов.
-
-  > Например, 10 000 вызовов сверх нетарифицируемого объема стоят {% calc [currency=KZT] {{ sku|KZT|api-gateway.requests.v1|pricingRate.0.1|number }} / 100 %}, если 1 миллион запросов стоит {{ sku|KZT|api-gateway.requests.v1|pricingRate.0.1|string }}.
-
-{% endlist %}
 
 
 

@@ -5,49 +5,55 @@ description: In this tutorial, you will learn how to create and customize the ta
 
 # Table ![](../../_assets/datalens/table-chart.svg) in {{ datalens-full-name }}
 
-A table is a standard form of data representation with as many details as possible. It stores data as a two-dimensional array that consists of columns and rows. Table column headers show dimension or measure names, while cells contain their values. Each row is a set of cells with each column's value. A table may also contain a row with results.
+A table is a standard form of data representation with as many details as possible. 
 
-Tables are a great tool for detailed analysis (a deep dive into figures) and problem detection. At the same time, it takes longer to read information from a table than from a graph or chart. Therefore, it is a good idea to place it at the end of a dashboard.
+### What you need to know {#what-to-know}
+
+It stores data as a two-dimensional array that consists of columns and rows. Table column headers show dimension or measure names, while cells contain their values. Each row is a set of cells with each column's value. A table may also contain a row with results.
+
+{% note tip %}
+
+It is best to place tables at the end of a dashboard.
+
+Graphics are easier to "read", whereas delving into tabular data requires more time and attention.
+
+{% endnote %}
+
+Tables are good for detailed analytics (a deep dive into figures) and problem detection.
 
 A table is a good choice for quantitative comparison, where you can see different values of multiple categories or dimensions. The table below shows three different measures by three categories.
 
-![table-chart](../../_assets/datalens/visualization-ref/table-chart/table-chart.png)
+{% list tabs %}
 
-{% cut "Source table" %}
+- Visualization
 
-Categories |	Subcategories |	Delivery type |	Sales |	Number of customers |	Number of orders
----------|---------|---------|---------|---------|---------				
-Household cleaners |	Detergents |	Delivery |	597 729 |	250 |	256
-Household cleaners |	Detergents |	Pickup |	1 352 690 |	521 |	550
-Household cleaners |	Cleaners |	Delivery |	541 911 |	225 |	230
-Household cleaners |	Cleaners |	Pickup |	1 348 868 |	493 |	518
-Household goods |	Beauty and health products |	Delivery |	263 891 |	132 |	134
-Household goods |	Beauty and health products |	Pickup |	706 423 |	321 |	333
-Household goods |	Kitchen products |	Delivery |	671 566 |	165 |	167
-Household goods |	Kitchen products |	Pickup |	1 283 731 |	289 |	297
-Household goods |	Non-essential goods |	Delivery |	701 818 |	210 |	213
-Household goods |	Non-essential goods |	Pickup |	1 521 937 |	447 |	475
-Home appliances |	Kitchenware |	Delivery |	829 157 |	213 |	218
-Home appliances |	Kitchenware |	Pickup |	2 048 211 |	482 |	513
-Home appliances |	Health and beauty equipment |	Delivery |	944 770 |	255 |	258
-Home appliances |	Health and beauty equipment |	Pickup |	2 387 410 |	550 |	581
+  ![table-chart](../../_assets/datalens/visualization-ref/table-chart/table-chart.png =800x)
 
-{% endcut %}
+- Source table
 
-To simplify the comparison of different values and make the information easier to comprehend, you can use advanced settings when [creating a table](#create-diagram):
+  Categories |	Subcategories |	Delivery type |	Sales |	Number of customers |	Number of orders
+  ---------|---------|---------|---------|---------|---------				
+  Household cleaners |	Detergents |	Delivery |	597,729 |	250 |	256
+  Household cleaners |	Detergents |	Pickup |	1,352,690 |	521 |	550
+  Household cleaners |	Cleaners |	Delivery |	541,911 |	225 |	230
+  Household cleaners |	Cleaners |	Pickup |	1,348,868 |	493 |	518
+  Household goods |	Beauty and health products |	Delivery |	263,891 |	132 |	134
+  Household goods |	Beauty and health products |	Pickup |	706,423 |	321 |	333
+  Household goods |	Kitchen products |	Delivery |	671,566 |	165 |	167
+  Household goods |	Kitchen products |	Pickup |	1,283,731 |	289 |	297
+  Household goods |	Non-essential goods |	Delivery |	701,818 |	210 |	213
+  Household goods |	Non-essential goods |	Pickup |	1,521,937 |	447 |	475
+  Home appliances |	Kitchenware |	Delivery |	829,157 |	213 |	218
+  Home appliances |	Kitchenware |	Pickup |	2,048,211 |	482 |	513
+  Home appliances |	Health and beauty equipment |	Delivery |	944,770 |	255 |	258
+  Home appliances |	Health and beauty equipment |	Pickup |	2,387,410 |	550 |	581
 
-* [Setting up table size](#table-size-settings)
-* [Renaming columns](#change-columns-names)
-* [Adding tooltips to table headers](#hint-column)
-* [Setting up table data sorting by multiple columns](#sorting-columns)
-* [Setting up column width](#set-column-width)
-* [Freezing table columns](#column-fixation)
-* [Managing the number of rows](#pagination-limit)
-* [Adding a row with totals](#add-totals)
-* [Preserving spaces and line breaks](#spaces-and-line-breaks)
-* [Adding row color](#add-column-color)
-* [Setting field fill color](#set-field-color)
-* [Adding a linear indicator to a column with a measure](#add-linear-indicator)
+{% endlist %}
+
+* [What you need to know](#what-to-know)
+* [Wizard sections](#wizard-sections)
+* [How to create a table](#create-diagram)
+* [Additional settings](#additional-settings)
 
 ## Wizard sections {#wizard-sections}
 
@@ -58,7 +64,7 @@ Colors | Measure. Affects color fill of all cells within a row. It may only cont
 Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
 Filters | Dimension or measure. Used as a filter.
 
-## Creating a table {#create-diagram}
+## How to create a table {#create-diagram}
 
 To create a table:
 
@@ -66,10 +72,10 @@ To create a table:
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
-1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Table** as the chart type.
 1. Drag a dimension or measure from the dataset to **Columns**. The field is displayed as a column.
 
@@ -82,7 +88,7 @@ To create a table:
 
 ## Additional settings {#additional-settings}
 
-### Setting up table size {#table-size-settings}
+{% cut "Setting up table size" %}
 
 1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
 1. Select the table size:
@@ -95,25 +101,33 @@ To create a table:
 
 Depending on the size you select, the table will adjust its font size, line spacing, and indentation within cells.
 
-### Renaming columns {#change-columns-names}
+{% endcut %}
+
+{% cut "Renaming columns" %}
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
 
-### Adding a tooltip to a table header {#hint-column}
+{% endcut %}
+
+{% cut "Adding tooltips to table headers" %}
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, enable the **Tooltip** option, enter the text in the field below, and click **Apply**. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../dataset/index.md).
 
 When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears next to the table column header. Hover over the icon to bring up the tooltip.
 
-### Setting up table data sorting by multiple columns {#sorting-columns}
+{% endcut %}
+
+{% cut "Setting up table data sorting by multiple columns" %}
 
 1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
 1. Disable **Pagination** and click **Apply**.
 1. Press and hold **Ctrl** while clicking the headers of columns to change the sorting for.
 
-### Setting the width of table columns {#set-column-width}
+{% endcut %}
+
+{% cut "Setting up column width" %}
 
 1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
 1. Under **Width**, select the values for columns and rows:
@@ -140,29 +154,27 @@ When the option is enabled, the ![image](../../_assets/console-icons/circle-ques
 
 To set the width of any column to `Auto`, click **Reset**.
 
-### Freezing table columns {#column-fixation}
+{% endcut %}
+
+{% cut "Freezing table columns" %}
 
 1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
 1. In the **Freeze** window that opens, enter the number of columns to freeze. These columns will stay in place as you scroll horizontally.
 1. Click **Apply**.
 
-### Managing the number of rows {#pagination-limit}
+{% endcut %}
 
-Use the **Pagination** and **Limit** [settings](../concepts/chart/settings.md#common-settings) to manage the number of rows displayed on the screen and exported from the chart. To edit the number of rows:
+{% cut "Changing the number of rows" %}
 
-1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
-1. Enable pagination and set the number of rows per page or disable pagination.
-1. Click **Apply**.
-
-By default, tables come with pagination on and a limit of `100` rows per page. With pagination off, the whole table will be displayed within the [display limits](../concepts/limits.md#datalens-chart-data-limits). Pagination is not available if only one page is displayed or there is no data.
-
-With pagination on, only table data from the current page will be exported. To save the whole table within the [chart export size limit](../concepts/limits.md#datalens-common-limits), disable pagination.
+{% include [change-rows-amount](../../_includes/datalens/visualization-ref/change-rows-amount.md) %}
 
 
 If you need to export a large amount of data, use [background export](../concepts/chart/data-export.md#background-export).
 
 
-### Enabling pagination {#pagination}
+{% endcut %}
+
+{% cut "Enabling pagination" %}
 
 Enable pagination if your table has many rows:
 
@@ -171,7 +183,9 @@ Enable pagination if your table has many rows:
 
 This option is not available if only one page is displayed or there is no data.
 
-### Adding a row with totals {#add-totals}
+{% endcut %}
+
+{% cut "Adding a row with totals" %}
 
 1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
 1. Enable **Totals** and click **Apply**.
@@ -187,14 +201,18 @@ The **Total** row will now appear in the table. Values in the row are calculated
 
 {% endnote %}
 
-### Preserving spaces and line breaks {#spaces-and-line-breaks}
+{% endcut %}
+
+{% cut "Preserving spaces and line breaks" %}
 
 1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
 1. Enable **Preserve spaces and line breaks** and click **Apply**.
 
 With this option on, the text will feature the same spaces and line breaks as in the source data.
 
-### Adding row color {#add-column-color}
+{% endcut %}
+
+{% cut "Adding row color" %}
 
 1. Drag a measure to the **Color** section.
 1. In the top-right corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
@@ -207,7 +225,9 @@ With this option on, the text will feature the same spaces and line breaks as in
 
    * **Set threshold values**: Set numeric thresholds for each color.
 
-### Setting the field fill color {#set-field-color}
+{% endcut %}
+
+{% cut "Setting field fill color" %}.
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, enable **Column fill color**.
@@ -245,7 +265,9 @@ With this option on, the text will feature the same spaces and line breaks as in
 1. For the **Gradient** fill type, specify the coloring option for `null` values: `Do not color` or `Color as 0`.
 1. Click **Apply**.
 
-### Adding a linear indicator to a column with a measure {#add-linear-indicator}
+{% endcut %}
+
+{% cut "Adding a linear indicator to a column with a measure" %}
 
 1. Under **Columns**, click the icon to the left of the measure name.
 1. In the window that opens, enable **Linear indicator**.
@@ -273,13 +295,20 @@ With this option on, the text will feature the same spaces and line breaks as in
 
 {% endcut %}
 
+{% endcut %}
+
 ## Recommendations {#recomendations}
 
-* Limit the size of your table or use filters and sorting. Tables with too many rows or columns are hard to read.
-* Use tables for their intended purpose only. Do not replace all data visualization types with them.
+{% note tip %}
+
+Use tables for their intended purpose only. Do not replace all data visualization types with them.
+
+{% endnote %}
+
+* **Sizes.** Limit the size of your table or use filters and sorting. Tables with too many rows or columns are hard to read.
 * Place dimensions on the left and measures on the right. This makes the data easier to comprehend.
 * Make sure column names you use are short and readable.
-* Enable the display of totals at the bottom of a table.
+* **Totals.** Enable totals at the bottom of the table.
 
   {% cut "Table with totals and pagination" %}
 
@@ -287,7 +316,34 @@ With this option on, the text will feature the same spaces and line breaks as in
 
   {% endcut %}
 
-* When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space. 
+* **Totals.** Present totals as a column (or subtotals as a column). To do this, use calculated fields based on [window functions](../concepts/window-function-tutorial.md) or [LOD expressions](../concepts/lod-aggregation.md). For example:
+
+  * Sales subtotal by product category: `CategorySales` with the `SUM(SUM([Sales]) WITHIN [ProductCategory])` formula.
+  * Total sales: `TotalSales` with the `SUM(SUM([Sales]) TOTAL)` formula.
+
+    {% cut "Table example" %}
+
+    ![table-sum](../../_assets/datalens/visualization-ref/table-chart/table-sum.png)
+
+    {% endcut %}
+
+  * Maximum order count per month grouped by product category: `MaxCountByCategory` with the `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))` formula.
+
+    {% cut "Table example" %}
+
+    ![table-count](../../_assets/datalens/visualization-ref/table-chart/table-count.png)
+
+    {% endcut %}
+
+{% note tip %}
+
+Use sorting. This makes the data easier to comprehend.
+
+{% endnote %}
+
+* Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
+
+* **Auto height.** When placing a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space. 
 
   {% cut "Setting up auto height" %}
   
@@ -309,28 +365,6 @@ With this option on, the text will feature the same spaces and line breaks as in
 
   {% endcut %}
 
-* Represent totals (or subtotals) as a column. To do this, use calculated fields based on [window functions](../concepts/window-function-tutorial.md) or [LOD expressions](../concepts/lod-aggregation.md). For example:
-
-  * Sales subtotal by product category: `CategorySales` with the `SUM(SUM([Sales]) WITHIN [ProductCategory])` formula.
-  * Total sales: `TotalSales` with the `SUM(SUM([Sales]) TOTAL)` formula.
-
-    {% cut "Table example" %}
-
-    ![table-sum](../../_assets/datalens/visualization-ref/table-chart/table-sum.png)
-
-    {% endcut %}
-
-  * Maximum order count per month grouped by product category: `MaxCountByCategory` with the `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))` formula.
-
-    {% cut "Table example" %}
-
-    ![table-count](../../_assets/datalens/visualization-ref/table-chart/table-count.png)
-
-    {% endcut %}
-
-* Use sorting. This makes the data easier to comprehend.
-* Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
-
 * If a table cell contains a long text, use the column width [settings](#additional-settings) to enable a line break in cells.
 
   {% cut "Setup example" %}
@@ -341,8 +375,4 @@ With this option on, the text will feature the same spaces and line breaks as in
 
 * When displaying numeric data, specify the dimension and the number of decimal places. For example, if you select `Millions, M` in the **Dimension** drop-down list, you will see `10,3 M` rather than `10 345 234.23`. If you set the `Decimal places` field to `2`, you will see `123.12` rather than `123.1234`.
 
-#### See also {#see-also}
-
-* [{#T}](../operations/dashboard/create.md)
-* [{#T}](../operations/dashboard/add-chart.md)
-* [{#T}](../operations/dashboard/add-selector.md)
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}
