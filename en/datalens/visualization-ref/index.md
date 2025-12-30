@@ -5,6 +5,10 @@ description: In this article, you will learn about chart types available in {{ d
 
 # Visualization reference in {{ datalens-full-name }}
 
+Use DataLens visualizations to plot data in an intuitive way and analyze relations within data arrays.
+
+The visualization reference is there to assist you: select the suitable chart type and craft visuals for your reports based on metrics and their relations.S
+
 
 
 
@@ -19,7 +23,9 @@ description: In this article, you will learn about chart types available in {{ d
 
 The following types of charts are available in {{ datalens-full-name }}:
 
-* **Charts**:
+{% list tabs %}
+
+- Charts
 
   * [Line chart](line-chart.md)
   * [Area chart](area-chart.md)
@@ -34,12 +40,12 @@ The following types of charts are available in {{ datalens-full-name }}:
   * [Tree chart](tree-chart.md)
   * [Combined chart](combined-chart.md)
 
-* **Tables**:
+- Tables
 
   * [Table](table-chart.md)
   * [Pivot table](pivot-table-chart.md): Not supported in [QL charts](../concepts/chart/index.md#sql-charts)
 
-* **Geographical map**:
+- Geographical map
 
   * [Map](map-chart.md): Not supported in [QL charts](../concepts/chart/index.md#sql-charts)
 
@@ -49,7 +55,9 @@ The following types of charts are available in {{ datalens-full-name }}:
     * [Choropleth map](choropleth-map-chart.md)
     * [Heat map](heat-map-chart.md)
 
-* **Other**:
+- Other
 
   * [Indicator](indicator-chart.md)
+
+{% endlist %}
 

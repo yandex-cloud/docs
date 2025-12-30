@@ -17,7 +17,7 @@ editable: false
 
 На данный момент в рамках сервиса {{ monitoring-short-name }} тарифицируется запись пользовательских метрик через [{{ monitoring-short-name }} API](api-ref/index.md) и запись любых метрик через [{{ prometheus-name }} Remote API](operations/prometheus/index.md), а также чтение любых метрик через [{{ monitoring-short-name }} API](api-ref/index.md).
 
-Чтение метрик через {{ prometheus-name }} Remote API пока не тарифицируется.
+Запись значений метрик ресурсов {{ yandex-cloud }} и чтение метрик через {{ prometheus-name }} Remote API не тарифицируются.
 
 Особенности тарификации:
 * После записи или чтения первых 50 млн значений через {{ monitoring-short-name }} API стоимость записи снижается. См. [Цены для региона Россия](#prices).
@@ -26,6 +26,8 @@ editable: false
 * Входящий и исходящий трафик в {{ monitoring-short-name }} не тарифицируются.
 
 ### Пример расчета стоимости {#example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 
 {% list tabs group=pricing %}
@@ -56,48 +58,20 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+Минимальная единица тарификации — 1 значение метрики. Стоимость округляется до копейки, тиына или цента.
 
 
-### {{ monitoring-short-name }} API {#monitoring-api}
+{% include [rub-api-example](../_pricing_examples/monitoring/rub-api-example.md) %}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|monitoring }}']}
+    excludeSkuIds={['{{ pc|monitoring.alerts.notifications.sms }}', '{{ pc|monitoring.alerts.notifications.phone }}', '{{ pc|monitoring.prometheus.point.remote_api.read }}', '{{ pc|monitoring.point.ui.read }}', '{{ pc|monitoring.metrics.stored }}', '{{ pc|monitoring.point.sp.write }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  Минимальная единица тарификации — 1 значение метрики. Стоимость округляется до копейки.
-
-  {% include [rub-api-example](../_pricing_examples/monitoring/rub-api-example.md) %}
-
-  {% include [rub.md](../_pricing/monitoring/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  Минимальная единица тарификации — 1 значение метрики. Стоимость округляется до тиына.
-
-  {% include [kzt-api-example](../_pricing_examples/monitoring/kzt-api-example.md) %}
-
-  {% include [kzt.md](../_pricing/monitoring/kzt.md) %}
-
-{% endlist %}
-
-
-
-
-### {{ prometheus-name }} Remote API {#prometheus-remote-api}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-prometheus.md](../_pricing/monitoring/rub-prometheus.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-prometheus.md](../_pricing/monitoring/kzt-prometheus.md) %}
-
-{% endlist %}
 
 
 

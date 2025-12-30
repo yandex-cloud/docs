@@ -25,19 +25,18 @@ The cost of using {{ cdn-name }} is based on:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Outgoing traffic {#traffic}
+The full monthly price for an origin shielding or for raw logs will be charged on the last day of the month, regardless of when you enabled or disabled it.
 
 
 
-{% include notitle [usd.md](../_pricing/cdn/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cdn }}']}
+    excludeSkuIds={['{{ pc|cdn.logs.shielding }}', '{{ pc|cdn.api.network.inet.egress }}', '{{ pc|cdn.logs.raw }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-
-### Paid features {#paid-features}
-
-Billing occurs on a monthly basis. The full monthly price for a feature will be charged on the last day of the month, regardless of when you enabled or disabled it.
-
-
-
-{% include notitle [usd-paid-features.md](../_pricing/cdn/usd-paid-features.md) %}
 
 

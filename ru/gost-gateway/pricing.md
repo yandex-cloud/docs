@@ -27,16 +27,12 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub](../_pricing/gost-gateway/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt](../_pricing/gost-gateway/kzt.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|gost_gateway }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 

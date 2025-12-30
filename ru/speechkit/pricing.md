@@ -182,6 +182,8 @@ editable: false
 
 ## Примеры расчета стоимости {#price-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 
 ### Синтез речи с использованием API v1 {#price-example-tts-v1}
 

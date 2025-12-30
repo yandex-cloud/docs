@@ -1,0 +1,1 @@
+Вы можете загрузить видео с несколькими аудиодорожками или добавить их после загрузки с помощью [нейроперевода](../../video/concepts/videos.md#translation). Дорожки выбираются в меню [плеера](../../video/concepts/player.md), подробнее см. в разделе [{#T}](../../video/operations/player-control.md#audio).

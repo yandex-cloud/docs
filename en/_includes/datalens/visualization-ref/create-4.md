@@ -1,0 +1,1 @@
+At the top left, click ![image](../../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../../../datalens/dataset/create-dataset.md#create).

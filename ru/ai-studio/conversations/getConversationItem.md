@@ -31,17 +31,9 @@ Required field. The ID of the item to retrieve. ||
 ||Field | Description ||
 || include[] | **enum**
 
-Additional fields to include in the response.
+[CURRENTLY NOT SUPPORTED] Additional fields to include in the response.
 
-Specify additional output data to include in the model response. Currently supported values are:
-- `web_search_call.action.sources`: Include the sources of the web search tool call.
-- `code_interpreter_call.outputs`: Includes the outputs of python code execution in code interpreter tool call items.
-- `computer_call_output.output.image_url`: Include image urls from the computer call output.
-- `file_search_call.results`: Include the search results of the file search tool call.
-- `message.input_image.image_url`: Include image urls from the input message.
-- `message.output_text.logprobs`: Include logprobs with assistant messages.
-- `reasoning.encrypted_content`: Includes an encrypted version of reasoning tokens in reasoning item outputs. This enables reasoning items to be used in multi-turn conversations when using the Responses API statelessly (like when the `store` parameter is set to `false`, or when an organization is enrolled in the zero data retention program).'
-
+[CURRENTLY NOT SUPPORTED]
 
 - `file_search_call.results`
 - `web_search_call.results`
@@ -439,16 +431,19 @@ The results of a file search tool call.
 ||Field | Description ||
 || id | **string**
 
-Required field. The unique ID of the file search tool call. ||
+Required field. The unique ID of the file search tool call. 
+ ||
 || type | **enum**
 
-Required field. The type of the file search tool call. Always `file_search_call`.
+Required field. The type of the file search tool call. Always `file_search_call`. 
+
 
 - `file_search_call` ||
 || status | **enum**
 
 Required field. The status of the file search tool call. One of `in_progress`,
-`searching`, `incomplete` or `failed`,
+`searching`, `incomplete` or `failed`, 
+
 
 - `in_progress`
 - `searching`
@@ -469,15 +464,18 @@ The results of a web search tool call.
 ||Field | Description ||
 || id | **string**
 
-Required field. The unique ID of the web search tool call. ||
+Required field. The unique ID of the web search tool call. 
+ ||
 || type | **enum**
 
-Required field. The type of the web search tool call. Always `web_search_call`.
+Required field. The type of the web search tool call. Always `web_search_call`. 
+
 
 - `web_search_call` ||
 || status | **enum**
 
-Required field. The status of the web search tool call.
+Required field. The status of the web search tool call. 
+
 
 - `in_progress`
 - `searching`
@@ -488,21 +486,25 @@ Required field. The status of the web search tool call.
 
 >
 
-An image generation request made by the model.
+An image generation request made by the model. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of the image generation call. Always `image_generation_call`.
+Required field. The type of the image generation call. Always `image_generation_call`. 
+
 
 - `image_generation_call` ||
 || id | **string**
 
-Required field. The unique ID of the image generation call. ||
+Required field. The unique ID of the image generation call. 
+ ||
 || status | **enum**
 
-Required field. The status of the image generation call.
+Required field. The status of the image generation call. 
+
 
 - `in_progress`
 - `completed`
@@ -527,7 +529,8 @@ Required field. The type of the computer call. Always `computer_call`.
 Required field. The unique ID of the computer call. ||
 || call_id | **string**
 
-Required field. An identifier used when responding to the tool call with output. ||
+Required field. An identifier used when responding to the tool call with output. 
+ ||
 || action | Any of **[ClickParam](#ClickParam)** \| **[DoubleClickAction](#DoubleClickAction)** \| **[Drag](#Drag)** \| **[KeyPressAction](#KeyPressAction)** \| **[Move](#Move)** \| **[Screenshot](#Screenshot)** \| **[Scroll](#Scroll)** \| **[Type](#Type)** \| **[Wait](#Wait)** ||
 || pending_safety_checks[] | **[ComputerCallSafetyCheckParam](#ComputerCallSafetyCheckParam)**
 
@@ -535,7 +538,8 @@ Required field. A pending safety check for the computer call. ||
 || status | **enum**
 
 Required field. The status of the item. One of `in_progress`, `completed`, or
-`incomplete`. Populated when items are returned via API.
+`incomplete`. Populated when items are returned via API. 
+
 
 - `in_progress`
 - `completed`
@@ -551,19 +555,21 @@ Required field. The status of the item. One of `in_progress`, `completed`, or
 
 >
 
-A description of the chain of thought used by a reasoning model while generating a response. '
-
+A description of the chain of thought used by a reasoning model while generating a response. ''
+'
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of the object. Always `reasoning`.
+Required field. The type of the object. Always `reasoning`. 
+
 
 - `reasoning` ||
 || id | **string**
 
-Required field. The unique identifier of the reasoning content. ||
+Required field. The unique identifier of the reasoning content. 
+ ||
 || encrypted_content | Any of **string** \| **null** ||
 || summary[] | **[Summary](#Summary)**
 
@@ -574,7 +580,8 @@ Required field. Reasoning text from the model. ||
 || status | **enum**
 
 The status of the item. One of `in_progress`, `completed`, or
-`incomplete`. Populated when items are returned via API.
+`incomplete`. Populated when items are returned via API. 
+
 
 - `in_progress`
 - `completed`
@@ -583,21 +590,25 @@ The status of the item. One of `in_progress`, `completed`, or
 
 >
 
-A tool call to run code.
+A tool call to run code. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of the code interpreter tool call. Always `code_interpreter_call`.
+Required field. The type of the code interpreter tool call. Always `code_interpreter_call`. 
+
 
 - `code_interpreter_call` ||
 || id | **string**
 
-Required field. The unique ID of the code interpreter tool call. ||
+Required field. The unique ID of the code interpreter tool call. 
+ ||
 || status | **enum**
 
-Required field. The status of the code interpreter tool call. Valid values are `in_progress`, `completed`, `incomplete`, `interpreting`, and `failed`.
+Required field. The status of the code interpreter tool call. Valid values are `in_progress`, `completed`, `incomplete`, `interpreting`, and `failed`. 
+
 
 - `in_progress`
 - `completed`
@@ -606,34 +617,40 @@ Required field. The status of the code interpreter tool call. Valid values are `
 - `failed` ||
 || container_id | **string**
 
-Required field. The ID of the container used to run the code. ||
+Required field. The ID of the container used to run the code. 
+ ||
 || code | Any of **string** \| **null** ||
 || outputs | Any of **unknown** \| **null** ||
 |#
 
 >
 
-A tool call to run a command on the local shell.
+A tool call to run a command on the local shell. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of the local shell call. Always `local_shell_call`.
+Required field. The type of the local shell call. Always `local_shell_call`. 
+
 
 - `local_shell_call` ||
 || id | **string**
 
-Required field. The unique ID of the local shell call. ||
+Required field. The unique ID of the local shell call. 
+ ||
 || call_id | **string**
 
-Required field. The unique ID of the local shell tool call generated by the model. ||
+Required field. The unique ID of the local shell tool call generated by the model. 
+ ||
 || action | **[LocalShellExecAction](#LocalShellExecAction)**
 
 Required field. Execute a shell command on the server. ||
 || status | **enum**
 
-Required field. The status of the local shell call.
+Required field. The status of the local shell call. 
+
 
 - `in_progress`
 - `completed`
@@ -642,21 +659,25 @@ Required field. The status of the local shell call.
 
 >
 
-The output of a local shell tool call.
+The output of a local shell tool call. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of the local shell tool call output. Always `local_shell_call_output`.
+Required field. The type of the local shell tool call output. Always `local_shell_call_output`. 
+
 
 - `local_shell_call_output` ||
 || id | **string**
 
-Required field. The unique ID of the local shell tool call generated by the model. ||
+Required field. The unique ID of the local shell tool call generated by the model. 
+ ||
 || output | **string**
 
-Required field. A JSON string of the output of the local shell tool call. ||
+Required field. A JSON string of the output of the local shell tool call. 
+ ||
 || status | Any of **enum** \| **null** ||
 |#
 
@@ -776,98 +797,120 @@ The ID of the entity that created this tool call output. ||
 
 >
 
-A list of tools available on an MCP server.
+A list of tools available on an MCP server. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of the item. Always `mcp_list_tools`.
+Required field. The type of the item. Always `mcp_list_tools`. 
+
 
 - `mcp_list_tools` ||
 || id | **string**
 
-Required field. The unique ID of the list. ||
+Required field. The unique ID of the list. 
+ ||
 || server_label | **string**
 
-Required field. The label of the MCP server. ||
+Required field. The label of the MCP server. 
+ ||
 || tools[] | **[MCPListToolsTool](#MCPListToolsTool)**
 
-Required field. A tool available on an MCP server. ||
+Required field. A tool available on an MCP server. 
+ ||
 || error | Any of **string** \| **null** ||
 |#
 
 >
 
-A request for human approval of a tool invocation.
+A request for human approval of a tool invocation. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of the item. Always `mcp_approval_request`.
+Required field. The type of the item. Always `mcp_approval_request`. 
+
 
 - `mcp_approval_request` ||
 || id | **string**
 
-Required field. The unique ID of the approval request. ||
+Required field. The unique ID of the approval request. 
+ ||
 || server_label | **string**
 
-Required field. The label of the MCP server making the request. ||
+Required field. The label of the MCP server making the request. 
+ ||
 || name | **string**
 
-Required field. The name of the tool to run. ||
+Required field. The name of the tool to run. 
+ ||
 || arguments | **string**
 
-Required field. A JSON string of arguments for the tool. ||
+Required field. A JSON string of arguments for the tool. 
+ ||
 |#
 
 >
 
-A response to an MCP approval request.
+A response to an MCP approval request. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of the item. Always `mcp_approval_response`.
+Required field. The type of the item. Always `mcp_approval_response`. 
+
 
 - `mcp_approval_response` ||
 || id | **string**
 
-Required field. The unique ID of the approval response ||
+Required field. The unique ID of the approval response 
+ ||
 || approval_request_id | **string**
 
-Required field. The ID of the approval request being answered. ||
+Required field. The ID of the approval request being answered. 
+ ||
 || approve | **boolean**
 
-Required field. Whether the request was approved. ||
+Required field. Whether the request was approved. 
+ ||
 || reason | Any of **string** \| **null** ||
 |#
 
 >
 
-An invocation of a tool on an MCP server.
+An invocation of a tool on an MCP server. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of the item. Always `mcp_call`.
+Required field. The type of the item. Always `mcp_call`. 
+
 
 - `mcp_call` ||
 || id | **string**
 
-Required field. The unique ID of the tool call. ||
+Required field. The unique ID of the tool call. 
+ ||
 || server_label | **string**
 
-Required field. The label of the MCP server running the tool. ||
+Required field. The label of the MCP server running the tool. 
+ ||
 || name | **string**
 
-Required field. The name of the tool that was run. ||
+Required field. The name of the tool that was run. 
+ ||
 || arguments | **string**
 
-Required field. A JSON string of the arguments passed to the tool. ||
+Required field. A JSON string of the arguments passed to the tool. 
+ ||
 || output | Any of **string** \| **null** ||
 || error | Any of **string** \| **null** ||
 || status | **enum**
@@ -948,18 +991,21 @@ The relevance score of the file - a value between 0 and 1. ||
 
 ## WebSearchActionSearch {#WebSearchActionSearch}
 
-Action type "search" - Performs a web search query.
+Action type "search" - Performs a web search query. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The action type.
+Required field. The action type. 
+
 
 - `search` ||
 || query | **string**
 
-Required field. The search query. ||
+Required field. The search query. 
+ ||
 || sources[] | **[SourcesItem](#SourcesItem)**
 
 Required field. A source used in the search. ||
@@ -973,7 +1019,7 @@ A source used in the search.
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of source. Always `url`.
+Required field. The type of source. Always `url`.'
 
 - `url` ||
 || url | **string**
@@ -983,37 +1029,44 @@ Required field. The URL of the source. ||
 
 ## WebSearchActionOpenPage {#WebSearchActionOpenPage}
 
-Action type "open_page" - Opens a specific URL from search results.
+Action type "open_page" - Opens a specific URL from search results. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The action type.
+Required field. The action type. 
+
 
 - `open_page` ||
 || url | **string** (uri)
 
-Required field. The URL opened by the model. ||
+Required field. The URL opened by the model. 
+ ||
 |#
 
 ## WebSearchActionFind {#WebSearchActionFind}
 
-Action type "find": Searches for a pattern within a loaded page.
+Action type "find": Searches for a pattern within a loaded page. 
+
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The action type.
+Required field. The action type. 
+
 
 - `find` ||
 || url | **string** (uri)
 
-Required field. The URL of the page searched for the pattern. ||
+Required field. The URL of the page searched for the pattern. 
+ ||
 || pattern | **string**
 
-Required field. The pattern or text to search for within the page. ||
+Required field. The pattern or text to search for within the page. 
+ ||
 |#
 
 ## ClickParam {#ClickParam}
@@ -1065,7 +1118,8 @@ Required field. The y-coordinate where the double click occurred. ||
 
 ## Drag {#Drag}
 
-A drag action.
+A drag action. 
+
 
 #|
 ||Field | Description ||
@@ -1078,12 +1132,14 @@ always set to `drag`.
 - `drag` ||
 || path[] | **[DragPoint](#DragPoint)**
 
-Required field. An x/y coordinate pair, e.g. `{ x: 100, y: 200 }`. ||
+Required field. An x/y coordinate pair, e.g. `{ x: 100, y: 200 }`
+ ||
 |#
 
 ## DragPoint {#DragPoint}
 
-An x/y coordinate pair, e.g. `{ x: 100, y: 200 }`.
+An x/y coordinate pair, e.g. `{ x: 100, y: 200 }`
+
 
 #|
 ||Field | Description ||
@@ -1113,7 +1169,8 @@ Required field. One of the keys the model is requesting to be pressed. ||
 
 ## Move {#Move}
 
-A mouse move action.
+A mouse move action. 
+
 
 #|
 ||Field | Description ||
@@ -1126,15 +1183,18 @@ always set to `move`.
 - `move` ||
 || x | **integer**
 
-Required field. The x-coordinate to move to. ||
+Required field. The x-coordinate to move to. 
+ ||
 || y | **integer**
 
-Required field. The y-coordinate to move to. ||
+Required field. The y-coordinate to move to. 
+ ||
 |#
 
 ## Screenshot {#Screenshot}
 
-A screenshot action.
+A screenshot action. 
+
 
 #|
 ||Field | Description ||
@@ -1149,7 +1209,8 @@ always set to `screenshot`.
 
 ## Scroll {#Scroll}
 
-A scroll action.
+A scroll action. 
+
 
 #|
 ||Field | Description ||
@@ -1162,21 +1223,26 @@ always set to `scroll`.
 - `scroll` ||
 || x | **integer**
 
-Required field. The x-coordinate where the scroll occurred. ||
+Required field. The x-coordinate where the scroll occurred. 
+ ||
 || y | **integer**
 
-Required field. The y-coordinate where the scroll occurred. ||
+Required field. The y-coordinate where the scroll occurred. 
+ ||
 || scroll_x | **integer**
 
-Required field. The horizontal scroll distance. ||
+Required field. The horizontal scroll distance. 
+ ||
 || scroll_y | **integer**
 
-Required field. The vertical scroll distance. ||
+Required field. The vertical scroll distance. 
+ ||
 |#
 
 ## Type {#Type}
 
-An action to type in text.
+An action to type in text. 
+
 
 #|
 ||Field | Description ||
@@ -1189,12 +1255,14 @@ always set to `type`.
 - `type` ||
 || text | **string**
 
-Required field. The text to type. ||
+Required field. The text to type. 
+ ||
 |#
 
 ## Wait {#Wait}
 
-A wait action.
+A wait action. 
+
 
 #|
 ||Field | Description ||
@@ -1388,16 +1456,19 @@ Required field. Diff to apply. ||
 
 ## MCPListToolsTool {#MCPListToolsTool}
 
-A tool available on an MCP server.
+A tool available on an MCP server. 
+
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Required field. The name of the tool. ||
+Required field. The name of the tool. 
+ ||
 || description | Any of **string** \| **null** ||
 || input_schema | **[InputSchema](#null)**
 
-Required field. The JSON schema describing the tool''s input. ||
+Required field. The JSON schema describing the tool''s input. 
+ ||
 || annotations | Any of **[Annotations0](#null)** \| **null** ||
 |#

@@ -62,27 +62,16 @@ However, if the function uses other {{ yandex-cloud }} resources, those are bill
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Calling a function {#invoke}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|serverless }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd.md](../_pricing/functions/usd-invocations.md) %}
-
-You pay for the actual number of invocations. For instance, 1,000 calls over the included number cost {% calc [currency=USD] {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|number }} × 1000 / 1000000 %} if 1,000,000 calls are {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|string }}.
-
-
-### Function execution time {#execution}
-
-
-
-{% include [usd.md](../_pricing/functions/usd-compute.md) %}
-
-
-### Provisioned instances {#provisioned-instances}
-
-
-
-{% include [usd.md](../_pricing/functions/usd-compute-provisioned-instances.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

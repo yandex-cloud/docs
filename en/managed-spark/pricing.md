@@ -65,12 +65,17 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Cluster computing resources {#prices-computing-resources}
 
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|spark }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd-hosts](../_pricing/managed-spark/usd-hosts.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

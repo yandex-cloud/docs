@@ -14,7 +14,7 @@ Payments for {{ yandex-cloud }} services and resources can be debited from your 
 
 {{ yandex-cloud }} does not debit money and does not invoice you until you have switched to paid use. The transition to paid use never happens automatically.
 
-However, if your [grant](../usage-grant.md) has expired, access to your resources will be blocked for 30 days or until you switch to paid use. For more information about the end of the trial period, see [{#T}](../free-trial/concepts/trial-ending.md).
+However, if your [grant](../usage-grant.md) has expired, access to your resources will be suspended for 60 days or until you switch to paid use. For more information about the end of the trial period, see [{#T}](../free-trial/concepts/trial-ending.md).
 
 To activate a billing account, we ask you to link a bank card to make sure you are a human, not a robot. As soon as you link a card, a small amount will be debited from it and promptly returned. That is how we verify that your card is real.
 
@@ -55,9 +55,3 @@ Yes, companies and individual entrepreneurs can sign a bilateral contract. To do
 To get an invoice for a bank payment, follow the steps described in [{#T}](../../billing/operations/pay-the-bill.md#legal-entities).
 
 {{ yandex-cloud }} does not provide paper payment documents.
-
-## What's next? {#what-is-next}
-
-Start exploring {{ yandex-cloud }} services.
-
-{% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}

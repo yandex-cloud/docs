@@ -78,7 +78,7 @@
 
 ## Создать базу данных {#add-db}
 
-{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
+{% include [note-db-limit](../../_includes/mdb/mmy/note-db-limit.md) %}
 
 {% list tabs group=instructions %}
 

@@ -136,62 +136,23 @@ CVoS discount is only available for certain types of resources. If the relevant 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-
-### Computing resources of {{ CH }} hosts {#prices-clickhouse}
-
-
-{% include [note-compute-optimized-request](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-
-{% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
-
-
-
-### Computing resources of {{ CH }} Keeper hosts {#prices-keeper}
-
-{% include [note-compute-optimized-request](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-
-
-
-
-{% include [usd-host-keeper.md](../_pricing/managed-clickhouse/usd-host-keeper.md) %}
-
-
-
-### Computing resources of {{ ZK }} hosts {#prices-zookeeper}
-
-
-{% include [note-compute-optimized-request](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-{% note info %}
-
 You cannot order {{ ZK }} host resources via CVoS.
 
-{% endnote %}
+
+{% include [note-compute-optimized-request](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.ch }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.keeper.clickhouse.highfreq-v3.cores }}', '{{ pc|mdb.keeper.clickhouse.v2.cpu.c5 }}', '{{ pc|v1.commitment.selfcheckout.m6.mdb.ch.ram.v4a }}', '{{ pc|mdb.keeper.clickhouse.v1.cpu.c5 }}', '{{ pc|mdb.software_accelerated_network.clickhouse.highfreq-v4a.cores }}' , '{{ pc|mdb.software_accelerated_network.keeper.clickhouse.highfreq-v4a.cores }}', '{{ pc|v1.commitment.selfcheckout.m6.mdb.ch.cpu.c100.v4a }}', '{{ pc|mdb.keeper.clickhouse.v2.cpu.c20 }}', '{{ pc|mdb.keeper.clickhouse.v1.cpu.c20 }}', '{{ pc|mdb.software_accelerated_network.zk.clickhouse.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.clickhouse.highfreq-v3.cores }}', '{{ pc|mdb.software_accelerated_network.zk.clickhouse.highfreq-v3.cores }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd-host-zoo.md](../_pricing/managed-clickhouse/usd-host-zoo.md) %}
-
-
-
-### Storage and backups {#prices-storage}
-
-{% include [local-ssd for Intel Ice Lake only on request](../_includes/ice-lake-local-ssd-note.md) %}
-
-
-
-
-{% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

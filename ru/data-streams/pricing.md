@@ -20,6 +20,8 @@ editable: false
 
 Режим тарификации устанавливается для каждого потока данных по-отдельности. По умолчанию потоки данные в {{ yds-name }} создаются в режиме тарификации по выделенным ресурсам.
 
+Размер единицы записываемых данных — 40 КБ.
+
 ## Тарификация по выделенным ресурсам {#rules}
 
 В режиме работы по выделенным ресурсам тарифицируется количество единиц записываемых данных и ресурсы, выделенные для обслуживания потоков данных.
@@ -31,6 +33,8 @@ editable: false
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 ### Примеры расчета стоимости {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 В поток данных, состоящий из одного сегмента, поступают 2 сообщения в секунду размером 50 КБ. Время хранения сообщений — 12 часов.
 
@@ -61,118 +65,23 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Цена единицы записываемых данных {#event}
 
-Каждый месяц не тарифицируются первые 2 000 000 единиц записываемых данных.
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|yds }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
-{% list tabs group=pricing %}
 
-- Цены в рублях {#prices-rub}
 
-  {% include [rub.md](../_pricing/data-streams/rub-event.md) %}
+Если время хранения данных — 1 час, время использования ресурса несколькими потоками суммируется. Например, при работе двух потоков данных круглосуточно в течение месяца время использования ресурса составит 2 × 24 × 30 = 1440 часов. Первые 744 часа будут бесплатны, они израсходуются совместно двумя потоками за полмесяца, далее будет списываться оплата.
 
-- Цены в тенге {#prices-kzt}
+При расширенном времени хранения данные хранятся до 7 дней.
 
-  {% include [kzt.md](../_pricing/data-streams/kzt-event.md) %}
-
-{% endlist %}
-
-
-
-
-### Цена выделенных ресурсов {#resources}
-
-### Тарификация по времени хранения {#time-limit}
-
-Цена указывается за 1 час использования выделенных ресурсов.
-
-
-#### Цена за хранение данных при лимите пропускной способности сегмента до 128 КБ/с {#up-to-128}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-resources-128.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-resources-128.md) %}
-
-{% endlist %}
-
-
-
-
-#### Цена за хранение данных при лимите пропускной способности сегмента до 512 КБ/с {#up-to-512}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-resources-512.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-resources-512.md) %}
-
-{% endlist %}
-
-
-
-#### Цена за хранение данных при лимите пропускной способности сегмента до 1 МБ/с {#up-to-1}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-resources-1.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-resources-1.md) %}
-
-{% endlist %}
-
-
-
-
-### Тарификация по объему хранения {#storage-limit}
-
-Данные хранятся до 7 дней.
-
-
-#### Цена за запись данных {#record}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-resources-record.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-resources-record.md) %}
-
-{% endlist %}
-
-#### Цена за хранение данных {#storage}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-resources-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-resources-storage.md) %}
-
-{% endlist %}
-
-
+При предоставленном лимите хранения минимальный объем хранения — 50 ГБ на сегмент.
 
 
 ## Тарификация по фактическому использованию {#on-demand}

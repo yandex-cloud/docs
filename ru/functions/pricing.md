@@ -32,6 +32,8 @@ editable: false
 ### Формула расчета стоимости {#price-formula}
 
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 {% list tabs group=pricing %}
 
 - Стоимость в рублях {#prices-rub}
@@ -76,58 +78,15 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Вызов функции {#invoke}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|serverless }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/functions/rub-invocations.md) %}
-
-  Оплачивается фактическое количество вызовов. Например, 1000 вызовов сверх нетарифицируемого объема стоит {% calc [currency=RUB] {{ sku|RUB|serverless.functions.invocations.v1|pricingRate.1|number }} × 1000 / 1000000 %}, если 1 миллион запросов стоит {{ sku|RUB|serverless.functions.invocations.v1|pricingRate.1|string }}.
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/functions/kzt-invocations.md) %}
-
-  Оплачивается фактическое количество вызовов. Например, 1000 вызовов сверх нетарифицируемого объема стоит {% calc [currency=KZT] {{ sku|KZT|serverless.functions.invocations.v1|pricingRate.1|number }} × 1000 / 1000000 %}, если 1 миллион запросов стоит {{ sku|KZT|serverless.functions.invocations.v1|pricingRate.1|string }}.
-
-{% endlist %}
-
-
-
-### Время выполнения функции {#execution}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/functions/rub-compute.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/functions/kzt-compute.md) %}
-
-{% endlist %}
-
-
-
-### Подготовленные экземпляры {#provisioned-instances}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/functions/rub-compute-provisioned-instances.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/functions/kzt-compute-provisioned-instances.md) %}
-
-{% endlist %}
 
 
 

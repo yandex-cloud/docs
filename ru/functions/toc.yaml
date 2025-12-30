@@ -520,6 +520,8 @@ items:
         href: tutorials/ci-cd-github-functions.md
       - name: Создание AI-агента с помощью {{ sf-name }}
         href: tutorials/create-ai-agent-function.md
+      - name: Создание AI-агента со стримингом ответа через веб-сокеты
+        href: tutorials/streaming-openai-agent.md
       - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
         href: tutorials/postbox-webhook.md
   - name: Инструменты

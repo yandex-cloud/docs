@@ -9,5 +9,13 @@ The minimum billing unit is 1 MB.
 
 
 
-{% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cloud_network }}']}
+    skuIds={['{{ pc|network.egress.inet }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
 

@@ -31,24 +31,5 @@ The chat completion was deleted successfully.
 **Response schema: application/json**
 
 ```json
-{
-  "object": "string",
-  "id": "string",
-  "deleted": "boolean"
-}
+{}
 ```
-
-#|
-||Field | Description ||
-|| object | **enum**
-
-Required field. The type of object being deleted.
-
-- `chat.completion.deleted` ||
-|| id | **string**
-
-Required field. The ID of the chat completion that was deleted. ||
-|| deleted | **boolean**
-
-Required field. Whether the chat completion was deleted. ||
-|#

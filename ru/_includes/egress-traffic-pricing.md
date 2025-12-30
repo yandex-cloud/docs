@@ -7,17 +7,15 @@
 Минимальная единица тарификации — 1 МБ.
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cloud_network }}']}
+    skuIds={['{{ pc|network.egress.inet }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-egress-traffic](../_pricing/rub-egress-traffic.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-egress-traffic](../_pricing/kzt-egress-traffic.md) %}
-
-{% endlist %}
 
 
 

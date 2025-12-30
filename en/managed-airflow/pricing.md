@@ -58,11 +58,16 @@ Let’s calculate the cost of using a cluster with the following properties for 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Cluster computing resources {#prices-computing-resources}
 
 
-
-{% include [usd-prices](../_pricing/managed-airflow/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.apache_airflow }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

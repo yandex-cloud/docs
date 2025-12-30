@@ -30,43 +30,26 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Хранение и преобразование видео {#video}
 
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/video/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/video/kzt.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|video }}']}
+    excludeSkuIds={['{{ pc|video.used_space.live.v1 }}', '{{ pc|video.transcoding.live.v1 }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
 Стоимость услуги хранения потокового видео и оригинала видео в день рассчитывается как `Цена_за_ГБ_в_месяц / кол-во_дней_в_месяце`. Для более коротких месяцев цена за день будет выше, для более длинных — ниже.
 
-### Исходящий трафик {#traffic}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub.md](../_pricing/video/rub-cdn.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt.md](../_pricing/video/kzt-cdn.md) %}
-
-{% endlist %}
-
+Минимальная единица тарификации исходящего трафика — 1 ГБ.
 
 
 ### Пример расчета стоимости {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Вычислим стоимость услуг сервиса в месяц по следующим данным:
 

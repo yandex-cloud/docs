@@ -37,10 +37,7 @@ Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compu
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 ### Master {#master}
-
-The monthly prices are based on 720 hours per month.
 
 {% note warning %}
 
@@ -53,7 +50,15 @@ The monthly prices are based on 720 hours per month.
 
 
 
-{% include [usd.md](../_pricing/managed-kubernetes/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mk8s }}']}
+    excludeSkuIds={['{{ pc|mk8s.master.master_host_resources.cpu }}', '{{ pc|mk8s.master.master_host_resources.ram }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

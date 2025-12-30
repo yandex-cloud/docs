@@ -44,7 +44,7 @@ description: В этой инструкции вы научитесь выпол
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать очередь.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
      1. Укажите имя очереди: `sample-queue`.
 
@@ -174,7 +174,7 @@ description: В этой инструкции вы научитесь выпол
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит очередь.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Нажмите значок ![image](../_assets/console-icons/ellipsis.svg) напротив нужной очереди и выберите **{{ ui-key.yacloud.common.delete }}**.
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 

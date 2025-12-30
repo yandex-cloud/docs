@@ -25,7 +25,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали сервисный аккаунт. Если вы создадите сервисный аккаунт и адрес в разных каталогах, при попытке отправить письмо возникнет ошибка.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Перейдите](../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
     1. Укажите **{{ ui-key.yacloud.postbox.label_address }}**, с которого будете отправлять письма. Домен может быть любого уровня.
     1. Укажите **{{ ui-key.yacloud.postbox.label_selector }}**: `postbox`.

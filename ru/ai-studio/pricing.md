@@ -63,6 +63,8 @@ editable: false
 
 {#example-generating}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 {% cut "Пример расчета стоимости работы модели в синхронном режиме" %}
 
 > Параметры запроса:
@@ -194,7 +196,9 @@ _{{ price-per-hour-count-per-second }}_
 
 {#price-example-embedding}
 
-{% cut "Расчет стоимости векторизации текста" %}
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
+{% cut "Пример расчета стоимости векторизации текста" %}
 
 > Стоимость векторизации текста в 2000 токенов составит:
 
@@ -288,7 +292,9 @@ _{{ price-per-hour-count-per-second }}_
 
 {#price-example-voice-assistant}
 
-{% cut "Расчет стоимости использования голосового агента" %}
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
+{% cut "Пример расчета стоимости использования голосового агента" %}
 
 > Стоимость использования голосового агента за сессию общей длительностью 60 секунд, в которой:
 > * Входящее аудио — 60 секунд.

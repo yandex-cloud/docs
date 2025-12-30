@@ -27,7 +27,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Create a workbook](#create-workbook).
 1. [Create a connection to files](#create-connection).
 1. [Create a dataset](#create-dataset).
-1. [Analyze accident distribution density](#stream).
+1. [Analyze accident distribution density](#create-heat-map).
 1. [Analyze the number of accidents and death rate](#create-bar-chart).
 1. [Analyze the statistics by week, day of week, and time of day](#create-line-chart).
 1. [Create a map with color fill by region](#create-map-geopolygon-chart).
@@ -419,7 +419,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
       * `Accident type`
       * `Road type`
 
-      To to this, on the left side under **Selectors**, click ![image](../../_assets/console-icons/plus.svg) **Add** and select a field name.
+      To do this, on the left side under **Selectors**, click ![image](../../_assets/console-icons/plus.svg) **Add** and select a field name.
 
       ![image](../../_assets/datalens/solution-07/26-2-add-selectors.png)
 
@@ -434,7 +434,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
    1. In the top-right corner of the dashboard, click **Save**.
    1. Enter `Accidents in Russia` as the dashboard name and click **Create**.
 
-Your dashboard is ready.
+Your dashboard is ready for use.
 
 ![image](../../_assets/datalens/solution-07/28-saved-dashboard.png)
 
@@ -442,7 +442,7 @@ On the dashboard, you can:
 
 * Select selector values for data filtering.
 * Rescale the map.
-* Switch the `Number of accidents by region` chart to `Death rate by region` and back. To do this, click ![icon](../../_assets/console-icons/eye-slash.svg) to the right of the chart name and select the appropriate tab.
+* Switch the `Number of accidents by region` chart to `Death rate by region` and back. To do this, click ![image](../../_assets/console-icons/chevron-down.svg) to the right of the chart name and select the appropriate tab.
 
 ## Add a map with color fill by region to the dashboard {#add-geopolygon-chart}
 

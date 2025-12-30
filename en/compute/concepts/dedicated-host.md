@@ -313,7 +313,7 @@ We do not recommend using [placement groups](placement-groups.md) for VMs on ded
 
 ## Pricing {#billing}
 
-For information about pricing for dedicated hosts, see [{#T}](../pricing.md#prices-dedicated-host).
+For information about pricing for dedicated hosts, see [{#T}](../pricing.md#prices).
 
 
 ## See also {#see-also}

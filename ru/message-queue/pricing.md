@@ -29,20 +29,15 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Запросы к очередям {#requests-to-queues}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|ymq }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/message-queue/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/message-queue/kzt.md) %}
-
-{% endlist %}
 
 
 

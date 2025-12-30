@@ -214,7 +214,7 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
 ### Duplicating fields {#dublicate-fields}
 
-You can duplicate any dataset field, including the calculated field you previously created. To do this:
+You can duplicate any dataset field, including the calculated field you previously created. Proceed as follows:
 
 1. On the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) and select **Duplicate**. In the list on the left, you will see a new field with the same type and settings as the original one.
 1. Optionally, rename the duplicated field, change its type or formula.

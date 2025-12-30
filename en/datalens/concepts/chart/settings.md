@@ -110,7 +110,14 @@ If you apply an aggregation to the dimension, it will become a measure and the r
 || Markup | The field value will be formatted according to the option you select:
 
 * `None`: No markup.
-* `HTML`: HTML markup. Available only for `String` type fields.
+* `HTML`: HTML markup. Available only for `String` type fields. Here is an example:
+
+  ```html
+  '<span style="font-size: 16px;">' +
+  str([Product - category])
+  + '</span>'
+  ```
+
 * `Markdown`: [{#T}](../../dashboard/markdown.md) markup. Available only for `String` type fields in relevant sections depending on visualization type.
   
   #|

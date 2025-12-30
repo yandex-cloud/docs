@@ -71,6 +71,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Хосты-брокеры {{ KF }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
@@ -119,151 +121,24 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Вычислительные ресурсы хостов-брокеров {{ KF }} {#prices-kafka-brokers}
-
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
 
-
-
-**Цены в час**
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-standard-hour](../_pricing/managed-kafka/rub-hosts-standard-hour.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-standard-hour](../_pricing/managed-kafka/kzt-hosts-standard-hour.md) %}
-
-{% endlist %}
-
-
-
-**Цены в месяц**
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-standard-month](../_pricing/managed-kafka/rub-hosts-standard-month.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-standard-month](../_pricing/managed-kafka/kzt-hosts-standard-month.md) %}
-
-{% endlist %}
-
-
-
-
-
-### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
-
-
-{% note info %}
 
 Заказать ресурсы хостов {{ ZK }} с помощью механизма CVoS невозможно.
-
-{% endnote %}
-
-
-
-{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [RUB: standard ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-standard.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [KZT: standard ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-standard.md) %}
-
-{% endlist %}
-
-
-
-
-### Вычислительные ресурсы хостов {{ kraft-name }} {#prices-kraft}
-
-
-{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
-
-
-
-**Цены в час**
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-kraft-standard-hour](../_pricing/managed-kafka/rub-hosts-kraft-standard-hour.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-kraft-standard-hour](../_pricing/managed-kafka/kzt-hosts-kraft-standard-hour.md) %}
-
-{% endlist %}
-
-**Цены в месяц**
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-kraft-standard-month](../_pricing/managed-kafka/rub-hosts-kraft-standard-month.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-kraft-standard-month](../_pricing/managed-kafka/kzt-hosts-kraft-standard-month.md) %}
-
-{% endlist %}
-
-
-
-
-### Вычислительные ресурсы для {{ kafka-ui }} {#prices-kafka-ui}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [RUB: kafka-ui](../_pricing/managed-kafka/rub-kafka-ui.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [KZT: kafka-ui](../_pricing/managed-kafka/kzt-kafka-ui.md) %}
-
-{% endlist %}
-
-
-
-
-### Хранилище {#prices-storage}
 
 {% include [local-ssd for Intel Ice Lake only by request](../_includes/ice-lake-local-ssd-note.md) %}
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.kafka }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.zk.kafka.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.kafka.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.kafka.highfreq-v3.cores }}', '{{ pc|mdb.software_accelerated_network.zk.kafka.highfreq-v3.cores }}', '{{ pc|mdb.cluster.kafka.backup }}' ]}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [RUB: Storage prices](../_pricing/managed-kafka/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [KZT: Storage prices](../_pricing/managed-kafka/kzt-storage.md) %}
-
-{% endlist %}
 
 
 

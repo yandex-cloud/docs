@@ -25,39 +25,18 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Исходящий трафик {#traffic}
+Если функция экранирования источников или выгрузки логов подключена или отключена в любой день месяца, в последний день будет списана полная цена функции в месяц.
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cdn }}']}
+    excludeSkuIds={['{{ pc|cdn.logs.shielding }}', '{{ pc|cdn.api.network.inet.egress }}', '{{ pc|cdn.logs.raw }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub.md](../_pricing/cdn/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt.md](../_pricing/cdn/kzt.md) %}
-
-{% endlist %}
-
-
-
-### Платные функции {#paid-features}
-
-Тарификация помесячная. Если функция подключена или отключена в любой день месяца, в последний день будет списана полная цена функции в месяц.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub-paid-features.md](../_pricing/cdn/rub-paid-features.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt-paid-features.md](../_pricing/cdn/kzt-paid-features.md) %}
-
-{% endlist %}
 
 
 

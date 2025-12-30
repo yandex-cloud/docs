@@ -63,17 +63,25 @@ You pay for data operations according to the following policy:
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|storage }}']}
+    includeSkuIds={['{{ pc|storage.api.network.inet.egress }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
+
+## Cost calculation examples {#price-example}
+
 ### Data storage {#prices-storage}
 
-The price per GB per month is fixed and does not depend on the number of days in the month.
+#### Standard storage {#standard-storage}
 
-
-
-
-{% include [usd.md](../_pricing/storage/usd-used_space.md) %}
-
-
-^1^ The daily cost of data storage service is calculated as `Price_per_GB_per_month / number_of_days_in_month`. For shorter months, the price per day is higher. For longer months, it is lower.
+The daily cost of data storage service is calculated as `Price_per_GB_per_month / number_of_days_in_month`. For shorter months, the price per day is higher. For longer months, it is lower.
 
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using this formula:
 
@@ -81,7 +89,7 @@ Here is an example of proportional calculation. Let's assume a user stores 15 GB
 Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 ```
 
-^2^ The first 1 GB of data in a standard storage per month is free of charge.
+The first 1 GB of data in a standard storage per month is free of charge.
 
 
 
@@ -89,7 +97,9 @@ Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 {% include [usd-used-space-standard](../_pricing_examples/storage/usd-used-space-standard.md) %}
 
 
-^3^ The minimum billable storage time of an object in an ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
+#### Ice storage {#ice-storage}
+
+The minimum billable storage time of an object in an ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
 
 
 
@@ -99,12 +109,6 @@ Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 
 
 ### Data operations {#prices-operations}
-
-
-
-
-{% include [usd.md](../_pricing/storage/usd-operations.md) %}
-
 
 {% note info %}
 
@@ -127,18 +131,13 @@ When using {{ objstorage-name }}, you pay for traffic from {{ yandex-cloud }} to
 
 The minimum billing unit is 1 MB. The billing period is a calendar month.
 
-
-
-
-{% include [usd.md](../_pricing/storage/usd-egress.md) %}
-
-
 The first 100 GB of outgoing traffic per month for {{ objstorage-name }} are free of charge.
 
 
 
 
 {% include [usd-egress](../_pricing_examples/storage/usd-egress.md) %}
+
 
 
 

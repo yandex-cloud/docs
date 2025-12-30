@@ -168,6 +168,28 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 {% endcut %}
 
 
+### Software-Accelerated Network usage {#software-accelerated-network}
+
+A [software-accelerated network](./concepts/software-accelerated-network.md) in {{ compute-name }} is provided by additional vCPU cores, which are charged separately. The number of additional cores depends on the platform and the VM's number of vCPUs, as shown in the table below:
+
+#|
+|| **Platform** | **VM vCPU count** | **Number of Additional vCPUs** 
+**for the Software-Accelerated Network** ||
+|| Intel Broadwell | less than 18 | 2 ||
+|| ^ | 18 or more | 4 ||
+|| Intel Cascade Lake | less than 20 | 2 ||
+|| ^ | 20 or more | 4 ||
+|| Intel Ice Lake | less than 36 | 2 ||
+|| ^ | 36 or more | 4 ||
+|| Intel Ice Lake (Compute Optimized) | less than 16 | 2 ||
+|| ^ | 16 or more | 4 ||
+|| AMD Zen 3 | less than 96 | 2 ||
+|| ^ | 96 or more | 4 ||
+|| AMD Zen 4 | less than 96 | 2 ||
+|| ^ | 96 or more | 4 ||
+|| AMD Zen 4 (Compute-Optimized) | less than 48 | 2 ||
+|| ^ | 48 or more | 4 ||
+|#
 
 ## Discount for committed volume of services (CVoS) {#cvos}
 
@@ -191,72 +213,24 @@ _{{ price-per-hour-count-per-second }}_
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-CVoS adjusted price is only available for regular VMs.
 
+Gen2 and AMD Zen 3 are available upon request and subject to technical availability.
 
-### VM computing resources {#prices-instance-resources}
-
-_{{ price-per-hour-count-per-second }}_
-
-
-
-
-{% include [usd-instance-resources.md](../_pricing/compute/usd-instance-resources.md) %}
+For dedicated hosts the prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, let’s assume a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19,200 GB of storage on local SSDs. For the relevant example of cost calculation, see [above](#dedicated-hosts).
 
 
 
 
-### GPU clusters {#prices-gpu-clusters}
 
-_{{ price-per-hour-count-per-second }}_
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|compute }}', '{{ pcs|compute_gpu }}']}
+    excludeSkuIds={['{{ pc|compute.hostgroup.ram.v4a }}', '{{ pc|compute.hostgroup.ram.highfreq-v4a }}', '{{ pc|compute.hostgroup.cpu.c100.v4a }}', '{{ pc|compute.hostgroup.cpu.c100.highfreq-v4a }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-
-
-{% include [usd-gpu-clusters.md](../_pricing/compute/usd-gpu-clusters.md) %}
-
-
-
-
-### Disks, snapshots, and images {#prices-storage}
-
-
-
-
-{% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
-
-
-
-### File storages {#prices-nfs}
-
-
-
-
-{% include [usd-nfs.md](../_pricing/compute/usd-nfs.md) %}
-
-
-
-
-### Computing resources of dedicated hosts {#prices-dedicated-host}
-
-The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, let’s assume a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19,200 GB of storage on local SSDs. For the relevant example of cost calculation, see [above](#dedicated-hosts).
-
-_{{ price-per-hour-count-per-second }}_
-
-
-
-{% include [usd-host-resources.md](../_pricing/compute/usd-host-resources.md) %}
-
-{% include [usd-local-nvme.md](../_pricing/compute/usd-local-nvme.md) %}
-
-
-
-
-### Software-accelerated network {#software-accelerated-network}
-
-
-
-
-{% include [usd-network.md](../_pricing/compute/usd-network.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

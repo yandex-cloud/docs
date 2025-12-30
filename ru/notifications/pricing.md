@@ -9,13 +9,6 @@ editable: false
 
 
 
-{% note warning %}
-
-Цены на ресурсы {{ cns-name }} действуют с 20 ноября 2025 года.
-
-{% endnote %}
-
-
 ## Из чего складывается стоимость использования {{ cns-name }} {#rules}
 
 При использовании сервиса оплачиваются услуги:
@@ -40,6 +33,8 @@ Push-уведомления отправляются на мобильные п�
 Мобильные и браузерные push-уведомления при тарификации суммируются.
 
 #### Пример расчета стоимости {#push-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 В течение месяца обработано 1500 событий отправки мобильных push-уведомлений и 700 — в браузер.
 
@@ -71,6 +66,8 @@ Push-уведомления отправляются на мобильные п�
 
 
 #### Пример расчета стоимости {#registration-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Индивидуальный отправитель для обработки событий отправки SMS был зарегистрирован 20 января, а дерегистрирован 5 марта.
 
@@ -106,6 +103,8 @@ Push-уведомления отправляются на мобильные п�
 
 #### Пример расчета стоимости {#sms-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 От общего имени отправителя обработано 100 событий отправки SMS абонентам МТС и 100 событий абонентам Билайн (из них 30 — одному абоненту, а остальные 70 — разным).
 
 Если не были зарегистрированы шаблоны, все события считаются рекламными.
@@ -132,135 +131,17 @@ Push-уведомления отправляются на мобильные п�
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+Оплата взимается за отправку push-уведомлений на мобильные устройства и в браузер. Стоимость отправки SMS зависит от мобильного оператора и типа SMS.
 
-### Тарификация push-уведомлений {#prices-push}
 
-Оплата взимается за отправку push-уведомлений на мобильные устройства и в браузер.
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cns }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-push](../_pricing/notifications/rub-push.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-push](../_pricing/notifications/kzt-push.md) %}
-
-{% endlist %}
-
-
-
-
-### Тарификация регистрации индивидуальных имен отправителей {#prices-registration}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-registration](../_pricing/notifications/rub-registration.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-registration](../_pricing/notifications/kzt-registration.md) %}
-
-{% endlist %}
-
-
-
-
-### Тарификация SMS-уведомлений {#prices-sms}
-
-Стоимость отправки SMS зависит от мобильного оператора и типа SMS.
-
-
-#### Билайн {#sms-beeline}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-sms-beeline](../_pricing/notifications/rub-sms-beeline.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-sms-beeline](../_pricing/notifications/kzt-sms-beeline.md) %}
-
-{% endlist %}
-
-
-
-
-#### МегаФон {#sms-megafon}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-sms-megafon](../_pricing/notifications/rub-sms-megafon.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-sms-megafon](../_pricing/notifications/kzt-sms-megafon.md) %}
-
-{% endlist %}
-
-
-
-
-#### МТС {#sms-mts}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-sms-mts](../_pricing/notifications/rub-sms-mts.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-sms-mts](../_pricing/notifications/kzt-sms-mts.md) %}
-
-{% endlist %}
-
-
-
-#### Т2 {#sms-tele2}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-sms-tele2](../_pricing/notifications/rub-sms-tele2.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-sms-tele2](../_pricing/notifications/kzt-sms-tele2.md) %}
-
-{% endlist %}
-
-
-
-
-#### Другие операторы {#sms-others}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-sms-others](../_pricing/notifications/rub-sms-others.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-sms-others](../_pricing/notifications/kzt-sms-others.md) %}
-
-{% endlist %}
 
 
 

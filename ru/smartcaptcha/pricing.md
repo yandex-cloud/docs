@@ -56,33 +56,24 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|smart-captcha }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
+Оплачивается фактическое количество запросов. Итоговая стоимость вычисляется ступенчато: первые (100 000 - 10 000) запросов в месяц по одной цене, последующие запросы — по другой цене.
 
-  {% include [rub](../_pricing/smartcaptcha/rub.md) %}
-
-  Оплачивается фактическое количество запросов. Итоговая стоимость вычисляется ступенчато: первые (100 000 - 10 000) запросов в месяц по одной цене, последующие запросы — по другой цене.
-
-  Период тарификации — календарный месяц. 
+Период тарификации — календарный месяц. 
   
-  {% include [calendar-month](../_includes/smartcaptcha/calendar-month.md) %}
+{% include [calendar-month](../_includes/smartcaptcha/calendar-month.md) %}
 
-  {% include [rub-smartcaptcha](../_pricing_examples/smartcaptcha/rub-smartcaptcha.md) %}
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
-- Цены в тенге {#prices-kzt}
+{% include [rub-smartcaptcha](../_pricing_examples/smartcaptcha/rub-smartcaptcha.md) %}
 
-  {% include [kzt](../_pricing/smartcaptcha/kzt.md) %}
-
-  Оплачивается фактическое количество запросов. Итоговая стоимость вычисляется ступенчато: первые (100 000 - 10 000) запросов в месяц по одной цене, последующие запросы — по другой цене.
-
-  Период тарификации — календарный месяц. 
-  
-  {% include [calendar-month](../_includes/smartcaptcha/calendar-month.md) %}
-
-  {% include [kzt-smartcaptcha](../_pricing_examples/smartcaptcha/kzt-smartcaptcha.md) %}
-
-{% endlist %}
 
 
 

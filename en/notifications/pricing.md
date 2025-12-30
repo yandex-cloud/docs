@@ -101,66 +101,18 @@ Since you do not have any registered templates, all events are deemed commercial
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-### Push notifications {#prices-push}
-
-You are charged for push notifications sent to mobile devices and through browsers.
+You are charged for push notifications sent to mobile devices and through browsers. The cost for sending text messages depends on the mobile network provider and message type.
 
 
 
-{% include [usd-push](../_pricing/notifications/usd-push.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cns }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-
-
-### Registering individual sender names {#prices-registration}
-
-
-
-{% include [usd-registration](../_pricing/notifications/usd-registration.md) %}
-
-
-
-### Text message notifications {#prices-sms}
-
-The cost for sending text messages depends on the mobile network provider and message type.
-
-
-#### Beeline {#sms-beeline}
-
-
-
-{% include [usd-sms-beeline](../_pricing/notifications/usd-sms-beeline.md) %}
-
-
-
-#### MegaFon {#sms-megafon}
-
-
-
-{% include [usd-sms-megafon](../_pricing/notifications/usd-sms-megafon.md) %}
-
-
-
-#### MTS {#sms-mts}
-
-
-
-{% include [usd-sms-mts](../_pricing/notifications/usd-sms-mts.md) %}
-
-
-#### T2 {#sms-tele2}
-
-
-
-{% include [usd-sms-tele2](../_pricing/notifications/usd-sms-tele2.md) %}
-
-
-
-#### Other providers {#sms-others}
-
-
-
-{% include [usd-sms-others](../_pricing/notifications/usd-sms-others.md) %}
 
 
 {% note info %}

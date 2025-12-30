@@ -24,10 +24,6 @@
 
 
 
-- **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — опция разрешает использовать в кластере инструмент [Диагностика производительности](../../../managed-postgresql/operations/performance-diagnostics.md). Если опция включена, настройте также **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}** при помощи ползунков. Единицы измерения обеих настроек — секунды.
-
-
-
 - **{{ ui-key.yacloud.postgresql.cluster.additional-field-pooling_mode }}** — выберите один из [режимов работы менеджера подключений](../../../managed-postgresql/concepts/pooling.md).
 
 - **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — защита от удаления кластера, его баз данных и пользователей.

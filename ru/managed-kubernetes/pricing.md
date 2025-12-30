@@ -37,10 +37,7 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 ### Мастер {#master}
-
-Цены за месяц использования формируются из расчета 720 часов в месяц.
 
 {% note warning %}
 
@@ -51,17 +48,15 @@ editable: false
 {% endnote %}
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mk8s }}']}
+    excludeSkuIds={['{{ pc|mk8s.master.master_host_resources.cpu }}', '{{ pc|mk8s.master.master_host_resources.ram }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/managed-kubernetes/rub-master.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/managed-kubernetes/kzt-master.md) %}
-
-{% endlist %}
 
 
 

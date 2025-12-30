@@ -27,6 +27,8 @@ editable: false
 
 ### Пример расчета стоимости {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Балансировщик размещен в одной зоне доступности. Автомасштабирование настроено по умолчанию: минимум 2 ресурсные единицы в зоне, максимальное суммарное количество не ограничено.
 
 Балансировщик работал в течение часа. Внешняя нагрузка на него достигала следующих максимальных показателей (возможно, разные максимумы достигались в разные моменты времени):
@@ -77,23 +79,21 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+
+
 {% include [prices-nds-note](../_includes/prices-nds-note.md) %}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-lcu.md](../_pricing/application-load-balancer/rub-lcu.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kz-preview-prices.md](../_pricing/application-load-balancer/kzt-lcu.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|alb }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
- 
+
 

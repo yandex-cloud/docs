@@ -121,15 +121,22 @@ A CVoS discount is only available for certain resource types. For unsupported re
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Host computing resources {#prices-hosts}
-
-
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
+{% include [local-ssd for Intel Ice Lake only on request](../_includes/ice-lake-local-ssd-note.md) %}
 
 
 
-{% include [usd-hosts-and-storage.md](../_pricing/managed-opensearch/usd-hosts-and-storage.md) %}
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.opensearch }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.opensearch.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.opensearch.highfreq-v3.cores }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

@@ -69,6 +69,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Хосты {{ SD }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
@@ -117,57 +119,22 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Вычислительные ресурсы хостов {#prices-host}
-
 Цены на вычислительные ресурсы одинаковы для всех видов хостов — mongod, mongos и mongocfg.
-
-{% note info %}
-
-Цены на Intel Ice Lake (Compute Optimized) и AMD Zen 4 HighFreq действуют с 18 декабря 2025 года.
-
-{% endnote %}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host](../_pricing/storedoc/rub-host.md) %}
-
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host](../_pricing/storedoc/kzt-host.md) %}
-
-
-{% endlist %}
-
-
-
-### Хранилище и резервные копии {#prices-storage}
-
-
-{% note info %}
 
 Доступ к сверхбыстрому сетевому хранилищу с тремя репликами (SSD) предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
-{% endnote %}
 
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage](../_pricing/storedoc/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage](../_pricing/storedoc/kzt-storage.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.mongo }}']}
+    excludeSkuIds={['{{ pc|mdb.cluster.mongodb.v1.cpu.c20 }}', '{{ pc|mdb.cluster.mongodb.v2.cpu.c20 }}', '{{ pc|mdb.cluster.mongodb.v2.cpu.c5 }}', '{{ pc|mdb.cluster.mongodb.v1.cpu.c5 }}', '{{ pc|mdb.software_accelerated_network.mongodb.v2.cores}}', '{{ pc|mdb.software_accelerated_network.mongodb.v1.cores }}', '{{ pc|mdb.software_accelerated_network.mongodb.v4a.cores }}', '{{ pc|mdb.software_accelerated_network.mongodb.v3.cores }}']} 
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+
 
