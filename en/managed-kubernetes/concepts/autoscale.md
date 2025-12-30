@@ -56,8 +56,10 @@ You can learn more about {{ k8s-hpa }} in the [{{ k8s }} documentation](https://
 If required, {{ k8s-vpa }} allocates additional vCPU and RAM resources to pods.
 
 When [creating a {{ k8s-vpa }}](../operations/autoscale.md#vpa), set the autoscaling option in the specification:
-* `updateMode: "Auto"` for {{ k8s-vpa }} to manage pod resources automatically.
 * `updateMode: "Off"` for {{ k8s-vpa }} to [provide recommendations](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler#quick-start) on managing pod resources without modifying them.
+* `updateMode: "Initial"`, for {{ k8s-vpa }} only sets resource requests when Pods are first created. It does not update resources for already running Pods, even if recommendations change over time.
+* `updateMode: "Recreate"`, for {{ k8s-vpa }} actively manages Pod resources by evicting Pods when their current resource requests differ significantly from recommendations.
+* `updateMode: "InPlaceOrRecreate"`, for {{ k8s-vpa }} attempts to update resource requests and limits without restarting the Pod when possible. If in-place updates are not supported, the Pod is recreated in the same way as in `Recreate` mode. 
 
 You can learn more about {{ k8s-vpa }} in the [{{ k8s }} documentation](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).
 
