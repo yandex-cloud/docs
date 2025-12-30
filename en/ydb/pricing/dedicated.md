@@ -88,18 +88,24 @@ Currently, you cannot order storage or web traffic this way.
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
 
-### Host computing resources {#prices-compute-units}
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|ydb }}']}
+    skuIds={['{{ pc|ydb.cluster.v2.cpu }}', '{{ pc|v1.commitment.selfcheckout.m6.ydb.cpu.c100.v2 }}', '{{ pc|v1.commitment.selfcheckout.y1.ydb.cpu.c100.v2 }}', 
+    '{{ pc|ydb.cluster.v2.ram }}', '{{ pc|v1.commitment.selfcheckout.m6.ydb.ram.v2 }}', '{{ pc|v1.commitment.selfcheckout.y1.ydb.ram.v2 }}', 
+    '{{ pc|ydb.cluster.v1.ssd }}', '{{ pc|ydb.db.backup.v1 }}', '{{ pc|ydb.spilling_type1.v1 }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
+{% note info "Minimum group size" %}
 
-{% include [usd-compute-units.md](../../_pricing/ydb/usd-compute-units.md) %}
+A single [storage group](../concepts/resources.md#storage-groups) can store up to 100 GB of user data. The minimum granularity of space allocation for a DB is one storage group.
 
-
-### Storage and backups {#prices-storage}
-
-
-
-{% include notitle [usd-storage.md](../../_pricing/ydb/usd-storage.md) %}
+{% endnote %}
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

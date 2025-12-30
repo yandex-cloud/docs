@@ -97,35 +97,20 @@ Calculation for the storage cost and total cost:
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Host computing resources {#prices-host}
-
 The prices for computing resources are the same for all types of hosts: `mongod`, `mongos`, and `mongocfg`.
-
-{% note info %}
-
-The prices for Intel Ice Lake (Compute Optimized) and AMD Zen 4 HighFreq will apply starting December 18, 2025.
-
-{% endnote %}
-
-
-
-{% include [usd-host](../_pricing/storedoc/usd-host.md) %}
-
-
-
-### Storage and backups {#prices-storage}
-
-
-{% note info %}
 
 Access to ultra high-speed network storage with three replicas (SSD) is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
-{% endnote %}
 
 
-
-
-{% include [usd-storage](../_pricing/storedoc/usd-storage.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.mongo }}']}
+    excludeSkuIds={['{{ pc|mdb.cluster.mongodb.v1.cpu.c20 }}', '{{ pc|mdb.cluster.mongodb.v2.cpu.c20 }}', '{{ pc|mdb.cluster.mongodb.v2.cpu.c5 }}', '{{ pc|mdb.cluster.mongodb.v1.cpu.c5 }}', '{{ pc|mdb.software_accelerated_network.mongodb.v2.cores}}', '{{ pc|mdb.software_accelerated_network.mongodb.v1.cores }}', '{{ pc|mdb.software_accelerated_network.mongodb.v4a.cores }}', '{{ pc|mdb.software_accelerated_network.mongodb.v3.cores }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

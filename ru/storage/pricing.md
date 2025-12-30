@@ -63,27 +63,27 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|storage }}']}
+    includeSkuIds={['{{ pc|storage.api.network.inet.egress }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
+
+
+
+
+## Примеры расчета стоимости {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 ### Хранение данных {#prices-storage}
 
-Цены за ГБ в месяц фиксированы и не зависят от количества дней в месяце.
+#### Стандартное хранилище {#standard-storage}
 
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/storage/rub-used_space.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/storage/kzt-used_space.md) %}
-
-{% endlist %}
-
-
-
-
-^1^ Стоимость услуги хранения в день рассчитывается как `Цена_за_ГБ_в_месяц / кол-во_дней_в_месяце`. Для более коротких месяцев цена за день будет выше, для более длинных — ниже.
+Стоимость услуги хранения в день рассчитывается как `Цена_за_ГБ_в_месяц / кол-во_дней_в_месяце`. Для более коротких месяцев цена за день будет выше, для более длинных — ниже.
 
 Пример пропорционального расчета: пусть пользователь хранит 15 ГБ в течение 11 часов и 30 минут в месяце длиной 30 календарных дней. Общую цену хранения можно рассчитать по формуле:
 
@@ -91,7 +91,7 @@ editable: false
 Цена_хранения = Цена_за_ГБ_в_месяц × 15 × 12 / 24 / 30
 ```
 
-^2^ Каждый месяц первый 1 ГБ хранения данных в стандартном хранилище не тарифицируется.
+Каждый месяц первый 1 ГБ хранения данных в стандартном хранилище не тарифицируется.
 
 
 {% list tabs group=pricing %}
@@ -109,7 +109,9 @@ editable: false
 
 
 
-^3^ Минимальное тарифицируемое время хранения объекта в ледяном хранилище — 12 месяцев. Если вы удалите объект, хранившийся меньше 12 месяцев, после удаления будет списан остаток стоимости хранения.
+#### Ледяное хранилище {#ice-storage}
+
+Минимальное тарифицируемое время хранения объекта в ледяном хранилище — 12 месяцев. Если вы удалите объект, хранившийся меньше 12 месяцев, после удаления будет списан остаток стоимости хранения.
 
 
 {% list tabs group=pricing %}
@@ -129,22 +131,6 @@ editable: false
 
 
 ### Операции с данными {#prices-operations}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/storage/rub-operations.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/storage/kzt-operations.md) %}
-
-{% endlist %}
-
-
-
 
 {% note info %}
 
@@ -177,22 +163,6 @@ editable: false
 
 Минимальная единица тарификации — 1 МБ. Период тарификации — календарный месяц.
 
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/storage/rub-egress.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/storage/kzt-egress.md) %}
-
-{% endlist %}
-
-
-
-
 Каждый месяц первые 100 ГБ исходящего трафика для {{ objstorage-name }} не тарифицируются.
 
 
@@ -212,7 +182,10 @@ editable: false
 
 
 
+
 ## Примеры сравнения стоимости использования классов хранилищ {#comparison-examples}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 **Пример 1**
 

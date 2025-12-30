@@ -28,18 +28,9 @@ Required field. The ID of the response to retrieve. ||
 ||Field | Description ||
 || include[] | **enum**
 
-NOT SUPPORTED BY ALL MODELS. Additional fields to include in the response. See the `include`
-parameter for Response creation above for more information.
+NOT SUPPORTED BY ALL MODELS. Additional fields to include in the response. See the `include` parameter for Response creation above for more information.
 
-Specify additional output data to include in the model response. Currently supported values are:
-- `web_search_call.action.sources`: Include the sources of the web search tool call.
-- `code_interpreter_call.outputs`: Includes the outputs of python code execution in code interpreter tool call items.
-- `computer_call_output.output.image_url`: Include image urls from the computer call output.
-- `file_search_call.results`: Include the search results of the file search tool call.
-- `message.input_image.image_url`: Include image urls from the input message.
-- `message.output_text.logprobs`: Include logprobs with assistant messages.
-- `reasoning.encrypted_content`: Includes an encrypted version of reasoning tokens in reasoning item outputs. This enables reasoning items to be used in multi-turn conversations when using the Responses API statelessly (like when the `store` parameter is set to `false`, or when an organization is enrolled in the zero data retention program).'
-
+[CURRENTLY NOT SUPPORTED]
 
 - `file_search_call.results`
 - `web_search_call.results`
@@ -539,11 +530,12 @@ Used to boost cache hit rates by better bucketing similar requests and  to help 
 || max_tool_calls | Any of **integer** \| **null** ||
 || text | **[ResponseTextParam](#ResponseTextParam)**
 
-Configuration options for a text response from the model. Can be plain
-text or structured JSON data. ||
+Configuration options for a text response from the model. Can be plain text or structured JSON data. 
+ ||
 || tools[] | **unknown**
 
-A tool that can be used to generate a response. ||
+A tool that can be used to generate a response. 
+ ||
 || tool_choice | Any of **enum** \| **[ToolChoiceAllowed](#ToolChoiceAllowed)** \| **[ToolChoiceTypes](#ToolChoiceTypes)** \| **[ToolChoiceFunction](#ToolChoiceFunction)** \| **[ToolChoiceMCP](#ToolChoiceMCP)** \| **[ToolChoiceCustom](#ToolChoiceCustom)** \| **[SpecificApplyPatchParam](#SpecificApplyPatchParam)** \| **[SpecificFunctionShellParam](#SpecificFunctionShellParam)** ||
 || prompt | Any of **[Prompt0](#Prompt0)** \| **null** ||
 || truncation | **unknown**
@@ -587,7 +579,8 @@ Required field.  ||
 || usage | **[ResponseUsage](#ResponseUsage)**
 
 Required field. Represents token usage details including input tokens, output tokens,
-a breakdown of output tokens, and the total tokens used. ||
+a breakdown of output tokens, and the total tokens used. 
+ ||
 || parallel_tool_calls | **boolean**
 
 Required field. Whether to allow the model to run tool calls in parallel. ||
@@ -602,15 +595,15 @@ Required field. Whether to allow the model to run tool calls in parallel. ||
 
 #|
 ||Field | Description ||
-|| effort [CURRENTLY NOT SUPPORTED] | Any of **enum** \| **null** ||
-|| summary [CURRENTLY NOT SUPPORTED] | Any of **enum** \| **null** ||
+|| effort '[CURRENTLY NOT SUPPORTED]' | Any of **enum** \| **null** ||
+|| summary '[CURRENTLY NOT SUPPORTED]' | Any of **enum** \| **null** ||
 || generate_summary | Any of **enum** \| **null** ||
 |#
 
 ## ResponseTextParam {#ResponseTextParam}
 
-Configuration options for a text response from the model. Can be plain
-text or structured JSON data.
+Configuration options for a text response from the model. Can be plain text or structured JSON data. 
+
 
 #|
 ||Field | Description ||
@@ -620,7 +613,8 @@ text or structured JSON data.
 
 ## ResponseFormatText {#ResponseFormatText}
 
-Default response format. Used to generate text responses.
+Default response format. Used to generate text responses. 
+
 
 #|
 ||Field | Description ||
@@ -635,7 +629,6 @@ Required field. The type of response format being defined. Always `text`.
 
 JSON Schema response format. Used to generate structured JSON responses.'
 
-
 #|
 ||Field | Description ||
 || type | **enum**
@@ -645,16 +638,18 @@ Required field. The type of response format being defined. Always `json_schema`.
 - `json_schema` ||
 || description | **string**
 
-A description of what the response format is for, used by the model to
-determine how to respond in the format. ||
+A description of what the response format is for, used by the model to determine 
+how to respond in the format."
+ ||
 || name | **string**
 
-Required field. The name of the response format. Must be a-z, A-Z, 0-9, or contain
-underscores and dashes, with a maximum length of 64. ||
+Required field. The name of the response format. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64. 
+ ||
 || schema | **object**
 
 Required field. The schema for the response format, described as a JSON Schema object.
-Learn how to build JSON schemas [here](https://json-schema.org/). ||
+Learn how to build JSON schemas [here](https://json-schema.org/). 
+ ||
 || strict | Any of **boolean** \| **null** ||
 |#
 
@@ -663,7 +658,8 @@ Learn how to build JSON schemas [here](https://json-schema.org/). ||
 JSON object response format. An older method of generating JSON responses.
 Using `json_schema` is recommended for models that support it. Note that the
 model will not generate JSON without a system or user message instructing it
-to do so.
+to do so. 
+
 
 #|
 ||Field | Description ||
@@ -676,7 +672,8 @@ Required field. The type of response format being defined. Always `json_object`.
 
 ## ToolChoiceAllowed {#ToolChoiceAllowed}
 
-Constrains the tools available to the model to a pre-defined set.
+Constrains the tools available to the model to a pre-defined set. 
+
 
 #|
 ||Field | Description ||
@@ -687,12 +684,8 @@ Required field. Allowed tool configuration type. Always `allowed_tools`.
 - `allowed_tools` ||
 || mode | **enum**
 
-Required field. Constrains the tools available to the model to a pre-defined set.
+Required field. Constrains the tools available to the model to a pre-defined set.  `auto` allows the model to pick from among the allowed tools and generate a message. `required` requires the model to call one or more of the allowed tools. 
 
-`auto` allows the model to pick from among the allowed tools and generate a
-message.
-
-`required` requires the model to call one or more of the allowed tools.
 
 - `auto`
 - `required` ||
@@ -703,27 +696,23 @@ Required field. A tool definition that the model should be allowed to call. ||
 
 ## ToolChoiceTypes {#ToolChoiceTypes}
 
-Indicates that the model should use a built-in tool to generate a response.'
-
+Indicates that the model should use a built-in tool to generate a response.
 
 #|
 ||Field | Description ||
 || type | **enum**
 
-Required field. The type of hosted tool the model should to use. Allowed values are:
-
+Required field. The type of hosted tool the model should to use.
 
 - `file_search`
-- `web_search_preview`
-- `computer_use_preview`
-- `web_search_preview_2025_03_11`
-- `image_generation`
-- `code_interpreter` ||
+- `web_search`
+- `mcp` ||
 |#
 
 ## ToolChoiceFunction {#ToolChoiceFunction}
 
-Use this option to force the model to call a specific function.
+Use this option to force the model to call a specific function. 
+
 
 #|
 ||Field | Description ||
@@ -739,7 +728,8 @@ Required field. The name of the function to call. ||
 
 ## ToolChoiceMCP {#ToolChoiceMCP}
 
-Use this option to force the model to call a specific tool on a remote MCP server.
+Use this option to force the model to call a specific tool on a remote MCP server. 
+
 
 #|
 ||Field | Description ||
@@ -750,13 +740,15 @@ Required field. For MCP tools, the type is always `mcp`.
 - `mcp` ||
 || server_label | **string**
 
-Required field. The label of the MCP server to use. ||
+Required field. The label of the MCP server to use. 
+ ||
 || name | Any of **string** \| **null** ||
 |#
 
 ## ToolChoiceCustom {#ToolChoiceCustom}
 
-Use this option to force the model to call a specific custom tool.
+Use this option to force the model to call a specific custom tool. 
+
 
 #|
 ||Field | Description ||
@@ -812,12 +804,14 @@ Required field. The unique identifier of the prompt template to use. ||
 ## ResponseError0 {#ResponseError0}
 
 An error object returned when the model fails to generate a Response.
+'
 
 #|
 ||Field | Description ||
 || code | **enum**
 
-Required field. The error code for the response.
+Required field. The error code for the response. 
+
 
 - `server_error`
 - `rate_limit_exceeded`
@@ -844,7 +838,8 @@ Required field. A human-readable description of the error. ||
 
 ## IncompleteDetails0 {#IncompleteDetails0}
 
-Details about why the response is incomplete.
+Details about why the response is incomplete. 
+
 
 #|
 ||Field | Description ||
@@ -859,7 +854,8 @@ The reason why the response is incomplete.
 ## ResponseUsage {#ResponseUsage}
 
 Represents token usage details including input tokens, output tokens,
-a breakdown of output tokens, and the total tokens used.
+a breakdown of output tokens, and the total tokens used. 
+
 
 #|
 ||Field | Description ||

@@ -178,7 +178,7 @@ In addition to the common control fields, the following is available:
 
 ## Available methods {#methods}
 
-This type of chart supports the same functionality as [table](../../../visualization-ref/table-chart.md) in the wizard: you can customize styles, cross-filtering, pagination, etc.
+This type of chart has the same capabilities as a [table](../../../visualization-ref/table-chart.md) in the wizard. You can customize styles, set up cross-filtering, pagination, etc.
 
 ## Adding a selector to a dashboard and report {#add-to-dash-report}
 

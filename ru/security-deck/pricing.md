@@ -62,60 +62,22 @@ editable: false
 
 ### Модуль контроля данных ({{ dspm-name }}) {#dspm-pricing}
 
-#### Сканирование по объему данных {#scan-by-volume}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|security_deck }}']}
+    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub.md](../_pricing/security-deck/dspm/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt.md](../_pricing/security-deck/dspm/kzt.md) %}
-
-{% endlist %}
-
-
-
-#### Сканирование по количеству файлов {#scan-by-amount}
-
-Сканирование изображений тарифицируется отдельно.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub-scan-by-amount.md](../_pricing/security-deck/dspm/rub-scan-by-amount.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt-scan-by-amount.md](../_pricing/security-deck/dspm/kzt-scan-by-amount.md) %}
-
-{% endlist %}
-
-
-
-#### Сканирование по количеству изображений {#scan-by-image-amount}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub.md](../_pricing/security-deck/dspm/rub-scan-by-image-amount.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt.md](../_pricing/security-deck/dspm/kzt-scan-by-image-amount.md) %}
-
-{% endlist %}
 
 
 
 #### Пример расчета стоимости {#amount-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Например, вы настроили сканирование бакета, в котором хранится 50 текстовых файлов общим объемом 5 ГБ. Все файлы были просканированы. Итоговая стоимость одного сканирования составит:
 

@@ -10,7 +10,7 @@ description: In this article, you will learn how to configure a support plan as 
 
 {% include [account_scope.md](../../billing/_includes/account-scope.md) %}
 
-By default, all users are offered the free basic service plan. To change your service plan:
+By default, all users are offered the free basic service plan.
 
 {% include [change-pricing](../../_includes/support/change-pricing.md) %}
 

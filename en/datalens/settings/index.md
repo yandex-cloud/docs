@@ -30,7 +30,7 @@ For your convenience, all settings are grouped into thematic tabs:
 
 To access the service settings:
 
-1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. If the panel does not feature ![image](../../_assets/console-icons/sliders.svg), first select ![image](../../_assets/console-icons/ellipsis.svg) **More**, then ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. If ![image](../../_assets/console-icons/sliders.svg) is not displayed on the pannel, first select ![image](../../_assets/console-icons/ellipsis.svg) **More**, and then select ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
    
    {% cut "Service settings" %}
 

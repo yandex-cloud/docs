@@ -24,17 +24,14 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|yq }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub](../_pricing/query/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt](../_pricing/query/kzt.md) %}
-
-{% endlist %}
 
 
 
@@ -45,6 +42,8 @@ editable: false
 * Если при выполнении запроса общий объем считанных данных составит менее 10 МБ, то объем будет округлен до 10 МБ.
 
 ## Примеры расчета стоимости {#examples}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Все примеры ниже приведены без учета уровня бесплатного потребления.
 

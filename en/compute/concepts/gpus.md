@@ -122,7 +122,7 @@ VM GPUs are provided in full. For example, if a configuration has four GPUs spec
 
 For more information about organizational and technical limitations for VMs, see [Quotas and limits](../concepts/limits.md).
 
-For information about the cost of VMs with GPUs, see [{#T}](../pricing.md#prices-instance-resources).
+For information about the cost of VMs with GPUs, see [{#T}](../pricing.md#prices).
 
 
 ### OS images {#os}

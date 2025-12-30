@@ -182,7 +182,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
           * File name: `device-emulator.js`.
           * File contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/device-emulator.js).
 
-      1. Similarly, create a file named `package.json` with the following content:
+      1. Similarly, create a file named `package.json` with the following contents:
 
           ```json
           {
@@ -566,7 +566,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
 
 {% endlist %}
 
-### Create a chart with a map{#create-chart-map}
+### Create a chart with a map {#create-chart-map}
 
 {% list tabs group=instructions %}
 

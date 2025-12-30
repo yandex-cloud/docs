@@ -5,22 +5,28 @@ description: In this tutorial, you will learn how to create and customize the co
 
 # Column chart ![](../../_assets/datalens/column.svg) in {{ datalens-full-name }}
 
-This chart displays the values of one or more measures by period or category. The height of a column determines the measure value: the higher the column, the larger the value.
-Unlike line charts, this type of chart assumes that different periods are compared directly and an emphasis is made on a measure's individual value rather than its general trend.
+This chart plots the values of one or more measures by period or category. The column height represents the measure value: the higher the column, the larger the value.
 
-![bar-chart](../../_assets/datalens/visualization-ref/bar-chart/bar-chart.png)
+Unlike a line chart, this type of chart allows you to compare individual periods and focus on individual values rather than the general trend.
 
-{% cut "Source table" %}
+{% list tabs %}
 
-Year |	Sales|	
------|---------| 
-2022|	6M |	
-2021|	28M|	
-2020|	18M |	
-2019|	9M | 
-2018|	1M |
+- Visualization
 
-{% endcut %}
+  ![bar-chart](../../_assets/datalens/visualization-ref/bar-chart/bar-chart.png =800x)
+
+- Source table
+
+  Year |	Sales|	
+  -----|---------| 
+  2022|	6M |	
+  2021|	28M |	
+  2020|	18M |	
+  2019|	9M | 
+  2018|	1M |
+
+{% endlist %}
+
 
 ## Types of column charts {#types}
 
@@ -31,38 +37,56 @@ Year |	Sales|
 
 A chart with grouping lets you compare two or more measures: for example, the number of products delivered and the number picked up. The column height corresponds to the measure value.
 
-![bar-chart-groupped](../../_assets/datalens/visualization-ref/bar-chart/bar-chart-groupped.png)
+{% cut "Example" %}
 
-{% cut "Source table" %}
+{% list tabs %}
 
-Year |	Delivery|	Pickup
------|---------| ----------|
-2022|	2M |	4M
-2021|	8M |	19M
-2020|	5M |	13M
-2019|	3M | 6M
-2018|	331K |	918K
+- Visualization
+
+  ![bar-chart-groupped](../../_assets/datalens/visualization-ref/bar-chart/bar-chart-groupped.png =800x)
+
+- Source table
+
+  Year |	Delivery|	Pickup
+  -----|---------| ----------|
+  2022|	2M |	4M
+  2021|	8M |	19M
+  2020|	5M |	13M
+  2019|	3M | 6M
+  2018|	331K |	918K
+
+{% endlist %}
 
 {% endcut %}
+
 
 ### Stacked {#stacked}
 
 This chart depicts the ratio of internal segments by period or category. The segments are stacked one on top of the other, i.e., the base of the above segment is the top side of the one below.
 Since the sum of all segments is equal to the overall column length, the stacked chart is used when you need to visualize the total column values.
 
-![bar-chart-stacked](../../_assets/datalens/visualization-ref/bar-chart/bar-chart-stacked.png)
+{% cut "Example" %}
 
-{% cut "Source table" %}
+{% list tabs %}
 
-Year |	Delivery|	Pickup
------|---------| ----------|
-2022|	2M |	4M
-2021|	8M |	19M
-2020|	5M |	13M
-2019|	3M | 6M
-2018|	331K |	918K
+- Visualization
+
+  ![bar-chart-stacked](../../_assets/datalens/visualization-ref/bar-chart/bar-chart-stacked.png =800x)
+
+- Source table
+
+  Year |	Delivery|	Pickup
+  -----|---------| ----------|
+  2022|	2M |	4M
+  2021|	8M |	19M
+  2020|	5M |	13M
+  2019|	3M | 6M
+  2018|	331K |	918K
+
+{% endlist %}
 
 {% endcut %}
+
 
 ## Wizard sections {#wizard-sections}
 
@@ -84,10 +108,10 @@ To create a column chart:
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
 1. Click **Create chart** → **Chart in Wizard**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Column chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as columns on the Y-axis.
@@ -113,14 +137,22 @@ To display an X-axis grouped column chart:
       1. Drag a dimension that you want to group the chart columns by to the **Color** section.
       1. Duplicate this dimension in the **X** section. The sequence of dimensions affects the grouping order.
 
-      ![one-measure](../../_assets/datalens/visualization-ref/bar-chart/one-measure.png)
+        {% cut "Example" %}
+
+        ![one-measure](../../_assets/datalens/visualization-ref/bar-chart/one-measure.png)
+
+        {% endcut %}
 
     - Two or more measures {#more}
 
       1. Drag the `Measure Names` dimension to the **Color** section.
       1. Drag the `Measure Names` dimension to the **X** section. The sequence of dimensions affects the grouping order.
 
-      ![two-measures](../../_assets/datalens/visualization-ref/bar-chart/two-measures.png)
+        {% cut "Example" %}
+
+        ![two-measures](../../_assets/datalens/visualization-ref/bar-chart/two-measures.png =800x)
+
+        {% endcut %}
 
    {% endlist %}
 
@@ -139,7 +171,11 @@ To color columns in a chart based on the value of a measure:
 
      The colors of the columns in the chart will apply based on the measure values.
 
+     {% cut "Example" %}
+
      ![image](../../_assets/datalens/operations/chart/column-colors-1.png)
+
+     {% endcut %}
 
    - Two or more measures {#more}
 
@@ -147,7 +183,11 @@ To color columns in a chart based on the value of a measure:
 
      The colors of the columns in the chart will apply based on the values of all the measures listed in the **Y** section.
 
+     {% cut "Example" %}
+
      ![image](../../_assets/datalens/operations/chart/column-colors-2.png)
+
+     {% endcut %}
 
    {% endlist %}
 
@@ -155,13 +195,15 @@ To color columns in a chart based on the value of a measure:
 1. In the color settings, specify:
 
    * **Gradient type**: Select two or three colors.
-   * Gradient color: Select a color palette for the gradient from the list.
-   * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
+   * **Gradient color**: Select a color palette for the gradient from the list.
+   * **Gradient direction**: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
    * **Set threshold values**: Set numeric thresholds for each color. Works if the **Y** section contains a single value.
 
 ### Adding column sorting by aggregated value {#column-aggregate-sorting}
 
-In the **Sorting** section, you cannot use a value with [aggregation](../dataset/data-model.md#aggregation). To sort columns by an aggregated value (e.g., sum, count, or average), first create a [calculated field](../concepts/calculations/index.md) in the dataset or chart using the [aggregation formula](../function-ref/aggregation-functions.md). Then use it to build a chart and do the sorting.
+In the **Sorting** section, you cannot use a value with [aggregation](../dataset/data-model.md#aggregation). 
+
+To sort columns by an aggregated value (e.g., sum, count, or average), first create a [calculated field](../concepts/calculations/index.md) in the dataset or chart using the [aggregation formula](../function-ref/aggregation-functions.md). Then use it to build a chart and do the sorting.
 
 For example, to sort your sales by total amount:
 
@@ -175,7 +217,11 @@ For example, to sort your sales by total amount:
 1. Click **Create**.
 1. Drag the new field to the **Y** and **Sorting** sections. The columns will be sorted by sales total. To change the sorting direction, in the **Sorting** section, click ![image](../../_assets/console-icons/bars-descending-align-left.svg) or ![image](../../_assets/console-icons/bars-ascending-align-left.svg) to the right of the field name.
 
-![image](../../_assets/datalens/operations/chart/column-sorting.png)
+{% cut "Example" %}
+
+![image](../../_assets/datalens/operations/chart/column-sorting.png =800x)
+
+{% endcut %}
 
 ### Configuring display of `null` values {#null-settings}
 
@@ -183,11 +229,11 @@ For example, to sort your sales by total amount:
 
 ## Recommendations {#recomentations}
 
-* If category values contain a lot of text, try to make it shorter so that chart signatures look neater. You can use string functions in calculated fields or the `CASE` conditional statements.
-* If each column is a category rather than a time value, consider sorting the columns in ascending or descending order of the measure. This will make your chart look better and more informative. Sorting may also be helpful inside each column's subcategories.
+* **Labels.** If the values of the categories contain lots of text, try to shorten it to make the labels look neater. You can use string functions in calculated fields or the `CASE` conditional statements.
+* **Sorting.** If each column is a category, not time, consider sorting the columns in ascending or descending order of the measure. This will make your chart look better and more informative. Sorting may also be helpful inside each column's subcategories.
 * We recommend using a column chart to display changes to a measure or measures over time. In this case, be careful when sorting values on the X-axis, because the user usually expects to see changes over time on the X-axis.
-* When visualizing multiple measures, select colors carefully. They should be distinguishable and contrasting. We recommend using no more than 3-5 colors per chart. If you want to emphasize one certain measure above the others, highlight it in some bright color.
-* You can split a chart by dimension into a number of small charts that are convenient to compare to one another. To do this, drag a dimension from the dataset to the **Split** section.
+* {% include [colors](../../_includes/datalens/visualization-ref/colors.md) %}
+* {% include [split](../../_includes/datalens/visualization-ref/split.md) %}
 
   {% cut "Chart example" %}
 
@@ -195,8 +241,4 @@ For example, to sort your sales by total amount:
 
   {% endcut %}
 
-#### See also {#see-also}
-
-* [{#T}](../operations/dashboard/create.md)
-* [{#T}](../operations/dashboard/add-chart.md)
-* [{#T}](../operations/dashboard/add-selector.md)
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

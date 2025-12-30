@@ -66,7 +66,7 @@ You can add other connections from those [available in {{ marketplace-full-name 
 
 ## Access management {#access-management}
 
-You can configure connection permissions. Learn more in [{#T}](../../security/index.md).
+You can configure connection permissions. For more information, see [{#T}](../../security/index.md).
 
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

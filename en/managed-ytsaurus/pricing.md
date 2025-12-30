@@ -124,18 +124,16 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Component computing resources {#prices-components}
 
 
-
-{% include [usd-prices](../_pricing/managed-ytsaurus/usd-components.md) %}
-
-
-### Storage {#prices-storage}
-
-
-
-{% include [usd-prices-storage](../_pricing/managed-ytsaurus/usd-storage.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|yt }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

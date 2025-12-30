@@ -22,15 +22,24 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Public DNS requests {#public-dns-requests}
 
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|dns }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd-public-dns-requests](../_pricing/dns/usd-public-dns-requests.md) %}
 
 
 You will be billed for:
+* [Public](concepts/dns-zone.md#public-zones) or [private](concepts/dns-zone.md#private-zones) DNS zones you create.
+
+    You are charged per second of usage, based on consumption. For example, the cost of managing two DNS zones for 360 hours will be the same as the cost of managing one DNS zone for 720 hours.
+
 * Authoritative requests: Any DNS requests to user [public zones](concepts/dns-zone.md#public-zones) from the internet or {{ yandex-cloud }}.
 * Recursive requests: DNS requests for external domain names on the internet from {{ yandex-cloud }} VMs.
 
@@ -41,6 +50,7 @@ You will be billed for:
   {% endnote %}
 
 You do not pay for:
+* [Service zones](concepts/dns-zone.md#service-zones).
 * Requests from VMs to [private](concepts/dns-zone.md#private-zones) and [service](concepts/dns-zone.md#service-zones) zones.
 
 **Starting December 6, 2021, you get the following free of charge**:
@@ -60,18 +70,4 @@ For example, the cost of 50,000 authoritative requests to your public DNS zone p
 
 {% include [usd-calculations](../_pricing_examples/dns/usd-calculations.md) %}
 
-
-### DNS zones {#dns-zones}
-
-You are charged for [public](concepts/dns-zone.md#public-zones) or [private](concepts/dns-zone.md#private-zones) DNS zones you create.
-
-[Service zones](concepts/dns-zone.md#service-zones) are provided free of charge.
-
-You are charged per second of usage, based on consumption.
-
-> For example, the cost of managing two DNS zones for 360 hours will be the same as the cost of managing one DNS zone for 720 hours.
-
-
-
-{% include [usd-public-dns-zones](../_pricing/dns/usd-dns-zones.md) %}
 

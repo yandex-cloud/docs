@@ -40,14 +40,16 @@ If multiple [Docker images](concepts/docker-image.md) in the same registry use t
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Data storage {#prices-storage}
-
-The price per GB per month is fixed and does not depend on the number of days in the month. The storage cost per day is higher for shorter months and lower for longer months.
 
 
 
-
-{% include [usd.md](../_pricing/container-registry/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cr }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using this formula:
@@ -55,18 +57,6 @@ Here is an example of proportional calculation. Let's assume a user stores 15 GB
 ```text
 Storage_cost = Price_per_GB_per_month * 15 * 12 / 24 / 30
 ```
-
-
-### Vulnerability scanner {#scanner}
-
-The cost of using the [vulnerability scanner](concepts/vulnerability-scanner.md) for Docker images depends on how many scans you run:
-
-First-time scan of the first six different Docker images per month is free of charge. Further six scans of any Docker images per month are free of charge.
-
-
-
-{% include [usd-scanner.md](../_pricing/container-registry/usd-scanner.md) %}
-
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

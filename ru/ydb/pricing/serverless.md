@@ -84,6 +84,8 @@ editable: false
 
 #### Пример расчета стоимости создания резервной копии по требованию {#example-of-cost-calculation-backup-storage}
 
+{% include [prices-difference](../../_includes/prices-difference.md) %}
+
 Рассмотрим расчеты стоимости создания резервных копий БД объемом 1 ГБ и 10 ГБ.
 
 **Расчет стоимости для БД объемом 1 ГБ**
@@ -130,6 +132,8 @@ editable: false
 
 #### Пример расчета стоимости восстановления из резервной копии {#example-of-cost-calculation-backup-restore}
 
+{% include [prices-difference](../../_includes/prices-difference.md) %}
+
 Рассмотрим расчеты стоимости восстановления из резервной копии БД объемом 1 ГБ и 10 ГБ.
 
 **Расчет стоимости для БД объемом 1 ГБ**
@@ -170,20 +174,17 @@ editable: false
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
-Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|ydb }}']}
+    skuIds={['{{ pc|ydb.v1.serverless.requests }}', '{{ pc|ydb.v1.serverless.provisioned_rcu }}', 
+    '{{ pc|ydb.v1.serverless.storage }}', '{{ pc|ydb.db.backup.v1 }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-serverless](../../_pricing/ydb/rub-serverless.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-serverless](../../_pricing/ydb/kzt-serverless.md) %}
-
-{% endlist %}
 
 
 

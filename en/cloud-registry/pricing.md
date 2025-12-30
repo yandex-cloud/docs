@@ -39,17 +39,16 @@ If multiple [Docker images](concepts/docker-image.md) in the same registry use t
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-{% note warning %}
-
-These prices apply starting September 15, 2025.
-
-{% endnote %}
-
-### Data storage {#prices-storage}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cloud_registry }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd.md](../_pricing/cloud-registry/usd.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

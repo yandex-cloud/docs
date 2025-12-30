@@ -61,7 +61,7 @@ Error code and severity are unknown. Try re-exporting the workbook.
 
 #### Check the connection settings and re-enter passwords and tokens if needed {#import-passwords}
 
-In connections, password and token field values are not exported. Note that the configuration file may have been modified and updated with current values. Therefore, after the import is complete, check the data for correctness and update it if needed.
+In connections, password and token field values are not exported. Note that the configuration file may have been modified and updated with current values. Therefore, after the import is complete, check the data for correctness and update is if needed.
 
 #### Make sure that RLS works correctly in the datasets {#import-rls}
 
@@ -93,7 +93,7 @@ The chart or dashboard version is not compatible with the {{ datalens-short-name
 
 The imported workbook has charts or dashboards linked with objects that are not in the workbook. Check the object links and set the correct ones if needed.
 
-#### Operation was interrupted due to an unknown error {#import-unknown-error} {#import-critical-error}
+#### Operation was interrupted due to an unknown error {#import-critical-error}
 
 A critical error was detected which caused the current operation to be interrupted. Try re-importing the workbook.
 

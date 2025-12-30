@@ -1,0 +1,1 @@
+Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).

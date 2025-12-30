@@ -104,7 +104,7 @@ Where:
 * `width`: Column cell width. Optional field. Number or string value type from the available width CSS style values. The default value is `auto`.
 * `group`: Whether to group values into a single cell. Applies to consecutive identical cell values in the column. Optional field; `boolean` value type. The default value is `false`.
 * `pinned`: Whether the column is pinned when scrolling horizontally. Optional field; `boolean` value type. The default value is `false`.
-* `css`: Description of CSS styles for the table header cell. Optional field; value type: object from CSS properties.
+* `css`: Description of CSS styles for the table header cell. This is an optional field; the value type is an object from CSS properties.
 * `sub`: Array of table header cells for setting a two-tier head. The array elements must be objects with fields identical to the `head` field ones.
 * `custom`: Cell parameter configuration for cross-filtering. For more information, see [{#T}](../cross-filtration.md).
 
@@ -140,8 +140,8 @@ Where:
 * `min`: Sets the minimum threshold value for an indicator, if not specified in `head`. For more information about the field, see above.
 * `max`: Sets the maximum threshold value for an indicator, if not specified in `head`. For more information about the field, see above.
 * `showLabel`: Sets how to display the indicator label, if not specified in `head`. For more information about the field, see above.
-* `barHeight`: Sets how to style the indicator height in CSS, if not specified in `head`. For more information about the field, see above.
-* `css`: Description of CSS styles for a table cell. Optional field; value type: object from CSS properties.
+* `barHeight`: Sets the CSS style for the indicator height, if not specified in `head`. For more information about the field, see above.
+* `css`: Description of CSS styles for the table cell. This is an optional field; the value type is an object from CSS properties.
 * `link`: Sets the display of the entire cell content as a link for `text` type columns. Optional field; value type is object in this format:
 
   ```json
@@ -217,7 +217,7 @@ Where all fields are optional:
   Where:
 
   * `text`: Table header.
-  * `style`: Description of CSS styles for the table header. Value type: object from CSS properties.
+  * `style`: Description of CSS styles for the table header. The value type is an object from CSS properties.
 
 * `order`: Sorting order. String value type from these possible values: `acs` (ascending) or `desc` (descending).
 * `paginator`: Table pagination configuration. Value type: object in the following format:

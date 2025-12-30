@@ -39,17 +39,14 @@ editable: false
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|metadatahub }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-prices](../_pricing/metastore/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-prices](../_pricing/metastore/kzt.md) %}
-
-{% endlist %}
 
 
 

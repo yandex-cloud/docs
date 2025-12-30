@@ -22,12 +22,20 @@ Delivered [data events](./concepts/events-data-plane.md) are billed.
 ## Prices for the Russia region {#prices}
 
 
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
-{% include [usd](../_pricing/audit-trails/usd.md) %}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|audit-trails }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 

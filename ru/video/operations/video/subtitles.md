@@ -9,6 +9,12 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [free-neuro](../../../_includes/video/free-neuro.md) %}
 
+{% include [video-characteristic](../../../_includes/video/video-characteristic-multiple.md) %}
+
+{% include [video-multi-soundtracks](../../../_includes/video/video-multi-soundtracks.md) %}
+
+{% include [video-resolution-limits](../../../_includes/video/video-resolution-limits.md) %}
+
 ## Добавить субтитры {#add}
 
 {% list tabs group=instructions %}

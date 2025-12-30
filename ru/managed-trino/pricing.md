@@ -36,6 +36,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Координатор**: 1 экземпляр конфигурации `standard`: 4 × 100% vCPU, 16 ГБ RAM.
@@ -64,21 +66,16 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Вычислительные ресурсы кластера {#prices-computing-resources}
 
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-prices](../_pricing/managed-trino/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-prices](../_pricing/managed-trino/kzt.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|trino }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

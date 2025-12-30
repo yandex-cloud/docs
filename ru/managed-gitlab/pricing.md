@@ -53,6 +53,8 @@ editable: false
 
 ### Пример расчета стоимости инстанса {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования инстанса со следующими параметрами в течение 30 дней:
 
 * **Тип инстанса**: `s2.micro` (2 vCPU Intel Cascade Lake, 8 ГБ RAM).
@@ -117,41 +119,17 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
-
-### Вычислительные ресурсы инстансов {#prices-instance}
-
-Цена вычислительных ресурсов зависит от выбранной конфигурации [правил ревью кода](concepts/approval-rules.md):
+Цена вычислительных ресурсов зависит от выбранной конфигурации [правил ревью кода](concepts/approval-rules.md).
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|managed-gitlab }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-instance-resources.md](../_pricing/managed-gitlab/rub-instance-resources.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-instance-resources.md](../_pricing/managed-gitlab/kzt-instance-resources.md) %}
-
-{% endlist %}
-
-
-
-### Хранилище и резервные копии {#prices-storage}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../_pricing/managed-gitlab/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../_pricing/managed-gitlab/kzt-storage.md) %}
-
-{% endlist %}
 
 
 

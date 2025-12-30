@@ -52,27 +52,17 @@ When performing [data scan](operations/dspm/create-scan.md), {{ dspm-name }} sen
 
 ### Data Security Posture Management ({{ dspm-name }}) {#dspm-pricing}
 
-#### Data scan (by size) {#scan-by-volume}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|security_deck }}']}
+    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include notitle [usd.md](../_pricing/security-deck/dspm/usd.md) %}
-
-
-#### File scan (by number) {#scan-by-amount}
-
-Image scanning is charged separately.
-
-
-
-{% include notitle [usd-scan-by-amount.md](../_pricing/security-deck/dspm/usd-scan-by-amount.md) %}
-
-
-#### Scanning by the number of images {#scan-by-image-amount}
-
-
-
-{% include notitle [usd.md](../_pricing/security-deck/dspm/usd-scan-by-image-amount.md) %}
 
 
 #### Cost calculation example {#amount-example}

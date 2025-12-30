@@ -41,7 +41,14 @@ A `Stopped` cluster is not charged.
 
 
 
-{% include [usd-prices](../_pricing/metastore/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|metadatahub }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
 
 
 {% include [metastore-trademark](../_includes/metadata-hub/metastore-trademark.md) %}

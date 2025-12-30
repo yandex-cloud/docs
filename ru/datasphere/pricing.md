@@ -129,6 +129,8 @@ editable: false
 
 ## Примеры расчета стоимости {#price-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 ### {{ ds-nb }} {#price-example-notebook}
 
 Стоимость использования {{ ml-platform-name }} со следующими параметрами:

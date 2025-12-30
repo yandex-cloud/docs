@@ -1643,6 +1643,8 @@ items:
             href: serverless/send-emails-aws-sdk-python.md
       - name: Создание AI-агента с помощью {{ sf-full-name }}
         href: serverless/create-ai-agent-function.md
+      - name: Создание AI-агента со стримингом ответа через веб-сокеты
+        href: serverless/streaming-openai-agent.md
       - name: Настройка Postfix для отправки через {{ postbox-full-name }}
         href: serverless/postfix-integration.md
       - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки

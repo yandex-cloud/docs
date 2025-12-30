@@ -81,6 +81,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Хосты {{ MY }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
@@ -153,112 +155,20 @@ editable: false
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
-### Вычислительные ресурсы хостов {#prices-hosts}
-
-
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
-
-#### Стандартные хосты {#standard-hosts}
-
-
-**Цены в час**
+Стоимость на выделенные хосты начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
 
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [RUB: standard hosts hour](../_pricing/managed-mysql/rub-hosts-standard-hour.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [KZT: standard hosts hour](../_pricing/managed-mysql/kzt-hosts-standard-hour.md) %}
-
-{% endlist %}
-
-
-
-**Цены в месяц**
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [RUB: standard hosts month](../_pricing/managed-mysql/rub-hosts-standard-month.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [KZT: standard hosts month](../_pricing/managed-mysql/kzt-hosts-standard-month.md) %}
-
-{% endlist %}
-
-
-
-
-
-
-
-#### Выделенные хосты {#dedicated-hosts}
-
-Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [RUB: dedicated hosts](../_pricing/managed-mysql/rub-hosts-dedicated.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [KZT: dedicated hosts](../_pricing/managed-mysql/kzt-hosts-dedicated.md) %}
-
-{% endlist %}
-
-
-
-
-
-### Хранилище и резервные копии {#prices-storage}
-
-{% include [local-ssd for Ice Lake by query only](../_includes/ice-lake-local-ssd-note.md) %}
-
-
-
-#### Стандартные хосты {#standard-hosts-storage}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage-standard.md](../_pricing/managed-mysql/rub-storage-standard.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage-standard.md](../_pricing/managed-mysql/kzt-storage-standard.md) %}
-
-{% endlist %}
-
-
-#### Выделенные хосты {#dedicated-hosts-storage}
-
-Стоимость начисляется из двух компонентов: [цены за хранилище {{ compute-full-name }}](../compute/pricing.md#prices) и цены {{ mmy-name }} на него. Все цены указаны за 1 ГБ в месяц.
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage-dedicated.md](../_pricing/managed-mysql/rub-storage-dedicated.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage-dedicated.md](../_pricing/managed-mysql/kzt-storage-dedicated.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.mysql }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.mysql.highfreq-v4a.cores.dedicated }}', '{{ pc|mdb.software_accelerated_network.mysql.highfreq-v4a.cores-key-value }}', '{{ pc|mdb.software_accelerated_network.mysql.highfreq-v3.cores.dedicated }}', '{{ pc|mdb.software_accelerated_network.mysql.highfreq-v3.cores-key-value }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 

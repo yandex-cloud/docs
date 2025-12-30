@@ -5,23 +5,37 @@ description: In this tutorial, you will learn how to create and customize the do
 
 # Donut chart ![](../../_assets/datalens/ring.svg) in {{ datalens-full-name }}
 
-This chart shows the proportion of different categories using ring segments. The sum of all segments is 100%. The size of each segment matches the percentage of a category in the total amount. A number in the center of a ring depends on the selected measure and indicates the overall total. Donut charts are a good choice if you need to display a small number of segments.
+This chart shows the proportion of different categories using ring segments. The sum of all segments is 100%. The size of each segment matches the percentage of a category in the total amount. A number in the center of a ring depends on the selected measure and indicates the overall total. 
 
-![ring-chart](../../_assets/datalens/visualization-ref/ring-chart/ring-chart.png)
+Donut charts are a good choice if you need to display a small number of segments.
 
-{% cut "Source table" %}
+{% cut "Example" %}
 
-Product categories | Sales |	
------|---------| 
-Home appliances | 69M |
-Household goods | 57M |
-Household cleaners | 44M |
+{% list tabs %}
+
+- Visualization
+
+  ![ring-chart](../../_assets/datalens/visualization-ref/ring-chart/ring-chart.png =800x)
+
+- Source table
+
+  Product categories | Sales |	
+  -----|---------| 
+  Home appliances | 69M |
+  Household goods | 57M |
+  Household cleaners | 44M |
+
+{% endlist %}
 
 {% endcut %}
 
 You can highlight multiple small segments belonging to a larger category with the same color.
 
-![ring-chart-subcategories](../../_assets/datalens/visualization-ref/ring-chart/ring-chart-subcategories.png)
+{% cut "Example" %}
+
+![ring-chart-subcategories](../../_assets/datalens/visualization-ref/ring-chart/ring-chart-subcategories.png =800x)
+
+{% endcut %}
 
 ## Wizard sections {#wizard-sections}
 
@@ -42,10 +56,10 @@ To create a donut chart:
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
-1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Donut chart** as the chart type.
 1. Drag a dimension from the dataset to the **Categories** section.
 1. Drag a dimension or measure from the dataset to the **Color** section.
@@ -59,7 +73,13 @@ To disable displaying a number in the center:
 
 ## Recommendations {#recommendations}
 
-* If there are many segments, the chart looks cluttered and it becomes difficult to understand the data. If there are more than 4-6 segments in one chart, consider combining the smallest of them into one segment, e.g., `Other`. You can do this by processing the data, e.g., by creating a [calculated field](../concepts/calculations/index.md) in your dataset or chart.
+{% note info %}
+
+You cannot display negative and null values on this type of chart.
+
+{% endnote %}
+
+* **Segments.** With too many segments, your chart will look cluttered, making it difficult to interpret the data. If there are more than 4-6 segments in one chart, consider combining the smallest of them into one segment, e.g., `Other`. You can do this by processing the data, e.g., by creating a [calculated field](../concepts/calculations/index.md) in your dataset or chart.
 
   {% cut "Example of combining segments in a chart" %}
 
@@ -102,11 +122,6 @@ To disable displaying a number in the center:
   * Use the **Categories** section to highlight segments.
   * Use the **Color** section to highlight groups.
 
-* You cannot display negative and null values on this type of chart.
 * Do not use donut charts to show changes to proportions over time or for precisely comparing data by category.
 
-#### See also {#see-also}
-
-* [{#T}](../operations/dashboard/create.md)
-* [{#T}](../operations/dashboard/add-chart.md)
-* [{#T}](../operations/dashboard/add-selector.md)
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

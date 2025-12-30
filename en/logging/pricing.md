@@ -28,20 +28,17 @@ The monthly prices are based on 720 hours per month.
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Adding data {#data-ingested}
 
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|logging }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd-data-ingested.md](../_pricing/logging/usd-data-ingested.md) %}
-
-
-### Data storage {#storage}
-
-
-
-
-{% include [usd-storage.md](../_pricing/logging/usd-storage.md) %}
 
 
 Any unused free service balance is reset at the end of each calendar month.

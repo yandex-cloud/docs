@@ -131,52 +131,23 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
-### Host computing resources {#prices-hosts}
-
-
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
-
-#### Standard hosts {#standard-hosts}
-
-
-
-{% include [USD: standard hosts](../_pricing/managed-mysql/usd-hosts-standard.md) %}
+The dedicated host cost is a sum of the [price for {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup on these resources.
 
 
 
 
-#### Dedicated hosts {#dedicated-hosts}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.mysql }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.mysql.highfreq-v4a.cores.dedicated }}', '{{ pc|mdb.software_accelerated_network.mysql.highfreq-v4a.cores-key-value }}', '{{ pc|mdb.software_accelerated_network.mysql.highfreq-v3.cores.dedicated }}', '{{ pc|mdb.software_accelerated_network.mysql.highfreq-v3.cores-key-value }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-The cost is a sum of the [price for {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup on these resources.
-
-
-
-{% include [USD: dedicated hosts](../_pricing/managed-mysql/usd-hosts-dedicated.md) %}
-
-
-
-
-### Storage and backups {#prices-storage}
-
-{% include [local-ssd for Ice Lake by query only](../_includes/ice-lake-local-ssd-note.md) %}
-
-
-
-{% list tabs %}
-
-- Standard hosts
-
-  {% include [usd-storage-standard.md](../_pricing/managed-mysql/usd-storage-standard.md) %}
-
-- Dedicated hosts
-
-  The cost is a sum of the [price for {{ compute-full-name }} storage](../compute/pricing.md#prices) and the {{ mmy-name }} charge for it. All prices are per GB, per month.
-
-  {% include [usd-storage-dedicated.md](../_pricing/managed-mysql/usd-storage-dedicated.md) %}
-
-{% endlist %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

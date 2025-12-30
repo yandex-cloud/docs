@@ -11,6 +11,7 @@ The supported methods include:
 * [Editor.getActionParams()](#get-action-params)
 * [Editor.getCurrentPage()](#get-current-page)
 * [Editor.getId(arg)](#get-id)
+* [Editor.getLang()](#get-lang)
 * [Editor.getLoadedData()](#get-loaded-data)
 * [Editor.getParam(name)](#get-param)
 * [Editor.getParams()](#get-params)
@@ -777,6 +778,44 @@ String with the `id` value.
         },
     },
   };
+  ```
+
+{% endlist %}
+
+## Editor.getLang() {#get-lang}
+
+Returns a string with the language specified in the [current user settings](../../settings/index.md#user-settings).
+
+#### Supported chart types {#get-lang-charts}
+
+All.
+
+#### Arguments {#get-lang-args}
+
+No.
+
+#### Returned result {#get-lang-result}
+
+A string corresponding to the language specified in the user settings: `"ru"` or `"en"`.
+
+#### Example {#get-lang-example}
+
+{% list tabs %}
+
+- Prepare tab
+
+  [Prepare](./tabs.md#prepare) tab contents:
+
+  ```js
+  const lang = Editor.getLang();
+  ```
+
+- Result
+
+  Value of the `lang` variable after running the [Prepare](./tabs.md#prepare) tab with the current user language set to `ru`:
+
+  ```json
+  ["ru"]
   ```
 
 {% endlist %}

@@ -1,0 +1,47 @@
+---
+editable: false
+sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerOutputAudioBufferStopped.md
+---
+
+# REST: output_audio_buffer.stopped '[CURRENTLY NOT SUPPORTED]'
+
+## HTTP request
+
+```
+POST https://ai.api.cloud.yandex.net/v1/realtime/server-events/output_audio_buffer.stopped
+```
+
+## Body parameters
+
+**Request schema: application/json**
+
+```json
+{
+  "type": "string",
+  "event_id": "string",
+  "response_id": "string"
+}
+```
+
+Returned when the output audio buffer stops.
+
+#|
+||Field | Description ||
+|| type | **enum**
+
+Required field. The event type, must be `output_audio_buffer.stopped`.
+
+- `output_audio_buffer.stopped` ||
+|| event_id | **string**
+
+Required field. The unique ID of the server event. ||
+|| response_id | **string**
+
+Required field.  ||
+|#
+
+## Response {#200}
+
+**HTTP Code: 200**
+
+OK

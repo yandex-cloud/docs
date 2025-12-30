@@ -5,11 +5,7 @@ description: This article covers the {{ org-name }} pricing policy.
 
 # {{ org-full-name }} pricing policy
 
-{% note info %}
 
-These prices apply starting December 1, 2025.
-
-{% endnote %}
 
 The fee for {{ org-full-name }} is included in the charge for paid services. Only fees for connections to external apps are charged separately.
 
@@ -21,7 +17,6 @@ When you buy a limit for a specific number of users, the amount is debited immed
 
 You can [manage](#pricing-management) {{ org-name }} billing through the [{{ cloud-center }} interface]({{ link-org-cloud-center }}). For more information, see [{#T}](./operations/manage-billing.md).
 
-
 ## Prices for the Russia region {#prices}
 
 
@@ -29,8 +24,13 @@ You can [manage](#pricing-management) {{ org-name }} billing through the [{{ clo
 
 
 
-{% include [usd](../_pricing/organization/usd.md) %}
-
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|identity-hub }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 

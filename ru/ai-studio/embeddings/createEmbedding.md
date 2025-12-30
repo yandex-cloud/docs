@@ -32,16 +32,19 @@ POST https://ai.api.cloud.yandex.net/v1/embeddings
 || input | Any of **string** \| **string** ||
 || model | **unknown**
 
-Required field. ID of the model to use. You can use the [List models](https://yandex.cloud/docs/ai-studio/concepts/embeddings#yandexgpt-embeddings) API to see all of your available models. of them. ||
+Required field. ID of the model to use. You can use the [List models](https://yandex.cloud/ru/docs/ai-studio/concepts/embeddings#yandexgpt-embeddings) API to see all of your available models. of them. 
+ ||
 || encoding_format | **enum**
 
-Required field. The format to return the embeddings in. "base64" currently not supported, "float" required.
+Required field. The format to return the embeddings in. "base64" currently not supported, "float" required. 
+
 
 - `float`
 - `base64 [NOT SUPPORTED]` ||
 || dimensions | **integer**
 
-NOT SUPPORTED BY ALL MODELS. The number of dimensions the resulting output embeddings should have. ||
+NOT SUPPORTED BY ALL MODELS. The number of dimensions the resulting output embeddings should have. 
+ ||
 || user | **string**
 
 [CURRENTLY NOT SUPPORTED] ||
@@ -79,7 +82,8 @@ OK
 ||Field | Description ||
 || data[] | **[Embedding](#Embedding)**
 
-Required field. Represents an embedding vector returned by embedding endpoint. ||
+Required field. Represents an embedding vector returned by embedding endpoint. 
+ ||
 || model | **string**
 
 Required field. The name of the model used to generate the embedding. ||
@@ -95,7 +99,8 @@ Required field. The usage information for the request. ||
 
 ## Embedding {#Embedding}
 
-Represents an embedding vector returned by embedding endpoint.
+Represents an embedding vector returned by embedding endpoint. 
+
 
 #|
 ||Field | Description ||

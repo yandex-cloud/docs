@@ -27,22 +27,35 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Время выполнения тестов {#test-time}
+Оплачивается:
+* продолжительность выполнения тестов;
+* продолжительность тестов, результаты которых будут храниться.
 
-Оплачивается продолжительность выполнения тестов.
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|load-testing }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
+
+
+
+## Примеры расчета стоимости {#amount-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
+### Время выполнения тестов {#test-time}
 
 
 {% list tabs group=pricing %}
 
-- Цены в рублях {#prices-rub}
-
-  {% include [test-time-rub](../_pricing/load-testing/test-time-rub.md) %}
+- Расчет в рублях {#prices-rub}
 
   {% include [rub-test-time](../_pricing_examples/load-testing/rub-test-time.md) %}
 
-- Цены в тенге {#prices-kzt}
-
-  {% include [test-time-kzt](../_pricing/load-testing/test-time-kzt.md) %}
+- Расчет в тенге {#prices-kzt}
 
   {% include [kzt-test-time](../_pricing_examples/load-testing/kzt-test-time.md) %}
 
@@ -52,23 +65,19 @@ editable: false
 
 ### Хранение результатов тестов {#test-results-storage}
 
-Оплачивается продолжительность тестов, результаты которых будут храниться.
-
 
 {% list tabs group=pricing %}
 
-- Цены в рублях {#prices-rub}
-
-  {% include [test-results-rub](../_pricing/load-testing/test-results-rub.md) %}
+- Расчет в рублях {#prices-rub}
 
   {% include [rub-test-results](../_pricing_examples/load-testing/rub-test-results.md) %}
 
-- Цены в тенге {#prices-kzt}
-
-  {% include [test-results-kzt](../_pricing/load-testing/test-results-kzt.md) %}
+- Расчет в тенге {#prices-kzt}
 
   {% include [kzt-test-results](../_pricing_examples/load-testing/kzt-test-results.md) %}
 
 {% endlist %}
+
+
 
 

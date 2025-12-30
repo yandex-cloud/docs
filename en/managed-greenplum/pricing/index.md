@@ -134,70 +134,29 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 {% include [pricing-month-term](../../_includes/mdb/pricing-month-term.md) %}
 
-### Host computing resources {#prices-hosts}
-
-
-#### Standard hosts {#standard-hosts}
 
 {% include [Access to Compute Optimized on request](../../_includes/mdb/note-compute-optimized-request.md) %}
 
-The cost calculation varies depending on the [host configuration](../concepts/instance-types.md):
+The standard host cost calculation varies depending on the [host configuration](../concepts/instance-types.md):
 
-* For i2 and i3 hosts (`io-optimized`), the cost is made up of the price for {{ GP }} host computing resources (see the table below) and [the price for software-accelerated network usage](../../compute/pricing.md#software-accelerated-network).
-* For hosts with other configurations, you only pay for their computing resources:
+* For i2 and i3 hosts (`io-optimized`), the cost is made up of the price for {{ GP }} host computing resources (see the table below) and [the price for software-accelerated network usage](../../compute/pricing.md).
+* For hosts with other configurations, you only pay for their computing resources.
 
-
-**Prices per hour**
-
-
-
-
-{% include [usd-hosts-standard-hour](../../_pricing/managed-greenplum/usd-hosts-standard-hour.md) %}
-
-
-**Prices per month**
-
-
-
-
-{% include [usd-hosts-standard-month](../../_pricing/managed-greenplum/usd-hosts-standard-month.md) %}
-
-
-
-#### Dedicated hosts {#dedicated-hosts}
-
-{% include [Access to Compute Optimized on request](../../_includes/mdb/note-compute-optimized-request.md) %}
-
-The cost is made up of two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} charges for these resources.
-
-
-
-{% include [usd-hosts-dedicated](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}
-
-
-
-### Storage and backups {#prices-storage}
-
-{% include [local-ssd for Intel Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
+The cost is made up of two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md) and {{ mgp-name }} charges for these resources.
 
 
 
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.greenplum }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.greenplum.highfreq-v4a.cores.dedicated }}', '{{ pc|mdb.software_accelerated_network.greenplum.highfreq-v3.cores.dedicated }}',]}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% list tabs %}
-
-- Standard hosts
-
-  {% include [usd-storage-standard](../../_pricing/managed-greenplum/usd-storage-standard.md) %}
-
-- Dedicated hosts
-
-  The cost is made up of two components: the [{{ compute-full-name }} storage cost](../../compute/pricing.md#prices) and the {{ mgp-name }} price for it. All prices are per GB, per month.
-
-  {% include [usd-storage-dedicated](../../_pricing/managed-greenplum/usd-storage-dedicated.md) %}
-
-{% endlist %}
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

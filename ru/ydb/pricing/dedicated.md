@@ -88,57 +88,24 @@ editable: false
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
 
-Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
-
-
-### Вычислительные ресурсы хостов {#prices-compute-units}
-
-
-#### Цены в час {#price-per-hour}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-compute-units-hour.md](../../_pricing/ydb/rub-compute-units-hour.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-compute-units-hour.md](../../_pricing/ydb/kzt-compute-units-hour.md) %}
-
-{% endlist %}
-
-#### Цены в месяц {#price-per-month}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-compute-units-month.md](../../_pricing/ydb/rub-compute-units-month.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-compute-units-month.md](../../_pricing/ydb/kzt-compute-units-month.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|ydb }}']}
+    skuIds={['{{ pc|ydb.cluster.v2.cpu }}', '{{ pc|v1.commitment.selfcheckout.m6.ydb.cpu.c100.v2 }}', '{{ pc|v1.commitment.selfcheckout.y1.ydb.cpu.c100.v2 }}', 
+    '{{ pc|ydb.cluster.v2.ram }}', '{{ pc|v1.commitment.selfcheckout.m6.ydb.ram.v2 }}', '{{ pc|v1.commitment.selfcheckout.y1.ydb.ram.v2 }}', 
+    '{{ pc|ydb.cluster.v1.ssd }}', '{{ pc|ydb.db.backup.v1 }}', '{{ pc|ydb.spilling_type1.v1 }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
-### Хранилище и резервные копии {#prices-storage}
+{% note info "Минимальный размер группы" %}
 
+Одна [группа хранения](../concepts/resources.md#storage-groups) позволяет разместить до 100 Гб пользовательских данных. Минимальная гранулярность выделения места для базы данных – одна группа хранения.
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../../_pricing/ydb/kzt-storage.md) %}
-
-{% endlist %}
-
+{% endnote %}
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

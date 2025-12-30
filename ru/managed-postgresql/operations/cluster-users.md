@@ -110,6 +110,13 @@ description: Из статьи вы узнаете, как добавлять и
       Чтобы увидеть пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
+  1. Выберите протокол проверки пароля. Возможные значения:
+  
+     * **MD5**
+     * **SCRAM-SHA-256**
+       
+     Если протокол не выбран, берется значение [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) `Password Encryption`, заданной на уровне кластера. Значение настройки по умолчанию — `MD5`.
+  
   1. Выберите тип защиты от удаления.
 
      Возможные значения:
@@ -236,7 +243,8 @@ description: Из статьи вы узнаете, как добавлять и
                      }
                    ],
                    "connLimit": "<максимальное_количество_подключений_к_БД>",
-                   "deletionProtection": <защита_от_удаления>
+                   "deletionProtection": <защита_от_удаления>,
+                   "userPasswordEncryption": <протокол_проверки_пароля>
                  }
                }'
      ```
@@ -257,7 +265,13 @@ description: Из статьи вы узнаете, как добавлять и
 
      * `permissions.databaseName` — массив баз данных, к которым должен иметь доступ пользователь. Каждый элемент массива соответствует отдельной БД.
      * `connLimit` — максимальное количество подключений к БД для пользователя.
-     * `deletionProtection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
+     * `deletionProtection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`. 
+     * `userPasswordEncryption` — протокол проверки пароля. Возможные значения:
+            
+       * `USER_PASSWORD_ENCRYPTION_MD5`
+       * `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+     
+       Если протокол не передан, берется значение [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) `password_encryption`, заданной на уровне кластера. Значение настройки по умолчанию — `USER_PASSWORD_ENCRYPTION_MD5`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -290,7 +304,8 @@ description: Из статьи вы узнаете, как добавлять и
                  }
                ],
                "conn_limit": "<максимальное_количество_подключений_к_БД>",
-               "deletion_protection": <защита_от_удаления>
+               "deletion_protection": <защита_от_удаления>,
+               "user_password_encryption": <протокол_проверки_пароля>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
@@ -314,6 +329,12 @@ description: Из статьи вы узнаете, как добавлять и
      * `permissions.database_name` — массив баз данных, к которым должен иметь доступ пользователь. Каждый элемент массива соответствует отдельной БД.
      * `conn_limit` — максимальное количество подключений к БД для пользователя.
      * `deletion_protection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
+     * `user_password_encryption` — протокол проверки пароля. Возможные значения:
+            
+       * `USER_PASSWORD_ENCRYPTION_MD5`
+       * `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+     
+       Если протокол не передан, берется значение [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) `password_encryption`, заданной на уровне кластера. Значение настройки по умолчанию — `USER_PASSWORD_ENCRYPTION_MD5`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -344,6 +365,11 @@ description: Из статьи вы узнаете, как добавлять и
 
       * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man).
 
+
+  1. (Опционально) Выберите протокол проверки пароля. Возможные значения:
+  
+     * **MD5**
+     * **SCRAM-SHA-256**
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
@@ -438,16 +464,15 @@ description: Из статьи вы узнаете, как добавлять и
        --header "Content-Type: application/json" \
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
        --data '{
-                 "updateMask": "password",
-                 "password": "<новый_пароль>"
+                 "updateMask": "<перечень_изменяемых_параметров>",
+                 "password": "<новый_пароль>",
+                 "userPasswordEncryption": <протокол_проверки_пароля>
                }'
      ```
 
      Где:
 
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
-
-       В данном случае передается только один параметр.
 
      * `password` — новый пароль. Длина пароля — от 8 до 128 символов.
 
@@ -456,8 +481,9 @@ description: Из статьи вы узнаете, как добавлять и
 
           ```bash
           {
-            "updateMask": "generatePassword",
-            "generatePassword": true
+            "updateMask": "<перечень_изменяемых_параметров>",
+            "generatePassword": true,
+            "userPasswordEncryption": <протокол_проверки_пароля>
           }
           ```
 
@@ -466,6 +492,13 @@ description: Из статьи вы узнаете, как добавлять и
        Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
+     * `userPasswordEncryption` (опционально) — протокол проверки пароля. Возможные значения:
+            
+       * `USER_PASSWORD_ENCRYPTION_MD5`
+       * `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+     
+       Если протокол не передан, его значение при изменении пароля не меняется.
+     
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
@@ -493,10 +526,11 @@ description: Из статьи вы узнаете, как добавлять и
              "user_name": "<имя_пользователя>",
              "update_mask": {
                "paths": [
-                 "password"
+                 <перечень_изменяемых_параметров>
                ]
              },
-             "password": "<новый_пароль>"
+             "password": "<новый_пароль>",
+             "user_password_encryption": <протокол_проверки_пароля>
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.UserService.Update
@@ -505,8 +539,6 @@ description: Из статьи вы узнаете, как добавлять и
      Где:
 
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
-
-       В данном случае передается только один параметр.
 
      * `password` — новый пароль. Длина пароля — от 8 до 128 символов.
 
@@ -519,10 +551,11 @@ description: Из статьи вы узнаете, как добавлять и
             "user_name": "<имя_пользователя>",
             "update_mask": {
               "paths": [
-                "generate_password"
+                <перечень_изменяемых_параметров>
               ]
             },
-            "generate_password": true
+            "generate_password": true,
+            "user_password_encryption": <протокол_проверки_пароля>
           }
           ```
 
@@ -530,6 +563,13 @@ description: Из статьи вы узнаете, как добавлять и
 
        Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
+
+     * `user_password_encryption` (опционально) — протокол проверки пароля. Возможные значения:
+            
+       * `USER_PASSWORD_ENCRYPTION_MD5`
+       * `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+     
+       Если протокол не передан, его значение при изменении пароля не меняется. 
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 

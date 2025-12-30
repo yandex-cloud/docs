@@ -90,6 +90,8 @@ editable: false
 
 ### Пример расчета стоимости анализа аудиозаписей {#price-example-speech}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 
 {% list tabs group=pricing %}
 
@@ -106,6 +108,8 @@ editable: false
 
 
 ### Пример расчета стоимости анализа текстовых диалогов {#price-example-text}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 #### Пример 1 {#example-1}
 
@@ -165,6 +169,8 @@ editable: false
 
 
 ### Пример расчета стоимости анализа аудиозаписей с использованием ассистента {#price-example-assistant}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 В фильтр попали аудиозаписи общей длительностью 115 000 минут. Ассистент содержит 3 000 символов, символы подсчитываются в блоках **Инструкция** и **Результат**.
 

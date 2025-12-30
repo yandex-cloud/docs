@@ -23,3 +23,4 @@ description: Различные сценарии использования {{ a
 * [{#T}](serverless-url-shortener.md)
 * [{#T}](data-ingestion.md)
 * [{#T}](api-gw-sws-integration.md)
+* [{#T}](streaming-openai-agent.md)

@@ -9,7 +9,7 @@
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся адрес и ваша доменная зона.
 
         Если у вас еще нет [публичной зоны](../../dns/concepts/dns-zone.md#public-zones) DNS, [создайте](../../dns/operations/zone-create-public.md) ее.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+    1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Выберите вашу доменную зону.
     1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
     1. В поле **{{ ui-key.yacloud.common.name }}** укажите часть имени, сгенерированного при создании адреса, без домена в формате `<селектор>._domainkey`. Например `postbox._domainkey`.
@@ -28,7 +28,7 @@
         ```
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Выберите созданный адрес.
     1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_validate }}**. Если запись верна, статус проверки на странице адреса изменится на `Success`.
 

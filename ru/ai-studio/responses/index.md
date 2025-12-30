@@ -5,6 +5,8 @@ sourcePath: en/_openapi/openai-compatible/responses/index.md
 
 # REST: Responses
 
+Create model responses for text, multimodal, and tool-augmented interactions. Responses unify chat completions, reasoning outputs, tool calls, and structured results into a single API.
+
 ## Methods
 
 #|

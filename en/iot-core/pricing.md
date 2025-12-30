@@ -56,12 +56,17 @@ Here are the commands that are charged under {{ iot-name }}:
 ## Prices for the Russia region {#prices}
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Data size {#volumes}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|iot }}']}
+    excludeSkuIds={['{{ pc|iot.mqtt.basic_ingest }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include notitle [usd.md](../_pricing/iot-core/usd.md) %}
 

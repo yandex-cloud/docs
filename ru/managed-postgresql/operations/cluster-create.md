@@ -152,6 +152,10 @@ description: Следуя данной инструкции, вы сможете
      Чтобы к хосту можно было подключаться из интернета, включите настройку **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
 
+    
+  1. {% include [diagnostics-settings-console](../../_includes/mdb/mpg/diagnostics-settings-console.md) %}
+
+
   1. При необходимости задайте дополнительные настройки кластера:
 
      {% include [Additional cluster settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}

@@ -57,13 +57,13 @@ To edit an outdated version, select it from the list of versions. To save your c
 
 ## Limitations {#restrictions}
 
-* You can only switch to versions created on or after December 1, 2024. Currently, if you edit a dataset created before this date, saving your changes will delete the previous version.
+* You can only switch to versions created on or after December 1, 2024. Therefore, if your dataset was created before this date, editing it now and saving your changes will permanently delete the previous version.
 * Change history is only available for the last three months.
 * The change history only contains a list of dataset versions and indicates the version type, save date and time, and user who made the change.
 * Dataset versions do not include:
 
   * Access permission changes (this operation is performed separately from dataset edits).
   * Changes to connection settings made using the interface for editing connection parameters.
-  * Data changes to the source (rows added, updated, or deleted in the data source).
+  * Changes to the source data (rows added, updated, or deleted in the data source).
 
 * Versions do not display a list of changes. You can only view the saved status of the dataset configuration.

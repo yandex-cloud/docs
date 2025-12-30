@@ -4,7 +4,7 @@
   
   Задать количество хостов-брокеров вручную нельзя.
 
-* **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}** — брокер и контроллер метаданных {{ kraft-short-name }} размещаются на отдельных хостах. При создании кластера с несколькими хостами, в него добавляются три выделенных хоста {{ kraft-short-name }}.
+* **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}** — брокер и контроллер метаданных {{ kraft-short-name }} размещаются на отдельных хостах. При создании кластера с несколькими хостами, в него добавляются три отдельных хоста {{ kraft-short-name }}.
 
   Количество хостов-брокеров задается вручную.
 

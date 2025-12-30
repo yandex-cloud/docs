@@ -31,45 +31,23 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Цена хранения секретов {#secrets}
 
-Тарификация почасовая. Цена за месяц приводится только для справки из расчета 720 часов (30 дней) в месяце. Значение округлено. [Деактивированные](operations/secret-activation-manage.md), но не удаленные секреты тарифицируются как активные.
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|lockbox }}']}
+    excludeSkuIds={['{{ pc|lockbox.api.v1.connection_manager_get }}', '{{ pc|lockbox.storage.v1.connection_manager_active_secrets }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/lockbox/rub-secrets.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/lockbox/kzt-secrets.md) %}
-
-{% endlist %}
-
-
-
-
-### Цена запросов секретов {#requests}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/lockbox/rub-requests.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/lockbox/kzt-requests.md) %}
-
-{% endlist %}
 
 
 
 
 ### Пример расчета стоимости {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Пример расчета стоимости использования {{ lockbox-name }} в месяц для следующей конфигурации:
 

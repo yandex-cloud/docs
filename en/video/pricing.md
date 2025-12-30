@@ -30,20 +30,21 @@ The video content is stored in {{ objstorage-name }}. The data amount is measure
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Video storage and conversion {#video}
 
 
-
-{% include [usd.md](../_pricing/video/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|video }}']}
+    excludeSkuIds={['{{ pc|video.used_space.live.v1 }}', '{{ pc|video.transcoding.live.v1 }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 The daily cost of storing the video streaming content and original files is calculated as `Price_per_GB_per_month / number_of_days_in_month`. For shorter months, the storage price per day is higher. For longer months, it is lower.
 
-### Outgoing traffic {#traffic}
-
-
-
-{% include notitle [usd.md](../_pricing/video/usd-cdn.md) %}
+The minimum billing unit for outgoing traffic is 1 GB.
 
 
 ### Cost calculation example {#price-example}

@@ -52,7 +52,15 @@ Calculating cost of 65,500 emails per month:
 
 
 
-{% include [usd.md](../_pricing/postbox/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|postbox }}']}
+    excludeSkuIds={['{{ pc|postbox.email.size.v1 }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
 
 
 {% note info %}

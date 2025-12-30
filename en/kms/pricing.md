@@ -45,12 +45,25 @@ The cost of using {{ kms-name }} is based on:
 
 Billing occurs on an hourly basis. The price per month is provided for reference based on 720 hours per month. The value is rounded.
 
+
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|kms }}']}
+    excludeSkuIds={['{{ pc|kms.api.v1.generatedatakey }}', '{{ pc|kms.api.v1.hsm.encryptdecrypt }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
+
+## Cost calculation example {#price-example}
+
 ### Symmetric encryption {#symmetric}
 
 
 
-
-{% include [usd.md](../_pricing/kms/usd-symmetric.md) %}
 
 {% include [usd-symmetric](../_pricing_examples/kms/usd-symmetric.md) %}
 
@@ -60,7 +73,6 @@ Billing occurs on an hourly basis. The price per month is provided for reference
 
 
 
-{% include [usd.md](../_pricing/kms/usd-asymmetric.md) %}
-
 {% include [usd-asymmetric](../_pricing_examples/kms/usd-asymmetric.md) %}
+
 

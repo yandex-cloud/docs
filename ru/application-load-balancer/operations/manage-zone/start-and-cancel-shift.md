@@ -13,6 +13,19 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [L7-балансировщик](../../concepts/application-load-balancer.md).
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Выберите L7-балансировщик.
+  1. На странице **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.alb.section_allocation-settings_button }}**.
+  1. Включите блокировку для одной или нескольких зон.
+  1. (Опционально) Чтобы задать время автоматического отключения блокировки, активируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_timezone_0_6LoEf }}** и укажите время от `1m` до `72h`. Если время не указано, зона останется заблокированной до ручного включения.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+    Балансировщик начнет перенос трафика из заблокированных зон доступности в незаблокированные.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -40,9 +53,7 @@ description: Следуя данной инструкции, вы сможете
       * `--zones` — зоны доступности через запятую, которые нужно отключить.
       * `--duration` — время от `1m` до `72h`, на которое будет отключена зона.
       
-         По истечении указанного времени зона автоматически вернется в исходное состояние (включена) для CLI и API. Эти настройки будут применены без вашего участия.
-         
-         Если параметр не указан, зона будет отключена до ручного [включения зоны](#enable-zones).
+         По истечении указанного времени зона автоматически восстановится. Если параметр не указан, зона будет отключена до ручного [включения зоны](#enable-zones).
   
       Пример:
 
@@ -95,6 +106,15 @@ description: Следуя данной инструкции, вы сможете
 {% include [enable-zone-ig-nlb-alb](../../../_includes/instance-groups/enable-zone-ig-nlb-alb.md) %}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [L7-балансировщик](../../concepts/application-load-balancer.md).
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Выберите L7-балансировщик.
+  1. На странице **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.alb.section_allocation-settings_button }}**.
+  1. Отключите блокировку зон доступности.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

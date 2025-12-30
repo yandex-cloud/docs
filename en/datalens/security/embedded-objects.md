@@ -1,4 +1,4 @@
-# Embedding public objects
+# Embedding private objects
 
 You can embed [published](../concepts/datalens-public.md) dashboards and charts into a website or app using `iframe`.
 

@@ -46,20 +46,17 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Number of transferred rows {#data}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|datatransfer }}']}
+    excludeSkuIds={['{{ pc|datatransfer.compute.ram.preview.v1 }}', '{{ pc|datatransfer.rows.preview.v1 }}', '{{ pc|datatransfer.compute.cpu.preview.v1 }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd.md](../_pricing/data-transfer/usd.md) %}
-
-
-### Computing resources {#cpu-ram}
-
-
-
-{% include [usd.md](../_pricing/data-transfer/usd-cpu.md) %}
-
-{% include [usd.md](../_pricing/data-transfer/usd-ram.md) %}
 
 
 ## Cost calculation examples {#price-example}

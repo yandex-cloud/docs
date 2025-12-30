@@ -49,7 +49,7 @@ The administrator will be able to:
 * Reassign seats from user to user.
 * Increase or decrease the number of seats in the instance.
 
-By March 1, 2026, we will deploy tools to automatically revoke inactive seats.
+By March 1, 2026, tools will be released for automatic revocation of inactive seats.
 
 ### Prices {#prices}
 
