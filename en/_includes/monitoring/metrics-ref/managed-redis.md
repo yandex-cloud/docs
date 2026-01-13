@@ -23,7 +23,7 @@ The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance |
+| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share |
 | `cpu.guarantee`<br/>`DGAUGE`, count | Guaranteed number of cores |
 | `cpu.guest_nice`<br/>`DGAUGE`, % | CPU core usage, `guest_nice` usage type |
 | `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |
@@ -71,8 +71,6 @@ The consumption type goes into the `systag` label.
 | `io.avg.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 | `io.avg.write_time`<br/>`DGAUGE`, milliseconds | Total time spent writing to disk |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress |
-| `io.disk*.merged_reads`<br/>`DGAUGE`, count | Number of merged read operations for a given disk |
-| `io.disk*.merged_writes`<br/>`DGAUGE`, count | Number of merged writes for a given disk |
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk |
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk |
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk |
@@ -152,8 +150,6 @@ The consumption type goes into the `systag` label.
 | `available_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `available` usage type |
 | `available`<br/>`DGAUGE`, count | RAM usage, `available` usage type |
 | `buffered`<br/>`DGAUGE`, bytes | RAM usage, `buffered` usage type |
-| `bytes_recv`<br/>`DGAUGE`, bytes | Size of data received |
-| `bytes_sent`<br/>`DGAUGE`, bytes | Size of data sent |
 | `cached`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
 | `can_read`<br/>`DGAUGE`, 0/1 | Host read access indicator.<br/>`1` if the hosted service is available for reads, `0` if not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the hosted service is available for writes, `0` if not. |
@@ -163,10 +159,6 @@ The consumption type goes into the `systag` label.
 | `committed_as`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
 | `count`<br/>`DGAUGE`, objects | Number of objects in a database |
 | `dirty`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type |
-| `drop_in`<br/>`DGAUGE`, count | Dropped receive packets |
-| `drop_out`<br/>`DGAUGE`, count | Dropped transmit packets |
-| `err_in`<br/>`DGAUGE`, count | Receive error count |
-| `err_out`<br/>`DGAUGE`, count | Transmit error count |
 | `errorstat_<error_type>`<br/>`DGAUGE`, errors | Number of errors of the specified type.<br/>The `error` special label is the error type ID. The possible values are:<ul><li>`CLUSTERDOWN`</li><li>`ERR`</li><li>`MOVED`</li><li>`NOAUTH`</li><li>`NOPERM`</li><li>`WRONGPASS`</li></ul> |
 | `free`<br/>`DGAUGE`, bytes | RAM usage, `free` usage type |
 | `high_free`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type |
@@ -239,7 +231,6 @@ The consumption type goes into the `systag` label.
 | `low_free`<br/>`DGAUGE`, bytes | RAM usage, `low_free` usage type |
 | `low_total`<br/>`DGAUGE`, bytes | RAM usage, `low_total` usage type |
 | `mapped`<br/>`DGAUGE`, bytes | RAM usage, `mapped` usage type |
-| `memory_utilization_by_db_percent_limit`<br/>`DGAUGE`, % | Limit on memory utilization by a database |
 | `memory_utilization_by_db_percent`<br/>`DGAUGE`, % | Memory utilization by a database |
 | `memory_utilization_by_db_rss`<br/>`DGAUGE`, bytes | Total memory used by database processes |
 | `memory_utilization_memory_limit`<br/>`DGAUGE`, % | Percentage of used memory in an instance relative to its limit |
@@ -248,8 +239,6 @@ The consumption type goes into the `systag` label.
 | `n_cpus`<br/>`DGAUGE`, count | Maximum number of cores in use |
 | `n_unique_users`<br/>`DGAUGE`, count | Number of unique users or accounts engaging with the system |
 | `n_users`<br/>`DGAUGE`, count | Limit on the number of users |
-| `packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate |
-| `packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate |
 | `page_tables`<br/>`DGAUGE`, bytes | RAM usage, `page_tables` usage type |
 | `read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk |
 | `read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk |
@@ -379,7 +368,6 @@ The consumption type goes into the `systag` label.
 | `usage_user`<br/>`DGAUGE`, % | CPU core usage, `user` usage type |
 | `used_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `used` usage type |
 | `used`<br/>`DGAUGE`, bytes | RAM usage, `used` usage type |
-| `utilization`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database |
 | `vmalloc_chunk`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_chunk` usage type |
 | `vmalloc_total`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_total` usage type |
 | `vmalloc_used`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_used` usage type |

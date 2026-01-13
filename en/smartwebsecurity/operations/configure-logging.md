@@ -7,7 +7,7 @@ description: Follow this guide to configure logging in {{ sws-full-name }}.
 
 {% include [logging-preview](../../_includes/smartwebsecurity/logging-preview.md) %}
 
-There are two options for collecting logs: via {{ sws-name }} and via an L7 {{ alb-name }} the security profile is connected to.
+There are two log collection options available: via {{ sws-name }} and via the L7 {{ alb-name }} the security profile is connected to.
 
 This section provides information on logging via {{ sws-name }}. If you want to learn about collecting logs via an L7 balancer, see [{#T}](configure-logging-alb.md).
 
@@ -48,7 +48,7 @@ You can enable logging when [creating a security profile](profile-create.md) or 
 - {{ cloud-logging-short-name }} {#logging}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. In the row with the security profile you need, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Enable **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}**.
@@ -71,7 +71,7 @@ You can enable logging when [creating a security profile](profile-create.md) or 
   You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, or data stream in {{ yds-name }}. In this guide, we will set up logging of events to a log group.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. Enter a name for the trail, e.g., `trail-sws`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, select **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** as the destination object.
@@ -88,7 +88,7 @@ You can enable logging when [creating a security profile](profile-create.md) or 
   To make {{ sws-full-name }} deliver its events to {{ at-name }}:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. In the row with the security profile you need, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Enable **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}**.
@@ -113,7 +113,7 @@ You can enable logging when [creating a security profile](profile-create.md) or 
 - {{ cloud-logging-short-name }} {#logging}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select **{{ ui-key.yacloud.common.logs }}**.
   1. Select a log group if there are several.
   
@@ -154,7 +154,7 @@ You can enable logging when [creating a security profile](profile-create.md) or 
     ```
     module_type = "RULE_CONDITION", meta.matched_rule_verdict = "DENY"
     ```
-  * Show requests which triggered [Smart Protection](../concepts/rules.md##smart-protection-rules) rules with a CAPTCHA challenge:
+  * Show requests that have triggered the [Smart Protection](../concepts/rules.md##smart-protection-rules) rules with a CAPTCHA challenge:
     ```
     module_type = "SMART_PROTECTION", meta.matched_rule_verdict = "CAPTCHA"
     ```
@@ -174,7 +174,7 @@ You can enable logging when [creating a security profile](profile-create.md) or 
 
   ### Filters for rules in logging mode {#dry-run-filters}
 
-  * Show requests which triggered [Smart Protection](../concepts/rules.md#smart-protection-rules) rules with a CAPTCHA challenge:
+  * Show requests that have triggered the [Smart Protection](../concepts/rules.md#smart-protection-rules) rules with a CAPTCHA challenge:
     ```
     module_type = "SMART_PROTECTION", meta.dry_run_matched_rule_verdict = "CAPTCHA"
     ```
@@ -189,7 +189,7 @@ You can enable logging when [creating a security profile](profile-create.md) or 
 - {{ at-name }} {#at}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the log group receiving your {{ at-name }} events.
   1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
   1. In the **Query** field, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.

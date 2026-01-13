@@ -15,6 +15,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-create/create-with-env-variables.md)
 * [{#T}](vm-create/create-with-lockbox-secret.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
+* [{#T}](vm-create/create-gen2-vm.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
 ## DSVM {#dsvm}
@@ -211,6 +212,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](instance-groups/resume-processes.md)
 * [{#T}](instance-groups/rolling-restart.md)
 * [{#T}](instance-groups/rolling-recreate.md)
+* [{#T}](instance-groups/enable-deletion-protection.md)
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/access.md)

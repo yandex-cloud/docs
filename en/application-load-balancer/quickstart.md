@@ -41,7 +41,7 @@ In our example, the target group will consist of a single VM.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your target group.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Specify the target group name: `test-target-group`.
@@ -71,11 +71,11 @@ In our example, the target group will consist of a single VM.
 
   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
-  1. Specify the backend group name: `test-backend-group`.
+  1. Specify your backend group name: `test-backend-group`.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**. Specify the backend settings:
       1. Specify the backend name: `backend-1`.
       1. From the **{{ ui-key.yacloud.alb.label_target-group }}** list, select `test-target-group`.
-      1. Specify the port: `8080`.
+      1. Set the port to `8080`.
   1. Expand **{{ ui-key.yacloud.alb.label_protocol-settings }}**:
       1. Select the `{{ ui-key.yacloud.alb.label_proto-http-plain }}` type.
   1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}** and configure health checks:
@@ -178,7 +178,7 @@ In the following example, we will deploy a load balancer and its backend node in
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and specify listener settings:
       1. Specify the listener name: `test-listener`.
       1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, enable traffic.
-      1. Specify the `80` port.
+      1. Set the port to `80`.
       1. Select the **{{ ui-key.yacloud.alb.label_address-auto }}** type.
   1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `test-http-router`.
   1. Click **{{ ui-key.yacloud.common.create }}**.

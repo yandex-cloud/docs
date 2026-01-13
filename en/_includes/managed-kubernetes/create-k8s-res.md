@@ -4,11 +4,11 @@
 
 {% note tip %}
 
-In this example, the basic cluster parameters are used. Once the cluster is created, you cannot change some of the settings, e.g., the choice of the [Container Network Interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), the use of {{ kms-full-name }} for [secret encryption](../../managed-kubernetes/concepts/encryption.md#k8s-secrets-encryption), and a number of others. We recommend you to check out this [detailed guide on creating a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
+This example uses the basic cluster parameters. Once the cluster is created, you cannot change some of its settings, e.g., [Container Network Interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/) you selected, [secret encryption](../../managed-kubernetes/concepts/encryption.md#k8s-secrets-encryption) using {{ kms-full-name }}, and a number of others. We recommend checking out [our detailed guide on creating a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
 
 {% endnote %}
 
-Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and specify the previously created [service accounts](../../iam/concepts/users/service-accounts.md) in the `--service-account-id` and `--node-service-account-id` parameters and security groups in the `--security-group-ids` parameter.
+Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and specify the previously created [service accounts](../../iam/concepts/users/service-accounts.md) in the `--service-account-id` and `--node-service-account-id` parameters, and security groups in the `--security-group-ids` parameter.
 
 {% list tabs group=programming_language %}
 
@@ -48,10 +48,18 @@ Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/inde
 
 ### Create a {{ managed-k8s-name }} node group {#create-node-groups}
 
-1. Make sure the {{ managed-k8s-name }} cluster was created successfully.
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the {{ managed-k8s-name }} cluster was created in.
+{% note warning %}
+
+To access the {{ container-registry-name }}, a public IP address must be assigned to cluster nodes. Alternatively, a [NAT gateway](../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../vpc/tutorials/nat-instance/index.md) must be configured in the node subnet.
+
+For more information, see [{#T}](../../managed-kubernetes/concepts/network.md#nodes-internet).
+
+{% endnote %}
+
+1. Make sure the {{ managed-k8s-name }} cluster has been created successfully.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the {{ managed-k8s-name }} cluster.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-   1. Check that your {{ managed-k8s-name }} cluster was created successfully:
+   1. Make sure the {{ managed-k8s-name }} cluster has been created successfully:
       * The **{{ ui-key.yacloud.k8s.cluster.overview.label_status }}** column should state `Running`.
       * The **{{ ui-key.yacloud.k8s.cluster.overview.label_health }}** column should state `Healthy`.
 1. Create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group) and specify the previously created security groups in the `--network-interface security-group-ids` parameter:

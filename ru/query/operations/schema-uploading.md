@@ -8,7 +8,7 @@ description: Следуя данной инструкции, вы сможете
 Для упрощения повторяющихся действий по настройке схем данных [привязок к данным](../concepts/glossary.md#binding), схемы данных можно загрузить из заранее подготовленного файла. Для этого выполните:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить привязку к данным.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
 1. В строке с именем нужной привязки нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
 1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.action_upload-schema-file }}**, выберите файл со [схемой данных](#schema).

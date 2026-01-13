@@ -5,5 +5,6 @@ Event name | Description
 `DeleteException` | Deleting an exception
 `DeleteProject`   | Deleting a project
 `EnableProject`   | Enabling a project
+`EnableSDProject` | Enabling a {{ sd-name }} project
 `UpdateException` | Updating exception parameters
 `UpdateProject`   | Updating project parameters

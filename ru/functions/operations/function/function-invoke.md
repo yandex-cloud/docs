@@ -17,7 +17,7 @@ description: Из статьи вы узнаете, как вызвать фун
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
 
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. Выберите функцию.
 
@@ -43,7 +43,7 @@ description: Из статьи вы узнаете, как вызвать фун
 - HTTPS {#https}
 
     Вы можете найти ссылку для вызова функции:
-    * в поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}**. Для этого в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и нажмите на строку с нужной функцией.
+    * в поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}**. Для этого в [консоли управления]({{ link-console-main }}) [перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и нажмите на строку с нужной функцией.
     * в параметре `http_invoke_url`. Для этого выполните команду:
         ```
         yc serverless function get <имя_функции>

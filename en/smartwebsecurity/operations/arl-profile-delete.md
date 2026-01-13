@@ -12,7 +12,7 @@ Before deleting an ARL profile, delete it from all associated [security profiles
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the [ARL profile](../concepts/arl.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. In the **{{ ui-key.yacloud.smart-web-security.arl.label_connected-security-profiles }}** field in the row with the ARL profile, select the security profile that uses this ARL profile.
   1. At the top right, click **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**. In the window that opens:

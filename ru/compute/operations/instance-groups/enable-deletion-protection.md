@@ -122,7 +122,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  1. Проверьте изменение группы ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+  1. Проверьте изменение группы ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
      ```bash
      yc compute instance-group get <имя_группы_ВМ>
@@ -212,7 +212,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  1. Проверьте изменение группы ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+  1. Проверьте изменение группы ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
      ```bash
      yc compute instance-group get <имя_группы_ВМ>

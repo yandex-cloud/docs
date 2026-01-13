@@ -12,6 +12,8 @@
         newgrp docker
         ```
 
+    For groups to update successfully, you may need to log back into the OS or reboot the computer.
+
     For information about additional Docker settings for Linux, see the [developer documentation](https://docs.docker.com/engine/install/linux-postinstall/).
 
     If you are working on a device with a GUI, you can also [install](https://docs.docker.com/desktop/install/linux-install/) Docker Desktop for Linux.
@@ -31,11 +33,11 @@
             ```powershell
             compmgmt.msc
             ```
-
-        1. Expand the **(Local) Computer Management** menu, then go to **Utilities** → **Local Users and Groups** → **Groups** and open the `docker-users` group.
+        
+        1. Expand the **(Local) Computer Management** menu, then go **Utilities** → **Local Users and Groups** → **Groups** and open the `docker-users` group.
         1. Click **Add** and add the required user to the group.
         1. Click **OK**.
-    1. Run Docker Desktop and make sure the app status is `running`.
+    1. Run Docker Desktop and make sure the app's status is `running`.
 
     For information about additional Docker settings for Windows, see the [developer documentation](https://docs.docker.com/desktop/install/windows-install/).
 

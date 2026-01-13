@@ -29,7 +29,7 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 ## Cloud Security Posture Management ({{ cspm-name }}) {#cspm}
 
 * [{#T}](./cspm/view-rules.md).
-* [{#T}](./cspm/manage-exceptions.md)
+* [{#T}](./cspm/manage-exceptions.md).
 
 ## Cloud Infrastructure Entitlement Management ({{ ciem-name }}) {#ciem}
 

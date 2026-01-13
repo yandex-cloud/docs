@@ -143,6 +143,9 @@
 
     {% endnote %}
 
+{% include [use-forced-conditions](../../_includes/storage/use-forced-conditions.md) %}
+
+
 ## Примеры использования {#examples}
 
 * [{#T}](../tutorials/server-logs.md)

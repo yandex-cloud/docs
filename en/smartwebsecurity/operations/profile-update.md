@@ -1,6 +1,6 @@
 ---
 title: How to edit basic settings of a {{ sws-full-name }} profile
-description: Follow this guide to edit basic settings in a {{ sws-full-name }} security profile.
+description: Follow this guide to edit basic settings of a {{ sws-full-name }} security profile.
 ---
 
 # Editing basic settings of a security profile
@@ -10,9 +10,9 @@ description: Follow this guide to edit basic settings in a {{ sws-full-name }} s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the profile in question and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
-  1. In the window that opens, edit the following settings as needed:
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+  1. In the window that opens, edit the following parameters:
 
       * **{{ ui-key.yacloud.common.name }}**.
       * **{{ ui-key.yacloud.common.description }}**.
@@ -21,7 +21,7 @@ description: Follow this guide to edit basic settings in a {{ sws-full-name }} s
       * **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}**: Select or create an [ARL profile](../concepts/arl.md).
       * Select or create a [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests.
       * {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
-  1. Optionally, enable or disable the use of HTTP request information to improve machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
+  1. Optionally, enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -30,7 +30,7 @@ description: Follow this guide to edit basic settings in a {{ sws-full-name }} s
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [CLI](../../cli/quickstart.md) command for editing [security profile](../concepts/profiles.md) basic parameters:
+  1. View the description of the [CLI](../../cli/quickstart.md) command for editing [security profile](../concepts/profiles.md) basic settings:
 
      ```bash
      yc smartwebsecurity security-profile update --help
@@ -57,10 +57,10 @@ description: Follow this guide to edit basic settings in a {{ sws-full-name }} s
 
      * `--name`: Security profile name. This is a required setting. Instead of the security profile name, you can provide its ID in the `--id` parameter.
      * `--new-name`: New name for the security profile. Skip it if the profile name remains unchanged.
-     * `--description`: Security profile description. This is an optional setting.
-     * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. Here is an example: `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to apply to traffic that does not match any other rule This is an optional setting. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
-     * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
+     * `--description`: Text description of the security profile. This is an optional parameter.
+     * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. For example, `--labels foo=baz,bar=baz'`.
+     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional parameter.
      * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional setting. Here is an example:
 
          {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
@@ -90,7 +90,7 @@ description: Follow this guide to edit basic settings in a {{ sws-full-name }} s
 
   To update the settings of a {{ sws-full-name }} profile created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the section describing the profile.
+  1. Open the {{ TF }} configuration file and edit the fragment describing the profile.
 
      {% cut "Example of a security profile description in the {{ TF }} configuration" %}
      
@@ -148,7 +148,7 @@ description: Follow this guide to edit basic settings in a {{ sws-full-name }} s
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resource updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
   ```bash
   yc smartwebsecurity security-profile get <security_profile_ID>

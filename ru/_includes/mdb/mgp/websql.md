@@ -4,7 +4,8 @@
 
 Чтобы подключаться из {{ websql-name }} к кластеру {{ mgp-name }}, необходимо создать подключение:
 
-1. Перейдите на страницу каталога и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+1. Перейдите [на страницу каталога]({{ link-console-main }}).
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Нажмите на имя нужного кластера.
 1. [Включите опцию](../../../managed-greenplum/operations/update.md#change-additional-settings) **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** в настройках кластера, если она еще не включена.
 1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.

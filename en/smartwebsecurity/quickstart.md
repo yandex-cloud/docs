@@ -47,12 +47,14 @@
 
   ### Create a proxy server {#create-proxy}
 
+  {% include [roles-for-creating-proxy-notice](../_includes/smartwebsecurity/roles-for-creating-proxy-notice.md)%}
+
   {% list tabs group=instructions %}
 
   - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
     1. In the left-hand panel, select ![domain-protection-icon](../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
     1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
     1. Enter a name for the proxy server, e.g., `test-proxy`.
@@ -116,7 +118,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the protected resources are in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       {% include [pre-configured-profile](../_includes/smartwebsecurity/pre-configured-profile.md) %}
@@ -214,7 +216,7 @@ WAF allows using rule sets to protect web applications against various cyber att
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a WAF profile.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-waf-profile-1`.
   1. Enable a rule set, e.g., the [OWASP Core Rule Set](https://coreruleset.org/), and make sure to use its latest version. To view the rules it includes, click the row with its description.
@@ -295,7 +297,7 @@ ARL allows limiting the number of requests to the protected resource to prevent 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an ARL profile.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-arl-profile-1`.
   1. Add a profile description and labels if needed.

@@ -12,7 +12,7 @@ To delete an L7 load balancer:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer and select **{{ ui-key.yacloud.common.delete }}**.
 
      For multiple load balancers, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.

@@ -49,6 +49,7 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](pvc-snapshot-restore.md)
 * [{#T}](usb-over-ip.md)
 * [{#T}](integrate-nextcloud/index.md)
+* [{#T}](docker-cloud-registry.md)
 
 ## {{ coi }} {#coi}
 

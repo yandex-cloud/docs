@@ -56,6 +56,45 @@ You can only link a VM or {{ baremetal-name }} server to a backup policy if they
 
   For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  {% note info %}
+
+  Currently, you can only associate a [{{ compute-name }} VM instance](../../../compute/concepts/vm.md) with a [backup policy](../../../backup/concepts/policy.md) using {{ TF }}. To associate a [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md), use the [management console]({{ link-console-main }}), [{{ yandex-cloud }} CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md), or [API](../../backup/api-ref/Policy/apply.md).
+
+  {% endnote %}
+
+  To associate a VM with a backup policy:
+
+  1. In the {{ TF }} configuration file, describe the parameters for associating the VM with the policy:
+
+      ```hcl
+      resource "yandex_backup_policy_bindings" "test_backup_binding" {
+        instance_id = "<VM_ID>"
+        policy_id   = "<policy_ID>"
+      }
+      ```
+
+      Where:
+
+      * `instance_id`: [ID](../../../compute/operations/vm-info/get-info.md#outside-instance) of the VM you want to associate with the policy.
+      * `policy_id`: [ID](./get-info.md) of the policy to associate the VM with.
+
+     For more information about `yandex_backup_policy_bindings` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/backup_policy_bindings).
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+     ```bash
+      yc backup policy list-applications
+     ```
+
 - API {#api}
 
   Use the [apply](../../backup/api-ref/Policy/apply.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Apply](../../backup/api-ref/grpc/Policy/apply.md) gRPC API call.

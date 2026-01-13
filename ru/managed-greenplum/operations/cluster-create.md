@@ -19,7 +19,7 @@
     Чтобы создать кластер {{ GP }}:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер баз данных.
-    1. Выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
     1. (Опционально) Введите описание кластера.

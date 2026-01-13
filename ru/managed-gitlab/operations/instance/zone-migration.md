@@ -21,7 +21,7 @@ description: Из статьи вы узнаете, как перенести и
 
     * Консоль управления {#console}
 
-        1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+        1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
         1. Нажмите на имя нужного инстанса и выберите вкладку **{{ ui-key.yacloud.gitlab.title_migration }}**.
         1. Если функциональность миграции вам недоступна, запросите к ней доступ.
 

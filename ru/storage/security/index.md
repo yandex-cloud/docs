@@ -24,7 +24,7 @@ description: Управление доступом в сервисе, предо
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На отдельный бакет роль можно назначить в [консоли управления]({{ link-console-main }}), а также через [{{ yandex-cloud }} API](../api-ref/Bucket/setAccessBindings.md) или [{{ TF }}]({{ tf-provider-link }}/storage_bucket_iam_binding).
+На отдельный бакет роль можно назначить в [консоли управления]({{ link-console-main }}), а также через [{{ yandex-cloud }} API](../api-ref/Bucket/setAccessBindings.md) или [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
 
 О том, как управлять доступом к бакетам и объектам в них, см. раздел [{#T}](../concepts/acl.md).
 

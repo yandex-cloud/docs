@@ -4,10 +4,6 @@ description: Следуя данной инструкции, вы сможете
 ---
 # Передача данных из эндпоинта-источника {{ objstorage-full-name }}
 
-
-{% include [storage-preview-disclaimer](../../../../_includes/data-transfer/storage-preview-disclaimer.md) %}
-
-
 С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные из хранилища {{ objstorage-full-name }} в управляемые базы данных {{ yandex-cloud }} и реализовывать различные сценарии обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
@@ -129,10 +125,11 @@ description: Следуя данной инструкции, вы сможете
   {% endnote %}
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — укажите JSON-схему в формате `{"<столбец>": "<тип_данных>"}` или перечислите поля для схемы результирующей таблицы. Если вы выберете `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.infer.title }}`, то схема определится автоматически.
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSourceAdvancedSettings.unparsed_mode.title }}** – определите, как следует обрабатывать строки, не прошедшие проверку типов:
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_CONTINUE.title }}** – продолжать передачу данных.
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_FAIL.title }}** – не продолжать.
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_RETRY.title }}** – повторить попытку определить тип.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSourceAdvancedSettings.unparsed_mode.title }}** — определите, как следует обрабатывать строки, не прошедшие проверку типов:
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_CONTINUE.title }}** — продолжать передачу данных.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_FAIL.title }}** — не продолжать.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_RETRY.title }}** — повторить попытку определить тип.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.scan_interval.title }}** — укажите интервал между сканированиями для новых файлов при репликации.
 
 ## Настройка приемника данных {#supported-targets}
 

@@ -22,7 +22,7 @@ Sign up for {{ yandex-cloud }} and create a [billing account](../../billing/conc
 1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create a new account.
 1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a billing account linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account, [create one](../../billing/quickstart/index.md).
 
-## Set up the infrastructure {#prepare-infrastructure}
+## Set up your infrastructure {#prepare-infrastructure}
 
 [_Organization_](../../overview/roles-and-resources.md) is a workspace that consolidates various types of {{ yandex-cloud }} resources and users. Any Yandex user can create an organization in {{ org-full-name }}. After you create an organization, you become its [owner](../../organization/security/index.md#organization-manager-organizations-owner) and can manage its settings.
 
@@ -170,7 +170,6 @@ Make sure you have access to `test-folder`. Once you open the folder, create a V
   1. Select ![image](../../_assets/console-icons/server.svg) **Virtual machines**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** and set the VM parameters:
 
-     1. Select **Basic setup**.
      1. Under **Operating systems and products**, select **Ubuntu 24.04 LTS**.
      1. Under **Computing resources**, specify the computing resource configuration for the VM.
      1. Under **Disks**, specify the size and type of the disk.

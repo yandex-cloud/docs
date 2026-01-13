@@ -42,8 +42,8 @@ Let's set up our alerts:
 ### Creating a notification channel {#create-channel}
 
 1. In the [management console]({{ link-console-main }}), select the folder on the left.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Go to the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}** section.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
 1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Specify the channel name, notification method, and recipients.
 
@@ -122,8 +122,8 @@ Let's set up alerts to detect exceeded rate limits:
 ### Creating a notification channel {#create-channel}
 
 1. In the [management console]({{ link-console-main }}), select the folder on the left.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Go to the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}** section.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
 1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Specify the channel name, notification method, and recipients.
 

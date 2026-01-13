@@ -8,7 +8,6 @@ To create a VM from a public [DSVM](/marketplace/products/yc/dsvm) image:
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Select **Advanced setup**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [DSVM](/marketplace/products/yc/dsvm) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Optionally, configure the boot [disk](../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:

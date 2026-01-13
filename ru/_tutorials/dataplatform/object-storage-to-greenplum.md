@@ -1,9 +1,5 @@
 # Загрузка данных из {{ objstorage-full-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
-
-{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
-
-
 Вы можете перенести данные из {{ objstorage-name }} в таблицу {{ GP }} в сервисе {{ mgp-name }} с помощью {{ data-transfer-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).

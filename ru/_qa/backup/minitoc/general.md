@@ -17,3 +17,5 @@
 * [Out-Of-Memory Killer (OOM Killer) в Linux завершает процесс агента {{ backup-name }}](#oom-solution)
 
 * [Как восстановить ВМ или сервер {{ baremetal-name }} с LVM из резервной копии?](#restore-lvm)
+
+* [Если удалить ВМ, ее резервные копии останутся?](#backup-after-delete-vm)

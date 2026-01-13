@@ -5,11 +5,7 @@ description: Follow this guide to create a proxy server to process incoming requ
 
 # Creating a proxy server
 
-{% note info %}
-
-The proxy server has an MTU limit of 1,450 bytes for all packets.
-
-{% endnote %}
+{% include [roles-for-creating-proxy-notice](../../_includes/smartwebsecurity/roles-for-creating-proxy-notice.md)%}
 
 {% list tabs group=instructions %}
 
@@ -20,7 +16,7 @@ You can add multiple proxy servers, for example, to separate the application's s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
   1. Enter a name for the proxy server.
@@ -41,6 +37,12 @@ You can add multiple proxy servers, for example, to separate the application's s
 {% include [after-proxy-create](../../_includes/smartwebsecurity/after-proxy-create.md) %}
 
 {% endlist %}
+
+{% note info %}
+
+The proxy server has an MTU limit of 1,450 bytes for all packets.
+
+{% endnote %}
 
 ### See also {#see-also}
 

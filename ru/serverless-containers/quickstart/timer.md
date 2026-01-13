@@ -17,7 +17,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать таймер.
 
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -85,7 +85,7 @@
 Чтобы проверить, что таймер работает корректно, посмотрите логи контейнера. В них должно отображаться, что контейнер вызывается каждую минуту.
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 1. Нажмите на контейнер, журнал вызовов которого хотите посмотреть.
 1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.common.logs }}** и укажите период, за который хотите их посмотреть. По умолчанию задан период 1 час.
 

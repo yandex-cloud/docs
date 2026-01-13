@@ -8,7 +8,7 @@ You can use {{ maf-name }} for {{ ds-jobs }} to be [rerun](./fork.md) on a sched
 
 To run jobs regularly, specify **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** — **DataSphere Jobs: datasphere** in the **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** section when [creating](../../../managed-airflow/operations/cluster-create.md) an {{ AF }} cluster. For an {{ AF }} cluster to work with {{ ml-platform-name }} jobs, add the cluster’s [service account](../../../iam/concepts/users/service-accounts.md) to the {{ ml-platform-name }} project with the `Developer` [role](../../security/index.md) or higher.
 
-To manage a DAG file through the {{ AF }} web service interface, [save](../../../managed-airflow/operations/upload-dags.md) it to the {{ objstorage-full-name }} bucket.
+To manage a DAG file through the {{ AF }} web UI, [save it](../../../managed-airflow/operations/upload-dags.md#dag-bucket-import) to a {{ objstorage-full-name }} bucket.
 
 {% note warning %}
 

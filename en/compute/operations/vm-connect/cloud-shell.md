@@ -6,7 +6,7 @@ description: Follow this guide to connect to a Linux VM over SSH using {{ cloud-
 # Connecting to a Linux VM over SSH using {{ cloud-shell-full-name }}
 
 
-Connecting to a VM over SSH using {{ cloud-shell-name }} in the management console.
+You can connect to a `Running` VM over SSH using {{ cloud-shell-name }} in the management console.
 
 {% list tabs group=operating_system %}
 

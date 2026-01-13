@@ -100,7 +100,7 @@ TCP/IP используется в мировом интернете и корп
 
     Подробнее см. в [документации {{ dns-name }}](../dns/)
 
-  * [{{ interconnect-full-name }}](services/interconnect) — сервис для создания приватных выделенных сетевых соединений между локальной инфраструктурой и {{ yandex-cloud }}.
+  * [{{ interconnect-full-name }}](/services/interconnect) — сервис для создания приватных выделенных сетевых соединений между локальной инфраструктурой и {{ yandex-cloud }}.
     
     Подробнее см. в [документации {{ interconnect-name }}](../interconnect/)
   

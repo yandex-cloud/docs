@@ -1,10 +1,6 @@
 # Миграция данных из {{ objstorage-name }} в кластер {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
 
 
-
-{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
-
-
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из объектного хранилища {{ objstorage-name }} в кластер-приемник {{ mmy-name }}.
 
 Чтобы перенести данные:

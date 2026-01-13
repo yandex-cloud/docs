@@ -5,9 +5,7 @@ items:
     items:
       - name: Overview
         href: quickstart/index.md
-      - name: Simple Linux VM creation
-        href: quickstart/simple-form-vm.md
-      - name: Advanced Linux VM creation
+      - name: Creating a Linux VM
         href: quickstart/quick-create-linux.md
       - name: Creating an instance group
         href: quickstart/ig.md
@@ -35,6 +33,8 @@ items:
             href: operations/vm-create/create-with-lockbox-secret.md
           - name: Creating a VM with a GPU
             href: operations/vm-create/create-vm-with-gpu.md
+          - name: Creating a VM with Gen 2 hardware
+            href: operations/vm-create/create-gen2-vm.md
           - name: Making a VM preemptible
             href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
@@ -339,6 +339,8 @@ items:
             href: operations/instance-groups/update.md
           - name: Updating an instance group based on a YAML specification
             href: operations/instance-groups/update-from-yaml.md
+          - name: Enable deletion protection
+            href: operations/instance-groups/enable-deletion-protection.md
           - name: Disabling and enabling availability zones for an instance group
             href: operations/instance-groups/disable-enable-zone.md
           - name: Moving an instance group to a different availability zone
@@ -628,6 +630,8 @@ items:
             href: tutorials/integrate-nextcloud/fault-tolerant.md
           - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
             href: tutorials/integrate-nextcloud/terraform.md
+      - name: Running a Docker image on a VM using {{ cloud-registry-name }}
+        href: tutorials/docker-cloud-registry.md
   - name: Concepts
     items:
       - name: Resource relationships

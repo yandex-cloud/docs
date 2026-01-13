@@ -16,7 +16,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your [security profile](../concepts/profiles.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Select one of these creation options:
       * **{{ ui-key.yacloud.smart-web-security.title_default-template }}**: This is a recommended option.
@@ -88,9 +88,9 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
      Where:
 
      * `--name`: Security profile name. This is a required setting. If you specify only the profile name with no other properties, the security profile will include a single [basic rule](../concepts/rules.md#base-rules).
-     * `--description`: Text description of the security profile. This is an optional setting.
+     * `--description`: Text description of the security profile. This is an optional parameter.
      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. For example, `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional setting. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
       * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional setting. Here is an example:
 

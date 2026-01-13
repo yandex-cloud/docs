@@ -228,7 +228,7 @@ For the agent to be able to use the index you created, provide index ID in the `
 
       response = client.responses.create(
           model=f"gpt://{YANDEX_FOLDER_ID}/{YANDEX_CLOUD_MODEL}",
-          instructions="You are a smart assistant. If asked about how to use the app, search in the connected index",
+          instructions="You are a smart assistant. If asked about how to use the app, search through the connected index",
           tools=[{"type": "file_search", "vector_store_ids": [VECTOR_STORE_ID]}],
           input=QUERY_TEXT,
       )

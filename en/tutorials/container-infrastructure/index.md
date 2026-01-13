@@ -14,6 +14,7 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 * [{#T}](ig-with-containers.md)
 * [{#T}](vm-update.md)
 * [{#T}](serial-port.md)
+* [{#T}](docker-cloud-registry.md)
 
 ## {{ managed-k8s-name }} {#k8s}
 

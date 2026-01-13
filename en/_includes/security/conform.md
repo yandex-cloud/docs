@@ -46,7 +46,7 @@ For more information on the PCI DSS and PCI DSS AOC certificates issued to {{ ya
 
 ## PCI PIN Security {#pci-pin-security}
 
-The payment card industry standard defines requirements for securely processing and transmitting PIN codes and managing cryptographic keys used to protect PIN codes. {{ yandex-cloud }} customers can host acquiring and PIN code transaction processing infrastructure components in the cloud.
+The payment card industry standard which sets forth requirements for secure processing and transmission of PIN codes as well as management of associated cryptographic keys. {{ yandex-cloud }} customers can host acquiring and PIN code transaction processing infrastructure components in the cloud.
 
 For more information on the PCI PIN Security certificates issued to {{ yandex-cloud }}, see the [PCI Security Standards page](/security/standards/pci).
 
@@ -64,7 +64,7 @@ GOST R 57580.1-2017 is the Russian national security standard for banking and fi
 
 The cloud platform's services are made to comply with this standard to help the organizations whose systems and applications are deployed in the cloud to meet the requirements of the Central Bank (as set forth in Regulations 683-P and 684-P of the Bank of Russia) and ensure compliance with the standard on their cloud systems' side.
 
-The {{ yandex-cloud }} platform got a statement of evaluation of compliance with the information security requirements enforced by the Bank of Russia. The statement certifies that the information security management and control system of Yandex.Cloud LLC was evaluated for compliance with the requirements of GOST R 57580.1-2017 for extended information security. As of the audit completion date, the overall score was R=0.92 (Level 5 compliance). According to GOST R 57580.2-2018, this means that the organizational and the technical measures forming part of the information protection system process have been implemented fully and consistently in accordance with the organization's general policies (methods).
+The {{ yandex-cloud }} platform got a statement of evaluation of compliance with the information security requirements enforced by the Bank of Russia. The statement certifies that the information security management and control system of Yandex.Cloud LLC was evaluated for compliance with the GOST R 57580.1-2017 requirements for enhanced information security. As of the audit completion date, the overall score was R=0.92 (Level 5 compliance). According to GOST R 57580.2-2018, this means that the organizational and the technical measures forming part of the information protection system process have been implemented fully and consistently in accordance with the organization's general policies (methods).
 
 {{ yandex-cloud }} services can thus be used by systemically important credit institutions, credit institutions providing payment infrastructure services for systemically important payment systems, and credit institutions with significant role in the payment services market.
 

@@ -11,7 +11,7 @@
   Ниже показано, как получить список операций для симметричного ключа. Для других ресурсов сервиса последовательность действий такая же.
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится симметричный ключ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Выберите нужный ключ.
   1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **Операции** для выбранного ключа.

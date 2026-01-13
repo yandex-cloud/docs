@@ -4,9 +4,9 @@
 
 Стоимость хранения оригинала видео — `5 ГБ` и потокового видео — `8 ГБ`:
 
-> 5 × {{ sku|KZT|storage.bucket.used_space.ice|month|string }} = {% calc [currency=KZT] 5  × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} %}
+> 5 × 720 × {{ sku|KZT|storage.bucket.used_space.ice|string }} = {% calc [currency=KZT] 5  × 720 × {{ sku|KZT|storage.bucket.used_space.ice|number }} %}
 >
-> 8 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|string }} = {% calc [currency=KZT] 8  × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} %}
+> 8 × 720 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|string }} = {% calc [currency=KZT] 8  × 720 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|number }} %}
 
 Стоимость исходящего трафика — `50 ГБ`:
 
@@ -14,4 +14,4 @@
 
 Общая стоимость услуг сервиса за месяц составит:
 
-> {% calc [currency=KZT] 100  × {{ sku|KZT|video.transcoding.vod.v1|number }} %} + {% calc [currency=KZT] 5 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} %} + {% calc [currency=KZT] 8 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} + {% calc [currency=KZT] 50 × {{ sku|KZT|video.cdn.traffic.egress|number }} %} = {% calc [currency=KZT] 100  × {{ sku|KZT|video.transcoding.vod.v1|number }} + 5 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} + 8 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} + 50 × {{ sku|KZT|video.cdn.traffic.egress|number }} %}
+> {% calc [currency=KZT] 100  × {{ sku|KZT|video.transcoding.vod.v1|number }} %} + {% calc [currency=KZT] 5 × 720 × {{ sku|KZT|storage.bucket.used_space.ice|number }} %} + {% calc [currency=KZT] 8 × 720 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|number }} %} + {% calc [currency=KZT] 50 × {{ sku|KZT|video.cdn.traffic.egress|number }} %} = {% calc [currency=KZT] 100  × {{ sku|KZT|video.transcoding.vod.v1|number }} + 5 × 720 × {{ sku|KZT|storage.bucket.used_space.ice|number }} + 8 × 720 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|number }} + 50 × {{ sku|KZT|video.cdn.traffic.egress|number }} %}

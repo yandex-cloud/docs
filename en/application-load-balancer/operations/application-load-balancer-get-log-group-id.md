@@ -12,7 +12,7 @@ To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/con
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click your load balancer's name.
   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, click the log group name in the **{{ ui-key.yacloud.alb.label_log-group }}** field.
 
@@ -70,7 +70,7 @@ If you kept the **{{ ui-key.yacloud.alb.label_default-log-group }}** value in th
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder with your load balancer.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Save the `default` log group ID.
 
 - CLI {#cli}

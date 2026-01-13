@@ -1,5 +1,5 @@
-* `--description`: Trail description. This is an optional parameter.
-* `--labels`: List of [labels](../../resource-manager/concepts/labels.md). This is an optional parameter. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
+* `--description`: Trail description. This is an optional setting.
+* `--labels`: List of [labels](../../resource-manager/concepts/labels.md). This is an optional setting. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 * `--service-account-id`: Service account [ID](../../iam/operations/sa/get-id.md).
 * `--destination-bucket`: [Name](../../storage/concepts/bucket.md#naming) of the {{ objstorage-full-name }} bucket you want to upload audit logs to.
 
@@ -15,6 +15,7 @@
 
     You cannot use this parameter together with `--destination-bucket` or `--destination-log-group-id`.
 * `--destination-yds-database-id`: ID of the {{ ydb-short-name }} database used by {{ yds-name }}.
+* `--destination-yds-codec`: Event compression method when writing to {{ yds-name }}. The possible values are `RAW` (no compression, default), `GZIP`, `ZSTD`. Enable compression if you expect an event flow greater than 1 MB/s.
 * `--filter-all-folder-id`: Folder [ID](../../resource-manager/operations/folder/get-id.md). The system will be logging management events for all resources in this folder.
 * `--filter-all-cloud-id`: Cloud [ID](../../resource-manager/operations/cloud/get-id.md). The system will be logging management events for all resources in this cloud.
 * `--filter-all-organisation-id`: Organization [ID](../../organization/operations/organization-get-id.md). The system will be logging management events for all resources in this organization.

@@ -5,6 +5,12 @@ description: This section contains {{ serverless-containers-name }} release note
 
 # {{ serverless-containers-full-name }} release notes
 
+## September 2025 {#september-2025}
+
+### Updates {#updates}
+
+* Added support for [running Docker inside a container](tutorials/serverless-gitlab-runner.md).
+
 ## July 2025 {#july-2025}
 
 ### Updates {#updates}

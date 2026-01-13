@@ -131,12 +131,12 @@ _Observability (наблюдаемость)_ — возможность поня
 
 * [{{ monitoring-full-name }}](/services/monitoring/) — сервис для сбора, хранения и визуализации метрик, а также настройки алертов. Подробнее см. в документации [{{ monitoring-name }}](../monitoring/).
 * [{{ cloud-logging-full-name }}](/services/logging/) — сервис для сбора и анализа логов. Подробнее см. в документации [{{ cloud-logging-name }}](../logging/).
-* [{{ managed-prometheus-full-name }}](services/managed-prometheus/) — система мониторинга, совместимая с [Prometheus](https://prometheus.io/docs/introduction/overview/). Подробнее см. в документации [{{ managed-prometheus-name }}](../managed-prometheus/).
+* [{{ managed-prometheus-full-name }}](/services/managed-prometheus/) — система мониторинга, совместимая с [Prometheus](https://prometheus.io/docs/introduction/overview/). Подробнее см. в документации [{{ managed-prometheus-name }}](../monitoring/operations/prometheus/index.md).
 
 #### Полезные материалы {#see-also}
 
-* [Чтение и запись метрик кластера {{ managed-k8s-name }} с помощью Prometheus Operator](/monitoring/operations/prometheus/read-write-for-kubernetes)
-* [Сбор метрик кластера «1С:Предприятие» на базе Linux](/monitoring/tutorials/collect-metrics-1c-cluster)
+* [Чтение и запись метрик кластера {{ managed-k8s-name }} с помощью Prometheus Operator](../monitoring/operations/prometheus/read-write-for-kubernetes.md)
+* [Сбор метрик кластера «1С:Предприятие» на базе Linux](../monitoring/tutorials/collect-metrics-1c-cluster.md)
 * [Видео: Observability для выявления аномалий и нахождения полезных инсайтов для бизнеса](/blog/posts/2024/03/monthly-cloud-news-observability-engineering)
 * [Вебинар: Эффективный мониторинг облачных решений](/events/1161)
 * [Вебинар: Звонки и эскалации в {{ monitoring-name }}](/events/1017)

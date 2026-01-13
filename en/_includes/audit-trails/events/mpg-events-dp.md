@@ -7,7 +7,11 @@ Event name | Description
 `DatabaseUserSQLRequest`| User SQL query to a database^1^
 `DeleteDatabase` | Deleting a database
 `DeleteUser` | Deleting a database user
+`GetDatabase` | Getting information about a database
+`GetUser` | Getting database user information
 `GrantUserPermission` | Assigning privileges to a database user
+`ListDatabases` | Getting a list of databases
+`ListUsers` | Getting a list of database users
 `RevokeUserPermission` | Revoking a database user's privileges
 `UpdateDatabase` | Updating a database
 `UpdateUser` | Editing a database user

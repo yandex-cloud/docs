@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер.
   1. В строке с нужной ревизией нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **{{ ui-key.yacloud.serverless-containers.label_edit-active-revision }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.serverless-containers.popup-confirm-edit-active-revision_button_confirm }}**. Статус ревизии изменится с `Obsolete` на `Active`.

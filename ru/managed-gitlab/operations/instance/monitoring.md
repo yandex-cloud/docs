@@ -17,7 +17,7 @@ description: Вы можете отслеживать состояние инс�
 
 Для просмотра детальной информации о состоянии инстанса {{ mgl-name }}:
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Нажмите на имя нужного инстанса и выберите вкладку **{{ ui-key.yacloud.common.monitoring }}**.
 1. {% include [open-in-yandex-monitoring](../../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -35,7 +35,7 @@ description: Вы можете отслеживать состояние инс�
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог с инстансом, для которого нужно настроить алерты.
-   1. В списке сервисов выберите ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. На главной странице в блоке **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}** выберите **Managed Gitlab**.
    1. На нужном графике нажмите на значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
    1. Если на выбранном графике несколько показателей, в разделе **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}** вы можете оставить все запросы данных или только некоторые из них. Например, для метрики **System disk** можно удалить лишний запрос на свободное место в хранилище и оставить только запрос на занятое место.

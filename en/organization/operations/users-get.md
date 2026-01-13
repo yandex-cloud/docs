@@ -57,6 +57,8 @@ To get information about a [Yandex account](../../iam/concepts/users/accounts.md
 
 {% endlist %}
 
+{% include notitle [fed-user-data-after-login-notice](../../_includes/organization/fed-user-data-after-login-notice.md) %}
+
 ## Local users {#local} 
 
 

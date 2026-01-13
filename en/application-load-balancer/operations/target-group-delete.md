@@ -1,6 +1,6 @@
 ---
 title: Deleting a target group from an application load balancer
-description: To delete a target group, select its folder in the management console. Select {{ alb-full-name }}. In the left-hand menu, select **Target groups**. Select your target group and click the `select` icon. In the menu that opens, select **Delete**. To delete multiple target groups at once, select them in the list and click **Delete** at the bottom of the screen.
+description: To delete a target group, select its folder in the management console. Go to {{ alb-full-name }}. In the left-hand menu, select **Target groups**. Select your target group and click the `select` icon. In the menu that opens, select **Delete**. To delete multiple target groups at once, select them in the list and click **Delete** at the bottom of the screen.
 ---
 
 # Deleting an {{ alb-name }} target group
@@ -18,7 +18,7 @@ To delete a [target group](../concepts/target-group.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your target group [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Select your target group and click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
@@ -81,7 +81,7 @@ To delete a [target group](../concepts/target-group.md):
      }
      ```
 
-     For more information about `yandex_alb_target_group` properties, see the relevant [{{ TF }} article]({{ tf-provider-alb-targetgroup }}).
+     For detailed information about the `yandex_alb_target_group` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-alb-targetgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

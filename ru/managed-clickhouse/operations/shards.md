@@ -336,6 +336,8 @@
 
 Вы можете изменить вес шарда, а также [класс хоста](../concepts/instance-types.md), [тип диска](../concepts/storage.md) и размер хранилища.
 
+{% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
+
 {% note info %}
 
 Чтобы изменить тип диска на `local-ssd`, обратитесь в [техническую поддержку]({{ link-console-support }}).

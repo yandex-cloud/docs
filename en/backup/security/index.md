@@ -30,6 +30,10 @@ Using the {{ yandex-cloud }} console or the CLI, you can assign a role for a [cl
 
 {% include [backup.viewer](../../_roles/backup/viewer.md) %}
 
+#### backup.user {#backup-user}
+
+{% include [backup.user](../../_roles/backup/user.md) %}
+
 #### backup.editor {#backup-editor}
 
 {% include [backup.editor](../../_roles/backup/editor.md) %}

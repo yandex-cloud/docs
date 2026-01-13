@@ -65,7 +65,7 @@ description: Следуя данной инструкции, вы сможете
     1. Нажмите кнопку **Save changes**.
 1. Включите правила ревью кода в инстансе {{ mgl-name }}:
     1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [инстанс {{ GL }}](../concepts/index.md#instance).
-    1. Выберите сервис **{{ mgl-name }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
     1. Выберите инстанс и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
     1. В поле **{{ ui-key.yacloud.gitlab.field_approval-rules }}** выберите нужную [конфигурацию](../concepts/approval-rules.md#packages) правил ревью кода.
 

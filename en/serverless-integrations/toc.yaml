@@ -2,7 +2,7 @@ title: '{{ si-full-name }}'
 stage: preview
 href: index.yaml
 items:
-  - name: Comparison with other {{ yandex-cloud }} services
+  - name: Comparing with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     items:
@@ -128,7 +128,7 @@ items:
                 href: operations/workflows/execution/get-history.md
           - name: Managing a workflow execution
             items:
-              - name: Starting a workflow
+              - name: Starting a workflow execution
                 href: operations/workflows/execution/start.md
               - name: Starting a workflow execution on a timer
                 href: operations/workflows/execution/start-by-timer.md
@@ -136,6 +136,14 @@ items:
                 href: operations/workflows/execution/stop.md
               - name: Terminating a workflow execution
                 href: operations/workflows/execution/terminate.md
+          - name: Managing workflow access permissions
+            items:
+              - name: Viewing roles assigned for a workflow
+                href: operations/workflows/access-rights/role-list.md
+              - name: Assigning roles for a workflow
+                href: operations/workflows/access-rights/role-add.md
+              - name: Revoking roles assigned for a workflow
+                href: operations/workflows/access-rights/role-revoke.md
       - name: '{{ er-name }}'
         items:
           - name: Getting bus info
@@ -251,7 +259,7 @@ items:
                 href: operations/eventrouter/rule/disable.md
               - name: Deleting a rule
                 href: operations/eventrouter/rule/delete.md
-          - name: Managing permissions to access resources
+          - name: Managing resource access permissions
             items:
               - name: Viewing roles assigned for a resource
                 href: operations/eventrouter/access-rights/role-list.md

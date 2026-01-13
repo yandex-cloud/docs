@@ -14,6 +14,7 @@ destination:
   data_stream:
     stream_name: <YDS_name>
     database_id: <YDS_database_ID>
+    codec: <event_compression_method>
 service_account_id: <service_account_ID>
 filtering_policy:
   management_events_filter:
@@ -25,8 +26,8 @@ filtering_policy:
       resource_scopes:
         - id: <cloud_or_folder_organization_ID>
           type: <type>
-      # You can specify either `included_events` or `excluded_events`, or skip both parameters to collect all service events.
-      # 
+      # You can specify either included_events or excluded_events,
+      # or skip both parameters to collect all service events.
       # Both parameters are provided for illustration purposes.
       included_events:
         event_types:

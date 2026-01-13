@@ -11,7 +11,7 @@
   Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для контейнера. Для других ресурсов сервиса последовательность действий такая же.
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится контейнер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/boxes-3.svg) **{{ ui-key.yacloud.serverless-containers.label_containers }}**.
   1. Выберите нужный контейнер.
   1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного контейнера.

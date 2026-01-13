@@ -1,0 +1,1 @@
+Installing a {{ backup-name }} agent is a resource-intensive operation. If you want to use a VM in the minimum possible configuration or, for example, a VM with a [vCPU performance level](../../compute/concepts/performance-levels.md) below 100%, we recommend increasing the VM's resources during the {{ backup-name }} agent installation.
