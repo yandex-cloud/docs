@@ -3,14 +3,14 @@ title: Getting information about a security profile in {{ sws-full-name }}
 description: Follow this guide to get information about a security profile in {{ sws-full-name }}.
 ---
 
-# Getting information about a security profile
+# Getting security profile info
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select the security profile in question.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the profile details.
 
@@ -85,7 +85,7 @@ description: Follow this guide to get information about a security profile in {{
      * `output "profile-created"`: Output variable that contains information about the security profile creation timestamp:
        * `value`: Return value.
 
-     You can replace `created_at` with any other parameter to get the information you need. For more information about `yandex_sws_security_profile` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/sws_security_profile).
+     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_sws_security_profile` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/sws_security_profile).
 
   1. Create the resources:
 

@@ -74,6 +74,8 @@ description: Следуя данной инструкции, вы сможете
    При необходимости вы сможете настроить эти параметры позднее.
 
    {% endnote %}
+   
+{% include [create-resource-time](../_includes/cdn/create-resource-time.md) %}
 
 ## Загрузите контент в CDN {#upload-content-to-CDN}
 

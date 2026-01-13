@@ -338,6 +338,12 @@ total 822368
 
 Вы можете использовать [условия](../../concepts/object.md#conditional-writes) при завершении составной загрузки, а также при обычной [загрузке](upload.md#conditional-writes) объекта.
 
+{% note tip %}
+
+{% include [use-forced-conditions](../../../_includes/storage/use-forced-conditions.md) %}
+
+{% endnote %}
+
 
 ### Завершение составной загрузки с условием по ETag {#if-match}
 

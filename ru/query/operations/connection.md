@@ -12,7 +12,7 @@ description: Соединение необходимо для подключен
 Чтобы создать соединение:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Введите имя и описание соединения. Требования к имени:
@@ -94,7 +94,7 @@ description: Соединение необходимо для подключен
 Чтобы посмотреть информацию о соединении:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создано соединение.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. В строке с именем нужного соединения нажмите кнопку ![info](../../_assets/console-icons/circle-info.svg). Раздел **{{ ui-key.yql.yq-connection-info.general.section-header }}** содержит информацию об источнике и сервисном аккаунте. В разделе **{{ ui-key.yql.yq-common-meta-section.meta.section-header }}** указаны идентификатор (ID) соединения, время создания и автор.
 
@@ -103,7 +103,7 @@ description: Соединение необходимо для подключен
 Чтобы изменить параметры соединения:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создано соединение.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. В строке с именем нужного соединения нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yql.yq-connection-actions.edit-connection.menu-item-text }}**.
 1. Укажите новые параметры соединения. Тип соединения изменить нельзя.
@@ -114,7 +114,7 @@ description: Соединение необходимо для подключен
 Чтобы удалить соединение:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создано соединение.
-1. В списке сервисов выберите **{{ yq-full-name }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. В строке с именем нужного соединения нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yql.yq-connection-actions.delete-connection.menu-item-text }}**.
 1. Подтвердите удаление соединения.

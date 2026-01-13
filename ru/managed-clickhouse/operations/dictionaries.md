@@ -712,7 +712,7 @@
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_source }}** — настройки источника словаря. Выберите один из перечисленных источников и укажите его настройки:
 
-    {% cut "{{ CH }}" %}
+    {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-clickhouse }}" %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста {{ CH }}. Необязательный параметр.
 
@@ -728,7 +728,7 @@
 
     {% endcut %}
 
-    {% cut "{{ SD }}" %}
+    {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-mongodb }}" %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста {{ SD }}. Хост должен находиться в той же сети, что и кластер {{ CH }}.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
@@ -739,7 +739,7 @@
 
     {% endcut %}
 
-    {% cut "{{ MY }}" %}
+    {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-mysql }}" %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_replicas }}** — список реплик {{ MY }}, которые будут использоваться как источник словаря.
         Для реплик можно задать общие параметры подключения или настроить порт, имя пользователя и пароль.
@@ -753,7 +753,7 @@
 
     {% endcut %}
 
-    {% cut "{{ PG }}" %}
+    {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-postgresql }}" %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_hosts }}** — имена хоста-мастера {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
@@ -766,12 +766,13 @@
 
     {% endcut %}
 
-    {% cut "HTTP(s)" %}
+    {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-http }} " %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-url }}** — URL HTTP(s)-источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-format }}** — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
 
     {% endcut %}
+
 
     Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-source/).
 

@@ -1,5 +1,6 @@
 1. On the left-hand panel in the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**, or find it using the search bar on the dashboard.
 1. Navigate to the VM you want to connect to.
+1. Make sure its status is `Running`. If the VM is idle, click ![image](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.compute.instances.button_gr-action-start }}** in the top-right corner and wait until its status changes to `Running`.
 1. Click ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-ssh }}** at the top right.
 1. Enter a username. The default login is the one specified when creating the VM.
 1. Paste the contents of the public SSH key file or upload the file.

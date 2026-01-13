@@ -1,5 +1,5 @@
 1. В консоли управления выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс {{ GL }}](../../managed-gitlab/concepts/index.md#instance).
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
 1. В верхней части страницы:
 

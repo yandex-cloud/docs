@@ -5,6 +5,13 @@ description: This section contains {{ api-gw-name }} release notes.
 
 # {{ api-gw-full-name }} release notes
 
+## September 2025 {#september-2025}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Improved forms for adding the [x-yc-apigateway-integration:http](operations/spec-constructor/http.md) and [x-yc-apigateway-integration:dummy](operations/spec-constructor/dummy.md) extensions in the specification builder: now you can specify HTTP headers and query parameters not in the common field, but use separate fields to enter names and values.
+* Fixed an error in the [x-yc-apigateway-integration:cloud_ymq](concepts/extensions/ymq.md) extension when calling the API gateway with the `Content-Type: application/json; charset=utf-8` header: now, instead of Base64-encoded data, the source data is written to the queue.
+
 ## July 2025 {#july-2025}
 
 ### Updates {#updates}

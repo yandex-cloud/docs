@@ -16,7 +16,7 @@ To create a virtual host:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create a virtual host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) you are going to create a virtual host in.
   
       [Create](./http-router-create.md) a new HTTP router if needed.
@@ -48,7 +48,7 @@ To create a virtual host:
   1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
   1. {% include [cli-vh-create](../../_includes/application-load-balancer/instruction-steps/cli-vh-create.md) %}
 
-  For more information about the `alb virtual-host create` command, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
+  For more information about the `alb virtual-host create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
 - {{ TF }} {#tf}
 
@@ -128,9 +128,9 @@ To update a virtual host:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your virtual host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the virtual host.
-  1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the virtual host and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens, do the following:
+  1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the virtual host and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
 
       1. Optionally, in the **{{ ui-key.yacloud.alb.label_authority }}** field, update the settings and specify:
 
@@ -181,7 +181,7 @@ To update a virtual host:
           Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
       * `--authority`: List of domains for the `Host` header (HTTP/1.1) or the `authority` pseudo-header (HTTP/2) associated with this virtual host, comma-separated. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. For gRPC traffic, you may specify the load balancer's IP address.
 
-          This is an optional parameter. If not specified, all traffic will be routed to this virtual host.
+          This is an optional setting. If not specified, all traffic will be routed to this virtual host.
 
           To remove the current list of domains assigned to the virtual host, provide the `--clear-authorities` parameter in the command.
       * `--modify-request-header`: Request HTTP header modification settings in `<property>=<value>` format. Available properties:
@@ -212,11 +212,11 @@ To update a virtual host:
           This is an optional parameter; if not specified, no rate limiting is applied.
 
           To clear all rate-limiting settings from the virtual host, provide the `--clear-rate-limit` parameter in the command.
-      * `--security-profile-id`: [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to filter incoming requests, enable [WAF](../../smartwebsecurity/concepts/waf.md), and set limits on the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md). This is an optional parameter.
+      * `--security-profile-id`: [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to filter incoming requests, enable [WAF](../../smartwebsecurity/concepts/waf.md), and set limits on the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md). This is an optional setting.
 
           To detach a security profile from the virtual host, provide an empty value in the flag: `--security-profile-id ""`.
 
-      * `--clear-routes`: Clears all routes from the virtual host. This is an optional parameter.
+      * `--clear-routes`: Clears all routes from the virtual host. This is an optional setting.
 
       Result:
 
@@ -237,7 +237,7 @@ To update a virtual host:
           per_second: "80"
       ```
 
-  For more information about the `yc alb virtual-host update` command, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
+  For more information about the `yc alb virtual-host update` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
 
 - {{ TF }} {#tf}
 
@@ -316,7 +316,7 @@ To delete a virtual host:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your virtual host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the virtual host.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the virtual host and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
@@ -343,7 +343,7 @@ To delete a virtual host:
 
       Where `--http-router-name` is the HTTP router name. Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
 
-  For more information about the `yc alb virtual-host delete` command, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/delete.md).
+  For more information about the `yc alb virtual-host delete` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/delete.md).
 
 - {{ TF }} {#tf}
 

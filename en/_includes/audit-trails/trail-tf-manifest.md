@@ -23,6 +23,7 @@ resource "yandex_audit_trails_trail" "basic_trail" {
   data_stream_destination {
     database_id = "<YDS_database_ID>"
     stream_name = "<YDS_name>"
+    codec       = "<event_compression_method>"
   }
 
   # Filtering policy settings

@@ -229,6 +229,8 @@ items:
           Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-name
           }}
         href: tutorials/gatsby-static-website.md
+      - name: Установка Ghost CMS CloudApp в {{ objstorage-name }}
+        href: tutorials/ghost-cms-cloudapp.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         items:
           - name: Обзор

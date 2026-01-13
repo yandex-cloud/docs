@@ -24,7 +24,7 @@ How your application is assumed to work:
 To create a web application with Flask:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Create and set up a virtual machine](#create-setup-vm).
+1. [Create and configure a virtual machine](#create-setup-vm).
 1. [Create and run the application](#create-app).
 1. [Create and configure the HTML templates](#html-templates).
 1. [Configure the database](#configure-data-base).
@@ -212,7 +212,7 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
 
 {% endlist %}
 
-## Create and set up a virtual machine {#create-setup-vm}
+## Create and configure a virtual machine {#create-setup-vm}
 
 A [virtual machine](../../compute/concepts/vm.md) is similar to a server in cloud infrastructures. In {{ yandex-cloud }}, you can create VMs with varying hardware specifications in terms of [performance](../../compute/concepts/performance-levels.md), RAM, and [disk space](../../compute/concepts/disk.md#maximum-disk-size); they can also run on various [operating systems](../../compute/concepts/image.md#public).
  
@@ -230,7 +230,6 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. Select **Advanced setup**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:

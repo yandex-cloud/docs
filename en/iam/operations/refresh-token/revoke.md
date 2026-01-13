@@ -5,9 +5,22 @@ description: Follow this guide to revoke refresh tokens.
 
 # Revoking a refresh token
 
+{% include [cli-install](../../../_includes/iam/refresh-tokens-add-note.md) %}
+
 To revoke a [refresh token](../../concepts/authorization/refresh-token.md) for a federated user:
 
 {% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+  1. In the left-hand panel, click ![userpool](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+  1. Locate the user in the list. Use the filter or search bar at the top of the screen as needed.
+  1. Navigate to the **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}** tab.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the token and select ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. To revoke all tokens, click ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.my-account.refresh-tokens.action_remove_all }}**.
+
+  You can also revoke your refresh tokens through the [My account](../../../organization/concepts/my-account.md) portal.
 
 - CLI {#cli}
 
@@ -40,20 +53,20 @@ To revoke a [refresh token](../../concepts/authorization/refresh-token.md) for a
 
       Where:
 
-      * `--refresh-token`: Body of the refresh token to revoke. Provide the value in the standard input stream, `stdin`. This is an optional parameter. Example of use:
+      * `--refresh-token`: Body of the refresh token to revoke. Provide the value in the standard input stream, `stdin`. This is an optional setting. Examples of use:
       
           * To provide the token body in a string: `yc iam refresh-token revoke --refresh-token <<< "<refresh_token_body>"`.
           * To provide the token body in a file: `yc iam refresh-token revoke --refresh-token < <path_to_refresh_token_body_file>`. 
       
           You cannot use any other `yc iam refresh-token revoke` parameters together with `--refresh-token`. 
-      * `--refresh-token-id`: ID of the refresh token to revoke. This is an optional parameter.
+      * `--refresh-token-id`: ID of the refresh token to revoke. This is an optional setting.
 
           You cannot use any other `yc iam refresh-token revoke` parameters together with `--refresh-token-id`.
-      * `--subject-id`: [ID](../../../organization/operations/users-get.md) of the federated user whose refresh tokens you want to revoke. This is an optional parameter. If not specified, the system will revoke the refresh tokens for the user currently authenticated in the {{ yandex-cloud }} CLI.
+      * `--subject-id`: [ID](../../../organization/operations/users-get.md) of the federated user whose refresh tokens you want to revoke. This is an optional setting. If not specified, the system will revoke the refresh tokens for the user currently authenticated in the {{ yandex-cloud }} CLI.
 
           By default, any [federated user](../../concepts/users/accounts.md#saml-federation) can revoke their refresh tokens. To revoke refresh tokens of other users, a user must have one of the following [roles](../../concepts/access-control/roles.md) for the organization: [organization-manager.federations.userAdmin](../../../organization/security/index.md#organization-manager-federations-userAdmin) or [iam.userAccounts.refreshTokenRevoker](../../security/index.md#iam-userAccounts-refreshTokenRevoker).
-      * `--client-id`: ID of the OAuth application you want to revoke refresh tokens for, e.g., `yc.oauth.public-sdk` for the {{ yandex-cloud }} CLI. This is an optional parameter.
-      * `--client-instance-info`: Version ID of the OAuth application you want to revoke refresh tokens for, e.g., `yc/0.141.0`. This is an optional parameter.
+      * `--client-id`: ID of the OAuth application you want to revoke refresh tokens for, e.g., `yc.oauth.public-sdk` for the {{ yandex-cloud }} CLI. This is an optional setting.
+      * `--client-instance-info`: Version ID of the OAuth application you want to revoke refresh tokens for, e.g., `yc/0.141.0`. This is an optional setting.
 
       Result:
 
@@ -69,3 +82,5 @@ To revoke a [refresh token](../../concepts/authorization/refresh-token.md) for a
   Use the [revoke](../../api-ref/RefreshToken/revoke.md) REST API method for the [RefreshToken](../../api-ref/RefreshToken/index.md) resource or the [RefreshTokenService/Revoke](../../api-ref/grpc/RefreshToken/revoke.md) gRPC API call.
 
 {% endlist %}
+
+Refresh tokens are also automatically deleted seven days after their [lifetime](../../concepts/authorization/refresh-token.md#lifetime) expires.

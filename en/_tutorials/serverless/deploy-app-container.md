@@ -13,7 +13,7 @@ To deploy your containerized app:
 1. [Configure the security group](#configure-sg).
 1. [Create a {{ compute-name }} VM with {{ MG }}](#create-vm).
 1. [Create a {{ lockbox-name }} secret and version](#secret-create).
-1. [Create a registry in {{ container-registry-name }}](#create-registry).
+1. [Create a {{ container-registry-name }}](#create-registry).
 1. [Push the Docker image to {{ container-registry-name }}](#push-image).
 1. [Create a container in {{ serverless-containers-name }}](#create-container).
 1. [Create an {{ api-gw-name }}](#create-api-gw).
@@ -301,7 +301,6 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 - Management console {#console}
 
   1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. Select **Advanced setup**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       1. Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
@@ -333,7 +332,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mongo-vm`.

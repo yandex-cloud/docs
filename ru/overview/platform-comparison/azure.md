@@ -25,7 +25,7 @@ description: В этой статье сопоставляются сервис�
 | Azure Event Grid | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
 | Azure Event Hubs | [{{ yds-full-name }}](../../data-streams/) |
 | Azure Functions | [{{ sf-full-name }}](../../functions/) |
-| Azure HDInsight | [{{ myt-full-name }}](../../managed-ytsaurus/) |
+| Azure HDInsight | [{{ myt-full-name }}](../../managed-ytsaurus/)<br/>[{{ msp-full-name }}](../../managed-spark/) |
 | Azure IoT Hub | [{{ iot-full-name }}](../../iot-core/) |
 | Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Azure Kubernetes Service (AKS) | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
@@ -38,6 +38,8 @@ description: В этой статье сопоставляются сервис�
 | Azure Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | Azure Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | Azure Security Center | [{{ sd-full-name }}](../../security-deck/) |
+| Azure Stack Hub | [{{ stackland-full-name }}](../../stackland/) |
+| Azure Synapse Analytics | [{{ mgp-full-name }}](../../managed-greenplum/) |
 | Azure Virtual Desktop | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | Blob Storage | [{{ objstorage-full-name }}](../../storage/) |
 | Cognitive Services: Language | [{{ translate-full-name }}](../../translate/) |

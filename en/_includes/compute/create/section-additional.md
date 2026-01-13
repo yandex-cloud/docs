@@ -6,6 +6,12 @@ Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
     For more information, see [{#T}](../../../backup/concepts/vm-connection.md).
 
+    {% note tip %}
+
+    {% include [cloud-backup-resources-note](../../../_includes/backup/cloud-backup-resources-note.md) %}
+
+    {% endnote %}
+
 * Optionally, to configure delivering [Linux metrics](../../../monitoring/operations/unified-agent/linux_metrics.md) and any additional metrics from your apps, enable **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** under **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** and select:
   * **{{ monitoring-full-name }}**: [Install an agent](../../../monitoring/concepts/data-collection/unified-agent/index.md) to collect additional metrics from VM instances and apps.
   * **{{ managed-prometheus-name }}**: [Install and configure an agent](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) to collect additional metrics from VM instances and apps in {{ prometheus-name }} format:

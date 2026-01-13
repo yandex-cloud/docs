@@ -28,7 +28,7 @@ A {{ kms-short-name }} symmetric key may have the following parameters:
     * `Active`: Key can be used for encryption and decryption.
     * `Inactive`: Key cannot be used.
 
-    You can change the key status from `Active` to `Inactive` and vice versa using the [update](../api-ref/SymmetricKey/update) method.
+    You can [change the key status](../operations/key.md#active-inactive) from `Active` to `Inactive` and vice versa.
 
 ## Using a symmetric key {#use}
 

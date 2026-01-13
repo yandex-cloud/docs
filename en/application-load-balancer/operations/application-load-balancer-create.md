@@ -12,7 +12,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a load balancer.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. Specify the load balancer name.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
@@ -316,7 +316,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
             }
             sni_handler {
               name         = "SNI_listener_name"
-              server_names = [“server_names"]
+              server_names = ["server_names"]
               handler {
                 certificate_ids = ["<certificate_IDs>"]
                 stream_handler {

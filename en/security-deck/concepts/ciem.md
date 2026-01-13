@@ -38,7 +38,7 @@ Currently, Cloud Infrastructure Entitlement Management does not display subjects
 
 ## Revoking access permissions {#revoking-permissions}
 
-Cloud Infrastructure Entitlement Management allows you to [revoke](../operations/ciem/revoke-permissions.md) excessive access permissions from a subject or group and remove a subject from a user group.
+Cloud Infrastructure Entitlement Management allows you to [revoke](../operations/ciem/revoke-permissions.md) excessive access permissions from individual subjects or groups and remove individual subjects from user groups.
 
 To revoke access permissions, users must have one of these roles: `admin`, `resource-manager.admin`, `organization-manager.admin`, `resource-manager.clouds.owner`, `organization-manager.organizations.owner`, or the administrator role in the [service](../../overview/concepts/services.md) where they want to revoke the subject's access to a resource.
 

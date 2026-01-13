@@ -1,5 +1,7 @@
 ---
 noIndex: true
+title: Loading data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}
+description: How to load data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/ydb-to-object-storage'
 ---
 

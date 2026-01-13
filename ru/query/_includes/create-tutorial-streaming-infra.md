@@ -1,7 +1,7 @@
 1. Создайте соединение:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
     1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
     1. Перейдите в **{{ ui-key.yql.yq-tutorial.tutorial-type-toggle.option-streaming }}** раздел.
     1. В блоке **{{ ui-key.yql.yq-tutorial.create-tutorial-infrastructure.label }}** нажмите кнопку **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**.

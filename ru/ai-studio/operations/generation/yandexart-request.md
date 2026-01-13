@@ -41,7 +41,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть роль `ai.playground.user` или выше.
-  1. На панели слева нажмите ![image](../../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}** или найдите его с помощью строки поиска на дашборде.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
   1. На открывшейся панели выберите ![image](../../../_assets/console-icons/flask.svg) **{{ ui-key.yacloud.yagpt.playground }}**.
 
      ![screen01](../../../_assets/ai-studio/quickstart/yandexart/screen01.png)

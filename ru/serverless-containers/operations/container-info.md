@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. На панели слева выберите **{{ ui-key.yacloud.serverless-containers.label_containers }}**.
     1. Выберите контейнер.
     1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о контейнере.

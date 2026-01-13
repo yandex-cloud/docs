@@ -7,6 +7,19 @@ editable: false
 
 # {{ compute-name }} pricing policy
 
+
+
+{% note warning %}
+
+From January 23, 2026, resource prices for the **Gen2** and **GPU PLATFORM V4** platforms will change. This includes an increase in the price of using **GPU for GPU PLATFORM V4** for regular and preemptible VMs and will amount to {% calc [currency=USD] round((1016.90 / 122) × 1000000) / 1000000 %} per 1 hour, without VAT.
+
+Cost of resources for **Gen2** and **GPU PLATFORM V4** platforms from January 23, 2026:
+
+{% include [usd-from-23-01-2026](../_pricing/compute/usd-from-23-01-2026.md) %}
+
+{% endnote %}
+
+
 {% note tip %}
 
 

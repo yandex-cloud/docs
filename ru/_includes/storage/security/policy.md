@@ -71,52 +71,21 @@
 
 ```json
 {
+  "Sid": "AllowAWSServices",
   "Effect": "Allow",
-  "Principal": {
-    "CanonicalUser": "<идентификатор_пользователя>"
-  },
-  "Action": "*",
+  "Principal": "*",
+  "Action": "s3:*",
   "Resource": [
     "arn:aws:s3:::<имя_бакета>/*",
     "arn:aws:s3:::<имя_бакета>"
-  ],
+   ],
   "Condition": {
-    "StringLike": {
-      "aws:referer": "{{ link-console-main }}/folders/*/storage/buckets/your-bucket-name*"
+    "Bool": {
+      "aws:PrincipalIsAWSService": "true"
     }
   }
 }
 ```
-
-
-{% cut "Пример для совместного использования доменов console.cloud.yandex.* и console.yandex.cloud" %}
-
-Если вы используете старый домен `console.cloud.yandex.*` совместно с новым доменом `console.yandex.cloud`, задайте следующие правила политики:
-
-```json
-{
-  "Effect": "Allow",
-  "Principal": {
-    "CanonicalUser": "<идентификатор_пользователя>"
-  },
-  "Action": "*",
-  "Resource": [
-    "arn:aws:s3:::<имя_бакета>/*",
-    "arn:aws:s3:::<имя_бакета>"
-  ],
-  "Condition": {
-    "StringLike": {
-      "aws:referer": [
-        "https://console.cloud.yandex.*/folders/*/storage/buckets/your-bucket-name*",
-        "{{ link-console-main }}/folders/*/storage/buckets/your-bucket-name*"
-      ]
-    }
-  }
-}
-```
-
-{% endcut %}
-
 
 
 Идентификатор пользователя можно получить по [инструкции](../../../organization/operations/users-get.md) в документации {{ iam-full-name }}.
@@ -176,13 +145,41 @@
 
 {% endcut %}
 
+## Обязательная условная запись объектов с помощью политики доступа {#conditional-writes-policy}
+
+[Условная запись объектов](../../../storage/concepts/object.md#conditional-writes) позволяет избежать случайной перезаписи и конфликтов при одновременных загрузках. По умолчанию использование условий записи является необязательным — клиент может передавать заголовки `If-Match` и `If-None-Match` по своему усмотрению.
+
+С помощью [политики доступа](../../../storage/concepts/policy.md) можно сделать проверку условий обязательной. В этом случае все запросы на запись объектов без соответствующих заголовков будут отклоняться.
+
+Чтобы проверять наличие заголовка `If-None-Match` или `If-Match` при создании новых объектов, используйте условия `s3:if-match` и `s3:if-none-match` с [оператором](../../../storage/s3/api-ref/policy/conditions.md#null) `Null`. Вы можете применить их к методам [upload](../../../storage/s3/api-ref/object/upload.md) и [completeUpload](../../../storage/s3/api-ref/multipart/completeupload.md).
+
+Условия можно распространить:
+
+* на весь бакет:
+
+    ```json
+    "Resource": ["arn:aws:s3:::<имя_бакета>/*"],
+    ```
+
+* на конкретный префикс:
+
+    ```json
+    "Resource": ["arn:aws:s3:::<имя_бакета>/<префикс>/*"],
+    ```
+
+Если условие не выполнено, сервис возвращает ошибку `403 Access Denied`.
+
+См. [примеры конфигураций](#conditional-writes-rules) для условной записи объектов через политику доступа.
+
 ## Примеры конфигурации {#config-examples}
 
 * [Разрешить анонимному пользователю чтение объектов бакета по зашифрованному подключению](#anonymous-user-read-encrypted)
 * [Разрешить скачивать объекты только из указанного диапазона IP-адресов](#download-specific-ip-range)
 * [Запретить скачивать объекты с указанного IP-адреса](#block-download-specific-ip)
-* [Предоставить пользователям разным полный доступ к определенным папкам](#user-specific-full-folder-access)
+* [Предоставить разным пользователям полный доступ к определенным папкам](#user-specific-full-folder-access)
 * [Предоставить каждому пользователю или сервисному аккаунту полный доступ к папке](#full-access-user-service-account-folder)
+* [Запретить использовать любые инструменты, кроме консоли управления](#allow-only-console)
+* [Разрешить запись объектов только с обязательным использованием условий записи](#conditional-writes-rules)
 
 #### Правило, которое разрешает анонимному пользователю чтение объектов бакета по зашифрованному подключению: {#anonymous-user-read-encrypted}
 
@@ -327,6 +324,110 @@
     ]
   }
   ```
+
+#### Правило, которое запрещает использование любых инструментов, кроме консоли управления: {#allow-only-console}
+
+  ```json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "DenyAllExceptAWSServices",
+        "Effect": "Deny",
+        "Principal": "*",
+        "Action": "s3:*",
+        "Resource": [
+          "arn:aws:s3:::thatsroman-policy2"
+        ],
+        "Condition": {
+          "Bool": {
+            "aws:PrincipalIsAWSService": "false"
+          }
+        }
+      }, 
+      {
+        "Sid": "AllowAWSServices",
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:*",
+        "Resource": [
+          "arn:aws:s3:::thatsroman-policy2"
+        ],
+        "Condition": {
+          "Bool": {
+            "aws:PrincipalIsAWSService": "true"
+          }
+        }
+      } 
+    ]
+  }
+  ```
+
+#### Правила для обязательного использования условной записи объектов {#conditional-writes-rules}
+
+##### Правило, которое разрешает доступ всем пользователям ко всем объектам в бакете только при наличии заголовка If-None-Match в запросе {#force-if-none-match}
+
+```json
+{
+  "Version":"2025-12-24",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:PutObject",
+      "Resource": [
+      "arn:aws:s3:::<имя_бакета>/*"
+      ],
+      "Condition": {
+        "Null": {
+          "s3:if-none-match": "true"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "*",
+      "Resource": [
+        "arn:aws:s3:::<имя_бакета>/*",
+        "arn:aws:s3:::<имя_бакета>"
+      ]
+    }
+  ]
+}
+```
+
+##### Правило, которое разрешает доступ всем пользователям ко всем объектам в бакете только при наличии заголовка If-Match в запросе {#force-if-match}
+
+```json
+{
+  "Version":"2025-12-25",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:PutObject",
+      "Resource": [
+      "arn:aws:s3:::<имя_бакета>/*"
+      ],
+      "Condition": {
+        "Null": {
+          "s3:if-match": "true"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "*",
+      "Resource": [
+        "arn:aws:s3:::<имя_бакета>/*",
+        "arn:aws:s3:::<имя_бакета>"
+      ]
+    }
+  ]
+}
+```
 
 ### См. также {#see-also}
 

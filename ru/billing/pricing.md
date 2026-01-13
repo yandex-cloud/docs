@@ -25,6 +25,8 @@ editable: false
 
 Стоимость тарифицируемых сервисов рассчитывается на основе количества потребленных ресурсов и времени потребления. Каждый сервис реализует собственную логику подсчета потребленных ресурсов.
 
+* {{ preview-stage }} [{{ gost-gateway-name }}](../gost-gateway/pricing.md)
+* [{{ ca-full-name }}]({{ link-src-docs }}/sourcecraft/pricing)
 * [{{ api-gw-full-name }}](../api-gateway/pricing.md)
 * [{{ alb-full-name }}](../application-load-balancer/pricing.md)
 * [{{ at-full-name }}](../audit-trails/pricing.md)
@@ -36,8 +38,10 @@ editable: false
 * [{{ sf-full-name }}](../functions/pricing.md)
 * [{{ interconnect-full-name }}](../interconnect/pricing.md)
 * [{{ cloud-logging-full-name }}](../logging/pricing.md)
+* {{ preview-stage }} [{{ cns-full-name }}](../notifications/pricing.md)
 * [{{ postbox-name }}](../postbox/pricing.md)
-* {{ preview-stage }} [{{ cloud-registry-full-name }}](../cloud-registry/pricing.md)
+* [{{ cloud-registry-full-name }}](../cloud-registry/pricing.md)
+* {{ preview-stage }} [{{ stackland-full-name }}](../stackland/pricing.md)
 * [{{ video-full-name }}](../video/pricing.md)
 * [{{ compute-full-name }}](../compute/pricing.md)
     * [Вычислительные ресурсы ВМ](../compute/pricing.md#prices-instance-resources)
@@ -54,6 +58,7 @@ editable: false
     * [Генерация текста в {{ gpt-lite }} или {{ gpt-pro }}](../ai-studio/pricing.md#pricing-generating)
     * [Векторизация текста в {{ foundation-models-full-name }}](../ai-studio/pricing.md#pricing-embedding)
     * [Генерация изображений c помощью {{ yandexart-name }}](../ai-studio/pricing.md#pricing-image-generation)
+* [{{ org-full-name }}](../organization/pricing.md)
 * [{{ iot-full-name }}](../iot-core/pricing.md)
 * [{{ kms-full-name }}](../kms/pricing.md)
 * [{{ load-testing-full-name }}](../load-testing/pricing.md)
@@ -103,10 +108,7 @@ editable: false
 
 * [{{ certificate-manager-full-name }}](../certificate-manager/pricing.md)
 * [Yandex Cloud Console](../console/pricing.md)
-* {{ preview-stage }} [{{ cns-full-name }}](../notifications/pricing.md)
-* [{{ org-full-name }}](../organization/pricing.md)
-* {{ preview-stage }} [{{ quota-manager-full-name }}](../quota-manager/pricing.md)
-* {{ preview-stage }} [{{ ca-full-name }}]({{ link-src-docs }}/sourcecraft/pricing)
+* [{{ quota-manager-full-name }}](../quota-manager/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
 * {{ preview-stage }} [{{ neurosupport-full-name }}](../neurosupport/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)

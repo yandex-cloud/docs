@@ -58,7 +58,7 @@ Integrating {{ mpg-name }} with the Odyssey connection pooler has several advant
 |------------------------|---------|-----------|
 | Resource usage | {{ mpg-name }} clusters are less prone to running out of computing resources with multiple client connections. This is because of asynchronous multithreading built into the Odyssey architecture. This is especially important if most client connections to the DBMS use SSL/TLS. | PgBouncer uses a single-threaded architecture. This may lead to problems with resource consumption and scalability under high load. |
 | Supporting client connections | Odyssey strives to keep the client connection alive as long as possible after the transaction ends in order to re-use it if this client returns with a new transaction. | PgBouncer seeks to return such kind of connection to the pool as quickly as possible. |
-| Handling errors | {{ mpg-name }} clusters provide improved error handling capabilities, thus ensuring that errors on the {{ GP }} side are sent to the client application without any changes. | PgBouncer hides {{ GP }} error messages. As a result, all errors look like a PgBouncer connection error to the client. |
+| Handling errors | {{ mpg-name }} clusters provide improved error handling capabilities, thus ensuring that errors on the {{ PG }} side are sent to the client application without any changes. | PgBouncer hides {{ PG }} error messages. As a result, all errors look like a PgBouncer connection error to the client. |
 
 In addition, thanks to its integrated with Odyssey, a {{ mpg-name }} cluster:
 

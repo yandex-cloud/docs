@@ -270,6 +270,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+{% include [create-resource-time](../../../_includes/cdn/create-resource-time.md) %}
+
 {% include [get-and-create-cname](../../../_includes/cdn/get-and-create-cname.md) %}
 
 {% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}

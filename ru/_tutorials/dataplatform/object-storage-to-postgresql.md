@@ -1,10 +1,6 @@
 # Перенос данных из {{ objstorage-full-name }} в {{ mpg-full-name }} с использованием {{ data-transfer-full-name }}
 
 
-
-{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
-
-
 Вы можете перенести данные из {{ objstorage-full-name }} в таблицу {{ mpg-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).

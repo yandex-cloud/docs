@@ -5,7 +5,10 @@ description: Data Security Posture Management, or {{ dspm-name }}, is a {{ sd-na
 
 # Data Security Posture Management ({{ dspm-name }})
 
-[Data Security Posture Management]({{ link-sd-main }}dspm/), or {{ dspm-name }}, helps quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) for timely actions to protect it from unauthorized access or leaks, such as configuring [access policies](../../storage/concepts/policy.md), anonymizing data, etc.
+{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
+
+{% include [about-dspm](../../_includes/security-deck/about-dspm.md) %}
+
 
 ## Scanning for sensitive information {#scanning}
 
@@ -21,9 +24,15 @@ Before you start scanning, select a data source and specify the _data categories
 
 ### Data source {#data-source}
 
-A data source contains information about the _resources_ to scan, i.e., buckets, [folders](../../resource-manager/concepts/resources-hierarchy.md#folder), and [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), as well as additional settings.
+A data source contains settings and information about the _resources_ to scan:
 
-When you add folders and clouds to a data source, all buckets in the selected clouds and/or folders will be scanned. In this case, DSPM will scan both the buckets that already exist in these clouds and folders and any other buckets added to them by the time the scan is run. 
+* {{ objstorage-name }} buckets
+* {{ yandex-cloud }} [folders](../../resource-manager/concepts/resources-hierarchy.md#folder)
+* {{ yandex-cloud }} [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud)
+* Shared {{ yandex-360 }} [disks]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/share/shared-disks)
+* Shared {{ yandex-360 }} [folders]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/share/shared-folders)
+
+When you add folders and clouds to a data source, all buckets in the selected clouds and/or folders will be scanned. This includes both the existing buckets and any other buckets added to these clouds and folders by the time of the scan.
 
 You can set the following scan scopes for a data source:
 

@@ -28,7 +28,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) for the trail to be able to collect and upload logs:
+    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
 
         * `storage.uploader` for a bucket.
         * `kms.keys.encrypter` for a bucket encryption key.
@@ -45,7 +45,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) to enable the trail to collect and upload logs:
+    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
 
         * `logging.writer` for a log group.
 
@@ -67,7 +67,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) to enable the trail to collect and upload logs:
+    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
 
         * `yds.writer` for a data stream.
 
@@ -204,6 +204,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
               * `stream_name`: Name of the data stream you [created earlier](#before-you-begin). You can request the name with the [list of data streams in the folder](../../data-streams/operations/manage-streams.md#list-data-streams).
               * `database_id`: ID of the {{ ydb-short-name }} database used by {{ yds-name }}. You can request the ID with the [list of {{ ydb-short-name }} databases in the folder](../../ydb/operations/manage-databases.md#list-db).
+              * `codec`:  Event compression method when writing to {{ yds-name }}. The possible values are `RAW` (no compression, default), `GZIP`, `ZSTD`. Enable compression if you expect an event flow greater than 1 MB/s.
       * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account you created [earlier](#before-you-begin).
 
       {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
@@ -239,6 +240,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
     --destination-log-group-id <log_group_ID> \
     --destination-yds-stream <YDS_name> \
     --destination-yds-database-id <YDS_database_ID> \
+    --destination-yds-codec <event_compression_method> \
     --filter-all-folder-id <folder_ID> \
     --filter-all-cloud-id <cloud_ID> \
     --filter-all-organisation-id <organization_ID> \
@@ -559,7 +561,7 @@ Create a trail with the following parameters:
       ```
 
       Where:
-      * `<request_body_file>`: Path to the previously created request body file (`body.json`).
+      * `<request_body_file>` is the path to the previously created request body file (`body.json`).
 
       Result:
 

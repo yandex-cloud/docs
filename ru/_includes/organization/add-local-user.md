@@ -34,13 +34,13 @@
      ```bash
      yc organization-manager idp user create \
        --userpool-id <идентификатор_пула> \
-       --username <логин_и_домен_пользователя> \
-       --full-name <имя_и_фамилия_пользователя> \
-       --given-name <имя_пользователя> \
-       --family-name <фамилия_пользователя> \
-       --email <электронная_почта_пользователя> \
-       --phone-number <номер_телефона_пользователя> \
-       --password <пароль_пользователя>
+       --username <логин_и_домен> \
+       --full-name <имя_и_фамилия> \
+       --given-name <имя> \
+       --family-name <фамилия> \
+       --email <электронная_почта> \
+       --phone-number <номер_телефона> \
+       --password <пароль>
      ```
 
      Где:
@@ -53,6 +53,54 @@
      * `--email` — электронная почта пользователя. Необязательный параметр.
      * `--phone-number` — номер телефона пользователя. Необязательный параметр.
      * `--password` — пароль пользователя. Необязательный параметр. Если пароль не задан, он сгенерируется автоматически. Пользователь должен будет изменить этот пароль при первом входе в {{ yandex-cloud }}.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+ 
+  {% include [terraform-install](../terraform-install.md) %}
+ 
+  1. Опишите в конфигурационном файле параметры пользователя:
+ 
+     ```hcl
+     resource "yandex_organizationmanager_idp_user" "example_user" {
+       userpool_id  = <идентификатор_пула>
+       username     = "<логин_и_домен>"
+       full_name    = "<имя_и_фамилия>"
+       given_name   = "<имя>"
+       family_name  = "<фамилия>"
+       email        = "<электронная_почта>"
+       phone_number = "<номер_телефона>"
+       is_active    = true
+       password_spec = {
+         password = "<пароль>"
+       }
+     }
+     ```
+ 
+     Где:
+ 
+     * `userpool_id` — идентификатор [пула пользователей](../../organization/concepts/user-pools.md), в который нужно добавить нового пользователя.
+     * `username` — логин и домен пользователя в формате `логин@домен`. Логин должен быть уникальным для данного пула пользователей.
+     * `full_name` — имя и фамилия пользователя в произвольном формате.
+     * `given_name` — имя пользователя. Необязательный параметр.
+     * `family_name` — фамилия пользователя. Необязательный параметр.
+     * `email` — электронная почта пользователя. Необязательный параметр.
+     * `phone_number` — номер телефона пользователя. Необязательный параметр.
+     * `password` — пароль пользователя. Необязательный параметр. Если пароль не задан, он сгенерируется автоматически. Пользователь должен будет изменить этот пароль при первом входе в {{ yandex-cloud }}.
+     * `is_active` — флаг активации. Установите `true`, чтобы активировать пользователя.
+ 
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+ 
+  1. Создайте ресурсы:
+ 
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+ 
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../cli/):
+ 
+     ```bash
+     yc organization-manager idp user list --userpool-id <идентификатор_пула>
+     ```
 
 - API {#api}
 

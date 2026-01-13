@@ -799,6 +799,8 @@ items:
             href: web/flask.md
           - name: Хостинг статического сайта на фреймворке Gatsby
             href: web/gatsby-static-website.md
+          - name: Установка Ghost CMS CloudApp
+            href: web/ghost-cms-cloudapp.md
           - name: Миграция в {{ cdn-name }} из стороннего CDN-провайдера
             href: web/migrate-to-yc-cdn.md
           - name: Получение статистики посещения сайта с использованием S3 Select

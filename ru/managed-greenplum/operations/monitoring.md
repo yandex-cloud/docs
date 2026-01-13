@@ -19,7 +19,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
       
         На открывшейся странице будут отображены графики работы кластера {{ GP }}.
@@ -119,7 +120,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
     1. Выберите нужный хост.
 
@@ -160,7 +162,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_network }}**.
 
         На открывшейся странице будут отображены графики состояния сети каждого хоста кластера.
@@ -224,7 +227,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}**.
 
         На открывшейся странице будут отображены графики состояния PXF.
@@ -257,7 +261,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Дашборд**.
 
         На открывшейся странице будут отображены графики дашборда кластера.
@@ -311,7 +316,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-short-name }}**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Ресурсные группы**.
       
         На открывшейся странице будут отображены графики работы ресурсных групп.
@@ -336,7 +342,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-short-name }}**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Ресурсные группы по хостам**.
       
         На открывшейся странице будут отображены графики работы ресурсных групп по хостам.
@@ -359,7 +366,7 @@ description: Следуя этой инструкции, вы сможете п�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. В списке сервисов выберите ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
       * **{{ mgp-name }} — Cluster Overview** для настройки алертов кластера;
       * **{{ mgp-name }} — Host Overview** для настройки алертов хостов.
@@ -381,7 +388,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 Для просмотра состояния и статуса кластера:
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}).
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}

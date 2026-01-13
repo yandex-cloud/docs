@@ -15,7 +15,7 @@ In addition, when creating VMs, {{ compute-short-name }} uses resources of other
 
 {% note tip %}
 
-To quickstart with {{ compute-short-name }}, see the tutorial on how to create a VM using a [simple form](../quickstart/simple-form-vm.md).
+To quickstart with {{ compute-short-name }}, see the tutorial on how to [create a Linux VM](../quickstart/quick-create-linux.md).
 
 {% endnote %}
 

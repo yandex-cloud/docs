@@ -37,6 +37,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить настройки {{ CK }} {#update-keeper-settings}
 
+{% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

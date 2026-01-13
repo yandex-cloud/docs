@@ -68,7 +68,6 @@ To create a VM:
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-1. Select **Advanced setup**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [Jenkins](/marketplace/products/yc/jenkins) image.
 
     {% note info %}
@@ -310,7 +309,7 @@ This will create:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for the resources you no longer need, delete them:
 * [Delete the VMs you created](../../compute/operations/vm-control/vm-delete.md).
 * [Delete the images you created](../../compute/operations/image-control/delete.md).
 * [Delete the service account](../../iam/operations/sa/delete.md) and `<username>.json`.

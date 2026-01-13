@@ -26,6 +26,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](single-sign-on/saml-managed-gitlab.md)
 * [{#T}](single-sign-on/saml-zabbix.md)
 * [{#T}](single-sign-on/saml-opensearch.md)
+* [{#T}](single-sign-on/saml-opensearch-self-managed.md)
 * [{#T}](single-sign-on/saml-sonarqube.md)
 * [{#T}](single-sign-on/saml-yandex-360.md)
 

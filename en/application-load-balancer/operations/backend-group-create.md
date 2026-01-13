@@ -12,7 +12,7 @@ To create a [backend group](../concepts/backend-group.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a backend group.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Specify the backend group name.
@@ -236,7 +236,7 @@ To create a [backend group](../concepts/backend-group.md):
      Where:
      * `yandex_alb_backend_group`: Backend group settings:
        * `name`: Backend group name.
-       * `session_affinity`: [Session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) settings. This is an optional parameter.
+       * `session_affinity`: Optional [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) settings.
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
@@ -245,7 +245,7 @@ To create a [backend group](../concepts/backend-group.md):
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
-     For more information about `yandex_alb_backend_group` properties, see the relevant [{{ TF }} article]({{ tf-provider-alb-backendgroup }}).
+     For more information about `yandex_alb_backend_group` properties, see [this {{ TF }} provider guide]({{ tf-provider-alb-backendgroup }}).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

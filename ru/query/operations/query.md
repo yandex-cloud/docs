@@ -5,7 +5,7 @@
 ## Создать запрос {#create}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать запрос.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.queries.tab-text }}**.
 1. На панели сверху нажмите кнопку **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}** или **{{ ui-key.yql.yq-ide-header.new-streaming-query.button-text }}**.
 1. Поле ввода введите текст запроса.
@@ -76,14 +76,14 @@
 {{yq-full-name}} сохраняет [историю запусков](../concepts/glossary.md#jobs) для каждого запроса.
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно посмотреть историю выполнения запроса.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.queries.tab-text }}**.
 1. Выберите запрос и на панели сверху нажмите кнопку ![pencil](../../_assets/console-icons/rocket.svg) **{{ ui-key.yql.yq-show-query-launches.show-launches.button-text }}**.
 
 ## Переименовать запрос {#update-query-name}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно переименовать запрос.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.queries.tab-text }}**.
 1. Выберите запрос и на панели нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) рядом с именем запроса.
 1. Введите новое имя запроса и нажмите кнопку ![check](../../_assets/console-icons/check.svg).
@@ -97,14 +97,14 @@
 Для удобства разработки можно клонировать запросы с сохранением текста:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно клонировать запрос.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.queries.tab-text }}**.
 1. Выберите запрос и нажмите кнопку **{{ ui-key.yql.yq-query-actions.clone.link-text }}**. Чтобы клонировать запрос с другим типом, нажмите кнопку ![option](../../_assets/console-icons/chevron-down.svg) и выберите **Клонировать как…**.
 
 ## Удалить запрос {#delete}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить запрос.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.queries.tab-text }}**.
 1. Нажмите кнопку ![delete](../../_assets/console-icons/trash-bin.svg) напротив имени запроса, который вы хотите удалить.
 1. Подтвердите удаление запроса.

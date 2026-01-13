@@ -40,7 +40,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
   Create a YAML specification containing the updated trail parameters and specify this file in the command for creating the trail.
   
-  This method simplifies working with trail parameters and reduces error probability. In addition, you can only customize the registration of [data events](../concepts/control-plane-vs-data-plane.md#data-plane-events) using the YAML specification.
+  This method simplifies working with trail parameters and reduces the probability of error. In addition, you can customize the registration of [data events](../concepts/control-plane-vs-data-plane.md#data-plane-events) only using the YAML specification.
 
   1. Create a YAML file with the updated trail configuration:
 
@@ -114,6 +114,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
     --destination-log-group-id <log_group_ID> \
     --destination-yds-stream <YDS_name> \
     --destination-yds-database-id <YDS_database_ID> \
+    --destination-yds-codec <event_compression_method> \
     --filter-all-folder-id <folder_ID> \
     --filter-all-cloud-id <cloud_ID> \
     --filter-all-organisation-id <organization_ID> \
@@ -125,7 +126,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
     Where:
     * `--name`: Name of the trail you need to update. Instead of a name, you can provide the trail ID in the `--id` parameter.
-    * `--new-name`: New trail name. The name must be unique within the folder. This is an optional parameter.
+    * `--new-name`: New trail name. The name must be unique within the folder. This is an optional setting.
 
     {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
 
@@ -200,7 +201,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
       {% include [trail-tf-manifest](../../_includes/audit-trails/trail-tf-manifest.md) %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
   1. Check the configuration using this command:
 
      ```bash
@@ -218,13 +219,13 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
   1. To make sure the trail has been deleted, use [this tutorial](./get-list.md).
 
 - API {#api}

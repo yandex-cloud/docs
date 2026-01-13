@@ -62,7 +62,7 @@ The standard describes recommendations for the following security objectives:
 
 ### Requirements and preparation {#requirements-and-preparation}
 
-Before you perform checks, make sure that:
+Prior to the checks, make sure that:
 * You have the CLI is installed and configured according to [this guide](../../../cli/quickstart.md).
 * You have logged in to the [management console]({{ link-console-main }}).
 * The jq utility is installed.
@@ -81,4 +81,4 @@ This document uses the terms and definitions introduced in ISO/IEC 27000:2018 an
 
 ### IDs {#ids}
 
-Each check has an ID in the following format: `ID:IAM1`. These IDs are used to create links to standard sections for use in Cloud Security Posture Management ({{ cspm-name }}) tools and do not contain any other information.
+Each check has an ID in the following format: `ID:IAM1`. These IDs are used to create links to standard sections for use in Cloud Security Posture Management (CSPM) tools and do not contain any other information.

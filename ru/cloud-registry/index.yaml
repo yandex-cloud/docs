@@ -36,7 +36,7 @@ links:
     href: operations/
   - title: Практические руководства
     description: Воспользуйтесь готовыми сценариями работы с артефактами
-    href: tutorials/docker-cloud-registry.md
+    href: tutorials/docker-cloud-registry
   - title: Концепции
     description: Узнайте про концепции и ресурсы сервиса
     href: concepts/

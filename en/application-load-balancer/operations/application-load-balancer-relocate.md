@@ -15,7 +15,7 @@ To move an [L7 load balancer](../concepts/application-load-balancer.md) backend 
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer you need, then select **{{ ui-key.yacloud.common.edit }}**.
       1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone where you plan to move your VM.
       1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -141,7 +141,7 @@ To move an [L7 load balancer](../concepts/application-load-balancer.md) backend 
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. Select the load balancer you need.
      1. Navigate to the ![image](../../_assets/console-icons/heart-pulse.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}** tab.
      1. Expand the list of targets. Make sure the target group VMs have the `HEALTHY` [status](../../compute/concepts/vm-statuses.md).

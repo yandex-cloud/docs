@@ -32,8 +32,8 @@ To configure {{ GL }} and enable Continuous Integration (CI), create a new proje
      * **Username or email**: `root`.
      * **Password**: Password you copied in the previous step.
 
-     If you are unable to log in, [reset the administrator password](https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password).
-  1. [Change the administrator password](https://docs.gitlab.com/ee/user/profile/user_passwords.html#change-your-password).
+     If you are unable to log in, [reset the administrator password](https://docs.gitlab.com/security/reset_user_password/#reset-your-root-password).
+  1. [Change the administrator password](https://docs.gitlab.com/user/profile/user_passwords/#change-your-password).
   1. Log in as the administrator with the new password.
   1. Select **Create a project**.
   1. Specify the project name: `gitlab-test`.

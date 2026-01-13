@@ -111,6 +111,42 @@ description: Следуя данной инструкции, вы сможете
 
      Где `--reason` — причина деактивации. Необязательный параметр.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры пользователя:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_user" "example_user" {
+       userpool_id = "<идентификатор_пула>"
+       username    = "<имя_пользователя>"
+       full_name   = "<полное_имя_пользователя>"
+       is_active   = false
+     }
+     ```
+
+     Где:
+
+     * `userpool_id` — идентификатор [пула](../../concepts/user-pools.md), в котором находится нужный пользователь.
+     * `username` — имя пользователя.
+     * `full_name` — полное имя пользователя.
+     * `is_active` — флаг активации. Установите `false` для деактивации пользователя.
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager idp user get <идентификатор_пользователя>
+     ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [User.Suspend](../../idp/api-ref/User/suspend.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Suspend](../../idp/api-ref/grpc/User/suspend.md).

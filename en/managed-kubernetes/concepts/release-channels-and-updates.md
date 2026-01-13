@@ -8,7 +8,7 @@ description: In this article, you will learn about release channels and how to u
 
 {{ managed-k8s-name }} provides updates through release channels.
 
-The service supports three {{ k8s }} release channels. [Master](index.md#master) node and [{{ managed-k8s-name }} node group](index.md#node-group) versions are independent; therefore, you can specify different {{ k8s }} versions from a single release channel when creating them.
+{{ managed-k8s-name }} supports three {{ k8s }} release channels. [Master](index.md#master) node and [{{ managed-k8s-name }} node group](index.md#node-group) versions are independent. You can specify different {{ k8s }} versions in a single release channel when creating them.
 
 {% include [note-about-version](../../_includes/managed-kubernetes/note-about-version.md) %}
 
@@ -33,17 +33,17 @@ When a release channel receives an update, you get a notification in the managem
 
 * [Manual updates](../operations/update-kubernetes.md#cluster-manual-upgrade) can be initiated by the user at any time.
 
-  They include {{ k8s }} minor version updates. Note that you can only update to one minor version at a time.
+  They include {{ k8s }} minor version updates. Note that you can only update on minor version at a time.
   
   > For example, from 1.31 to 1.32.
 
-  The difference between the cluster and node group versions must not be more than two minor versions. The node group version cannot be higher than the cluster version.
+  The version difference between the cluster and the node groups must not exceed two minor versions. The node group version cannot be higher than the cluster version.
 
-  > For example, if the cluster version is 1.33, the node group version may be 1.33, 1.32, or 1.31
+  > For example, if the cluster version is 1.33, the node group version can be 1.33, 1.32, or 1.31
 
 {% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
 
-Read more about the [end of support for {{ k8s }} versions](#unsupported) and [how different {{ managed-k8s-name }} cluster components](#cluster-upd) are updated.
+Read more about the [{{ k8s }} version’s end of support](#unsupported) and [how different {{ managed-k8s-name }} cluster components](#cluster-upd) are updated.
 
 ### End of support for a {{ k8s }} version {#unsupported}
 
@@ -90,3 +90,32 @@ In accordance with the safety recommendations, [{{ managed-k8s-name }} cluster a
 * If automatic updates are disabled, a certificate update will be forced a week before they expire.
 
 For more information about updating certificates, see [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/tls/certificate-rotation/).
+
+## Required update {#necessary-update}
+
+All {{ managed-k8s-name }} release channels enforce required updates, such as replacements for outdated {{ k8s }} versions or critical updates for vulnerability patching. They may be installed both during and outside the update window.
+
+If a cluster has a scheduled required update:
+
+* You will get a [notification about a scheduled update](../../support/notify.md). Make sure you have set up your notification methods.
+* On the cluster information page, you will see the **Mandatory update scheduled** section indicating the date.
+
+{% note info %}
+
+You can get information about a required cluster update via the API using the [get](../managed-kubernetes/api-ref/Cluster/get.md) method for the [Cluster](../managed-kubernetes/api-ref/Cluster/) resource in the `scheduledMaintenance` section.
+
+{% endnote %}
+
+Features of a required update:
+
+* You cannot opt out of required updates.
+
+* If the random update time mode is enabled in your cluster, {{ managed-k8s-name }} will initiate the update on its own schedule.
+
+* If the cluster has no update window or the window is set for a specific time, by default, the required update will be installed after 14 days. You can reschedule the required update to an earlier date.
+
+* If the cluster has an update window, this is when the required update will take place. However, if the cluster is unavailable at the time of the update, it will be applied during one of the next update windows.
+
+* Stopped clusters will be updated during their update windows in the order defined by {{ managed-k8s-name }}.
+
+For more information, see [Working with required updates](../operations/update-kubernetes.md#necessary-update).

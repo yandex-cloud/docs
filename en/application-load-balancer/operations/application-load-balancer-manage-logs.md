@@ -9,7 +9,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your load balancer.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the load balancer you need from the list, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
      1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
@@ -124,7 +124,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the load balancer you need from the list, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
      1. Change the {{ cloud-logging-name }} log group storing your load balancer logs.
@@ -236,7 +236,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the load balancer you need from the list, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, disable **{{ ui-key.yacloud.alb.label_log-requests }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.

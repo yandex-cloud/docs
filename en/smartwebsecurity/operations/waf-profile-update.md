@@ -10,7 +10,7 @@ description: Follow this guide to edit basic WAF profile settings.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. On the profile editing page, update these basic parameters:
@@ -23,7 +23,7 @@ description: Follow this guide to edit basic WAF profile settings.
      * Select the profile trigger conditions:
        * **Verdict returned in at least one selected rule set**: At least one rule set has recognized the request as a threat.
        * **Verdict returned in all rule sets**: All added rule sets have recognized the request as a threat.
-     * Arrange rule sets in the order of priority in which the rules will analyze the request. Top positions indicate higher priority.
+     * Arrange rule sets in the order of priority in which the rules will analyze the request. The higher a set is placed, the higher is its priority.
   1. Click **{{ ui-key.yacloud.common.save }}**.
   1. If necessary, [configure rules](configure-set-rules.md) in each of the added rule sets.
 

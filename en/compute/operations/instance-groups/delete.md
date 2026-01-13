@@ -75,3 +75,9 @@ To delete an instance group:
   To request a list of available instance groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md) gRPC API call.
 
 {% endlist %}
+
+{% note tip %}
+
+[Enable deletion protection](enable-deletion-protection.md) to protect the instance group from accidental deletion. As long as the protection is on, the group cannot be deleted.
+
+{% endnote %}

@@ -105,6 +105,50 @@ Changes caused by [eventually consistent operations](../concepts/consistency.md)
 
 {% endlist %}
 
+## Change the data encryption key {#reencryption}
+
+{% note info %}
+
+Changes triggered by [eventually consistent operations](../concepts/consistency.md) allow an encryption key change after as much as three hours.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  This command will decrypt the ciphertext from `--source-ciphertext-file`, re-encrypt it with a different key or a different version of the source key, and then write the resulting ciphertext to `--ciphertext-file`.
+
+  * `--id` or `--name`: ID or name of the new [KMS key](../concepts/key.md) for re-encryption.
+
+    {% note info %}
+
+    * To use a different key, specify the `--id` or `--name` flag.
+
+    * To only change the key version, skip both `--id` and `--name`.
+
+    {% endnote %}
+
+  * `--version-id` (optional): [Version](../concepts/version.md) of the KMS key to use for encryption. The primary version is used by default.
+  * `--aad-context-file` (optional): Output file with [AAD context](../concepts/symmetric-encryption.md#add-context).
+  * `--ciphertext-file`: Output file with ciphertext.
+  * `--source-key-id`: ID of the {{ kms-name }} encryption key used for source text encryption.
+  * `--source-aad-context-file` (optional): Input file with AAD context.
+  * `--source-ciphertext-file`: Input file with ciphertext.
+
+  ```bash
+  yc kms symmetric-crypto reencrypt \
+    --id <key_ID> \
+    --ciphertext-file ciphertext-file
+    --source-key-id <source_key_ID> \
+    --source-ciphertext-file source-ciphertext-file
+  ```
+
+- API {#api}
+
+  To change the data encryption key or its version, use the [reEncrypt](../../kms/api-ref/SymmetricCrypto/reEncrypt.md) REST API method for the [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/ReEncrypt](../../kms/api-ref/grpc/SymmetricCrypto/reEncrypt.md) gRPC API call.
+
+{% endlist %}
 
 #### See also {#see-also}
 

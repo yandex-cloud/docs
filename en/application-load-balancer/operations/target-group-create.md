@@ -1,6 +1,6 @@
 ---
 title: Creating a {{ alb-full-name }} target group
-description: To create a {{ alb-full-name }} target group, in the management console, select a folder where you want to store it. In the list of services, select {{ alb-name }}. In the left-hand menu, select **Target groups**. Click **Create target group**. Specify your target group name. Select a VM. Click **Create**.
+description: To create a {{ alb-full-name }} target group, in the management console, select a folder where you want to store it. Go to {{ alb-name }}. In the left-hand menu, select **Target groups**. Click **Create target group**. Specify your target group name. Select a VM. Click **Create**.
 ---
 
 # Creating an {{ alb-name }} target group
@@ -14,7 +14,7 @@ To create a [target group](../concepts/target-group.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your target group.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Specify the target group name and description.
@@ -160,7 +160,7 @@ To create a [target group](../concepts/target-group.md):
        * `private_ipv4_address`: Setting indicating that the IP address is outside {{ vpc-name }}.
        * `ip_address`: Resource’s private IPv4 address. This IP address must belong to the [RFC 1918 private address range](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
-     For more information about `yandex_alb_target_group` properties, see the relevant [{{ TF }} article]({{ tf-provider-alb-targetgroup }}).
+     For detailed information about the `yandex_alb_target_group` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-alb-targetgroup }}).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

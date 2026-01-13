@@ -33,6 +33,7 @@ Event name | Description
 `idp.SetUserPassword` | Setting a password for a local user
 `idp.SetUserpoolAccessBindings` | Assigning access permissions for a user pool
 `idp.SuspendUser` | Deactivating a local user
+`idp.UpdateSubscriptionLimit` | Updating the subscription limit
 `idp.UpdateUser` | Updating a local user
 `idp.UpdateUserpool` | Updating a user pool
 `idp.UpdateUserpoolAccessBindings` | Updating access permissions for a user pool
@@ -69,7 +70,8 @@ Event name | Description
 `saml.UpdateApplicationAccessBindings` | Updating access permissions for a SAML app
 `saml.UpdateApplicationAssignments` | Updating a list of SAML app users
 `saml.UpdateFederation` | Updating an identity federation
-`saml.UpdateSignatureCertificate` | Updating a signing certificate
+`saml.UpdateSignatureCertificate` | Updating a signature certificate
+`saml.UploadSignatureCertificate` | Uploading a signature certificate
 `saml.ValidateFederationDomain` | Validating a domain to associate with a federation 
 `UnbindOrganizationAccessPolicy` | Detaching an authorization policy in an organization
 `UpdateGroup` | Updating a user group

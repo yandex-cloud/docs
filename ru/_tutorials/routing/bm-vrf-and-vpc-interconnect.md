@@ -1,5 +1,9 @@
 # Организация сетевой связности между подсетями {{ baremetal-full-name }} и {{ vpc-full-name }} с помощью {{ interconnect-full-name }}
 
+
+<iframe width="560" height="315" src="https://runtime.strm.yandex.ru/player/video/vplvuylmftewoh4dm5aj?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+
 Сетевая связность с использованием [{{ interconnect-full-name }}](../../interconnect/index.yaml) в {{ baremetal-full-name }} позволяет организовать доступ к [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) приватных подсетей {{ vpc-name }} в облачной инфраструктуре и/или CIDR приватных подсетей в on-prem инфраструктуре.
 
 В этом руководстве вы организуете сетевую связность между [сервером](../../baremetal/concepts/servers.md) {{ baremetal-name }}, расположенным в [приватной подсети](../../baremetal/concepts/network.md#private-network) {{ baremetal-full-name }}, и [виртуальной машиной](../../compute/concepts/vm.md) {{ compute-full-name }}, расположенной в подсети [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-full-name }}.

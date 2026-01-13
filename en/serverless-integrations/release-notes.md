@@ -5,6 +5,29 @@ description: This section contains {{ si-name }} release notes.
 
 # {{ si-full-name }} release notes
 
+## October 2025 {#october-2025}
+
+### Updates {#updates}
+
+* Added support for the `No markup` formatting mode in the constructor's [Telegram bot](operations/workflows/constructor/telegrambot.md) step.
+
+### Fixes and improvements {#fixes-improvements}
+
+* Renamed the _Foundation Models_ step to [AI Studio models](operations/workflows/constructor/foundationmodelscall.md).
+* Formatting modes for the [Telegram bot](concepts/workflows/yawl/integration/telegrambot.md) step now work differently: if there is a message format parsing error, it will be sent in its original form.
+
+## September 2025 {#september-2025}
+
+### Updates {#updates}
+
+* Added support for the [DatabaseQuery](concepts/workflows/yawl/integration/databasequery.md), [VectorStore](concepts/workflows/yawl/integration/vectorstore.md), and [AIStudioAgent](concepts/workflows/yawl/integration/aistudioagent.md) steps.
+* Added starting workflows by [timer](operations/workflows/execution/start-by-timer.md).
+* Added support for _Playground_ and an editor with syntax highlighting to write and debug templated jq expressions.
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed a bug in connector deletion protection on/off setting.
+
 ## August 2025 {#august-2025}
 
 ### Updates {#updates}

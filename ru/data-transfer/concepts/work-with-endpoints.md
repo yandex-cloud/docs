@@ -137,10 +137,6 @@ db.<имя_коллекции>.createIndex(<свойства_индекса>)
 
 ## {{ objstorage-name }} {#object-storage}
 
-
-{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
-
-
 Трансферы из источника данных {{ objstorage-name }} работают в режиме APPEND-ONLY. Удаление файла из {{ objstorage-name }} никак не повлияет на данные в приемнике. При обновлении файла: если в приемнике указаны синтетические ключи, то строки из файла обновятся в приемнике, если не указаны — допишутся. По умолчанию первичный ключ содержит 2 колонки: имя файла и номер строки в файле.
 
 ## Oracle {#oracle}

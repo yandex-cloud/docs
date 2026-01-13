@@ -111,12 +111,12 @@ For IdP-specific examples, see our tutorials:
 
             {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
-        * `--encrypted-assertions`: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. You will need to install a {{ yandex-cloud }} certificate on the IdP side. This is an optional parameter.
-        * `--auto-create-account-on-login`: If enabled, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users. This is an optional parameter.
+        * `--encrypted-assertions`: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. You will need to install a {{ yandex-cloud }} certificate on the IdP side. This is an optional setting.
+        * `--auto-create-account-on-login`: If enabled, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users. This is an optional setting.
 
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
-        * `--case-insensitive-name-ids`: If enabled, federated user name IDs will be case-insensitive. This is an optional parameter.
+        * `--case-insensitive-name-ids`: If enabled, federated user name IDs will be case-insensitive. This is an optional setting.
         * {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
 
 - {{ TF }} {#tf}
@@ -127,7 +127,7 @@ For IdP-specific examples, see our tutorials:
 
   1. Create a configuration file describing the federation.
 
-      Here is an example of the configuration file structure:
+      Here is a configuration file example:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -150,7 +150,7 @@ For IdP-specific examples, see our tutorials:
       Where:
 
       * `name`: Federation name. It must be unique within the folder.
-      * `description`: Federation description. This is an optional parameter.
+      * `description`: Federation description. This is an optional setting.
       * `organization_id`: Organization ID.
       * `issuer`: IdP server ID to use for authentication.
 
@@ -177,7 +177,7 @@ For IdP-specific examples, see our tutorials:
 
       {% include [organizationmanager_saml_federation-tf](../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
-  1. Validate your {{ TF }} configuration files:
+  1. Make sure the {{ TF }} configuration files are correct:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -219,7 +219,7 @@ For IdP-specific examples, see our tutorials:
 
       * `name`: Federation name. It must be unique within the folder.
       * `organizationId`: Organization ID.
-      * `description`: Federation description. This is an optional parameter.
+      * `description`: Federation description. This is an optional setting.
       * `cookieMaxAge`: Time, in seconds, before the browser prompts the user to re-authenticate. The default value is `28800` (8 hours).
       * `issuer`: IdP server ID to use for authentication.
 
@@ -466,6 +466,8 @@ For more information on how to set up a SAML application, consult you IdP's docu
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
 
 ## Setting up user attribute mapping {#claims-mapping}
+
+{% include notitle [fed-user-data-after-login-notice](../../_includes/organization/fed-user-data-after-login-notice.md) %}
 
 After a user gets authenticated, the IdP server will send a SAML message to {{ yandex-cloud }} confirming successful authentication. The message contains various user attributes, such as the ID, name, email address, etc.
 

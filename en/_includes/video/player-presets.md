@@ -17,4 +17,4 @@ Default preset properties:
 
 You can [redefine the preset](../../video/operations/style-presets/assign-to-video.md) for a specific video or playlist in their settings.
 
-You can also customize the appearance using the [video player SDK for IFrame](../../video/iframe-sdk.md). The SDK features more player settings, e.g., you can enable autoplay when the player loads, start video playback on mute, hide player controls, etc. 
+You can also customize the appearance using the [video player SDK for IFrame](../../video/sdk/iframe/index.md). The SDK features more player settings, e.g., you can enable autoplay when the player loads, start video playback on mute, hide player controls, etc.

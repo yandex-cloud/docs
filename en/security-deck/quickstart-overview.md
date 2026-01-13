@@ -61,9 +61,11 @@ To use any of the modules, navigate to the [{{ sd-name }} interface]({{ link-sd-
 
 ### Data Security Posture Management ({{ dspm-name }}) {#dspm}
 
-[Data Security Posture Management, or {{ dspm-name }}]({{ link-sd-main }}dspm/), helps you quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../storage/concepts/bucket.md) for timely action to protect it from unauthorized access or leaks. To learn more, see [{#T}](./concepts/dspm.md).
+{% include [about-dspm](../_includes/security-deck/about-dspm.md) %}
 
 To get started with the {{ dspm-name }} module, follow the guides on how to [create a data source](./operations/dspm/create-data-source.md) and a [scan](./operations/dspm/create-scan.md) for bucket information.
+
+For more information, see [{#T}](./concepts/dspm.md).
 
 ### {{ k8s }} Security Posture Management (KSPM) {#kspm}
 

@@ -7,6 +7,48 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.183.0 (18/12/25) {#version0.183.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.183.0}
+
+##### {{ objstorage-name }} {#objstorage-name-0.183.0}
+
+* Added the following parameters to the `yc storage bucket update` command:
+  * `--disable-statickey-auth=<true_or_false>`: Static key authentication in the bucket.
+  * `--private-endpoints-force-cloudconsole-access=<true_or_false>`: Access from the management console to the bucket accessible only from {{ vpc-short-name }} service connections.
+ 
+##### {{ mtr-name }} {#mtr-name-0.183.0}
+
+* Added the following commands for creating and updating {{ GP }} catalogs in {{ mtr-name }}:
+  * `yc managed trino catalog create greenplum`
+  * `yc managed trino catalog update greenplum`
+
+## Previous releases {#previous-release}
+
+### Version 0.182.0 (15/12/25) {#version0.182.0}
+
+#### Changes to the CLI {#cli-0.182.0}
+
+* Added the `--username` parameter to the `yc init` command.
+
+#### Changes to {{ yandex-cloud }} services {#services-0.182.0}
+
+##### {{ iam-name }} {#iam-name-0.182.0}
+
+* For the `yc iam whoami` command, fixed the error when getting the current subject's ID.
+
+##### {{ mkf-name }} {#mkf-name-0.182.0}
+
+* Added support for {{ KF }} version 4.0.
+
+##### {{ objstorage-full-name }} {#objstorage-0.182.0}
+
+* Added the following commands to control the upload of object metadata in tabular form (S3 Inventory):
+  * `yc storage bucket get-inventory-configuration`
+  * `yc storage bucket create-inventory-configuration`
+  * `yc storage bucket delete-inventory-configuration`
+  * `yc storage bucket list-inventory-configurations`
+
 ### Version 0.181.0 (11/12/25) {#version0.181.0}
 
 #### Changes to {{ yandex-cloud }} services {#services-0.181.0}
@@ -69,8 +111,6 @@ To manage the configuration of resource groups and request parameters:
 
 Added the `--whitelist` and `--blacklist` parameters to the `yc managed-mongodb cluster restore` command for partial cluster recovery.
 
-## Previous releases {#previous-release}
-
 ### Version 0.180.0 (04/12/25) {#version0.180.0}
 
 ##### {{ mtr-short-name }}
@@ -89,7 +129,7 @@ Added the `--whitelist` and `--blacklist` parameters to the `yc managed-mongodb 
 
 #### Changes to the CLI {#cli}
 
-* Added the new `yc beta` command subtree with experimental commands that use the updated interface.
+* Added the new `yc beta` command subtree with beta commands that use the updated interface.
 
 #### Changes in {{ yandex-cloud }} services
 
@@ -130,7 +170,7 @@ Added the `--whitelist` and `--blacklist` parameters to the `yc managed-mongodb 
 
 ##### {{ ig-name }}
 
-* Added commands to manage zonal shift modes in {{ ig-name }}:
+* Added commands to manage the zonal shift in {{ ig-name }}:
   * `yc compute instance-group disable-zones`
   * `yc compute instance-group enable-zones`
 
@@ -4541,7 +4581,7 @@ Added support for {{ api-gw-full-name }}.
 
 * `yc managed-kubernetes cluster get-credentials` command.
 
-  Added a check and alert feature if a `kubectl` version below 1.11 is used because such versions do not support the authentication method specified by this command.
+  Added a check and alert feature if a `kubectl` version below 1.11 is used, because such versions do not support the authentication method specified by this command.
 
 
 ##### Managed database services {#managed-db}

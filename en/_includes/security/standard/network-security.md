@@ -12,13 +12,13 @@ To isolate applications from each other, put resources in different [security gr
 
 #### 2.1 Cloud objects use a firewall or security groups {#firewall}
 
-With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the session status and, if the rule allows creating a session, the response traffic will be automatically allowed. For a guide on how to set up security groups, see [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
+With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows a session to be created, they automatically allow response traffic. For a guide on how to set up security groups, see [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
 
 You can use security groups to protect:
-* VM
-* [Managed databases](/services#data-platform)
-* [{{ alb-full-name }}](../../../application-load-balancer/)](../../../application-load-balancer/concepts/application-load-balancer.md) [load balancers
-* [{{ managed-k8s-full-name }}](../../../managed-kubernetes/)](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) [clusters
+* VM.
+* [Managed databases](/services#data-platform).
+* [{{ alb-full-name }}](../../../application-load-balancer/) [load balancers](../../../application-load-balancer/concepts/application-load-balancer.md).
+* [{{ managed-k8s-full-name }}](../../../managed-kubernetes/) [clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 The list of available services is being extended.
 
@@ -34,7 +34,7 @@ Make sure that your [clouds](../../../resource-manager/concepts/resources-hierar
 * A separate NGFW VM from {{ marketplace-name }}.
 * [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system) principle, e.g., [your own disk image](../../../compute/operations/image-create/upload.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | NET1 | High |
 
@@ -123,7 +123,7 @@ This is important because without your rules cloud resources remain open to all 
 
 You can combine security groups by assigning up to five groups per object for more flexible access control.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | NET2 | High |
 
@@ -179,7 +179,7 @@ If no port range is set, it is considered that access is granted across all port
 
 Make sure to only allow access through the ports that your application requires to run and from the IPs to connect to your objects from.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | NET3 | Medium |
 
@@ -229,7 +229,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 * Source: CIDR.
 * CIDR blocks: 0.0.0.0/0 (access from any IP address) or ::/0 (ipv6).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | NET4 | Medium |
 
@@ -271,15 +271,15 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 [Delete](../../../cli/cli-ref/vpc/cli-ref/security-group/index.md) the dangerous rule in each security group or specify trusted IPs.
 
-#### 2.5 DDoS protection is enabled {#ddos-protection}
+#### 2.5 Protection against DDoS attacks is enabled {#ddos-protection}
 
-{{ yandex-cloud }} provides basic and advanced DDoS protection as well as protection at the application level with {{ sws-full-name }}. Make sure to use at least basic protection.
+{{ yandex-cloud }} provides basic and advanced DDoS protection as well as application level protection with {{ sws-full-name }}. Make sure to use at least basic protection.
 
 * [{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}. In a nutshell, the service checks the HTTP requests sent to the protected resource against the [rules](../../../smartwebsecurity/concepts/rules.md) configured in the [security profile](../../../smartwebsecurity/concepts/profiles.md). Depending on the results of the check, the requests are forwarded to the protected resource, blocked, or sent to [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) for additional verification.
 * [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is a {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Curator. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
 * [Advanced](/services/ddos-protection) DDoS protection is available at OSI layers 3, 4, and 7. You can also track load and attack metrics and enable Solidwall WAF in your Curator account. To enable advanced protection, contact your manager or technical support.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | NET5 | High |
 
@@ -354,7 +354,7 @@ To enable administrators to establish remote connections to your cloud resources
   * [Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud-examples/yc-site-to-site-vpn-with-ipsec-strongswan).
   * Client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
 
-  See the guide in [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md). You can also use certified data cryptographic security tools.
+  See the guide in [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md). You can also use certified cryptographic information protection tools.
 * Dedicated private connection between a remote site and {{ yandex-cloud }} using {{ interconnect-name }}.
 
 To access the infrastructure using control protocols (such as SSH or RDP), create a bastion VM. You can do this using a free [Teleport](https://goteleport.com/) solution. Access to the bastion VM or VPN gateway from the internet must be restricted.
@@ -363,7 +363,7 @@ For better control of administrative actions, we recommend that you use PAM (Pri
 
 To access web services deployed in the cloud, use TLS version 1.2 or higher.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | NET6 | High |
 
@@ -396,7 +396,7 @@ Use this service to:
 * Administer desktops remotely.
 * Create desktop groups with the same computing resources and cloud [network](../../../vpc/concepts/network.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | NET7 | Medium |
 
@@ -421,7 +421,7 @@ Use this service to:
 
 Employees working remotely via {{ cloud-desktop-name }} should use the [Secure Yandex Browser](https://browser.yandex.ru/corp) to access the corporate resources. This requirement enforces data security for protection against [phishing](https://en.wikipedia.org/wiki/Phishing), malicious websites, and data leaks. The browser has built-in tools for traffic encryption, blocking of dangerous resources, and integration with corporate authentication systems.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | NET9 | Low |
 
@@ -434,32 +434,16 @@ Possible options for setting up outbound internet access:
 
 **Comparison of internet access methods**:
 
-#|
-|| Public IP address | Egress NAT | NAT instance ||
-|| **Advantages:** | **Advantages:** | **Advantages:** ||
-||
-* No setup required
-* Dedicated IP address for each VM
-|
-* No setup required
-* Only works for outgoing connections
-|
-* Traffic filtering on a NAT instance
-* Using your own firewall
-* Effective use of IP addresses ||
-|| **Disadvantages:** | **Disadvantages:** | **Disadvantages:** ||
-||
-* It might be unsafe to expose a VM directly to the internet
-* Cost of reserving each IP address |
-* Shared pool of IP addresses
-* The feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage; therefore, it is not recommended for production environments |
-* Setup required
-* VM cost (vCPU, RAM, disk space) ||
-|#
+| | Public IP address | Egress NAT | NAT instance |
+| --- | --- | --- | --- |
+| **Advantages:** | | | |
+| | * No setup required<br>* Dedicated IP address for each VM | * No setup required<br>* Only works for outgoing connections | * Traffic filtering on a NAT instance<br>* Ability to use your own firewall<br>* Effective use of IP addresses |
+| **Disadvantages:** | | | |
+| | * It might be unsafe to expose a VM directly to the internet<br>* Cost of reserving each IP address | * Shared pool of IP addresses<br>* The feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage; therefore, it is not recommended for production environments | * Setup required<br>* VM cost (vCPU, RAM, disk space) |
 
 Regardless of which option you select for setting up outbound internet access, be sure to limit traffic using one of the mechanisms described above. To build a secure system, use static IP addresses because they can be added to the list of exceptions of the receiving party's firewall.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | NET10 | Informational |
 
@@ -504,7 +488,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to `Guides and solutions to use`.
   1. Run the command below to see if there is a NAT instance:
 
      ```bash
@@ -530,6 +514,6 @@ Regardless of which option you select for setting up outbound internet access, b
 
 To increase fault tolerance, some traffic may be routed to third-party recursive resolvers. To avoid this, contact [support](../../../support/overview.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | NET8 | Low |

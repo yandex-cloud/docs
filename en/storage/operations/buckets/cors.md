@@ -50,7 +50,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
       * `--cors`: CORS parameters:
         * `allowed-methods`: List of methods. The possible values are `method-get`, `method-put`, `method-post`, `method-delete`, and `method-head`. This is a required setting.
         * `allowed-origins`: List of websites allowed to send CORS requests to the bucket. This is a required setting.
-        * `allowed-headers`: List of allowed headers. This is an optional setting.
+        * `allowed-headers`: List of allowed headers. This is an optional parameter.
         * `expose-headers`: List of headers that can be exposed to browser JavaScript apps. This is an optional setting.
         * `max-age-seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional setting.
 

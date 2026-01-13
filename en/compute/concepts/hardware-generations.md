@@ -55,10 +55,10 @@ The [hardware generation features](#configurations) must be supported by the VM'
 
 In {{ compute-name }}, some VM features are only available when using a `Gen 2` configuration. For example, to use the `gpu-standard-v3i` [GPU VM configuration](./gpus.md#config), you need the [UEFI](https://en.wikipedia.org/wiki/UEFI) bootloader only available in `Gen 2`. Therefore, the [image](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2) recommended for this VM configuration has the `Gen 2` hardware generation assigned to it.
 
-You can change the hardware generation assigned to a disk, image, or snapshot when recreating it from an existing disk, image, or snapshot. If you do not specify a hardware generation when creating a disk, image, or snapshot, it will get the same generation assigned as the original disk, image, or snapshot. For more information, see these guides:
-* [{#T}](../operations/index.md#disk-create)
-* [{#T}](../operations/index.md#snapshots)
-* [{#T}](../operations/index.md#image-create)
+You can change the hardware generation assigned to an image, snapshot, or disk when recreating it from an existing disk, image, or snapshot. If you do not specify a hardware generation when creating a disk, image, or snapshot, it will get the same generation assigned as the original disk, image, or snapshot. For more information, see these guides:
+* [Creating an image](../operations/vm-create/create-gen2-vm.md#create-image)
+* [Creating a snapshot](../operations/vm-create/create-gen2-vm.md#create-snapshot)
+* [Creating a disk](../operations/vm-create/create-gen2-vm.md#create-disk)
 
 If your VM requires [features](#configurations) that are not available for the current generation, such as connecting more disk devices and network interfaces or increasing boot speed, recreate your VM in a new configuration. Do it by creating a snapshot or image of your VM's boot disk with the right generation assigned, and then create a new VM with a new hardware configuration from the resulting snapshot or image.
 
@@ -67,3 +67,7 @@ If your VM requires [features](#configurations) that are not available for the c
 Some operating systems may not support all hardware configurations.
 
 {% endnote %}
+
+#### See also {#see-also}
+
+* [{#T}](../operations/vm-create/create-gen2-vm.md)

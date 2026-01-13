@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ quota-manager-full-name }}
-description: 'Managing your resource quotas: {{ quota-manager-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.'
+description: 'Managing your resource quotas: {{ quota-manager-full-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.'
 ---
 
 # Access management in {{ quota-manager-name }}
@@ -11,11 +11,13 @@ Roles for a resource can be assigned by users who have one of the following role
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
+
+{% include [quota-manager](../../_mermaid/roles/quota-manager.md) %}
 
 ### Service roles {#service-roles}
 
@@ -38,4 +40,4 @@ Roles for a resource can be assigned by users who have one of the following role
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

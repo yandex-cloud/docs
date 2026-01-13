@@ -19,7 +19,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./delete-org.md)
 * [{#T}](./add-region.md)
 
-## User management {#manage-users}
+## Managing users {#manage-users}
 
 * [{#T}](./add-account.md)
 * [{#T}](./users-get.md)
@@ -57,6 +57,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./user-pools/edit-userpool.md)
 * [{#T}](./user-pools/manage-domain.md)
 * [{#T}](./user-pools/set-access-bindings-userpool.md)
+* [{#T}](./user-pools/set-password-policy.md)
 * [{#T}](./user-pools/get-list-userpools.md)
 * [{#T}](./user-pools/get-userpool.md)
 * [{#T}](./user-pools/delete-userpool.md)

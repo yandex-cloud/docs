@@ -260,7 +260,14 @@ Apart from the chart for missed event monitoring, you can add a chart for the de
   * [{#T}](../../ydb/metrics.md)
   * [{#T}](../../ydb/concepts/limits.md)
 
-Learn more about resolving data write issues, see [{#T}](../../data-streams/tutorials/slow-writes-debug.md).
+  Learn more about resolving data write issues, see [{#T}](../../data-streams/tutorials/slow-writes-debug.md).
+
+  {% note tip %}
+
+  {% include [yds-compressing-events](../../_includes/audit-trails/yds-compressing-events.md) %}
+
+  {% endnote %}
+  
 
 
 

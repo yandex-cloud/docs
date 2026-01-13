@@ -24,12 +24,17 @@ If you no longer need to ingest data, [delete the associated resources](#clear-o
 
 ### Required paid resources {#paid-resources}
 
-The cost of supporting data ingestion into storage systems includes:
+* API gateway: Number of API gateway requests (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
-* Fee for API gateway requests (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
-* Data stream maintenance fee (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
-* Fee for transferring data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
-* Fee for a continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+    * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+
+    * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
+
+* {{ ydb-name }} database, operating in serverless mode: data operations, amount of stored data and backups (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)).
+* {{ mch-name }} cluster: Use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Set up your environment {#setup}
@@ -38,14 +43,14 @@ The cost of supporting data ingestion into storage systems includes:
 
 ## Create a {{ CH }} cluster {#create-cluster}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
 1. Select **{{ mch-name }}**.
 1. Click **Create cluster**.
 1. Configure your {{ CH }} cluster:
     1. Under **Basic parameters**:
       * Enter a name for the cluster.
       * Select the service account you created earlier.
-    1. Under **Database**, specify the DВ name, username, and password.
+    1. Under **Database**, specify the DB name, username, and password.
     1. Under **Hosts**, click ![pencil](../../_assets/pencil.svg). Enable **Public access** and click **Save**.
     1. Under **Additional settings**, enable the following options:
       * Access from {{ data-transfer-short-name }}.
@@ -123,9 +128,9 @@ Wait until the transfer gets activated. Once the transfer is ready for use, its 
 
 If everything is set up properly, the table will show a new entry containing system data and the sent message.
 
-## How to delete the resources you created {#clear-out}
+## Delete the resources you created {#clear-out}
 
-To stop paying for the resources you used in this scenario:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).

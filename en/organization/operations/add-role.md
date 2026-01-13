@@ -37,7 +37,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
       For example, this command assigns a user the administrator role for a directory with the `b1gmit33ngp3********` ID:
 
       ```bash
-      yc recource-manager folder add-access-binding b1gmit33ngp3******** \
+      yc resource-manager folder add-access-binding b1gmit33ngp3******** \
         --role resource-manager.admin \
         --subject userAccount:aje6o61dvog2********
       ```

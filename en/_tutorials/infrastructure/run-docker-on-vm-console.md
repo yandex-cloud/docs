@@ -1,5 +1,5 @@
 1. [Get your cloud ready](#before-you-begin).
-1. [Create a registry in {{ container-registry-name }}](#create-registry).
+1. [Create a {{ container-registry-name }}](#create-registry).
 1. [Create a service account](#create-sa).
 1. [Create your {{ compute-name }} VM](#create-vm).
 1. [Build and push the Docker image to {{ container-registry-name }}](#create-image).
@@ -126,7 +126,6 @@ Create a VM with a public IP address and link the service account you created to
 - Management console {#console}
 
   1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. Select **Advanced setup**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you are not sure which one to choose, leave the default.
   1. Optionally, under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the required boot [disk](../../compute/concepts/disk.md) [type](../../compute/concepts/disk.md#disks-types) and size.
@@ -143,7 +142,7 @@ Create a VM with a public IP address and link the service account you created to
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name. Follow these naming requirements:
@@ -262,7 +261,7 @@ Create a VM with a public IP address and link the service account you created to
         ]}
       ```
 
-  1. Create a file named `body.json` with the body of the request to create a VM:
+  1. Create a file containing the body of your VM create request, e.g., `body.json`:
 
       ```json
       {
@@ -304,7 +303,7 @@ Create a VM with a public IP address and link the service account you created to
       * `zoneId`: Availability zone matching the selected subnet.
       * `platformId`: [Platform](../../compute/concepts/vm-platforms.md).
       * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
-      * `metadata`: In metadata, provide the public key for accessing the VM via SSH. Learn more in [{#T}](../../compute/concepts/vm-metadata.md).
+      * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
       * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size. The disk size must not be less than the minimum value specified in the image info.
       * `networkInterfaceSpecs`: Network settings:
 

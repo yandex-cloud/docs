@@ -56,7 +56,11 @@ The trail contains all the audit log settings:
     * For the `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}` value:
         * **{{ ui-key.yacloud.logging.label_loggroup }}**: Log group name.
     * For the `{{ ui-key.yacloud.audit-trails.label_dataStream }}` value:
-        * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Stream name.
+        * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Data stream name.
+        * **Codec**:  Event compression method when writing to {{ yds-name }}.
+
+            {% include [yds-compressing-events](../../_includes/audit-trails/yds-compressing-events.md) %}
+
 * **{{ ui-key.yacloud.audit-trails.label_service-account }}** section: Service account to use for uploading audit logs to a bucket, a log group, or a data stream. If the account needs more roles, a warning with a list of roles will show up.
 * **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** section:
     * **Status**: Toggles the collection of management event audit logs.

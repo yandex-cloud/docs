@@ -13,10 +13,10 @@ To get HTTP router information:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your router.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Select your HTTP router.
-  1. You will see your router details on the **{{ ui-key.yacloud.common.overview }}** page.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will show the HTTP router details.
 
 - CLI {#cli}
 

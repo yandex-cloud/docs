@@ -9,3 +9,7 @@
 * [How quickly does {{ yandex-cloud }} address vulnerabilities discovered in the security system? What should I do if an attacker has taken advantage of a vulnerability and my data is compromised?](#security-updates)
 
 * [Can I connect to a cluster node via {{ oslogin }}, similar to a {{ yandex-cloud }} VM?](#connect-via-oslogin)
+
+* [What operating system is used on cluster nodes?](#cluster-node-os)
+
+* [Does Yandex Virtual Private Cloud support IPv6?](#ipv6-support)

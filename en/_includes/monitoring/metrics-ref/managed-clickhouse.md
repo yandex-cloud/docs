@@ -16,13 +16,13 @@ subcluster_name | Subcluster type: `clickhouse_subcluster` or `zookeeper_subclus
 
 ## CPU metrics {#managed-clickhouse-cpu-metrics}
 
-These metrics show CPU core workload.
+These metrics show the processor core workload.
 
 The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance |
+| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share |
 | `cpu.guarantee`<br/>`DGAUGE`, count | Guaranteed number of cores |
 | `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |
 | `cpu.idle`<br/>`DGAUGE`, % | CPU core usage, `idle` usage type |
@@ -52,7 +52,7 @@ The consumption type goes into the `systag` label.
 | `disk.used_inodes`<br/>`DGAUGE`, count | Used inodes |
 
 
-## Disk operation metrics {#managed-clickhouse-diskio-metrics}
+## Disk I/O metrics {#managed-clickhouse-diskio-metrics}
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -126,7 +126,7 @@ The consumption type goes into the `systag` label.
 
 #### System event metrics {#managed-clickhouse-system-events-metrics}
 
-These are {{ CH }} native metrics from the [system.events]({{ ch.docs }}/operations/system-tables/events) table.
+These are the {{ CH }} native metrics from the [system.events]({{ ch.docs }}/operations/system-tables/events) table.
 For each metric, the increment (`inc`) and change per unit of time (`rate`) are calculated.
 
 | Name<br/>Type |
@@ -171,8 +171,6 @@ For each metric, the increment (`inc`) and change per unit of time (`rate`) are 
 | `ch_system_events_ContextLock_rate`<br/>`DGAUGE` |
 | `ch_system_events_ContextLockWaitMicroseconds_inc`<br/>`DGAUGE` |
 | `ch_system_events_ContextLockWaitMicroseconds_rate`<br/>`DGAUGE` |
-| `ch_system_events_CreatedHTTPConnections_inc`<br/>`DGAUGE` |
-| `ch_system_events_CreatedHTTPConnections_rate`<br/>`DGAUGE` |
 | `ch_system_events_CreatedLogEntryForMerge_inc`<br/>`DGAUGE` |
 | `ch_system_events_CreatedLogEntryForMerge_rate`<br/>`DGAUGE` |
 | `ch_system_events_CreatedReadBufferOrdinary_inc`<br/>`DGAUGE` |
@@ -649,7 +647,7 @@ For each metric, the increment (`inc`) and change per unit of time (`rate`) are 
 
 #### Current event metrics {#managed-clickhouse-system-metrics}
 
-These are {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/) table.
+These are the {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/) table.
 
 | Name<br/>Type |
 | ----- |
@@ -745,8 +743,6 @@ These are {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/operat
 | `ch_system_metrics_DatabaseOnDiskThreads`<br/>`DGAUGE` |
 | `ch_system_metrics_DatabaseOnDiskThreadsActive`<br/>`DGAUGE` |
 | `ch_system_metrics_DatabaseOnDiskThreadsScheduled`<br/>`DGAUGE` |
-| `ch_system_metrics_DatabaseOrdinaryThreads`<br/>`DGAUGE` |
-| `ch_system_metrics_DatabaseOrdinaryThreadsActive`<br/>`DGAUGE` |
 | `ch_system_metrics_DatabaseReplicatedCreateTablesThreads`<br/>`DGAUGE` |
 | `ch_system_metrics_DatabaseReplicatedCreateTablesThreadsActive`<br/>`DGAUGE` |
 | `ch_system_metrics_DatabaseReplicatedCreateTablesThreadsScheduled`<br/>`DGAUGE` |
@@ -1066,8 +1062,6 @@ These are {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/operat
 | `ch_system_metrics_TablesLoaderForegroundThreads`<br/>`DGAUGE` |
 | `ch_system_metrics_TablesLoaderForegroundThreadsActive`<br/>`DGAUGE` |
 | `ch_system_metrics_TablesLoaderForegroundThreadsScheduled`<br/>`DGAUGE` |
-| `ch_system_metrics_TablesLoaderThreads`<br/>`DGAUGE` |
-| `ch_system_metrics_TablesLoaderThreadsActive`<br/>`DGAUGE` |
 | `ch_system_metrics_TablesToDropQueueSize`<br/>`DGAUGE` |
 | `ch_system_metrics_TaskTrackerThreads`<br/>`DGAUGE` |
 | `ch_system_metrics_TaskTrackerThreadsActive`<br/>`DGAUGE` |
@@ -1099,7 +1093,7 @@ These are {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/operat
 
 #### Query queue metrics {#managed-clickhouse-query-log-metrics}
 
-These are {{ CH }} native metrics from the [system.query_log]({{ ch.docs }}/operations/system-tables/query_log) table.
+These are the {{ CH }} native metrics from the [system.query_log]({{ ch.docs }}/operations/system-tables/query_log) table.
 For each metric, the increment per unit of time (second) is calculated.
 
 | Name<br/>Type |
@@ -1138,7 +1132,7 @@ For each metric, the increment per unit of time (second) is calculated.
 | `ch_replication-merges_in_queue`<br/>`DGAUGE`, count | Number of merges enqueued |
 | `ch_replication-parts_to_check`<br/>`DGAUGE`, count | Number of data parts to check |
 | `ch_replication-queue_size`<br/>`DGAUGE`, count | Merge and insert queue size |
-| `ch_replication-tables`<br/>`DGAUGE`, count | Number of replicated tables |
+| `ch_replication-tables`<br/>`DGAUGE`, count | Number of tables to replicate |
 
 
 #### System metrics {#managed-clickhouse-config-metrics}
@@ -1192,9 +1186,9 @@ For each metric, the increment per unit of time (second) is calculated.
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Host read access indicator.<br/>`1` if the host service is available for reads, `0` if not. |
-| `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the host service is available for writes, `0` if not .|
+| `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the host service is available for writes, `0` if not. |
 | `host_count`<br/>`DGAUGE`, count | Number of hosts |
-| `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if the database host is healthy or `0` if it is not .|
+| `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if the database host is healthy, `0` if not. |
 | `read_time`<br/>`DGAUGE`, milliseconds | Average disk read time |
 | `shard_count`<br/>`DGAUGE`, count | Number of shards |
 | `write_time`<br/>`DGAUGE`, milliseconds | Average disk write time |

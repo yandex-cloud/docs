@@ -9,7 +9,7 @@ title: How to get information about a target group in {{ alb-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your [target group](../concepts/target-group.md) folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Select the target group.
   1. You will see your target group details on the **{{ ui-key.yacloud.common.overview }}** page.
