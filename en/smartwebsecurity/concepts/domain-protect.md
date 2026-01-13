@@ -40,6 +40,8 @@ You can configure logging for each proxy server. You can write all logs or filte
 
 You can connect multiple domains to a proxy server. For details on the number of domains, see [{#T}](limits.md).
 
+{% include [roles-for-creating-proxy-notice](../../_includes/smartwebsecurity/roles-for-creating-proxy-notice.md)%}
+
 ### Domain {#domain}
 
 When setting up the domain, you need to specify:

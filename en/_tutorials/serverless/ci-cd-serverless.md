@@ -32,13 +32,13 @@ The infrastructure support cost includes:
 * Fee for using the [{{ managed-k8s-full-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for storing created Docker images (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Fee for storing secrets (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for the number of container calls, computing resources allocated to execute the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
-* Fee for requests to the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for container invocation count, computing resources allocated to run the application, and outbound traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for API gateway requests (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for using [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ## Getting started {#before-begin}
 
-### Download the project {#download-project}
+### Download a project {#download-project}
 
 Clone the [yc-serverless-gitlab-ci-cd repository](https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd) using Git:
 
@@ -50,7 +50,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 
 Install the following tools in the local environment:
 * [{{ yandex-cloud }}](../../cli/operations/install-cli.md) CLI.
-* [`jq`](https://stedolan.github.io/jq/download/), a JSON stream processor.
+* [`jq`](https://jqlang.org/download/), a JSON stream processor.
 * [`yq`](https://github.com/mikefarah/yq#install), a YAML stream processor.
 * [Python 3.8 or higher](https://www.python.org/downloads/).
 * Python libraries listed in the `application/requirements.txt` project file:
@@ -77,7 +77,7 @@ Install the following tools in the local environment:
 
 1. [Create service accounts](../../iam/operations/sa/create.md):
    * Service account for resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) folder. This service account will be used to create {{ managed-k8s-name }} cluster resources.
-   * Service account for [nodes](../../managed-kubernetes/concepts/index.md#node-group) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the Docker image registry folder. Nodes will pull the required Docker images from the registry on behalf of this account.
+   * Service account for [nodes](../../managed-kubernetes/concepts/index.md#node-group) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the Docker image registry folder. Nodes will use this account to pull the required Docker images from the registry.
 
    You can use the same service account for both operations.
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
@@ -108,8 +108,8 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
 
 ## Upload files to the {{ GL }} repository {#add-files}
 
-1. [Add an SSH key to securely access {{ GL }}](https://docs.gitlab.com/ee/user/ssh.html).
-1. [Clone](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-with-ssh) the `gitlab-test` repository over SSH.
+1. [Add an SSH key to securely access {{ GL }}](https://docs.gitlab.com/user/ssh/).
+1. [Clone](https://docs.gitlab.com/topics/git/clone/) the `gitlab-test` repository over SSH.
 1. Copy all files from the `yc-serverless-gitlab-ci-cd` repository to `gitlab-test`.
 1. Navigate to the `gitlab-test` directory.
 1. Index the new files:
@@ -198,7 +198,7 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
        - curl --fail -silent --location --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
        - bash install.sh -i /usr/local/yandex-cloud -n
        - ln -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
-    # Authentication with a service account key.
+    # Authenticating with the service account key.
        - echo "$SA_TESTING_DEPLOYER_PRIVATE_KEY" > key.json
        - yc config profile create sa-profile
        - yc config set service-account-key key.json
@@ -274,10 +274,10 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
 
 The `.gitlab-ci.yml` file contains the following steps of the CI script:
 * **build**: Building a Docker image with `Dockerfile` and pushing the image to {{ container-registry-name }}.
-* **deploy-test-env**: App test deployment. Additionally, we described the [artifacts](https://docs.gitlab.com/ee/ci/pipelines/job_artifacts.html) feature to transfer data from one stage to another that we are not going to use here. You can configure it, if required.
+* **deploy-test-env**: App test deployment. Additionally, we described the [artifacts](https://docs.gitlab.com/ci/jobs/job_artifacts/) feature to transfer data from one stage to another that we are not going to use here. You can configure it, if required.
 * **test**: Testing the app. The tests involve E2E simulation and load testing. You can describe and set up custom tests as well.
 * **delete-test-env**: Deleting the test app.
-* **release**: Deploying the app in production. This stage also uses [deployment environments](https://docs.gitlab.com/ee/ci/environments/). The system creates and saves them each time the pipeline is run successfully. Use them to restore and deploy the previous app version.
+* **release**: Deploying the app in production. This stage also uses [deployment environments](https://docs.gitlab.com/ci/environments/). The system creates and saves them each time the pipeline is run successfully. Use them to restore and deploy the previous app version.
 
 After you save the `.gitlab-ci.yml` configuration file, the build script will start.
 
@@ -289,7 +289,7 @@ You can access the app at the {{ api-gw-name }} service domain URL in the `prod`
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for the resources you no longer need, delete them:
 1. [Delete](../../resource-manager/operations/folder/delete.md) the `prod`, `testing`, and `infra` folders with their content.
 1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [{{ GL }} VM](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).

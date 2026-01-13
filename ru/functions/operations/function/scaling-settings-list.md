@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
     Чтобы посмотреть любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`):
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}** наведите курсор на тег версии функции (например, ![image](../../../_assets/console-icons/gear.svg) `$latest`), настройки масштабирования которой хотите посмотреть.
     1. Во всплывающем окне отобразится информация о настройках масштабирования:

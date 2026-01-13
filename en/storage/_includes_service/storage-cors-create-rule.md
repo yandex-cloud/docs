@@ -1,6 +1,6 @@
 To create a rule:
 
-1. Fill in the fields as follows:
+1. Fill out the fields as follows:
    * **{{ ui-key.yacloud.storage.bucket.cors.field_description }}**: Rule description in any form.
    * **{{ ui-key.yacloud.storage.bucket.cors.field_allowed-origins }}**: Comma-separated list of domains. Each domain is written in a separate `AllowedOrigin` field in the CORS configuration, e.g., `http://*.example.com, http://some.another.dom`.
    * **{{ ui-key.yacloud.storage.bucket.cors.field_allowed-methods }}**: Comma-separated list of HTTP methods allowed in the object request. Each method is written in a separate `AllowedMethod` field in the CORS configuration, e.g., `GET, PUT, HEAD, POST, DELETE`.

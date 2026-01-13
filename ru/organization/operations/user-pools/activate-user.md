@@ -107,6 +107,42 @@ description: Следуя данной инструкции, вы сможете
      yc organization-manager idp user reactivate <идентификатор_пользователя>
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры пользователя:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_user" "example_user" {
+       userpool_id = "<идентификатор_пула>"
+       username    = "<имя_пользователя>"
+       full_name   = "<полное_имя_пользователя>"
+       is_active   = true
+     }
+     ```
+
+     Где:
+     
+     * `userpool_id` — идентификатор пула, в котором находится нужный пользователь.
+     * `username` — имя нужного пользователя.
+     * `full_name` — полное имя нужного пользователя.
+     * `is_active` — флаг активации. Укажите `true`, чтобы активировать пользователя.
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager idp user get <идентификатор_пользователя>
+     ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [User.Reactivate](../../idp/api-ref/User/reactivate.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Reactivate](../../idp/api-ref/grpc/User/reactivate.md).

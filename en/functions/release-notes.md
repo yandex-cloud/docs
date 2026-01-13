@@ -5,6 +5,12 @@ description: This section contains {{ sf-name }} release notes.
 
 # {{ sf-full-name }} release notes
 
+## October 2025 {#october-2025}
+
+### Updates {#updates}
+
+* [The number of network packets per second per function instance](concepts/limits.md#functions-limits) is now a limit, not a quota.
+
 ## July 2025 {#july-2025}
 
 ### Updates {#updates}

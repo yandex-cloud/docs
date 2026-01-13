@@ -6,6 +6,8 @@ editable: false
 
 # Правила тарификации для {{ yds-full-name }}
 
+
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -90,3 +92,4 @@ editable: false
 * Потоки данных, хранящие данные в [Serverless базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#serverless), тарифицируются по [правилам тарификации для бессерверного режима {{ ydb-short-name }}](../ydb/pricing/serverless.md).
 
 * Потоки данных, хранящие данные в [Dedicated базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#dedicated), отдельно не тарифицируются (оплачивается только dedicated база, см. [правила тарификации для dedicated баз](../ydb/pricing/dedicated.md)).
+

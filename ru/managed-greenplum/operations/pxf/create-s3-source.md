@@ -12,7 +12,8 @@
 
     Чтобы создать внешний источник данных S3:
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Откройте страницу нужного кластера {{ GP }}.
     1. На панели слева выберите ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.

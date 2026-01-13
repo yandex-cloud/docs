@@ -105,6 +105,8 @@ items:
             href: operations/user-pools/get-list-users.md
           - name: Setting up access to a user pool
             href: operations/user-pools/set-access-bindings-userpool.md
+          - name: Setting up a password policy
+            href: operations/user-pools/set-password-policy.md
           - name: Deleting a user pool
             href: operations/user-pools/delete-userpool.md
       - name: Managing domains
@@ -235,8 +237,12 @@ items:
                 href: tutorials/single-sign-on/grafana/saml-grafana.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/grafana/oidc-grafana.md
+          - name: Grafana OSS
+            href: tutorials/single-sign-on/oidc-grafana-oss.md
           - name: '{{ mos-name }}'
             href: tutorials/single-sign-on/saml-opensearch.md
+          - name: '{{ OS }}'
+            href: tutorials/single-sign-on/saml-opensearch-self-managed.md
           - name: '{{ mgl-name }}'
             href: tutorials/single-sign-on/saml-managed-gitlab.md
           - name: Zabbix
@@ -245,6 +251,8 @@ items:
             href: tutorials/single-sign-on/saml-yandex-360.md
           - name: SonarQube
             href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: OpenVPN Access Server
+            href: tutorials/single-sign-on/saml-ovpn.md
   - name: Concepts
     items:
       - name: Organization
@@ -255,6 +263,8 @@ items:
         href: concepts/groups.md
       - name: User pools
         href: concepts/user-pools.md
+      - name: Password policy
+        href: concepts/password-policy.md
       - name: Identity federations
         href: concepts/add-federation.md
       - name: Domains

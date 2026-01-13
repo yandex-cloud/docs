@@ -223,12 +223,12 @@ If you need to control a VM runtime environment (e.g., for access from the VM to
 
 {% endlist %}
 
-#### 3.6 Side-channel attack protection principles are followed {#side-chanel-protection}
+#### 3.6 Principles of protection against side-channel attacks are followed {#side-channel-protection}
 
 To ensure the best protection against CPU level side-channel attacks (such as Spectre or Meltdown):
 
 * Use full-core virtual machines (instances with a CPU share of 100%).
-* Install updates for your operating system and kernel that ensure side-channel attack protection (for example, [Kernelpage-tableisolation for Linux](https://en.wikipedia.org/wiki/Kernel_page-table_isolation) or applications built using [Retpoline](https://en.wikipedia.org/wiki/Spectre_%28security_vulnerability%29)).
+* Install updates for your operating system and kernel that ensure side-channel attack protection (for example, [Kernel page-table isolation for Linux](https://en.wikipedia.org/wiki/Kernel_page-table_isolation), applications built using [Retpoline](https://en.wikipedia.org/wiki/Spectre_%28security_vulnerability%29)).
 
 We recommend that you use [dedicated hosts](../../../compute/concepts/dedicated-host.md) for the most security-critical resources.
 
@@ -593,7 +593,7 @@ Assigning a public IP to a managed database raises information security risks. W
 
 Disable public access if it is not required.
 
-#### 3.17 The deletion protection feature is enabled {#deletetion-protection}
+#### 3.17 The deletion protection feature is enabled {#deletion-protection}
 
 In {{ yandex-cloud }} managed databases, you can enable deletion protection. The deletion protection feature safeguards the cluster against accidental deletion by a user. Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete its data.
 
@@ -1242,7 +1242,7 @@ We recommend that you update certificates in advance if they are not [updated au
      done
      ```
 
-  1. If there is no `privileged: true` in front of each VM ID, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. If the certificate expires in more than 30 days, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 

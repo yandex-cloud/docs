@@ -32,6 +32,9 @@ links:
   - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
+  - title: Tutorials
+    description: Use ready-made scenarios for working with artifacts
+    href: tutorials/docker-cloud-registry
   - title: Concepts
     description: Learn more about the service's concepts and resources
     href: concepts/

@@ -26,11 +26,13 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
 
 ### Required paid resources {#paid-resources}
 
-The cost of data storage support includes:
+* {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
-* Data stream maintenance fee (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
-* Fee for transferring data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
-* Fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+    * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+    * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
+
+* {{ ydb-name }} database, operating in serverless mode: data operations, amount of stored data and backups (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Set up your environment {#prepare-environment}
@@ -59,9 +61,9 @@ The cost of data storage support includes:
 
 {% include [check-ingestion](../_tutorials_includes/check-ingestion.md) %}
 
-## How to delete the resources you created {#clear-out}
+## Delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../data-transfer/operations/endpoint/#delete).

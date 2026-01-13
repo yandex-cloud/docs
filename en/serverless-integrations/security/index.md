@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ si-full-name }}
-description: Access management in {{ si-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ si-full-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ si-name }}
@@ -11,7 +11,10 @@ Roles for a resource can be assigned by users who have one of the following role
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-Also, only a user with the `serverless.eventrouter.admin` role for an {{ er-name }} [bus](../concepts/eventrouter/bus.md), [connector](../concepts/eventrouter/connector.md), or [rule](../concepts/eventrouter/rule.md) can assign roles for these resources.
+Also, consider the following:
+
+* Only a user with the `serverless.eventrouter.admin` role for an {{ er-name }} [bus](../concepts/eventrouter/bus.md), [connector](../concepts/eventrouter/connector.md), or [rule](../concepts/eventrouter/rule.md) can assign roles for these resources.
+* Only a user with the `serverless.workflows.admin` role for a {{ sw-name }} [workflow](../concepts/workflows/workflow.md) can assign roles for this resource.
 
 ## Resources you can assign a role for {#resources}
 
@@ -21,6 +24,7 @@ You can use the {{ yandex-cloud }} [CLI](../../cli/index.yaml) or [API](../../ap
 * [Bus](../concepts/eventrouter/bus.md)
 * [Connector](../concepts/eventrouter/connector.md)
 * [Rule](../concepts/eventrouter/rule.md)
+* [Workflow](../concepts/workflows/workflow.md)
 
 ## Roles existing in {{ si-name }} {#roles-list}
 

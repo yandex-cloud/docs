@@ -8,7 +8,7 @@ description: This section contains {{ compute-name }} release notes.
 ## Q2 2025 {#q2-2025}
 
 * The [reserved instance pool](./concepts/reserved-pools.md) functionality is now on at the [Preview](../overview/concepts/launch-stages.md) stage. You can access it upon request.
-* Implemented a [simple VM creation form](./quickstart/simple-form-vm.md) in the [management console]({{ link-console-main }}).
+* Implemented a simple VM creation form in the [management console]({{ link-console-main }}).
 * Added sending the `MigrateInstance` [data event](./at-ref.md#data-plane-events) to {{ at-full-name }} when [dynamically migrating](./concepts/live-migration.md) a VM with a [maintenance policy](./concepts/vm-policies.md) configured.
 
 ## Q1 2025 {#q1-2025}

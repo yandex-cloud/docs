@@ -230,16 +230,22 @@ items:
                 href: security/single-sign-on/grafana/saml-grafana.md
               - name: OpenID Connect
                 href: security/single-sign-on/grafana/oidc-grafana.md
+          - name: Grafana OSS
+            href: security/single-sign-on/oidc-grafana-oss.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'
             href: security/single-sign-on/saml-yandex-360.md
           - name: '{{ mos-name }}'
             href: security/single-sign-on/saml-opensearch.md
+          - name: '{{ OS }}'
+            href: security/single-sign-on/saml-opensearch-self-managed.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
           - name: SonarQube
             href: security/single-sign-on/saml-sonarqube.md
+          - name: OpenVPN Access Server
+            href: security/single-sign-on/saml-ovpn.md
       - name: Uploading audit logs to {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
@@ -547,6 +553,8 @@ items:
         href: container-infrastructure/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: container-infrastructure/serial-port.md
+      - name: Running a Docker image on a VM using {{ cloud-registry-name }}
+        href: container-infrastructure/docker-cloud-registry.md
       - name: '{{ managed-k8s-name }}'
         items:
           - name: Creating a new {{ k8s }} project
@@ -587,7 +595,7 @@ items:
                   Installing an NGINX ingress controller with a certificate from
                   {{ certificate-manager-name }}
                 href: container-infrastructure/nginx-ingress-certificate-manager.md
-          - name: Using {{ container-registry-name }}
+          - name: Usage {{ container-registry-name }}
             items:
               - name: Integration with {{ container-registry-name }}
                 href: container-infrastructure/container-registry.md
@@ -887,7 +895,7 @@ items:
           Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md
-      - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
+      - name: Change data capture (CDC) from {{ ydb-short-name }} to {{ DS }}
         href: dataplatform/ydb-to-yds.md
       - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
@@ -901,7 +909,7 @@ items:
             href: dataplatform/schema-registry-overview.md
           - name: Using {{ mkf-msr }} with {{ mkf-name }}
             href: dataplatform/managed-schema-registry.md
-          - name: Using {{ mkf-msr }} with {{ mkf-name }} via the REST API
+          - name: Using {{ mkf-msr }} with {{ mkf-name }} via REST API
             href: dataplatform/managed-schema-registry-rest.md
           - name: Using Confluent Schema Registry with {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
@@ -1006,7 +1014,7 @@ items:
         href: dataplatform/metastore-import.md
       - name: >-
           Importing data from {{ objstorage-name }}, processing, and exporting
-          it to {{ mch-name }}
+          to {{ mch-name }}
         href: dataplatform/s3-data-processing-ch.md
       - name: Working with jobs {{ dataproc-name }}
         items:
@@ -1061,7 +1069,7 @@ items:
           using {{ data-transfer-name }}
         href: dataplatform/mmy-objs-migration.md
       - name: >-
-          Migrating data from {{ objstorage-name }} to {{ mmy-name }} using {{
+          Migrating data from {{ objstorage-name }} to {{ mmy-name }} via {{
           data-transfer-name }}
         href: dataplatform/objs-mmy-migration.md
       - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
@@ -1152,7 +1160,7 @@ items:
       - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
       - name: >-
-          Migrating data from {{ objstorage-name }} to {{ mpg-name }} using {{
+          Migrating data from {{ objstorage-name }} to {{ mpg-name }} via {{
           data-transfer-name }}
         href: dataplatform/object-storage-to-postgresql.md
       - name: '{{ PG }} change data capture and delivery to {{ DS }}'

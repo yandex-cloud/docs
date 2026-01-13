@@ -28,6 +28,7 @@ resource "yandex_spark_cluster" "<имя_кластера>" {
         size               = <фиксированное_количество_экземпляров>
       }
     }
+    spark_version = "<версия_Apache_Spark>"
   }
 
   logging = {
@@ -68,6 +69,10 @@ resource "yandex_vpc_subnet" "<имя_подсети>" {
 
   * [Класс хостов](../../../../managed-spark/concepts/instance-types.md) в параметре `resource_preset_id`.
   * Количество экземпляров. Укажите фиксированное количество в параметре `size` или минимальное и максимальное количество для автомасштабирования в параметрах `min_size` и `max_size`.
+
+* (Опционально) `spark_version` — версия {{ SPRK }}.
+
+   {% include [change-version-note](../../../managed-spark/change-version-note.md) %}
       
 * `logging` — параметры логирования. Сгенерированные компонентами {{ SPRK }} логи будут отправляться в {{ cloud-logging-full-name }}. Для включения логирования:
 

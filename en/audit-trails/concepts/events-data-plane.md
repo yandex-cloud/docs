@@ -101,6 +101,12 @@ Service name: `mdb.mysql`.
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
 
+## {{ mgp-full-name }} {#mgp}
+
+Service name: `mdb.greenplum`.
+
+{% include [mgp-events-dp](../../_includes/audit-trails/events/mgp-events-dp.md) %}
+
 ## {{ mpg-full-name }} {#mpg}
 
 Service name: `mdb.postgresql`.
@@ -121,15 +127,23 @@ Service name: `storage`.
 
 ## {{ sd-full-name }} {#security-deck}
 
+Service name: `securitydeck`.
+
 ### {{ atr-name }} module {#sd-access-transparency}
 
-Service name: `accesstransparency`.
+Module name: `securitydeck.accesstransparency`.
 
 {% include [sd-at-events-dp](../../_includes/audit-trails/events/sd-at-events-dp.md) %}
 
+### {{ alerts-name }} module {#sd-alerts}
+
+Module name: `securitydeck.alerts`.
+
+{% include [sd-alerts-events-dp](../../_includes/audit-trails/events/sd-alerts-events-dp.md) %}
+
 ### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
 
-Service name: `kspm`.
+Module name: `securitydeck.kspm`.
 
 {% include [sd-kspm-events-dp](../../_includes/audit-trails/events/sd-kspm-events-dp.md) %}
 

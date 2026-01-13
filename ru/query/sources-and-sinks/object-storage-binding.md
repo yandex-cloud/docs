@@ -18,7 +18,7 @@ WHERE
 Чтобы создать привязку для чтения данных из {{ objstorage-short-name }}:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать привязку.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
 1. В блоке **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:

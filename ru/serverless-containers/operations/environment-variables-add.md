@@ -7,7 +7,7 @@
 - Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер, для ревизии которого хотите добавить переменную окружения.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
     1. В открывшемся окне в блоке **{{ ui-key.yacloud.serverless-containers.section_image }}** укажите переменную окружения и нажмите **{{ ui-key.yacloud.common.add }}**. Можно добавить несколько переменных окружения.

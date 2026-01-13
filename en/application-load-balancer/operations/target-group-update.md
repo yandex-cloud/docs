@@ -11,7 +11,7 @@ To add a VM to a target group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your target group [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click your target group name.
   1. Click **{{ ui-key.yacloud.alb.button_add-targets }}**.
@@ -152,7 +152,7 @@ To add a VM to a target group:
        * `private_ipv4_address`: Setting indicating that the IP address is outside {{ vpc-name }}.
        * `ip_address`: Resource’s private IPv4 address. This IP address must belong to the [RFC 1918 private address range](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
-     For more information about `yandex_alb_target_group` properties, see the relevant [{{ TF }} article]({{ tf-provider-alb-targetgroup }}).
+     For detailed information about the `yandex_alb_target_group` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-alb-targetgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -180,7 +180,7 @@ To remove a VM from a target group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your target group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click the name of the target group in question.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM you need, then select **{{ ui-key.yacloud.common.delete }}**.
@@ -263,7 +263,7 @@ To remove a VM from a target group:
      }
      ```
 
-     For more information about `yandex_alb_target_group` properties, see the relevant [{{ TF }} article]({{ tf-provider-alb-targetgroup }}).
+     For detailed information about the `yandex_alb_target_group` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-alb-targetgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

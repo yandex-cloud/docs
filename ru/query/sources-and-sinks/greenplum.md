@@ -21,7 +21,7 @@ SELECT * FROM greenplum_mdb_connection.my_table
 
 Чтобы создать соединение с {{ mgp-name }}:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Укажите параметры соединения:

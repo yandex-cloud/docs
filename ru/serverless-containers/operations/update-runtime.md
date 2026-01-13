@@ -5,7 +5,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер, для которого хотите изменить [режим работы](../concepts/container.md#runtime).
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
   1. В открывшемся окне в блоке **{{ ui-key.yacloud.serverless-containers.section_general }}** выберите режим работы — `{{ ui-key.yacloud.serverless-containers.label_runtime-http-server }}` или `{{ ui-key.yacloud.serverless-containers.label_runtime-task-execution }}`.

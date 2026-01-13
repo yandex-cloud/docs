@@ -123,3 +123,7 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 #### Проблемы с установкой агента {{ backup-name }} на ВМ с низкими вычислительными ресурсами {#low-resources-installation}
 
 {% include [cloud-backup-resources-note](../../_includes/backup/cloud-backup-resources-note.md) %}
+
+#### Если удалить ВМ, ее резервные копии останутся? {#backup-after-delete-vm}
+
+Да, резервные копии останутся после удаления ВМ. Резервные копии привязаны к [политике резервного копирования](../../backup/concepts/policy.md), а не к ВМ.

@@ -4,9 +4,9 @@ This guide offers examples of [video player](../../video/concepts/player.md) lay
 
 To use the examples to configure a video in IFrame:
 
-1. Upload a video to [{{ video-full-name }}](../../video/hosting).
+1. Upload a video to [{{ video-full-name }}](../../video/hosting.md).
 1. Save the link to the video.
-1. Add the [iframe embedding code](../../video/iframe-sdk.md) to your HTML page code.
+1. Add the [iframe embedding code](../../video/sdk/iframe/index.md) to your HTML page code.
 1. Copy the iframe embedding code from the example with the link to your video added to it.
 
 If you want your video provided as a URL, copy its properties after `?` from the `src` field in the example.
@@ -231,10 +231,10 @@ Where:
 
 Use the [playlist](../../video/concepts/playlists.md) feature to recommend other videos on the same topic at the end of the video:
 
-1. Upload several videos to [{{ video-full-name }}](../../video/hosting).
+1. Upload several videos to [{{ video-full-name }}](../../video/hosting.md).
 1. [Create a playlist](../../video/operations/playlists/create.md) and add the videos to it.
 1. Save the link to the playlist.
-1. Add the [iframe embedding code](../../video/iframe-sdk.md) to your HTML page code.
+1. Add the [iframe embedding code](../../video/sdk/iframe/index.md) to your HTML page code.
 1. Copy the iframe embedding code from the example with the link to your playlist added to it.
 
 {% note info %}
@@ -267,7 +267,7 @@ Where:
   * `player_border_radius=10`: Rounding of the player section corners.
   * `playlist_item_border_radius=5`: Rounding of the playlist element corners.
 
-Learn more about style parameters in [{#T}](../../video/iframe-sdk.md#parameters).
+Learn more about style parameters in [{#T}](../../video/sdk/iframe/initialization.md#styling).
 
 {% cut "Example" %}
 

@@ -9,7 +9,7 @@ title: How to get backend group information in {{ alb-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your [backend group](../concepts/backend-group.md).
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Select your backend group.
   1. You will see your group details on the **{{ ui-key.yacloud.common.overview }}** page.

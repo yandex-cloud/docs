@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер, который хотите сделать публичным.
   1. На вкладке **{{ ui-key.yacloud.common.overview }}** включите опцию **{{ ui-key.yacloud.serverless-containers.label_public-container }}**.
 

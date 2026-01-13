@@ -18,7 +18,7 @@ To delete a [backend group](../concepts/backend-group.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your backend group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backend group name and select **{{ ui-key.yacloud.common.delete }}**.
 
@@ -84,7 +84,7 @@ To delete a [backend group](../concepts/backend-group.md):
      }
      ```
 
-     For more information about `yandex_alb_backend_group` properties, see the relevant [{{ TF }} article]({{ tf-provider-alb-backendgroup }}).
+     For more information about `yandex_alb_backend_group` properties, see [this {{ TF }} guide]({{ tf-provider-alb-backendgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

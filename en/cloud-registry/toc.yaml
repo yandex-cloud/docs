@@ -55,6 +55,10 @@ items:
                 href: operations/binary/push.md
               - name: Pulling a binary artifact from a registry
                 href: operations/binary/pull.md
+  - name: Tutorials
+    items:
+      - name: Running a Docker image on a VM using {{ cloud-registry-name }}
+        href: tutorials/docker-cloud-registry.md
   - name: Concepts
     items:
       - name: Overview

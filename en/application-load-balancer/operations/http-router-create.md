@@ -12,7 +12,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your HTTP router.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Specify your HTTP router name.
@@ -177,9 +177,9 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
           {% include [tf-vh-create-legend-last-part](../../_includes/application-load-balancer/instruction-steps/tf-vh-create-legend-last-part.md) %}
 
-      Learn more about the properties of {{ TF }} resources in the relevant {{ TF }} guides:
-      * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router).
-      * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+      * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
+      * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

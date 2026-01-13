@@ -23,13 +23,13 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы получить детализацию расходов и потребления ресурсов в рамках [платежного аккаунта](../concepts/billing-account.md):
 
-* По платежному аккаунту воспользуйтесь вызовом gRPC API [ConsumptionCore/GetBillingAccountUsageReport](../api-ref/grpc/ConsumptionCore/getBillingAccountUsageReport).
-* По облакам воспользуйтесь вызовом gRPC API [ConsumptionCore/GetCloudUsageReport](../api-ref/grpc/ConsumptionCore/getCloudUsageReport).
-* По каталогам воспользуйтесь вызовом gRPC API [ConsumptionCore/GetFolderUsageReport](../api-ref/grpc/ConsumptionCore/getFolderUsageReport).
-* По сервисам воспользуйтесь вызовом gRPC API [ConsumptionCore/GetServiceUsageReport](../api-ref/grpc/ConsumptionCore/getServiceUsageReport).
-* По продуктам (SKU) воспользуйтесь вызовом gRPC API [ConsumptionCore/GetSKUUsageReport](../api-ref/grpc/ConsumptionCore/getSKUUsageReport).
-* По ресурсам воспользуйтесь вызовом gRPC API [ConsumptionCore/GetResourceUsageReport](../api-ref/grpc/ConsumptionCore/getResourceUsageReport).
-* По меткам воспользуйтесь вызовом gRPC API [ConsumptionCore/GetLabelKeyUsageReport](../api-ref/grpc/ConsumptionCore/getLabelKeyUsageReport).
+* По платежному аккаунту воспользуйтесь вызовом gRPC API [ConsumptionCore/GetBillingAccountUsageReport](../usage/api-ref/grpc/ConsumptionCore/getBillingAccountUsageReport.md).
+* По облакам воспользуйтесь вызовом gRPC API [ConsumptionCore/GetCloudUsageReport](../usage/api-ref/grpc/ConsumptionCore/getCloudUsageReport.md).
+* По каталогам воспользуйтесь вызовом gRPC API [ConsumptionCore/GetFolderUsageReport](../usage/api-ref/grpc/ConsumptionCore/getFolderUsageReport.md).
+* По сервисам воспользуйтесь вызовом gRPC API [ConsumptionCore/GetServiceUsageReport](../usage/api-ref/grpc/ConsumptionCore/getServiceUsageReport.md).
+* По продуктам (SKU) воспользуйтесь вызовом gRPC API [ConsumptionCore/GetSKUUsageReport](../usage/api-ref/grpc/ConsumptionCore/getSKUUsageReport.md).
+* По ресурсам воспользуйтесь вызовом gRPC API [ConsumptionCore/GetResourceUsageReport](../usage/api-ref/grpc/ConsumptionCore/getResourceUsageReport.md).
+* По меткам воспользуйтесь вызовом gRPC API [ConsumptionCore/GetLabelKeyUsageReport](../usage/api-ref/grpc/ConsumptionCore/getLabelKeyUsageReport.md).
 
 Все методы сервиса `ConsumptionCore` возвращают данные в трехуровневой структуре:
 
@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
 1. Итоги по сущностям — агрегированные данные для каждой сущности запрошенного типа (облако, каталог, сервис и т. д.).
 1. Временные ряды — разбивка данных по периодам в соответствии с параметром `aggregation_period` (день, неделя, месяц, квартал, год).
 
-Подробнее см. в справочнике API [ConsumptionCore](../api-ref/grpc/ConsumptionCore/).
+Подробнее см. в справочнике API [ConsumptionCore](../usage/api-ref/grpc/ConsumptionCore/index.md).
 
 ## Сервис Metadata {#metadata}
 
@@ -49,12 +49,12 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы получить в рамках платежного аккаунта метаданные о:
 
-* Доступных облаках, сервисах, продуктах (SKU), ключах меток и диапазонах дат воспользуйтесь вызовом gRPC API [Metadata/GetUsage](../api-ref/grpc/Metadata/getUsage).
-* Доступных ключах и значениях меток воспользуйтесь вызовом gRPC API [Metadata/GetLabel](../api-ref/grpc/Metadata/getLabel).
-* Доступных каталогах для указанных облаков воспользуйтесь вызовом gRPC API [Metadata/GetCloud](../api-ref/grpc/Metadata/getCloud).
-* Всех доступных идентификаторах ресурсов в диапазоне дат воспользуйтесь вызовом gRPC API [Metadata/GetResourceIDs](../api-ref/grpc/Metadata/getResourceIDs).
+* Доступных облаках, сервисах, продуктах (SKU), ключах меток и диапазонах дат воспользуйтесь вызовом gRPC API [Metadata/GetUsage](../usage/api-ref/grpc/Metadata/getUsage.md).
+* Доступных ключах и значениях меток воспользуйтесь вызовом gRPC API [Metadata/GetLabel](../usage/api-ref/grpc/Metadata/getLabel.md).
+* Доступных каталогах для указанных облаков воспользуйтесь вызовом gRPC API [Metadata/GetCloud](../usage/api-ref/grpc/Metadata/getCloud.md).
+* Всех доступных идентификаторах ресурсов в диапазоне дат воспользуйтесь вызовом gRPC API [Metadata/GetResourceIDs](../usage/api-ref/grpc/Metadata/getResourceIDs.md).
 
-Подробнее см. в справочнике API [Metadata](../api-ref/grpc/Metadata/).
+Подробнее см. в справочнике API [Metadata](../usage/api-ref/grpc/Metadata/index.md).
 
 ## Примеры использования {#examples}
 

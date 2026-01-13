@@ -12,7 +12,9 @@ Using identity federations, you can configure a single sign-on (SSO) system and 
 
 In {{ org-name }}, you can create an identity federation with any credential management service (identity provider) that supports the [SAML]({{ link-saml }}) protocol.
 
-Information about user logins and passwords is stored by the identity provider. When a user logs in to {{ org-name }}, they are directed to the identity provider (IdP) server for authentication. If authentication is successful, the user gets access to {{ yandex-cloud }} services.
+Information about user logins and passwords is stored by the identity provider. When a user logs in to {{ org-name }}, they are directed to the identity provider (IdP) server for authentication. The federated user [profile](../operations/users-get.md#yandex-and-federated) in {{ org-name }} only stores the [attributes](../operations/setup-federation.md#claims-mapping) set when configuring the identity federation, and only after the user authenticates in {{ yandex-cloud }} for the first time.
+
+If authentication is successful, the user gets access to {{ yandex-cloud }} services.
 
 Since authentication takes place on the IdP server side, you can configure a more secure user data verification, such as two-factor authentication or USB tokens.
 

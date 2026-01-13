@@ -16,13 +16,13 @@ dc | [Availability zone](../../../overview/concepts/geo-scope.md)
 
 ## CPU metrics {#managed-mongodb-cpu-metrics}
 
-These metrics show CPU core workload.
+These metrics show the processor core workload.
 
 The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance | 
+| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share | 
 | `cpu.guarantee`<br/>`DGAUGE`, count | Guaranteed number of cores | 
 | `cpu.guest_nice`<br/>`DGAUGE`, % | CPU core usage, `guest_nice` usage type | 
 | `cpu.limit`<br/>`DGAUGE`, count | Maximum number of cores in use | 
@@ -58,7 +58,7 @@ The consumption type goes into the `systag` label.
 | `vd**`<br/>`DGAUGE`, bytes | Virtual disk partition size |
 
 
-## Disk operation metrics {#managed-mongodb-diskio-metrics}
+## Disk I/O metrics {#managed-mongodb-diskio-metrics}
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -174,17 +174,11 @@ The consumption type goes into the `systag` label.
 | `available`<br/>`DGAUGE`, count | RAM usage, `available` usage type |
 | `available_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `available` usage type |
 | `buffered`<br/>`DGAUGE`, bytes | RAM usage, `buffered` usage type |
-| `bytes_recv`<br/>`DGAUGE`, bytes | Size of data received |
-| `bytes_sent`<br/>`DGAUGE`, bytes | Size of data sent |
 | `cached`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
 | `commit_limit`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type |
 | `committed_as`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
 | `count`<br/>`DGAUGE`, objects | Number of objects per collection |
 | `dirty`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
-| `drop_in`<br/>`DGAUGE`, count | Dropped receive packets | 
-| `drop_out`<br/>`DGAUGE`, count | Dropped transmit packets | 
-| `err_in`<br/>`DGAUGE`, count | Receive error count | 
-| `err_out`<br/>`DGAUGE`, count | Transmit error count | 
 | `free`<br/>`DGAUGE`, bytes | RAM usage, `free` usage type | 
 | `high_free`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type | 
 | `high_total`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type | 
@@ -260,7 +254,7 @@ The consumption type goes into the `systag` label.
 | `latency_reads`<br/>`DGAUGE`, milliseconds | Average time per read operation |
 | `latency_reads_count`<br/>`DGAUGE`, count | Number of read operations |
 | `latency_transactions`<br/>`DGAUGE`, milliseconds | Average transaction execution time |
-| `latency_transactions_count`<br/>`DGAUGE`, count | Number of completed transactions |
+| `latency_transactions_count`<br/>`DGAUGE`, count | Number of executed transactions |
 | `latency_writes`<br/>`DGAUGE`, milliseconds | Average time per write operation |
 | `latency_writes_count`<br/>`DGAUGE`, count | Number of write operations |
 | `low_free`<br/>`DGAUGE`, bytes | RAM usage, `low_free` usage type | 
@@ -270,7 +264,7 @@ The consumption type goes into the `systag` label.
 | `memory_utilization_by_db_rss`<br/>`DGAUGE`, bytes | Total memory used by database processes | 
 | `memory_utilization_memory_limit`<br/>`DGAUGE`, % | RAM (utilization) limit per database | 
 | `mongocfg-is_alive`<br/>DGAUGE | Health indicator for configuration server host.<br/>`1` if the server is operational, `0` if not. |
-| `mongod-is_alive`<br/>`DGAUGE` | Host health indicator.<br/>`1` if the DB host is operational, `0` if not. | 
+| `mongod-is_alive`<br/>`DGAUGE` | Host health indicator.<br/>`1` if the database host is operational, `0` if not. | 
 | `mongos_active_migrations_count`<br/>`DGAUGE`, operations | Current number of active chunk migration operations via _mongos_ |
 | `mongos_in_balancer_round`<br/>`DGAUGE` | Indicates whether _mongos_ is involved in current balancing round.<br/>`1` if it is, `0` if not. |
 | `mongos_migrations_failed`<br/>`DGAUGE`, operations | Total number of unsuccessful (terminated with an error) chunk migrations through _mongos_ during the interval |
@@ -280,8 +274,6 @@ The consumption type goes into the `systag` label.
 | `n_unique_users`<br/>`DGAUGE`, count | Number of unique users or accounts engaging with the system |
 | `n_users`<br/>`DGAUGE`, count | Limit on the number of users | 
 | `oom_count`<br/>`DGAUGE`, count | Number of out-of-memory events |
-| `packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate | 
-| `packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate | 
 | `page_tables`<br/>`DGAUGE`, bytes | RAM usage, `page_tables` usage type | 
 | `read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk
@@ -436,7 +428,7 @@ The consumption type goes into the `systag` label.
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Host read access indicator.<br/>`1` if the host service is available for reads, `0` if not. |
-| `can_write`<br/>`DGAUGE`, 0/1 | Host write access status.<br/>This metric is set to `1` if the host service is available for write operations, and to `0` otherwise. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the host service is available for writes, `0` if not. |
 | `latest_backup_sec`<br/>`DGAUGE`, seconds | Time since the most recent successful backup |
 | `oplog-diff`<br/>`DGAUGE`, milliseconds | Operation log size | 
 | `oplog-maxSize`<br/>`DGAUGE`, bytes | Maximum size of the operation log | 

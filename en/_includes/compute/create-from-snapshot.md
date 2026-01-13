@@ -8,7 +8,6 @@
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Select **Advanced setup**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.

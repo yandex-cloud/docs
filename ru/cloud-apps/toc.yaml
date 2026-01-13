@@ -3,22 +3,9 @@ stage: preview
 href: index.yaml
 editable: false
 items:
-  - name: Приложения
-    expanded: true
+  - name: Пошаговые инструкции
     items:
-      - name: Demo Telegram Bot
-        href: telegram-bot.md
-      - name: Django Container
-        href: django-container.md
-      - name: Image Resizer
-        href: image-resizer.md
-      - name: Metrics Collector
-        href: metrics-collector.md
-      - name: VM Watchdog
-        href: vm-watchdog.md
-      - name: VM Folder Watchdog
-        href: vm-folder-watchdog.md
-      - name: Instance Group Scheduled Scaler
-        href: yc-ig-scheduled-scale.md
+      - name: Установка приложения
+        href: operations/install-app.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

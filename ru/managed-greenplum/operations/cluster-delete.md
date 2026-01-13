@@ -18,7 +18,8 @@ description: Из статьи вы узнаете, как удалить кла
 
 - Консоль управления {#console}
 
-  1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+  1. Перейдите [на страницу каталога]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера, выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** и подтвердите удаление.
 
 - CLI {#cli}

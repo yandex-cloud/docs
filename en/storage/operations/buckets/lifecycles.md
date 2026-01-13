@@ -57,7 +57,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
       ```
 
       The possible configuration parameters include:
-      * `id`: Unique rule ID which must consist of 255 characters or less. This is an optional setting.
+      * `id`: Unique rule ID which must consist of 255 characters or less. This is an optional parameter.
       * `enabled`: Rule state. This is a required setting.
       * `filter`: Object filter. This is an optional setting. It may only contain one element of each type:
 
@@ -121,11 +121,12 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
           * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required setting.
       * `noncurrent_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional setting. It may contain:
           * `noncurrent_days`: Number of days before expiration. The minimum value is `1`. This is a required setting.
-      * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional setting.
+      * `abort_incomplete_multipart_upload`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional setting. It may contain:
+          * `days_after_expiration`: Number of days after the object was uploaded. The minimum value is `1`. This is a required setting.
       * `noncurrent_delete_markers`: Parameter of a rule for deleting non-current delete markers. This is an optional setting. It may contain:
           * `noncurrent_days`: Number of days that must elapse after the delete marker version is classified as non-current before the rule takes effect. The minimum value is `0`. This is a required setting.
 
-      Make sure to specify at least one of the following parameters: `transitions`, `expiration`, `noncurrent_transitions`, `noncurrent_expiration`, or `abort_incomplete_multipart_upload_days`.
+      Make sure to specify at least one of the following parameters: `transitions`, `expiration`, `noncurrent_transitions`, `noncurrent_expiration`, or `abort_incomplete_multipart_upload`.
 
       Once the configuration is complete, save it to a file, e.g., `lifecycles.json`.
 
@@ -431,15 +432,15 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
          Without a specified object filter, the rule applies to all objects in the bucket.
 
      * `enabled`: Rule state. This is a required setting.
-     * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional setting.
+     * `abort_incomplete_multipart_upload`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional setting.
      * `expiration`: Parameter of a rule for deleting any objects. For buckets with [versioning](versioning.md) enabled, the action will apply to the current object versions. To work with non-current versions of objects, use the `noncurrent_version_expiration` parameter. This is an optional setting.
      * `transition`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `noncurrent_version_transition` parameter. This is an optional setting.
      * `noncurrent_version_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional setting.
      * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional setting.
 
-     Make sure to specify at least one of the following parameters: `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, or `noncurrent_version_transition`.
+     Make sure to specify at least one of the following parameters: `abort_incomplete_multipart_upload`, `expiration`, `transition`, `noncurrent_version_expiration`, or `noncurrent_version_transition`.
 
-     `expiration` parameters:
+     `expiration` settings:
      * `date`: Date after which you want the rule to take effect, You cannot use `date` together with `days`. This is an optional setting.
      * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use `days` together with `date`. This is an optional setting.
      * `expired_object_delete_marker`: Removes the delete marker for which expired object versions no longer exist. It can either be `true` or `false`. This is an optional setting.

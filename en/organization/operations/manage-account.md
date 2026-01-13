@@ -10,7 +10,7 @@ description: Follow this guide to manage a user in the {{ org-full-name }} My ac
 
 What you can do in the [_My account_](../concepts/my-account.md) portal depends on your account type:
 
-| | [Yandex account](../../iam/concepts/users/accounts.md#passport) | [Federated account](../../iam/concepts/users/accounts.md#local) | [Local account](../../iam/concepts/users/accounts.md#saml-federation) |
+| | [Yandex account](../../iam/concepts/users/accounts.md#passport) | [Federated account](../../iam/concepts/users/accounts.md#saml-federation) | [Local account](../../iam/concepts/users/accounts.md#local) |
 ---|---|---|---
 [Viewing attributes](#view-profile) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Updating attributes](#edit-profile) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/yes.svg) |

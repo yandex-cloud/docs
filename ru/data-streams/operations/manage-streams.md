@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), для которого хотите получить список потоков данных.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**. Откроется список потоков.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**. Откроется список потоков.
 
 {% endlist %}
 
@@ -24,7 +24,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите изменить настройки потока данных.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) в строке нужного потока данных и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Настройте параметры потока данных:
 
@@ -66,7 +66,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить поток данных.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) в строке нужного потока данных и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 

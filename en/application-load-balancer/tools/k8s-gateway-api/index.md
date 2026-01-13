@@ -5,6 +5,8 @@ description: '{{ alb-name }} provides the Gateway API tool for creating and mana
 
 # Gateway API for {{ managed-k8s-name }}
 
+{% include [ingress-to-gwin-tip](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 {{ alb-name }} provides the Gateway API tool for creating and managing load balancers in [{{ managed-k8s-full-name }} clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster). To learn more about the Gateway API project, visit its official [website](https://gateway-api.sigs.k8s.io/).
 
 Once you install the Gateway API, you can use it to create the `Gateway` resource as well as the linked `HTTPRoute` and `GRPCRoute` resources:
@@ -19,7 +21,7 @@ See the full configuration of Gateway API resources in the following sections:
 * [HTTPRoute](../../k8s-ref/http-route.md) and [GRPCRoute](../../k8s-ref/grpc-route.md): Rules for traffic routing between backends or redirection.
 * [RoutePolicy](../../k8s-ref/route-policy.md): `HTTPRoute` resource policy and backend access rule configuration.
 * [YCStorageBucket](../../k8s-ref/yc-storage-bucket.md): {{ objstorage-name }} bucket parameters for setting up a backend in the `HTTPRoute` resource.
-* [Service](../../k8s-ref/service-for-gateway.md): {{ k8s }} backend service description.
+* [Service](../../k8s-ref/service-for-gateway.md): Description of {{ k8s }} services used as backends.
 
 ## Route order in virtual hosts {#route-order}
 
@@ -61,7 +63,7 @@ If there are still routes of equal precedence within the same HTTPRoute/GRPCRout
 
 The route order may have an impact on the request/call processing logic.
 
-## Sample configuration {#example}
+## Configuration example {#example}
 
 Below you can see a sample `Gateway` and `HTTPRoute` resource configuration describing a load balancer that receives HTTPS requests and routes them to one of two service backends based on their URI paths.
 

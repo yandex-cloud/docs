@@ -303,11 +303,13 @@ To create a service account the nodes will use to pull the required Docker image
 
 {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
+To access {{ container-registry-name }}, [add a rule](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-nodegroup) for outgoing traffic that allows nodes to connect to external resources.
+
 {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
 
 {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Set up {{ k8s }} resources {#create-k8s-res}
+## Create {{ k8s }} resources {#create-k8s-res}
 
 {% include notitle [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
@@ -514,7 +516,7 @@ To set up an [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), 
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for the resources you no longer need, delete them:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md):
 

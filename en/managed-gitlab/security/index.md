@@ -1,13 +1,13 @@
 ---
 title: Access management in {{ mgl-full-name }}
-description: Access management in {{ mgl-full-name }}, a web-based open-source DevOps lifecycle tool. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ mgl-full-name }}, a web-based open-source DevOps lifecycle tool. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mgl-name }}
 
 In this section, you will learn about:
 * [Resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Roles this service has](#roles-list).
 * [Roles required](#required-roles) for specific actions.
 
 
@@ -25,6 +25,8 @@ To assign a role for a resource, a user should have the `gitlab.admin` role or o
 You can assign a role for an organization, [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Their nested resources will automatically inherit the roles.
 
 ## Roles this service has {#roles-list}
+
+{% include [gitlab](../../_mermaid/roles/gitlab.md) %}
 
 ### Service roles {#service-roles}
 
@@ -50,7 +52,7 @@ You can assign a role for an organization, [cloud](../../resource-manager/concep
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles are required {#required-roles}
+## Required roles {#required-roles}
 
 To use the service, you need the [{{ roles.gitlab.editor }} role](../../iam/concepts/access-control/roles.md) or higher to the folder where the projects are being created. With the `{{ roles.gitlab.viewer }}` role, you can only view the list of the projects and the contents of uploaded files.
 

@@ -9,7 +9,7 @@ To view L7 Load balancer logs:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the load balancer to view logs for.
   1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab.
   1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
@@ -24,7 +24,7 @@ You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the log group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the log group receiving your load balancer logs.
   1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
   1. To see the message details, click the arrow icon on its left.

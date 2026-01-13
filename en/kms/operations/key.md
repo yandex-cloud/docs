@@ -63,12 +63,6 @@ To create a key:
 
 After creating a key, you can change any of its attributes. If you change the encryption algorithm, the new algorithm is used starting with the next key version. To create a new version right away and make it the default one, [rotate the key](#rotate).
 
-{% note info %}
-
-The change of the key status from `Active` to `Inactive` is an [eventually consistent](../concepts/consistency.md) operation. Changes caused by such operations take effect with a delay of up to three hours.
-
-{% endnote %}
-
 To edit a key:
 
 {% list tabs group=instructions %}
@@ -96,7 +90,7 @@ To edit a key:
 
   Where:
 
-  * `--name`: Key name. If there are multiple keys with the same name in the folder, use the key ID.
+  * `--name`: Key name. If there are several keys of the same name in the folder, use the key ID.
   * `--new-name`: New key name.
   * `--default-algorithm`: [Encryption algorithms](../concepts/key.md#parameters), such as `aes-128`, `aes-192`, `aes-256`, `aes-256-hsm`, or `gost-r-3412-2015-k`.
   * `--rotation-period`: Key rotation period. To disable automatic rotation for an updated key, do not specify the `--rotation-period` parameter.
@@ -150,6 +144,101 @@ To edit a key:
   1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the key update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+     ```bash
+     yc kms symmetric-key get <key_name>
+     ```
+
+- API {#api}
+
+  Use the [update](../../kms/api-ref/SymmetricKey/update.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Update](../../kms/api-ref/grpc/SymmetricKey/update.md) gRPC API call.
+
+{% endlist %}
+
+## Activating or deactivating a key {#active-inactive}
+
+After creating a key, you can change its current [status](../concepts/key.md#parameters).
+
+{% note info %}
+
+Key deactivation (changing the key status from `Active` to `Inactive`) is an [eventually consistent](../concepts/consistency.md) operation. Changes caused by such operations take effect with a delay of up to three hours.
+
+{% endnote %}
+
+To change key status:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Log in to the [management console]({{ link-console-main }}).
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+  1. To deactivate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-deactivate }}** next to an `Active` key.
+  1. To activate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-activate }}** next to an `Inactive` key.
+
+- CLI {#cli}
+
+  Run this command:
+
+  ```bash
+  yc kms symmetric-key update \
+    --name example-key \
+    --status active
+  ```
+
+  Where:
+
+  * `--name`: Key name. If there are several keys of the same name in the folder, use the key ID in the `--id` parameter.
+  * `--status`: New key status. It can be either `active` or `inactive`.
+
+- {{ TF }} {#tf}
+
+  1. Open the {{ TF }} configuration file and add the `status` parameter set to `ACTIVE` or `INACTIVE` to the `yandex_kms_symmetric_key` resource's description.
+
+     Here is a configuration file example:
+
+     ```hcl
+     ...
+     resource "yandex_kms_symmetric_key" "key-a" {
+       name                = "example-symmetric-key"
+       description         = "description for key"
+       ...
+       status              = "INACTIVE"
+     }
+     ...
+     ```
+
+     For more information about `yandex_kms_symmetric_key` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/kms_symmetric_key).
+
+  1. Check the configuration using this command:
+
+     ```bash
+     terraform validate
+     ```
+
+     If the configuration is correct, you will get this message:
+
+     ```text
+     Success! The configuration is valid.
+     ```
+
+  1. Run this command:
+
+     ```bash
+     terraform plan
+     ```
+
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
+
+     ```bash
+     terraform apply
+     ```
+
+  1. Type `yes` and press **Enter** to confirm the changes.
+
+  You can check the key status update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc kms symmetric-key get <key_name>
@@ -291,4 +380,4 @@ Deleting a key is an [eventually consistent](../concepts/consistency.md) operati
 
 ## See also {#see-also}
 
-* [Managing {{ kms-name }} keys with {{ TF }}](../../kms/tutorials/terraform-key.md).
+* [Managing {{ kms-name }} keys with {{ TF }}](../../kms/tutorials/terraform-key.md)

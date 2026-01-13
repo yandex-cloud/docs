@@ -368,6 +368,12 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете использовать [условия](../../concepts/object.md#conditional-writes) при загрузке объекта, а также при [завершении составной загрузки](multipart-upload.md#conditional-writes).
 
+{% note tip %}
+
+{% include [use-forced-conditions](../../../_includes/storage/use-forced-conditions.md) %}
+
+{% endnote %}
+
 
 ### Загрузка объекта с условием по ETag {#if-match}
 

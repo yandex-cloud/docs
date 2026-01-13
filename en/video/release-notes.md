@@ -46,7 +46,7 @@ description: This section contains {{ video-name }} release notes.
 ## March 2024 {#mar-2024}
 
 * Added the option to get [view statistics](./operations/video/get-statistics.md) for a video.
-* Published the [reference guide on Cloud Video Player SDK for IFrame](./iframe-sdk.md).
+* Published the [reference guide on Cloud Video Player SDK for IFrame](./sdk/iframe/index.md).
 * Added the option to [configure public access](./operations/video/publish.md) to a video.
 
 ## November 2023 {#nov-2023}

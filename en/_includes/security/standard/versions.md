@@ -5,10 +5,10 @@
 Publication date: 22/09/2025.
 
 Each item of the standard got a unique ID and criticality level:
-   * High: The violation may lead to serious consequences.
-   * Medium: The violation creates moderate risks, may weaken protection, or complicate incident investigation.
-   * Low: The violation has minimal effect on security.
-   * Informational: Notifications on events that do not represent security violations but may be important in the general context.
+   * High: Violation may lead to serious consequences.
+   * Medium: Violation creates moderate risks, may weaken protection, or complicate incident investigation.
+   * Low: Violation has minimal effect on security.
+   * Informative: Notifications on events that do not represent security violations but may be important in the general context.
 
 ### Changes in version 1.4.1 {#version-1-4-1}
 
@@ -101,7 +101,7 @@ Publication date: 27/12/24.
 
 * **Updated the following items:**
     * Added [{{ container-registry-full-name }}](../../../container-registry/index.yaml), [{{ sws-full-name }}](../../../smartwebsecurity/index.yaml), and [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) to **Scope**.
-    * Added information about using {{ sws-name }} to **2.5 DDoS protection is enabled**.
+    * Added information on using {{ sws-name }} to **2.5 DDoS protection is enabled**.
     * Renumbered item **3.18 {{ serverless-containers-name }}/{{ sf-short-name }} uses the {{ vpc-short-name }} internal network** (formerly `3.22`) and updated it with info on networking restrictions between functions and user resources.
     * Renumbered and renamed item **3.19 Functions are configured in terms of access control, secret and environment variable management, and DBMS connection** (formerly `3.18 Public cloud functions are only used in exceptional cases`). Updated the item with information about assigning roles for a function, working with secrets and environment variables from a function, and accessing managed {{ mpg-full-name }} and {{ mch-full-name }} databases from a function.
     * Renumbered item **3.20 Side-channel attacks in {{ sf-name }} are addressed** (formerly `3.19`)
@@ -175,7 +175,7 @@ Publication date: 25/09/23.
 * **Updated the following items:**
     * 1.4, 1.14: Added recommendations for using the `{{ roles-auditor }}` role.
     * 1.9: Added recommendations for placing critical service accounts in separate folders.
-    * 1.12: Added `{{ roles-editor }}` to the list of privileged roles for the organization, cloud, and folder levels.
+    * 1.12: Added `{{ roles-editor }}` to the list of privileged roles assigned at the organization, cloud, and folder levels.
     * 4.7: Added a guide on how to encrypt data in {{ mpg-full-name }} and {{ mgp-full-name }} using `pgcrypto` and {{ kms-short-name }}.
     * 4.14: Added recommendations for using {{ lockbox-full-name }} in {{ TF }} without writing the information to `.tfstate`.
 
@@ -184,7 +184,7 @@ Publication date: 25/09/23.
     * 9.1 {{ captcha-full-name }} is used.
     * 9.2 Enabled the scan on push policy for the containerized image vulnerability scanner.
     * 9.3 Container images are periodically scanned.
-    * 9.4 Container images used in a production environment have the last scan date a week ago or less.
+    * 9.4 Container images used in the production environment have the last scan date of one week ago or less.
     * 9.5 Software artifacts are built using attestations.
     * 9.6 Artifacts within a pipeline can be signed using Cosign, a third-party command line utility.
     * 9.7 Artifacts are checked when deployed in {{ managed-k8s-full-name }}.

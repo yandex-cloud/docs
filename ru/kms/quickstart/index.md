@@ -22,7 +22,7 @@
     
     Создайте ключ симметричного шифрования: 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ключ.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте параметры ключа:
        * В поле **{{ ui-key.yacloud.common.name }}** укажите `my-first-key`.
@@ -46,7 +46,7 @@
     1. Запишите секретный текст в файл `plaintext.txt`.
     1. Из консоли управления скопируйте идентификатор ключа, созданного ранее.
         1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором был создан ключ.
-        1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
         1. В открывшемся окне скопируйте ключ из поля **{{ ui-key.yacloud.common.id }}**.
     1. Зашифруйте текст:
     

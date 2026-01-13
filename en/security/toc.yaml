@@ -107,10 +107,14 @@ items:
             href: tutorials/single-sign-on/saml-zabbix.md
           - name: Setting up SAML SSO in {{ mos-name }}
             href: tutorials/single-sign-on/saml-opensearch.md
+          - name: Setting up SAML SSO in {{ OS }}
+            href: tutorials/single-sign-on/saml-opensearch-self-managed.md
           - name: Setting up SAML SSO in SonarQube
             href: tutorials/single-sign-on/saml-sonarqube.md
           - name: Setting up SAML SSO in {{ yandex-360 }}
             href: tutorials/single-sign-on/saml-yandex-360.md
+          - name: Setting up SAML SSO in OpenVPN Access Server
+            href: tutorials/single-sign-on/saml-ovpn.md
       - name: Network security
         items:
           - name: Setting up virtual hosting
@@ -346,7 +350,7 @@ items:
                 href: >-
                   tutorials/kubernetes-security/nlb-with-target-resource-k8s/terraform.md
           - name: >-
-              Transferring {{ managed-k8s-name }} cluster logs to {{
+              Transferring a {{ managed-k8s-name }} cluster's logs to {{
               cloud-logging-name }}
             href: tutorials/kubernetes-security/k8s-fluent-bit-logging.md
   - name: Guides

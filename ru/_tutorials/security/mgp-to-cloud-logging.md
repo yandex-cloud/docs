@@ -18,7 +18,7 @@
    * Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-      1. Выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Введите имя кластера.
       1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
@@ -207,7 +207,7 @@
    * Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `default`.
 
       На открывшейся странице отобразятся записи.
@@ -266,7 +266,7 @@
    * Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-      1. Выберите сервис **Yandex MPP Analytics for PostgreSQL**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Введите имя кластера.
       1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
@@ -454,8 +454,8 @@
 
    * Консоль управления {#console}
 
-      1. В консоли управления перейдите в нужный каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `greenplum-log-group`.
 
       На открывшейся странице отобразятся записи.

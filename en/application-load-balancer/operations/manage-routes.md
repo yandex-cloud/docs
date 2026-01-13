@@ -22,7 +22,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to update a virtual host route in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the route you need.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, locate the route in the virtual host section, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to its name, and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens, depending on the [type](../concepts/http-router.md#routes-types) of your route:
 
@@ -128,7 +128,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 
             Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
         * `--virtual-host-name`: Name of the virtual host the route is in.
-        * `--match-http-method`: List of HTTP [methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) for which requests need to be routed, e.g., `--match-http-method GET,POST,OPTIONS`.
+        * `--match-http-method`: List of HTTP [methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) for which to route the requests. For example, `--match-http-method GET,POST,OPTIONS`.
 
             To clear the list of HTTP methods set for the route, provide the `--clear-method-match` parameter in the command.
         * Path-based routing condition parameters:
@@ -304,7 +304,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
         * `--request-max-timeout`: Maximum connection time. You can specify a shorter timeout in the `grpc-timeout` request HTTP header.
 
             To clear the connection timeout set for the route, provide the `--clear-max-timeout` parameter in the command.
-        * `--request-idle-timeout`: Maximum connection idle time in seconds.
+        * `--request-idle-timeout`: Maximum connection idle time, in seconds.
 
             To clear the idle timeout set for the route, provide the `--clear-idle-timeout` parameter in the command.
         * {% include [cli-route-creation-rate-limit](../../_includes/application-load-balancer/instruction-steps/cli-route-creation-rate-limit.md) %}
@@ -586,7 +586,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to delete a virtual host route from.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the route you need.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, locate the route in the virtual host section, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to its name, and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.

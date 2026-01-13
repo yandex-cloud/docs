@@ -5,6 +5,10 @@ description: This section contains {{ quota-manager-name }} release notes.
 
 # {{ quota-manager-full-name }} release notes
 
+## Q4 2025 {#q4-2025}
+
+The service has entered the [General Availability](../overview/concepts/launch-stages.md) stage.
+
 ## Q3 2025 {#q3-2025}
 
 Added the ability to [create and manage](operations/set-quotas.md) quota update requests using the [API](api-ref/authentication.md) and the [YC CLI](cli-ref/index.md).

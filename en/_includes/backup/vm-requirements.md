@@ -7,6 +7,12 @@ The minimum VM and {{ baremetal-name }} server specification to install and corr
 
 * RAM: For backups, 1 GB of RAM is required per 1 TB of backup. The RAM requirement depends on the amount and type of data processed by the [{{ backup-name }} agent](../../backup/concepts/agent.md).
 
+{% note tip %}
+
+{% include [cloud-backup-resources-note](./cloud-backup-resources-note.md) %}
+
+{% endnote %}
+
 {% include [agent-ram-usage-paragraph](./operations/agent-ram-usage-paragraph.md) %}
 
 {% include [agent-ram-usage-second-paragraph](./operations/agent-ram-usage-second-paragraph.md) %}

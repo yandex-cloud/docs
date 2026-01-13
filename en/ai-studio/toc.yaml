@@ -149,7 +149,7 @@ items:
                 href: operations/resources/create-dataset-gpt.md
               - name: Creating a dataset for tuning a text classifier
                 href: operations/resources/create-dataset-classifier.md
-              - name: Delete dataset
+              - name: Deleting a dataset
                 href: operations/resources/delete-dataset.md
           - name: Model tuning
             items:
@@ -972,6 +972,77 @@ items:
                     href: tuning/api-ref/grpc/Tuning/archive.md
                   - name: EnableBilling
                     href: tuning/api-ref/grpc/Tuning/enableBilling.md
+      - name: '{{ mcp-hub-name }} API'
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: mcp-gateway/api-ref/index.md
+              - name: McpGateway
+                items:
+                  - name: Overview
+                    href: mcp-gateway/api-ref/McpGateway/index.md
+                  - name: Get
+                    href: mcp-gateway/api-ref/McpGateway/get.md
+                  - name: List
+                    href: mcp-gateway/api-ref/McpGateway/list.md
+                  - name: Create
+                    href: mcp-gateway/api-ref/McpGateway/create.md
+                  - name: Update
+                    href: mcp-gateway/api-ref/McpGateway/update.md
+                  - name: Delete
+                    href: mcp-gateway/api-ref/McpGateway/delete.md
+                  - name: ListOperations
+                    href: mcp-gateway/api-ref/McpGateway/listOperations.md
+                  - name: ListAccessBindings
+                    href: mcp-gateway/api-ref/McpGateway/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: mcp-gateway/api-ref/McpGateway/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: mcp-gateway/api-ref/McpGateway/updateAccessBindings.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: mcp-gateway/api-ref/Operation/index.md
+                  - name: Get
+                    href: mcp-gateway/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: mcp-gateway/api-ref/Operation/cancel.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: mcp-gateway/api-ref/grpc/index.md
+              - name: McpGateway
+                items:
+                  - name: Overview
+                    href: mcp-gateway/api-ref/grpc/McpGateway/index.md
+                  - name: Get
+                    href: mcp-gateway/api-ref/grpc/McpGateway/get.md
+                  - name: List
+                    href: mcp-gateway/api-ref/grpc/McpGateway/list.md
+                  - name: Create
+                    href: mcp-gateway/api-ref/grpc/McpGateway/create.md
+                  - name: Update
+                    href: mcp-gateway/api-ref/grpc/McpGateway/update.md
+                  - name: Delete
+                    href: mcp-gateway/api-ref/grpc/McpGateway/delete.md
+                  - name: ListOperations
+                    href: mcp-gateway/api-ref/grpc/McpGateway/listOperations.md
+                  - name: ListAccessBindings
+                    href: mcp-gateway/api-ref/grpc/McpGateway/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: mcp-gateway/api-ref/grpc/McpGateway/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: >-
+                      mcp-gateway/api-ref/grpc/McpGateway/updateAccessBindings.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: mcp-gateway/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: mcp-gateway/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: mcp-gateway/api-ref/grpc/Operation/cancel.md
   - name: Tutorials
     items:
       - name: All tutorials

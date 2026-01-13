@@ -1,6 +1,6 @@
 ---
-title: How to delete a rule from a {{ sws-full-name }} profile
-description: Follow this guide to delete a rule from a {{ sws-full-name }} profile.
+title: How to delete a rule from a security profile in {{ sws-full-name }}
+description: Follow this guide to delete a rule from a security profile in {{ sws-full-name }}.
 ---
 
 # Deleting a rule from a security profile
@@ -12,7 +12,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select the profile where you want to delete a [rule](../concepts/rules.md).
   1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, click ![options](../../_assets/console-icons/ellipsis.svg) next to the rule in question and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
@@ -29,7 +29,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
 
   1. Update the security profile by applying the updated [YAML](https://en.wikipedia.org/wiki/YAML) configuration of the security rules after removing irrelevant rules from it:
   
-     1. To get the YAML configuration for the current security rules in the profile, run this command, specifying the security profile name or ID:
+     1. To get the YAML configuration for the current security rules in the profile, run this command specifying the security profile name or ID:
 
          ```bash
          yc smartwebsecurity security-profile get <security_profile_name_or_ID>
@@ -132,7 +132,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
 
          {% endcut %}
 
-     1. Copy the current rule configuration (`security_rules` section contents) to any text editor and save it to a file after removing irrelevant rules from it. Here is an example:
+     1. Copy the current rule configuration (the `security_rules` section contents) to any text editor and save it to a file after removing irrelevant rules from it. Here is an example:
 
          {% cut "security-rules.yaml" %}
 
@@ -193,7 +193,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
 
          {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
 
-     1. To update a security profile, run this command, specifying the profile name or ID:
+     1. To update a security profile, run this command specifying the profile name or ID:
     
          ```bash
          yc smartwebsecurity security-profile update <security_profile_name_or_ID> \
@@ -332,7 +332,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resource updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
   ```bash
   yc smartwebsecurity security-profile get <security_profile_ID>

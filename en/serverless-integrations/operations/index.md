@@ -70,6 +70,12 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 * [{#T}](workflows/execution/stop.md)
 * [{#T}](workflows/execution/terminate.md)
 
+### Managing workflow access permissions {#sw-access-rights}
+
+* [{#T}](workflows/access-rights/role-list.md)
+* [{#T}](workflows/access-rights/role-add.md)
+* [{#T}](workflows/access-rights/role-revoke.md)
+
 ### Getting additional information {#get-additional-info}
 
 * [Viewing operations with service resources](operation-logs.md)
@@ -140,7 +146,7 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 * [{#T}](eventrouter/rule/disable.md)
 * [{#T}](eventrouter/rule/delete.md)
 
-### Managing resource access permissions {#access-rights}
+### Managing resource access permissions {#er-access-rights}
 
 * [{#T}](eventrouter/access-rights/role-list.md)
 * [{#T}](eventrouter/access-rights/role-add.md)

@@ -10,7 +10,7 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an [ARL profile](../concepts/arl.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Name the profile.
   1. Optionally, provide a description.
@@ -67,7 +67,7 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-       {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}).
+       {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
 
   Once your ARL profile is created, you can [add rules](arl-rule-add.md).
 

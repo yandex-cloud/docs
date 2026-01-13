@@ -5,6 +5,18 @@ description: This section contains {{ postbox-name }} release notes.
 
 # {{ postbox-full-name }} release notes
 
+## October 2025 {#october-2025}
+
+### Updates {#updates}
+
+* Added support for the sender list limit: now, when [creating an address](operations/create-address.md), you can also add the list of mailboxes allowed to send to it.
+
+## September 2025 {#september-2025}
+
+### Updates {#updates}
+
+* Added graph [statistics](concepts/statistics.md) to track email deliveries, opens, link clicks, and unsubscribes.
+
 ## August 2025 {#august-2025}
 
 ### Updates {#updates}

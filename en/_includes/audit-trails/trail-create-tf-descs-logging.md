@@ -18,3 +18,4 @@ Only one destination must be specified: `storage_destination`, `logging_destinat
 
     * `stream_name`: Name of the data stream for the trail to save audit logs to.
     * `database_id`: ID of the {{ ydb-full-name }} database used by {{ yds-name }}.
+    * `codec`: Event compression method when writing to {{ yds-name }}. The possible values are `RAW` (no compression, default), `GZIP`, `ZSTD`. Enable compression if you expect an event flow greater than 1 MB/s.

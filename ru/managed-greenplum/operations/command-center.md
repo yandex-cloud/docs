@@ -32,7 +32,8 @@ description: Используя командный центр, вы можете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
     1. Выберите, что вы хотите посмотреть, и перейдите на нужную вкладку:
 
@@ -60,7 +61,8 @@ description: Используя командный центр, вы можете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}**.
     1. Выберите нужный показатель потребления:
 
@@ -85,7 +87,8 @@ description: Используя командный центр, вы можете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
     1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
 
@@ -103,7 +106,8 @@ description: Используя командный центр, вы можете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
     1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**.
     1. Подтвердите остановку запроса.
@@ -123,7 +127,8 @@ description: Используя командный центр, вы можете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Отсортируйте сессии по одному из столбцов: **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-peak-memory }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-spill-total-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-write-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-read-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-recv-total-bytes }}** или **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-sent-total-bytes }}**. 
     1. Найдите сессии, которые потребляют наибольшее количество выбранного ресурса.
@@ -149,7 +154,8 @@ description: Используя командный центр, вы можете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}**.
     1. Включите отображение только активных сессий. Для этого выключите все кнопки-статусы, кроме **{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-active }}**.
@@ -192,7 +198,8 @@ description: Используя командный центр, вы можете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Отсортируйте сессии по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}**.
     1. Найдите сессию в статусе `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}`, которая длится наибольшее количество времени. Нажмите на номер этой сессии. Откроется страница с информацией о ней.
@@ -209,7 +216,8 @@ description: Используя командный центр, вы можете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}**.
     1. Для отображения дерева блокировок нажмите кнопку ![image](../../_assets/console-icons/branches-down.svg).
@@ -254,7 +262,8 @@ description: Используя командный центр, вы можете
 
     1. Узнайте, когда было зафиксировано высокое потребление CPU:
 
-        1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+        1. Перейдите на [страницу каталога]({{ link-console-main }}).
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
         1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
         1. Задайте фильтр **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-cpu-usage }}**.
         1. Определите по графику, когда потребление CPU стало аномально высоким.
@@ -295,7 +304,8 @@ description: Используя командный центр, вы можете
 
     1. Определите причину появления ошибок:
 
-        1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+        1. Перейдите на [страницу каталога]({{ link-console-main }}).
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
         1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
         1. Задайте диапазон времени, в который наблюдались ошибки.
         1. В выпадающем списке над графиком последовательно выберите **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-connections }}**, а затем **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-net-usage }}**. Сравните графики.
@@ -343,7 +353,8 @@ description: Используя командный центр, вы можете
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
     1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**.
     1. Выберите момент времени, когда наблюдались проблемы по данным мониторинга. Используйте блок **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-at-time }}** и стрелки **<** **>** для точного задания момента времени.

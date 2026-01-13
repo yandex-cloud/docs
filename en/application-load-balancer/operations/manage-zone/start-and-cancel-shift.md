@@ -83,7 +83,7 @@ description: Follow this guide to disable/enable availability zones and test tra
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with your load balancer.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}** and then select the load balancer you need.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}** and select the load balancer.
   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, next to the availability zone, view its status.
 
       If you set the deactivation duration, you will see the end time next to the zone.

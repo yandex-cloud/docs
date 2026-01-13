@@ -62,6 +62,49 @@ description: Следуя данной инструкции, вы сможете
      * `--default-subdomain` — [домен](../../concepts/domains.md) по умолчанию. Будет использоваться, если к пулу не привязаны другие домены.
      * `--labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр. Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры [пула пользователей](../../concepts/user-pools.md):
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_userpool" "example_userpool" {
+       organization_id   = "<идентификатор_организации>"
+       name              = "<название_пула>"
+       description       = "<описание_пула>"
+       default_subdomain = "<домен_по_умолчанию>"
+       labels            = {
+         <ключ> = "<значение>"
+       }
+     }
+     ```
+
+     Где:
+
+     * `organization_id` — идентификатор организации, в которой нужно создать пул пользователей.
+     * `name` — название пула пользователей. Название должно быть уникальным в рамках организации и соответствовать требованиям:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `description` — описание пула пользователей. Необязательный параметр.
+     * `default_subdomain` — [домен](../../concepts/domains.md) по умолчанию. Будет использоваться, если к пулу не привязаны другие домены.
+     * `labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр.
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_userpool` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager idp userpool list --organization-id <идентификатор_организации>
+     ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Userpool.Create](../../idp/api-ref/Userpool/create.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/Create](../../idp/api-ref/grpc/Userpool/create.md).

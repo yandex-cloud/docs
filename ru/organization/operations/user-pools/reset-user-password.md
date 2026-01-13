@@ -90,11 +90,47 @@ description: Следуя данной инструкции, вы сможете
 
       {% note info %}
 
-      Пароль пользователя может состоять из латинских букв, цифр и специальных символов.
-      
-      Пароль должен быть не короче семи символов, содержать как минимум одну латинскую букву в верхнем регистре, одну — в нижнем регистре, одну цифру и один специальный символ. 
+      Новый пароль должен соответствовать заданной [парольной политике](../../concepts/password-policy.md) пула пользователей.
 
       {% endnote %}
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры пользователя:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_user" "example_user" {
+       userpool_id = "<идентификатор_пула>"
+       username    = "<имя_пользователя>"
+       full_name   = "<полное_имя_пользователя>"
+       password_spec = {
+         password = "<новый_пароль>"
+       }
+     }
+     ```
+
+     Где:
+
+     * `userpool_id` — идентификатор [пула](../../concepts/user-pools.md), в котором находится нужный пользователь.
+     * `username` — имя пользователя.
+     * `full_name` — полное имя пользователя.
+     * `password` — новый пароль пользователя.
+
+     {% note info %}
+
+     Новый пароль должен соответствовать заданной [парольной политике](../../concepts/password-policy.md) пула пользователей.
+
+     {% endnote %}
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 - API {#api}
 

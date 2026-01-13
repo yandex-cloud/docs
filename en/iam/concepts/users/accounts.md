@@ -31,6 +31,8 @@ Use federated accounts if you need to grant {{ yandex-cloud }} access to a large
 
 For more information, see [{#T}](../../../organization/concepts/add-federation.md).
 
+{% include notitle [fed-user-data-after-login-notice](../../../_includes/organization/fed-user-data-after-login-notice.md) %}
+
 ### Use cases {#examples-saml-federation}
 
 * [{#T}](../../../tutorials/security/vault-secret.md)

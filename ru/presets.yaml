@@ -943,6 +943,7 @@ default:
   yc-mdb-os: yc managed-opensearch
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
+  yc-mdb-sp: yc managed-spark
   yc-mdb-tr: yc managed-trino
   yc-metastore: yc managed-metastore
   yc-serverless: yc serverless
@@ -1153,8 +1154,8 @@ default:
         v1|number: 15.552
         v1|string: "15,5520\_₸"
       v1:
-        software|month|number: 15.552
-        software|month|string: "15,5520\_₸"
+        software|number: 0.0216
+        software|string: "0,0216\_₸"
   sku|KZT|load_testing:
     storage:
       test_results:
@@ -1172,8 +1173,8 @@ default:
         get|string: "18,6624\_₸"
     storage:
       v1:
-        active_secrets|month|number: 97.2
-        active_secrets|month|string: "97,20\_₸"
+        active_secrets|number: 0.135
+        active_secrets|string: "0,1350\_₸"
   sku|KZT|mdb:
     cluster:
       clickhouse:
@@ -1445,9 +1446,13 @@ default:
         cold|month|number: 5.778
         ice|month|number: 2.889
         ice|month|string: "2,8890\_₸"
+        ice|number: 0.004
+        ice|string: "0,0040\_₸"
         standard|pricingRate:
           720|month|number: 10.8539
           720|month|string: "10,8539\_₸"
+          720|number: 0.0151
+          720|string: "0,0151\_₸"
   sku|KZT|support:
     organization:
       business:
@@ -1758,8 +1763,8 @@ default:
         v1|number: 3.1104
         v1|string: "3,1104\_₽"
       v1:
-        software|month|number: 3.1104
-        software|month|string: "3,1104\_₽"
+        software|number: 0.0043
+        software|string: "0,0043\_₽"
   sku|RUB|load_testing:
     storage:
       test_results:
@@ -1777,8 +1782,8 @@ default:
         get|string: "3,7325\_₽"
     storage:
       v1:
-        active_secrets|month|number: 19.44
-        active_secrets|month|string: "19,44\_₽"
+        active_secrets|number: 0.027
+        active_secrets|string: "0,0270\_₽"
   sku|RUB|mdb:
     cluster:
       clickhouse:
@@ -2058,9 +2063,13 @@ default:
         cold|month|number: 1.1556
         ice|month|number: 0.5778
         ice|month|string: "0,5778\_₽"
+        ice|number: 0.0008
+        ice|string: "0,0008\_₽"
         standard|pricingRate:
           720|month|number: 2.1708
           720|month|string: "2,1708\_₽"
+          720|number: 0.003
+          720|string: "0,0030\_₽"
   sku|RUB|support:
     organization:
       business:
@@ -2355,8 +2364,8 @@ default:
         v1|number: 0.02592
         v1|string: "0,025920\_$"
       v1:
-        software|month|number: 0.02592
-        software|month|string: "0,025920\_$"
+        software|number: 0.000036
+        software|string: "0,000036\_$"
   sku|USD|load_testing:
     storage:
       test_results:
@@ -2650,9 +2659,13 @@ default:
         cold|month|number: 0.00963
         ice|month|number: 0.004815
         ice|month|string: "0,004815\_$"
+        ice|number: 0.000007
+        ice|string: "0,000007\_$"
         standard|pricingRate:
           720|month|number: 0.01809
           720|month|string: "0,018090\_$"
+          720|number: 0.000025
+          720|string: "0,000025\_$"
   sku|USD|support:
     organization:
       business:
@@ -3627,6 +3640,11 @@ default:
         products:
           action:
             console: Cloud Console
+      dspm:
+        scan-resource-group:
+          label_include_in_scan: Включать в сканирование
+          public_buckets: Публичные бакеты
+          title_all_buckets: Все бакеты
       entity:
         certificate:
           action:
@@ -4782,7 +4800,12 @@ default:
         title_keeper: Keeper
         title_zookeeper: ZooKeeper
       cloud-apps:
+        button_empty-install-application: Установить приложение
+        button_install: Установить
         label_marketplace: Магазин приложений
+        label_service-account: Сервисный аккаунт
+        label_subnetwork: Подсеть
+        section_parameters: Настройки приложения
       cloud-registry:
         action_registry-create: Создать реестр
         registries:
@@ -5049,6 +5072,7 @@ default:
             popup_settings-submit: Сохранить
         navigation-menu:
           label_billing: Yandex Cloud Billing
+          label_cloud-apps: Cloud Apps
           label_load-balancer: Network Load Balancer
           label_managed-clickhouse: Managed Service for ClickHouse
           label_managed-kubernetes: Managed Service for Kubernetes
@@ -5068,6 +5092,7 @@ default:
           label_sg-from-list: Из списка
           label_sg-none: Без групп
         service-account-field:
+          label_sg-auto: Автоматически
           label_sg-from-list: Из списка
         service-account-select:
           label_no-service-account: Не выбрано
@@ -6535,6 +6560,11 @@ default:
             field_where: Условие выбора
             label_fixed-lifetime: фиксированный
             label_range-lifetime: переменный
+            label_source-clickhouse: ClickHouse
+            label_source-http: HTTP(s)
+            label_source-mongodb: StoreDoc
+            label_source-mysql: MySQL
+            label_source-postgresql: PostgreSQL
           field_diskSizeLimit: Максимальный размер хранилища
           field_emergencyUsageThreshold: Незамедлительно при заполненности более
           field_plannedUsageThreshold: В окно обслуживания при заполненности более
@@ -8525,6 +8555,8 @@ default:
                         title: Интервал записи
                       buffer_size:
                         title: Размер буфера
+                      scan_interval:
+                        title: Интервал сканирования
                     ObjectStorageCodecUI:
                       GZIP:
                         title: Gzip

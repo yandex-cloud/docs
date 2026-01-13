@@ -26,6 +26,7 @@ List of languages (from A to Z):
 1. `bg`: Bulgarian
 1. `bn`: Bengali
 1. `bs`: Bosnian
+1. `bua`: Buryat
 1. `ca`: Catalan
 1. `ceb`: Cebuano
 1. `cs`: Czech
@@ -60,16 +61,20 @@ List of languages (from A to Z):
 1. `jv`: Javanese
 1. `ka`: Georgian
 1. `kazlat`: Kazakh (Latin)
+1. `kbd`: Kabardino-Circassian
 1. `kk`: Kazakh
 1. `km`: Khmer
 1. `kn`: Kannada
 1. `ko`: Korean
+1. `krc`: Karachay-Balkar
+1. `kv`: Komi
 1. `ky`: Kirghiz
 1. `la`: Latin
 1. `lb`: Luxembourgish
 1. `lo`: Lao
 1. `lt`: Lithuanian
 1. `lv`: Latvian
+1. `mdf`: Mokshan
 1. `mg`: Malagasy
 1. `mhr`: Mari
 1. `mi`: Maori
@@ -81,6 +86,7 @@ List of languages (from A to Z):
 1. `ms`: Malay
 1. `mt`: Maltese
 1. `my`: Burmese
+1. `myv`: Erzya
 1. `ne`: Nepali
 1. `nl`: Dutch
 1. `no`: Norwegian
@@ -88,8 +94,8 @@ List of languages (from A to Z):
 1. `pa`: Punjabi
 1. `pap`: Papiamento
 1. `pl`: Polish
-1. `pt`: Portuguese
 1. `pt-BR`: Portuguese (Brazilian)
+1. `pt`: Portuguese
 1. `ro`: Romanian
 1. `ru`: Russian
 1. `sah`: Yakut
@@ -97,8 +103,8 @@ List of languages (from A to Z):
 1. `sk`: Slovak
 1. `sl`: Slovenian
 1. `sq`: Albanian
-1. `sr`: Serbian
 1. `sr-Latn`: Serbian (Latin)
+1. `sr`: Serbian
 1. `su`: Sundanese
 1. `sv`: Swedish
 1. `sw`: Swahili
@@ -109,6 +115,7 @@ List of languages (from A to Z):
 1. `tl`: Tagalog
 1. `tr`: Turkish
 1. `tt`: Tatar
+1. `tyv`: Tuvan
 1. `udm`: Udmurt
 1. `uk`: Ukrainian
 1. `ur`: Urdu

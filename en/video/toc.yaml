@@ -137,7 +137,15 @@ items:
           - name: Overview
             href: sdk/index.md
           - name: IFrame
-            href: iframe-sdk.md
+            items:
+              - name: Getting started
+                href: sdk/iframe/index.md
+              - name: Player initialization parameters
+                href: sdk/iframe/initialization.md
+              - name: Player methods
+                href: sdk/iframe/player-methods.md
+              - name: Player events
+                href: sdk/iframe/player-events.md
           - name: iOS
             href: sdk/ios-sdk.md
           - name: JavaScript

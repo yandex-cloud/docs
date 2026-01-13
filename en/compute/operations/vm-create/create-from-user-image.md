@@ -27,7 +27,6 @@ Make sure the image you upload has the `READY` status.
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Select **Advanced setup**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
@@ -73,95 +72,91 @@ Make sure the image you upload has the `READY` status.
 
   1. View the description of the CLI command to create a VM:
 
-     ```bash
-     yc compute instance create --help
-     ```
-
+      ```bash
+      yc compute instance create --help
+      ```
   1. Get a list of images in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-     ```bash
-     yc compute image list
-     ```
+      ```bash
+      yc compute image list
+      ```
 
-     Result:
+      Result:
 
-     ```text
-     +----------------------+-----------------+--------+-------------+--------+
-     |          ID          |      NAME       | FAMILY | PRODUCT IDS | STATUS |
-     +----------------------+-----------------+--------+-------------+--------+
-     |         ...          |        ...      |        |             |  ...   |
-     | fd8gkcd3l6ov******** | your-test-image |        |             | READY  |
-     |         ...          |        ...      |        |             |  ...   |
-     +----------------------+-----------------+--------+-------------+--------+
-     ```
-
+      ```text
+      +----------------------+-----------------+--------+-------------+--------+
+      |          ID          |      NAME       | FAMILY | PRODUCT IDS | STATUS |
+      +----------------------+-----------------+--------+-------------+--------+
+      |         ...          |        ...      |        |             |  ...   |
+      | fd8gkcd3l6ov******** | your-test-image |        |             | READY  |
+      |         ...          |        ...      |        |             |  ...   |
+      +----------------------+-----------------+--------+-------------+--------+
+      ```
   1. Select `ID` or `NAME` of the image you need.
-
   1. Select a [subnet](../../../vpc/concepts/network.md#subnet):
 
-     ```bash
-     yc vpc subnet list
-     ```
+      ```bash
+      yc vpc subnet list
+      ```
 
-     Result:
+      Result:
 
-     ```text
-     +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-     |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
-     +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-     | e9bnlm18l70a******** |   default-{{ region-id }}-a   | enpe3m3fa00u******** |                |   {{ region-id }}-a   | [10.128.0.0/24] |
-     +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-     ```
-
+      ```text
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      | e9bnlm18l70a******** |   default-{{ region-id }}-a   | enpe3m3fa00u******** |                |   {{ region-id }}-a   | [10.128.0.0/24] |
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      ```
   1. Create a VM in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-     ```bash
-     yc compute instance create \
-       --name <VM_name> \
-       --zone <availability_zone> \
-       --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
-       --create-boot-disk name=<disk_name>,size=<disk_size_in_GB>,image-id=<custom_image_ID>,kms-key-id=<key_ID> \
-       --ssh-key <path_to_public_key_file>
-     ```
+      ```bash
+      yc compute instance create \
+        --name <VM_name> \
+        --zone <availability_zone> \
+        --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
+        --create-boot-disk name=<disk_name>,size=<disk_size_in_GB>,image-id=<custom_image_ID>,kms-key-id=<key_ID> \
+        --ssh-key <path_to_public_key_file>
+      ```
 
-     Where:
-     * `--name`: VM name. The naming requirements are as follows:
+      Where:
+      * `--name`: VM name. Follow these naming requirements:
 
-       {% include [name-format](../../../_includes/name-format.md) %}
+        {% include [name-format](../../../_includes/name-format.md) %}
 
-       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) matching the selected subnet.
-     * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
-         * `subnet-name`: Name of the selected subnet.
-         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, omit this parameter.
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) matching the selected subnet.
+      * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
+          * `subnet-name`: Name of the selected subnet.
+          * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, omit this parameter.
 
-         {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
+          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
-     * `--create-boot-disk`: VM boot disk settings:
-         * `name`: Boot disk name. Follow these naming requirements:
+      * `--create-boot-disk`: VM boot disk settings:
+          * `name`: Boot disk name. Follow these naming requirements:
 
-             {% include [name-format](../../../_includes/name-format.md) %}
+              {% include [name-format](../../../_includes/name-format.md) %}
 
-         * `size`: Disk size in GB.
-         * `image-id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
-         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional setting.
+          * `size`: Disk size in GB.
+          * `image-id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
+          * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional setting.
 
-           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
-           
-           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+            {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
 
-           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
-           
-     * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
+            {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
 
-         {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
+            {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
-         If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in the `--metadata-from-file` parameter.
+      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
-  {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-     Result:
+          If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in the `--metadata-from-file` parameter.
+
+    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+
+      Result:
 
       ```text
       id: fhmue131en37********
@@ -207,97 +202,97 @@ Make sure the image you upload has the `READY` status.
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create a VM from a custom image:
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
-     ```hcl
-     resource "yandex_compute_disk" "boot-disk" {
-       name     = "<disk_name>"
-       type     = "<disk_type>"
-       zone     = "<availability_zone>"
-       size     = "<disk_size>"
-       image_id = "<custom_image_ID>"
-     }
+      ```hcl
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "<disk_name>"
+        type     = "<disk_type>"
+        zone     = "<availability_zone>"
+        size     = "<disk_size>"
+        image_id = "<custom_image_ID>"
+      }
 
-     resource "yandex_compute_instance" "vm-1" {
-       name                      = "vm-from-image"
-       allow_stopping_for_update = true
-       platform_id               = "standard-v3"
-       zone                      = "<availability_zone>"
+      resource "yandex_compute_instance" "vm-1" {
+        name                      = "vm-from-image"
+        allow_stopping_for_update = true
+        platform_id               = "standard-v3"
+        zone                      = "<availability_zone>"
 
-       resources {
-         cores  = <number_of_vCPUs>
-         memory = <RAM_in_GB>
-       }
+        resources {
+          cores  = <number_of_vCPUs>
+          memory = <RAM_in_GB>
+        }
 
-       boot_disk {
-         disk_id = yandex_compute_disk.boot-disk.id
-       }
+        boot_disk {
+          disk_id = yandex_compute_disk.boot-disk.id
+        }
 
-       network_interface {
-         subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
-         nat       = true
-       }
+        network_interface {
+          subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+          nat       = true
+        }
 
-       metadata = {
-         ssh-keys = "<username>:<SSH_key_contents>"
-       }
-     }
+        metadata = {
+          ssh-keys = "<username>:<SSH_key_contents>"
+        }
+      }
 
-     resource "yandex_vpc_network" "network-1" {
-       name = "network1"
-     }
+      resource "yandex_vpc_network" "network-1" {
+        name = "network1"
+      }
 
-     resource "yandex_vpc_subnet" "subnet-1" {
-       name       = "subnet1"
-       zone       = "<availability_zone>"
-       network_id = "${yandex_vpc_network.network-1.id}"
-     }
-     ```
+      resource "yandex_vpc_subnet" "subnet-1" {
+        name       = "subnet1"
+        zone       = "<availability_zone>"
+        network_id = "${yandex_vpc_network.network-1.id}"
+      }
+      ```
 
-     Where:
+      Where:
 
-     * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
-       * `name`: Disk name. Follow these naming requirements:
+      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
+          * `name`: Disk name. Follow these naming requirements:
 
-          {% include [name-format](../../../_includes/name-format.md) %}
+              {% include [name-format](../../../_includes/name-format.md) %}
 
-       * `type`: Disk type.
-       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
-       * `size`: Disk size in GB.
-       * `image_id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
-     * `yandex_compute_instance`: VM description.
-       * `name`: VM name. Follow these naming requirements:
+          * `type`: Disk type.
+          * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
+          * `size`: Disk size in GB.
+          * `image_id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
+      * `yandex_compute_instance`: VM description.
+          * `name`: VM name. Follow these naming requirements:
 
-          {% include [name-format](../../../_includes/name-format.md) %}
+              {% include [name-format](../../../_includes/name-format.md) %}
 
-          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+              {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-       * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
-       * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-       * `zone`: Availability zone the VM will reside in.
-       * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-       * `boot_disk`: Boot disk settings. Specify the disk ID.
-       * `network_interface`: VM [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+          * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
+          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
+          * `zone`: Availability zone the VM will reside in.
+          * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+          * `boot_disk`: Boot disk settings. Specify the disk ID.
+          * `network_interface`: VM [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
 
-           {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
+              {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
-       * `metadata`: In metadata, provide the public key for SSH access to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
-     * `yandex_vpc_network`: Cloud network description.
-     * `yandex_vpc_subnet`: Description of the subnet to connect your VM to.
+          * `metadata`: In metadata, provide the public key for SSH access to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
+      * `yandex_vpc_network`: Cloud network description.
+      * `yandex_vpc_subnet`: Description of the subnet to connect your VM to.
 
-     {% note info %}
+      {% note info %}
 
-     If you already have suitable resources, such as a cloud network and subnet, you do not need to redefine them. Specify their names and IDs in the appropriate parameters.
+      If you already have suitable resources, such as a cloud network and subnet, you do not need to redefine them. Specify their names and IDs in the appropriate parameters.
 
-     {% endnote %}
+      {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
   1. Create the resources:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

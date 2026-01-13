@@ -482,7 +482,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
          ...
          deploy_policy {
            max_expansion   = <expanding_group_during_update>
-           max_unavailable = <number_of_unavailable_nodes_during_update>
+           max_unavailable = <number_of_unavailable_nodes_when_updating>
          }
        }
        ```
@@ -682,8 +682,8 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
 You can update a {{ managed-k8s-name }} cluster and node group within the same {{ k8s }} version. When installing the update, the major version of {{ k8s }} does not change.
 
-Such an update enables you to:
-* Install new packages.
+Such an update may include:
+* Installing new packages.
 * Update the {{ k8s }} image.
 * Updating the {{ k8s }} patch version.
 
@@ -756,5 +756,64 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
   * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Required update {#necessary-update}
+
+A {{ managed-k8s-name }} cluster can be subject to a [required update](../concepts/release-channels-and-updates.md#necessary-update).
+
+Such an update may include:
+
+* Installing new packages.
+* Updating the {{ k8s }} major version.
+* Applying the {{ k8s }} security updates.
+
+If your cluster is set to update at any time, the required update will take place as and when determined by the service. Otherwise, by default, the required update will be installed 14 days after notifying the users. You can reschedule the required update to an earlier date.
+
+### Instant update {#instant-update}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the name of the {{ managed-k8s-name }} cluster.
+  1. Under **Updates**, click **Update now**.
+
+{% endlist %}
+
+### Rescheduling an update {#move-update}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the name of the {{ managed-k8s-name }} cluster.
+  1. Under **Updates**, click **Reschedule**.
+  1. Select a new update date and click **Reschedule**.
+
+- CLI {#cli}
+
+  Reschedule a cluster update:
+
+  ```bash
+  {{ yc-k8s }} reschedule-maintenance \
+      --id <cluster_ID> \
+      --delayed-until <update_date_and_time>
+  ```
+
+  Where:
+
+  * `--delayed-until`: New date and time for the update, in `YYYY-MM-DDThh:mm:ssZ` format. For example, `2026-01-01T21:00:00Z`. This is a required setting.
+
+  You can [get the {{ managed-k8s-name }} cluster ID with the list of clusters in the folder](./kubernetes-cluster/kubernetes-cluster-list.md).
+
+- API {#api}
+
+  Use the [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) API method and provide the following in the request:
+  * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
+  * New date and time for the update, `YYYY-MM-DDThh:mm:ssZ`, in `delayedUntil`. For example, `2026-01-01T21:00:00Z`.
 
 {% endlist %}

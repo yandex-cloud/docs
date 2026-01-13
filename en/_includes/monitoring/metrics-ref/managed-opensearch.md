@@ -17,13 +17,13 @@ subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-opensearch-cpu-metrics}
 
-These metrics show CPU core workload.
+These metrics show the processor core workload.
 
 The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance | 
+| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share | 
 | `cpu.guarantee`<br/>`DGAUGE`, count | Guaranteed number of cores | 
 | `cpu.guest_nice`<br/>`DGAUGE`, % | CPU core usage, `guest_nice` usage type | 
 | `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type | 
@@ -60,7 +60,7 @@ The consumption type goes into the `systag` label.
 | `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space | 
 | `disk.used_inodes`<br/>`DGAUGE`, count | Used inodes |
 
-## Disk operation metrics {#managed-opensearch-diskio-metrics}
+## Disk I/O metrics {#managed-opensearch-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations currently in progress |
@@ -74,8 +74,6 @@ The consumption type goes into the `systag` label.
 | `io.avg.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 | `io.avg.write_time`<br/>`DGAUGE`, milliseconds | Total time spent writing to disk |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
-| `io.disk*.merged_reads`<br/>`DGAUGE`, count | Number of merged read operations for a given disk | 
-| `io.disk*.merged_writes`<br/>`DGAUGE`, count | Number of merged writes for a given disk | 
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk |
@@ -135,12 +133,8 @@ The consumption type goes into the `systag` label.
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes per second | Network data receive rate | 
 | `net.bytes_sent`<br/>`DGAUGE`, bytes per second | Network data transmit rate | 
-| `net.drop_in`<br/>`DGAUGE`, count | Dropped receive packets | 
-| `net.drop_out`<br/>`DGAUGE`, count | Dropped transmit packets | 
 | `net.dropin`<br/>`DGAUGE`, count | Dropped receive packets | 
 | `net.dropout`<br/>`DGAUGE`, count | Dropped transmit packets | 
-| `net.err_in`<br/>`DGAUGE`, count | Receive error count | 
-| `net.err_out`<br/>`DGAUGE`, count | Transmit error count | 
 | `net.errin`<br/>`DGAUGE`, count | Receive error count | 
 | `net.errout`<br/>`DGAUGE`, count | Transmit error count | 
 | `net.packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate | 
@@ -154,17 +148,11 @@ The consumption type goes into the `systag` label.
 | `available`<br/>`DGAUGE`, count | RAM usage, `available` usage type |
 | `available_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `available` usage type |
 | `buffered`<br/>`DGAUGE`, bytes | RAM usage, `buffered` usage type |
-| `bytes_recv`<br/>`DGAUGE`, bytes | Size of data received |
-| `bytes_sent`<br/>`DGAUGE`, bytes | Size of data sent |
 | `cached`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
 | `commit_limit`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type |
 | `committed_as`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
 | `count`<br/>`DGAUGE`, objects | Number of objects |
 | `dirty`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
-| `drop_in`<br/>`DGAUGE`, count | Dropped receive packets | 
-| `drop_out`<br/>`DGAUGE`, count | Dropped transmit packets | 
-| `err_in`<br/>`DGAUGE`, count | Receive error count | 
-| `err_out`<br/>`DGAUGE`, count | Transmit error count | 
 | `free`<br/>`DGAUGE`, bytes | RAM usage, `free` usage type | 
 | `high_free`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type | 
 | `high_total`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type | 
@@ -248,8 +236,6 @@ The consumption type goes into the `systag` label.
 | `n_cpus`<br/>`DGAUGE`, count | Maximum number of cores in use | 
 | `n_unique_users`<br/>`DGAUGE`, count | Number of unique users or accounts engaging with the system |
 | `n_users`<br/>`DGAUGE`, count | Limit on the number of users | 
-| `packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate | 
-| `packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate | 
 | `page_tables`<br/>`DGAUGE`, bytes | RAM usage, `page_tables` usage type | 
 | `read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
@@ -310,7 +296,6 @@ The consumption type goes into the `systag` label.
 | `usage_user`<br/>`DGAUGE`, % | CPU core usage, `user` usage type | 
 | `used`<br/>`DGAUGE`, bytes | RAM usage, `used` usage type | 
 | `used_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `used` usage type | 
-| `utilization`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database | 
 | `vmalloc_chunk`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_chunk` usage type | 
 | `vmalloc_total`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_total` usage type | 
 | `vmalloc_used`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_used` usage type | 
@@ -526,7 +511,7 @@ The consumption type goes into the `systag` label.
 #### Other metrics {#managed-opensearch-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `dashboards_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
+| `dashboards_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if the database host is healthy, `0` if not. | 
 | `dashboards_metrics_requests_total`<br/>`DGAUGE`, count | Total cluster requests | 
 | `opensearch_active_primary_shards`<br/>`DGAUGE`, count | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total active shards in the cluster | 
 | `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, count | Percentage of active shards | 
@@ -543,7 +528,7 @@ The consumption type goes into the `systag` label.
 | `opensearch_high_watermark_bytes`<br/>`DGAUGE`, bytes | Upper threshold for used disk space |
 | `opensearch_high_watermark_percentage`<br/>`DGAUGE`, percentage | Disk fill upper threshold |
 | `opensearch_initializing_shards`<br/>`DGAUGE`, count | Number of shards currently initializing | 
-| `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if the database host is healthy or `0` if it is not. | 
+| `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if the database host is healthy, `0` if not. | 
 | `opensearch_low_watermark_bytes`<br/>`DGAUGE`, bytes | Lower threshold for used disk space |
 | `opensearch_low_watermark_percentage`<br/>`DGAUGE`, percentage | Disk fill lower threshold |
 | `opensearch_primary_shards_count`<br/>`DGAUGE`, count | Number of primary shards per cluster |

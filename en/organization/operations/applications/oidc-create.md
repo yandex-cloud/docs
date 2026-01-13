@@ -101,7 +101,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
   1. Create an OIDC app:
 
      ```bash
-     yc iam organization-manager idp application oauth application create \
+     yc organization-manager idp application oauth application create \
        --organization-id <organization_ID> \
        --name <application_name> \
        --description <application_description> \

@@ -26,3 +26,11 @@ Users can set the [update frequency](../../managed-kubernetes/concepts/release-c
 #### Can I connect to a cluster node via {{ oslogin }}, similar to a {{ yandex-cloud }} VM? {#connect-via-oslogin}
 
 Yes, you can. To do this, [follow this guide](../../managed-kubernetes/operations/node-connect-oslogin.md).
+
+#### What operating system is used on cluster nodes? {#cluster-node-os}
+
+Depending on the [update channel](../../managed-kubernetes/concepts/release-channels-and-updates.md) and {{ k8s }} version, cluster nodes come with pre-installed Ubuntu 20.04 or Ubuntu 22.04.
+
+#### Does {{ vpc-full-name }} support IPv6? {#ipv6-support}
+
+{{ vpc-full-name }} [does not support IPv6](../../vpc/concepts/network-overview.md#limits); however, IPv6 is on by default on cluster nodes at the OS level.

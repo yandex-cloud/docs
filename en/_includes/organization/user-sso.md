@@ -13,3 +13,5 @@ Users with any of the following [roles](../../organization/security/index.md) ca
 ### Add federated users {#add-user-sso}
 
 {% include notitle [user-sso](add-user-sso.md) %}
+
+{% include notitle [fed-user-data-after-login-notice](fed-user-data-after-login-notice.md) %}

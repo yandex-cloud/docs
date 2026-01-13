@@ -10,7 +10,7 @@ You can export organization, cloud, or folder logs.
 To export audit logs:
 
 1. [Get your cloud ready](#before-begin).
-1. [Create a trail to send logs to a {{ yds-name }} data stream](#create-trail).
+1. [Create a trail to send logs to the stream in {{ yds-name }}](#create-trail).
 1. [Create a {{ mos-name }} cluster](#create-os).
 1. [Set up a transfer to deliver logs to the {{ mos-name }} cluster](#configure-data-transfer).
 1. [Check the result](#check-result).
@@ -24,11 +24,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
+* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
-* Fee for the {{ OS }} cluster computing resources and storage (see [{{ mos-full-name }}](../../managed-opensearch/pricing.md) pricing).
-* Using a data stream (see [{{ yds-name }}](../../data-streams/pricing.md) pricing).
-* Using {{ ydb-full-name }} in serverless mode (see [{{ ydb-name }}](../../ydb/pricing/serverless.md) pricing).
+    * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+    * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
+
+* {{ ydb-name }} database, operating in serverless mode: data operations, amount of stored data and backups (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)).
 
 ## Create a trail to send logs to a {{ yds-name }} data stream {#create-trail}
 
@@ -61,19 +64,19 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
         * {{ mos-name }} target cluster.
         * Transfer.
 
-    1. In the `trails-to-opensearch.tf` file, specify these variables:
+    1. In the `trails-to-opensearch.tf` file, specify the following variables:
 
         * `os_version`: {{ OS }} version in the target cluster.
         * `os_admin_password`: `admin` user password.
         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-       If there are any errors in the configuration files, {{ TF }} will point them out.
+       {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -93,7 +96,7 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }}-enabled stream.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
@@ -113,14 +116,14 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the name and password of the user who has access to the database, e.g., [`admin`](../../managed-opensearch/operations/cluster-users.md) user.
 
-1. Create and activate the transfer:
+1. Create and activate your transfer:
 
    {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
-        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**-type transfer configured to use the new endpoints.
+        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - Using {{ TF }} {#tf}
 
@@ -130,13 +133,13 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-           If there are any errors in the configuration files, {{ TF }} will point them out.
+           {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -150,18 +153,18 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
 Make sure the data from {{ at-name }} is successfully uploaded to {{ OS }}:
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Connect to the target cluster using [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
 1. Select the `Global` tenant.
 1. Create a new index template named `audit-trails*`:
 
-    1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
+    1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
     1. Under **Management**, select **Stack Management**.
     1. Go to **Index Patterns** and click **create an index pattern** at the bottom of the page.
     1. In the **Index pattern name** field, specify `audit-trails*` and click **Next step**.
     1. In **Time field**, select `application_usage_daily.timestamp` and click **Create index pattern**.
 
-1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
+1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Dashboards**, select **Discover**.
 1. The dashboard that opens should contain data from {{ at-name }} in [Elastic Common Schema]({{ links.es.docs }}/ecs/current/ecs-reference.html) format.
 
@@ -188,7 +191,7 @@ All required event fields are converted to [Elastic Common Schema (ECS)]({{ link
     ```
 
 1. Connect to the target cluster using [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
-1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
+1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. Under **Management**, select **Stack Management**.
 1. Go to **Saved Objects** and import files from the `yc-export-auditlogs-to-opensearch/update-opensearch-scheme/content-for-transfer/` folder:
 
@@ -196,11 +199,11 @@ All required event fields are converted to [Elastic Common Schema (ECS)]({{ link
     * `filters.ndjson`
     * `search.ndjson`
 
-### {#dashboard} dashboard
+### Dashboard {#dashboard}
 
 Use the ready-made `Audit-trails-dashboard`:
 
-1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
+1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Dashboards**, select **Dashboard**.
 1. Select `Audit-trails-dashboard` in the dashboard list.
 
@@ -210,17 +213,17 @@ Use the ready-made `Audit-trails-dashboard`:
 
 Run a ready-to-use query to view security events that can be selected using filters.
 
-1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
+1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Dashboards**, select **Discover**.
 1. In the **Open** tab, select `Search:Yandexcloud: Yandexcloud: Interesting fields`.
 
 ![opensearch-search-yandexcloud-interesting-fields](../../_assets/mdb/opensearch-search-yandexcloud-interesting-fields.png)
 
-### Alert settings {#alerts}
+### Setting up alerts {#alerts}
 
 Use code examples for the `monitor` and `trigger` entities when setting up [alerts]({{ os.docs }}/monitoring-plugins/alerting/index/):
 
-1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
+1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Plugins**, select **Alerting**.
 1. Copy the sample file contents and paste them into the creation window:
 
@@ -231,29 +234,28 @@ Use code examples for the `monitor` and `trigger` entities when setting up [aler
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db) database.
-1. [Delete service accounts you created](../../iam/operations/sa/delete.md).
+1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
 1. Delete the [{{ at-name }}](../../audit-trails/concepts/trail.md) trail.
+1. Delete other resources using the same method used for their creation:
 
-Delete the other resources depending on how they were created:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       [Delete the {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md) cluster.
 
-    [Delete the {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md) cluster.
+   - Using {{ TF }} {#tf}
 
-- Using {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}
 

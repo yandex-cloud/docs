@@ -165,7 +165,6 @@ Viewing information about any resource | `get`, `list` | `viewer` for the resour
 [Updating](../operations/sa/update.md) and [deleting](../operations/sa/delete.md) service accounts | `update`, `delete` | `editor` for the service account
 Creating and deleting keys for a service account | `create`, `delete` | `iam.serviceAccounts.accessKeyAdmin`, `iam.serviceAccounts.apiKeyAdmin`, `iam.serviceAccounts.authorizedKeyAdmin`, `iam.serviceAccounts.keyAdmin`<br/> for the service account
 **Managing resource access** | |
-[Adding a new user to the cloud](../../organization/operations/add-account.md) | `setAccessBindings` | `admin` for the cloud
 [Making a new user the owner of the cloud](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` role for the cloud
 [Granting](../operations/roles/grant.md), [revoking](../operations/roles/revoke.md), and viewing assigned resource roles | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
 Getting an IAM token for a service account | `create` | `iam.serviceAccounts.tokenCreator` for the service account

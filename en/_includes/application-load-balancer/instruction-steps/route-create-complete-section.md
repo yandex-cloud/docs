@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create a virtual host route.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../../../application-load-balancer/concepts/http-router.md) containing the virtual host for which you need to create a route.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) next to the virtual host and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   
