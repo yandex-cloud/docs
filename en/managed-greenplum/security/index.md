@@ -21,7 +21,7 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `mdb.admin` role, `managed-greenplum.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, the `managed-greenplum.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -36,6 +36,10 @@ The chart below shows the roles existing in the service and their permission inh
 {% include [roles-managed-greenplum](../../_mermaid/roles/managed-greenplum.md) %}
 
 ### Service roles {#service-roles}
+
+#### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
+
+{% include [managed-greenplum.clusters.connector](../../_roles/managed-greenplum/clusters/connector.md) %}
 
 #### managed-greenplum.auditor {#managed-greenplum-auditor}
 

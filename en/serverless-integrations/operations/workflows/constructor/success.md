@@ -12,7 +12,7 @@ The Success control step successfully completes the workflow execution. If the s
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** section on the left side of the screen, drag the ![seal-check](../../../../_assets/console-icons/seal-check.svg) **Success** element to desired workflow location in the constructor window.
+  1. From the **Control steps** section on the left side of the screen, drag the ![seal-check](../../../../_assets/console-icons/seal-check.svg) **Success** element to desired workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the added **Success** block to select it.

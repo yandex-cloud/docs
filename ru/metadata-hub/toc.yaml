@@ -285,6 +285,8 @@ items:
             items:
               - name: Создание пространства имен
                 href: operations/create-name-space.md
+              - name: Просмотр списка пространств имен
+                href: operations/list-name-space.md
               - name: Изменение пространства имен
                 href: operations/update-name-space.md
               - name: Подключение к пространству имен

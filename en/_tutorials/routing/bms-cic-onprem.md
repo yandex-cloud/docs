@@ -65,8 +65,8 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
         1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `subnet-m3`.
         1. Enable **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
         1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select the previously created segment, `my-vrf`.
-        1. In the **{{ ui-key.yacloud.baremetal.field_CIDR }}** field, specify `192.168.1.0/24`.
-        1. In the **{{ ui-key.yacloud.baremetal.field_gateway }}** field, keep the default value, `192.168.1.1`.
+        1. In the **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** field, specify `192.168.1.0/24`.
+        1. In the **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** field, keep the default value, `192.168.1.1`.
         1. Enable the **{{ ui-key.yacloud.baremetal.field_dhcp-settings }}** option and in the **{{ ui-key.yacloud.baremetal.field_dhcp-ip-range }}** field that appears, leave the default values, `192.168.1.1`-`192.168.1.254`.
         1. Click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 

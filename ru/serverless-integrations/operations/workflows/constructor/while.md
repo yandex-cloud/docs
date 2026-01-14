@@ -14,7 +14,7 @@ description: Следуя данной инструкции, с помощью �
 - Консоль управления {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. Из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** в левой части экрана перетащите элемент ![arrows-rotate-right](../../../../_assets/console-icons/arrows-rotate-right.svg) **While** в нужное место рабочего процесса в окне конструктора.
+  1. Из секции **Управляющие шаги** в левой части экрана перетащите элемент ![arrows-rotate-right](../../../../_assets/console-icons/arrows-rotate-right.svg) **While** в нужное место рабочего процесса в окне конструктора.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. В окне со схемой рабочего процесса нажмите на добавленный блок **While**, чтобы выбрать его.
@@ -25,7 +25,7 @@ description: Следуя данной инструкции, с помощью �
       1. В поле **{{ ui-key.yacloud.serverless-workflows.workflow-editor_while-step-max-iterations-field }}** задайте максимальное количество итераций, которое может совершить цикл. Поле является обязательным к заполнению, если не задано значение поля **{{ ui-key.yacloud.serverless-workflows.workflow-editor_while-step-condition-field }}**.
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
   1. {% include [integrations-step-output-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-output-tab.md) %}
-  1. Чтобы добавить новый шаг в ветку выполнения, перетащите нужный шаг из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** или **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** в обозначенный пунктирной линией блок внутри ветки.
+  1. Чтобы добавить новый шаг в ветку выполнения, перетащите нужный шаг из секции **Интеграционные шаги** или **Управляющие шаги** в обозначенный пунктирной линией блок внутри ветки.
 
 {% endlist %}
 

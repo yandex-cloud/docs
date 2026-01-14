@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. Из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** в левой части экрана перетащите элемент ![parallel-step-icon](../../../../_assets/serverless-integrations/parallel-step-icon.svg) **Parallel** в нужное место рабочего процесса в окне конструктора.
+  1. Из секции **Управляющие шаги** в левой части экрана перетащите элемент ![parallel-step-icon](../../../../_assets/serverless-integrations/parallel-step-icon.svg) **Parallel** в нужное место рабочего процесса в окне конструктора.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. В окне со схемой рабочего процесса нажмите на добавленный блок **Parallel**, чтобы выбрать его.
@@ -26,7 +26,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. В правом нижнем углу блока **Parallel** нажмите значок ![circle-plus-fill](../../../../_assets/console-icons/circle-plus-fill.svg).
       1. В открывшемся окне задайте имя добавляемой ветки и нажмите **{{ ui-key.yacloud.common.create }}**.
-  1. Чтобы добавить новый шаг в ветку выполнения, перетащите его в обозначенный пунктирной линией блок из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** или **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}**.
+  1. Чтобы добавить новый шаг в ветку выполнения, перетащите его в обозначенный пунктирной линией блок из секции **Интеграционные шаги** или **Управляющие шаги**.
 
 {% endlist %}
 

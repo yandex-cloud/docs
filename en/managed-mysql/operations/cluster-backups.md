@@ -1,13 +1,13 @@
 ---
 title: Managing {{ MY }} backups
-description: You can create {{ MY }} backups and restore clusters from existing backups. Point-in-time recovery, or PITR, enables you to restore your cluster to the state it was in at any point in time after the backup was created.
+description: You can create backups and use existing backups to restore {{ MY }} clusters. Point-in-time recovery, or PITR, enables you to restore your cluster to the state it was in at any point in time after the backup was created.
 ---
 
 # Managing backups in {{ mmy-name }}
 
 You can create backups and use the existing backups to restore clusters, including to a specific point in time. For more information, see [Backups](../concepts/backup.md).
 
-Moreover, {{ mmy-name }} takes automatic daily backups. You can [set the backup start time](#set-backup-window) and [retention period](#set-backup-retain).
+{{ mmy-name }} also creates an automatic daily backup. You can [set the backup start time](#set-backup-window) and [retention period](#set-backup-retain).
 
 ## Getting a list of backups {#list-backups}
 
@@ -63,7 +63,7 @@ Moreover, {{ mmy-name }} takes automatic daily backups. You can [set the backup 
               --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/backups'
           ```
 
-          You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+          You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -87,7 +87,7 @@ Moreover, {{ mmy-name }} takes automatic daily backups. You can [set the backup 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -110,7 +110,7 @@ Moreover, {{ mmy-name }} takes automatic daily backups. You can [set the backup 
               yandex.cloud.mdb.mysql.v1.ClusterService.ListBackups
           ```
 
-          You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+          You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -170,7 +170,7 @@ Moreover, {{ mmy-name }} takes automatic daily backups. You can [set the backup 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -189,7 +189,7 @@ Moreover, {{ mmy-name }} takes automatic daily backups. You can [set the backup 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -210,7 +210,7 @@ Moreover, {{ mmy-name }} takes automatic daily backups. You can [set the backup 
           yandex.cloud.mdb.mysql.v1.BackupService.Get
       ```
 
-      You can get the backup ID with the [list of backups](#list-backups).
+      You can request the backup ID with the [list of backups](#list-backups).
 
   1. Check the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.mysql.v1.Backup) to make sure your request was successful.
 
@@ -252,7 +252,7 @@ Moreover, {{ mmy-name }} takes automatic daily backups. You can [set the backup 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -266,13 +266,13 @@ Moreover, {{ mmy-name }} takes automatic daily backups. You can [set the backup 
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>:backup'
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -293,7 +293,7 @@ Moreover, {{ mmy-name }} takes automatic daily backups. You can [set the backup 
           yandex.cloud.mdb.mysql.v1.ClusterService.Backup
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -330,7 +330,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
   1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. To restore the cluster state to a specific point in time after the backup was created, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can either enter the date manually or select it from the drop-down calendar.
 
@@ -518,7 +518,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -592,7 +592,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -629,7 +629,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it with the [list of backups](#list-backups).
       * `time`: Point in time to restore the {{ MY }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format.
-      * `folder_id`: ID of the folder where you want to restore the cluster. You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folder_id`: ID of the folder where you want to restore the cluster. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Environment:
 
@@ -700,7 +700,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+      Learn how to create this file in [Creating a cluster](cluster-create.md).
 
   1. Add the `backup_window_start` section to the {{ mmy-name }} cluster description:
 
@@ -733,7 +733,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -762,7 +762,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to update.
+      * `updateMask`: Comma-separated string of settings you want to update.
 
           Here, we provide only one setting.
 
@@ -775,13 +775,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
           * `seconds`: From `0` to `59` seconds.
           * `nanos`: Between `0` and `999999999` nanoseconds.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -832,7 +832,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
           * `seconds`: From `0` to `59` seconds.
           * `nanos`: Between `0` and `999999999` nanoseconds.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.mysql.v1.Cluster) to make sure your request was successful.
 
@@ -867,7 +867,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
         For a complete list of {{ mmy-name }} cluster configuration fields you can update, see [this {{ TF }} provider article]({{ tf-provider-mpg }}).
 
@@ -894,7 +894,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -918,7 +918,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to update.
+      * `updateMask`: Comma-separated string of settings you want to update.
 
           Here, we provide only one setting.
 
@@ -926,14 +926,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
           The valid values range from `7` to `60`. The default value is `7`.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -973,9 +973,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       * `config_spec.backup_retain_period_days`: Automatic backup retention period.
 
-          Allowed values range from `7` to `60`. The default value is `7`.
+          The valid values range from `7` to `60`. The default value is `7`.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.mysql.v1.Cluster) to make sure your request was successful.
 
@@ -1011,7 +1011,7 @@ The minimum value of the host's backup priority is `0`, and the maximum, `100`. 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1040,13 +1040,13 @@ The minimum value of the host's backup priority is `0`, and the maximum, `100`. 
       * `hostName`: [FQDN of the host you are updating](connect.md#fqdn).
       * `backupPriority`: [Host's backup priority](../concepts/backup.md#size), between `0` and `100`.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1084,8 +1084,8 @@ The minimum value of the host's backup priority is `0`, and the maximum, `100`. 
       * `host_name`: [FQDN of the host you are updating](connect.md#fqdn).
       * `backup_priority`: [Host's backup priority](../concepts/backup.md#size), between `0` and `100`.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

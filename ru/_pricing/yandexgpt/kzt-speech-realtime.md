@@ -1,5 +1,5 @@
-| Услуга                            | Цена за единицу тарификации до 31.12.2025, <br>вкл. НДС     | Цена за единицу тарификации с 01.01.2026, <br>вкл. НДС     |
-|-----------------------------------|-----------------------------------------|-----------------------------------------|
-| Входящее аудио, за 1 секунду | {{ sku|KZT|foundation_models.realtime_audio.input.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|foundation_models.realtime_audio.input.v1|number }} / 112 × 116) × 100) / 100 %} |
-| Исходящее аудио, за 1 секунду | {{ sku|KZT|foundation_models.realtime_audio.output.v1|string }} | {% calc [currency=KZT] round(({{ sku|KZT|foundation_models.realtime_audio.output.v1|number }} / 112 × 116) × 100) / 100 %} |
-| Генерация текста, за 1000 токенов | {% calc [currency=KZT] 4 × {{ sku|KZT|foundation_models.text_generation.v1|number }} %} ^1^ | {% calc [currency=KZT] round((4 × {{ sku|KZT|foundation_models.text_generation.v1|number }} / 112 × 116) × 100) / 100 %} ^1^
+| Услуга                            | Цена за единицу тарификации, вкл. НДС     |
+|-----------------------------------|-----------------------------------------|
+| Входящее аудио, за 1 секунду | {{ sku|KZT|foundation_models.realtime_audio.input.v1|string }} |
+| Исходящее аудио, за 1 секунду | {{ sku|KZT|foundation_models.realtime_audio.output.v1|string }} |
+| Генерация текста, за 1000 токенов | {% calc [currency=KZT] 4 × {{ sku|KZT|foundation_models.text_generation.v1|number }} %} ^1^ |

@@ -456,7 +456,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
       * Выберите сервисный аккаунт `backup-sa`.
-      * Включите опцию **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      * Включите опцию **{{ backup-name }}**.
       * Выберите политику резервного копирования, [созданную ранее](#create-policy).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

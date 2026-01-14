@@ -68,8 +68,8 @@
         1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя подсети: `subnet-m3`.
         1. Включите опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
         1. В поле **{{ ui-key.yacloud.baremetal.field_network-id }}** выберите созданный ранее сегмент `my-vrf`.
-        1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR }}** укажите `192.168.1.0/24`.
-        1. В поле **{{ ui-key.yacloud.baremetal.field_gateway }}** оставьте значение по умолчанию `192.168.1.1`.
+        1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** укажите `192.168.1.0/24`.
+        1. В поле **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** оставьте значение по умолчанию `192.168.1.1`.
         1. Включите опцию **{{ ui-key.yacloud.baremetal.field_dhcp-settings }}** и в появившемся поле **{{ ui-key.yacloud.baremetal.field_dhcp-ip-range }}** оставьте значения по умолчанию: `192.168.1.1` — `192.168.1.254`.
         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 

@@ -12,7 +12,7 @@ The Parallel control step executes multiple branches (sequences of steps) concur
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** section on the left side of the screen, drag the ![parallel-step-icon](../../../../_assets/serverless-integrations/parallel-step-icon.svg) **Parallel** element to the relevant workflow location in the constructor window.
+  1. From the **Control steps** section on the left side of the screen, drag the ![parallel-step-icon](../../../../_assets/serverless-integrations/parallel-step-icon.svg) **Parallel** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the new **Parallel** section to select it.
@@ -26,7 +26,7 @@ The Parallel control step executes multiple branches (sequences of steps) concur
 
       1. In the bottom-right corner of the **Parallel** section, click ![circle-plus-fill](../../../../_assets/console-icons/circle-plus-fill.svg).
       1. In the dialog box that opens, enter the name of the branch to add. Click **{{ ui-key.yacloud.common.create }}**.
-  1. To add a new step to an execution branch, drag the step to the area marked by the dotted line under **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** or **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}**.
+  1. To add a new step to an execution branch, drag the step to the area marked by the dotted line under **Integration steps** or **Control steps**.
 
 {% endlist %}
 

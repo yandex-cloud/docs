@@ -1,10 +1,10 @@
-| Ресурс | Цена за 1 ГБ в месяц,<br>до&nbsp;31.12.2025<br>вкл. НДС | Цена за 1 ГБ в месяц,<br>с&nbsp;01.01.2026<br>вкл. НДС |
-| --- | --- | --- |
-| Объем хранилища проекта, до 10 ГБ | Не тарифицируется | Не тарифицируется |
-| Объем хранилища проекта, сверх 10 ГБ | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.disk.v1|number }}) × 100) / 100 %} | {% calc [currency=RUB] round(((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.disk.v1|number }}) / 112 × 116 ) × 100) / 100 %} |
-| Диск инстанса ноды | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.deployment|number }}) × 100) / 100 %} | {% calc [currency=RUB] round(((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.deployment|number }}) / 112 × 116) × 100) / 100 %} |
-| Датасет | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.datasets.v1|number }}) × 100) / 100 %} | {% calc [currency=RUB] round(((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.datasets.v1|number }}) / 112 × 116) × 100) / 100 %} |
-| Файловое хранилище | {% calc [currency=RUB] round((0.004403452932099 × 2592000 × {{ sku|RUB|datasphere.filestores|number }}) × 100) / 100 %} | {% calc [currency=RUB] round(((0.004403452932099 × 2592000 × {{ sku|RUB|datasphere.filestores|number }}) / 112 × 116) × 100) / 100 %} |
-| Модель | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.models.v1|number }}) × 100) / 100 %} | {% calc [currency=RUB] round(((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.models.v1|number }}) / 112 × 116) × 100) / 100 %} |
-| Docker-образ | 12,90 ₽ | {% calc [currency=RUB] round((12,90 / 112 × 116) × 100) / 100 %} |
-| Данные {{ ds-jobs }} | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.jobs|number }}) × 100) / 100 %} | {% calc [currency=RUB] round(((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.jobs|number }}) / 112 × 116 ) × 100) / 100 %} |
+| Ресурс | Цена за 1 ГБ в месяц, вкл. НДС |
+| --- | --- |
+| Объем хранилища проекта, до 10 ГБ | Не тарифицируется |
+| Объем хранилища проекта, сверх 10 ГБ | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × 0.0013176) × 100) / 100 %} |
+| Диск инстанса ноды | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × 0.0013176) × 100) / 100 %} |
+| Датасет | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × 0.0013176) × 100) / 100 %} |
+| Файловое хранилище | {% calc [currency=RUB] round((0.004403452932099 × 2592000 × 0.0013176) × 100) / 100 %} |
+| Модель | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × 0.0013176) × 100) / 100 %} |
+| Docker-образ | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × 0.0013176) × 100) / 100 %} |
+| Данные {{ ds-jobs }} | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × 0.0013176) × 100) / 100 %} |

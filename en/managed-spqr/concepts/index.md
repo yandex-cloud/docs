@@ -17,7 +17,7 @@ A shard is a {{ mpg-name }} cluster located in the same [folder](../../resource-
 
 There may be one or multiple shards. The maximum number of shards is unlimited and does not depend on the sharding type used in the cluster.
 
-Each shard stores an independent data fragment. The data is distributed across shards based on a sharding key.
+Each shard stores an independent data fragment. The data is distributed to shards based on a [sharding key](sharding-keys.md).
 
 Queries are routed to a shard depending on the data it contains. A router is the entity that distributes queries among shards.
 
@@ -29,7 +29,7 @@ A client connects to the router and sends queries over the {{ PG }} protocol. Th
 
 Router uses sharding rules to find the relevant shard. If the cluster has a coordinator, it is responsible for providing the rules. If there is no coordinator, the rules are set manually for each router and stored in its RAM until it gets rebooted.
 
-When creating a cluster, you can choose between standard and advanced sharding. If you choose standard sharding, the cluster will include `INFRA` hosts, which serve as both the router and coordinator. To ensure that such a cluster is fault-tolerant, we recommend creating at least three `INFRA` hosts in different availability zones. The maximum number of `INFRA` hosts is seven.
+When creating a cluster, you can choose between standard and advanced sharding. If you choose standard, the cluster will additionally get the `INFRA` hosts, which combine the router and coordinator roles. To ensure that such a cluster is fault-tolerant, we recommend creating at least three `INFRA` hosts in different availability zones. The maximum number of `INFRA` hosts is seven.
 
 If you choose advanced sharding, dedicated `ROUTER` hosts will be provided for routers. The number of routers placed on such hosts is unlimited.
 
@@ -39,7 +39,7 @@ A coordinator is a component of a {{ mspqr-name }} cluster that stores sharding 
 
 Its availability depends on the cluster’s sharding type:
 
-* With standard sharding, a coordinator is a required component represented by an `INFRA` host. To ensure that such a cluster is fault-tolerant, we recommend creating at least three `INFRA` hosts in different availability zones. The maximum number of `INFRA` hosts is seven.
+* With standard sharding, a coordinator is a required component represented by an `INFRA` host. To ensure that such cluster is fault-tolerant, we recommend creating no less than three `INFRA` hosts in different availability zones. The maximum number of `INFRA` hosts is seven.
 
 * With advanced sharding, a coordinator is an optional component represented by a `COORDINATOR` host. To ensure that such a cluster is fault-tolerant, we recommend creating three `COORDINATOR` hosts in different availability zones. The maximum number of `COORDINATOR` hosts is five.
 

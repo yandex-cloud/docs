@@ -153,13 +153,11 @@ To manage multiple segments of a cloud infrastructure at the same time, you can 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}** in the left-hand panel.
-  1. In the top-left corner of the AI assistant window, click ![bars](../../_assets/console-icons/bars.svg) to open the assistant chat management page. On that page, you can view your chat history with the AI assisstant and manage chats.
-  1. To create a new chat, click ![pencil-to-square](../../_assets/console-icons/pencil-to-square.svg) **New chat**.
-  1. To open a specific chat, click the row with its name.
-  1. To delete a specific chat, hover over the row with its name, click the ![trash-bin](../../_assets/console-icons/trash-bin.svg) icon you see, and confirm the deletion in the window that opens.
-  1. To clear the entire chat history:
-
-      1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Delete all chats**.
-      1. In the window that opens, confirm the deletion.
+  1. To start a new chat:
+     * Select a suggested prompt or enter your own query in the input field.
+     * In an active chat, click ![plus](../../_assets/console-icons/plus.svg) in the top-right corner.
+  1. To view your chat history, click ![clock-arrow-rotate-left](../../_assets/console-icons/clock-arrow-rotate-left.svg) in the top-right corner of the AI assistant window.
+     1. To open a chat, click the line with its name in the chat history.
+     1. To delete a chat, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with its name in the chat history and confirm the deletion.
 
 {% endlist %}

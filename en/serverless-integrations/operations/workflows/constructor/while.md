@@ -14,7 +14,7 @@ Each execution branch within the While step (including all [Switch](./switch.md)
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** section on the left side of the screen, drag the ![arrows-rotate-right](../../../../_assets/console-icons/arrows-rotate-right.svg) **While** element to the appropriate workflow location in the constructor window.
+  1. From the **Control steps** section on the left side of the screen, drag the ![arrows-rotate-right](../../../../_assets/console-icons/arrows-rotate-right.svg) **While** element to the appropriate workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the added **While** section to select it.
@@ -25,7 +25,7 @@ Each execution branch within the While step (including all [Switch](./switch.md)
       1. In the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_while-step-max-iterations-field }}** field, specify the maximum number of iterations the loop can complete. This is a required field if the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_while-step-condition-field }}** value is not set.
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
   1. {% include [integrations-step-output-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-output-tab.md) %}
-  1. To add a new step to an execution branch, drag the step you need from **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** or **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** to the area marked by the dotted line within the branch.
+  1. To add a new step to an execution branch, drag the step you need from **Integration steps** or **Control steps** to the area marked by the dotted line within the branch.
 
 {% endlist %}
 

@@ -5,7 +5,7 @@ description: '{{ mspqr-name }} supports horizontal scaling of {{ PG }} data thro
 
 # Sharding in {{ mspqr-name }}
 
-_Sharding_ is a horizontal scaling strategy where data from multiple {{ PG }} clusters is combined into a single {{ SPQR }} cluster. The {{ PG }} clusters reside in the same folder and cloud network as the {{ SPQR }} cluster. In the {{ SPQR }} cluster, data is distributed across shards using a _sharding key_. Number of shards per cluster is unlimited.
+_Sharding_ is a horizontal scaling strategy where data from multiple {{ PG }} clusters is combined into a single {{ SPQR }} cluster. The {{ PG }} clusters reside in the same folder and cloud network as the {{ SPQR }} cluster. In the {{ SPQR }} cluster, data is distributed across shards using a [sharding key](sharding-keys.md). Number of shards per cluster is unlimited.
 
 The {{ SPQR }} cluster contains:
 
@@ -17,7 +17,7 @@ The {{ SPQR }} cluster contains:
 * [By hash](https://pg-sharding.tech/sharding/hashed)
 * [By value range](https://pg-sharding.tech/sharding/ranged)
 
-For more information about data sharding, see the [SPQR documentation](https://pg-sharding.tech/welcome/get_started).
+Learn more about data sharding in [{#T}](sharding-keys.md#sharding-strategies).
 
 ## Advantages of sharding {#advantages}
 
@@ -46,9 +46,9 @@ In {{ mspqr-name }}, sharding is managed by the hosts with the `ROUTER` ([routin
 
 You can use two types of sharding in {{ mspqr-name }}:
 
-* Standard: Cost-effective sharding for clusters that do not have any special requirements for sharding management hosts. The cluster will be expanded to include the `INFRA` hosts having both the `ROUTER` and `COORDINATOR` roles.
+* Standard: Cost-effective sharding for clusters that do not have any special requirements for sharding management hosts. The cluster will additionally get the `INFRA` hosts, which combine the `ROUTER` and `COORDINATOR` roles.
 
-* Advanced: Flexible type of shading. `ROUTER` hosts and optional `COORDINATOR` hosts will be added to the cluster.
+* Advanced: Flexible type of shading. The cluster will additionally get the `ROUTER` and (optionally) `COORDINATOR` hosts.
 
 `COORDINATOR` or `INFRA` hosts are used to configure sharding.
 

@@ -133,7 +133,7 @@ If working with a local Docker container, skip this section.
   yc iam key create --service-account-name sa-function -o authorized_key.json
   ```
 
-  For more information about the `yc iam key create` command, see this [CLI reference](../../cli/cli-ref/iam/cli-ref/key/create.md).
+  For more information about the `yc iam key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/key/create.md).
 
   If successful, the key will be saved to the `authorized_key.json` file.
 

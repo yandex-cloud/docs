@@ -26,9 +26,25 @@
 
     The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
 
-* `--dags-bucket`: Name of the bucket to store DAG files in.
+* DAG file source type and parameters:
 
-* `--maintenance-window`: [Maintenance window](../../../../managed-airflow/concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
+    * `--dags-bucket`: Bucket name.
+
+    * `--gitsync`: Git repo parameters:
+
+      * `repo`: Repository address.
+      * `branch`: Working branch.
+      * `subpath`: Path to the DAG file folder in the repository.
+      * `ssh-key`: Private SSH repository access key as a single string with `\n` as the new line characters.
+      * `--identity-file`: Path to the file with the private SSH repository access key.
+
+        Specify either `ssh-key` or `ssh-key-path`.
+
+      {% include [warn-git](../note-git-sync.md) %}
+
+    Specify either `--dags-bucket` or `--gitsync`.
+
+* `--maintenance-window`: [Maintenance window](../../../../managed-airflow/concepts/maintenance.md) settings (including for stopped clusters), where `type` is the maintenance type:
 
     {% include [maintenance-window](../../../../_includes/mdb/cli/maintenance-window-description.md) %}
 

@@ -25,8 +25,8 @@ description: In this tutorial, you will learn how to create a private subnet and
 
      1. Enable **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
      1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select an existing [VRF](../concepts/network.md#vrf-segment) or create a new one.
-     1. In the **{{ ui-key.yacloud.baremetal.field_CIDR }}** field, specify the subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
-     1. In the **{{ ui-key.yacloud.baremetal.field_gateway }}** field, specify the gateway IP address for routing traffic from this subnet to other VRF-connected subnets.
+     1. In the **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** field, specify the subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+     1. In the **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** field, specify the gateway IP address for routing traffic from this subnet to other VRF-connected subnets.
      
          {% include [default-gateaway](../../_includes/baremetal/instruction-steps/default-gateaway.md) %}
 

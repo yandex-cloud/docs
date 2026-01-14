@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. Из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** в левой части экрана перетащите элемент ![ArrowRightToSquare](../../../../_assets/console-icons/arrow-right-to-square.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.grpc_integration_title }}** в нужное место рабочего процесса в окне конструктора.
+  1. Из секции **Интеграционные шаги** в левой части экрана перетащите элемент ![ArrowRightToSquare](../../../../_assets/console-icons/arrow-right-to-square.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.grpc_integration_title }}** в нужное место рабочего процесса в окне конструктора.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. В окне со схемой рабочего процесса нажмите на добавленный блок **{{ ui-key.yc-serverless-workflows.dynamic-forms.grpc_integration_title }}**, чтобы выбрать его.

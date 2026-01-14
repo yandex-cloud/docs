@@ -25,8 +25,8 @@ description: Следуя данной инструкции, вы сможете
 
      1. Включите опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
      1. В поле **{{ ui-key.yacloud.baremetal.field_network-id }}** выберите имеющийся [VRF](../concepts/network.md#vrf-segment) или создайте новый.
-     1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR }}** задайте [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети.
-     1. В поле **{{ ui-key.yacloud.baremetal.field_gateway }}** задайте IP-адрес шлюза, через который трафик из подсети будет идти в другие подсети, подключенные к VRF.
+     1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** задайте [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети.
+     1. В поле **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** задайте IP-адрес шлюза, через который трафик из подсети будет идти в другие подсети, подключенные к VRF.
      
          {% include [default-gateaway](../../_includes/baremetal/instruction-steps/default-gateaway.md) %}
 

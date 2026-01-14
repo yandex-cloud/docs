@@ -9,7 +9,7 @@ To get started:
 
 
 * [Create a cluster](#cluster-create).
-* [Connect to the DB](#connect).
+* [Connect to the database](#connect).
 
 
 
@@ -46,18 +46,18 @@ To get started:
    wget https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/4.4/multiverse/binary-amd64/mongodb-org-shell_4.4.1_amd64.deb && \
    sudo dpkg -i mongodb-org-shell_4.4.1_amd64.deb
    ```
-
+   
 
 ## Create a cluster {#cluster-create}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
-1. Select **Yandex StoreDoc**.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
+1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mmg-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mmg-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.
 
 
-## Connect to the DB {#connect}
+## Connect to the database {#connect}
 
 1. If you are using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 

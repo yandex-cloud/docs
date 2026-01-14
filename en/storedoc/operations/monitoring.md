@@ -17,12 +17,12 @@ description: Follow this guide to view detailed information about a {{ mmg-name 
 
 To view detailed information on the state of a {{ mmg-name }} cluster:
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
-
+1. Go to the [folder]({{ link-console-main }}) page.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-The following charts will appear on the page:
+You will see the following charts:
 
 * **Asserts total**: Number of asserts triggered in the cluster.
 * **Average operation time per host**: Average time of operation execution by each host (in microseconds).
@@ -78,53 +78,49 @@ The following charts will appear on the page:
 
 To view detailed information on the state of individual {{ mmg-name }} hosts:
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
+1. Go to the [folder]({{ link-console-main }}) page.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Click the name of your cluster and select **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
 1. Select the host from the drop-down list. You will see the host role (`PRIMARY` or `SECONDARY`) and type (`MONGOCFG`, `MONGOD`, `MONGOINFRA`, or `MONGOS`) next to the host name.
 
-This page displays charts showing the load on an individual host in the cluster:
+This page displays the charts showing workloads of individual cluster hosts:
 
-* **CPU**: Processor core workload. As the load goes up, the **Idle** value goes down.
-* **Memory**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
+* **CPU**: Processor core workload. With increased workload, the **Idle** value drops.
+* **Memory**: Use of RAM, in bytes. At high loads, the value of the **Free space** metric decreases, while the others increase.
 * **Disk bytes**: Speed of disk operations, in bytes per second.
 * **Disk IOPS**: Number of disk operations per second.
-* **Network bytes**: Speed of network data exchange, in bytes per second.
+* **Network bytes**: Network data transfer rate, in bytes per second.
 * **Network packets**: Number of network packets exchange per second.
 
 
-## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
+## Setting up alerts in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
-
-    1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster for which you want to set up alerts.
+    1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
     1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
         * **{{ mmg-name }}** to configure cluster alerts.
-        * **{{ mmg-name }} — Host Overview** to configure host alerts.
+        * **{{ mmg-name }} — Host Overview** to set up host alerts.
 
     1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-
-    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-
+    1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
     1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds to trigger the alert.
-
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-The recommended thresholds are as follows:
+Below are the recommended thresholds for some metrics:
 
-| Metric                         | Parameter                     | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
+| Metric                         | Internal metric name                     | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
 |---------------------------------|:-------------------------------:|:----------------------------------------------------:|:---------------------------------------------------:|
-| DB write availability        | `can_write`                     | `Equals 0`                                            | —                                                   |
-| Replication delay             | `replset_status-replicationLag` | `180`                                                | `30`                                                |
+| Database write availability        | `can_write`                     | `Equal to 0`                                            | —                                                   |
+| Replication lag             | `replset_status-replicationLag` | `180`                                                | `30`                                                |
 | Storage space used | `disk.used_bytes`               | 90% of the storage size                             | 70% of the storage size                            |
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
@@ -132,10 +128,10 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75,161,927,680` bytes (70%)
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see this [{{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-mongodb-ref.md).
+You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-mongodb-ref.md).
 
 
-### Monitoring the transition to read-only mode {#read-only-alert}
+### Monitoring the transition to <q>read only</q> mode {#read-only-alert}
 
 To monitor cluster host storage utilization and get notified if running out of free space:
 
@@ -162,10 +158,11 @@ To monitor cluster host storage utilization and get notified if running out of f
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To view a state and status of a cluster:
+To check the cluster’s state and status:
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.common.availability }}** column.
+1. Go to the [folder]({{ link-console-main }}) page.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster states {#cluster-health}
 

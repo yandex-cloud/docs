@@ -34,7 +34,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
       1. Выберите сервисный аккаунт с ролью `backup.editor`.
-      1. Включите опцию **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      1. Включите опцию **{{ backup-name }}**.
       1. (опционально) Выберите политику резервного копирования или нажмите **{{ ui-key.yacloud.common.create }}**, чтобы [создать](./policy-vm/create.md) новую политику.
 
   1. Укажите другие необходимые параметры ВМ.

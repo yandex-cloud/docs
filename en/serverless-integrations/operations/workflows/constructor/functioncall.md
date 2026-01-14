@@ -10,7 +10,7 @@ description: Follow this guide to add invocation of a function from {{ sf-full-n
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![CurlyBracketsFunction](../../../../_assets/console-icons/curly-brackets-function.svg) **{{ sf-short-name }}** element to the relevant workflow location in the constructor window.
+  1. From the **Integration steps** section on the left side of the screen, drag the ![CurlyBracketsFunction](../../../../_assets/console-icons/curly-brackets-function.svg) **{{ sf-short-name }}** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the new **{{ sf-short-name }}** section to select it.

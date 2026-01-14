@@ -24,7 +24,7 @@ To view detailed information on the state of a {{ mch-name }} cluster:
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab. 
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab. 
 
       The page that opens will display the performance charts for your {{ CH }} cluster and its hosts.
 
@@ -36,7 +36,7 @@ To view detailed information on the state of a {{ mch-name }} cluster:
 
 If your cluster includes a coordination service, the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** page shows the following tabs depending on the selected service:
 
-* **{{ ui-key.yacloud.clickhouse.title_clickhouse }}**: State information for whole {{ CH }} cluster and its hosts.
+* **{{ ui-key.yacloud.clickhouse.title_clickhouse }}**: State information for the whole {{ CH }} cluster and its hosts.
 * **{{ ui-key.yacloud.clickhouse.title_keeper }}**: State information for {{ CK }} hosts.
 * **{{ ui-key.yacloud.clickhouse.title_zookeeper }}**: State information for {{ ZK }} hosts.
 
@@ -48,7 +48,7 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
 
 - {{ ui-key.yacloud.clickhouse.title_clickhouse }}
 
-  The tab displays the following charts:
+  This tab displays the following charts:
 
   * Under **Summary**:
 
@@ -72,7 +72,7 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
     * **Failed queries per host**: Percentage of failed queries per {{ CH }} subcluster host.
     * **Average select query time per host**: Average select query time per {{ CH }} subcluster host.
     * **Average insert query time per host**: Average insert query time per {{ CH }} subcluster host.
-    * **Average query time per host**: Average query time per host per {{ CH }} subcluster host.
+    * **Average query time per host**: Average query time per {{ CH }} subcluster host.
 
   * Under **Connections and Locks**:
 
@@ -124,7 +124,7 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
 
 - {{ ui-key.yacloud.clickhouse.title_keeper }}
 
-  The tab displays the following charts:
+  This tab displays the following charts:
 
   * Under **Service Metrics**:
 
@@ -153,7 +153,7 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
 
 - {{ ui-key.yacloud.clickhouse.title_zookeeper }}
 
-  The tab displays the following charts:
+  This tab displays the following charts:
 
   * Under **Service Metrics**:
 
@@ -199,7 +199,7 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab.
 
   1. Navigate to the **Hosts** tab and select the host.
     

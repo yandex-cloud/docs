@@ -16,8 +16,8 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    Non-replicated tables will be lost during migration.
 
-1. If you created your cluster without [{{ CK }}](../concepts/replication.md#ck) support, you should [add at least three {{ ZK }} hosts](zk-hosts.md#add-zk) to ensure cluster fault-tolerance. Otherwise, you will not be able to add new hosts to [shards](../concepts/sharding.md) and perform migration.
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move your hosts to.
+1. If you created your cluster without [{{ CK }}](../concepts/replication.md#ck) support, you should [add at least three {{ ZK }}](zk-hosts.md#add-zk) or {{ CK }} hosts to ensure [high availability](../concepts/high-availability.md) of the cluster. Otherwise, you will not be able to add new hosts to [shards](../concepts/sharding.md) and perform migration.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in your target availability zone.
 1. Add a host to your cluster:
 
    {% list tabs group=instructions %}
@@ -26,7 +26,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
       1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
       1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-      1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+      1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
 
@@ -83,11 +83,11 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
          ```bash
          curl \
@@ -120,7 +120,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -170,7 +170,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
    {{ yc-mdb-ch }} host list --cluster-name <cluster_name>
    ```
 
-   You will see the FQDN in the command output under `NAME`. Alternatively, you can connect using a [special FQDN](connect/fqdn.md#auto).
+   You will see the FQDN under `NAME` in the command output. Alternatively, you can connect using a [special FQDN](connect/fqdn.md#auto).
 
 1. Delete the hosts in the source availability zone:
 
@@ -180,8 +180,8 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
       1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
       1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-      1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -193,7 +193,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - {{ TF }} {#tf}
 
-      1. In your {{ TF }} infrastructure configuration file, delete the `host` resource sections with the source availability zone from your cluster description.
+      1. In your {{ TF }} infrastructure configuration file, delete the `host` sections with the source availability zone from your cluster description.
       1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -216,7 +216,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
 ## Migrating {{ ZK }} hosts {#zookeeper-hosts}
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move your hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in your target availability zone.
 1. Add a host to your cluster:
 
    {% list tabs group=instructions %}
@@ -225,7 +225,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
       1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
       1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-      1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+      1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-zookeeper }}**.
       1. Specify the new subnet and the availability zone to move the hosts to.
       1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
@@ -277,11 +277,11 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
          ```bash
          curl \
@@ -314,7 +314,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -363,8 +363,8 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
       1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
       1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-      1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -376,7 +376,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    - {{ TF }} {#tf}
 
-      1. In your {{ TF }} infrastructure configuration file, delete the `host` resource sections with the source availability zone from your cluster description.
+      1. In your {{ TF }} infrastructure configuration file, delete the `host` sections with the source availability zone from your cluster description.
       1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

@@ -1,5 +1,3 @@
-##### До 31 декабря 2025 года {#generating-new-before-ny-ru}
-
 #|
 || **Модель** | **Цена за 1000 входящих токенов в синхронном режиме,</br>вкл. НДС** | **Цена за 1000 исходящих токенов в синхронном режиме,</br>вкл. НДС** | **Цена за 1000 входящих токенов в асинхронном режиме,</br>вкл. НДС** | **Цена за 1000 исходящих токенов в асинхронном режиме,</br>вкл. НДС** ||
 || Alice AI LLM | {% calc [currency=RUB] round((2,5 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 %} | {% calc [currency=RUB] round((10 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 %} | {% calc [currency=RUB] round((1,25 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 %} | {% calc [currency=RUB] round((5 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 %} ||
@@ -10,22 +8,6 @@
 || gpt-oss-120b | {% calc [currency=RUB] round((1,5 × {{ sku|RUB|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} | {% calc [currency=RUB] round((1,5 × {{ sku|RUB|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} | — | — || 
 || gpt-oss-20b | {% calc [currency=RUB] round((0,5 × {{ sku|RUB|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} | {% calc [currency=RUB] round((0,5 × {{ sku|RUB|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} | — | — || 
 || Gemma3 27B | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 %} ^1^ | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 %} ^1^ | — | — ||
-|#
-
-^1^ Цена указана с учетом действующей скидки 50%.
-
-##### С 1 января 2026 года {#generating-new-after-ny-ru}
-
-#|
-|| **Модель** | **Цена за 1000 входящих токенов в синхронном режиме,</br>вкл. НДС** | **Цена за 1000 исходящих токенов в синхронном режиме,</br>вкл. НДС** | **Цена за 1000 входящих токенов в асинхронном режиме,</br>вкл. НДС** | **Цена за 1000 исходящих токенов в асинхронном режиме,</br>вкл. НДС** ||
-|| Alice AI LLM | {% calc [currency=RUB] round((2,5 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round((10 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round((1,25 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round((5 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} ||
-|| {{ gpt-pro }} 5.1 | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} ^1^ | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} ^1^ | {% calc [currency=RUB] round((1 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} ^1^ | {% calc [currency=RUB] round((1 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} ^1^ ||
-|| {{ gpt-pro }} 5 или младше | {% calc [currency=RUB] round((6 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round((6 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round((3 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round((3 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} ||
-|| {{ gpt-lite }} | {% calc [currency=RUB] round(({{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round(({{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round((0,5 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round((0,5 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} ||
-|| Qwen3 235B | {% calc [currency=RUB] round((2,5 × {{ sku|RUB|foundation_models.text_generation_alt.v1|number }} / 120 × 122) × 100) / 100 %} ^1^ | {% calc [currency=RUB] round((2,5 × {{ sku|RUB|foundation_models.text_generation_alt.v1|number }} / 120 × 122) × 100) / 100 %} ^1^ | — | — ||
-|| gpt-oss-120b | {% calc [currency=RUB] round((1,5 × {{ sku|RUB|foundation_models.text_generation_alt.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round((1,5 × {{ sku|RUB|foundation_models.text_generation_alt.v1|number }} / 120 × 122) × 100) / 100 %} | — | — || 
-|| gpt-oss-20b | {% calc [currency=RUB] round((0,5 × {{ sku|RUB|foundation_models.text_generation_alt.v1|number }} / 120 × 122) × 100) / 100 %} | {% calc [currency=RUB] round((0,5 × {{ sku|RUB|foundation_models.text_generation_alt.v1|number }} / 120 × 122) × 100) / 100 %} | — | — || 
-|| Gemma3 27B | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} ^1^ | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }} / 120 × 122) × 100) / 100 %} ^1^ | — | — ||
 |#
 
 ^1^ Цена указана с учетом действующей скидки 50%.
