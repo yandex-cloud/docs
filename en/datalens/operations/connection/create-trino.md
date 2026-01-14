@@ -108,7 +108,6 @@ You can specify additional connection settings in the **Advanced connection sett
 {% include [connection-external](../../../_includes/datalens/datalens-connection-external.md) %}
 
 
-
 ## Creating a dataset {#create-dataset}
 
 The table search scope when connecting to {{ TR }} is limited to a specific folder.

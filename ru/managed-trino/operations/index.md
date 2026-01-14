@@ -27,3 +27,16 @@ description: Из статьи вы узнаете, как работать с {
 
 * [Мониторинг состояния кластера](monitoring.md)
 * [Просмотр логов кластера](cluster-logs.md)
+
+## Правила доступа к объектам {#access-control}
+
+* [Получение правил доступа](./access-control-get.md)
+* [Назначение правил для объектов каталогов](./access-control-catalogs.md)
+* [Назначение правил для схем](./access-control-schemas.md)
+* [Назначение правил для таблиц](./access-control-tables.md)
+* [Назначение правил для функций](./access-control-functions.md)
+* [Назначение правил для процедур](./access-control-procedures.md)
+* [Назначение правил для запросов](./access-control-queries.md)
+* [Назначение правил для системных свойств сессии](./access-control-session-properties.md)
+* [Назначение правил для сессионных свойств каталогов](./access-control-catalog-properties.md)
+* [Удаление правил доступа](./access-control-delete.md)

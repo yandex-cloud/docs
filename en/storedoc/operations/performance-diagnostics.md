@@ -1,6 +1,6 @@
 # Performance diagnostics in {{ mmg-name }}
 
-{{ mmg-name }} provides a built-in tool for DBMS cluster performance diagnostics. Use it to analyze [{{ SD }} profiling](#get-profiling) and [index](#get-indexes) metrics.
+{{ mmg-name }} provides a built-in tool for diagnosing your database cluster performance. Use it to analyze [{{ SD }} profiling](#get-profiling) and [index](#get-indexes) metrics.
 
 {% note warning %}
 
@@ -23,8 +23,9 @@ For read/write and some other DB queries (such as `aggregate`), you can view the
 
 To get data:
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_profiling }}** tab.
+1. Go to the [folder]({{ link-console-main }}) page.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Click the name of your cluster and select **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_profiling }}**.
 1. Specify the time interval and, if necessary, set filters.
 1. Select:
 
@@ -50,8 +51,9 @@ To get data:
 
 You can get collection access statistics for queries and recommendations for creating indexes of certain fields to speed up query processing.
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_indexes }}** tab.
+1. Go to the [folder]({{ link-console-main }}) page.
+1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Click the name of your cluster and select **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_indexes }}**.
 1. Specify the time interval and, if necessary, set filters.
 
 The table shows the fields to create indexes for and the number of times the collections were queried.

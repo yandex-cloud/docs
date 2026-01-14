@@ -76,7 +76,7 @@
   1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя подсети: `subnet-m3`.
   1. Включите опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
   1. В поле **{{ ui-key.yacloud.baremetal.field_network-id }}** выберите созданный ранее сегмент `vrrp-vrf`.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR }}** укажите `172.28.1.0/24`.
+  1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** укажите `172.28.1.0/24`.
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. Аналогичным образом создайте приватную подсеть `subnet-m4` в пуле серверов `{{ region-id }}-m4` c CIDR `172.28.2.0/24`.
 

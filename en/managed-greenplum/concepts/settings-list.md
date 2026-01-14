@@ -4,7 +4,7 @@ For {{ mgp-name }} clusters, you can configure {{ GP }} settings. Some settings 
 
 The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, SQL, or Terraform. The {{ tag-all }} label means that all of the above interfaces are supported.
 
-Depending on the interface you select, the same setting will be represented differently. For example, **Max connections** in the management console is the same as:
+Depending on the selected interface, the same setting will be represented differently. For example, **max_connections** in the management console is the same as:
 
 * `max_connections` in the gRPC API
 * `maxConnections` in the REST API
@@ -18,12 +18,20 @@ The values of some {{ GP }} settings may be automatically adjusted when you chan
 
 The settings that depend on the storage size are:
 
-* [Gp workfile limit per segment](#setting-gp-workfile-limit-per-segment)
-* [Max slot wal keep size](#setting-max-slot-wal-keep-size)
+* [gp_workfile_limit_per_segment](#setting-gp-workfile-limit-per-segment)
+* [max_slot_wal_keep_size](#setting-max-slot-wal-keep-size)
 
 ## Cluster-level DBMS settings {#dbms-cluster-settings}
 
-The following settings are available:
+This section contains information about {{ GP }} configuration properties users can edit by themselves, as well as important default properties that cannot be edited by users.
+
+The list of properties partially duplicates the one found in the [official documentation]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html).
+
+The important distinctions of this list of parameters are the following:
+
+- Within the service, the possible (boundary) values are different for some properties.
+- Within the service, the default values are different for some properties.
+- Within the service, there are some [open-gpdb](https://github.com/open-gpdb/gpdb) build-specific properties.
 
 {% include [mgp-dbms-settings](../../_includes/mdb/mgp/dbms-settings.md) %}
 

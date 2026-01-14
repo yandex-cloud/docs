@@ -5,6 +5,14 @@ description: This section contains {{ mos-name }} release notes.
 
 # {{ mos-full-name }} release notes
 
+## November 2025 {#nov-2025}
+
+Added the `managed-opensearch.restorer` role for restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-opensearch-restorer).
+
+## October 2025 {#oct-2025}
+
+Added new [host classes](concepts/instance-types.md) on AMD Zen 4 and AMD Zen 4 HighFreq platforms.
+
 
 ## July 2025 {#jul-2025}
 
@@ -36,4 +44,4 @@ Now you can manage {{ OS }} clusters using the [CLI commands](../cli/cli-ref/man
 
 ## Q3 2023 {#q3-2023}
 
-Added the option of [committing](../billing/concepts/cvos.md) a specific volume of services. All users of the platform can get a discount up to 22% starting from August 1, 2023. The cost of services will not change during the whole period of the offer.
+Added the option of [committing](../billing/concepts/cvos.md) a specific volume of services. All platform users can get a discount up to 22% starting August 1, 2023. The cost of services will not change during the whole period of the offer.

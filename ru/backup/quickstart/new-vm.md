@@ -74,7 +74,7 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
       1. Выберите сервисный аккаунт, [созданный ранее](#deploy-infrastructure).
-      1. Включите опцию **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      1. Включите опцию **{{ backup-name }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

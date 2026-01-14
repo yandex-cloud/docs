@@ -8,7 +8,7 @@
 
 * Regular software updates.
 
-* Ensuring DB cluster fault tolerance.
+* Ensuring [high availability](../../managed-clickhouse/concepts/high-availability.md) of database clusters.
 
 * Database usage monitoring and statistics.
 
@@ -38,13 +38,11 @@ Yes. A database cluster may consist of hosts residing in different availability 
 
 #### How does replication work for {{ CH }}? {#zookeeper-access}
 
-{{ mch-short-name }} clusters use {{ CK }} or {{ ZK }} for replication. In the first case, replication and fault tolerance are enabled by default, so no further configuration is needed. In the second case, each {{ CH }} cluster comes with a {{ ZK }} cluster containing at least three hosts.
-
-{{ yandex-cloud }} users do not have access to {{ ZK }} and cannot configure it.
+{{ mch-short-name }} clusters use {{ CK }} or {{ ZK }} for replication. In both cases, to ensure replication and [high availability](../../managed-clickhouse/concepts/high-availability.md), a minimum of three {{ CK }} or {{ ZK }} hosts are created in the cluster.
 
 #### Why does my {{ CH }} cluster use three extra hosts? {#why-does-a-cluster-take-up-3-hosts-more-than-it-should}
 
-When creating a {{ CH }} cluster of two or more hosts, {{ mch-short-name }} automatically creates a cluster of three {{ ZK }} hosts to manage replication and fault tolerance, unless {{ CK }} support is enabled. These hosts are counted towards both the cloud [resource quota]({{ link-console-quotas }}) and the cluster cost. By default, {{ ZK }} hosts come with the minimum [host class](../../managed-clickhouse/concepts/instance-types.md).
+When you create a {{ CH }} cluster of two or more hosts, {{ mch-short-name }} automatically creates three hosts for the selected coordination service,{{ CK }} or {{ ZK }}, to manage replication and high availability. These hosts are counted towards both the cloud [resource quota]({{ link-console-quotas }}) and the cluster cost. By default, {{ CK }} or {{ ZK }} hosts come with the minimum [host class](../../managed-clickhouse/concepts/instance-types.md).
 
 For more information about using {{ ZK }}, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
 

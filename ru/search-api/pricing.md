@@ -21,8 +21,6 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-{% include [prices-nds-note](../_includes/prices-nds-note.md) %}
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 В ночные часы с 00:00:00 по 07:59:59 [UTC+3](https://ru.wikipedia.org/wiki/UTC%2B3:00) для некоторых типов запросов действуют льготные тарифы.

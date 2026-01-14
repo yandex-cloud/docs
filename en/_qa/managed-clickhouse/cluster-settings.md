@@ -1,6 +1,6 @@
 #### How do I create a user to access a cluster from {{ datalens-name }} with read-only permissions? {#datalens-readonly}
 
-Follow [this guide](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user) to create a user with read-only permissions. With **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}** [option enabled](../../managed-clickhouse/operations/update.md#change-additional-settings) in the cluster settings, {{ mch-name }} can [connect](../../managed-clickhouse/operations/datalens-connect.md#create-connector) to the cluster using the created user.
+Follow [this guide](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user) to create a user with read-only permissions. With **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}** [enabled](../../managed-clickhouse/operations/update.md#change-additional-settings) in the cluster settings, the service will be able to [connect](../../managed-clickhouse/operations/datalens-connect.md#create-connector) to the cluster using this user.
 
 #### How do I grant a user permissions to create and delete tables or databases? {#create-delete-role}
 
@@ -32,18 +32,18 @@ If [user management via SQL](../../managed-clickhouse/operations/cluster-users.m
 
 * For all default users by creating a [settings profile]({{ ch.docs }}/operations/access-rights/#settings-profiles-management).
 
-#### Why must a {{ mch-name }} cluster have three or five {{ ZK }} hosts? {#zookeeper-hosts-number}
+#### Why must a highly available {{ mch-name }} cluster have three or five {{ ZK }} hosts? {#zookeeper-hosts-number}
 
 {{ ZK }} uses the consensus algorithm: it keeps on running as long as most {{ ZK }} hosts are healthy.
 
-For example, if a cluster has two {{ ZK }} hosts, then, should one of them stop, the remaining host will not form the majority, so the service will become unavailable. This means that a cluster with two {{ ZK }} hosts is not fault-tolerant.
+For example, if a cluster has two {{ ZK }} hosts, then, should one of them stop, the remaining host will not form the majority, so the service will become unavailable. Which means a cluster with two {{ ZK }} hosts is not [highly available](../../managed-clickhouse/concepts/high-availability.md).
 
-A cluster with three {{ ZK }} hosts, on the other hand, is fault-tolerant. When one of its hosts is down or under maintenance, the cluster remains operational. Therefore, three is the minimum recommended number of {{ ZK }} hosts per {{ mch-name }} cluster.
+A cluster with three {{ ZK }} hosts, however, is highly available. When one of its hosts is under maintenance or down, the cluster remains operational. Therefore, three is the minimum recommended number of {{ ZK }} hosts per {{ mch-name }} cluster.
 
 A cluster with four {{ ZK }} hosts has no advantages over a three-host cluster: it will also remain operational if only one of its hosts fails. With two hosts down, the consensus is not met, so the service becomes unavailable.
 
-A cluster with five {{ ZK }} hosts is resilient enough to keep running without two of its hosts, three hosts out of five still forming the majority. This is why this cluster is easier to maintain than a three-host cluster. Even if one host out of five is [under maintenance](../../managed-clickhouse/concepts/maintenance.md) or restarting, the cluster remains fault-tolerant, i.e., it can lose one more host and still be operational.
+A cluster with five {{ ZK }} hosts is resilient enough to keep running without two of its hosts, three hosts out of five still forming the majority. This is why this cluster is easier to maintain than a three-host cluster. Even if one host out of five is [under maintenance](../../managed-clickhouse/concepts/maintenance.md) or restarting, the cluster remains highly available, i.e., it can lose one more host and still be operational.
 
-Usually, adding more than five {{ ZK }} hosts to a cluster is not feasible. The more {{ ZK }} hosts, the longer their interaction times, and therefore the slower the service.
+Adding more than five {{ ZK }} hosts to a cluster is not supported.
 
-Thus, we recommend creating three or five {{ ZK }} hosts per {{ mch-name }} cluster. 
+Thus, we recommend creating three or five {{ ZK }} hosts per {{ mch-name }} cluster.

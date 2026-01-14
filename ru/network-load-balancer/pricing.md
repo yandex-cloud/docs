@@ -22,10 +22,6 @@ editable: false
 
 
 
-
-{% include [prices-nds-note](../_includes/prices-nds-note.md) %}
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 Тарифицируется трафик, поступающий на пару из IP-адреса и порта, указанную в качестве обработчика сетевого балансировщика. Остальной трафик, поступающий на балансировщик, не принимается и не тарифицируется.

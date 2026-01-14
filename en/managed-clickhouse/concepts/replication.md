@@ -10,7 +10,7 @@ In {{ CH }}, replication is performed if the cluster meets all these conditions:
 * There is at least one shard with two or more hosts.
 * Host coordination tool is set up.
 
-A {{ mch-name }} cluster with enabled replication is fault-tolerant. In such a cluster, you can create [replicated tables](#replicated-tables) and [replicated databases](#replicated-db).
+A {{ mch-name }} cluster with replication is considered to be [highly available](high-availability.md). In such a cluster, you can create [replicated tables](#replicated-tables) and [replicated databases](#replicated-db).
 
 With {{ mch-name }}, you can use one of the following tools to coordinate hosts and distribute queries among them:
 
@@ -27,19 +27,19 @@ In {{ mch-name }}, the {{ CK }} coordination service is now available in the fol
 * **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**: {{ CK }} runs on separate hosts. For successful replication, the {{ mch-name }} cluster must have three or five {{ CK }} hosts.
 
 You can turn on the {{ CK }} coordination service:
-
+  
 * When [creating a cluster](../operations/cluster-create.md).
 * When [updating a cluster](../operations/update.md), if created without a coordination service.
 
 Once {{ CK }} is is turned on, you cannot turn it off.
 
-You can learn more about {{ CK }} in [this {{ CH }} guide]({{ ch.docs }}/guides/sre/keeper/clickhouse-keeper).
+For more information about {{ CK }}, see [this {{ CH }} guide]({{ ch.docs }}/guides/sre/keeper/clickhouse-keeper).
 
 ## {{ ZK }} {#zk}
 
-{{ ZK }} is a service for coordination and distribution of queries among {{ CH }} hosts. For successful replication, a {{ mch-name }} cluster must have [three or five {{ ZK }} hosts](../qa/cluster-settings.md#zookeeper-hosts-number).
+{{ ZK }} is a service for coordination and distribution of queries among {{ CH }} hosts. For replication, your {{ mch-name }} cluster must have [three or five {{ ZK }} hosts](../qa/cluster-settings.md#zookeeper-hosts-number).
 
-If your cluster consists of one {{ CH }} host or several single-host shards and was originally created without {{ CK }} support, you must enable fault tolerance for the cluster before adding new hosts. To do this, [add three or five {{ ZK }} hosts to the cluster](../operations/zk-hosts.md#add-zk). If the cluster already has {{ ZK }} hosts, you can [add {{ CH }} hosts](../operations/hosts.md#add-host) to any shards.
+If your cluster consists of one {{ CH }} host or several single-host shards and does not support {{ CK }}, you must ensure its high availability before adding new hosts. Do it by [adding three or five {{ ZK }} hosts to the cluster](../operations/zk-hosts.md#add-zk). If the cluster already has {{ ZK }} hosts, you can [add {{ CH }} hosts](../operations/hosts.md#add-host) to any shards.
 
 
 If you are creating a cluster with two or more {{ CH }} hosts per shard, the system will automatically add three {{ ZK }} hosts to the cluster. At this point, you can only set up their configuration. Mind the following:

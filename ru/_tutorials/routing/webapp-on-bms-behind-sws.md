@@ -193,8 +193,8 @@
         1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя подсети: `subnet-m4`.
         1. Включите опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
         1. В поле **{{ ui-key.yacloud.baremetal.field_network-id }}** выберите созданный ранее сегмент `my-vrf`.
-        1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR }}** укажите `172.28.4.0/24`.
-        1. В поле **{{ ui-key.yacloud.baremetal.field_gateway }}** оставьте значение по умолчанию `172.28.4.1`.
+        1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** укажите `172.28.4.0/24`.
+        1. В поле **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** оставьте значение по умолчанию `172.28.4.1`.
         1. Включите опцию **{{ ui-key.yacloud.baremetal.field_dhcp-settings }}** и в появившемся поле **{{ ui-key.yacloud.baremetal.field_dhcp-ip-range }}** оставьте значения по умолчанию: `172.28.4.1` — `172.28.4.254`.
         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 

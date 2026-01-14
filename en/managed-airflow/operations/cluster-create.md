@@ -87,10 +87,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         {% endnote %}
 
       * DAG processor
-        
+
         {% include [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
-      * (Optional) Triggerer services
+      * Triggerer services (optional)
 
   1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
 
@@ -112,12 +112,25 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       {% endnote %}
 
-  1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select a bucket or create a new one. This bucket will store DAG files.
+  1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select **Source type** and specify its parameters:
+     * **S3**: Select an existing bucket or create a new one. This bucket will store DAG files.
 
-      Make sure to [grant the `READ` permission](../../storage/operations/buckets/edit-acl.md) for this bucket to the cluster service account.
+        Make sure to [grant the `READ` permission](../../storage/operations/buckets/edit-acl.md) for this bucket to the cluster service account.
+
+     * **Git**: Specify the repository address, working branch, path to the folder with DAG files, and the contents of the private SSH access key.
+
+        {% note warning %}
+
+        * The repository address must allow connections via the SSH protocol.
+
+        * The private key must not be password-protected.
+
+        * To use the Git repository, specify the network with configured [NAT gateway](../../vpc/operations/create-nat-gateway.md) under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**. When configuring it, link a NAT gateway route table to all the {{ maf-name }} cluster subnets.
+
+        {% endnote %}
 
   1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
-      
+
       * Select cluster [maintenance](../concepts/maintenance.md) time:
 
         {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
@@ -152,7 +165,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
     To create a {{ maf-name }} cluster:
 
-    1. View the description of the CLI command to create a cluster:
+    1. View the description of the CLI command for creating a cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster create --help
@@ -183,6 +196,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            --deb-packages <list_of_deb_packages> \
            --pip-packages <list_of_pip_packages> \
            --dags-bucket <bucket_name> \
+           --gitsync repo=<repository_SSH_address>,`
+                     `branch=<working_branch>,`
+                     `subpath=<path_to_DAG_file_folder>,`
+                     `ssh-key=<private_SSH_key>,`
+                     `ssh-key-path=<path_to_private_SSH_key_file> \
            --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
                                 `hour=<hour> \
@@ -201,7 +219,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
-
 
 - {{ TF }} {#tf}
 
@@ -304,6 +321,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           "codeSync": {
             "s3": {
               "bucket": "<bucket_name>"
+            },
+            "gitSync": {
+              "repo": "<repository_SSH_address>",
+              "branch": "<working_branch>",
+              "subPath": "<path_to_DAG_file_folder>",
+              "sshKey": "<private_SSH_key>"
             }
           },
           "maintenanceWindow": {
@@ -388,7 +411,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `securityGroupIds`: List of [security group](../concepts/network.md#security-groups) IDs.
 
-        * `codeSync.s3.bucket`: Name of the bucket to store DAG files in.
+        * `codeSync`: DAG file source type and parameters.
+
+            * `s3.bucket`: Bucket name.
+
+            * `gitSync`: Git repo parameters:
+
+              * `repo`: Repository address.
+              * `branch`: Working branch.
+              * `subPath`: Path to the DAG file folder in the repository.
+              * `sshKey`: Private SSH repository access key, single-line with new line characters `\n`.
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+            Specify either `s3` or `gitSync`.
 
         * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-rest.md) %}
 
@@ -499,6 +535,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           "code_sync": {
             "s3": {
               "bucket": "<bucket_name>"
+            },
+            "git_sync": {
+              "repo": "<repository_SSH_address>",
+              "branch": "<working_branch>",
+              "sub_path": "<path_to_DAG_file_folder>",
+              "ssh_key": "<private_SSH_key>"
             }
           },
           "maintenance_window": {
@@ -583,7 +625,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `security_group_ids`: List of [security group](../concepts/network.md#security-groups) IDs.
 
-        * `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
+        * `code_sync`: DAG file source type and parameters.
+
+            * `s3.bucket`: Bucket name.
+
+            * `git_sync`: Git repo parameters:
+
+              * `repo`: Repository address.
+              * `branch`: Working branch.
+              * `sub_path`: Path to the DAG file folder in the repository.
+              * `ssh_key`: Private SSH repository access key, single-line with new line characters `\n`.
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+            Specify either `s3` or `git_sync`.
 
         * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-grpc.md) %}
 

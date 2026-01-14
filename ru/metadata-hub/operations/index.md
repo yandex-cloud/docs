@@ -37,6 +37,7 @@ description: Пошаговые инструкции по работе с {{ met
 
 * Пространство имен:
   * [{#T}](create-name-space.md)
+  * [{#T}](list-name-space.md)
   * [{#T}](update-name-space.md)
   * [{#T}](connect-to-namespace.md)
   * [{#T}](delete-name-space.md)

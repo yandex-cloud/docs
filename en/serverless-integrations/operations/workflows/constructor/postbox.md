@@ -10,7 +10,7 @@ description: Follow this guide to add sending emails with {{ postbox-full-name }
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![postbox-icon](../../../../_assets/postbox-icon.svg) **{{ postbox-short-name }}** element to the relevant workflow location in the constructor window.
+  1. From the **Integration steps** section on the left side of the screen, drag the ![postbox-icon](../../../../_assets/postbox-icon.svg) **{{ postbox-short-name }}** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the new **{{ postbox-short-name }}** section to select it.

@@ -1,6 +1,6 @@
 ---
 title: Managing {{ SD }} users in {{ mmg-full-name }}
-description: In this tutorial, you will learn how to add and remove users, as well as manage each user’s settings in the {{ SD }} database management service.
+description: In this tutorial, you will learn how to add users, remove users, and manage individual user settings in the {{ SD }} database management service.
 ---
 
 # Managing {{ SD }} users
@@ -13,7 +13,8 @@ You can add and delete users as well as manage their individual settings and dat
 
 - Management console {#console}
   
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
+  1. Go to the [folder]({{ link-console-main }}) page.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   
 - CLI {#cli}
@@ -22,7 +23,7 @@ You can add and delete users as well as manage their individual settings and dat
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To get a list of cluster users, run the following command:
+  To get a list of cluster users, run this command:
   
   ```
   {{ yc-mdb-mg }} user list \
@@ -33,11 +34,11 @@ You can add and delete users as well as manage their individual settings and dat
   
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [User.List](../api-ref/User/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.List](../api-ref/User/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -52,12 +53,12 @@ You can add and delete users as well as manage their individual settings and dat
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [UserService.List](../api-ref/grpc/User/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.List](../api-ref/grpc/User/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -75,7 +76,7 @@ You can add and delete users as well as manage their individual settings and dat
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.mongodb.v1.ListUsersResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.mongodb.v1.ListUsersResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -85,13 +86,14 @@ You can add and delete users as well as manage their individual settings and dat
 
 - Management console {#console}
   
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
+  1. Go to the [folder]({{ link-console-main }}) page.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
-  1. Enter the DB user name and password.
+  1. Enter the DB username and password.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
@@ -112,7 +114,7 @@ You can add and delete users as well as manage their individual settings and dat
   
   To create a user in a cluster:
   
-  1. View the description of the CLI command to create s user:
+  1. See the description of the CLI command for creating a user:
   
      ```
      {{ yc-mdb-mg }} user create --help
@@ -133,9 +135,9 @@ You can add and delete users as well as manage their individual settings and dat
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Add the `yandex_mdb_mongodb_user` resource:
 
@@ -167,11 +169,11 @@ You can add and delete users as well as manage their individual settings and dat
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [User.create](../api-ref/User/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.Create](../api-ref/User/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -195,7 +197,7 @@ You can add and delete users as well as manage their individual settings and dat
                }'
      ```
 
-     Where `userSpec` lists the new DB user settings:
+     Where `userSpec` is the settings for the new database user:
 
      * `name`: Username.
      * `password`: User password.
@@ -204,7 +206,7 @@ You can add and delete users as well as manage their individual settings and dat
 
      * `permissions`: User permissions settings:
 
-       * `databaseName`: Name of the database the user gets access to.
+       * `databaseName`: Name of the database to which the user will have access.
        * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
        For each database, add a separate element with permission settings to the `permissions` array.
@@ -215,12 +217,12 @@ You can add and delete users as well as manage their individual settings and dat
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.Create](../api-ref/grpc/User/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.Create](../api-ref/grpc/User/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -248,7 +250,7 @@ You can add and delete users as well as manage their individual settings and dat
        yandex.cloud.mdb.mongodb.v1.UserService.Create
      ```
 
-     Where `user_spec` represents the new DB user settings:
+     Where `user_spec` is the settings for the new database user:
 
      * `name`: Username.
      * `password`: User password.
@@ -257,7 +259,7 @@ You can add and delete users as well as manage their individual settings and dat
 
      * `permissions`: User permission settings:
 
-       * `database_name`: Name of the database the user gets access to.
+       * `database_name`: Name of the database to which the user will have access.
        * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
        For each database, add a separate element with permission settings to the `permissions` array.
@@ -274,9 +276,10 @@ You can add and delete users as well as manage their individual settings and dat
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
+  1. Go to the [folder]({{ link-console-main }}) page.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
   1. To edit a user password, click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the user you need and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
@@ -354,9 +357,9 @@ You can add and delete users as well as manage their individual settings and dat
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Find the `yandex_mdb_mongodb_user` resource.
     1. Update the `password` field value and field values under `permission`:
@@ -387,11 +390,11 @@ You can add and delete users as well as manage their individual settings and dat
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [User.Update](../api-ref/User/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.Update](../api-ref/User/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -417,28 +420,28 @@ You can add and delete users as well as manage their individual settings and dat
 
      Where:
 
-     * `updateMask`: List of parameters to update as a single string, separated by commas.
+     * `updateMask`: Comma-separated string of settings you want to update.
      * `password`: User password.
 
         {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
      * `permissions`: User permission settings:
 
-       * `database_name`: Name of the database the user gets access to.
+       * `database_name`: Name of the database to which the user will have access.
        * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
  
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
-  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -475,19 +478,19 @@ You can add and delete users as well as manage their individual settings and dat
 
      Where:
 
-     * `update_mask`: List of parameters to update as a single string, separated by commas.
+     * `update_mask`: Comma-separated string of settings you want to update.
      * `password`: User password.
 
         {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
      * `permissions`: User permission settings:
 
-       * `database_name`: Name of the database the user gets access to.
+       * `database_name`: Name of the database to which the user will have access.
        * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful. 
+  1. Check the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful. 
 
 {% endlist %}
 
@@ -497,8 +500,9 @@ You can add and delete users as well as manage their individual settings and dat
 
 - Management console {#console}
   
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-  1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Go to the [folder]({{ link-console-main }}) page.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the user you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   
 - CLI {#cli}
@@ -518,9 +522,9 @@ You can add and delete users as well as manage their individual settings and dat
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Delete the `yandex_mdb_mongodb_user` resource with the user description.
 
@@ -536,11 +540,11 @@ You can add and delete users as well as manage their individual settings and dat
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [User.Delete](../api-ref/User/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.Delete](../api-ref/User/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -549,18 +553,18 @@ You can add and delete users as well as manage their individual settings and dat
        --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/users/<username>'
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
-  1. View the [server response](../api-ref/User/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/User/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.Delete](../api-ref/grpc/User/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.Delete](../api-ref/grpc/User/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -577,9 +581,9 @@ You can add and delete users as well as manage their individual settings and dat
        yandex.cloud.mdb.mongodb.v1.UserService.Delete
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

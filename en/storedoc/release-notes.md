@@ -5,6 +5,10 @@ description: This section contains {{ mmg-name }} release notes.
 
 # {{ mmg-full-name }} release notes
 
+## November 2025 {#nov-2025}
+
+Added the `managed-mongodb.restorer` role, which allows restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-mongodb-restorer).
+
 ## October 2025 {#oct-2025}
 
 * Added integration with {{ connection-manager-name }}. This tool allows you to connect to databases without directly using a password, thus reducing the risk of it being compromised.
@@ -15,6 +19,7 @@ description: This section contains {{ mmg-name }} release notes.
 * Added the ability to manage data migration when adding or deleting a shard using the `rangeDeleterBatchSize`, `rangeDeleterBatchDelayMS`, and `migrateCloneInsertionBatchSize` settings.
 * Added the SRV records improving stability of the host’s fully qualified domain name (FQDN). Now the following format is used for connections: `mongodb+srv://[username: password@]<cluster_ID>.{{ dns-zone }}[/[defaultauthdb][? options]]`.
 * You can now view the full replica configuration information in the management console and the `{{ yc-mdb-mg }} host list` CLI command ouptut.
+* Added new [host classes](concepts/instance-types.md) on AMD Zen 4 and AMD Zen 4 HighFreq platforms.
 
 ## July 2025 {#jul-2025}
 

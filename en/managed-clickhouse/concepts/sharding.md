@@ -14,11 +14,12 @@ Sharding is often used in the following cases:
 - When your application requires more and more resources, but a [replicated](replication.md) cluster can no longer be scaled using the vertical strategy, i.e., by increasing the computing power of the host resources, such as disks, RAM, and CPU.
 
 Sharding can help you:
+
 - Overcome technical limitations. {#restrictions}
 
   If you need to work with large datasets, your data storage infrastructure may cause your commercially available hardware to become stressed to the limit (for example, the disk subsystem will demonstrate poor IOPS metrics). If the application is running at hardware performance limits, it may be a good idea to distribute data across shards. In this case, the read operations will be performed concurrently.
 
-- Improve fault tolerance. {#high-availability}
+- Increase availability. {#high-availability}
 
   Sharding allows you to isolate individual host or replica failures. If you do not use sharding, then, when one host or a few replicas fail, you lose access to the entire dataset they contain. Conversely, if one shard out of five fails, 80% of the table data will still be available.
 

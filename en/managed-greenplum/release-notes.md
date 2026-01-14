@@ -5,6 +5,14 @@ description: This section contains {{ mgp-name }} release notes.
 
 # {{ mgp-full-name }} release notes
 
+## November 2025 {#nov-2025}
+
+Added the `managed-greenplum.restorer` role for restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-greenplum-restorer).
+
+## October 2025 {#oct-2025}
+
+Added new [host classes](concepts/instance-types.md) on AMD Zen 4 and AMD Zen 4 HighFreq platforms.
+
 ## July 2025 {#jul-2025}
 
 Added a feature to [transfer cluster logs to {{ cloud-logging-full-name }}](operations/mgp-to-cloud-logging.md).

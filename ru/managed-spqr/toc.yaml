@@ -26,6 +26,8 @@ items:
         href: concepts/sharding.md
       - name: Ключи шардирования
         href: concepts/sharding-keys.md
+      - name: Выбор стратегии шардирования
+        href: concepts/sharding-method.md
       - name: Классы хостов
         href: concepts/instance-types.md
       - name: Хранилище в {{ SPQR }}

@@ -1,5 +1,5 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
 1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.cns.local.action_create-topic_qywb9 }}**.
 1. Введите имя топика. Имя топика должно быть уникальным в {{ cns-name }}.

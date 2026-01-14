@@ -10,7 +10,7 @@ description: Follow this guide to add interaction with Yandex Disk files to your
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![yadisk-icon](../../../../_assets/yadisk-icon.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_integration_title }}** element to the relevant workflow location in the constructor window.
+  1. From the **Integration steps** section on the left side of the screen, drag the ![yadisk-icon](../../../../_assets/yadisk-icon.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_integration_title }}** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the new **{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_integration_title }}** section to select it.

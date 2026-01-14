@@ -24,6 +24,8 @@ items:
         href: concepts/index.md
       - name: Sharding
         href: concepts/sharding.md
+      - name: Sharding keys
+        href: concepts/sharding-keys.md
       - name: Host classes
         href: concepts/instance-types.md
       - name: Storage in {{ SPQR }}

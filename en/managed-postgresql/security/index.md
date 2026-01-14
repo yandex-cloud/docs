@@ -24,7 +24,7 @@ To assign a role for a resource, you need the `mdb.admin` role, the `managed-pos
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
-You can assign a role for a separate cluster from the [management console]({{ link-console-main }}) or via the [API](../api-ref/authentication.md).
+You can assign a role for a separate cluster in the [management console]({{ link-console-main }}) or via the [API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 
@@ -33,6 +33,10 @@ The chart below shows the roles existing in the service and their permission inh
 {% include [roles-managed-postgresql](../../_mermaid/roles/managed-postgresql.md) %}
 
 ### Service roles {#service-roles}
+
+#### managed-postgresql.clusters.connector {#managed-postgresql-clusters-connector}
+
+{% include [managed-postgresql.clusters.connector](../../_roles/managed-postgresql/clusters/connector.md) %}
 
 #### managed-postgresql.auditor {#managed-postgresql-auditor}
 

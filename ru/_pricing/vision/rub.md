@@ -1,9 +1,9 @@
-| Услуга  | Цена за единицу тарификации до 31.12.2025, вкл. НДС | Цена за единицу тарификации с 01.01.2026, вкл. НДС |
-|---|---|---|
-| Распознавание печатного текста                        | {{ sku|RUB|vision_ocr.printed_text_detection.v1|string }} | {% calc [currency=RUB] round(({{ sku|RUB|vision_ocr.printed_text_detection.v1|number }} / 120 × 122) × 100) / 100 %} |
-| Распознавание таблиц                                  | {{ sku|RUB|vision_ocr.text_and_table_text_detection.v1|string }} | {% calc [currency=RUB] round(({{ sku|RUB|vision_ocr.text_and_table_text_detection.v1|number }} / 120 × 122) × 100) / 100 %} |
-| Распознавание документов (паспорт)                    | {{ sku|RUB|vision_ocr.passport_text_detection.v1|string }} | {% calc [currency=RUB] round(({{ sku|RUB|vision_ocr.passport_text_detection.v1|number }} / 120 × 122) × 100) / 100 %} |
-| Распознавание документов (водительское удостоверение) | {{ sku|RUB|vision_ocr.driver_license_text_detection.v1|string }} | {% calc [currency=RUB] round(({{ sku|RUB|vision_ocr.driver_license_text_detection.v1|number }} / 120 × 122) × 100) / 100 %} |
-| Распознавание документов (СТС)                        | {{ sku|RUB|vision_ocr.vehicle_certificate_text_detection.v1|string }} | {% calc [currency=RUB] round(({{ sku|RUB|vision_ocr.vehicle_certificate_text_detection.v1|number }} / 120 × 122) × 100) / 100 %} |
-| Распознавание рукописного текста                      | {{ sku|RUB|vision_ocr.handwriting_and_printed_text_detection.v1|string }} | {% calc [currency=RUB] round(({{ sku|RUB|vision_ocr.handwriting_and_printed_text_detection.v1|number }} / 120 × 122) × 100) / 100 %} |
-| Распознавание регистрационных номеров автомобилей     | {{ sku|RUB|vision_ocr.license_plates.v1|string }} | {% calc [currency=RUB] round(({{ sku|RUB|vision_ocr.license_plates.v1|number }} / 120 × 122) × 100) / 100 %} |
+| Услуга  | Цена за единицу тарификации, вкл. НДС |
+|---|---|
+| Распознавание печатного текста                        | {{ sku|RUB|vision_ocr.printed_text_detection.v1|string }} |
+| Распознавание таблиц                                  | {{ sku|RUB|vision_ocr.text_and_table_text_detection.v1|string }} |
+| Распознавание документов (паспорт)                    | {{ sku|RUB|vision_ocr.passport_text_detection.v1|string }} |
+| Распознавание документов (водительское удостоверение) | {{ sku|RUB|vision_ocr.driver_license_text_detection.v1|string }} |
+| Распознавание документов (СТС)                        | {{ sku|RUB|vision_ocr.vehicle_certificate_text_detection.v1|string }} |
+| Распознавание рукописного текста                      | {{ sku|RUB|vision_ocr.handwriting_and_printed_text_detection.v1|string }} |
+| Распознавание регистрационных номеров автомобилей     | {{ sku|RUB|vision_ocr.license_plates.v1|string }} |

@@ -1,22 +1,24 @@
-You can send queries to databases in a {{ mrd-name }} cluster using [{{ websql-full-name }}](../../../websql).
+You can use [{{ websql-full-name }}](../../../websql) to run {{ mrd-name }} cluster database operations.
 
-{{ websql-name }} is a {{ yandex-cloud }} service that allows you to connect to managed database clusters, work with database schemas and tables, and run queries. It is a web-based tool that requires no additional authorization and simplifies working with {{ VLK }} commands by suggesting prompts.
+{{ websql-name }} is a {{ yandex-cloud }} service that enables you to connect to managed database clusters, work with databases, tables, and schemas, and run queries. It is a web-based tool that requires no additional authorization and simplifies working with {{ VLK }} commands by prompting the user.
 
-To connect to a {{ mrd-name }} cluster from {{ websql-name }}, create a connection:
+To connect from {{ websql-name }}, you must enable the **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** option in the cluster settings. You can enable this option when [creating](../../../managed-redis/operations/cluster-create.md) or [updating a cluster](../../../managed-redis/operations/update.md#change-additional-settings).
 
-1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-1. Click the cluster name.
-1. [Enable](../../../managed-redis/operations/update.md#change-additional-settings) **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** in the cluster settings if it is not on yet.
-1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** tab.
-1. Click **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_create-connection }}** and specify the following connection settings:
-    * **Connection name**.
-    * **Database type**: {{ VLK }}.
-    * **Cluster**: Defaults to your current {{ VLK }} cluster.
-    * **Username**: Account you will use to connect to the cluster database.
-    * **Password**: User password.
-    * **Databases**: List of databases you want to access. You can only connect to the databases within the current cluster. The user account you specified must have permissions to access these databases.
-1. Click **Create**.
+In the {{ mrd-name }} cluster, a [connection in {{ connection-manager-name }}](../../../metadata-hub/concepts/connection-manager.md) is automatically created for each database user so they can connect to the database from {{ websql-name }}. You can also [create a new connection](../../../websql/operations/create-connection.md#connect-cluster) if you need one.
 
-To open the query editor, click the connection you created on the **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** tab.
+To connect to the database from {{ websql-name }}:
 
-For more details on using {{ websql-name }}, see its [official guides](../../../websql/operations/index.md).
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}** tab.
+  1. Select the connection.
+
+      The connection will open in {{ websql-name }}. To go to the query editor, select the required database.
+    
+{% endlist %}
+
+For more information on how to work with {{ websql-name }}, see [these guides](../../../websql/operations/index.md).

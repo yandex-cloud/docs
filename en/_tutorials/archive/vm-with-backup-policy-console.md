@@ -456,7 +456,7 @@ You can create a new policy or use one of those automatically created upon servi
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
       * Select the `backup-sa` service account.
-      * Enable **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      * Enable **{{ backup-name }}**.
       * Select the backup policy [you created earlier](#create-policy).
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

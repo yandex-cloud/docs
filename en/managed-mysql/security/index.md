@@ -24,7 +24,7 @@ To assign a role for a resource, you need the `mdb.admin` role, the `managed-mys
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
-You can assign a role for a separate cluster from the [management console]({{ link-console-main }}) or via the [API](../api-ref/authentication.md).
+You can assign a role for a separate cluster in the [management console]({{ link-console-main }}) or via the [API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 
@@ -33,6 +33,10 @@ The chart below shows the roles existing in the service and their permission inh
 {% include [roles-managed-mysql](../../_mermaid/roles/managed-mysql.md) %}
 
 ### Service roles {#service-roles}
+
+#### managed-mysql.clusters.connector {#managed-mysql-clusters-connector}
+
+{% include [managed-mysql.clusters.connector](../../_roles/managed-mysql/clusters/connector.md) %}
 
 #### managed-mysql.auditor {#managed-mysql-auditor}
 

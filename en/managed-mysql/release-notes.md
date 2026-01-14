@@ -5,9 +5,14 @@ description: This section contains {{ mmy-name }} release notes.
 
 # {{ mmy-full-name }} release notes
 
+## November 2025 {#nov-2025}
+
+Added the `managed-mysql.restorer` role, which allows restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-mysql-restorer).
+
 ## October 2025 {#oct-2025}
 
 * Increased the binary log size for clusters with large disks for quicker recovery of large clusters in case of failure.
+* Added new [host classes](concepts/instance-types.md) on AMD Zen 4 and AMD Zen 4 HighFreq platforms.
 
 ## September 2025 {#sep-2025}
 
