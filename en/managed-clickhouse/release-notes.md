@@ -3,7 +3,24 @@ title: '{{ mch-full-name }} release notes'
 description: This section contains {{ mch-name }} release notes.
 ---
 
+<!-- Changelog begin -->
+
+
+<!-- Changelog end -->
+
+
 # {{ mch-full-name }} release notes
+
+## November 2025 {#nov-2025}
+
+* {{ CK }} is now available to all {{ mch-name }} users and used by default in new clusters. In addition, now you can create separate hosts with {{ CK }} in your cluster. To learn more about {{ CK }}, see [Replication](concepts/replication.md#ck).
+* Added the `managed-clickhouse.restorer` role, which allows restoring clusters from backups. To learn more, see [Access management](security.md#managed-clickhouse-restorer).
+* Removed **Kafka topics**, the DBMS setting that allowed configuring topic-level authentication parameters for [{{ KF }} integration]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+* New {{ CH }} versions are out: [25.8](https://clickhouse.com/blog/clickhouse-release-25-08), [25.9](https://clickhouse.com/blog/clickhouse-release-25-09), and [25.10](https://clickhouse.com/blog/clickhouse-release-25-10).
+
+## October 2025 {#oct-2025}
+
+Added new [host classes](concepts/instance-types.md) on AMD Zen 4 and AMD Zen 4 HighFreq platforms.
 
 ## July 2025 {#jul-2025}
 

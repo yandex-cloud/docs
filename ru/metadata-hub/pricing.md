@@ -30,8 +30,6 @@ editable: false
 
 ### Цены для региона Россия {#metastore-prices}
 
-{% include [prices-nds-note](../_includes/prices-nds-note.md) %}
-
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}

@@ -2,10 +2,10 @@
 
 #|
 || Type of limit | Value ||
-|| Connection time-to-live | 12 hours ||
+|| Connection TTL | 12 hours ||
 || Number of clusters per cloud
 `mdb.clusters.count` | 16 ||
-|| Total number of processor cores for all database hosts per cloud
+|| Total number of CPU cores for all database hosts per cloud
 `mdb.cpu.count` | 64 ||
 || Total virtual memory for all database hosts per cloud
 `mdb.memory.size` | 512 GB ||
@@ -17,10 +17,12 @@
 
 #### Limits {#mspqr-limits}
 
-| Type of limit                                                                         | Minimum value                                                                                                                                      | Maximum value                        |
-|:----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|
-| Host class                                                                             | b1.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 4 GB RAM) | m4a-c80-m640 (80 vCPU AMD Zen 3, 640 GB RAM) |
-| Number of hosts per cluster when using HDD or SSD network storage | 1                                                                                                                                                         | 7                                            |
-| Amount of data per host when using HDD or SSD network storage        | 10 GB                                                                                                                                                     | 512 GB                                       |
-| Connections per user                                                  | 1                                                                                                                                                         | 15,985                                        |
-| Number of databases per cluster                                                  | 1                                                                                                                                                         | {{ all-mdb.max-databases }}                  |
+For {{ PG }} cluster limits, see [this {{ mpg-name }} guide](../../managed-postgresql/concepts/limits.md#mpg-limits).
+
+| Type of limit                            | Minimum value                                                                                                                                      | Maximum value                        |
+|:-------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|
+| Host class                                | b1.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 4 GB RAM) | m4a-c80-m640 (80 vCPU AMD Zen 3, 640 GB RAM) |
+| Number of shards per cluster               | 1                                                                                                                                                         | No limits                                |
+| Number of `INFRA` hosts per cluster       | 1                                                                                                                                                         | 7                                            |
+| Number of `ROUTER` hosts per cluster      | 1                                                                                                                                                         | No limits                                |
+| Number of `COORDINATOR` hosts per cluster | 1                                                                                                                                                         | 5                                            |

@@ -41,6 +41,30 @@ items:
             href: operations/monitoring.md
           - name: Просмотр логов кластера
             href: operations/cluster-logs.md
+      - name: Правила доступа к объектам
+        items:
+          - name: Управление доступом
+            href: operations/access-control.md
+          - name: Получение правил доступа
+            href: operations/access-control-get.md
+          - name: Назначение правил для объектов каталогов
+            href: operations/access-control-catalogs.md
+          - name: Назначение правил для схем
+            href: operations/access-control-schemas.md
+          - name: Назначение правил для таблиц
+            href: operations/access-control-tables.md
+          - name: Назначение правил для функций
+            href: operations/access-control-functions.md
+          - name: Назначение правил для процедур
+            href: operations/access-control-procedures.md
+          - name: Назначение правил для запросов
+            href: operations/access-control-queries.md
+          - name: Назначение правил для системных свойств сессии
+            href: operations/access-control-session-properties.md
+          - name: Назначение правил для свойств сессии каталога
+            href: operations/access-control-catalog-properties.md
+          - name: Удаление правил доступа
+            href: operations/access-control-delete.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

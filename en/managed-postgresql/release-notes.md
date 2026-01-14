@@ -5,9 +5,14 @@ description: This section contains {{ mpg-name }} release notes.
 
 # {{ mpg-full-name }} release notes
 
+## November 2025 {#nov-2025}
+
+Added the `managed-postgresql.restorer` role, which allows restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-postgresql-restorer).
+
 ## October 2025 {#oct-2025}
 
-Removed the option to disable automatic master failover. This feature is now enabled for all {{ mpg-name }} clusters.
+* Removed the option to disable automatic master failover. This feature is now enabled for all {{ mpg-name }} clusters.
+* Added new [host classes](concepts/instance-types.md) on AMD Zen 4 and AMD Zen 4 HighFreq platforms.
 
 ## July 2025 {#jul-2025}
 
@@ -38,7 +43,7 @@ Now you can [upgrade clusters](operations/cluster-version-update.md) to {{ PG }}
 
 ## October 2024 {#oct-2024}
 
-* Now you can [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
+* You can now [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
 
 ## September 2024 {#sep-2024}
 

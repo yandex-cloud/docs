@@ -58,9 +58,9 @@ The approaches to increasing and reducing the number of seats are different.
 
 * Reducing the number of seats.
 
-   When you reduce the number of seats, the change will apply on the first day of the next month. Until then, you are charged for the initial number of seats. In the seat settings, you will see a banner reminding you of the scheduled seat reduction, which also has a button for cancelling the reduction in case you change your mind.
+   When you reduce the number of seats, the change will apply on the first day of the next month. Until then, you are charged for the initial number of seats. In the seat settings, you will see a banner reminding you of the scheduled seat reduction. The banner will also have a cancel button in case you change your mind and want to cancel the reduction.
       
-   The system will select seats to remove from among the available ones, and the rest, from those assigned to users. In the user list, such seats will have this status: `Until <date_of_seat_reduction>`. Their users will also see a warning in the interface. On the reduction date, the seat status will change to `Inactive`, and the users will be unable to access the {{ datalens-short-name }} interface. The administrator will be able to activate their seats. 
+   The system will select seats to remove from among the available ones, and the rest, from those assigned to users. In the user list, such seats will have this status: `Until <date_of_seat_reduction>`. Their users will also see a warning in the interface. On the reduction date, the seat status will change to `Inactive`, and the users will be unable to access the {{ datalens-short-name }} interface. The administrator can activate such seats so that the user gets a free seat or a newly purchased one, or reassign seats from other users.
 
 ## Viewing the list of users with seats {#users-and-seats}
 

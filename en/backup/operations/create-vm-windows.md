@@ -34,7 +34,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
       1. Select the service account with the `backup.editor` role.
-      1. Enable **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      1. Enable **{{ backup-name }}**.
       1. Optionally, select a backup policy or click **{{ ui-key.yacloud.common.create }}** to [create](./policy-vm/create.md) a new one.
 
   1. Specify the other VM parameters as needed.

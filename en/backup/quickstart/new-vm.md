@@ -74,7 +74,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
       1. Select the service account you [created earlier](#deploy-infrastructure).
-      1. Enable **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      1. Enable **{{ backup-name }}**.
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

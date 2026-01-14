@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. Из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** в левой части экрана перетащите элемент ![tracker-icon](../../../../_assets/tracker-icon.svg) **{{ tracker-name }}** в нужное место рабочего процесса в окне конструктора.
+  1. Из секции **Интеграционные шаги** в левой части экрана перетащите элемент ![tracker-icon](../../../../_assets/tracker-icon.svg) **{{ tracker-name }}** в нужное место рабочего процесса в окне конструктора.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. В окне со схемой рабочего процесса нажмите на добавленный блок **{{ tracker-name }}**, чтобы выбрать его.

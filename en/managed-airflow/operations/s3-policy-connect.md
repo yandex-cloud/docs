@@ -23,4 +23,4 @@ In {{ maf-full-name }}, you can work with a {{ objstorage-full-name }} bucket wi
 
 ## Test the connection {#check-connection}
 
-To test the connection to the {{ objstorage-name }} bucket, [upload the DAG file](upload-dags.md) to the bucket The DAG should appear in the {{ AF }} web interface.
+To test the connection to the {{ objstorage-name }} bucket, [upload the DAG file to the bucket](upload-dags.md#dag-bucket-import). The DAG should appear in the {{ AF }} web interface.

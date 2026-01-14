@@ -12,7 +12,7 @@ The Wait control step suspends the execution of the workflow for a specified tim
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** section on the left side of the screen, drag the ![clock](../../../../_assets/console-icons/clock.svg) **Wait** element to the relevant workflow location in the constructor window.
+  1. From the **Control steps** section on the left side of the screen, drag the ![clock](../../../../_assets/console-icons/clock.svg) **Wait** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the new **Wait** section to select it.

@@ -31,8 +31,6 @@ editable: false
 
 {% endnote %}
 
-{% include [prices-nds-note](../_includes/prices-nds-note.md) %}
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 Стоимость может зависеть от [периода аренды](../baremetal/concepts/servers.md#server-lease).

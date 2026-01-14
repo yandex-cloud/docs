@@ -65,11 +65,11 @@ items:
             href: operations/geobase.md
           - name: Connecting external dictionaries
             href: operations/dictionaries.md
-          - name: Managing data format schemas
+          - name: Managing format schemas
             href: operations/format-schemas.md
           - name: Managing machine learning models
             href: operations/ml-models.md
-          - name: Setting up access to {{ objstorage-name }}
+          - name: Configuring access to {{ objstorage-name }}
             href: operations/s3-access.md
       - name: Sharding
         items:
@@ -193,6 +193,8 @@ items:
     items:
       - name: Resource relationships
         href: concepts/index.md
+      - name: High availability clusters
+        href: concepts/high-availability.md
       - name: Host classes
         items:
           - name: Available host classes

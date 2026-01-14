@@ -9,8 +9,9 @@ Switching takes on average less than a minute. The cluster may be unavailable fo
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** tab.
+    1. Go to the [folder]({{ link-console-main }}) page.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** tab.
     1. Click ![options](../../_assets/console-icons/ellipsis.svg) in the `PRIMARY` host row and select **{{ ui-key.yacloud.mongodb.hosts.action_stepdown-host }}**.
 
 - CLI {#cli}
@@ -30,7 +31,7 @@ Switching takes on average less than a minute. The cluster may be unavailable fo
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -51,11 +52,11 @@ Switching takes on average less than a minute. The cluster may be unavailable fo
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the shard primary replica, with the [list of cluster hosts](hosts.md#list).
 
-    1. Check the [server response](../api-ref/Cluster/stepdownHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/stepdownHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -82,6 +83,6 @@ Switching takes on average less than a minute. The cluster may be unavailable fo
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the shard primary replica, with the [list of cluster hosts](hosts.md#list).
 
-    1. Check the [server response](../api-ref/grpc/Cluster/stepdownHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/stepdownHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

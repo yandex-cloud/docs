@@ -10,7 +10,7 @@ description: Следуя этой инструкции, вы сможете с�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать канал уведомлений.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Нажмите **{{ ui-key.yacloud.cns.action_create-channel }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.cns.type_web }}**.
   1. (Опционально) В разделе **{{ ui-key.yacloud.cns.section_logging }}** включите **{{ ui-key.yacloud.cns.field_logging }}**.

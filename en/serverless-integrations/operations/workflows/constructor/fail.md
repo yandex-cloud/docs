@@ -12,7 +12,7 @@ The Fail control step terminates a workflow execution with an error. If the step
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** section on the left side of the screen, drag the ![octagon-xmark](../../../../_assets/console-icons/octagon-xmark.svg) **Fail** element to the relevant workflow location in the constructor window.
+  1. From the **Control steps** section on the left side of the screen, drag the ![octagon-xmark](../../../../_assets/console-icons/octagon-xmark.svg) **Fail** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the new **Fail** section to select it.

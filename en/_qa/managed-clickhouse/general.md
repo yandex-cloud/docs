@@ -4,13 +4,13 @@
 
 With {{ mch-short-name }}, you can:
 - Create a database with performance tailored to your needs.
-- Scale your database compute and dedicated storage capacity as needed.
+- Scale computing power and dedicated storage capacity for your databases as needed.
 - Get database logs.
 
 {{ mch-short-name }} takes over time-consuming administrative tasks in {{ CH }}:
 - Monitors your resource consumption.
 - Automatically backs up your databases.
-- Ensures fault tolerance through automatic failover to standby replicas.
+- Ensures [high availability](../../managed-clickhouse/concepts/high-availability.md) through automatic failover to standby replicas.
 - Keeps your DBMS software up to date.
 
 You work with a {{ mch-short-name }} database cluster just like with your regular local database. Thus, you can manage internal database settings to meet your application requirements.
@@ -29,7 +29,7 @@ Furthermore, {{ mch-short-name }} ensures data replication across database hosts
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### Not sure whether to use {{ mch-short-name }} or VMs running databases? {#mdb-advantage}
+#### Not sure whether to use {{ mch-short-name }} or VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 

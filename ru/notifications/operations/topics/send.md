@@ -9,7 +9,11 @@ description: Следуя этой инструкции, вы сможете о�
 
 - Консоль управления {#console}
 
-  {% include [publish-ui](../../../_includes/notifications/publish-ui.md) %}
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится топик.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
+  
+     {% include [publish-ui](../../../_includes/notifications/publish-ui.md) %}
 
 - AWS CLI {#aws-cli}
 

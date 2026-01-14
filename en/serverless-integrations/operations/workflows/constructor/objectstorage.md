@@ -10,7 +10,7 @@ description: Follow this guide to add interaction with {{ objstorage-full-name }
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![object-storage-icon](../../../../_assets/object-storage-icon.svg) **{{ objstorage-name }}** element to the relevant workflow location in the constructor window.
+  1. From the **Integration steps** section on the left side of the screen, drag the ![object-storage-icon](../../../../_assets/object-storage-icon.svg) **{{ objstorage-name }}** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the new **{{ objstorage-name }}** section to select it.

@@ -30,10 +30,10 @@ If you are not using your custom geobase, [remove it](#disconnect).
 1. Create a file named `regions_names.txt`. It must be a [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) table without headers, containing the following columns:
 
     * Region ID (UInt32).
-    * Region name (String): Cannot contain tab or newline characters, even escaped ones.
+    * Region name (String): It cannot contain tab or newline characters, even escaped ones.
 
 1. To add region names in other languages to your geobase, create the `regions_names_<language_code>.txt` files with the same structure. For example, you can create `regions_names_en.txt` for English and `regions_names_tr.txt` for Turkish.
-1. Create a `tar`, `tar.gz`, or `zip` archive from the geobase files.
+1. Create a `tar`, `tar.gz`, or `zip` archive with the geobase files.
 
 ## Uploading a geobase to {{ objstorage-full-name }} {#upload}
 
@@ -68,7 +68,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
     To add a geobase:
 
-    1. View the description of the CLI command to update the cluster configuration:
+    1. View the description of the CLI command for updating the cluster configuration:
 
         ```bash
         {{ yc-mdb-ch }} cluster update-config --help
@@ -81,13 +81,13 @@ If you are not using your custom geobase, [remove it](#disconnect).
              --set geobase_uri="<link_to_geobase_archive_in_Object_Storage>"
         ```
 
-        You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster settings, add the `geobase_uri` parameter with the link to the archive containing the geobase being added in {{ objstorage-full-name }}:
 
@@ -147,7 +147,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             Here, we only specified a single setting, `configSpec.clickhouse.config.geobaseUri`.
 
@@ -228,7 +228,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
     To remove a geobase:
 
-    1. View the description of the CLI command to update the cluster configuration:
+    1. View the description of the CLI command for updating the cluster configuration:
 
         ```bash
         {{ yc-mdb-ch }} cluster update-config --help
@@ -274,7 +274,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             Here, we only specified a single setting, `configSpec.clickhouse.config.geobaseUri`.
 
@@ -332,7 +332,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

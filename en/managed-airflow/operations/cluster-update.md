@@ -42,7 +42,14 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, delete or add names of pip and deb packages.
 
-    1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select an existing bucket to store DAG files or create a new one. Make sure to [grant the `READ` permission](../../storage/operations/buckets/edit-acl.md) for this bucket to the cluster service account.
+    1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select **Source type** and specify its parameters:
+       * **S3**: Select an existing bucket or create a new one. This bucket will store DAG files.
+
+          Make sure to [grant the `READ` permission](../../storage/operations/buckets/edit-acl.md) for this bucket to the cluster service account.
+
+       * **Git**: Specify the repository address, working branch, path to the folder with DAG files, and the contents of the private SSH access key.
+
+          {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
@@ -71,7 +78,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster update --help
@@ -100,6 +107,11 @@ After creating a cluster, you can edit its basic and advanced settings.
            --deb-packages <list_of_deb_packages> \
            --pip-packages <list_of_pip_packages> \
            --dags-bucket <bucket_name> \
+           --gitsync repo=<repository_SSH_address>,`
+                     `branch=<working_branch>,`
+                     `subpath=<path_to_DAG_file_folder>,`
+                     `ssh-key=<private_SSH_key>,`
+                     `ssh-key-path=<path_to_private_SSH_key_file> \
            --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
                                 `hour=<hour> \
@@ -114,7 +126,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
 
-        You can request the cluster ID and name with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+        You can get the cluster ID and name with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -216,8 +228,14 @@ After creating a cluster, you can edit its basic and advanced settings.
           "codeSync": {
             "s3": {
               "bucket": "<bucket_name>"
+            },
+            "gitSync": {
+              "repo": "<repository_SSH_address>",
+              "branch": "<working_branch>",
+              "subPath": "<path_to_DAG_file_folder>",
+              "sshKey": "<private_SSH_key>"
             }
-          },
+          },  
           "networkSpec": {
             "securityGroupIds": [ <list_of_security_group_IDs> ]
           },
@@ -239,7 +257,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             {% note warning %}
 
@@ -302,7 +320,20 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `network.securityGroupIds`: List of [security group](../concepts/network.md#security-groups) IDs.
 
-        * `codeSync.s3.bucket`: Name of the bucket to store DAG files in.
+        * `codeSync`: DAG file source type and parameters.
+
+            * `s3.bucket`: Bucket name.
+
+            * `gitSync`: Git repo parameters:
+
+              * `repo`: Repository address.
+              * `branch`: Working branch.
+              * `subPath`: Path to the DAG file folder in the repository.
+              * `sshKey`: Private SSH repository access key, single-line with new line characters `\n`.
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+            Specify either `s3` or `gitSync`.
 
         * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-rest.md) %}
 
@@ -404,6 +435,12 @@ After creating a cluster, you can edit its basic and advanced settings.
           "code_sync": {
             "s3": {
               "bucket": "<bucket_name>"
+            },
+            "git_sync": {
+              "repo": "<repository_SSH_address>",
+              "branch": "<working_branch>",
+              "sub_path": "<path_to_DAG_file_folder>",
+              "ssh_key": "<private_SSH_key>"
             }
           },
           "network_spec": {
@@ -427,7 +464,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         Where:
 
-        * `cluster_id`: Cluster ID. You can get it with the [list of clusters in a folder](cluster-list.md#list-clusters).
+        * `cluster_id`: Cluster ID. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
         * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
@@ -506,7 +543,20 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `network_spec.security_group_ids`: List of [security group](../concepts/network.md#security-groups) IDs.
 
-        * `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
+        * `code_sync`: DAG file source type and parameters.
+
+            * `s3.bucket`: Bucket name.
+
+            * `git_sync`: Git repo parameters:
+
+              * `repo`: Repository address.
+              * `branch`: Working branch.
+              * `sub_path`: Path to the DAG file folder in the repository.
+              * `ssh_key`: Private SSH repository access key, single-line with new line characters `\n`.
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+            Specify either `s3` or `git_sync`.
 
         * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-grpc.md) %}
 

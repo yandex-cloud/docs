@@ -76,7 +76,7 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `subnet-m3`.
   1. Enable **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select `vrrp-vrf`.
-  1. In the **{{ ui-key.yacloud.baremetal.field_CIDR }}** field, specify `172.28.1.0/24`.
+  1. In the **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** field, specify `172.28.1.0/24`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. Similarly, create a private subnet named `subnet-m4` in the `{{ region-id }}-m4` server pool with the `172.28.2.0/24` CIDR.
 

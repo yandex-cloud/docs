@@ -1255,6 +1255,18 @@ items:
       - name: Database-side error
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Access to the connection was denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED-CONNECTION.md
+      - name: Connection not found
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-OBJ_NOT_FOUND-CONNECTION.md
+      - name: 'Invalid input data: validation failed'
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-VALIDATION_FAILED.md
+      - name: Invalid connection ID
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-VALIDATION_FAILED-CONNECTION.md
       - name: Error handling the response
         hidden: true
         href: troubleshooting/errors/SDK_REQUEST_ERROR.md

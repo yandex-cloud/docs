@@ -11,13 +11,12 @@ Once your billing account is set up, you can start using {{ yandex-cloud }} serv
 1. Select **{{ ui-key.yacloud.compute.group.switch_instances }}** ![image](../../_assets/console-icons/server.svg).
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** and set the VM parameters:
 
-   1. Select **Basic setup**.
    1. Under **Operating systems and products**, select **Ubuntu 24.04 LTS**.
    1. Under **Computing resources**, specify the computing resource configuration for the VM.
    1. Under **Disks**, specify the size and type of the disk.
    1. Enter the **VM name**.
    1. Set the **Login** of the VM administrator.
-   1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, click **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**. In the window that opens, do the following:
+   1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, click **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**. In the window that opens:
       1. Enter a **Name** for the SSH key.
       1. Under **SSH key**, select **Generate key**.
       1. Click **{{ ui-key.yacloud.common.add }}**.
@@ -115,11 +114,11 @@ You can also use [internal IP addresses](../../vpc/concepts/address.md#internal-
 - Windows 7/8 {#windows7-8}
 
   Establish a connection using PuTTY:
-  1. Run Pageant:
+  1. Run Pageant.
      1. Right-click the Pageant icon in the task bar.
      1. In the context menu, select **Add key**.
      1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if it is set.
-  1. Run PuTTY:
+  1. Run PuTTY.
      1. In the **Host Name (or IP address)** field, enter the public IP address of the VM you want to connect to. Specify port `22` and **SSH** connection type.
 
         ![ssh_add_ip](../../_assets/compute/ssh-putty/ssh_add_ip.png)

@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. Из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** в левой части экрана перетащите элемент ![code-fork](../../../../_assets/console-icons/code-fork.svg) **Foreach** в нужное место рабочего процесса в окне конструктора.
+  1. Из секции **Управляющие шаги** в левой части экрана перетащите элемент ![code-fork](../../../../_assets/console-icons/code-fork.svg) **Foreach** в нужное место рабочего процесса в окне конструктора.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. В окне со схемой рабочего процесса нажмите на добавленный блок **Foreach**, чтобы выбрать его.
@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
       1. В поле **{{ ui-key.yacloud.serverless-workflows.workflow-editor_foreach-step-concurrency-field }}** задайте количество элементов входных данных, над которыми одновременно будет выполняться указанная последовательность шагов.
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
   1. {% include [integrations-step-output-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-output-tab.md) %}
-  1. Чтобы добавить новый шаг в последовательность, перетащите его в обозначенный пунктирной линией блок из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** или **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}**.
+  1. Чтобы добавить новый шаг в последовательность, перетащите его в обозначенный пунктирной линией блок из секции **Интеграционные шаги** или **Управляющие шаги**.
 
 {% endlist %}
 

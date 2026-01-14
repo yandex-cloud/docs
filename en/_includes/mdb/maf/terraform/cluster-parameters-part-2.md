@@ -26,9 +26,22 @@
 
     The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
 
-* `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
+* `code_sync`: DAG file source type and parameters.
 
-* `maintenance_window`: [Maintenance window](../../../../managed-airflow/concepts/maintenance.md) settings (including for disabled clusters):
+  * `s3.bucket`: Bucket name.
+
+  * `git_sync`: Git repo parameters:
+
+    * `repo`: Repository address.
+    * `branch`: Working branch.
+    * `sub_path`: Path to the DAG file folder in the repository.
+    * `ssh_key`: Private SSH repository access key, single-line with new line characters `\n`.
+
+    {% include [warn-git](../note-git-sync.md) %}
+
+  Specify either `s3` or `git_sync`.
+
+* `maintenance_window`: [Maintenance window](../../../../managed-airflow/concepts/maintenance.md) settings, including for stopped clusters:
 
     * `type`: Maintenance type. The possible values include:
         * `ANYTIME`: Any time.

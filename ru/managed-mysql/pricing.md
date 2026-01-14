@@ -142,10 +142,6 @@ editable: false
 
 
 
-
-{% include [prices-nds-note](../_includes/prices-nds-note.md) %}
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
