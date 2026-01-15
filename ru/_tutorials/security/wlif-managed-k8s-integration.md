@@ -2,6 +2,8 @@
 
 {% include [wlif-mk8s-description](../../_includes/managed-kubernetes/wlif-mk8s-description.md) %}
 
+![image](../../_assets/managed-kubernetes/mk8s-wlif.svg)
+
 В этом руководстве для примера показано, как получить значение [секрета](../../lockbox/concepts/secret.md) {{ lockbox-full-name }} со стороны кластера {{ managed-k8s-name }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) {{ iam-name }}. 
 
 Аналогичным образом можно выполнить любое действие через [{{ yandex-cloud }} CLI](../../cli/quickstart.md), [{{ TF }}](../../terraform/quickstart.md), [SDK](../../overview/sdk/overview.md) или [API](../../api-design-guide/).

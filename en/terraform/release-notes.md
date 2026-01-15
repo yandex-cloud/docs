@@ -5,6 +5,20 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.178.0 (January 15, 2026)
+##### FEATURES:
+* yandex_storage_bucket: parameter disabled_statickey_auth is added.
+* trino_catalog: add Greenplum/Cloudberry connector support
+* organizationmanager: add `organizationmanager_mfa_enforcement_audience` resource
+* datatransfer: add `yandex_datatransfer_endpoint` resource and data-source
+* postgresql: added `yandex_query` option to access config for mdb_postgresql_cluster_v2
+##### BUG FIXES:
+* CloudOrganization: yandex_organizationmanager_idp_application_oauth_application field 'authorized_scopes' is now of type set to prevent comparison collision
+* postgresql: fix yandex_mdb_postgresql_user plan/apply with more then 100 permissions (add owner permissions)
+* yandex_vpc_security_group_rule: fixed update of `description` and `labels` fields
+##### ENHANCEMENTS:
+* postgresql: manage access to cluster by yandex_query via terraform
+
 ## 0.177.0 (December 18, 2025)
 ##### FEATURES:
 * trino: add resource groups and query properties configuration to cluster

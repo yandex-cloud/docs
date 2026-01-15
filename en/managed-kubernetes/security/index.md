@@ -198,4 +198,6 @@ To provide more granular access to resources, you can:
 
 {% include [wlif-mk8s-description](../../_includes/managed-kubernetes/wlif-mk8s-description.md) %}
 
+![image](../../_assets/managed-kubernetes/mk8s-wlif.svg)
+
 For example, you can configure [{#T}](../tutorials/wlif-managed-k8s-integration.md).

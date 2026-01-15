@@ -11,37 +11,28 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on deployment mode:
 
-* {{ ydb-name }} database fee. The charge depends on the usage mode:
+	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
-	
-    Learn more about the {{ ydb-name }} pricing plans [here](../../ydb/pricing/index.md).
+* {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
-* {{ yds-name }} fee, which depends on the pricing mode:
+    * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+    * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-	* Provisioned capacity pricing mode: You pay for the number of write units and resources allocated for data streaming.
-	* On-demand pricing mode:
-		* If the DB operates in serverless mode, the data stream is charged according to the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
-
-		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated.md)).
-
-    Learn more about the {{ yds-name }} pricing plans [here](../../data-streams/pricing.md).
-
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
+    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) with your preferred configuration.
 
     1. [Create a bucket in {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
@@ -56,25 +47,25 @@ Set up your infrastructure:
 
         This file describes:
 
-        * {{ ydb-name }} database.
+        * Database: {{ ydb-name }}.
         * Service account with the `yds.editor`, `storage.editor`, and `storage.uploader` roles.
         * Bucket in {{ objstorage-name }}.
         * Transfer.
 
-    1. Specify the following in `data-transfer-yds-obj.tf`:
+    1. In the `data-transfer-yds-obj.tf` file, specify the following:
 
-        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to host new resources.
+        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) for the new resources.
         * `sa_name`: Name of the service account for creating a bucket and for use in endpoints.
         * `source_db_name`: {{ ydb-name }} database name.
         * `bucket_name`: {{ objstorage-name }} bucket name.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -88,7 +79,7 @@ Set up your infrastructure:
 
 1. [Create a data stream in {{ yds-name }}](../../data-streams/operations/aws-cli/create.md).
 
-1. [Send test data to this stream](../../data-streams/operations/aws-cli/send.md). Use data from the vehicle sensors in JSON format as a message:
+1. [Send test data to this stream](../../data-streams/operations/aws-cli/send.md). Use the vehicle sensor data in JSON format as the message:
 
 ```json
 {
@@ -187,8 +178,8 @@ Set up your infrastructure:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**-type transfer configured to use the new endpoints.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
@@ -201,23 +192,23 @@ Set up your infrastructure:
 
             * `yandex_datatransfer_transfer` resource.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer is activated automatically.
+            The transfer will activate automatically upon creation.
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -255,28 +246,27 @@ Set up your infrastructure:
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the {{ objstorage-name }} bucket:
+1. Delete the other resources depending on how you created them:
 
-Delete the other resources depending on how you created them:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+       1. [Delete the bucket in {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+       1. If you created any service accounts when setting up your endpoints, [delete them](../../iam/operations/sa/delete.md).
 
-    * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
-    * [Delete the bucket in {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-    * If you created any service accounts when setting up your endpoints, [delete them](../../iam/operations/sa/delete.md).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}

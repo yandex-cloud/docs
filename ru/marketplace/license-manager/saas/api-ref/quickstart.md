@@ -34,7 +34,7 @@ description: Вы научитесь взаимодействовать с API {
 1. В [кабинете партнера]({{ link-cloud-partners }}) создайте [продукт](../../../operations/create-product.md) и [тариф](../../../operations/create-tariff.md) с типом [Subscription](../../../concepts/subscription.md).
 1. [Создайте](../../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого вы будете аутентифицироваться в API.
 1. [Назначьте](../../../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) сервисному аккаунту роли `license-manager.saasSubscriptionSupervisor` и `marketplace.productInstances.saasSupervisor` на [профиль партнера](../../../concepts/publisher.md) или на отдельный [продукт](../../../concepts/product.md).
-1. [Получите](../../../../iam/concepts/authorization/iam-token) IAM-токен для сервисного аккаунта, от имени которого вы будете аутентифицироваться в License Manager API.
+1. [Получите](../../../../iam/concepts/authorization/iam-token.md) IAM-токен для сервисного аккаунта, от имени которого вы будете аутентифицироваться в License Manager API.
 
 Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se) и [gRPCurl](https://github.com/fullstorydev/grpcurl) (при использовании [gRPC API](../api-ref/grpc/index.md)).
 

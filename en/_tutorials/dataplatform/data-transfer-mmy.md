@@ -4,8 +4,8 @@ You can track data changes in a {{ mmy-name }} _source cluster_ and send them to
 
 To set up CDC using {{ data-transfer-name }}:
 
-1. [Prepare the source cluster](#prepare-source).
-1. [Prepare the target cluster](#prepare-target).
+1. [Set up the source cluster](#prepare-source).
+1. [Set up the target cluster](#prepare-target).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
@@ -14,21 +14,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* {{ mkf-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) in any suitable configuration with the following settings:
+1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration, using the following settings:
 
     * Database: `db1`
     * User: `my-user`
     * Hosts: Publicly available
 
-1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
+1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) using any suitable configuration with publicly accessible hosts.
 
 
 1. If using security groups, configure them to allow internet access to your clusters:
@@ -37,21 +37,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)
 
 
-1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and the [MySQL command-line tool](https://www.mysql.com/downloads/) on the local machine. For example, in Ubuntu 20.04, run:
+1. Install [`kcat`](https://github.com/edenhill/kcat) (formerly known as `kafkacat`) and the [MySQL command-line tool](https://www.mysql.com/downloads/) on your local machine. For example, if your computer is running Ubuntu 20.04, use this command:
 
     ```bash
     sudo apt update && sudo apt install kafkacat mysql-client --yes
     ```
 
-    Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+    Check that can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-## Prepare the source cluster {#prepare-source}
+## Set up the source cluster {#prepare-source}
 
-1. For {{ data-transfer-name }} to get notifications about data updates from a {{ mmy-name }} cluster, you need to configure external replication in the source cluster. To enable `my-user` to perform replication, [assign](../../managed-mysql/operations/grant.md) the `ALL_PRIVILEGES` role for the `db1` database and [issue](../../managed-mysql/operations/cluster-users.md#update-settings) the `REPLICATION CLIENT` and `REPLICATION SLAVE` global privileges to the user.
+1. For {{ data-transfer-name }} to get notifications of data changes from a {{ mmy-name }} cluster, configure external replication in the source cluster. To enable `my-user` to perform replication, [assign](../../managed-mysql/operations/grant.md) the `ALL_PRIVILEGES` role for the `db1` database and [grant](../../managed-mysql/operations/cluster-users.md#update-settings) the `REPLICATION CLIENT` and `REPLICATION SLAVE` global privileges to the user.
 
-1. [Connect](../../managed-mysql/operations/connect.md) to the `db1` database under `my-user`.
+1. [Connect](../../managed-mysql/operations/connect.md) to the `db1` database as `my-user`.
 
-1. Add test data to the database. As an example, we will use a simple table with information transmitted by car sensors.
+1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
     Create a table:
 
@@ -78,54 +78,54 @@ If you no longer need the resources you created, [delete them](#clear-out).
         ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Prepare the target cluster {#prepare-target}
+## Set up the target cluster {#prepare-target}
 
-The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names are generated using the following convention: `<topic_prefix>.<schema_name>.<table_name>`. In this tutorial, the `cdc` prefix is used as an example.
+The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names follow the `<topic_prefix>.<schema_name>.<table_name>` convention. In this tutorial, we will use the `cdc` prefix.
 
 {% list tabs group=topic_management %}
 
 - {{ yandex-cloud }} interfaces {#yc}
 
-    If topics are managed using standard {{ yandex-cloud }} interfaces (management console, CLI, {{ TF }}, or API):
+    When managing topics using native {{ yandex-cloud }} interfaces (management console, CLI, {{ TF }}, or API):
 
     1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `cdc.db1.measurements`.
 
-        To track updates to more than one table, create a separate topic for each one.
+        To track changes in multiple tables, create a separate topic for each one.
 
-    1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `kafka-user` with `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the new topics. To include all such topics, put `cdc.*` in the topic's name.
+    1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `kafka-user` with `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the new topics. To include all such topics, use `cdc.*` as the topic name.
 
 - Admin API {#api}
 
-    If topics are managed using the Kafka Admin API:
+    When managing topics via the Kafka Admin API:
 
     1. Create an [admin user](../../managed-kafka/operations/cluster-accounts.md) named `kafka-user`.
 
-    1. In addition to `ACCESS_ROLE_ADMIN`, assign the admin user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the topics whose names begin with the `cdc` prefix.
+    1. In addition to `ACCESS_ROLE_ADMIN`, assign this user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for all topics prefixed with `cdc`.
 
-        Required topics will be created automatically at the first change event in the tracked tables of a source cluster. This solution can be useful to track changes in multiple tables but requires extra free space in cluster storage. Learn more in [{#T}](../../managed-kafka/concepts/storage.md).
+        Required topics will be created automatically upon the first change to the source cluster tables you are tracking. While this approach can be convenient for tracking changes across multiple tables, it requires reserving free storage space in your cluster. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 
 ## Set up and activate the transfer {#prepare-transfer}
 
-1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the {{ MY }} source with the following [settings](../../data-transfer/operations/endpoint/source/mysql.md):
+1. [Create](../../data-transfer/operations/endpoint/index.md#create) a {{ MY }} source endpoint with the following [settings](../../data-transfer/operations/endpoint/source/mysql.md):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: Select the [created](#before-you-begin) {{ mmy-name }} cluster.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: Select the {{ mmy-name }} cluster you [created](#before-you-begin) earlier.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `my-user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: Enter the `my-user` password.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: `db1.measurements`.
 
-1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the {{ KF }} target with the following [settings](../../data-transfer/operations/endpoint/source/kafka.md):
+1. [Create](../../data-transfer/operations/endpoint/index.md#create) an {{ KF }} target endpoint with the following [settings](../../data-transfer/operations/endpoint/source/kafka.md):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the [created](#before-you-begin) {{ mkf-name }} cluster.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the details of the created `kafka-user` user.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the {{ mkf-name }} cluster you [created](#before-you-begin) earlier.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the `kafka-user` credentials.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `cdc.db1.measurements`.
@@ -135,12 +135,12 @@ The settings vary depending on the [topic management method](../../managed-kafka
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Enter the `cdc` prefix you used to generate topic names.
 
-1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type with the created source and target endpoints.
+1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the previously created source and target endpoints.
 1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. In a separate terminal, run the `kafkacat` utility in consumer mode:
+1. In a separate terminal, run `kafkacat` in consumer mode:
 
     ```bash
     kafkacat \
@@ -166,9 +166,9 @@ The settings vary depending on the [topic management method](../../managed-kafka
         ('iv9a94th678t********', '2022-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
     ```
 
-1. Make sure the terminal running the `kafkacat` utility displays the data format schema of the `db1.measurements` table and information about the added rows.
+1. Make sure the terminal running `kafkacat` displays the data format schema of the `db1.measurements` table and information about the added rows.
 
-    {% cut "Example of the message fragment" %}
+    {% cut "Message snippet example" %}
 
     ```json
     {
@@ -276,19 +276,19 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
     {% endcut %}
 
-### Specifics of data delivery with {{ data-transfer-name }} {#features}
+### Features of transferring data with {{ data-transfer-name }} {#features}
 
-* Some data types get modified when transferred from {{ MY }} to {{ KF }}:
+* When transferring data from {{ MY }} to {{ KF }}, certain data types undergo conversion:
 
-  * `tinyint(1)` transfers as `boolean`.
-  * `real` transfers as `double`.
-  * `bigint unsigned` transfers as `int64`.
+  * `tinyint(1)` becomes `boolean`.
+  * `real` becomes `double`.
+  * `bigint unsigned` becomes `int64`.
 
-* Under `payload.source` source metadata, leave `server_id` and `thread` blank.
+* In the `payload.source` metadata section, `server_id` and `thread` remain blank.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
 
@@ -296,7 +296,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 1. Delete the clusters:
 
-   * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md)​
-   * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md)​
+    * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md)
+    * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md)
 
-1. If static public IP addresses were used for accessing the cluster hosts, release and [delete](../../vpc/operations/address-delete.md) them.
+1. If you used static public IP addresses to access the cluster hosts, release and [delete](../../vpc/operations/address-delete.md) them.

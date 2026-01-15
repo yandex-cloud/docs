@@ -314,6 +314,7 @@ Optional:
 - `data_transfer` (Boolean) Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).
 - `serverless` (Boolean) Allow access for [connection to managed databases from functions](https://yandex.cloud/docs/functions/operations/database-connection).
 - `web_sql` (Boolean) Allow access for [SQL queries in the management console](https://yandex.cloud/docs/managed-postgresql/operations/web-sql-query).
+- `yandex_query` (Boolean) Allow access for [YandexQuery](https://yandex.cloud/services/query).
 
 
 <a id="nestedblock--config--backup_window_start"></a>

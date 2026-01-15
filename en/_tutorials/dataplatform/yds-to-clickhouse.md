@@ -1,7 +1,7 @@
 # Saving a data stream from {{ yds-full-name }} to {{ mch-full-name }}
 
 
-With {{ data-transfer-name }}, you can deliver data from a [data stream in {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) to {{ mch-name }}.
+{{ data-transfer-name }} enables you to deliver data from a [{{ yds-name }} stream](../../data-streams/concepts/glossary.md#stream-concepts) to {{ mch-name }}.
 
 To transfer data:
 
@@ -14,41 +14,31 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its pricing is based on deployment mode:
 
-* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-* {{ ydb-name }} database fee. The charge depends on the usage mode:
+* {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
-	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
-	
-    Learn more about the {{ ydb-name }} pricing plans [here](../../ydb/pricing/index.md).
+    * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+    * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-* {{ yds-name }} fee, which depends on the pricing mode:
-
-	* Provisioned capacity pricing mode: You pay for the number of write units and resources allocated for data streaming.
-	* On-demand pricing mode:
-		* If the DB operates in serverless mode, the data stream is charged according to the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
-
-		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated.md)).
-
-    Learn more about the {{ yds-name }} pricing plans [here](../../data-streams/pricing.md).
-
-* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mch-name }} cluster: Use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
-    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration.
+    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) with your preferred configuration.
+    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration.
     1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
@@ -61,7 +51,7 @@ Set up your infrastructure:
                     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the source cluster from the list.
 
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user having access to the database, e.g., the database owner.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user who has access to the database, e.g., the database owner.
 
 - {{ TF }} {#tf}
 
@@ -78,27 +68,27 @@ Set up your infrastructure:
         * Service account with the `yds.editor` role.
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mch-name }} cluster from the internet.
+        * [Security group](../../vpc/concepts/security-groups.md) and rules for internet access to the {{ mch-name }} cluster.
         * {{ mch-name }} target cluster.
         * Target endpoint.
         * Transfer.
 
-    1. Specify the following in `data-transfer-yds-mch.tf`:
+    1. In the `data-transfer-yds-mch.tf` file, specify the following:
 
-        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to host new resources.
-        * `sa_name`: Name of the service account to use in endpoints.
+        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) for the new resources.
+        * `sa_name`: Service account name for endpoints.
         * `source_db_name`: {{ ydb-name }} database name.
         * `target_db_name`: {{ CH }} database name.
-        * `target_user` and `target_password`: Username and password of the {{ CH }} database owner.
-        * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create a source endpoint manually](#prepare-transfer).
+        * `target_user` and `target_password`: {{ CH }} database owner username and password.
+        * `transfer_enabled`: Set to `0` to postpone transfer creation until you manually [set up a source endpoint](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -111,7 +101,7 @@ Set up your infrastructure:
 ## Set up a data stream in {{ yds-name }} {#prepare-source}
 
 1. [Create a data stream in {{ yds-name }}](../../data-streams/operations/aws-cli/create.md).
-1. [Send test data to this stream](../../data-streams/operations/aws-cli/send.md). Use data from the vehicle sensors in JSON format as a message:
+1. [Send test data to this stream](../../data-streams/operations/aws-cli/send.md). Use the vehicle sensor data in JSON format as the message:
 
 ```json
 {
@@ -145,7 +135,7 @@ Set up your infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema in two ways:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema using one of these two methods:
               * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
                 Set a list of topic fields manually:
@@ -218,37 +208,37 @@ Set up your infrastructure:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**-type transfer configured to use the new endpoints.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-yds-mch.tf` file, specify these variables:
+        1. In the `data-transfer-yds-mch.tf` file, specify the following variables:
 
             * `source_endpoint_id`: ID of the source endpoint.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer is activated automatically.
+            The transfer will activate automatically upon creation.
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. [Send a new message to the data stream](../../data-streams/operations/aws-cli/send.md) in {{ yds-name }}:
+1. [Send a new message to the {{ yds-name }} data stream](../../data-streams/operations/aws-cli/send.md):
 
     ```json
     {
@@ -264,20 +254,20 @@ Set up your infrastructure:
     }
     ```
 
-1. Make sure the data from the stream in {{ yds-name }} has moved to the {{ mch-name }} cluster database:
+1. Make sure that the {{ yds-name }} stream data has been transferred to the {{ mch-name }} cluster database:
 
    1. [Connect to the {{ mch-name }} target cluster](../../managed-clickhouse/operations/connect/clients.md).
-   1. Check that the {{ CH }} database contains a table with the same name as the [created data stream in {{ yds-name }}](#prepare-source) and containing the same columns as the [data schema in the source endpoint](#prepare-transfer), along with the test data you sent.
+   1. Check that the {{ CH }} database now contains a table named after the [{{ yds-name }} data stream](#prepare-source). The table must have columns matching the [source endpoint’s data schema](#prepare-transfer) and must include the test data that you sent.
 
 ## Delete the resources you created {#clear-out}
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. Delete the resources depending on how you created them:
@@ -286,9 +276,9 @@ Some resources are not free of charge. To avoid unnecessary charges, delete the 
 
    - Manually {#manual}
 
-       * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-       * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
-       * [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+       1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+       1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+       1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
    - {{ TF }} {#tf}
 

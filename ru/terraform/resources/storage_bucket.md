@@ -445,6 +445,7 @@ To change ACL after creation, service account with `storage.admin` role should b
 - `bucket_prefix` (String) Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
 - `cors_rule` (Block List) A rule of [Cross-Origin Resource Sharing](https://yandex.cloud/docs/storage/concepts/cors) (CORS object). (see [below for nested schema](#nestedblock--cors_rule))
 - `default_storage_class` (String) Storage class which is used for storing objects by default. Available values are: "STANDARD", "COLD", "ICE". Default is `"STANDARD"`. See [Storage Class](https://yandex.cloud/docs/storage/concepts/storage-class) for more information.
+- `disabled_statickey_auth` (Boolean) If true, static key authentication in bucket is forbidden. Default is `false`.
 - `folder_id` (String) Allow to create bucket in different folder. In case you are using IAM token from UserAccount, you are needed to explicitly specify folder_id in the resource, as it cannot be identified from such type of account. In case you are using IAM token from ServiceAccount or static access keys, folder_id does not need to be specified unless you want to create the resource in a different folder than the account folder.
 
 {% note warning %}

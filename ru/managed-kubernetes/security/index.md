@@ -203,4 +203,6 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 {% include [wlif-mk8s-description](../../_includes/managed-kubernetes/wlif-mk8s-description.md) %}
 
+![image](../../_assets/managed-kubernetes/mk8s-wlif.svg)
+
 Например, вы можете настроить [{#T}](../tutorials/wlif-managed-k8s-integration.md).

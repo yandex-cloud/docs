@@ -17,56 +17,51 @@ Please read [Pricing for Managed Service for Greenplum](https://yandex.cloud/doc
 //
 // Create a new MDB Greenplum Cluster.
 //
-resource "yandex_mdb_greenplum_cluster" "my_cluster" {
-  name               = "test"
-  description        = "test greenplum cluster"
-  environment        = "PRESTABLE"
-  network_id         = yandex_vpc_network.foo.id
-  zone_id            = "ru-central1-a"
-  subnet_id          = yandex_vpc_subnet.foo.id
-  assign_public_ip   = true
-  version            = "6.28"
-  master_host_count  = 2
-  segment_host_count = 5
-  segment_in_host    = 1
-  master_subcluster {
-    resources {
-      resource_preset_id = "s2.micro"
-      disk_size          = 24
-      disk_type_id       = "network-ssd"
-    }
-  }
-  segment_subcluster {
-    resources {
-      resource_preset_id = "s2.micro"
-      disk_size          = 24
-      disk_type_id       = "network-ssd"
+resource "yandex_mdb_greenplum_cluster_v2" "my_cluster" {
+  depends_on = [yandex_vpc_subnet.foo]
+
+  name        = "test"
+  description = "test greenplum cluster"
+  environment = "PRESTABLE"
+
+  segment_host_count = 2
+  segment_in_host   = 1
+
+  user_name = "test-user"
+  user_password = "test-user-password"
+  network_id = yandex_vpc_network.foo.id
+
+  cluster_config = {
+    assign_public_ip = true
+    backup_window_start = {
+      hours   = 1
+      minutes = 30
     }
   }
 
-  access {
-    web_sql = true
+  config = {
+    zone_id = "ru-central1-a"
   }
 
-  greenplum_config = {
-    max_connections                      = 395
-    max_slot_wal_keep_size               = 1048576
-    gp_workfile_limit_per_segment        = 0
-    gp_workfile_limit_per_query          = 0
-    gp_workfile_limit_files_per_query    = 100000
-    max_prepared_transactions            = 500
-    gp_workfile_compression              = "false"
-    max_statement_mem                    = 2147483648
-    log_statement                        = 2
-    gp_add_column_inherits_table_setting = "true"
-    gp_enable_global_deadlock_detector   = "true"
-    gp_global_deadlock_detector_period   = 120
+  master_config = {
+    resources = {
+      resource_preset_id = "s2.small"
+      disk_type_id       = "network-ssd"
+      disk_size          = 10
+    }
   }
 
-  user_name     = "admin_user"
-  user_password = "your_super_secret_password"
+  segment_config = {
+    resources = {
+      resource_preset_id = "s2.small"
+      disk_type_id       = "network-ssd"
+      disk_size          = 10
+    }
+  }
 
-  security_group_ids = [yandex_vpc_security_group.test-sg-x.id]
+  cloud_storage = {
+    enable = true
+  }
 }
 
 resource "yandex_vpc_network" "foo" {}
@@ -345,6 +340,6 @@ Read-Only:
 The resource can be imported by using their `resource ID`. For getting the resource ID you can use Yandex Cloud [Web Console](https://console.yandex.cloud) or [YC CLI](https://yandex.cloud/docs/cli/quickstart).
 
 ```shell
-# terraform import yandex_mdb_greenplum_cluster.<resource Name> <resource Id>
-terraform import yandex_mdb_greenplum_cluster.my_cluster ...
+# terraform import yandex_mdb_greenplum_cluster_v2.<resource Name> <resource Id>
+terraform import yandex_mdb_greenplum_cluster_v2.my_cluster ...
 ```

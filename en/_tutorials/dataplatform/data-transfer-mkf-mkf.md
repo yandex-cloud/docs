@@ -10,7 +10,7 @@ You can transfer your data from {{ KF }} topics between one {{ KF }} cluster and
 
 * Set up topic replication in the management console interface or in {{ TF }}.
 * Track the migration process using the [transfer monitoring](../../data-transfer/operations/monitoring.md).
-* Avoid creating an intermediate VM or granting online access to your target cluster.
+* Eliminate the need for an intermediate VM or public internet access to your target cluster.
 
 {% note info %}
 
@@ -20,7 +20,7 @@ This tutorial describes a scenario for migrating data from one {{ mkf-name }} cl
 
 To migrate data:
 
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -28,16 +28,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* Fee per {{ KF }} cluster: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mkf-name }} clusters: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. Prepare the data transfer infrastructure:
+1. Set up your data delivery infrastructure:
 
    {% list tabs group=instructions %}
 
@@ -61,7 +59,7 @@ The support cost includes:
 
            * [Network](../../vpc/concepts/network.md#network).
            * [Subnet](../../vpc/concepts/network.md#subnet).
-           * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
+           * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mkf-name }} cluster.
            * {{ mkf-name }} source cluster with public access from the internet.
            * {{ KF }} topic for the source cluster.
            * {{ KF }} user for the source cluster.
@@ -70,7 +68,7 @@ The support cost includes:
            * {{ KF }} user for the target cluster.
            * Transfer.
 
-       1. In the `data-transfer-mkf-mkf.tf` file, specify the following parameters:
+       1. In the `data-transfer-mkf-mkf.tf` file, specify the following settings:
 
            * `source_kf_version`: {{ KF }} version in the source cluster.
            * `source_user_name`: Username for connection to the {{ KF }} topic.
@@ -78,13 +76,13 @@ The support cost includes:
            * `target_kf_version`: {{ KF }} version in the target cluster.
            * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [manually create the source and target endpoints](#prepare-transfer).
 
-       1. Make sure the {{ TF }} configuration files are correct using this command:
+       1. Validate your {{ TF }} configuration files using this command:
 
            ```bash
            terraform validate
            ```
 
-           If there are any errors in the configuration files, {{ TF }} will point them out.
+           {{ TF }} will display any configuration errors detected in your files.
 
        1. Create the required infrastructure:
 
@@ -110,17 +108,17 @@ The support cost includes:
    }
    ```
 
-1. Install the utilities:
+1. Install these tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat) to read and write data to {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
+    - [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
@@ -135,7 +133,7 @@ The support cost includes:
 
        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-          Select a target cluster from the list and specify its connection settings.
+          Select your target cluster from the list and specify its connection settings.
 
        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `measurements`.
@@ -146,7 +144,7 @@ The support cost includes:
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-          Select a source cluster from the list and specify its connection settings.
+          Select your source cluster from the list and specify its connection settings.
 
        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
 
@@ -156,30 +154,30 @@ The support cost includes:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the {{ dt-type-repl }} type that will use the created endpoints.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a {{ dt-type-repl }}-type transfer configured to use the new endpoints.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-mkf.tf` file, specify the following parameters:
+        1. In the `data-transfer-mkf-mkf.tf` file, specify the following settings:
 
             * `source_endpoint_id`: ID of the source endpoint.
-            * `target_endpoint_id`: Target endpoint ID.
+            * `target_endpoint_id`: ID of the target endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer will be activated automatically.
+            The transfer will activate automatically upon creation.
 
     {% endlist %}
 
@@ -188,7 +186,7 @@ The support cost includes:
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
 1. Make sure that the data from the topic in the source cluster move to the topic in the target {{ mkf-name }} cluster:
 
-    1. Create a `sample.json` file with test data:
+    1. Create a file named `sample.json` with test data:
 
         ```json
         {
@@ -238,11 +236,11 @@ The support cost includes:
            -X security.protocol=SASL_SSL \
            -X sasl.mechanisms=SCRAM-SHA-512 \
            -X sasl.username="<username_in_source_cluster>" \
-           -X sasl.password="<user_password_in_source_cluster>" \
+           -X sasl.password="<source_cluster_user_password>" \
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
-        The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
+        The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
     1. Use `kafkacat` to make sure that the data has been moved from the source cluster to the target {{ mkf-name }} cluster:
 
@@ -261,25 +259,24 @@ The support cost includes:
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
-1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
+1. Delete other resources using the same method used for their creation:
 
-Delete the other resources depending on how they were created:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       [Delete the {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-delete.md).
 
-    [Delete the clusters {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}

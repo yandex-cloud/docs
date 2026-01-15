@@ -1,10 +1,10 @@
 # Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can set up a data transfer from {{ mmy-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-name }}. To do this:
+You can set up a data transfer from {{ mmy-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
-1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -12,10 +12,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* {{ GP }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mgp-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -36,13 +35,13 @@ Set up the infrastructure:
 
         For more information about administrative privileges, see the [settings description](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
-    1. In the same availability zone, [create a {{ GP }} target cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration with publicly available hosts and the following settings:
+    1. In the same availability zone, [create a {{ GP }} target cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) of any suitable configuration with publicly available hosts and the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mgp_user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`.
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datatransfer }}**: Enabled.
 
-    1. Make sure that the cluster security groups are set up correctly and allow connecting to them:
+    1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
 
         * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
         * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
@@ -58,25 +57,25 @@ Set up the infrastructure:
 
         This file describes:
 
-        * [Networks](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
-        * [Security groups](../../vpc/concepts/security-groups.md) for making cluster connections.
+        * [Networks](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet) that will host your clusters.
+        * [Security groups](../../vpc/concepts/security-groups.md) for cluster access.
         * {{ mmy-name }} source cluster.
         * {{ GP }} target cluster in {{ mgp-name }}.
         * Source endpoint.
         * Transfer.
 
-    1. Specify the following in `mmy-to-mgp.tf`:
+    1. In the `mmy-to-mgp.tf` file, specify the following:
 
         * {{ MY }} and {{ GP }} versions
         * {{ MY }} and {{ GP }} user passwords
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -86,7 +85,7 @@ Set up the infrastructure:
 
 {% endlist %}
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 1. [Connect to the `mmy_db` database](../../managed-mysql/operations/connect.md) in the {{ mmy-name }} source cluster.
 
@@ -111,7 +110,7 @@ Set up the infrastructure:
 
 ## Create a database in the target cluster {#prepare-data}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to the auxiliary `postgres` database in the {{ GP }} target cluster as `mgp_user`.
+1. [Connect](../../managed-greenplum/operations/connect.md) to the `postgres` system database in the {{ GP }} target cluster as `mgp_user`.
 
 1. Create a database named `mgp_db`:
 
@@ -121,29 +120,29 @@ Set up the infrastructure:
 
 ## Set up and activate the transfer {#prepare-transfer}
 
-1. Create a `{{ GP }}`-type [target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md) and specify its cluster connection settings:
+1. [Create a `{{ GP }}` target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md) with these cluster connection settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ GP }}_target_cluster>` from the drop-down list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<{{ GP }}_target_cluster_name>` from the drop-down list.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}**: `mgp_db`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: `mgp_user`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: `<user_password>`.
 
-1. Create a source endpoint and transfer:
+1. Create a source endpoint and set up the transfer:
 
     {% list tabs group=instructions %}
 
-    - Manually {#manual}
+    * Manually {#manual}
 
-        1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ MY }}` type and specify these cluster connection settings in it:
+        1. [Create a `{{ MY }}` source endpoint](../../data-transfer/operations/endpoint/source/mysql.md) with these cluster connection settings:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ MY }}_source_cluster>` from the drop-down list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<{{ MY }}_source_cluster_name>` from the drop-down list.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `mmy_db`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy_user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `<user_password>`.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the new endpoints.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfer configured to use the new endpoints.
 
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -152,15 +151,15 @@ Set up the infrastructure:
         1. In the `mmy-to-mgp.tf` file, specify the following settings:
 
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: `1` (create a transfer).
+            * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -170,13 +169,13 @@ Set up the infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-To verify that the transfer is operational, test the copy and replication processes.
+Make sure the transfer works correctly by testing copying and replication.
 
-### Test the copy operation {#verify-copy}
+### Test copying {#verify-copy}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to `mgp_db` in your target {{ GP }} cluster.
+1. [Connect](../../managed-greenplum/operations/connect.md) to the `mgp_db` database in the {{ GP }} target cluster.
 
 1. Run this query:
 
@@ -184,20 +183,20 @@ To verify that the transfer is operational, test the copy and replication proces
     SELECT * FROM mmy_db.table1;
     ```
 
-### Test the replication process {#verify-replication}
+### Test replication {#verify-replication}
 
 1. [Connect to the `mmy_db` database](../../managed-mysql/operations/connect.md) in the {{ mmy-name }} source cluster.
 
-1. Populate the `table1` table with data:
+1. Populate `table1` with data:
 
     ```sql
     INSERT INTO table1 VALUES
     (4, 'Name4');
     ```
 
-1. Make sure the new row has been added to the target database:
+1. Check that the added row appears in the target database:
 
-    1. [Connect](../../managed-greenplum/operations/connect.md) to `mgp_db` in your target {{ GP }} cluster.
+    1. [Connect](../../managed-greenplum/operations/connect.md) to the `mgp_db` database in the {{ GP }} target cluster.
     1. Run this query:
 
         ```sql
@@ -212,20 +211,19 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To reduce the consumption of resources you do not need, delete them:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    * [Transfer](../../data-transfer/operations/transfer.md#delete)
-    * [Endpoints](../../data-transfer/operations/endpoint/index.md#delete)
-    * [{{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md)
-    * [{{ GP }} cluster](../../managed-greenplum/operations/cluster-delete.md)
+    1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
+    1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete).
+    1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
+    1. [Delete the {{ GP }} cluster](../../managed-greenplum/operations/cluster-delete.md).
 
 - Using {{ TF }} {#tf}
 
     {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
-

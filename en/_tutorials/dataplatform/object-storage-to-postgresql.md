@@ -1,14 +1,14 @@
-# Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }} using {{ data-transfer-full-name }}
+# Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }} via {{ data-transfer-full-name }}
 
 
 
 {% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
 
 
-You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. Proceed as follows:
 
-1. [Prepare the test data](#prepare-data).
-1. [Set up your transfer](#prepare-transfer).
+1. [Prepare your test data](#prepare-data).
+1. [Set up the transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -16,12 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mpg-name }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Per-transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -41,13 +38,13 @@ Set up the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`
 
     
-    1. If using security groups, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow inbound connections to your cluster.
+    1. If using security groups, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connections to your cluster.
 
 
-    1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
+    1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
 
     
-    1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
+    1. [Create a service account](../../iam/operations/sa/create.md#create-sa) `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
     1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-viewer` service account.
 
 
@@ -58,7 +55,7 @@ Set up the infrastructure:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [objstorage-to-postgres.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-object-storage-to-postgresql/blob/main/objstorage-to-postgres.tf) configuration file to the same working directory.
+    1. Download the [objstorage-to-postgres.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-object-storage-to-postgresql/blob/main/objstorage-to-postgres.tf) configuration file to your current working directory.
 
         This file describes:
 
@@ -74,11 +71,11 @@ Set up the infrastructure:
 
     1. In the `objstorage-to-postgres.tf` file, specify the following:
 
-        * `folder_id`: Cloud folder ID, same as in the provider settings.
+        * `folder_id`: Cloud folder ID matching the one specified in your provider settings.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
         * `pg_password`: {{ PG }} user password.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -94,9 +91,9 @@ Set up the infrastructure:
 
 {% endlist %}
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
-1. Create `demo_data.csv` on the running instance and fill it with test data:
+1. On your local machine, create the `demo_data.csv` file and fill it with test data:
 
     ```csv
     1,Anna
@@ -116,8 +113,8 @@ Set up the infrastructure:
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public component of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Service account’s secret access key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
@@ -146,16 +143,16 @@ Set up the infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the new endpoints.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer configured to use the new endpoints.
 
     - {{ TF }} {#tf}
 
         1. In the `objstorage-to-postgres.tf` file, specify the following variables:
 
             * `source_endpoint_id`: ID of the source endpoint.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -171,7 +168,7 @@ Set up the infrastructure:
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. [Connect to the {{ mpg-name }} target cluster database](../../managed-postgresql/operations/connect.md).
 1. Run this request:
 
@@ -197,20 +194,20 @@ Data successfully migrated.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
-* [Transfer](../../data-transfer/operations/transfer.md#delete).
-* [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-* Bucket [objects](../../storage/operations/objects/delete.md).
-* Delete other resources using the same method used for their creation:
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
+1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
+1. Delete other resources using the same method used for their creation:
 
     {% list tabs group=resources %}
 
     - Manually {#manual}
 
-        * [Target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-        * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
-        * [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
+        1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+        1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
+        1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 
     - {{ TF }} {#tf}
 

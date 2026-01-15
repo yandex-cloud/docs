@@ -1,6 +1,6 @@
 
 
-You can set up data transfer from {{ mmy-name }} to {{ mpg-name }} databases using {{ data-transfer-name }}. To do this:
+You can set up a data transfer from a {{ mmy-name }} database to a {{ mpg-name }} database using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
@@ -11,10 +11,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -25,7 +24,7 @@ Set up the infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a {{ mmy-name }} source cluster](../../../managed-mysql/operations/cluster-create.md#create-cluster) in any [availability zone](../../../overview/concepts/geo-scope.md) with publicly available hosts in any suitable configuration with the following settings:
+    1. [Create a {{ mmy-name }} source cluster](../../../managed-mysql/operations/cluster-create.md#create-cluster) in any [availability zone](../../../overview/concepts/geo-scope.md) with publicly available hosts in any suitable configuration and the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mmy_db`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy_user`
@@ -35,13 +34,13 @@ Set up the infrastructure:
 
         For more information about administrative privileges, see the [settings description](../../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
-    1. In the same availability zone, [create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) in any suitable configuration with publicly available hosts and the following settings:
+    1. In the same availability zone, [create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) of any suitable configuration with publicly available hosts and the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mpg_db`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mpg_user`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`
 
-    1. Make sure that the cluster security groups are set up correctly and allow connecting to them:
+    1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
 
         * [{{ mmy-name }}](../../../managed-mysql/operations/connect.md#configuring-security-groups)
         * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups)
@@ -53,29 +52,29 @@ Set up the infrastructure:
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [mysql-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-mysql-to-postgresql/blob/main/mysql-postgresql.tf) configuration file to the same working directory.
+    1. Download the [mysql-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-mysql-to-postgresql/blob/main/mysql-postgresql.tf) configuration file to your current working directory.
 
         This file describes:
 
         * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
-        * [Security groups](../../../vpc/concepts/security-groups.md) for making cluster connections.
+        * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
         * {{ mmy-name }} source cluster.
         * {{ mpg-name }} target cluster.
         * Source and target endpoints.
         * Transfer.
 
-    1. Specify the following in `mysql-postgresql.tf`:
+    1. In the `mysql-postgresql.tf` file, specify the following:
 
         * {{ MY }} and {{ PG }} versions
         * {{ MY }} and {{ PG }} user passwords
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -85,11 +84,11 @@ Set up the infrastructure:
 
 {% endlist %}
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
-1. [Connect to the {{ mmy-name }} source cluster database](../../../managed-mysql/operations/connect.md).
+1. [Connect to the database in the {{ mmy-name }} source cluster](../../../managed-mysql/operations/connect.md).
 
-1. Add test data to the database. As an example, we will use a simple table with information transmitted by car sensors.
+1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
     Create a table:
 
@@ -122,7 +121,7 @@ Set up the infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ MY }}` type and specify these cluster connection settings in it:
+    1. [Create a `{{ MY }}` source endpoint](../../../data-transfer/operations/endpoint/source/mysql.md) with these cluster connection settings:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<{{ MY }}_source_cluster_name>` from the drop-down list.
@@ -130,7 +129,7 @@ Set up the infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy_user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `<user_password>`.
 
-    1. Create a `{{ PG }}`-type [target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) and specify its cluster connection settings:
+    1. [Create a `{{ PG }}` target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) with these cluster connection settings:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }}_target_cluster_name>` from the drop-down list.
@@ -138,20 +137,20 @@ Set up the infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `mpg_user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
+    1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfer configured to use the new endpoints.
     1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 - {{ TF }} {#tf}
 
-    1. In the `mysql-postgresql.tf` file, set the `transfer_enabled` variable to `1`.
+    1. In the `mysql-postgresql.tf` file, set `transfer_enabled` to `1`.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -161,11 +160,11 @@ Set up the infrastructure:
 
 {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-To verify that the transfer is operational, test the copy and replication processes.
+Make sure the transfer works correctly by testing copying and replication.
 
-### Test the copy operation {#verify-copy}
+### Test copying {#verify-copy}
 
 1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect.md).
 1. Run this query:
@@ -174,9 +173,9 @@ To verify that the transfer is operational, test the copy and replication proces
     SELECT * FROM mmy_db.measurements;
     ```
 
-### Test the replication process {#verify-replication}
+### Test replication {#verify-replication}
 
-1. [Connect to the {{ mmy-name }} source cluster database](../../../managed-mysql/operations/connect.md).
+1. [Connect to the database in the {{ mmy-name }} source cluster](../../../managed-mysql/operations/connect.md).
 1. Populate the `measurements` table with data:
 
     ```sql
@@ -184,7 +183,7 @@ To verify that the transfer is operational, test the copy and replication proces
     ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
     ```
 
-1. Make sure the new row has been added to the target database:
+1. Make sure the target database contains the row you added:
 
     1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect.md).
     1. Run this query:
@@ -201,16 +200,16 @@ Before deleting the resources, [deactivate the transfer](../../../data-transfer/
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    * [Transfer](../../../data-transfer/operations/transfer.md#delete)
-    * [Endpoints](../../../data-transfer/operations/endpoint/index.md#delete)
-    * [{{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-delete.md)
-    * [{{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md)
+    1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
+    1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
+    1. [Delete the {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-delete.md).
+    1. [Delete the {{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
 
 - {{ TF }} {#tf}
 

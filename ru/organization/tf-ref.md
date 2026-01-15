@@ -27,7 +27,7 @@ description: На этой странице приведен справочни�
 | [yandex_organizationmanager_os_login_settings]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings) | Настройки доступа по [{{ oslogin }}](./concepts/os-login.md) |
 | [yandex_organizationmanager_saml_federation]({{ tf-provider-resources-link }}/organizationmanager_saml_federation) | [SAML-совместимая федерация удостоверений](./concepts/add-federation.md) |
 | [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account) | [Федеративный пользователь](./concepts/add-federation.md#saml-authentication) |
-| [yandex_organizationmanager_user_ssh_key]({{ tf-provider-resources-link }}/organizationmanager_user_ssh_key) | [SSH-ключ](./concepts/os-login#ssh-keys) для доступа по {{ oslogin }} |
+| [yandex_organizationmanager_user_ssh_key]({{ tf-provider-resources-link }}/organizationmanager_user_ssh_key) | [SSH-ключ](./concepts/os-login.md#ssh-keys) для доступа по {{ oslogin }} |
 
 
 ## Источники данных {#data-sources}
@@ -44,4 +44,4 @@ description: На этой странице приведен справочни�
 | [yandex_organizationmanager_os_login_settings]({{ tf-provider-datasources-link }}/organizationmanager_os_login_settings) | Информация о настройках доступа по [{{ oslogin }}](./concepts/os-login.md) |
 | [yandex_organizationmanager_saml_federation]({{ tf-provider-datasources-link }}/organizationmanager_saml_federation) | Информация о [SAML-совместимой федерации удостоверений](./concepts/add-federation.md) |
 | [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-datasources-link }}/organizationmanager_saml_federation_user_account) | Информация о [федеративном пользователе](./concepts/add-federation.md#saml-authentication) |
-| [yandex_organizationmanager_user_ssh_key]({{ tf-provider-datasources-link }}/organizationmanager_user_ssh_key) | Информация о [SSH-ключе](./concepts/os-login#ssh-keys) пользователя |
+| [yandex_organizationmanager_user_ssh_key]({{ tf-provider-datasources-link }}/organizationmanager_user_ssh_key) | Информация о [SSH-ключе](./concepts/os-login.md#ssh-keys) пользователя |

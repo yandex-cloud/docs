@@ -111,6 +111,8 @@ Read-Only:
 
 - `web_sql` (Boolean) Allow access for [SQL queries in the management console](https://yandex.cloud/docs/managed-postgresql/operations/web-sql-query).
 
+- `yandex_query` (Boolean) Allow access for [YandexQuery](https://yandex.cloud/services/query).
+
 
 
 <a id="nestedobjatt--config--backup_window_start"></a>

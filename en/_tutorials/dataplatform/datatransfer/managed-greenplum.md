@@ -19,16 +19,13 @@ To migrate your database, you need to directly transfer the data, acquire a writ
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ GP }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Fee per transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ mgp-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-[Create a {{ GP }} target cluster](../../../managed-greenplum/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
+[Create a {{ GP }} target cluster](../../../managed-greenplum/operations/cluster-create.md) whose computing and storage capacity match those of the source database environment.
 
 The source and target database names must be the same.
 
@@ -38,26 +35,27 @@ The source and target database names must be the same.
     * [{{ GP }}](../../../data-transfer/operations/prepare.md#source-gp)
     * [{{ PG }}](../../../data-transfer/operations/prepare.md#source-pg)
 1. [Prepare the target cluster](../../../data-transfer/operations/prepare.md#target-gp).
-1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
+1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Greenplum` or `PostgreSQL`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.on_premise.title }}`
 
         Configure the source cluster connection settings.
 
-1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
+1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Greenplum`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
 
-        Specify the ID of the target cluster.
+        Specify the target cluster ID.
 
-1. Create a _{{ dt-type-copy }}_-type [transfer](../../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
+1. [Create](../../../data-transfer/operations/transfer.md#create) a _{{ dt-type-copy }}_-type transfer configured to use the new endpoints.
 1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 1. Wait for the transfer status to change to {{ dt-status-finished }}.
 
     For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
-1. Switch the source cluster to <q>read-only</q> mode and transfer the load to the target cluster.
-1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete) (must not be in progress).
-1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Switch the source cluster to <q>read-only</q> mode and move the workload to the target cluster.
+1. To reduce the consumption of resources you do not need, delete them:
+    1. [Delete the completed transfer](../../../data-transfer/operations/transfer.md#delete).
+    1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).

@@ -11,3 +11,5 @@ description: На странице приведено описание ошиб�
 
 
 {% include [datalens-dataset-timeout-note](../../../_includes/datalens/datalens-dataset-timeout-note.md) %}
+
+{% include [datalens-dataset-timeout-recommendations](../../../_includes/datalens/datalens-dataset-timeout-recommendations.md) %}
