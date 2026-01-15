@@ -14,7 +14,7 @@
 
 {% endlist %}
 
-## Создайте {#create-agent}
+## Создайте агента {#create-agent}
 
 {% list tabs group=programming_language %}
 

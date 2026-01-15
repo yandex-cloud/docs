@@ -3,7 +3,7 @@
 
 A {{ ydb-name }} cluster can ingest data from {{ KF }} topics in real time. This data is automatically added to {{ ydb-short-name }} tables with topic names.
 
-To run data delivery:
+To start data delivery:
 
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
@@ -13,24 +13,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its pricing is based on deployment mode:
 
-* {{ mkf-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-* {{ ydb-name }} database fee. The charge depends on the usage mode:
-
-	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
-	
-    Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
-
-* Transfer fee: Use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. Set up your data pipeline infrastructure:
+1. Set up your data delivery infrastructure:
 
    {% list tabs group=instructions %}
 
@@ -38,7 +33,7 @@ The support cost includes:
 
 
        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration.
-       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
+       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) with your preferred configuration.
        1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
        1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
@@ -62,7 +57,7 @@ The support cost includes:
            * {{ ydb-name }} database.
            * Transfer.
 
-       1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
+       1. In the `data-transfer-mkf-ydb.tf` file, specify the following variables:
 
            * `source_kf_version`: {{ KF }} version in the source cluster.
            * `source_user_name`: Username for connection to the {{ KF }} topic.
@@ -126,10 +121,10 @@ The support cost includes:
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select your {{ ydb-name }} database from the list.
 
            
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `editor` role.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `editor` role.
 
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
@@ -138,10 +133,10 @@ The support cost includes:
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-          Select a source cluster from the list and specify its connection settings.
+          Select your source cluster from the list and specify its connection settings.
        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema in two ways:
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema using one of these two methods:
             * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
               Set a list of topic fields manually:
@@ -214,18 +209,18 @@ The support cost includes:
 
     - Manually {#manual}
 
-        1. Create the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type [transfer](../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
+        1. In the `data-transfer-mkf-ydb.tf` file, specify the following variables:
 
             * `source_endpoint_id`: ID of the source endpoint.
             * `target_endpoint_id`: ID of the target endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -244,7 +239,7 @@ The support cost includes:
 ## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-1. Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ ydb-name }} database:
+1. Make sure that the data from the topic in the source {{ mkf-name }} cluster is being transferred to the {{ ydb-name }} database:
 
     1. Create a file named `sample.json` with test data:
 
@@ -296,21 +291,21 @@ The support cost includes:
            -X security.protocol=SASL_SSL \
            -X sasl.mechanisms=SCRAM-SHA-512 \
            -X sasl.username="<username_in_source_cluster>" \
-           -X sasl.password="<user_password_in_source_cluster>" \
+           -X sasl.password="<source_cluster_user_password>" \
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
         The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-    1. Verify that the data has been transferred from the source {{ mkf-name }} cluster to the {{ ydb-name }} database:
+    1. Make sure that the data from the source {{ mkf-name }} cluster has been transferred to the {{ ydb-name }} database:
 
         {% list tabs group=instructions %}
 
         - Management console {#console}
 
-           1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
+           1. In the [management console]({{ link-console-main }}), select the folder containing your database.
            1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-           1. Select the database from the list.
+           1. Select your database from the list.
            1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
            1. Check that the {{ ydb-name }} database contains a table named `sensors` with the test data from the topic.
 
@@ -335,7 +330,7 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources incur charges. To avoid unnecessary charges, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
@@ -344,17 +339,17 @@ Some resources incur charges. To avoid unnecessary charges, delete the resources
 1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
-Delete other resources using the method matching their creation method:
+1. Delete the other resources depending on how you created them:
 
-{% list tabs group=instructions %}
+   {% list tabs group=instructions %}
 
-- Manually {#manual}
+   - Manually {#manual}
 
-    1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-    1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+       1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+       1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 
-- {{ TF }} {#tf}
+   - {{ TF }} {#tf}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-{% endlist %}
+   {% endlist %}

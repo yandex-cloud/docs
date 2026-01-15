@@ -48,11 +48,20 @@ items:
                   - name: mdb_greenplum_cluster_v2
                     href: data-sources/mdb_greenplum_cluster_v2.md
                     title: ''
+                  - name: organizationmanager_mfa_enforcement
+                    href: data-sources/organizationmanager_mfa_enforcement.md
+                    title: ''
                 title: ''
               - name: Resources
                 items:
                   - name: mdb_greenplum_cluster_v2
                     href: resources/mdb_greenplum_cluster_v2.md
+                    title: ''
+                  - name: organizationmanager_mfa_enforcement
+                    href: resources/organizationmanager_mfa_enforcement.md
+                    title: ''
+                  - name: organizationmanager_mfa_enforcement_audience
+                    href: resources/organizationmanager_mfa_enforcement_audience.md
                     title: ''
                 title: ''
             title: ''

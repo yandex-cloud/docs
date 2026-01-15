@@ -45,6 +45,7 @@ resource "yandex_trino_catalog" "catalog" {
 - `clickhouse` (Attributes) Configuration for Clickhouse connector. (see [below for nested schema](#nestedatt--clickhouse))
 - `delta_lake` (Attributes) Configuration for DeltaLake connector. (see [below for nested schema](#nestedatt--delta_lake))
 - `description` (String) The resource description.
+- `greenplum` (Attributes) Configuration for Greenplum/Cloudberry connector. (see [below for nested schema](#nestedatt--greenplum))
 - `hive` (Attributes) Configuration for Hive connector. (see [below for nested schema](#nestedatt--hive))
 - `hudi` (Attributes) Configuration for Hudi connector. (see [below for nested schema](#nestedatt--hudi))
 - `iceberg` (Attributes) Configuration for Iceberg connector. (see [below for nested schema](#nestedatt--iceberg))
@@ -136,6 +137,39 @@ Required:
 Required:
 
 - `uri` (String) The resource description.
+
+
+
+<a id="nestedatt--greenplum"></a>
+### Nested Schema for `greenplum`
+
+Optional:
+
+- `additional_properties` (Map of String) Additional properties.
+- `connection_manager` (Attributes) Configuration for connection manager connection. (see [below for nested schema](#nestedatt--greenplum--connection_manager))
+- `on_premise` (Attributes) Configuration for on-premise connection. (see [below for nested schema](#nestedatt--greenplum--on_premise))
+
+<a id="nestedatt--greenplum--connection_manager"></a>
+### Nested Schema for `greenplum.connection_manager`
+
+Required:
+
+- `connection_id` (String) Connection ID.
+- `database` (String) Database.
+
+Optional:
+
+- `connection_properties` (Map of String) Additional connection properties.
+
+
+<a id="nestedatt--greenplum--on_premise"></a>
+### Nested Schema for `greenplum.on_premise`
+
+Required:
+
+- `connection_url` (String) Connection to the clickhouse.
+- `password` (String) Password of the clickhouse user.
+- `user_name` (String) Name of the clickhouse user.
 
 
 

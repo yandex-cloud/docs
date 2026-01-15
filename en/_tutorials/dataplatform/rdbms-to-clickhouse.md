@@ -1,6 +1,6 @@
 
 
-You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. To do this:
+You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test the replication process](#example-check-replication).
@@ -11,12 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mpg-name }} cluster fee: Covers the use of computational resources allocated to hosts and disk storage (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ mch-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for public IP addresses assigned to cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Transfer fee: Based on computational resource consumption and the total number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mch-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -192,12 +190,12 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 For table recovery, {{ CH }} targets with [replication](../../managed-clickhouse/concepts/replication.md) use the [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/) engines. The following columns are automatically added to each table:
 
-* `__data_transfer_commit_time`: Time in `TIMESTAMP` format when this row was last updated.
-* `__data_transfer_delete_time`: Time in `TIMESTAMP` format when this row was deleted from the source table. A value of `0` indicates that the row is still active.
+* `__data_transfer_commit_time`: Time the row was updated to this value, in `TIMESTAMP` format.
+* `__data_transfer_delete_time`: Time the row was deleted from the source, in `TIMESTAMP` format. A value of `0` indicates that the row is still active.
 
-    The `__data_transfer_commit_time` column is essential for the ReplicatedReplacedMergeTree engine. It tracks changes by inserting a new version of a row upon any update or deletion, timestamped with the operation's commit time. Consequently, a query by a primary key may return multiple row versions with different `__data_transfer_commit_time` values.
+    The `__data_transfer_commit_time` column is essential for the ReplicatedReplacedMergeTree engine. If a record is deleted or updated, a new row gets inserted with a value in this column. Querying by the primary key alone returns several records with different `__data_transfer_commit_time` values.
 
-The source data can be added or deleted while the transfer is in the **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}** status. To ensure an SQL query by a primary key returns a single record, always filter on `__data_transfer_delete_time` when querying tables transferred to {{ CH }}. For example, to query the `x_tab` table, use the following syntax:
+The source data can be added or deleted while the transfer is in **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}** status. For standard SQL command behavior, where the primary key returns a single record, add filtering by the `__data_transfer_delete_time` column when querying tables transferred to {{ CH }}. For example, to query the `x_tab` table, use the following syntax:
 
 ```sql
 SELECT * FROM x_tab FINAL
@@ -219,18 +217,18 @@ Using the `FINAL` keyword reduces query performance, so avoid it whenever possib
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
-* Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
-* Delete your endpoints and clusters:
+1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
+1. Delete other resources using the same method used for their creation:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        * [Both the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
-        * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
-        * [{{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+        1. [Delete both the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
+        1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
+        1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
     - {{ TF }} {#tf}
 

@@ -1,4 +1,4 @@
-You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }} in {{ mgp-name }} using {{ data-transfer-full-name }}. To do this:
+You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }} in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
@@ -9,12 +9,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mkf-name }} cluster fee: Use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
-* {{ GP }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
-* Fee for public IP addresses assigned to cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Fee per transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mgp-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -33,7 +30,7 @@ The support cost for this solution includes:
 
         1. [Create a {{ GP }} target cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration using the admin username (`user`) and hosts located in the public domain.
 
-        1. Make sure that the cluster security groups are set up correctly and allow connecting to them:
+        1. Make sure the cluster security groups are properly configured and allow inbound cluster connections:
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
@@ -49,19 +46,19 @@ The support cost for this solution includes:
             This file describes:
 
             * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
-            * [Security groups](../../../vpc/concepts/security-groups.md) for making cluster connections.
+            * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
             * {{ mkf-name }} source cluster.
             * {{ GP }} target cluster in {{ mgp-name }}.
             * Transfer.
 
         1. In the `kafka-greenplum.tf` file, specify user passwords and {{ KF }} and {{ GP }} versions.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -86,11 +83,11 @@ The support cost for this solution includes:
         ```bash
         sudo apt update && sudo apt-get install --yes jq
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
 
-Create a file named `sample.json` with test data on your working instance:
+Create a file named `sample.json` with test data on your local machine:
 
 {% cut "sample.json" %}
 
@@ -170,7 +167,7 @@ Create a file named `sample.json` with test data on your working instance:
 
     - Manually {#manual}
 
-        1. Create a _{{ dt-type-repl }}_-type [transfer](../../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
+        1. [Create](../../../data-transfer/operations/transfer.md#create) a _{{ dt-type-repl }}_-type transfer configured to use the new endpoints.
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-repl }}.
 
     - {{ TF }} {#tf}
@@ -178,16 +175,16 @@ Create a file named `sample.json` with test data on your working instance:
         1. In the `kafka-greenplum.tf` file, specify the following variables:
 
             * `kf_source_endpoint_id`: Source endpoint ID.
-            * `gp_target_endpoint_id`: ID of the target endpoint.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `gp_target_endpoint_id`: Target endpoint ID.
+            * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -197,9 +194,9 @@ Create a file named `sample.json` with test data on your working instance:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ GP }} database:
+Make sure that the data from the topic in the source {{ mkf-name }} cluster is being transferred to the {{ GP }} database:
 
 1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
@@ -211,13 +208,13 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username="<username_in_source_cluster>" \
-        -X sasl.password="<user_password_in_source_cluster>" \
+        -X sasl.password="<source_cluster_user_password>" \
         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
     To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../../managed-kafka/operations/connect/clients.md).
 
-1. Verify that the data has been transferred from the source {{ mkf-name }} cluster to the {{ GP }} database:
+1. Make sure that the data from the source {{ mkf-name }} cluster has been transferred to the {{ GP }} database:
 
     1. [Connect to the {{ GP }} database](../../../managed-greenplum/operations/connect.md).
     1. Check that the database contains a table named `sensors` with the test data from the topic:
@@ -228,18 +225,18 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To reduce the consumption of resources you do not need, delete them:
 
-* Make sure the transfer has the {{ dt-status-finished }} status and [delete](../../../data-transfer/operations/transfer.md#delete) it.
-* [Delete both the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-* Delete the clusters:
+1. Make sure the transfer has the {{ dt-status-finished }} status and [delete](../../../data-transfer/operations/transfer.md#delete) it.
+1. [Delete both the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Delete other resources using the same method used for their creation:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        * [{{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
-        * [{{ mgp-name }}](../../../managed-greenplum/operations/cluster-delete.md).
+        1. [Delete the {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-delete.md).
+        1. [Delete the {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-delete.md).
 
     - {{ TF }} {#tf}
 

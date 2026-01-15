@@ -72,7 +72,7 @@ Required:
 
 Optional:
 
-- `authorized_scopes` (List of String) List of authorized client scopes by the application
+- `authorized_scopes` (Set of String) List of authorized client scopes by the application
 
 
 <a id="nestedatt--group_claims_settings"></a>

@@ -4,7 +4,7 @@
 You can set up data transfer from a {{ mkf-name }} topic to {{ mpg-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -12,16 +12,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
-* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. Set up your infrastructure:
+1. Set up the infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -35,7 +33,7 @@ The support cost includes:
 
         1. In the same availability zone, [create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) in any appropriate configuration with `pg-user` as the admin user and publicly available hosts.
 
-        1. Make sure that the cluster security groups are set up correctly and allow connecting to them:
+        1. Make sure the cluster security groups are properly configured and allow inbound cluster connections:
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
@@ -50,25 +48,25 @@ The support cost includes:
 
             This file describes:
 
-            * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) for hosting the clusters.
-            * [Security groups](../../../vpc/concepts/security-groups.md) for making cluster connections.
+            * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
+            * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
             * {{ mkf-name }} source cluster.
             * {{ mpg-name }} target cluster.
             * Target endpoint.
             * Transfer.
 
-        1. Specify the following in the `kafka-postgresql.tf` file:
+        1. In the `kafka-postgresql.tf` file, specify the following:
 
             * {{ KF }} and {{ PG }} versions
             * {{ KF }} and {{ PG }} user passwords
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -78,22 +76,22 @@ The support cost includes:
 
     {% endlist %}
 
-1. Install the utilities:
+1. Install the following tools:
 
-    * [kafkacat](https://github.com/edenhill/kcat) to read and write data to {{ KF }} topics.
+    * [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    * [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
+    * [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
 
@@ -192,7 +190,7 @@ Create a local `sample.json` file with the following test data:
 
     {% endcut %}
 
-1. Create a target endpoint and transfer:
+1. Create a target endpoint and set up the transfer:
 
     {% list tabs group=instructions %}
 
@@ -205,37 +203,37 @@ Create a local `sample.json` file with the following test data:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
-        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
 
-        1. In the `kafka-postgresql.tf` file, specify these variables:
+        1. In the `kafka-postgresql.tf` file, specify the following variables:
 
-            * `kf_source_endpoint_id`: ID of the source endpoint.
-            * `transfer_enabled`: `1` to create a target endpoint and transfer.
+            * `kf_source_endpoint_id`: Source endpoint ID.
+            * `transfer_enabled`: `1` to create a target endpoint and a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. The transfer will activate automatically upon creation. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
-Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mpg-name }} database:
+Make sure that the data from the topic in the source {{ mkf-name }} cluster is being transferred to the {{ mpg-name }} database:
 
-1. Send data from the `sample.json` file to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
+1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
     ```bash
     jq -rc . sample.json | kafkacat -P \
@@ -245,11 +243,11 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username="mkf-user" \
-        -X sasl.password="<user_password_in_source_cluster>" \
+        -X sasl.password="<source_cluster_user_password>" \
         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
-    To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../../managed-kafka/operations/connect/clients.md).
+    To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../../managed-kafka/operations/connect/clients.md).
 
 1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mpg-name }} database:
 
@@ -264,23 +262,23 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how they were created:
+1. Delete other resources using the same method used for their creation:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        * [Target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-        * [{{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+        1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
+        1. [Delete the {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-delete.md).
+        1. [Delete the {{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
 
     - {{ TF }} {#tf}
 

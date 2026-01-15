@@ -7,19 +7,47 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
-### Версия 0.185.0 (22.12.25) {#version0.185.0}
+### Версия 0.186.0 (15.01.26) {#version0.186.0}
 
-#### Изменения в CLI {#cli}
+#### Изменения в CLI {#cli-0.186.0}
 
-Исправлена ошибка при вызове команд бета-версии CLI {{ yandex-cloud }}.
+Исправлено отображение цветов при использовании параметра `--pager` со значением `less` в `yc beta`.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.186.0}
+
+##### {{ cloud-registry-full-name }} {#cloud-registry-full-name-0.186.0}
+
+Добавлена команда `configure-docker` для Docker Credential helper.
+
+##### {{ data-transfer-name }} {#data-transfer-name-0.186.0}
+
+Добавлен параметр `--labels` в следующие команды:
+* `datatransfer transfer create`;
+* `datatransfer transfer update`;
+* `datatransfer endpoint <ENDPOINT_TYPE> create`;
+* `datatransfer endpoint <ENDPOINT_TYPE> update`.
+
+##### {{ dataproc-name }} {#dataproc-name-0.186.0}
+
+Добавлены команды для назначения прав доступа в {{ dataproc-name }}:
+* `yc dataproc cluster list-access-bindings`;
+* `yc dataproc cluster set-access-bindings`;
+* `yc dataproc cluster add-access-binding`;
+* `yc dataproc cluster remove-access-binding`.
 
 ## Предыдущие релизы {#previous-release}
 
+### Версия 0.185.0 (22.12.25) {#version0.185.0}
+
+#### Изменения в CLI {#cli} {#cli-0.185.0}
+
+Исправлена ошибка при вызове команд `yc beta`.
+
 ### Версия 0.184.0 (22.12.25) {#version0.184.0}
 
-#### Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.184.0}
 
-##### {{ container-registry-name }}
+##### {{ container-registry-name }} {#container-registry-name-0.184.0}
 
 В команде `yc container registry configure-docker` исправлен парсинг версии Docker.
 

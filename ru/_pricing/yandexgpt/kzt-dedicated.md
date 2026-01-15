@@ -1,9 +1,9 @@
-Стоимость 1 юнита для выделенных инстансов равна {% calc [currency=KZT] round((5 / 112 × 116) × 100) / 100 %} ₸ (вкл. НДС).
+Стоимость 1 юнита для выделенных инстансов равна 5,18 ₸ (вкл. НДС).
 
 | Модель | Цена за 1 час</br>конфигурация **S**, <br>вкл. НДС | Цена за 1 час</br>конфигурация **M**, <br>вкл. НДС | Цена за 1 час</br>конфигурация **L**, <br>вкл. НДС |
 |---|---|---|---|
-| Qwen 2.5 VL 32B Instruct | {% calc [currency=KZT] round((4020 / 112 × 116) × 100) / 100 %} | {% calc [currency=KZT] round((8040 / 112 × 116) × 100) / 100 %} | {% calc [currency=KZT] round((12060 / 112 × 116) × 100) / 100 %} |
-| Qwen 2.5 72B Instruct    | {% calc [currency=KZT] round((4020 / 112 × 116) × 100) / 100 %} | {% calc [currency=KZT] round((8040 / 112 × 116) × 100) / 100 %} | {% calc [currency=KZT] round((12060 / 112 × 116) × 100) / 100 %} |
-| Gemma 3 4B it            | {% calc [currency=KZT] round((2010 / 112 × 116) × 100) / 100 %} | {% calc [currency=KZT] round((4020 / 112 × 116) × 100) / 100 %} | {% calc [currency=KZT] round((6030 / 112 × 116) × 100) / 100 %} |
-| Gemma 3 12B it           | {% calc [currency=KZT] round((2010 / 112 × 116) × 100) / 100 %} | {% calc [currency=KZT] round((4020 / 112 × 116) × 100) / 100 %} | {% calc [currency=KZT] round((6030 / 112 × 116) × 100) / 100 %} |
-| T-pro-it-2.0-FP8         | {% calc [currency=KZT] round((3720 / 112 × 116) × 100) / 100 %} | {% calc [currency=KZT] round((7440 / 112 × 116) × 100) / 100 %} | {% calc [currency=KZT] round((11160 / 112 × 116) × 100) / 100 %} |
+| Qwen 2.5 VL 32B Instruct | 4 163,57 ₸ | 8 327,14 ₸ | 12 490,71 ₸ |
+| Qwen 2.5 72B Instruct    | 4 163,57 ₸ | 8 327,14 ₸ | 12 490,71 ₸ |
+| Gemma 3 4B it            | 2 081,79 ₸ | 4 163,57 ₸ | 6 245,36 ₸ |
+| Gemma 3 12B it           | 2 081,79 ₸ | 4 163,57 ₸ | 6 245,36 ₸ |
+| T-pro-it-2.0-FP8         | 3 852,86 ₸ | 7 705,71 ₸ | 11 558,57 ₸ |

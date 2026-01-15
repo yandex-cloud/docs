@@ -2473,8 +2473,8 @@ default:
   sku|USD|security_deck:
     access_transparency:
       subscription:
-        v1|number: 583.327776
-        v1|string: "583,327776\_$"
+        v1|number: 583.335972
+        v1|string: "583,335972\_$"
     dspm:
       scanned:
         files:

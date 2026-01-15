@@ -1,4 +1,4 @@
-Let's assume that 115,000 minutes of audio were recognized and analyzed during one month of using {{ speechsense-name }}
+Let's assume you recognized and analyzed 115,000 minutes of audio with {{ speechsense-name }} over a month.
 
 **Recognition cost**
 
@@ -20,7 +20,7 @@ Where:
 * {% calc [currency=USD] {{ sku|USD|speechsense.analysis.v1|number }} × 60 %}: Cost per minute for the first 100,000 minutes.
 * {% calc [currency=USD] {{ sku|USD|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 %}: Cost per minute for the next 15,000 minutes.
 
-**Total cost**
+**Total cost** 
 
 > {% calc [currency=USD] {{ sku|USD|speechsense.analysis.audio|number }} × 60 × 100000 + {{ sku|USD|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 %} + {% calc [currency=USD] {{ sku|USD|speechsense.analysis.v1|number }} × 60 × 100000 + {{ sku|USD|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %} = {% calc [currency=USD] {{ sku|USD|speechsense.analysis.audio|number }} × 60 × 100000 + {{ sku|USD|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15000 + {{ sku|USD|speechsense.analysis.v1|number }} × 60 × 100000 + {{ sku|USD|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15000 %}
 >

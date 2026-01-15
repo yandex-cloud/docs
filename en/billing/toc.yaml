@@ -66,6 +66,8 @@ items:
                 href: operations/dashboard.md
               - name: Exporting extended usage details
                 href: operations/get-folder-report.md
+              - name: Getting usage details via the API
+                href: operations/get-charges-via-api.md
               - name: Searching for usage details with {{ yq-full-name }}
                 href: operations/query-integration.md
   - name: Concepts

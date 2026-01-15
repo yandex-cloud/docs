@@ -2,6 +2,8 @@
 
 {% include [wlif-mk8s-description](../../_includes/managed-kubernetes/wlif-mk8s-description.md) %}
 
+![image](../../_assets/managed-kubernetes/mk8s-wlif.svg)
+
 This tutorial exemplifies getting the value of a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md) from a {{ managed-k8s-name }} using an {{ iam-name }} [service account](../../iam/concepts/users/service-accounts.md). 
 
 Similarly, you can perform any action via the [{{ yandex-cloud }} CLI](../../cli/quickstart.md), [{{ TF }}](../../terraform/quickstart.md), an [SDK](../../overview/sdk/overview.md), or the [API](../../api-design-guide/).

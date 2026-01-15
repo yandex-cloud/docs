@@ -58,7 +58,7 @@ description: В разделе представлена история изме�
 * [{{ data-catalog-name }}](../concepts/data-catalog.md) перешел в стадию [стадию Public Preview](../../overview/concepts/launch-stages.md); реализована [AI-разметка](../operations/data-catalog/markup-metadata.md) метаданных и [AI-поиск](../operations/data-catalog/search-metadata.md).
 
 
-### Август
+### Август {#august25}
 
 #### Новые возможности {#new-features-august25}
 

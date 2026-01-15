@@ -4,22 +4,17 @@ To transfer a database from {{ GP }} to {{ CH }}:
 
 1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
-1. [Verify replication after reactivation](#example-check-copy).
+1. [Test copying after reactivation](#example-check-copy).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ GP }} cluster fee: Use of computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
-
-* {{ mch-name }} cluster fee: Use of computing resources allocated to hosts, including ZooKeeper hosts, and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-
-* Transfer fee: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mgp-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* {{ mch-name }} cluster: Use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -65,20 +60,20 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
         * {{ mch-name }} target cluster.
         * Target endpoint.
 
-    1. Specify the following in `greenplum-clickhouse.tf`:
+    1. In the `greenplum-clickhouse.tf` file, specify the following:
 
         * `mgp_password`: {{ GP }} admin password.
         * `mch_db`: {{ CH }} database name.
         * `mch_user`: {{ CH }} database user name.
         * `mch_password`: {{ CH }} database user password.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -132,7 +127,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
    └────┴───────┘
    ```
 
-## Verify replication after reactivation {#example-check-copy}
+## Verify that the copy operation works upon reactivation {#example-check-copy}
 
 1. [Connect to the {{ GP }} cluster](../../managed-greenplum/operations/connect.md). Then, in the `x_tab` table, delete one row and update another:
 
@@ -159,11 +154,11 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To reduce the consumption of resources you do not need, delete them:
 
 1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete other resources using the same method used for their creation:
 
     {% list tabs group=instructions %}
 

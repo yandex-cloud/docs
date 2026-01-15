@@ -19,10 +19,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* VM instance: Use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Create a VM with an online store {#create-vm-mysql}
@@ -76,7 +76,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To replicate tables with information about online store orders, create a {{ mmy-name }} cluster:
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster. 
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster. 
 1. Select **{{ mmy-name }}** and click **Create cluster**.
 1. Specify a name for the cluster: `ya-sample-cloud-mysql`.
 1. Select the host class: `s2.small`.
@@ -151,18 +151,20 @@ To synchronize the order information from the MySQL database of the website with
 
 1. Create an order in the online store at `http://ya-sample-store.local/`.
 1. Make a query to the database in the cloud:
+
    ```sql
    SELECT so.*, soi.* FROM sales_order_grid so
    INNER JOIN sales_order_item soi ON so.entity_id = soi.order_id
    ORDER BY entity_id DESC 
    LIMIT 10
    ```
+
 1. Make sure that your order data appeared in the database.
 
-## How to delete the resources you created {#clear-out}
+## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+To reduce the consumption of resources you do not need, delete them:
 
-* [Delete the `magento` VM](../../compute/operations/vm-control/vm-delete.md).
-* [Delete the `ya-sample-cloud-mysql` cluster](../../managed-mysql/operations/cluster-delete.md).
-* If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
+1. [Delete the `magento` VM](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the `ya-sample-cloud-mysql` cluster](../../managed-mysql/operations/cluster-delete.md).
+1. If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).

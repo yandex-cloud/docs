@@ -3,9 +3,9 @@
 
 A {{ mmy-name }} cluster can ingest data from {{ KF }} topics in real time.
 
-To run data delivery:
+To start data delivery:
 
-1. [Prepare the test data](#prepare-data).
+1. [Prepare your test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
@@ -14,15 +14,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. Set up your data pipeline infrastructure:
+1. Set up your data delivery infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -34,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
-        1. [Create a {{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) with the following settings:
+        1. [Create a {{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration with the following settings:
 
             * Database name: `db1`.
             * Username: `mmy-user`.
@@ -77,13 +76,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_user_password`: `mmy-user` password in the target cluster.
             * `transfer_enabled`: Set to `0` to ensure that no transfer and target endpoint is created before you [manually create a source endpoint](#prepare-transfer).
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -109,7 +108,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
 
@@ -157,7 +156,7 @@ Create a local `sample.json` file with the following test data:
 
 ## Set up and activate the transfer {#prepare-transfer}
 
-1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
+1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
 
     **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
@@ -247,7 +246,7 @@ Create a local `sample.json` file with the following test data:
 
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the user password.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the new endpoints.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
@@ -255,15 +254,15 @@ Create a local `sample.json` file with the following test data:
         1. In the `data-transfer-mkf-mmy.tf` file, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: Set to `1` for creating a target endpoint and a transfer.
+            * `transfer_enabled`: `1` to create a target endpoint and a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -273,7 +272,7 @@ Create a local `sample.json` file with the following test data:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mmy-name }} cluster:
 
@@ -287,7 +286,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="mkf-user" \
-       -X sasl.password="<user_password_in_source_cluster>" \
+       -X sasl.password="<source_cluster_user_password>" \
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
@@ -311,22 +310,21 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
+1. Delete other resources using the same method used for their creation:
 
-Delete the other resources depending on how you created them:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+       1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
 
-    * [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-    * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}

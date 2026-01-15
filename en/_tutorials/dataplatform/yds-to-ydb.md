@@ -13,31 +13,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+* {{ ydb-name }} databases (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on deployment mode:
 
-* Fee for each {{ ydb-name }} database. The charge depends on the usage mode:
+	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
-	
-    Learn more about the {{ ydb-name }} pricing plans [here](../../ydb/pricing/index.md).
+* {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
-* {{ yds-name }} fee, which depends on the pricing mode:
+    * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+    * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-	* Provisioned capacity pricing mode: You pay for the number of write units and resources allocated for data streaming.
-	* On-demand pricing mode:
-		* If the DB operates in serverless mode, the data stream is charged according to the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
-
-		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated.md)).
-
-    Learn more about the {{ yds-name }} pricing plans [here](../../data-streams/pricing.md).
-
-* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up your data transfer infrastructure:
+Set up your data delivery infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -70,13 +61,13 @@ Set up your data transfer infrastructure:
         * `target_db_name`: {{ ydb-name }} target database name.
         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -171,8 +162,8 @@ Set up your data transfer infrastructure:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**-type transfer configured to use the new endpoints.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
@@ -180,15 +171,15 @@ Set up your data transfer infrastructure:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -218,7 +209,7 @@ Set up your data transfer infrastructure:
     }
     ```
 
-1. Make sure the data has moved to the target database:
+1. Make sure that the data has been transferred to the target database:
 
      {% list tabs group=instructions %}
 
@@ -226,7 +217,7 @@ Set up your data transfer infrastructure:
 
         1. In the [management console]({{ link-console-main }}), select the folder with the DB.
         1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-        1. Select the database from the list.
+        1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Make sure the `<stream_name>` table now contains the test data.
 
@@ -243,31 +234,29 @@ Set up your data transfer infrastructure:
 
     {% endlist %}
 
-
 ## Delete the resources you created {#clear-out}
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
 1. If you created any service accounts, [delete them](../../iam/operations/sa/delete.md).
+1. Delete other resources using the same method used for their creation:
 
-Delete the other resources depending on how you created them:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       [Delete the {{ ydb-name }} databases](../../ydb/operations/manage-databases.md#delete-db).
 
-    [Delete the {{ ydb-name }} databases](../../ydb/operations/manage-databases.md#delete-db).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}

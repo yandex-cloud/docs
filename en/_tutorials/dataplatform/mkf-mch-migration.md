@@ -1,7 +1,7 @@
 # Delivering data from an {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
 
 
-A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}/engines/table-engines/integrations/kafka/) tables.
+A {{ mch-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}/engines/table-engines/integrations/kafka/)-engine tables.
 
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
@@ -16,20 +16,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mch-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
-### Set up the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) in any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+    1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) in any suitable [configuration](../../managed-kafka/concepts/instance-types.md). Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
     1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) in the {{ mkf-name }} cluster.
 
@@ -38,10 +36,10 @@ The support cost includes:
         * With the `ACCESS_ROLE_PRODUCER` role for the producer.
         * With the `ACCESS_ROLE_CONSUMER` role for the consumer.
 
-    1. Create a [{{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md). To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+    1. Create a [{{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md). Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
     
-    1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
+    1. If using security groups, configure them to allow internet access to your clusters:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
@@ -78,7 +76,7 @@ The support cost includes:
         * The {{ mch-name }} target cluster parameters that will be used as the [target endpoint parameters](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
             * `target_db_name`: {{ mch-name }} database name.
-            * `target_user` and `target_password`: Name and user password of the database owner.
+            * `target_user` and `target_password`: Database owner username and password.
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -98,7 +96,7 @@ The support cost includes:
 
 ### Configure additional settings {#additional-settings}
 
-1. Install these tools:
+1. Install the following tools:
 
     * [kafkacat](https://github.com/edenhill/kcat): To read and write data to the {{ KF }} topic.
 
@@ -106,11 +104,11 @@ The support cost includes:
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Verify that you can use it to [establish SSL connections to your {{ mkf-name }} clusters](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    * [clickhouse-client]({{ ch.docs }}/interfaces/cli/): To connect to the database in the {{ mch-name }} cluster.
+    * [clickhouse-client]({{ ch.docs }}/interfaces/cli/): For connecting to a database within the {{ mch-name }} cluster.
 
-        1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) to your system:
+        1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
             ```bash
             sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -129,9 +127,9 @@ The support cost includes:
 
             {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-        Check that you can use it to [connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect/clients.md).
+        Verify that you can [establish an SSL connection to the {{ mch-name }} cluster](../../managed-clickhouse/operations/connect/clients.md) via clickhouse-client.
 
-    * [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
+    * [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
@@ -286,7 +284,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
 
                 {% endcut %}
 
-1. Create an endpoint for the target and transfer:
+1. Create a target endpoint and transfer:
 
     {% list tabs group=instructions %}
 
@@ -304,12 +302,12 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
                         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the source cluster from the list.
 
                     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
-                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user having access to the database, e.g., the database owner.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user who has access to the database, e.g., the database owner.
 
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.advanced_settings.title }}** → **Upload data in JSON format**: Enable this option if you enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** in the advanced settings of the source endpoint.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
@@ -330,15 +328,15 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer is activated automatically.
+            The transfer will activate automatically upon creation.
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mch-name }} database:
+1. Make sure that the data from the source {{ mkf-name }} cluster has been transferred to the {{ mch-name }} database:
 
     1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
@@ -364,7 +362,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
 
 1. Make sure that the new values are now in the {{ mch-name }} database:
 
-    1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
+    1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) via `clickhouse-client`.
 
     1. Run this query:
 
@@ -376,27 +374,26 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+1. Delete other resources using the same method used for their creation:
 
-Delete other resources using the method matching their creation method:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+       1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+       1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
-    * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-    * [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-    * [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}

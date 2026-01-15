@@ -3,6 +3,12 @@ title: '{{ data-transfer-full-name }} release notes'
 description: This section contains {{ data-transfer-name }} release notes.
 ---
 
+<!-- Changelog begin -->
+
+
+
+<!-- Changelog end -->
+
 # {{ data-transfer-name }} release notes
 
 - [November 2025](2511.md)

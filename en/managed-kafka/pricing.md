@@ -13,7 +13,7 @@ In this section, you can find the {{ mkf-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=688ba2e0d05a#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using {{ mkf-name }}, use [our calculator](https://yandex.cloud/en/prices?state=688ba2e0d05a#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
 
 
 
@@ -27,7 +27,7 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 ## Cluster status {#running-stopped}
 
-The prices apply differently depending on the cluster status:
+Prices are applied differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -42,13 +42,13 @@ The {{ mkf-name }} usage cost includes:
 
 * Computing resources allocated to cluster hosts (including {{ ZK }} hosts) and the type of hosts.
 
-* Outgoing traffic from {{ yandex-cloud }}.
+* Egress traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
 You can choose the host class for {{ KF }} broker hosts, {{ ZK }} and {{ kraft-short-name }} hosts based on the expected replication load. Adding {{ ZK }} or {{ kraft-short-name }} hosts depends on the cluster configuration:
 
@@ -85,7 +85,7 @@ Let's calculate the cost of using a cluster with the following properties for 30
 {% include [usd-hour](../_pricing_examples/managed-kafka/usd-hour.md) %}
 
 
-## Discount for committed volume of services (CVoS) {#cvos}
+## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 

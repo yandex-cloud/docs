@@ -228,7 +228,7 @@ keywords:
      * `folderId` — идентификатор каталога.  Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
      * `name` — имя кластера.
      * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
-     * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер..
+     * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
