@@ -7,6 +7,12 @@ description: Следуя данной инструкции, вы сможете
 
 [После регистрации](../../../billing/quickstart/index.md#create_billing_account) в {{ yandex-cloud }} и создания [организации](../../../organization/concepts/organization.md) вы создадите свое первое [облако](../../concepts/resources-hierarchy.md#cloud). Если вам потребуется дополнительное облако, вы сможете создать его, следуя этой же инструкции.
 
+{% note info %}
+
+При создании облака вы автоматически получите роль [владельца](../../concepts/resources-hierarchy.md#owner) в этом облаке.
+
+{% endnote %}
+
 Чтобы создать облако:
 
 {% list tabs group=instructions %}
@@ -14,14 +20,20 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
-  1. Перейдите в [консоль управления]({{ link-console-main }}).
-  1. В левом верхнем углу рядом в полем **{{ ui-key.yacloud.cloud-tree-list.value_search-placeholder }}** нажмите значок ![plus](../../../_assets/console-icons/plus.svg). В открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужную [организацию](../../../organization/concepts/organization.md).
+  1. Справа от названия организации нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
+  1. Выберите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**.
   
-      1. Задайте имя облака. Требования к имени:
-
-          {% include [name-format.md](../../../_includes/name-format.md) %}
-      1. Если у вас несколько организаций, выберите нужную.
-      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+     ![create-cloud1](../../../_assets/resource-manager/create-cloud-ru1.png)
+  
+  1. Введите имя [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud). Требования к имени:
+  
+      {% include [name-format](../../../_includes/name-format.md) %}
+  
+  1. (Опционально) Добавьте метку облака.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  
+     ![create-cloud2](../../../_assets/resource-manager/create-cloud-ru2.png)
 
 - CLI {#cli}
 
@@ -132,11 +144,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-{% note info %}
-
-При создании облака вы автоматически получите роль [владельца](../../concepts/resources-hierarchy.md#owner) в этом облаке.
-
-{% endnote %}
 
 #### См. также {#see-also}
 

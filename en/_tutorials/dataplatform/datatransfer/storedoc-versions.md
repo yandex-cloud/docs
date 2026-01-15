@@ -16,11 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ SD }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ SD }} pricing](../../../storedoc/pricing.md)).
-* Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Per-transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ SD }} cluster: Computing resources allocated to hosts, storage size, and backup size (see [{{ SD }} pricing](../../../storedoc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -40,7 +38,7 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         To connect to the cluster from the internet, enable public access to its hosts.
 
     
-    1. If using security groups, make sure they are [configured correctly](../../../storedoc/operations/connect/index.md#configuring-security-groups) and allow inbound connections to your cluster.
+    1. If using security groups, make sure they are [configured correctly](../../../storedoc/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
 
 
     1. [Grant](../../../storedoc/operations/cluster-users.md#updateuser) the `readWrite` role for the `db1` database to `user1`.
@@ -54,7 +52,7 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. In your current working directory, create a `.tf` file with the following content:
+    1. In the same working directory, place a `.tf` file with the following contents:
 
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "old" { }
@@ -66,7 +64,7 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         export MONGODB_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID from the [folder’s cluster list](../../../storedoc/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../../storedoc/operations/cluster-list.md#list-clusters).
 
     1. Import the {{ SD }} version 4.4 cluster settings into the {{ TF }} configuration:
 
@@ -74,21 +72,21 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         terraform import yandex_mdb_mongodb_cluster.old ${MONGODB_CLUSTER_ID}
         ```
 
-    1. Display the imported configuration:
+    1. Get the imported configuration:
 
         ```bash
         terraform show
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Create a new directory named `imported-cluster` and move your file there.
-    1. Modify the configuration so it can be used to create a new cluster:
+    1. Place the file in the new `imported-cluster` directory.
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Set the `version` parameter to `6.0`.
         * Delete `created_at`, `health`, `id`, `sharded`, and `status`.
         * In the `host` sections, delete `health` and `name`.
-        * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
+        * If you have `type = "ANYTIME"` in the `maintenance_window` section, delete the `hour` argument.
         * Delete all `user` sections (if any). You can add database users with a separate `yandex_mdb_mongodb_user` resource.
         * Delete all `database` sections (if any). You can add databases using the separate `yandex_mdb_mongodb_database` resource.
         * Optionally, make further changes if you need to customize the configuration.
@@ -125,11 +123,11 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
 
     1. [Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Move the configuration file to the `imported-cluster` directory and edit it to [include your required values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added your authentication credentials to the environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
-    1. Validate your {{ TF }} configuration files:
+    1. Make sure the {{ TF }} configuration files are correct:
 
         ```bash
         terraform validate
@@ -163,7 +161,7 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
 1. Set the oplog storage size with a 15-20% margin over the cluster disk size. This will allow {{ data-transfer-name }} to read changes from the source cluster throughout the data copying process.
 
 
-## Prepare the target cluster {#prepare-target}
+## Set up the target cluster {#prepare-target}
 
 If the source database has sharded collections, [prepare the target database](../../../data-transfer/operations/prepare.md#target-mg). Do not enable unique indexes.
 
@@ -230,13 +228,13 @@ If the source database has sharded collections, [prepare the target database](..
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
 1. Switch the source cluster to read-only.
 1. If you disabled unique indexes in the source database, enable them in the target database.
-1. Transfer the load to the target cluster.
-1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to reach zero for each transfer. This means that all changes that occurred in the source cluster after data was copied are transferred to the target cluster.
+1. Switch the workload to the target cluster.
+1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to reach zero for each transfer. This indicates that the target cluster now contains all changes made in the source cluster after the data copy completed.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfers and wait for their status to change to {{ dt-status-stopped }}.
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. [Connect](../../../storedoc/operations/connect/index.md) to `db1` in your target {{ mmg-name }} cluster.
+1. [Connect](../../../storedoc/operations/connect/index.md) to the `db1` database in the {{ mmg-name }} target cluster.
 
 1. Make sure the data collections have appeared in the `db1` database:
 
@@ -247,21 +245,20 @@ If the source database has sharded collections, [prepare the target database](..
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
-* [Transfer](../../../data-transfer/operations/transfer.md#delete)
-* [Endpoints](../../../data-transfer/operations/endpoint/index.md#delete)
+1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
+1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Delete the {{ mmg-name }} cluster version `6.0` depending on how it was created:
 
-Delete the {{ mmg-name }} cluster version `6.0` depending on how it was created:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       Delete the [{{ mmg-name }} cluster](../../../storedoc/operations/cluster-delete.md).
 
-    Delete the [{{ mmg-name }} cluster](../../../storedoc/operations/cluster-delete.md).
+   - Using {{ TF }} {#tf}
 
-- Using {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}

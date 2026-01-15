@@ -8,14 +8,14 @@ editable: false
 
 
 
-In this section, you can find the {{ maf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using {{ maf-name }} are charged based on their pricing plans.
+In this section, you can find the {{ maf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
 
 {% note tip %}
 
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=c931c7dd8121#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using {{ maf-name }}, use [our calculator](https://yandex.cloud/en/prices?state=c931c7dd8121#calculator) on the {{ yandex-cloud }} website or see the pricing data below.
 
 
 {% endnote %}

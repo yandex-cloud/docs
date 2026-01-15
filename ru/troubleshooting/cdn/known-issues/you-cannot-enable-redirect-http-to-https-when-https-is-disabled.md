@@ -5,7 +5,7 @@
 
 При попытке создать CDN-ресурс возникает ошибка:
 ```
-status": 400,
+"status": 400,
 "message": "error: general api error: {"options":{"redirect_http_to_https":{"enabled":["You cannot enable redirect HTTP to HTTPS when HTTPS is disabled. Please enable HTTPS and add SSL certificate first"]}}}",
 "code": "GATEWAY_REQUEST_ERROR",
 "title": "Ошибка",

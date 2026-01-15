@@ -1,10 +1,10 @@
 # Migrating data from {{ OS }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. To do this:
+With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. Proceed as follows:
 
 1. [Set up the source cluster](#configure-source).
-1. [Prepare the test data](#prepare-data).
+1. [Prepare your test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
@@ -14,10 +14,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-* {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
-* Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -56,7 +54,7 @@ The support cost includes:
               {% include [cli-install](../../../_includes/cli-install.md) %}
 
         1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -80,7 +78,7 @@ The support cost includes:
         sudo apt update && sudo apt install --yes curl
         ```
 
-    * [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
+    * [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt install --yes jq
@@ -96,15 +94,15 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
 1. Optionally, in the source cluster, [create a user]({{ os.docs }}/security-plugin/access-control/users-roles) to run the transfer and assign them the role you created.
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
-1. In the source cluster, create a test index named `people` and define its mapping:
+1. In the source cluster, create a test index named `people` and define its schema:
 
     ```bash
-    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
+    curl --user <username_in_source_cluster>:<source_cluster_user_password> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people' && \
-    curl --user <source_cluster_username>:<user_password_in_source_cluster> \
+    curl --user <source_cluster_username>:<source_cluster_user_password> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_mapping?pretty' \
          --data'
@@ -120,7 +118,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 1. Populate the test index with data:
 
     ```bash
-    curl --user <source_cluster_username>:<user_password_in_source_cluster> \
+    curl --user <source_cluster_user_name>:<source_cluster_user_password> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' \
          --data'
@@ -129,7 +127,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
                "age": "30"
          }
          ' && \
-    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
+    curl --user <username_in_source_cluster>:<source_cluster_user_password> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' \
          --data'
@@ -150,7 +148,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
 ## Configure the target cluster {#configure-target}
 
-1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) for secure access to the {{ mos-name }} cluster.
+1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
 1. (Optional) Create a user to execute the transfer.
 
@@ -172,7 +170,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
+        1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer configured to use the new endpoints.
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
     - {{ TF }} {#tf}
@@ -180,10 +178,10 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
         1. In the `data-transfer-os-mos.tf` file, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `target_endpoint_id`: ID of the target endpoint.
-            * `transfer_enabled`: `1` (create a transfer).
+            * `target_endpoint_id`: Target endpoint ID.
+            * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -229,7 +227,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).

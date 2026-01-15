@@ -1,7 +1,7 @@
 # Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{ data-transfer-full-name }}
 
 
-You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. To do this:
+You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. Proceed as follows:
 
 1. [Transfer your data from {{ yandex-direct }} to {{ objstorage-name }} using {{ sf-name }}](#direct-objstorage).
 1. [Transfer your data from {{ objstorage-name }} to {{ mch-name }} using {{ data-transfer-name }}](#objstorage-mch).
@@ -11,13 +11,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for function invocations (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for storing the secret and requests to the secret (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
-* {{ mch-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ sf-name }}: Number of function calls, idle time of provisioned instances, and computing resources allocated to run the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* {{ lockbox-name }}: Number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+* {{ mch-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -219,7 +217,7 @@ You will see a Parquet file in the bucket.
 
 ## Transfer your data from {{ objstorage-name }} to {{ mch-name }} using {{ data-transfer-name }} {#objstorage-mch}
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Yandex Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
@@ -236,7 +234,7 @@ You will see a Parquet file in the bucket.
 
     Keep the default values for all other settings.
 
-1. Create an endpoint for the target and transfer:
+1. Create a target endpoint and transfer:
 
     {% list tabs group=resources %}
 
@@ -244,16 +242,16 @@ You will see a Parquet file in the bucket.
 
         1. [Create a {{ mch-name }} target endpoint](../../data-transfer/operations/endpoint/index.md#create) using the parameters of the cluster you created earlier.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) configured to use the new endpoints.
 
     - {{ TF }} {#tf}
 
         1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: `1` (create a transfer).
+            * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -295,29 +293,28 @@ You will see a Parquet file in the bucket.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
+1. Delete other resources using the same method used for their creation:
 
-Delete other resources using the same method used for their creation:
+   {% list tabs group=resources %}
 
-{% list tabs group=resources %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+       1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+       1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
+       1. [Delete the function](../../functions/operations/function/function-delete.md).
+       1. [Delete the secret in {{ lockbox-name }}](../../lockbox/operations/secret-delete.md).
+       1. [Delete the service account](../../iam/operations/sa/delete.md).
 
-    * Target [endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-    * [{{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
-    * [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
-    * [Function](../../functions/operations/function/function-delete.md).
-    * [Secret in {{ lockbox-name }}](../../lockbox/operations/secret-delete.md).
-    * [Service account](../../iam/operations/sa/delete.md).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

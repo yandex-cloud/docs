@@ -1,7 +1,7 @@
 # Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
@@ -12,18 +12,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). Its pricing is based on deployment mode:
 
-* Fee for the {{ ydb-name }}. The charge depends on the usage mode:
+    * In serverless mode, you pay for data operations and storage volume, including stored backups.
+    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
-	
-    Learn more about the [{{ ydb-name }} pricing](../../../ydb/pricing/index.md) plans.
-
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with data (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-
-* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -35,7 +29,7 @@ Set up the infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md) in any suitable configuration.
+    1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md) with your preferred configuration.
 
     1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
@@ -66,7 +60,7 @@ Set up the infrastructure:
         * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../../storage/concepts/bucket.md#naming).
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -143,19 +137,19 @@ Set up the infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the service account you created earlier.
 
 
-    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the endpoints you created.
+    1. [Create](../../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**-type transfer configured to use the new endpoints.
 
-    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 
 - {{ TF }} {#tf}
 
-    1. In the `ydb-to-object-storage.tf` file, specify these variables:
+    1. In the `ydb-to-object-storage.tf` file, specify the following variables:
 
         * `target_endpoint_id`: ID of the target endpoint.
         * `source_endpoint_id`: ID of the source endpoint.
         * `transfer_enabled`: `1` to create a transfer.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -167,7 +161,7 @@ Set up the infrastructure:
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 
 {% endlist %}
 
@@ -183,26 +177,25 @@ Make sure the data has been migrated from {{ ydb-name }} to the {{ objstorage-na
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Delete the other resources depending on how they were created:
 
-Delete the other resources depending on how they were created:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       1. [Delete the {{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
+       1. [Delete the {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#delete-db).
 
-    1. [Delete the {{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
-    1. [Delete the {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#delete-db).
-
-    
-    1. If you created any service account, [delete it](../../../iam/operations/sa/delete.md).
+       
+       1. If you created any service account, [delete it](../../../iam/operations/sa/delete.md).
 
 
-- {{ TF }} {#tf}
+   - {{ TF }} {#tf}
 
-    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-{% endlist %}
+   {% endlist %}

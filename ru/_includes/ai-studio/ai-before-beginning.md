@@ -8,7 +8,7 @@
 
   1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md), [федеративного](../../iam/operations/iam-token/create-for-federation.md) или [локального](../../iam/operations/iam-token/create-for-local.md) аккаунта.
   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть хотя бы минимальная роль для работы с нужной функциональностью:
-     * `{{ roles-yagpt-user }}` или выше — для работы с моделями генерации текста..
+     * `{{ roles-yagpt-user }}` или выше — для работы с моделями генерации текста.
      * `{{ roles-yaart-user }}` или выше — для работы с {{ yandexart-name }}.
      * `ai.assistants.editor` и `{{ roles-yagpt-user }}` или выше — для работы с {{ responses-api }}.
      * `ai.models.user` или выше — для работы с {{ realtime-api }}.

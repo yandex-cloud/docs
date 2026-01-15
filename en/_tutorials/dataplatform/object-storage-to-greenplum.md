@@ -4,11 +4,11 @@
 {% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
 
 
-You can migrate data from {{ objstorage-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
-1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -16,12 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ objstorage-name }} bucket fee: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ GP }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
-* Fee for public IP address assignment to cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee per transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mgp-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -33,19 +30,19 @@ The support cost for this solution includes:
 
     - Manually {#manual}
 
-        1. [Create a target {{ GP }} cluster](../../managed-greenplum/operations/cluster-create.md) in any suitable configuration with publicly available hosts and the following settings:
+        1. [Create a {{ GP }} target cluster](../../managed-greenplum/operations/cluster-create.md) of any suitable configuration with publicly available hosts and the following settings:
 
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
 
         
-        1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-greenplum/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
+        1. If using security groups, make sure they are [configured correctly](../../managed-greenplum/operations/connect.md#configuring-security-groups) and allow connections to your cluster.
 
 
         1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
 
         
-        1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
+        1. [Create a service account](../../iam/operations/sa/create.md#create-sa) `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
 
         1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-viewer` service account.
 
@@ -77,13 +74,13 @@ The support cost for this solution includes:
             * `gp_version`: {{ GP }} version.
             * `gp_password`: {{ GP }} password.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -136,8 +133,8 @@ The support cost for this solution includes:
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public component of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Service account’s secret access key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://storage.yandexcloud.net`.
@@ -166,7 +163,7 @@ The support cost for this solution includes:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfer configured to use the new endpoints.
 
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -178,13 +175,13 @@ The support cost for this solution includes:
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -194,13 +191,13 @@ The support cost for this solution includes:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-To verify that the transfer is operational, test the copy and replication processes.
+Make sure the transfer works correctly by testing copying and replication.
 
-### Test the copy operation {#verify-copy}
+### Test copying {#verify-copy}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to `db1` in your target {{ GP }} cluster.
+1. [Connect](../../managed-greenplum/operations/connect.md) to the `db1` database in the {{ GP }} target cluster.
 
 1. Run this query:
 
@@ -222,13 +219,13 @@ To verify that the transfer is operational, test the copy and replication proces
 
     {% endcut %}
 
-### Test the replication process {#verify-replication}
+### Test replication {#verify-replication}
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `demo_data2.csv` file to the {{ objstorage-name }} bucket.
 
 1. Verify that the data from `demo_data2.csv` has been loaded into the target database:
 
-    1. [Connect](../../managed-greenplum/operations/connect.md) to `db1` in the {{ GP }} target cluster.
+    1. [Connect](../../managed-greenplum/operations/connect.md) to the `db1` database in the {{ GP }} target cluster.
 
     1. Run this query:
 
@@ -254,20 +251,20 @@ To verify that the transfer is operational, test the copy and replication proces
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To reduce the consumption of resources you do not need, delete them:
 
-* [Transfer](../../data-transfer/operations/transfer.md#delete)
-* [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete)
-* [Target endpoint](../../data-transfer/operations/endpoint/index.md#delete)
-* [Objects](../../storage/operations/objects/delete.md) from the bucket
-* Delete other resources using the same method used for their creation:
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
+1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
+1. Delete other resources using the same method used for their creation:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        * [{{ GP }} cluster](../../managed-greenplum/operations/cluster-delete.md)
-        * [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md)
+        1. [Delete the {{ GP }} cluster](../../managed-greenplum/operations/cluster-delete.md).
+        1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 
     - Using {{ TF }} {#tf}
 

@@ -1,4 +1,4 @@
-# Migrating data with change of storage from {{ MY }} to {{ ydb-short-name }} using {{ data-transfer-full-name }}
+# Migrating data from {{ MY }} to {{ ydb-short-name }} with a storage change using {{ data-transfer-full-name }}
 
 
 {{ data-transfer-name }} enables you to transfer data from a {{ mmy-name }} source cluster to {{ ydb-name }}.
@@ -14,24 +14,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
-* {{ ydb-name }} database. Its pricing is based on deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its pricing is based on deployment mode:
 
     * In serverless mode, you pay for data operations and storage volume, including stored backups.
-    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, size of storage and backups.
-
-    See [{{ ydb-name }} pricing](../../ydb/pricing/index.md).
+    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage and backup size.
 
 
-## Set up the infrastructure {#deploy-infrastructure}
+## Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) in any suitable configuration.
+    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration.
 
     1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) with your preferred configuration.
 
@@ -61,7 +58,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. In the `data-transfer-mmy-ydb.tf` file, specify the following:
 
-        * The {{ mmy-name }} source cluster parameters that will be used as the [source endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
+        * {{ mmy-name }} source cluster parameters to use for the [source endpoint](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
             * `source_mysql_version`: {{ MY }} version.
             * `source_db_name`: Database name.
@@ -69,13 +66,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         * `target_db_name`: {{ ydb-name }} database name.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -87,11 +84,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare the source cluster {#prepare-source}
 
-1. If you created the infrastructure manually, [prepare the source cluster](../../data-transfer/operations/prepare.md#source-my).
+1. If you created the infrastructure manually, [set up your source cluster](../../data-transfer/operations/prepare.md#source-my).
 
 1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md).
 
-1. Add test data to the database. As an example, we will use a simple table with information transmitted by car sensors.
+1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
     Create a table:
 
@@ -125,10 +122,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select your {{ ydb-name }} database from the list.
 
         
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a new service account with the `ydb.editor` role.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `ydb.editor` role.
 
 
 1. Create a source endpoint and transfer:
@@ -144,23 +141,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
                 Select your source cluster from the list and specify its connection settings.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the new endpoints.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfer configured to use the new endpoints.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
         1. In the `data-transfer-mmy-ydb.tf` file, uncomment the following:
 
-            * `target_endpoint_id` variable. Also, set it to the value of the endpoint ID for the target created in the previous step.
+            * `target_endpoint_id` variable. Also, set it to the ID of the target endpoint created in the previous step.
             * `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -174,15 +171,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. Verify that the data has been transferred from the source {{ mmy-name }} cluster to the {{ ydb-name }} database:
+1. Make sure that the data from the source {{ mmy-name }} cluster has been transferred to the {{ ydb-name }} database:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
+        1. In the [management console]({{ link-console-main }}), select the folder containing your database.
         1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-        1. Select the database from the list.
+        1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that the {{ ydb-name }} database contains the `<source_cluster_DB_name>_measurements` table with test data.
 
@@ -205,22 +202,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
         ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
     ```
 
-1. Check that the {{ ydb-name }} database shows information about the added row:
+1. Verify that the added row’s details have appeared in the {{ ydb-name }} database:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
+        1. In the [management console]({{ link-console-main }}), select the folder containing your database.
         1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-        1. Select the database from the list.
+        1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-        1. Check that new data has been added to the `<source_cluster_DB_name>_measurements` table.
+        1. Make sure the `<source_cluster_DB_name>_measurements` table now contains the new data.
 
     - CLI {#cli}
 
         1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
-        1. Check that new data has been added to the `<source_cluster_DB_name>_measurements` table:
+        1. Make sure the `<source_cluster_DB_name>_measurements` table now contains the new data:
 
             ```sql
             SELECT *
@@ -237,7 +234,7 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
@@ -246,18 +243,18 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
-Delete the other resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
-{% list tabs group=instructions %}
+   {% list tabs group=instructions %}
 
-- Manually {#manual}
+   - Manually {#manual}
 
-    * [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-    * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
-    * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
+       1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+       1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+       1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
 
-- {{ TF }} {#tf}
+   - {{ TF }} {#tf}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-{% endlist %}
+   {% endlist %}

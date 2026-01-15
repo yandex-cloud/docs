@@ -28,7 +28,7 @@ To calculate the cost of analytics for [chat transcripts](https://yandex.cloud/e
 
 ## What goes into the cost of using {{ speechsense-name }} {#rules}
 
-When analyzing conversation recordings, the cost of using {{ speechsense-name }} depends on the duration of two-channel audio files. Single-channel audio is converted and charged as two-channel. The billing unit is a one-second segment of two-channel audio.
+When analyzing conversation recordings, the cost of using {{ speechsense-name }} depends on the duration of two-channel audio files. The billing unit is a one-second segment of two-channel audio.
 
 When analyzing chat transcripts, the cost of using {{ speechsense-name }} depends on the number of characters in such a chat. The billing unit is 10 characters. The number of characters in each chat is rounded up to the tens. The count includes all characters in the chat.
 
@@ -67,7 +67,7 @@ Automatic recalculation of modified and newly created dictionary and semantic [t
 {% include [usd-speechsense](../_pricing_examples/speechsense/usd-speechsense.md) %}
 
 
-### Cost calculation example for text dialog analysis {#price-example-text}
+### Example of calculating the cost of chat transcript analysis {#price-example-text}
 
 #### Example 1 {#example-1}
 

@@ -22,6 +22,8 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 ## Roles this service has {#roles-list}
 
+{% include [billing](../../_mermaid/roles/billing.md) %}
+
 ### Service roles {#service-roles}
 
 #### billing.accounts.member {#billing-accounts-member}
@@ -123,7 +125,7 @@ The steps for adding a new billing account user depend on whether the billing ac
   1. Select a billing account.
   1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_users }}** page.
   1. At the top right, click **{{ ui-key.yacloud_billing.billing.account.users.button_add }}**.
-  1. Select a user from the drop-down list. The list shows users whose clouds are linked to your billing account.
+  1. Select the user from the drop-down list. The list shows users whose clouds are linked to your billing account.
   1. Click **{{ ui-key.yacloud_billing.billing.account.user-dialog.button_submit }}**.
 
   The user or service account will get the `billing.accounts.member` role and included in the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list. To grant billing account access, assign them the required role.
@@ -138,13 +140,13 @@ The steps for assigning a role for a billing account depend on whether the billi
 
 - Accounts associated with an organization {#organization}
 
-  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account within the same organization. To do this:
+  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account within the same organization. Proceed as follows:
 
   1. [Make sure](../../organization/operations/users-get.md) that the user you need belongs to your organization. If not, [add them](../../organization/operations/add-account.md).
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
   1. In the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
-  1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. In the window that opens, do the following:
+  1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. In the window that opens:
 
      1. Select a user, service account, or user group. If required, use the search bar.
      1. Click ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the role.
@@ -158,13 +160,13 @@ The steps for assigning a role for a billing account depend on whether the billi
 
 - Accoounts associated with no organization {#no-organization}
 
-  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account on the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list. To do this:
+  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account on the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list. Proceed as follows:
  
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
   1. In the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
   1. Find the required user, service account, or user group in the users list or use the filter. 
-  1. In the line with the required user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. In the window that opens, do the following:
+  1. In the line with the required user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. In the window that opens:
   
       1. Click ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**.
       1. Select a role from the list.
@@ -182,26 +184,26 @@ The steps for revoking a role for a billing account depend on whether the billin
 
 - Accounts associated with an organization {#organization}
 
-  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account in their organization at any time. To do this:
+  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account in their organization at any time. Proceed as follows:
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
   1. In the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
   1. Find the required user, service account, or user group in the users list or use the filter.
-  1. In the line with the required user, service account, or group, click ![image](../../_assets/horizontal-ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. In the window that opens, do the following:
+  1. In the line with the required user, service account, or group, click ![image](../../_assets/horizontal-ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. In the window that opens:
 
       1. Click ![image](../../_assets/cross.svg) to the right of the role you want to revoke.
       1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**. The role will be revoked.
 
 - Accoounts associated with no organization {#no-organization}
 
-  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account on the list at any time. To do this:
+  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account on the list at any time. Proceed as follows:
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
   1. In the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
   1. Find the required user, service account, or user group in the users list or use the filter. 
-  1. In the line with the required user, service account, or group, click ![image](../../_assets/horizontal-ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. In the window that opens, do the following:
+  1. In the line with the required user, service account, or group, click ![image](../../_assets/horizontal-ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. In the window that opens:
 
       1. Click ![image](../../_assets/cross.svg) to the right of the role you want to revoke.
       1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**. The role will be revoked.
@@ -216,7 +218,7 @@ The steps for revoking a role for a billing account depend on whether the billin
 
 ## Deleting a billing account user {#delete-user}
 
-You can only delete users from billing accounts not linked to the organization. To do this:
+You can only delete users from billing accounts not linked to the organization. Proceed as follows:
 
 1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 1. Select a billing account.

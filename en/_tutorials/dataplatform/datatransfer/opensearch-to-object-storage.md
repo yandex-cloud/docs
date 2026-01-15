@@ -4,7 +4,7 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mos-name }} clust
 
 To transfer data:
 
-1. [Prepare the test data](#prepare-data).
+1. [Prepare your test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
@@ -13,12 +13,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mos-name }} cluster fee: using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -32,7 +29,7 @@ Set up the infrastructure:
 
     1. [Create a {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
-    1. If using security groups in your cluster, make sure they are configured correctly and allow connecting to the [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#configuring-security-groups) cluster.
+    1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect.md#configuring-security-groups).
 
     1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
@@ -164,7 +161,7 @@ Set up the infrastructure:
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select a {{ mos-name }} cluster from the list
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`
 
@@ -174,7 +171,7 @@ Set up the infrastructure:
 
     - Manually {#manual}
 
-      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the created endpoints.
+      1. [Create](../../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**-type transfer configured to use the new endpoints.
 
       1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
@@ -183,10 +180,10 @@ Set up the infrastructure:
       1. In the `opensearch-to-object-storage.tf` file, specify the values of the following variables:
 
           * `target_endpoint_id`: ID of the target endpoint.
-          * `source_endpoint_id`: ID of the source endpoint.
-          * `transfer_enabled`: Put `1` to create a transfer.
+          * `source_endpoint_id`: Source endpoint ID.
+          * `transfer_enabled`: `1` to create a transfer.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Validate your {{ TF }} configuration files using this command:
 
           ```bash
           terraform validate
@@ -202,7 +199,7 @@ Set up the infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Make sure the data has been transferred from the {{ mos-name }} cluster to the {{ objstorage-name }} bucket:
 
@@ -215,27 +212,26 @@ Make sure the data has been transferred from the {{ mos-name }} cluster to the {
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete](../../../storage/operations/objects/delete.md) the `from_MOS` folder from the bucket you created.
+1. Delete other resources using the same method used for their creation:
 
-Delete other resources using the method matching their creation method:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       1. [Delete the {{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
+       1. [Delete the {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-delete.md).
 
-    1. [Delete the {{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
-    1. [Delete the {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-delete.md).
-
-    
-    1. [Delete the service account](../../../iam/operations/sa/delete.md).
+       
+       1. [Delete the service account](../../../iam/operations/sa/delete.md).
 
 
-- {{ TF }} {#tf}
+   - {{ TF }} {#tf}
 
-    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-{% endlist %}
+   {% endlist %}

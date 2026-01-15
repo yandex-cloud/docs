@@ -12,7 +12,7 @@ resource_id | Идентификатор [трансфера](../../../data-tran
 resource_type | Тип ресурса, над которым была запущена или завершена операция. Возможны значения `endpoint` и `transfer`.
 dst_id | Идентификатор приемника.
 source_type | Тип источника, например `mongo`.
-operation_type (кроме метрик `replication.*` и `operations.*`) | Тип запущенной или завершенной операции. Значения соответствуют возможным операциям над `resource_type`.<br/>Для трансфера: `Activate`, `Upload`, `ReUpload`, `Start`, `Restart`, `Stop`, `Verify`, `AddTables`, `RemoveTables`, `Deactivate`, `Checksum`, `Replication`, `Termination`, `TestEndpoint`.<br/>Для эндпоинта: `Create`, `Update`, `Delete`.
+operation_type | Тип запущенной или завершенной операции. Значения соответствуют возможным операциям над `resource_type`.<br/>Для трансфера: `Activate`, `Upload`, `ReUpload`, `Start`, `Restart`, `Stop`, `Verify`, `AddTables`, `RemoveTables`, `Deactivate`, `Checksum`, `Replication`, `Termination`, `TestEndpoint`.<br/>Для эндпоинта: `Create`, `Update`, `Delete`.
 
 
 ## Метрики CPU {#data-transfer-cpu-metrics}

@@ -5,7 +5,7 @@ You can track data changes in a {{ ydb-name }} _source_ and send them to a {{ mk
 
 {% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
 
-To run data delivery:
+To start data delivery:
 
 1. [Prepare the source](#prepare-source).
 1. [Set up and activate the transfer](#prepare-transfer).
@@ -16,39 +16,36 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on deployment mode:
 
-* Fee for the {{ ydb-name }}. The charge depends on the usage mode:
+	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
-	
-    Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
-
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. Set up your data pipeline infrastructure:
+1. Set up your data delivery infrastructure:
 
    {% list tabs group=instructions %}
 
    - Manually {#manual}
 
 
-       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
+       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) with your preferred configuration.
 
        1. If you selected {{ dd }} DB mode, [create](../../vpc/operations/security-group-create.md) and [configure](../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting the DB.
 
-       1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
+       1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) using any suitable configuration with publicly accessible hosts.
 
        
-        1. If you are using security groups, [configure them so that you can connect to the cluster from the internet](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+        1. If using security groups, [configure them to allow internet access to your cluster](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
-       1. Configure {{ KF }} topics in the target cluster. The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. The format for data topic names is as follows: `<topic_prefix>.<{{ ydb-short-name }}_table_name>`. In this tutorial, we will use the `cdc` prefix as an example.
+       1. Configure {{ KF }} topics in the target cluster. The configuration may vary depending on the chosen [topic management method](../../managed-kafka/concepts/topics.md#management). The format for data topic names is as follows: `<topic_prefix>.<{{ ydb-short-name }}_table_name>`. In this tutorial, we will use the `cdc` prefix as an example.
 
           * If topics are managed using standard {{ yandex-cloud }} interfaces (management console, CLI, or API):
 
@@ -58,12 +55,12 @@ The support cost for this solution includes:
 
               1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the `cdc.sensors` topic. To include all created topics, specify `cdc.*` in the topic name.
 
-          * If topics are managed using the Kafka Admin API:
+          * When managing topics via the Kafka Admin API:
 
               1. Create an [admin user](../../managed-kafka/operations/cluster-accounts.md).
               1. In addition to `ACCESS_ROLE_ADMIN`, assign the admin user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for `cdc.*` topics whose names begin with the `cdc` prefix.
 
-                 Required topics will be created automatically upon the first change to the source cluster tables you are tracking. This solution can be useful to track changes in multiple tables but requires extra free space in the cluster storage. To learn more, see [{#T}](../../managed-kafka/concepts/storage.md).
+                 Required topics will be created automatically upon the first change to the source cluster tables you are tracking. This solution can be useful to track changes in multiple tables but requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
 
    - {{ TF }} {#tf}
 
@@ -78,7 +75,7 @@ The support cost for this solution includes:
 
            * [Network](../../vpc/concepts/network.md#network).
            * [Subnet](../../vpc/concepts/network.md#subnet).
-           * [Security group](../../vpc/concepts/security-groups.md) and the rule permitting access to the {{ mkf-name }} cluster.
+           * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mkf-name }} cluster.
            * {{ ydb-name }} database.
            * Target {{ mkf-name }} cluster.
            * {{ KF }} topic.
@@ -93,7 +90,7 @@ The support cost for this solution includes:
 
            * If the topics are managed using the Kafka Admin API, set the `kf_topics_management` {{ TF }} variable to `true`.
 
-       1. In the `data-transfer-ydb-mkf.tf` file, specify these variables:
+       1. In the `data-transfer-ydb-mkf.tf` file, specify the following variables:
 
            * `source_db_name`: {{ ydb-name }} database name.
            * `target_kf_version`: {{ KF }} version in the target cluster.
@@ -171,7 +168,7 @@ The support cost for this solution includes:
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select your {{ ydb-name }} database from the list.
 
            
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `editor` role.
@@ -195,7 +192,7 @@ The support cost for this solution includes:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `cdc.sensors`.
 
-        If you need to track changes in multiple tables, fill out the fields as follows:
+        If you need to track changes in multiple tables, fill in the fields as follows:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Enter the `cdc` prefix you used to generate topic names.
@@ -206,18 +203,18 @@ The support cost for this solution includes:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-ydb-mkf.tf` file, specify these variables:
+        1. In the `data-transfer-ydb-mkf.tf` file, specify the following variables:
 
             * `source_endpoint_id`: ID of the source endpoint.
             * `target_endpoint_id`: ID of the target endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -263,9 +260,9 @@ The support cost for this solution includes:
         ('iv9a94th6rzt********', '2022-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, NULL, 20.5, 15, 20);
     ```
 
-1. Make sure the terminal running the `kafkacat` utility displays the data format schema of the `sensors` table and information about the added rows.
+1. Make sure the terminal running `kafkacat` displays the data format schema of the `sensors` table and information about the added rows.
 
-    {% cut "Example of the message fragment" %}
+    {% cut "Message snippet example" %}
 
     ```json
     {
@@ -429,7 +426,7 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources incur charges. To avoid unnecessary charges, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
@@ -438,17 +435,17 @@ Some resources incur charges. To avoid unnecessary charges, delete the resources
 1. If you created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
-Delete other resources using the method matching their creation method:
+1. Delete other resources using the same method used for their creation:
 
-{% list tabs group=instructions %}
+   {% list tabs group=instructions %}
 
-- Manually {#manual}
+   - Manually {#manual}
 
-    1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-    1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+       1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+       1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 
-- {{ TF }} {#tf}
+   - {{ TF }} {#tf}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-{% endlist %}
+   {% endlist %}

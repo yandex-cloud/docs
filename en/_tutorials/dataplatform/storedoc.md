@@ -16,16 +16,14 @@ To use this migration method, allow connecting to the source cluster from the in
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ SD }} cluster fee: using computational resources allocated to hosts and disk storage (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Transfer fee: computing resource usage and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ SD }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ SD }} pricing](../../storedoc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-[Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
+[Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) whose computing and storage capacity match those of the source database environment.
 
 The source and target database names must be the same.
 
@@ -35,4 +33,4 @@ The source and target database names must be the same.
 
 ## See also {#see-also}
 
-For other migration methods, see [this {{ mmg-full-name }} tutorial](../../storedoc/tutorials/data-migration.md).
+For other migration methods, see the [{{ mmg-name }} documentation](../../storedoc/tutorials/data-migration.md).

@@ -1,47 +1,40 @@
 # Delivering data from an {{ KF }} queue to {{ OS }} using {{ data-transfer-full-name }}
 
 
-A {{ mos-name }} cluster can get data from {{ KF }} topics in real time.
+A {{ mos-name }} cluster can ingest data from {{ KF }} topics in real time.
 
-To run data delivery:
+To start data delivery:
 
-1. [Prepare the test data](#prepare-data).
+1. [Prepare your test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
-1. [Prepare and activate your transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
-* {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
-* Fee for using public IP addresses:
-    * For {{ mos-name }} cluster hosts.
-    * For {{ mkf-name }} cluster hosts with public access enabled.
-    
-  Learn more about the [{{ vpc-name }} pricing](../../vpc/pricing.md) plans.
+* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. Prepare the data transfer infrastructure:
+1. Set up your data delivery infrastructure:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster in any suitable configuration. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster with your preferred configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
-        1. [Create a {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) target cluster in any suitable configuration with the following settings:
+        1. [Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) of any suitable configuration with the following settings:
 
             * In the same availability zone as the source cluster.
             * With public access to hosts with the `DATA` role.
@@ -66,7 +59,7 @@ The support cost includes:
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mkf-name }} and {{ mos-name }} clusters.
+            * [Security group](../../vpc/concepts/security-groups.md) and rules allowing inbound connections to the {{ mkf-name }} and {{ mos-name }} clusters.
             * {{ mkf-name }} source cluster.
             * {{ KF }} topic named `sensors`.
             * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions to the `sensors` topic.
@@ -81,13 +74,13 @@ The support cost includes:
             * `os_user_password`: `admin` user password.
             * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -97,23 +90,23 @@ The support cost includes:
 
     {% endlist %}
 
-1. Install the utilities:
+1. Install the following tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat) to read and write data to {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
+    - [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
 
@@ -171,9 +164,9 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
 1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
-1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
+1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
 
     **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
@@ -261,34 +254,34 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-mos.tf` file, specify these variables:
+        1. In the `data-transfer-mkf-mos.tf` file, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. The transfer will activate automatically upon creation. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mos-name }} cluster:
 
@@ -302,13 +295,13 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="mkf-user" \
-       -X sasl.password="<user_password_in_source_cluster>" \
+       -X sasl.password="<source_cluster_user_password>" \
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
     To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-1. Check that the the {{ mos-name }} cluster's `sensors` index contains the data that was sent:
+1. Check that the {{ mos-name }} cluster's `sensors` index contains the data that was sent:
 
     {% list tabs group=programming_language %}
 
@@ -338,26 +331,25 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
+1. Delete other resources using the same method used for their creation:
 
-Delete the other resources depending on how they were created:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       1. [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
+       1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
 
-    1. [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
-    1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+   - Using {{ TF }} {#tf}
 
-- Using {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-{% endlist %}
+   {% endlist %}

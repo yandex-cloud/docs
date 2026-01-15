@@ -10,7 +10,7 @@ Users are not transferred automatically to a {{ mpg-name }} cluster. You need to
 
 Performing migration with {{ data-transfer-name }} allows you to:
 
-* Go without creating an intermediate VM or granting online access to your {{ mpg-name }} target cluster.
+* Eliminate the need for an intermediate VM or public internet access to your {{ mpg-name }} target cluster.
 * Minimize the DB downtime when migrating data.
 * Migrate from older {{ PG }} versions to newer versions.
 
@@ -29,16 +29,14 @@ After creating a {{ mpg-name }} cluster, you can immediately transfer data from 
 
 This migration method provides:
 
-  * Automatic creation of a transfer and endpoints.
-  * One-time transfer of the data snapshot from the source to the target.
+* Automatic creation of a transfer and endpoints.
+* One-time transfer of the data snapshot from the source to the target.
 
 ### Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ mpg-name }} cluster fee: Using DB hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for using public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 ### Transfer the data {#transfer-data-quickly}
 
@@ -137,11 +135,11 @@ The support cost includes:
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
-1. Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+1. To reduce the consumption of resources you do not need, delete them:
 
-    * [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md) if you transferred data from it.
-    * [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-    * [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+    1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md) if you transferred data from it.
+    1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
+    1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
   
 
 ## Transferring tables with data types from {{ PG }} extensions
