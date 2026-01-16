@@ -11,10 +11,11 @@ sourcePath: en/_cli-ref/cli-ref/cloud-registry/cli-ref/index.md
 
 Syntax: 
 
-`yc cloud-registry <group>`
+`yc cloud-registry <group|command>`
 
 #### Command Tree
 
+- [yc cloud-registry configure-docker](configure-docker.md) — 
 - [yc cloud-registry artifact](artifact/index.md) — [PREVIEW] Manage artifacts
 	- [yc cloud-registry artifact delete](artifact/delete.md) — Delete the specified registry artifact
 	- [yc cloud-registry artifact get](artifact/get.md) — Get information about the artifact

@@ -1,21 +1,21 @@
 ---
-title: How to analyze the status of {{ baremetal-name }} server disks
-description: Follow this guide to use the HW Watcher utility to generate a status report for the server, its disks, and peripherals.
+title: How to analyze the status of a {{ baremetal-name }} server
+description: Follow this guide to use the HWCheck utility to generate a status report for the server, its disks, and peripherals.
 ---
 
-# Analyzing the status of {{ baremetal-name }} server disks using HW Watcher
+# HWCheck: {{ baremetal-name }} server diagnostic utility
 
-If you encounter disk read/write errors, disk or [RAID](https://en.wikipedia.org/wiki/RAID) array failures while using with the {{ baremetal-name }} [server](../../concepts/servers.md), you can run [server diagnostics](../../concepts/smart-disk-analysis.md) to identify the source of the problem and generate a [report]({{ link-console-support }}/tickets/create) for support.
+If you encounter disk read/write errors, disk or [RAID](https://{{ lang }}.wikipedia.org/wiki/RAID) array failures while using with the {{ baremetal-name }} [server](../../concepts/servers.md), you can run [server diagnostics](../../concepts/smart-disk-analysis.md) to identify the source of the problem and generate a [report]({{ link-console-support }}/tickets/create) for support.
 
 {% note info %}
 
-You can only use `HW Watcher` on [Linux](https://en.wikipedia.org/wiki/Linux) servers.
+You can only use `HWCheck` on [Linux](https://en.wikipedia.org/wiki/Linux) servers.
 
 {% endnote %}
 
 ## Generate a report {#generate-report}
 
-To generate a system status report using `HW Watcher`:
+To generate a system status report using `HWCheck`:
 
 1. Connect to a Linux server over SSH by running the following command in the terminal:
 

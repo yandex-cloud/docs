@@ -129,7 +129,7 @@ default:
   cloud-shell-name: Cloud Shell
   cluster-id: cat0adul1fj0********
   cname-example-edge: cl-msa87*****.edgecdn.ru
-  cname-example-yc: 328938ed********.a.yccdn.cloud.yandex.net
+  cname-example-yc: e1b83ae3********.topology.gslb.yccdn.ru
   cns-full-name: Yandex Cloud Notification Service
   cns-host: notifications.yandexcloud.net
   cns-name: Cloud Notification Service
@@ -984,6 +984,858 @@ default:
   ZK: ZooKeeper
   zk-host-class: b2.medium
   zone-id: ru-central1-c
+  pcs|alb: dn2unvkm0hrt4fqvm9n7
+  pcs|api-gateway: dn25mc2lq81eqg1ohe4i
+  pcs|audit-trails: dn27fg1qtguelq2d772a
+  pcs|baremetal: dn2jfbheag6vvls7oplt
+  pcs|cdn: dn2rse5n40m8h0bu8jqa
+  pcs|cloud_backup: dn21j2nquomme940r5rt
+  pcs|cloud_desktop: dn25bk2bcun5eb7kkdq0
+  pcs|cloud_network: dn21qssbrdtcaus362kp
+  pcs|cloud_registry: dn2qs7qwygypc5mxez6y
+  pcs|cns: dn2fat3ycizke72tqqwo
+  pcs|compute: dn22pas77ftg9h3f2djj
+  pcs|compute_gpu: dn28okfvqh19eiue6l2m
+  pcs|cr: dn2tng436tjcn7cjudv1
+  pcs|datatransfer: dn2dtfaj8fno5r3beac3
+  pcs|dns: dn2dns25hpthhkqn2cps
+  pcs|gost_gateway: dn27aisfrgy53mtfs4a7
+  pcs|identity-hub: dn2rbtyqhowkmimgqc5u
+  pcs|interconnect: dn2iqlgecrio4statr88
+  pcs|iot: dn2hj92de1icl8k3m3bg
+  pcs|kms: dn2kmsd7hrdeb1u7c4nb
+  pcs|load-testing: dn2ul6hj517ba5ckvl0i
+  pcs|lockbox: dn2k9ntpr7hljm0o71sg
+  pcs|logging: dn2ir0595ak1ntlqc1i2
+  pcs|managed-gitlab: dn2g45ennmllm0knk0gi
+  pcs|mdb:
+    apache_airflow: dn2o8879r181fgps5lb3
+    ch: dn2220hr46dtogekm57v
+    dataproc: dn28hpu6268356q0j8mk
+    greenplum: dn2l7rvq9j43kk6ips5i
+    kafka: dn2mse6mu1meu7orkmre
+    mongo: dn2b0fi02sdmf46ijdl5
+    mysql: dn28hpu626uudbq0j8mk
+    opensearch: dn2hjd8fhbb14l7vkp2c
+    pg: dn2hmdmghr9j2odlvssi
+    redis: dn2hb3vlkb6qfih0pgv6
+  pcs|metadatahub: dn2rnt6lkfbauucwnfby
+  pcs|mk8s: dn2af04ph5otc5f23o1h
+  pcs|monitoring: dn2675dm5m59q3pira4b
+  pcs|nlb: dn2pr3ni7eesvh97h5ro
+  pcs|postbox: dn2h92g8s9qofi6iu1gp
+  pcs|security_deck: dn28d4gpcfmv27l612lh
+  pcs|serverless: dn2hj814q5t5pipfkqo4
+  pcs|serverless-containers: dn2qu7ck7veplf4kmbuh
+  pcs|smart-captcha: dn2f26fqvaoddbr0ld1a
+  pcs|spark: dn2pkj6x6txcsqlb72gm
+  pcs|storage: dn2li5qddoc5cad2n6br
+  pcs|sws: dn2hj22hpe85kloqo6ag
+  pcs|trino: dn2nclqznmamrcxbqk7b
+  pcs|video: dn27cwr4adplwdruh4ff
+  pcs|ydb: dn2ydbtgqogjqcrlbehu
+  pcs|yds: dn2yds6scistjlmes0fe
+  pcs|ymq: dn2ymqni7eesvh97h5ro
+  pcs|yq: dn21r83o3orctiho7bg5
+  pcs|yt: dn2thrwhzxl2ygay7nvq
+  pc|baremetal:
+    component:
+      bms-4-body:
+        1-month: dn2hf2sf5kjjsy24igas
+        12-month: dn26l6yl7fy772frgm57
+        6-month: dn2kktaxucp5qcd4qwg2
+      bms-5-body:
+        1-month: dn23jkrdimocsz35cb3j
+        12-month: dn2fvsnp4xv57a3343yi
+        6-month: dn24ca2sok3s4f2gzt2p
+      bms-cpu-9374f:
+        1-month: dn2pfqosztwi37a46var
+        12-month: dn2utlf3nvipm32zcpay
+        6-month: dn23srlxojqmyxtjvjaj
+      bms-cpu-9654:
+        1-month: dn2gapsxksuvberkeejp
+        12-month: dn2qhh4ko6fyaortvj5e
+        6-month: dn2fatbu5pne55oy6hzx
+      bms-cpu-a74f3:
+        1-month: dn2rfhujlau2gfdvqlyb
+        12-month: dn27kskeeji5jlnmhl6r
+        6-month: dn26uakr7ifl3ydqtbxf
+      bms-cpu-a7663:
+        1-month: dn2k5fnkc2gf6turl3nn
+        12-month: dn25abxi4n2crsf7bfwm
+        6-month: dn2sja5ohxdv7qg2h6ca
+      bms-cpu-a7702:
+        1-month: dn2l5ndw2bje755zbqr3
+        12-month: dn2tekwag3er56niky5q
+        6-month: dn2evtbxjk5ebwwxufwf
+      bms-cpu-a7713:
+        1-month: dn2coxmovsx46wkqlnxo
+        12-month: dn275k7ro6ghfulaxtko
+        6-month: dn2r7sywy6x2zge3edlx
+      bms-cpu-i6338:
+        1-month: dn23xg3gocgea4ggcfms
+        12-month: dn2nzcswxno72krkmbgm
+        6-month: dn2yzqdsaxbvfak4lm4d
+      bms-cpu-i6354:
+        1-month: dn2q7b3ksu3nllqyqn5n
+        12-month: dn23azulygrw3ol2v46k
+        6-month: dn2fpm7sil3qemax3fux
+      bms-disk-h10t:
+        1-month: dn2rxn3jel5ho6onhjbv
+        12-month: dn2n7wwo3bt5xdi5rzzt
+        6-month: dn2ideioei5cl4h2gzzt
+      bms-disk-h18t:
+        1-month: dn2uoqurociclerj2zfq
+        12-month: dn26y56bchvl7yz2kr2w
+        6-month: dn2fmpkngngdlvmu3d2o
+      bms-disk-h24t:
+        1-month: dn2op6mwlwr7tddx2ehz
+        12-month: dn23bjapbz7qnn6twea6
+        6-month: dn2pyf5czt2gxoasrk4y
+      bms-disk-h2t:
+        1-month: dn2cbviac3ihjpwcykjx
+        12-month: dn2y2f2x35opxk2agxfo
+        6-month: dn2mgwbloahpazpxqw6p
+      bms-disk-h4t:
+        1-month: dn234z6au3ylmagjwlzl
+        12-month: dn2xcg5okoynzl3ij4j5
+        6-month: dn2zd7v6d52yy7ac7ltj
+      bms-disk-h6t:
+        1-month: dn2obi2lujxh5vyjkedg
+        12-month: dn24ddqqool3cfijz45b
+        6-month: dn2avcjnxsr7xdizxyps
+      bms-disk-h8t:
+        1-month: dn2q6su23o4d4nsfur6c
+        12-month: dn2aiwljeiweel6gjhep
+        6-month: dn2k7xqbq3ajtqf7zzlh
+      bms-disk-n1:
+        9t:
+          1-month: dn267evqb4p2ieeex26w
+          12-month: dn2s2ncolp3jf66qwz5k
+          6-month: dn2aca5yqeny2t6heevi
+      bms-disk-n15t:
+        1-month: dn2qdotiduetkmxlqrgm
+        12-month: dn2dms3u2aycmhwbj4hq
+        6-month: dn2ua2sx5qiedw5ho4kk
+      bms-disk-n3:
+        2t:
+          1-month: dn2mh5yvnvtutyk3kcvf
+          12-month: dn2stgr6762qd6k4pe2q
+          6-month: dn2rayvhnb72zt4ma7zi
+        8t:
+          1-month: dn24n6bpxl2ivkljm25p
+          12-month: dn2ajvdgyzmf6la7egrf
+          6-month: dn2kt3ujgyrkhoezlykg
+      bms-disk-n30t:
+        1-month: dn2sds6ugoavxsbodgas
+        12-month: dn23fgyko2gzetuogqic
+        6-month: dn2clrq6dp6klj53bclb
+      bms-disk-n6:
+        4t:
+          1-month: dn2cn64rlm6jwzkutsio
+          12-month: dn2pqurgoqvvi6kzbhux
+          6-month: dn2yp4figp7synm5yzma
+      bms-disk-n7:
+        6t:
+          1-month: dn2kecth6uxsypxlwk2q
+          12-month: dn2boqfmtqisnnvkwqco
+          6-month: dn2k4waxyycntde6xse6
+      bms-disk-n960g:
+        1-month: dn264ticfrzqmxhryaca
+        12-month: dn2g7cmowvyni6srnwnz
+        6-month: dn2i6ljztgkdajccuhmv
+      bms-net-2p25g:
+        1-month: dn2eoyyipzikrm3cqc5n
+        12-month: dn23ik6vvs2qq46zszjh
+        6-month: dn2hzeojco7xuqvr2f4t
+      bms-ram4-1024:
+        1-month: dn2rugtcpr57w7ugcnbc
+        12-month: dn2r4hq24jjsevutxx4e
+        6-month: dn2ayyeths5prrvw2obq
+      bms-ram4-128:
+        1-month: dn2jdfhvkkk5djdn5a67
+        12-month: dn2vxly5jcdelrtbzhbu
+        6-month: dn2zyajirinjrlgpt7c4
+      bms-ram4-1536:
+        1-month: dn2v3gzlsxjntfyxairs
+        12-month: dn2azcrrab7x55oinh3i
+        6-month: dn2aptpgc5bllfb23vdn
+      bms-ram4-256:
+        1-month: dn2dv5wenvfrto45hfm4
+        12-month: dn2wyg3gxlkfceytswtv
+        6-month: dn24kvv2icxqkwzc6yys
+      bms-ram4-384:
+        1-month: dn2g6x6yk4y7m4e4pxk2
+        12-month: dn2iqe3mhypusw6pjnzr
+        6-month: dn2yzzbpgdeyuqighn57
+      bms-ram4-512:
+        1-month: dn2bdc7npppzfjv5ij2f
+        12-month: dn2x3ayqvf3kehc2ek4z
+        6-month: dn2rhpijz2x2j63flcbq
+      bms-ram4-768:
+        1-month: dn2dgc2wgb66hjtrorcb
+        12-month: dn2llsw6zdiwrnbxpjsi
+        6-month: dn2qdr52uysxi4zg3uh6
+      bms-ram5-1024:
+        1-month: dn2ik4cilht6fnzy342n
+        12-month: dn2z5kbnnrwtdskvubvp
+        6-month: dn2uolcyjsoxijipgtfp
+      bms-ram5-1152:
+        1-month: dn2fu4jxrhluhbedcjow
+        12-month: dn2hi2jzcxq25cfkh3tv
+        6-month: dn2cc2by6ypakdtgbr3b
+      bms-ram5-1536:
+        1-month: dn2qadhat3extf2mvg6l
+        12-month: dn2zswkgijc5ricmuzei
+        6-month: dn2kmalpsed7rnwvzypd
+      bms-ram5-2304:
+        1-month: dn2xs5h6cibwl365tcgy
+        12-month: dn24sbsywwkfzrlsczat
+        6-month: dn27jv3l7lupclz2h3jp
+      bms-ram5-768:
+        1-month: dn2kpozwkk5f35bbeilt
+        12-month: dn2flwzigmsxhoggt5se
+        6-month: dn2ye7d5al7eiqowbagn
+    data:
+      data-100tb:
+        1sec: dn26njqhlhymcdct3bvv
+    public_network:
+      subnet_24: dn2qbtbqcfbyvwddjc3a
+      subnet_25: dn27vm5ukg42b3irvhnt
+      subnet_26: dn2fi6d5ptstw4xesiba
+      subnet_27: dn22xqyfpe4uk5dgb4oz
+      subnet_28: dn2h4qx5euwa5aq4by5q
+      subnet_29: dn2tkuvap6istmk4dz5a
+      subnet_31: dn2gf7ncn54qfzez6xhp
+    server:
+      ba_i100_h:
+        1_day: dn2itj42rjvc71ogavf8
+        1_month: dn242492ooe8t9884pit
+        12_month: dn2kpfi79f38bl6hdpjs
+        3_month: dn2nqpla60m77p6rshuu
+        6_month: dn27o61er1shatjmrf82
+      ba_i101_h:
+        1_day: dn2bv21cnlvsnksqgrta
+        1_month: dn281facl7sfi9ga5o5m
+        12_month: dn2gb7uf15hc3vuf2t6n
+        3_month: dn24flm3irtuk4mheb7u
+        6_month: dn2ssntfp7dcr3213bu1
+      ba_i102_s:
+        1_day: dn2lje1ou5judp2gooai
+        1_month: dn243nnpi79c04cj181o
+        12_month: dn2k8rbi48paspive2co
+        3_month: dn2d089djar2i3humc2g
+        6_month: dn2kfg25ck5a3gkjoog2
+      ba_i103_s_10g:
+        1_day: dn2d1eocobn8amlmll3r
+        1_month: dn2p7pofnj0beukb0erb
+        12_month: dn20q66guu76is04nktv
+        3_month: dn2mcqi74h70gor1pm4n
+        6_month: dn2d06jhdbolrd6osgc2
+      ba_i104_sh:
+        1_day: dn2kvvtf8b4edrq2j4k3
+        1_month: dn213ucd95oojvm9dogd
+        12_month: dn2cqjm2tl3ocejdld92
+        3_month: dn277i5jopu2u3bbhrls
+        6_month: dn2qugeptlh0210ev4i7
+      ba_i105_sh:
+        1_day: dn20mllfiaqcj26n61lu
+        1_month: dn2pa25aki9ot51roaj0
+        12_month: dn2rjpas623nq40gm0tj
+        3_month: dn273o8bqg2dtfi0tfme
+        6_month: dn2hjphr6r37l8f9gekr
+      ba_i106_sh_10g:
+        1_day: dn247633ncch74qta3t0
+        1_month: dn209gne5ncks8amg0sr
+        12_month: dn2kke6qjoetsu276fph
+        3_month: dn2fje1gmt1vuqoehi11
+        6_month: dn2sic92geij6849f92h
+      ba_i111_8s_10g:
+        1_day: dn2fqof7dkuu0t19vg2n
+        1_month: dn2rccvd57q4cm23anot
+        12_month: dn2av9k1sknc85mfbpk6
+        3_month: dn2g53dcfhivbid4ejgu
+        6_month: dn2st70gmnb1ug7m8d5b
+      ba_i112_10s_10g:
+        1_day: dn2hyjtrp3vgilnh2ybl
+        1_month: dn24cev2jtdqmo5tlu7p
+        12_month: dn2wgzwoap24plq6fx5k
+        3_month: dn2fuzc4hbvfextbc5bf
+        6_month: dn2brdwfeshpk3jyuexn
+      ba_i200_h:
+        1_day: dn2g773c1s243adit5gr
+        1_month: dn2s7fs0s1chg0ehqd9v
+        12_month: dn229ek85qs9grfkj329
+        3_month: dn20vplumf3dl0je987u
+        6_month: dn2aqpduj7201haq3s0m
+      ba_i201_h:
+        1_day: dn29efir9q16m69e8b00
+        1_month: dn29mgh44iurq1s0tsfr
+        12_month: dn2mg1hl72ifqaj7hnc1
+        3_month: dn2ir5imkb2qd0ja1h3t
+        6_month: dn2ku348i9v7212fi9cp
+      ba_i202_s:
+        1_day: dn248idn3c3nuapmaers
+        1_month: dn2bbj5lq0scisug3sqf
+        12_month: dn2gk5s3m7u2lutv2jl1
+        3_month: dn250saptim5g80d1qd5
+        6_month: dn2i332ocdm1c9vt0e4v
+      ba_i203_s_10g:
+        1_day: dn22q9tst809lhe7jm6o
+        1_month: dn2q5k7qjr9a1c1br0s3
+        12_month: dn2mipar2rv7ftl47dcs
+        3_month: dn28ug6e636vfnc3a8vv
+        6_month: dn2nallja21ktps5jd73
+      ba_i204_sh:
+        1_day: dn2qcaa2fn9qojrtlaen
+        1_month: dn2k4uj24mr40qum106j
+        12_month: dn2p250tre1qr771s9d4
+        3_month: dn2bcf1jmctd8qcm6j3p
+        6_month: dn2on5bj7r5ll50f4itf
+      ba_i205_sh:
+        1_day: dn2ulsf25hluloina0kh
+        1_month: dn27d76a4mhn5cgaaade
+        12_month: dn2fd2997d0lk67hhd63
+        3_month: dn27ooj9ap9j3ccakgq7
+        6_month: dn216ev8t9vrrk1dt2iv
+      ba_i206_sh_10g:
+        1_day: dn2ch1jpaf0s9st4f570
+        1_month: dn2a7jakic5i8momu5ld
+        12_month: dn2poffc962r6jak7vmt
+        3_month: dn2qeercv8ro3lrgnats
+        6_month: dn25umjcegp3blc78jd6
+      ba_i207_h:
+        1_day: dn2078jofd76jr4q9e4p
+        1_month: dn2h4afe6o5c9letkdhc
+        12_month: dn2h6le2bmau2nqlds31
+        3_month: dn2lfsekea7dpb9vmk6v
+        6_month: dn2tjamfiogm09opqgbc
+      ba_i208_s_10g:
+        1_day: dn2gevnt83tr2gp6hkcb
+        1_month: dn20rqkq339lm12jdf1i
+        12_month: dn24tlo2ho04hev1pbff
+        3_month: dn2vtgg9f7ua65f0dtb3
+        6_month: dn20pjhfri33ds0keiuj
+      ba_i209_ss_1_10g:
+        1_day: dn2yby6dsq4bt5jcuuun
+        1_month: dn2lncsqs6acqa2laqq4
+        12_month: dn2yqrddp3zyw3no5aty
+        3_month: dn2qmfirxcmthwlqocxk
+        6_month: dn2ynwho4s5ee7od5jdo
+      ba_i210_h_1_10g:
+        1_day: dn2ooklmvsgthmwmbb6s
+        1_month: dn2ss3v25mlaergdxiry
+        12_month: dn2a7mewl7zfddch2oa3
+        3_month: dn2hkgcgczbcyunvbgkj
+        6_month: dn2mkelhng5noncue2h6
+      ba_i211_8s_10g:
+        1_day: dn23os41prg8rcrk1e2q
+        1_month: dn2h8c7qqre739ol0sii
+        12_month: dn21fsqmbhvseaof5pf6
+        3_month: dn2pstl57mu8t3c1qm4q
+        6_month: dn2jc74moe4laf8m6m7j
+      ba_i211_8s_25g:
+        1_day: dn2r257e3luaj45oh26w
+        1_month: dn2xasypkkbyq7s2jat6
+        12_month: dn2fysufhjzeuuean7vs
+        3_month: dn2wa5sleev34ncu4d4y
+        6_month: dn2mpw7fjopn3wgbotkb
+      ba_i211_8s_2x25g:
+        1_day: dn2hbnskzu4rq6swqtep
+        1_month: dn2lfxfo6mpv2kpeeeng
+        12_month: dn2z34pojuoef4zyxs3m
+        3_month: dn2ssrruyplpagqetv4e
+        6_month: dn2mxvcaqxemyvapns22
+      ba_i212_10s_10g:
+        1_day: dn22tbvzk6ebajqvpnbt
+        1_month: dn2pmwp6geyfashsuol7
+        12_month: dn2fe2ouwmphq3nzjeex
+        3_month: dn2fsfrgjf4st2kgcqgq
+        6_month: dn2njr2hvobgypizlurn
+      ba_i215_ss_10g:
+        1_day: dn2h6lrfdk4nac5wgwuq
+        1_month: dn2mgkgws5vkgcmx66i7
+        12_month: dn2orsv7lvzgtlixnsg4
+        3_month: dn2xvje2mxqacwktsmm7
+        6_month: dn2kl2dpcdusi7z2oe72
+      ba_i216_ss_1_10g:
+        1_day: dn2zyeoen3zgazt4haws
+        1_month: dn2pjbzzniodflca5tru
+        12_month: dn2p7j4g65rioh676pec
+        3_month: dn2td7drocpwss27prtp
+        6_month: dn24m37i7jgimv47zsao
+      ba_i407_s_10g:
+        1_day: dn2ouvd21k0ibt7asnui
+        1_month: dn23f47oub924jn942p9
+        12_month: dn2qn4bebcnt668lpfnr
+        3_month: dn2oacigdm7h1aq7hg5n
+        6_month: dn2ltpbugu8svm24auo7
+      ba_i501_h_25g:
+        1_day: dn2csfysf5feqp2mb4pm
+        1_month: dn2rguwssadodwqe4nur
+        12_month: dn2w5ud3lad457b3pvrz
+        3_month: dn2hxcjsmu5rveyuxeuk
+        6_month: dn2cm5czmuchlstnwxrh
+      ba_i506_nh_25g:
+        1_day: dn2k3mcygm5lrhav7mgd
+        1_month: dn2unaewdvtq6w6z5h6n
+        12_month: dn2x45chipeeabquucfb
+        3_month: dn2ld7dt234bvfh5s24q
+        6_month: dn2icrgshvkj5v7twlka
+      ba_i507_nh_2x25g:
+        1_day: dn2kfjsf7pmblupclrwv
+        1_month: dn2gwcmonbral4lstku2
+        12_month: dn2hpol7haiv62bfnezm
+        3_month: dn246222g4vgyfep52tu
+        6_month: dn2eiai7nzpv2jhifqle
+      ba_i511_nh_25g:
+        1_day: dn2siwxpw2uequksuh2p
+        1_month: dn2b2bjvep3amsxwaq2x
+        12_month: dn2ryxjsrbbmkhr7zp5b
+        3_month: dn2vhal66x64cw4m4hji
+        6_month: dn2phs4ddgmweohkdfij
+      ba_i512_nh_2x25g:
+        1_day: dn2ylkpt7bfhvqnubswz
+        1_month: dn2ejql2dltywx5oeoz3
+        12_month: dn2v24od7g7xbleg2kjn
+        3_month: dn2dp5s4he4poka7clnc
+        6_month: dn2fvi7h6viwsujbcxv3
+      ba-a401-2n2h-25g:
+        1_day: dn2jdzkuxzlq7wi55fak
+        1_month: dn2qufop2xjsmygwcu2e
+        12_month: dn2ddkxmyohbt25n4dna
+        3_month: dn2mnfvvo7okilsmaw3v
+        6_month: dn2qecv45yeddo5u4bug
+      ba-a402-2n2h-25g:
+        1_day: dn2hkipm4vuzhhifv2db
+        1_month: dn2mqtcjrgtfotevrxk3
+        12_month: dn2rjddkxpre3mpgnbod
+        3_month: dn25xbol3hcbnbiw6tlg
+        6_month: dn25aaodc3xbsxqhmvse
+      ba-a612-n-25g-p1:
+        1_day: dn24bdjs4so3d6rtivey
+        1_month: dn2jce33tbqzmzfnreef
+        12_month: dn2wavefx3aj3yq6574g
+        3_month: dn2xf2swsbne7ewj5gyr
+        6_month: dn2rhfwz7a2j5rll4vqz
+      ba-a612-n-25g:
+        1_day: dn2hdfgsbn7yuax22bqa
+        1_month: dn2rn6ae5uv7qgsb7b4e
+        12_month: dn22u5zxzz6crvpcqlcf
+        3_month: dn2zsjqdumxx7sa5ot42
+        6_month: dn2gpij2jxb3lez5xwno
+      ba-a702-6n-4h-2x25g:
+        1_day: dn2on7cf5yl2eksf63kz
+        1_month: dn25vpyw2jrteinlopqg
+        12_month: dn2365bmgepnjvlx4a2e
+        3_month: dn2av5viocqdhzppgxb3
+        6_month: dn2msbrtv7xf6mobmlzt
+      ba-a704-4n-2x25g:
+        1_day: dn2gydegnu7og3b6jtdc
+        1_month: dn2fju2w7rjtt4holbsj
+        12_month: dn2o37ubk4t3iaow63jt
+        3_month: dn2wch2v5lriafthzrjf
+        6_month: dn2s3j7tgubgjk7l5azt
+      ba-i208-s-10g-p1:
+        1_day: dn2rfpkhrt6mldfamg3s
+        1_month: dn2kjl4tw2rmzp2erafy
+        12_month: dn2pyjfrw33536v6vn4r
+        3_month: dn2gukgg4ttx6rto24og
+        6_month: dn2snu4sdxun2lp2vt7d
+      ba-i209-ss-1-10g-p1:
+        1_day: dn234x5yvleikg5uygye
+        1_month: dn2lsktejmmm6sjyhmrl
+        12_month: dn2mx27jy4d2vup4zzu2
+        3_month: dn2njr4vnpuiqmalpdko
+        6_month: dn24onufuxs2vhpub2pd
+      ba-i217-s-1-10g:
+        1_day: dn2r5rks2csdg6435bp4
+        1_month: dn25qijyv3bobflplxne
+        12_month: dn22un44apyqndj2ei5l
+        3_month: dn2dj4l3apo6jbjco3l7
+        6_month: dn2loxxtnmlb45n3jmix
+      ba-i507-nh-2x25g-p1:
+        1_day: dn2ttdgeonjbzssppclx
+        1_month: dn2m5j6fabkyksh47wfi
+        12_month: dn2ulxehlkqigtsp6w5n
+        3_month: dn26nss2ihwtlaai2zm5
+        6_month: dn252acfo3bfs3ysdoaj
+      ba-i512-nh-2x25g-p1:
+        1_day: dn2pzlgrxhjthudgtmdo
+        1_month: dn2brjyqwsi5jhx6uc4o
+        12_month: dn2lawovf56l6kdkebgl
+        3_month: dn24ggwy5gsi5o6qpx4h
+        6_month: dn2e22vxkfh4d4opjvo4
+      ba-i523-nh-2x25g-p1:
+        1_day: dn26k67ks64mcijvs4mi
+        1_month: dn2o4kgngionblzgk3vo
+        12_month: dn23p37j3glbg4z4efsq
+        3_month: dn2p7zaa2si3kzzt2pdj
+        6_month: dn2bp7nc54dby4wicpso
+      ba-i523-nh-2x25g:
+        1_day: dn23mesissp7dp5jufbd
+        1_month: dn2su66lkggfhlfilzsh
+        12_month: dn27exfj4jsyf2coyomd
+        3_month: dn2ad4tcwajsemoj7dto
+        6_month: dn25xzcf7d4uoy7pllkv
+      bf25_i201_h:
+        1_day: dn2b2g5qopu74rjflyan
+        1_month: dn2gzvgszwupi2ksy4yz
+        12_month: dn2475ofo3x5kvfmhy6a
+        3_month: dn2ty2kygkjscmkj6mbb
+        6_month: dn2j65mpdqb6wej5c5xi
+      bf25_i202_s:
+        1_day: dn2aus4mxp7yuknydhpg
+        1_month: dn27zieq5yc5p2l4qs75
+        12_month: dn2j6htm2lyoz456lj62
+        3_month: dn2kdlvs55vyryxmd2pc
+        6_month: dn2kqcaiurudgqhxbjup
+      bf25_i204_s:
+        1_day: dn225qqwdy2tlp5fwlpi
+        1_month: dn2n2pqs5xxm2ehhxtwx
+        12_month: dn2hzvar7dlq6cdxx6oc
+        3_month: dn2qkhn3ui2ncbjhwclj
+        6_month: dn2366igvzrb7fkgaxgn
+      bf25_i205_s:
+        1_day: dn2zkldyv4ona3effti4
+        1_month: dn2rqmzd3hrtk4sjltcj
+        12_month: dn25hwpkrssemaq7vhw5
+        3_month: dn24i3flk7h7us7ereho
+        6_month: dn2zadeby6pmzuwge6cf
+      ha_i302_s_10g:
+        1_day: dn2c2vkpanbck1rpp6l8
+        1_month: dn26an39ra4lmdlcoea8
+        12_month: dn25polktkalpfmkqgg6
+        3_month: dn2m1o9e8kre8hphp2q7
+        6_month: dn201l4ki383a9per2i7
+      ha-a701-6n-4h-2x25g:
+        1_day: dn2kwtyc4rsjl45zge33
+        1_month: dn26gmom2kyebwew76rc
+        12_month: dn2ys2apjyjorhxscme3
+        3_month: dn2n6ry7zr6ytyqhx5o7
+        6_month: dn2bgq4z6yp5noo7rccd
+      ha-a703-4n-2x25g:
+        1_day: dn2t4jidixssq4rhiwjv
+        1_month: dn2esv2kzzwhpofamv6v
+        12_month: dn2ptk4iz3h7wtsu7ovx
+        3_month: dn2rbapzjljtggqzovla
+        6_month: dn2m6gruyasudyi72unw
+      ha-i502-n-25g-gxl4-p1:
+        1_day: dn2reufj2egdb4txhmcw
+        1_month: dn2dpms5iltwitsem46m
+        12_month: dn2onr36xgn5jpeau7nr
+        3_month: dn2l332n5sb3eez56xso
+        6_month: dn2bfze2ziqavalvg7qd
+      ha-i502-n-25g-gxl4:
+        1_day: dn246uedlfoxttyttloq
+        1_month: dn2aksaq2jnah5n3p2ow
+        12_month: dn2k2zqaoqzwhfdwxuwd
+        3_month: dn2nkrdoxtldsqcw6sxy
+        6_month: dn2ep4zl2llvx2j63glh
+      la-i100-h:
+        1_day: dn2t33wjf2qexcjgwqfm
+        1_month: dn2a7ztltvaxx4jix3j4
+        12_month: dn2zzamxus5wjc5agckw
+        3_month: dn2ykoup6uk7wyuzjkxr
+        6_month: dn2abhoqihnkaw4t6d6d
+      la-i101-h:
+        1_day: dn2gbbtarqnd4mjedmwg
+        1_month: dn24fsf2ghlibwvea2to
+        12_month: dn2kkiff4ugazm3y3zkx
+        3_month: dn2szbvg7l5scxvtzhfj
+        6_month: dn24opipvdoq3ppsvel5
+      la-i102-s:
+        1_day: dn2yedxhx7bbwj2ckpvg
+        1_month: dn236l4bgtgbsqvugfjq
+        12_month: dn2vrmyws4jdzugjzmjc
+        3_month: dn2ahicct5qbgthfjwfe
+        6_month: dn222cz4rrr2irahaybl
+      la-i104-sh:
+        1_day: dn2hzy3p3ofhixrevblu
+        1_month: dn2rhxkefdopx36lmabp
+        12_month: dn2tpv3gb72l3csdtruc
+        3_month: dn2heprd6ns5ywiz4d2c
+        6_month: dn2fbnlbq7y4tpaa6hpe
+      la-i105-sh:
+        1_day: dn2hewv6wwjn7hheudoc
+        1_month: dn24hmyrngrtfsnp26nq
+        12_month: dn2gw4ab4atyreye4xrd
+        3_month: dn22cc76b5ptltxkkhmv
+        6_month: dn2oh3librm7x763qqgk
+      la-i107-s-1-10g:
+        1_day: dn2mvtdvofk4cpsfj37n
+        1_month: dn2wg7fk3h5hac3wxnw6
+        12_month: dn2ql3ll3wwzilxfptf6
+        3_month: dn22qacvosdvpihqi36r
+        6_month: dn2lbddwbtt3y5m4ph4e
+      la-i108-s-1-10g:
+        1_day: dn27dway3ctq7ckrdytq
+        1_month: dn2pe5mj3k35wl2rzzmi
+        12_month: dn2o5qnxdn7jxgcatyif
+        3_month: dn2mhzsdg7gtb4d4fckw
+        6_month: dn2mj2rnkhctk4lzcz4c
+  pc|cdn:
+    api:
+      network:
+        inet:
+          egress: dn2l8n9h5mtan7l8frav
+    logs:
+      raw: dn2sskor2babvph8i55r
+      shielding: dn2icqngml7bu80mtj72
+  pc|cloud_desktop:
+    image:
+      v1: dn2dd29vb1490vk3gd27
+  pc|compute:
+    hostgroup:
+      cpu:
+        c100:
+          highfreq-v4a: dn29pp11f9jugfbj6mae
+          v4a: dn2u0jb6uk32jgbvie33
+      ram:
+        highfreq-v4a: dn2bctm6lff3ssuo8361
+        v4a: dn2lsbs5tn54adofb0co
+  pc|datatransfer:
+    compute:
+      cpu:
+        preview:
+          v1: dn2t9ngojstgjojkjroo
+      ram:
+        preview:
+          v1: dn24iq96f11mcuqki01l
+    rows:
+      preview:
+        v1: dn2f241pa1nb8bavgd6o
+  pc|iot:
+    mqtt:
+      basic_ingest: dn2oupl68uvjog57htmo
+  pc|kms:
+    api:
+      v1:
+        generatedatakey: dn2kmnu1a4g5l5jcedcn
+        hsm:
+          encryptdecrypt: dn21s3iotfh9c0amhuf5
+  pc|lockbox:
+    api:
+      v1:
+        connection_manager_get: dn2egd69k1ru71j5c6h9
+    storage:
+      v1:
+        connection_manager_active_secrets: dn23qiu76d61cm517u69
+  pc|mdb:
+    cluster:
+      kafka:
+        backup: dn23mikaaaiag3otpu0t
+      mongodb:
+        v1:
+          cpu:
+            c20: dn2ei6bkjaj1kqtjo830
+            c5: dn2qllufatmv395hgrd4
+        v2:
+          cpu:
+            c20: dn2uesogm56fu214najp
+            c5: dn2ht5hll34bicejvg21
+    dataproc:
+      gpu:
+        cpu:
+          c100: dn2i7lcpeed1brpnm200
+        gpu: dn2ibbksufoqcikau96d
+        ram: dn2r547h5bonpg3umuhj
+    keeper:
+      clickhouse:
+        v1:
+          cpu:
+            c20: dn2f22z4ys4zd44gvt2a
+            c5: dn2qiaad6vdzv7xeh6va
+        v2:
+          cpu:
+            c20: dn2hwpvlehpxtphmnyf4
+            c5: dn2lxkxofuqbgqjx6s3t
+    software_accelerated_network:
+      clickhouse:
+        highfreq-v3:
+          cores: dn2kc1q1gdcgmj928fc4
+        highfreq-v4a:
+          cores: dn2gmug995reckl0n38v
+      greenplum:
+        highfreq-v3:
+          cores:
+            dedicated: dn2jffe4il8ivq07o1hp
+        highfreq-v4a:
+          cores:
+            dedicated: dn2tvfp3i39nlgfmomc0
+      kafka:
+        highfreq-v3:
+          cores: dn2ah2bol0phpth4omvv
+        highfreq-v4a:
+          cores: dn2k4si55bfjrusmsutd
+      keeper:
+        clickhouse:
+          highfreq-v3:
+            cores: dn2hgf4frlz4nglmizfj
+          highfreq-v4a:
+            cores: dn2kjbnfqfuasu5uyw77
+      mongodb:
+        v1:
+          cores: dn2lurbluf2g7qqum399
+        v2:
+          cores: dn268mghsuhkirbsh763
+        v3:
+          cores: dn20gt5d3m7c631vp3qv
+        v4a:
+          cores: dn22m6g59e6pfgnrblig
+      mysql:
+        highfreq-v3:
+          cores-key-value: dn25nsa95i461uqfner4
+          cores:
+            dedicated: dn2jpds39pcgeenmlsao
+        highfreq-v4a:
+          cores-key-value: dn27dv5fg3utnq7sg3n7
+          cores:
+            dedicated: dn2li39nrrjbh305jer7
+      opensearch:
+        highfreq-v3:
+          cores: dn2h7qadef2ega1m8al5
+        highfreq-v4a:
+          cores: dn2u6vekfk5baj4hm8eg
+      pg:
+        highfreq-v3:
+          cores: dn2tg64hjrruveqb6ub8
+        highfreq-v4a:
+          cores: dn2do24hg476k0lhha6n
+      redis:
+        highfreq-v3:
+          cores: dn27h04do0rr3nihpphf
+        highfreq-v4a:
+          cores: dn22bidvs46qc1vrbpth
+      zk:
+        clickhouse:
+          highfreq-v3:
+            cores: dn2c88fv3kjg6vrjiup5
+          highfreq-v4a:
+            cores: dn2rhpuln50u1el1ammi
+        kafka:
+          highfreq-v3:
+            cores: dn2jqpn5pcn1kjtf06e5
+          highfreq-v4a:
+            cores: dn28ft211q8jed0h7dif
+  pc|mk8s:
+    master:
+      master_host_resources:
+        cpu: dn2pjj9vapo7724rik0b
+        ram: dn2u6o8avnm6b5tb8klu
+  pc|monitoring:
+    alerts:
+      notifications:
+        phone: dn22k6xa6r4qlss4drsu
+        sms: dn2m2xmcxawisngq222b
+    metrics:
+      stored: dn2u4odrtkjm4j959t9u
+    point:
+      sp:
+        write: dn2mb2s228r44e6fce25
+      ui:
+        read: dn2sfig55p09i6tunbeq
+    prometheus:
+      point:
+        remote_api:
+          read: dn2mb7iibauphc8mh0nm
+  pc|network:
+    egress:
+      inet: dn28ml7sjbb5v98jkuj3
+      nat: dn26lqnno6gtkru5b1me
+    public_fips:
+      lb-key-value: dn26d8ndqtdh51aais5h
+      lb:
+        deallocated: dn2vtcr86atnrm5her6c
+  pc|nlb:
+    vip_bytes:
+      egress:
+        internal: dn2djih21mipc4jo77uk
+      ingress:
+        internal: dn2dj452r5cbun6bv52e
+  pc|postbox:
+    email:
+      size:
+        v1: dn2qr63b3orl3cuj3kjb
+  pc|security_deck:
+    access_transparency:
+      subscription:
+        v1: dn27wruc3zutdqdc45cg
+    kspm:
+      nodes: dn2ukunmpcmrnab3u5ko
+  pc|serverless-containers:
+    compute:
+      ephemeral_disk: dn2vwduzkfsisbr35uye
+      provision_enabled:
+        ephemeral_disk: dn27almsimyrl6a7ri4g
+      provisioned_request:
+        ephemeral_disk: dn2milq3cs7eibqagm64
+  pc|storage:
+    api:
+      network:
+        inet:
+          egress: dn2fghbb6nhc0qgc03ta
+  pc|sws:
+    arl:
+      profile:
+        v1: dn2mkbp42irduj73psdf
+      requests:
+        v1: dn2ek1qtnkfte18mbnf6
+      rule:
+        v1: dn2oma528jt89898mj2d
+    waf:
+      exclusion_rule:
+        v1: dn2hf1qf6f44degef6mu
+      profile:
+        v1: dn2mlrae614s6vakq618
+  pc|v1:
+    commitment:
+      selfcheckout:
+        m6:
+          mdb:
+            ch:
+              cpu:
+                c100:
+                  v4a: dn2hhiufhgrzm5wuqcni
+              ram:
+                v4a: dn2wttftultbygz6kmot
+          ydb:
+            cpu:
+              c100:
+                v2: dn2nr2piqg7eiaa7gkva
+            ram:
+              v2: dn27qgrql2qei2i68kpk
+        y1:
+          ydb:
+            cpu:
+              c100:
+                v2: dn2na3cief147jjt20v7
+            ram:
+              v2: dn2886p1eilq0pn7jisp
+  pc|video:
+    transcoding:
+      live:
+        v1: dn2e4fbl2ulmcsfkorpg
+    used_space:
+      live:
+        v1: dn2n6f6hvsu4uvssegsx
+  pc|ydb:
+    cluster:
+      v1:
+        ssd: dn26b206u8r13m8go6d2
+      v2:
+        cpu: dn2uh84ab9ga5954i807
+        ram: dn24ok7m82d8uhe9g725
+    db:
+      backup:
+        v1: dn29mbg8k3kcl70qn9ds
+    spilling_type1:
+      v1: dn23c5x27en4lpcax4q4
+    v1:
+      serverless:
+        provisioned_rcu: dn2kg3kak19fubcmerdh
+        requests: dn2f1mpij5h7573tqjdt
+        storage: dn2iqvpuvujh28ggku9h
   sku|KZT|ai:
     mt:
       detect|string: ₸2548.8930
@@ -7704,6 +8556,7 @@ default:
       yagpt:
         aspect-ratio-key-value: Aspect ratio
         experiments-page-subtitle: Experiments
+        file-search: File search
         foundation-models:
           playground:
             text-generation:
@@ -7726,6 +8579,7 @@ default:
         YaGPT:
           ConnectMcpTools:
             add-mcp-tool_dyEgv: Add tools
+          create-agent_1txyW: Create agent
           create-instance_3Ltog: Deploy instance
           CreateExperiment:
             foundation-models_playground_image-generation_title_rZxwV: Image generation

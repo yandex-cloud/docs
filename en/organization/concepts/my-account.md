@@ -5,7 +5,6 @@ description: My account is a user's personal workspace where they can manage the
 
 # My account portal
 
-
 {% include [note-preview](../../_includes/note-preview.md) %}
 
 [_My account_]({{ link-my-account }}) is a user's personal workspace where they can manage their account. Currently, there are two sections available:

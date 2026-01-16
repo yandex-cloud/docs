@@ -1,6 +1,6 @@
 ---
 title: '{{ ydb-full-name }} pricing policy'
-description: This article provides the {{ ydb-full-name }} pricing policy.
+description: This article covers the {{ ydb-full-name }} pricing policy.
 editable: false
 ---
 
@@ -8,7 +8,7 @@ editable: false
 
 
 
-Pricing for {{ ydb-full-name }} differs depending on the usage mode:
+Pricing for {{ ydb-full-name }} varies depending on which mode you use:
 
-* [{#T}](serverless.md).
-* [{#T}](dedicated.md).
+* [{#T}](serverless.md)
+* [{#T}](dedicated.md)

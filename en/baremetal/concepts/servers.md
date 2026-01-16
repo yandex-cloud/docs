@@ -2,13 +2,15 @@
 
 A {{ baremetal-name }} server is a physical server connected to the [network](./network.md) via two or more 1 Gbps, 10 Gbps, or 25 Gbps [network interfaces](#network-interfaces). Its hardware and network resources are physically isolated and can be accessed only by their lessee.
 
+Servers come either in one of the [stock configurations](./server-configurations.md#standard) or a [configuration](./server-configurations.md#custom) built as per the user's [specification](../operations/servers/custom-server-lease.md).
 
 {% include [bios-settings-warning](../../_includes/baremetal/bios-settings-warning.md) %}
 
 ## Server lease {#server-lease}
 
-You can lease a server for one day, one month, three months, six months, or one year. You can view the configurations available for lease in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}). 
+You can lease a stock configuration server for one day, one month, three months, six months, or one year. You can view the configurations available for lease in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}). 
 
+You can lease a custom-configured server for one month, six months, or one year.
 
 ## Server access {#server-access}
 
@@ -20,7 +22,7 @@ Pools are infrastructurally separate data center modules servers physically resi
 
 | Region        | Availability zone | Pools                               |
 |---------------|------------------|------------------------------------|
-| `{{ region-id }}` | `{{ region-id }}-m` | `{{ region-id }}-m3`<br>`{{ region-id }}-m4` |
+| `{{ region-id }}` | `{{ region-id }}-m`  | `{{ region-id }}-m3`<br>`{{ region-id }}-m4` |
 
 ## Redundant power supply for servers {#server-power-supply}
 
@@ -43,14 +45,14 @@ In total, there may be more than two network interfaces:
     These inactive interfaces belong to the integrated NICs of the server motherboard. They are not connected to any networks and do not require any configuration.
 * In configurations with the [MC-LAG](./mc-lag.md) network connection redundancy, the server uses not one but two network interfaces at once to connect to each of the networks.
 
-    Network interfaces connected to the same network can be consolidated into aggregation groups at the OS level, which ensures fault tolerance.
+    Network interfaces connected to the same network are combined into aggregation groups at the OS level, which increases the network connection speed and ensures fault tolerance.
 
 ## Server statuses {#server-status}
 
 A server can have one of the following statuses:
 
-* `PROVISIONING`: Server is being prepared to be leased out to a user.
-* `RUNNING`: Server is leased out and fully available to a user. In this status, the server's power supply can be turned on or off.
+* `PROVISIONING`: Server is being prepared to be issued to the user. You get your stock configuration server within anywhere from 30 seconds to several minutes. A custom-configured server takes up to four calendar days to be built and started.
+* `RUNNING`: Leased server is fully available to the user. In this status, the server's power supply can be turned on or off.
 * `STARTING`: Server is being powered up.
 * `STOPPING`: Server is being powered down.
 * `RESTARTING`: Server is rebooting.

@@ -22,6 +22,7 @@ Syntax:
 |`--target-id`|<b>`string`</b><br/>Target endpoint identifier|
 |`--name`|<b>`string`</b><br/>Transfer name|
 |`--description`|<b>`string`</b><br/>Transfer description|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--type`|<b>`string`</b><br/>Transfer type. Possible values are: [snapshot-and-increment, snapshot-only, increment-only] Values: 'snapshot-and-increment', 'snapshot-only', 'increment-only'|
 
 #### Global Flags

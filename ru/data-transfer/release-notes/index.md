@@ -3,14 +3,17 @@ title: История изменений в {{ data-transfer-full-name }}
 description: В разделе представлена история изменений сервиса {{ data-transfer-name }}.
 ---
 
+
 <!-- Changelog begin -->
 
 
 
 <!-- Changelog end -->
 
+
 # История изменений {{ data-transfer-name }}
 
+- [Декабрь 2025](2512.md)
 - [Ноябрь 2025](2511.md)
 - [Октябрь 2025](2510.md)
 - [Сентябрь 2025](2509.md)

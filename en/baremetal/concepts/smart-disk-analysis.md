@@ -7,7 +7,7 @@ description: If you encounter disk read/write errors, disk or RAID array failure
 
 If you encounter disk read/write errors, disk or [RAID](https://en.wikipedia.org/wiki/RAID) array failures while using a {{ baremetal-name }} [server](./servers.md), you can [run](../operations/servers/use-hwatcher.md) server diagnostics to identify the source of the problem and generate a report for support.
 
-Information on disk errors is analyzed using the [SMART](https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology) technology for disk self-diagnostics and the [HW Watcher](../operations/servers/use-hwatcher.md) utility to collect and process data and generate a report. You can only use `HW Watcher` on [Linux](https://en.wikipedia.org/wiki/Linux) servers.
+The disk error information analysis is based on the [SMART](https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology) disk self-diagnostics technology and uses the [HWCheck](../operations/servers/use-hwatcher.md) utility to collect and process the data and generate a report. You can only use `HWCheck` on [Linux](https://en.wikipedia.org/wiki/Linux) servers.
 
 Information on server disk status is saved in the report’s `drive` directory, and reports for each of the server’s disks are saved in separate files. A report on the disk’s SMART attribute values is formatted as a table:
 
@@ -61,7 +61,7 @@ Information on server disk status is saved in the report’s `drive` directory, 
       * `G-Sense_Error_Rate`: Total number of errors caused by impact loads. 
       * `Power-Off_Retract_Count`: Total number of disk emergency shutdown or power failure cycles.
       * `Load_Cycle_Count`: Total number of cycles when the magnetic head was moved to the parking position.
-      * `temperature`: Disk temperature.
+      * `Temperature_Celsius`: Disk temperature.
       * `Hardware_ECC_Recovered`: Total number of times the disk controller has corrected [ECC](https://en.wikipedia.org/wiki/ECC_memory) errors.
       * `Current_Pending_Sector`: Total number of so-called _suspicious_ sectors that are not yet marked as bad, but their read behavior deviates from stable sectors. If such a sector is successfully read next time, it is removed from suspicious sectors. In case read errors persist, the disk will attempt to restore the sector by reallocating it.
       * `Offline_Uncorrectable`: Total number of _suspicious_ (`Current_Pending_Sector`) sectors the disk could not restore.

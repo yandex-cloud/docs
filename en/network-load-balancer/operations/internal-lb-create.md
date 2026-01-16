@@ -206,7 +206,7 @@ To create an internal network load balancer:
        * `port`: Port number (ranging from `1` to `32767`) on which the load balancer will listen to incoming traffic.
        * `internal_address_spec`: Specification of the internal load balancer's listener:
          * `subnet_id`: Subnet ID.
-         * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default is `ipv4`.
+         * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
          * `address`: Listener IP address not occupied by other resources and belonging to the subnet range specified in the `subnet_id` field.
 
              If the `address` field value is not specified, the internal load balancer listener gets a random IP address from the selected [subnet](../../vpc/concepts/network.md#subnet) range.

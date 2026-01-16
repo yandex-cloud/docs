@@ -104,3 +104,8 @@ OCR (Optical Character Recognition) – это оптическое распоз
 * [Посмотрите список поддерживаемых языков](supported-languages.md).
 * [Посмотрите известные ограничения в текущей версии](known-issues.md).
 * [Попробуйте распознать текст на изображении](../../operations/ocr/text-detection-image.md).
+
+
+## См. также {#see-also}
+
+* [Компьютерное зрение: как машины учатся видеть и понимать мир](https://yandex.cloud/ru/blog/computer-vision-guide).
