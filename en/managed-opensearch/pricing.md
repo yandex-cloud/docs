@@ -13,7 +13,7 @@ In this section, you can find the {{ mos-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=6045f728368e#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using {{ mos-name }}, use [our calculator](https://yandex.cloud/en/prices?state=6045f728368e#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
 
 
 
@@ -27,7 +27,7 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 ## Cluster status {#running-stopped}
 
-The prices apply differently depending on the cluster status:
+Prices are applied differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -42,7 +42,7 @@ The {{ mos-name }} usage cost includes:
 
 * Disk type and disk space.
 
-* Outgoing traffic from {{ yandex-cloud }}.
+* Egress traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -60,9 +60,9 @@ You pay for the following:
 
 * Storage allocated for clusters.
 
-* Storage taken up by backups over the specified cluster storage.
+* Storage taken up by backups over specified cluster storage.
 
-    * Backups are stored free of charge as long as the combined size of data in the cluster and all backups is smaller than the selected storage size.
+    * Backups are stored free of charge as long as the combined size of the data in the cluster and all backups is smaller than the selected storage size.
 
     * All automatic and [manual](operations/cluster-backups.md) backups are incremental. This means the initial backup contains all index segments, and all subsequent backups contain only the _increment_, i.e., changes made since the previous backup. This saves storage space and reduces the cost of using resources.
 
@@ -103,7 +103,7 @@ Calculation for the storage cost and total cost:
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mos-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mos-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

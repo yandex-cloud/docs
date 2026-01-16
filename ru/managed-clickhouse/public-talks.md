@@ -11,6 +11,10 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2025: Статьи {#article-2025}
 
+* Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. 
+
+  * [Статья](https://yandex.cloud/ru/blog/performance-gains).
+
 * Как Data Warehouse помогает бизнесу экономить деньги и принимать решения.
 
   * [Статья](https://yandex.cloud/ru/blog/data-warehouse-guide).

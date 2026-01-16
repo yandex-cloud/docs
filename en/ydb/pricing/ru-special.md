@@ -1,36 +1,36 @@
 ---
-title: Rules for estimating the cost of queries to {{ ydb-full-name }} via ad-hoc APIs
-description: In this tutorial, you will learn how to calculate the cost of queries to {{ ydb-short-name }} via ad-hoc APIs.
+title: How to estimate the cost of requests to {{ ydb-full-name }} through ad-hoc APIs
+description: In this tutorial, you will learn how to calculate the cost of requests to {{ ydb-short-name }} via ad-hoc APIs.
 editable: false
 ---
 
-# Rules for estimating the cost of queries to {{ ydb-short-name }} via ad-hoc APIs
+# How to estimate the cost of requests to {{ ydb-short-name }} through ad-hoc APIs
 
 
 
 ## ReadTable {#read-table}
 
-The `ReadTable` operation allows you to efficiently read large ranges of data from a table. The request cost only depends on the amount of data read based on the rate of 128 RU per 1 MB. For the purpose of cost calculation, the amount is rounded up to a multiple of 1 MB.
+The `ReadTable` operation allows you to efficiently read large ranges of data from a table. The request cost only depends on the amount of read data based on the rate of 128 request units (RUs) per MB. When calculating the cost, the amount is rounded up to a multiple of 1 MB.
 
 ## BulkUpsert {#bulk-upsert}
 
-`BulkUpsert` allows you to efficiently upload data to your database. The cost of writing a row using the `BulkUpsert` operation is 0.5 RU per 1 KB of written data. For the purpose of cost calculation, the data amount is rounded up to a multiple of 1 KB. The total cost of the operation is calculated as the sum of costs for all rows written, with the result rounded up to the nearest integer.
+`BulkUpsert` allows you to efficiently upload data to your database. The cost of writing a row using the `BulkUpsert` operation is 0.5 RUs per 1 KB of written data. When calculating the cost, the data amount is rounded up to a multiple of 1 KB. The total cost of the operation is calculated as the sum of costs for all written rows, with the result rounded up to the nearest integer.
 
 **Cost calculation example**
 
-For example, as part of the `BulkUpsert` operation, you write four data rows of 2,500 bytes, 100 bytes, 1,200 bytes, and 1,024 bytes.
+For example, let’s assume you are writing 4 data rows of 2,500 bytes, 100 bytes, 1,200 bytes, and 1,024 bytes as part of the `BulkUpsert` operation.
 
-The cost of this operation is:
-> 0.5 RU × 3 + 0.5 RU × 1 + 0.5 RU × 2 + 0.5 RU × 1 = 3.5 RU
+The cost of such an operation is:
+> 0.5 RUs × 3 + 0.5 RUs × 1 + 0.5 RUs × 2 + 0.5 RUs × 1 = 3.5 RUs
 >
-> Total, rounded up to the nearest integer: 4 RU
+> Total, rounded up to the nearest integer: 4 RUs
 
 Where:
-* 0.5 is the cost in request units per 1 KB of written data.
-* 3 is the rounded up size of the first row in KB (2,500 bytes = 1,024 bytes + 1,024 bytes + 452 bytes).
-* 1 is the rounded up size of the second row in KB.
-* 2 is the rounded up size of the third row in KB (1,200 bytes = 1,024 bytes + 176 bytes).
-* 1 is the size of the fourth row in KB.
+* 0.5: Cost in RUs per 1 KB of written data.
+* 3: Size of the first row in KB, rounded up (2,500 bytes = 1,024 bytes + 1,024 bytes + 452 bytes).
+* 1: Size of the second row in KB, rounded up.
+* 2: Size of the third row in KB, rounded up (1,200 bytes = 1,024 bytes + 176 bytes).
+* 1: Size of the fourth row in KB.
 
 ## Building a secondary or vector index {#build-index}
 

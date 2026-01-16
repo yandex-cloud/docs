@@ -1,1 +1,1 @@
-Роль `managed-greenplum.auditor` позволяет просматривать информацию о [кластерах и хостах Greenplum®](../../managed-greenplum/concepts/index.md), а также о [квотах](../../managed-greenplum/concepts/limits.md#quotas) и операциях с ресурсами сервиса Yandex MPP Analytics for PostgreSQL.
+Роль `managed-greenplum.auditor` позволяет просматривать информацию о [кластерах и хостах Greenplum®](../../managed-greenplum/concepts/index.md) в сервисе Yandex MPP Analytics for PostgreSQL, а также о [квотах](../../managed-greenplum/concepts/limits.md#quotas) и операциях с ресурсами сервиса.

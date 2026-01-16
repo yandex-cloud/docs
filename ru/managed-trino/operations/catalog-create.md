@@ -371,7 +371,7 @@ description: Следуя этой инструкции, вы создадите
 
 {% endlist %}
 
-#### Подключение On-premise {#ch-on-premise}
+#### Ручная настройка {#ch-on-premise}
 
 {% list tabs group=instructions %}
 
@@ -1111,7 +1111,7 @@ description: Следуя этой инструкции, вы создадите
 
 - Консоль управления {#console}
 
-    * **Тип подключения** — On-premise.
+    * **Тип подключения** — Ручная настройка.
     * **URL** — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
     * **Имя пользователя** — имя пользователя для подключения к БД Oracle.
     * **Пароль** — пароль пользователя для подключения к БД Oracle.
@@ -1462,7 +1462,7 @@ description: Следуя этой инструкции, вы создадите
 
 {% endlist %}
 
-#### Подключение On-premise {#pg-on-premise}
+#### Ручная настройка {#pg-on-premise}
 
 {% list tabs group=instructions %}
 
@@ -1667,7 +1667,43 @@ description: Следуя этой инструкции, вы создадите
 
     * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
+- {{ TF }} {#tf}
 
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+      ...
+      mysql = {
+        connection_manager = {
+          connection_id = "<идентификатор_подключения>"
+          connection_properties = {
+            <список_настроек_подключения_{{ MY }}>
+          }
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    * `connection_manager` — настройки {{ connection-manager-name }}:
+
+        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ MY }}.
+
+            Чтобы узнать идентификатор подключения:
+            1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
+            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+        * `connection_properties` — список настроек подключения {{ MY }} в формате `"ключ" = "значение"`.
+
+           {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
 - REST API {#api}
 
@@ -1777,7 +1813,7 @@ description: Следуя этой инструкции, вы создадите
 
 {% endlist %}
 
-#### Подключение On-premise {#mysql-on-premise}
+#### Ручная настройка {#mysql-on-premise}
 
 {% list tabs group=instructions %}
 
@@ -1809,7 +1845,35 @@ description: Следуя этой инструкции, вы создадите
     * `--on-premise-password` — пароль пользователя для подключения к серверу {{ MY }}.
     * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
+- {{ TF }} {#tf}
 
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+      ...
+      mysql = {
+        on_premise = {
+          connection_url = "<URL_для_подключения>"
+          user_name      = "<имя_пользователя>"
+          password       = "<пароль_пользователя>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
+        * `user_name` — имя пользователя для подключения к серверу {{ MY }}.
+        * `password` — пароль пользователя для подключения к серверу {{ MY }}.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
 - REST API {#api}
 
@@ -1909,7 +1973,7 @@ description: Следуя этой инструкции, вы создадите
 
 - Консоль управления {#console}
 
-    * **Тип подключения** — On-premise.
+    * **Тип подключения** — Ручная настройка.
     * **URL** — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
     * **Имя пользователя** — имя пользователя для подключения к БД Microsoft SQL Server.
     * **Пароль** — пароль пользователя для подключения к БД Microsoft SQL Server.

@@ -4,11 +4,15 @@ description: Видеозаписи конференций и вебинаров
 ---
 
 # Публичные материалы о {{ mpg-full-name }}
+
+
 ## Статьи {#articles}
 
 ### 2025 год {#2025-articles}
 
+* Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. [Статья](https://yandex.cloud/ru/blog/performance-gains).
 * Установка и настройка 1С:Предприятие: пошаговое руководство. [Статья](https://yandex.cloud/ru/blog/posts/2025/04/1c-install-configure).
+
 
 ## Конференции и вебинары {#conf-and-webinars}
 

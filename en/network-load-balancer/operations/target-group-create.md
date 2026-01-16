@@ -48,7 +48,7 @@ description: Follow this guide to create a {{ network-load-balancer-name }} targ
 
   1. In the configuration file, describe the settings for the target in the target group.
 
-     Here is the configuration file example:
+     Here is a configuration file example:
 
      ```hcl
      resource "yandex_lb_target_group" "foo" {

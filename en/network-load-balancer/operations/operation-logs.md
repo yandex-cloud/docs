@@ -51,7 +51,7 @@ The system logs all actions with {{ network-load-balancer-name }} resources as a
   +----------------------+---------------------+----------------------+---------------------+--------+----------------------------+
   ```
 
-  By default, information about operations is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc load-balancer network-load-balancer list-operations enp87akr8sdr******** --format yaml

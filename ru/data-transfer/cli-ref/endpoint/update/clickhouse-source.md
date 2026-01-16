@@ -20,6 +20,7 @@ Syntax:
 |`--file`|<b>`string`</b><br/>Path to a file with grpc request, see proto files in the protobuf API specification: https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/datatransfer/v1|
 |`--name`|<b>`string`</b><br/>Endpoint name|
 |`--description`|<b>`string`</b><br/>Endpoint description|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--host`|<b>`value[,value]`</b><br/>Clickhouse server host name or IP address. The format is {shard_name}:{hostname_or_ip_address}, where {shard_name} is an arbitrary shard name this host belongs to. The colon itself is specified as \:, and the backslash is specified as \\.|
 |`--http-port`|<b>`int`</b><br/>ClickHouse server HTTP interface port|
 |`--native-port`|<b>`int`</b><br/>ClickHouse server native interface port|

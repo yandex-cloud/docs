@@ -339,6 +339,8 @@ items:
         href: concepts/index.md
       - name: Релизные каналы и обновления
         href: concepts/release-channels-and-updates.md
+      - name: Разграничение зон контроля в {{ managed-k8s-name }}
+        href: concepts/kubernetes-responsibilities.md
       - name: Обновление операционной системы в группе узлов
         href: concepts/node-os-update.md
       - name: Шифрование

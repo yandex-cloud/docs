@@ -15,7 +15,7 @@ In this section, you can find the {{ mmg-name }} pricing [policy](#rules) and [e
 
 
 
-For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using {{ mmg-name }}, use [our calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) on the {{ yandex-cloud }} website or see the pricing data below.
 
 
 {% endnote %}
@@ -38,15 +38,15 @@ The {{ mmg-name }} usage cost includes:
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-### Database host usage {#rules-hosts-uptime}
+### DB host usage {#rules-hosts-uptime}
 
-The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute, e.g., you will be charged for 2 minutes when using a host for 90 seconds (1.5 minutes). You will not be charged for the time when the {{ SD }} host is unavailable for basic operations.
+The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ SD }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 
 * Storage allocated for database clusters.
 
@@ -58,15 +58,15 @@ You are charged for the following:
 
     For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 
-* Amount of storage used by database backups that exceeds the allocated cluster storage.
+* Space used by DB backups in excess of the storage amount specified for the cluster.
 
     * Backups are stored free of charge as long as the combined size of the DB and all its backups is smaller than the selected storage size.
 
-    * {{ mmg-short-name }}'s automatic backup function does not create a new backup each time but saves the DB changes from the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changes.
+    * When performing automatic backups, {{ mmg-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the amount of changes.
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 90 seconds (1.5 minutes) costs the same as for 2 minutes.
+The price covers one month of use based on 720 hours per month.  The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 

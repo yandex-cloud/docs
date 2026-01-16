@@ -15,7 +15,7 @@ In this section, you can find the {{ mpg-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=ae5598bac8c3#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using {{ mpg-name }}, use [our calculator](https://yandex.cloud/en/prices?state=ae5598bac8c3#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
 
 
 {% endnote %}
@@ -49,7 +49,7 @@ The minimum billing unit is one minute (for example, 90 seconds of host operatio
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 
 * Storage allocated for DB clusters.
 
@@ -61,9 +61,9 @@ You are charged for the following:
 
 
 
-    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
+    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
-* Space occupied by DB backups beyond the storage size specified for the cluster.
+* Space used by DB backups in excess of the storage amount specified for the cluster.
 
     {% note info %}
 
@@ -73,7 +73,7 @@ You are charged for the following:
 
     * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-    * Automatic backups in {{ mpg-short-name }} only include the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changes.
+    * When performing automatic backups, {{ mpg-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
     * Adding hosts increases the cluster's total storage size and, consequently, the free amount of backups.
 

@@ -97,6 +97,8 @@ items:
             href: cli-ref/artifact/delete.md
           - name: get
             href: cli-ref/artifact/get.md
+      - name: configure-docker
+        href: cli-ref/configure-docker.md
       - name: registry
         items:
           - name: Overview

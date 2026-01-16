@@ -14,7 +14,7 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-In {{ baremetal-name }}, you pay for renting a server of a certain configuration. A rented server is billable for the entire rent period, whether it is on or off.
+In {{ baremetal-name }}, you pay for renting a server of a [certain configuration](concepts/server-configurations.md). A rented server is billable for the entire rent period, whether it is on or off.
 
 You can look up how many servers of particular configurations are available in the [calculator](https://yandex.cloud/en/prices) on the {{ yandex-cloud }} website and in the [management console]({{ link-console-main }}) when selecting a server.
 
@@ -73,7 +73,7 @@ The final cost of a custom configuration depends on the selected server componen
 
 #### Server configurations at reduced prices {#promo}
 
-##### Reduced prices since 27.11.2025 until 29.12.2025 {#27-11-19-12-2025}
+##### Reduced prices from 27/11/2025 to 29/12/2025 {#27-11-19-12-2025}
 
 You can rent servers with these configuration options until December 29, 2025, or as long as they are available. The price is valid once you complete the purchase and for the entire period of use. You can use the servers you rented at a discounted price until you cancel your rent on your own. Once you cancel, you will not be able to get a server at a discounted price again.
 

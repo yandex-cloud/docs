@@ -20,6 +20,7 @@ Syntax:
 |`--file`|<b>`string`</b><br/>Path to a file with grpc request, see proto files in the protobuf API specification: https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/datatransfer/v1|
 |`--name`|<b>`string`</b><br/>Endpoint name|
 |`--description`|<b>`string`</b><br/>Endpoint description|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--cluster-id`|<b>`string`</b><br/>Yandex Managed PostgreSQL cluster ID|
 |`--host`|<b>`value[,value]`</b><br/>PostgreSQL server host name or IP address|
 |`--port`|<b>`int`</b><br/>PostgreSQL server port|
