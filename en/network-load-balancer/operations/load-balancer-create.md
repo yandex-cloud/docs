@@ -134,7 +134,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "<load_balancer_name>"
-       deletion_protection = <balancer_deletion_protection>
+       deletion_protection = <protecting_load_balancer_from_deletion>
        listener {
          name = "<listener_name>"
          port = <port_number>

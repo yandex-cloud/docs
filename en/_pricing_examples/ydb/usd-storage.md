@@ -14,4 +14,4 @@ The number of spent RUs (1,310,720) [exceeds 1,000,000](#prices), so the cost of
 Where:
 
 * 1,310,720 RUs: Actual (on-demand) consumption of RUs per month.
-* {{ sku|USD|ydb.v1.serverless.requests|pricingRate.1|string }}: Price per 1 million RUs.
+* {{ sku|USD|ydb.v1.serverless.requests|pricingRate.1|string }}: Price per 1,000,000 RUs.

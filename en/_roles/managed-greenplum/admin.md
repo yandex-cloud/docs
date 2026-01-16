@@ -1,4 +1,4 @@
-The `managed-greenplum.admin` role allows you to manage Greenplum® clusters and view their logs, as well as get information about quotas and service resource operations.
+The `managed-greenplum.admin` role allows you to manage Greenplum® clusters within Yandex MPP Analytics for PostgreSQL, view cluster logs, as well as get information about quotas and service resource operations.
 
 Users with this role can:
 * Manage access to Greenplum® clusters.
@@ -12,4 +12,4 @@ Users with this role can:
 
 This role includes the `managed-greenplum.editor` permissions.
 
-To create Greenplum® clusters, you also need the `vpc.user` role.
+To create Greenplum® clusters within Yandex MPP Analytics for PostgreSQL, you also need the `vpc.user` role.

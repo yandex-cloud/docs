@@ -4,58 +4,53 @@ noIndex: true
 
 # Миграция CDN-ресурсов и групп источников на {{ cdn-full-name }}
 
-С 22 января 2026 года наш технологический партнер по сервису {{ cdn-name }} — компания EdgeЦентр, перестанет предоставлять технологию CDN на нашей платформе.
+С 22 января 2026 года наш технологический партнер по сервису {{ cdn-name }} — компания EdgeЦентр ([провайдер](../concepts/providers.md) EdgeCDN), перестанет предоставлять технологию CDN на нашей платформе.
 
-Рекомендуем мигрировать ваши CDN-ресурсы из EdgeCDN в {{ yandex-cloud }}. При переключении [стоимость использования](../pricing.md) сервиса останется прежней. Мигрировать можно самостоятельно, или в процессе [частичной автомиграции](#auto), которую мы завершим к 17 января 2026 года.
+{{ yandex-cloud }} автоматически мигрирует CDN-ресурсы и группы источников от провайдера EdgeCDN к провайдеру {{ cdn-full-name }} до 17 января 2026 года. При переключении [стоимость использования](../pricing.md) сервиса останется прежней.
 
-Чтобы перенести CDN-ресурсы и группы источников от [провайдера](../concepts/providers.md) EdgeCDN к провайдеру {{ cdn-full-name }}:
-1. [Перенесите конфигурацию существующего ресурса](#copy-configuration).
+Чтобы запустить перенесенные CDN-ресурсы и группы источников:
+1. [Включите доступ к контенту](#content-access).
+1. [Проверьте TLS-сертификат](#tls).
 1. [Измените CNAME-запись](#cname).
-1. [Проверьте работу ресурса](#check).
+1. [Проверьте защиту источников от информационных атак](#ddos).
+1. [Протестируйте работу ресурса](#check).
 
-## Перенесите конфигурацию существующего ресурса {#copy-configuration}
-
-<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplv65sb6shyvchwvqnu?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+## Включите доступ к контенту {#content-access}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором размещен CDN-ресурс, относящийся к провайдеру EdgeCDN.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был размещен CDN-ресурс, относящийся к провайдеру EdgeCDN.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-  1. В поле **{{ ui-key.yacloud.cdn.label_copy-config }}** выберите CDN-ресурс, относящийся к провайдеру EdgeCDN, который вы хотите мигрировать к провайдеру {{ cdn-full-name }}.
+  1. В списке ресурсов найдите перенесенный CDN-ресурс. У него должен быть указан провайдер `{{ cdn-full-name }}`, и должно быть то же самое основное доменное имя, что и в провайдере EdgeCDN. 
+  1. Если в столбце **Статус** перенесенного CDN-ресурса указано `Not active`, включите доступ к контенту:
+      1. Напротив ресурса нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. В блоке **Контент** включите доступ к контенту и нажмите **Сохранить**.
 
-      {% note tip %}
+  {% note info %}
 
-      Название провайдера отображается под основным доменным именем ресурса.
+  Чтобы новые настройки применились к CDN-серверам, может потребоваться до 15 минут. 
 
-      {% endnote %}
+  {% endnote %}
 
-  1. Все настройки заполняются автоматически в соответствии с конфигурацией исходного CDN-ресурса. При необходимости откорректируйте параметры.
+{% endlist %}
 
-      {% note info %}
+## Проверьте TLS-сертификат {#tls}
 
-      При миграции от провайдера EdgeCDN к провайдеру {{ cdn-full-name }} вы можете сохранить **{{ ui-key.yacloud.cdn.label_personal-domain }}** ресурса. Имя должно быть уникальным в рамках ресурсов одного провайдера CDN.
+{% list tabs group=instructions %}
 
-      {% endnote %}
+- Консоль управления {#console}
 
-  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
-  1. При необходимости откорректируйте параметры в разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **{{ ui-key.yacloud.cdn.label_additional }}** и нажмите **{{ ui-key.yacloud.common.continue }}**.
-
-      Дождитесь появления в списке нового CDN-ресурса с провайдером {{ cdn-full-name }}.
-
-      Помимо нового CDN-ресурса, в процессе будет также создана копия [группы источников](../concepts/origins.md).
-
-  1. Если для исходного CDN-ресурса был загружен TLS-сертификат, выберите новый CDN-ресурс с провайдером {{ cdn-full-name }} и убедитесь что в блоке **{{ ui-key.yacloud.cdn.label_certificate-type }}** указано название вашего сертификата.
+  Если для исходного CDN-ресурса был загружен TLS-сертификат, в [консоли управления]({{ link-console-main }}) выберите новый CDN-ресурс с провайдером {{ cdn-full-name }} и убедитесь, что в блоке **{{ ui-key.yacloud.cdn.label_certificate-type }}** указано название вашего сертификата.
       
-      {% note warning %}
+  {% note warning %}
 
-      Ранее для CDN-ресурсов поддерживался автоматический выпуск TLS-сертификатов на стороне EdgeCDN. В параметрах CDN-ресурса такой тип сертификатов отображается как **{{ ui-key.yacloud.cdn.md_value_certificate-le }}**. 
+  Ранее для CDN-ресурсов поддерживался автоматический выпуск TLS-сертификатов на стороне EdgeCDN. В параметрах CDN-ресурса такой тип сертификатов отображается как **{{ ui-key.yacloud.cdn.md_value_certificate-le }}**. 
 
-      Перенести эти сертификаты от провайдера EdgeCDN к провайдеру {{ cdn-full-name }} не получится. Вместо этого [выпустите](../../certificate-manager/operations/managed/cert-create.md) новый сертификат Let's Encrypt^®^ или [загрузите](../../certificate-manager/operations/import/cert-create.md) собственный в сервисе {{ certificate-manager-full-name }} и укажите его при миграции CDN-ресурса.
+  Перенести эти сертификаты от провайдера EdgeCDN к провайдеру {{ cdn-full-name }} не получится. Вместо этого [выпустите](../../certificate-manager/operations/managed/cert-create.md) новый сертификат Let's Encrypt^®^ или [загрузите](../../certificate-manager/operations/import/cert-create.md) собственный в сервисе {{ certificate-manager-full-name }} и укажите его в настройках перенесенного CDN-ресурса.
 
-      {% endnote %}
+  {% endnote %}
 
 {% endlist %}
 
@@ -98,7 +93,11 @@ noIndex: true
 
 {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
 
-## Проверьте работу ресурса {#check}
+## Проверьте защиту источников от информационных атак {#ddos}
+
+Если для источника, который вы подключаете к {{ cdn-full-name }}, настроена защита от информационных атак, например файрвол, DDoS Protection и пр., убедитесь, что [адреса {{ cdn-full-name }}](https://tech.cdn.yandex.net/prefixes/yc.json) находятся в списке разрешенных.
+
+## Протестируйте работу ресурса {#check}
 
 После того как CNAME-запись распространится по серверам DNS, клиентские запросы начнут приходить на новый CDN-ресурс.
 
@@ -114,12 +113,6 @@ noIndex: true
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
 
 {% endlist %}
-
-## Частичная автомиграция {#auto}
-
-К 17 января 2026 года мы самостоятельно перенесем CDN-ресурсы: скопируем их, сохранив настройки, и перенесем в провайдер {{ cdn-full-name }}.
-
-Вам останется только [заменить](#cname) CNAME-запись для домена в настройках вашего DNS-хостинга.
 
 ### См. также {#see-also}
 

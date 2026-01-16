@@ -47,10 +47,12 @@ description: Видеозаписи конференций и вебинаров
 ### 2025 год {#2025-articles}
 
 
+* Что произошло с ИИ в 2025 году: восемь главных трендов. [Статья](https://yandex.cloud/ru/blog/ai-review-2025).
+* ИИ‑агенты в промышленности: как перейти от хаоса пилотов к индустриальному стандарту. [Статья](https://yandex.cloud/ru/blog/ai-agents-industry).
+* Автоматизировали треть рутинных задач ИБ‑специалистов с помощью ИИ‑агентов. [Статья](https://yandex.cloud/ru/blog/ai-soc).
+* Представляем {{ ai-search-name }} — технологию поиска в интернете и по документам для ИИ‑агентов. [Статья](https://yandex.cloud/ru/blog/ai-search).
 * Открываем доступ к Alice AI — самому мощному семейству нейросетей Яндекса. [Статья](https://yandex.cloud/ru/blog/alice-ai-november-2025).
-
 * Цифровое востоковедение: как ИВ РАН с {{ yandex-cloud }} открывает доступ к первоисточникам. [Статья](https://yandex.cloud/ru/blog/digital-oriental-studies).
-
 * AI‑агенты: переход от инструментов к автономным исполнителям в бизнесе. [Статья](https://yandex.cloud/ru/blog/ai-agents).
 * Клиенты {{ ai-studio-full-name }} увеличили потребление генеративных нейросетей в облаке в пять раз. [Статья](https://yandex.cloud/ru/blog/yandex-ai-studio-results-october-2025).
 * {{ stackland-full-name }}: новое инфраструктурное решение для разработки AI‑сервисов. [Статья](https://yandex.cloud/ru/blog/yandex-cloud-stackland).

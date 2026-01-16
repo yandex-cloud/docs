@@ -54,11 +54,11 @@
      * Выберите [модель](../concepts/generation/models.md) генерации.
      * **{{ ui-key.yacloud.yagpt.label_temperature-text }}** — укажите значение от `0` до `1`, которое определяет вариативность ответа модели. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
      * **{{ ui-key.yacloud.yagpt.instruction }}** — опишите требуемую задачу, стиль письма, лимиты и другие предписания для модели. Рекомендации для повышения качества генераций собраны в разделе [{#T}](../gpt-prompting-guide/about.md).
-     * **{{ ui-key.yacloud.yagpt.use-context }}** — измените тип генерации.
-     * **Использовать ассистента** — если опция включена, {{ ai-playground }} будет работать на основе [{{ assistant-api }}](../concepts/assistant/index.md).
+     * **{{ ui-key.yacloud.yagpt.use-context }}** — переключитесь на другой тип генерации.
+     * **{{ ui-key.yacloud.yagpt.file-search }}** — позвольте модели с помощью поискового индекса выбрать файлы как дополнительный источник информации. Активировав опцию, выберите поисковый индекс из списка доступных или [создайте новый](../operations/assistant/create-with-searchindex.md).
 
-  1. Нажмите ![image](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.yagpt.train-modal }}**, если нужно [научить модель](../concepts/tuning/index.md) следовать сложному формату ответов.
-  1. В блоке **{{ ui-key.yacloud.yagpt.model-using }}** нажмите ![image](../../_assets/console-icons/code.svg) **Посмотреть код**, чтобы получить код запроса к модели через ML SDK для Python или [cURL](https://curl.haxx.se).
+  1. Нажмите ![image](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.yagpt.YaGPT.create-agent_1txyW }}**, чтобы создать [агента](../concepts/agents/index.md) для автоматизации задач.
+  1. Нажмите ![image](../../_assets/console-icons/code.svg) **Посмотреть код**, чтобы получить код запроса к модели через API с помощью Python, Node.js или [cURL](https://curl.haxx.se).
 
      ![screen02](../../_assets/ai-studio/quickstart/yandexgpt/screen02.png)
 

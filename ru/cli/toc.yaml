@@ -732,6 +732,8 @@ items:
                 href: cli-ref/cloud-registry/cli-ref/artifact/delete.md
               - name: get
                 href: cli-ref/cloud-registry/cli-ref/artifact/get.md
+          - name: configure-docker
+            href: cli-ref/cloud-registry/cli-ref/configure-docker.md
           - name: registry
             items:
               - name: Overview
@@ -1536,6 +1538,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/dataproc/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/dataproc/cli-ref/cluster/add-access-binding.md
               - name: add-labels
                 href: cli-ref/dataproc/cli-ref/cluster/add-labels.md
               - name: create
@@ -1546,14 +1550,20 @@ items:
                 href: cli-ref/dataproc/cli-ref/cluster/get.md
               - name: list
                 href: cli-ref/dataproc/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/dataproc/cli-ref/cluster/list-access-bindings.md
               - name: list-hosts
                 href: cli-ref/dataproc/cli-ref/cluster/list-hosts.md
               - name: list-operations
                 href: cli-ref/dataproc/cli-ref/cluster/list-operations.md
               - name: list-ui-links
                 href: cli-ref/dataproc/cli-ref/cluster/list-ui-links.md
+              - name: remove-access-binding
+                href: cli-ref/dataproc/cli-ref/cluster/remove-access-binding.md
               - name: remove-labels
                 href: cli-ref/dataproc/cli-ref/cluster/remove-labels.md
+              - name: set-access-bindings
+                href: cli-ref/dataproc/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/dataproc/cli-ref/cluster/start.md
               - name: stop

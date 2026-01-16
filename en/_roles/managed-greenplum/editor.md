@@ -1,4 +1,4 @@
-The `managed-greenplum.editor` role allows you to manage Greenplum® clusters and view their logs, as well as get information about quotas and service resource operations.
+The `managed-greenplum.editor` role allows you to manage Greenplum® clusters within Yandex MPP Analytics for PostgreSQL, view cluster logs, as well as get information about quotas and service resource operations.
 
 Users with this role can:
 * View information about [Greenplum® clusters](../../managed-greenplum/concepts/index.md), as well as create, modify, delete, run, and stop them.
@@ -11,4 +11,4 @@ Users with this role can:
 
 This role includes the `managed-greenplum.viewer` and `managed-greenplum.restorer` permissions.
 
-To create Greenplum® clusters, you also need the `vpc.user` role.
+To create Greenplum® clusters within Yandex MPP Analytics for PostgreSQL, you also need the `vpc.user` role.

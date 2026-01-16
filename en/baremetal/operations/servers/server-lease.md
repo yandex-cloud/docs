@@ -1,10 +1,15 @@
 ---
-title: How to lease a server in {{ baremetal-full-name }}
-description: Follow this guide to lease a server in {{ baremetal-full-name }}.
+title: How to lease a {{ baremetal-full-name }} server in a stock configuration
+description: Follow this guide to lease a {{ baremetal-full-name }} server in one of its stock configurations.
 ---
 
-# Leasing a server
+# Leasing a stock configuration server
 
+You can lease a [{{ baremetal-name }} server](../../concepts/servers.md) in one of the [stock configurations](../../concepts/server-configurations.md#standard).
+
+However, if you need a server with some non-standard hardware specifications, you can [configure](./custom-server-lease.md) one yourself.
+
+To lease a server in a stock configuration:
 
 {% list tabs group=instructions %}
 
@@ -13,7 +18,7 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
   1. {% include [server-lease-step1](../../../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
   1. {% include [server-lease-step2](../../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. {% include [server-lease-step3](../../../_includes/baremetal/instruction-steps/server-lease-step3.md) %}
-  1. In the server configuration window that opens:
+  1. In the server configuration window that opens, do the following:
 
       1. {% include [server-lease-step4](../../../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
       1. {% include [server-lease-step5](../../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
@@ -99,3 +104,6 @@ Once you lease a server, you can install or reinstall the OS at any time using e
 
 {% endlist %}
 
+#### See also {#see-also}
+
+* [{#T}](./custom-server-lease.md)

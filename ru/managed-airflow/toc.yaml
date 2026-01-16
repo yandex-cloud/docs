@@ -95,6 +95,8 @@ items:
         href: concepts/network.md
       - name: Доступные версии {{ AF }}
         href: concepts/versions.md
+      - name: Политика работы с версиями {{ AF }}
+        href: concepts/update-policy.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Имперсонация

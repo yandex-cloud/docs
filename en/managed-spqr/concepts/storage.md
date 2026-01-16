@@ -17,8 +17,8 @@ Your storage can use the following disk types:
 
 In {{ mspqr-name }}, the number of hosts you can create together with a cluster depends on the sharding type rather than on the selected disk type:
 
-* Standard sharding: One to seven `SPQRINFRA` hosts. To ensure that your cluster is fault-tolerant, we recommend creating at least three `SPQRINFRA` hosts in different availability zones.
+* Standard sharding: One to seven `INFRA` hosts. To ensure that your cluster is fault-tolerant, we recommend creating at least three `INFRA` hosts in different availability zones.
 * Advanced sharding:
 
-  * At least one `SPQRROUTER` host. The maximum number of `SPQRROUTER` hosts is not limited.
-  * At least five `SPQRCOORDINATOR` hosts. To ensure that such a cluster is fault-tolerant, we recommend creating three `SPQRCOORDINATOR` hosts in different availability zones.
+  * At least one `ROUTER` host. The maximum number of `ROUTER` hosts is not limited.
+  * At least five `COORDINATOR` hosts. To ensure that such a cluster is fault-tolerant, we recommend creating three `COORDINATOR` hosts in different availability zones.

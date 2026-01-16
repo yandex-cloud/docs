@@ -16,8 +16,8 @@ To mount your bucket as a disk:
 1. [Create a static access key](#create-static-key).
 1. [Create a bucket](#bucket-create).
 1. [Set up a connection to {{ objstorage-name }}](#rclone-config).
-1. [Mount the bucket](#bucket-mount).
-1. [Set up the mounting service](#mount-service).
+1. [Mount your bucket](#bucket-mount).
+1. [Set up automatic mounting](#auto-mount).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -40,7 +40,7 @@ The cost for bucket support includes:
 1. Download the [sysinternals suite utilities archive](https://docs.microsoft.com/en-us/sysinternals/downloads/) from the Microsoft website and unpack it to your local working folder.
 1. Download the [Windows Service Wrapper (WinSW) executable](https://github.com/winsw/winsw/releases) depending on your OS configuration and save it to a dedicated folder.
 1. Download the [rclone utility archive](https://rclone.org/downloads/) from the `rclone` website and unpack it to your local working folder.
-1. Add the folders containing the utilities and the distribution to the `PATH` variable. To do this:
+1. Add the folders containing the utilities and the distribution to the `PATH` variable. Proceed as follows:
 
     {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
 
@@ -82,7 +82,7 @@ The cost for bucket support includes:
     --role storage.editor \
     --subject serviceAccount:<service_account_ID>
   ```
-
+  
   For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
@@ -90,7 +90,7 @@ The cost for bucket support includes:
   1. To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
   1. [Assign](../../organization/operations/add-role) the `storage.editor` role to the service account.
-
+  
 {% endlist %}
 
 
@@ -107,7 +107,7 @@ The cost for bucket support includes:
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. From the list that opens, select the `sa-win-disk-connect` service account.
+  1. In the list that opens, select `sa-win-disk-connect`.
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -134,7 +134,7 @@ The cost for bucket support includes:
 
      For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
-  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the secret key again.
+  1. Save `key_id` and `secret`. You will not be able to get the secret key again.
 
 - API {#api}
 
@@ -153,17 +153,17 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming):
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
  
 - AWS CLI {#cli}
-
+  
   1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
-  1. Enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
-
+  1. Create a bucket by entering its name following the [naming requirements](../../storage/concepts/bucket.md#naming):
+  
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3 mb s3://<bucket_name>
@@ -185,8 +185,8 @@ The cost for bucket support includes:
 
      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
-  1. Add a section with bucket properties to the configuration file and enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
-
+  1. Add a section with bucket properties to the configuration file and enter the bucket name following the [naming requirements](../../storage/concepts/bucket.md#naming):
+  
      ```hcl
      resource "yandex_storage_bucket" "<bucket_name>" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -195,18 +195,18 @@ The cost for bucket support includes:
      }
      ```
      
-     For more information about `yandex_storage_bucket`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about the `yandex_storage_bucket` resource, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/storage_bucket).
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the new resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
   
@@ -216,7 +216,7 @@ The cost for bucket support includes:
         terraform apply
         ```
 
-     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -226,17 +226,10 @@ The cost for bucket support includes:
 
 ## Set up a connection to {{ objstorage-name }} {#rclone-config}
 
-1. Open the command line in your working folder as an admin and run the following command:
+1. Launch the PowerShell command line, navigate to the folder with the `rclone` utility and run its configuration session:
 
    ```powershell
-   .\psexec -i -s cmd.exe
-   ```
-
-1. In the console that opens, run `whoami` and make sure the session has been started by the system user.
-1. Navigate to the folder with the `rclone` utility and run its configuration session:
-
-   ```powershell
-   rclone.exe config
+   ./rclone.exe config
    ```
 
 1. Follow the prompts to create a new connection profile:
@@ -244,7 +237,7 @@ The cost for bucket support includes:
    1. Start creating a new profile by entering `n` in the terminal.
    1. Enter the connection name: `s3-connect`.
    1. Select the storage type by entering `4` in the terminal.
-   1. Select a provider by entering `1` in the terminal.
+   1. Select the provider by entering `1` in the terminal.
    1. Select manual entry of credentials by entering `1` in the terminal.
    1. In the terminal, enter the secret key ID you [got previously](#create-static-key).
    1. In the terminal, enter the secret key value you [got previously](#create-static-key).
@@ -260,10 +253,10 @@ You can perform advanced connection setup if required. To do this, type `y` at t
 
 ## Mount a bucket {#bucket-mount}
 
-1. Check your connection to the bucket. In the same command line you used to configure the connection, run the following command with the bucket name specified:
+1. Check your connection to the bucket. In the same command line window you used to configure the connection, run the following command with the bucket name specified:
 
    ```powershell
-   rclone.exe ls s3-connect:<bucket_name>
+   ./rclone.exe ls s3-connect:<bucket_name>
    ```
 
    If your configuration is correct, you will see a list of objects in the bucket.
@@ -271,58 +264,33 @@ You can perform advanced connection setup if required. To do this, type `y` at t
 1. Mount your bucket to the file system specifying the bucket name and an available drive letter in the file system:
 
    ```powershell
-   rclone.exe mount s3-connect:<bucket_name> <disk_letter>: --vfs-cache-mode full
+   ./rclone.exe mount s3-connect:<bucket_name> <disk_letter>: --vfs-cache-mode full --file-perms 0777 --dir-perms 0777
    ```
-   
+
    You will see a new disk with the objects from the bucket in Windows Explorer.
 
 1. To unmount the bucket, press **Ctrl** + **C**.
 
-## Set up the mounting service {#mount-service}
+## Set up automatic mounting {#auto-mount}
 
-To mount the bucket at your desktop startup, set up mounting on behalf of the system service. 
+For the bucket to mount automatically when the user logs in, create a [VBScript](https://{{ lang }}.wikipedia.org/wiki/VBScript) launch script and add it to the system registry. 
 
-1. In the `WinSW` utility folder, create a file named `WinSW-x64.xml` (`WinSW-x86.xml` if you have a 32-bit version of Windows) with the following contents:
-   
-   ```xml
-   <service>
-     <id>rclone</id>
-     <name>rclone-s3-disk</name>
-     <description>This service maps an S3 bucket as a system drive.</description>
-     <executable>"<working_folder_location>\rclone.exe"</executable>
-     <arguments>mount s3-connect:<bucket_name> <disk_letter>: --vfs-cache-mode full</arguments>
-     <log mode="roll" />
-     <onfailure action="restart" />
-   </service>
-   ```
+1. In the working folder on your local PC, create a file named `bucket_mount.vbs` and paste the following code into it:
 
-1. In the same folder, open the command prompt as an admin and run the following command:
+    ```text
+    Set WshShell = CreateObject("WScript.Shell")
+    command = "<path_to_rclone_folder>\rclone.exe mount s3-connect:<bucket_name> <drive_letter>: --vfs-cache-mode full --file-perms 0777 --dir-perms 0777"
+    WshShell.Run command, 0, False
+    ```
 
-   * If you have a 64-bit version of Windows:
+    In the file, specify the bucket name, drive letter, and full path to `rclone.exe`. For example, `C:\bucket-mounter\rclone\rclone.exe`.
 
-      ```cmd
-      .\WinSW-x64.exe install .\WinSW-x64.xml
-      ```
+1. Open your system registry editor, `regedit.exe`, and proceed as follows in the window that opens:
 
-   * If you have a 32-bit version of Windows:
+    1. Go to the `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run` branch and create a string parameter named `bucket-mounter` in it.
+    1. Change the `bucket-mounter` parameter value to full path to the VBS script file created earlier. For example: `C:\bucket-mounter\bucket_mount.vbs`
 
-      ```cmd
-      .\WinSW-x86.exe install .\WinSW-x86.xml
-      ```
-
-1. Open the Windows services panel and make sure you can see `rclone-s3-disk` in the list:
-
-   1. Press **Win** + **R**.
-   1. In the window that opens, enter `services.msc` and click **OK**.
-   1. In the list of services, find `rclone-s3-disk`.
-   
-1. Reboot your desktop and make sure the disk is available.
-
-{% note info %}
-
-You can also configure running the service on behalf of a system user (for more information, see [Service account](https://github.com/winsw/winsw/blob/v3/docs/xml-config-file.md#service-account) in the `WinSW` utility documentation).
-
-{% endnote %}
+From now on, your bucket will automatically mount into the OS each time the user logs on to the PC.
 
 ## How to delete the resources you created {#clear-out}
 

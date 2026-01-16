@@ -8,6 +8,7 @@ description: In this article, you will learn how to work with {{ baremetal-full-
 ## Servers {#servers}
 
 * [{#T}](./servers/server-lease.md)
+* [{#T}](./servers/custom-server-lease.md)
 * [{#T}](./servers/get-info.md)
 * [{#T}](./servers/server-update.md)
 * [{#T}](./servers/server-kvm.md)

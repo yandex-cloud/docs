@@ -10,6 +10,10 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2025: Статьи {#article-2025}
 
+* Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. 
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/performance-gains).
+
 * {{ VLK }} против {{ RD }}®: будущее in‑memory СУБД.
 
   * [Текст статьи](https://yandex.cloud/ru/blog/valkey-overview).

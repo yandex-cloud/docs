@@ -5,7 +5,6 @@ description: Follow this guide to manage a user in the {{ org-full-name }} My ac
 
 # Managing a user in the My account portal
 
-
 {% include [note-preview](../../_includes/note-preview.md) %}
 
 What you can do in the [_My account_](../concepts/my-account.md) portal depends on your account type:

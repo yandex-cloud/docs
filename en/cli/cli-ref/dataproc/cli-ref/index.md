@@ -16,15 +16,19 @@ Syntax:
 #### Command Tree
 
 - [yc dataproc cluster](cluster/index.md) — Manage DataProc clusters.
+	- [yc dataproc cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified cluster
 	- [yc dataproc cluster add-labels](cluster/add-labels.md) — Assign labels to a cluster.
 	- [yc dataproc cluster create](cluster/create.md) — Create a cluster.
 	- [yc dataproc cluster delete](cluster/delete.md) — Delete a cluster.
 	- [yc dataproc cluster get](cluster/get.md) — Get information about a cluster.
 	- [yc dataproc cluster list](cluster/list.md) — List clusters in a folder.
+	- [yc dataproc cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified cluster
 	- [yc dataproc cluster list-hosts](cluster/list-hosts.md) — List hosts for a cluster.
 	- [yc dataproc cluster list-operations](cluster/list-operations.md) — List operations for a cluster.
 	- [yc dataproc cluster list-ui-links](cluster/list-ui-links.md) — Show URLs of proxied web user interfaces.
+	- [yc dataproc cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified cluster
 	- [yc dataproc cluster remove-labels](cluster/remove-labels.md) — Remove labels from a cluster.
+	- [yc dataproc cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified cluster and delete all existing access bindings if there were any
 	- [yc dataproc cluster start](cluster/start.md) — Start a cluster.
 	- [yc dataproc cluster stop](cluster/stop.md) — Stop a cluster.
 	- [yc dataproc cluster update](cluster/update.md) — Modify attributes of a cluster.

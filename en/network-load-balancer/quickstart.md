@@ -43,7 +43,7 @@ To create a network load balancer:
 
 1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
 1. In the window that opens, specify these listener settings:
-
+  
    * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
    * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (ranging from `1` to `32767`) on which the load balancer will listen to incoming traffic.
    * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** (ranging from `1` to `32767`) to which the load balancer will direct traffic.
@@ -82,7 +82,7 @@ To create a network load balancer:
 
 To check the [status of the network load balancer](concepts/index.md#lb-statuses) and targets in the attached target group:
 
-1. In the [management console]({{ link-console-main }}), select the folder with the load balancer.
+1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
 1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. In the list, find the load balancer you created.
 1. Make sure the load balancer's status is `Active`, which means it is ready to distribute traffic across the targets.
