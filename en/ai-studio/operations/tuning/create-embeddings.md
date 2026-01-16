@@ -192,4 +192,4 @@ Once the model is fine-tuned, save its URI in this format: `emb://<folder_ID>/te
 * [{#T}](./create.md)
 * [{#T}](./tune-classifiers.md)
 * [{#T}](../../tutorials/models-fine-tuning.md)
-* For more SDK examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/tuning)
+* For more SDK examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/tuning).
