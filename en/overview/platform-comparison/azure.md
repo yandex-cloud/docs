@@ -11,7 +11,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Azure Application Gateway | [{{ si-full-name }}: {{ api-gw-name }}](../../api-gateway/) |
 | Azure Artifacts | [{{ cloud-registry-full-name }}](../../cloud-registry/) |
-| Azure Cache for Redis | [{{ mrd-full-name }}](../../managed-redis/) |
+| Azure Cache for Redis | [{{ mrd-full-name }}](../../managed-valkey/) |
 | Azure Container Apps | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Azure Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Azure Cosmos DB | [{{ mmg-full-name }}](../../storedoc/) |

@@ -19,6 +19,8 @@ editable: false
 
 Стоимость использования {{ search-api-name }} рассчитывается, исходя из количества инициированных поисковых запросов за календарный месяц ([Отчетный период](../billing/concepts/reporting-period.md)).
 
+Функциональность {{ wordstat-name }} на [стадии Preview](../overview/concepts/launch-stages.md) не тарифицируется.
+
 ## Цены для региона Россия {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}

@@ -92,6 +92,8 @@ items:
         href: diagnostics/index.md
       - name: Ошибки в работе KSPM
         href: diagnostics/kspm-diagnostics.md
+      - name: Ошибки в работе DSPM
+        href: diagnostics/dspm-diagnostics.md
   - name: Управление доступом
     items:
       - name: Общие роли {{ sd-name }}

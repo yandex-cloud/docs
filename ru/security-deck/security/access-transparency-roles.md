@@ -7,6 +7,8 @@ description: На данной странице приведен список р
 
 С помощью сервисных ролей {{ atr-name }} вы сможете настраивать модуль, а также просматривать аналитическую информацию о действиях, производимых инженерами {{ yandex-cloud }} с ресурсами организации в ходе технического обслуживания, работы с [обращениями](../../support/overview.md) или решения задач безопасности.
 
+{% include [roles-security-deck-transparency](../../_mermaid/roles/security-deck-transparency.md) %}
+
 #### access-transparency.viewer {#access-transparency-viewer}
 
 {% include [access-transparency.viewer](../../_roles/access-transparency/viewer.md) %}

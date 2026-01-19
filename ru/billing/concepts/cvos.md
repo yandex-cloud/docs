@@ -109,7 +109,7 @@ description: Из статьи вы узнаете, что такое резер
 * [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
 * [{{ mos-name }}](../../managed-opensearch/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)
-* [{{ mrd-name }}](../../managed-redis/pricing.md#cvos)
+* [{{ mrd-name }}](../../managed-valkey/pricing.md#cvos)
 * [{{ ydb-name }}](../../ydb/pricing/dedicated.md#cvos) 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

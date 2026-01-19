@@ -11,7 +11,7 @@ description: Пошаговые инструкции по работе с {{ con
   * [{{ mpg-name }}](#mdb-postgresql)
   * [{{ mch-name }}](#mdb-clickhouse)
   * [{{ mmy-name }}](#mdb-mysql)
-  * [{{ mrd-name }}](#mdb-redis)
+  * [{{ mrd-name }}](#mdb-valkey)
   * [{{ mos-name }}](#mdb-opensearch)
   * [{{ mmg-name }}](#mdb-mongodb)
   * [{{ mkf-name }}](#mdb-kafka)
@@ -20,7 +20,7 @@ description: Пошаговые инструкции по работе с {{ con
   * [{{ PG }}](#postgresql-on-premise)
   * [{{ CH }}](#clickhouse-on-premise)
   * [{{ MY }}](#mysql-on-premise)
-  * [{{ RD }}](#redis-on-premise)
+  * [{{ RD }}](#valkey-on-premise)
   * [{{ VLK }}](#valkey-on-premise)
   * [{{ TR }}](#trino-on-premise)
   * [{{ OS }}](#opensearch-on-premise)
@@ -495,7 +495,7 @@ description: Пошаговые инструкции по работе с {{ con
 
 {% endlist %}
 
-### {{ mrd-name }} {#mdb-redis}
+### {{ mrd-name }} {#mdb-valkey}
 
 {% list tabs group=instructions %}
 
@@ -556,9 +556,9 @@ description: Пошаговые инструкции по работе с {{ con
       
       * `--managed-cluster-id` — идентификатор кластера.
 
-        Идентификатор кластера можно получить со [списком кластеров](../../managed-redis/operations/cluster-list.md#list-clusters) в каталоге.
+        Идентификатор кластера можно получить со [списком кластеров](../../managed-valkey/operations/cluster-list.md#list-clusters) в каталоге.
       
-      * `--databases` — список баз данных, через запятую. Убедитесь, что у пользователя есть [необходимые права](../../managed-redis/security/index.md) на доступ к ним.
+      * `--databases` — список баз данных, через запятую. Убедитесь, что у пользователя есть [необходимые права](../../managed-valkey/security/index.md) на доступ к ним.
 
 
 - {{ TF }} {#tf}
@@ -621,9 +621,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `managed_cluster_id` — идентификатор кластера.
 
-          Идентификатор кластера можно получить со [списком кластеров](../../managed-redis/operations/cluster-list.md#list-clusters) в каталоге.
+          Идентификатор кластера можно получить со [списком кластеров](../../managed-valkey/operations/cluster-list.md#list-clusters) в каталоге.
 
-        * `databases` — список баз данных. Убедитесь, что у пользователя есть [необходимые права](../../managed-redis/security/index.md) на доступ к ним.
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть [необходимые права](../../managed-valkey/security/index.md) на доступ к ним.
 
         * `auth.user_password.user` — имя пользователя для подключения к кластеру.
 
@@ -1831,7 +1831,7 @@ description: Пошаговые инструкции по работе с {{ con
 
 {% endlist %}
 
-### {{ RD }} {#redis-on-premise}
+### {{ RD }} {#valkey-on-premise}
 
 {% list tabs group=instructions %}
 
@@ -2035,7 +2035,7 @@ description: Пошаговые инструкции по работе с {{ con
     1. В списке **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **{{ VLK }}**.
     1. В разделе **Подключение к {{ VLK }}** укажите параметры подключения:
        1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
-       1. В поле **Хосты** укажите [FQDN](../../glossary/fqdn.md) или IP-адреса хостов, входящих в шард, номер HTTP- или TCP-порта для подключения и имя [шарда](../../managed-redis/operations/connect/sharded.md).
+       1. В поле **Хосты** укажите [FQDN](../../glossary/fqdn.md) или IP-адреса хостов, входящих в шард, номер HTTP- или TCP-порта для подключения и имя [шарда](../../managed-valkey/operations/connect/sharded.md).
 
            Если вы создаете подключение к пользовательской инсталляции базы данных для использования с [{{ datalens-full-name }}](../../datalens/concepts/index.md), укажите внешние IP-адреса хостов.
 

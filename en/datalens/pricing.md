@@ -64,3 +64,4 @@ The cost of using {{ datalens-name }} depends on the number of seats per instanc
 * [Updated pricing policy as of December 1](./pricing-changes.md)
 * [Pricing and payment questions](./qa/pricing.md)
 * [Managing seats in {{ datalens-name }}](./settings/seats.md)
+

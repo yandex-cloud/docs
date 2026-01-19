@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 * [{{ mpg-full-name }}](../../managed-postgresql/operations/cluster-list.md);
 * [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-list.md);
 * [{{ mmy-full-name }}](../../managed-mysql/operations/cluster-list.md);
-* [{{ mrd-full-name }}](../../managed-redis/operations/cluster-list.md);
+* [{{ mrd-full-name }}](../../managed-valkey/operations/cluster-list.md);
 * [{{ mmg-full-name }}](../../storedoc/operations/cluster-list.md);
 * [{{ mgp-full-name }}](../../managed-greenplum/operations/cluster-list.md).
 

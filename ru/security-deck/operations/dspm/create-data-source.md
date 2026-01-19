@@ -43,6 +43,7 @@ description: Следуя данной инструкции, вы узнаете
 
       К одному источнику данных можно добавить любое количество групп ресурсов для сканирования.
   1. В блоке **Информация об источнике** задайте имя источника данных, по которому вы будете выбирать этот источник при [создании сканирования](./create-scan.md). Требования к имени:
+
       {% include [name-format](../../../_includes/name-format.md) %}
 
   1. {% include [source-info](../../../_includes/security-deck/source-info.md) %}
@@ -68,7 +69,7 @@ description: Следуя данной инструкции, вы узнаете
 
           Получить идентификатор можно в [профиле компании](https://admin.yandex.ru/company-profile) в аккаунте администратора организации.
 
-      1. Введите [OAuth token]({{ ya-oauth-url }}/authorize?response_type=token&client_id=c0e37287a72a43658011f68ef6e70def).
+      1. Введите [OAuth-токен]({{ ya-oauth-url }}/authorize?response_type=token&client_id=c0e37287a72a43658011f68ef6e70def).
       1. (Опционально) Чтобы обеспечить доступ к пользовательским ресурсам, например для сканирования пользовательских дисков, [создайте]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/security-service-applications) сервисное приложение и укажите параметры:
           * **ClientID**
           * **Client secret**

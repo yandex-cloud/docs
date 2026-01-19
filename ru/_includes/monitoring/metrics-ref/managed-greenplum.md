@@ -56,9 +56,24 @@ fqdn | FQDN хоста
 | `diskio.read_time`<br/>`DGAUGE`, миллисекунды | Длительность чтения с диска. |
 | `diskio.reads`<br/>`DGAUGE`, штуки | Количество операций чтения с диска. |
 | `diskio.weighted_io_time`<br/>`DGAUGE`, миллисекунды | Длительность ожидания операций ввода/вывода. |
-| `diskio.write_bytes`<br/>`DGAUGE`, байты | Объем записи на диск.  |
+| `diskio.write_bytes`<br/>`DGAUGE`, байты | Объем записи на диск. |
 | `diskio.write_time`<br/>`DGAUGE`, миллисекунды | Длительность записи на диск. |
 | `diskio.writes`<br/>`DGAUGE`, штуки | Количество операций записи на диск. |
+| `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Средний процент используемой квоты диска. |
+| `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Максимальный процент используемой квоты диска. |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, байты/с | Среднее количество байт, прочитанных с диска. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, прочитанных с диска. |
+| `monitoring_disk.read_latency`<br/>`DGAUGE`, миллисекунды | Гистограмма распределения времени обработки запросов на чтение с диска. |
+| `monitoring_disk.read_ops`<br/>`DGAUGE`, операции/с | Среднее количество операций чтения с диска. |
+| `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, операции/с | Максимальное количество операций чтения с диска. |
+| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, миллисекунды | Гистограмма задержки, вносимой в длительность выполнения операций чтения при превышении квоты диска. |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, байты/с | Среднее количество байт, записанных на диск. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, записанных на диск. |
+| `monitoring_disk.write_latency`<br/>`DGAUGE`, миллисекунды | Гистограмма распределения времени обработки запросов на запись на диск. |
+| `monitoring_disk.write_ops`<br/>`DGAUGE`, операции/с | Среднее количество операций записи на диск. |
+| `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, операции/с | Максимальное количество операций записи на диск. |
+| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, миллисекунды | Гистограмма задержки, вносимой в длительность выполнения операций записи при превышении квоты диска. |
+
 
 ## Метрики RAM {#managed-greenplum-ram-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |

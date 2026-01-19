@@ -5,7 +5,6 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/Wordstat/getRegionsDistri
 
 # Web Search API, gRPC: WordstatService.GetRegionsDistribution
 
-Not implemented.
 The method returns the distribution of the number of queries containing the given keyword globally by region for the last 30 days.
 
 ## gRPC request

@@ -80,7 +80,7 @@ Technical support includes diagnosing issues in third-party software used in con
     - [{{ mmg-full-name }}](../storedoc/index.yaml)
     - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
     - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
-    - [{{ mrd-full-name }}](../managed-redis/index.yaml)
+    - [{{ mrd-full-name }}](../managed-valkey/index.yaml)
     - [{{ mpg-full-name }}](../managed-postgresql/index.yaml)
 
 {% include [end-of-life](../_includes/compute/end-of-life.md) %}

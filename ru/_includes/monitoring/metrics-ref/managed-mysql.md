@@ -76,6 +76,20 @@ subcluster_name | Имя субкластера
 | `io.write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи на диски. | 
 | `io.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи в секунду. | 
 | `io.write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи в секунду. |
+| `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Средний процент используемой квоты диска. |
+| `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Максимальный процент используемой квоты диска. |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, байты/с | Среднее количество байт, прочитанных с диска. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, прочитанных с диска. |
+| `monitoring_disk.read_latency`<br/>`DGAUGE`, миллисекунды | Гистограмма распределения времени обработки запросов на чтение с диска. |
+| `monitoring_disk.read_ops`<br/>`DGAUGE`, операции/с | Среднее количество операций чтения с диска. |
+| `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, операции/с | Максимальное количество операций чтения с диска. |
+| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, миллисекунды | Гистограмма задержки, вносимой в длительность выполнения операций чтения при превышении квоты диска. |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, байты/с | Среднее количество байт, записанных на диск. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, записанных на диск. |
+| `monitoring_disk.write_latency`<br/>`DGAUGE`, миллисекунды | Гистограмма распределения времени обработки запросов на запись на диск. |
+| `monitoring_disk.write_ops`<br/>`DGAUGE`, операции/с | Среднее количество операций записи на диск. |
+| `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, операции/с | Максимальное количество операций записи на диск. |
+| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, миллисекунды | Гистограмма задержки, вносимой в длительность выполнения операций записи при превышении квоты диска. |
 
 ## Метрики RAM {#managed-mysql-ram-metrics}
 

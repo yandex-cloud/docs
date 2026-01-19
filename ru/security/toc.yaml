@@ -370,6 +370,10 @@ items:
               Передача логов кластера {{ managed-k8s-name }} в {{
               cloud-logging-name }}
             href: tutorials/kubernetes-security/k8s-fluent-bit-logging.md
+      - name: >-
+          Получение сведений для запроса на включение ресурса в белый список
+          Минцифры
+        href: tutorials/info-for-federal-ip-whitelist.md
   - name: Инструкции
     items:
       - name: Удаление аккаунта на Яндексе из {{ org-full-name }}

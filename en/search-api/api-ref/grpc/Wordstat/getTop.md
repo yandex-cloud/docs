@@ -5,7 +5,6 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/Wordstat/getTop.md
 
 # Web Search API, gRPC: WordstatService.GetTop
 
-Not implemented.
 The method returns the last 30 days data about popular queries containing the specified keyword and queries that are similar to the specified one.
 
 ## gRPC request

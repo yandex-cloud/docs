@@ -21,7 +21,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Amazon Elastic Compute Cloud | [{{ compute-full-name }}](../../compute/) |
 | Amazon Elastic Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Amazon Elastic Kubernetes Service | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
-| Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-redis/) |
+| Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-valkey/) |
 | Amazon EMR | [{{ dataproc-full-name }}](../../data-proc/) |
 | Amazon EMR Trino | [{{ mtr-full-name }}](../../managed-trino/) |
 | Amazon EventBridge | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |

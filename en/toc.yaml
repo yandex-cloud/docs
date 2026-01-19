@@ -89,8 +89,8 @@ items:
     href: managed-postgresql/index.yaml
   - name: Managed Service for Sharded PostgreSQL
     href: managed-spqr/index.yaml
-  - name: Yandex Managed Service for Valkey™
-    href: managed-redis/index.yaml
+  - name: '{{ mrd-full-name }}'
+    href: managed-valkey/index.yaml
   - name: Managed Service for Trino
     href: managed-trino/index.yaml
   - name: Managed Service for YTsaurus

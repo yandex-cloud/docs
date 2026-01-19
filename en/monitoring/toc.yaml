@@ -274,7 +274,7 @@ items:
       - name: '{{ mtr-name }}'
         href: metrics-ref/managed-trino-ref.md
       - name: '{{ mrd-name }}'
-        href: metrics-ref/managed-redis-ref.md
+        href: metrics-ref/managed-valkey-ref.md
       - name: '{{ ydb-name }}'
         href: metrics-ref/ydb-ref.md
       - name: '{{ message-queue-name }}'
