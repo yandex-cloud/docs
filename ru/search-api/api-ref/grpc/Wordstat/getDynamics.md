@@ -5,7 +5,6 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/Wordstat/getDynamics.md
 
 # Web Search API, gRPC: WordstatService.GetDynamics
 
-Not implemented.
 The method returns the frequency of queries over time for a given keyword.
 
 ## gRPC request

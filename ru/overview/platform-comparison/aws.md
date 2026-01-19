@@ -21,7 +21,7 @@ description: В этой статье сопоставляются сервис�
 | Amazon Elastic Compute Cloud | [{{ compute-full-name }}](../../compute/) |
 | Amazon Elastic Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Amazon Elastic Kubernetes Service | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
-| Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-redis/) |
+| Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-valkey/) |
 | Amazon EMR | [{{ dataproc-full-name }}](../../data-proc/) |
 | Amazon EMR Trino | [{{ mtr-full-name }}](../../managed-trino/) |
 | Amazon EMR Spark | [{{ msp-full-name }}](../../managed-spark/) |

@@ -28,6 +28,10 @@ items:
         href: concepts/kubernetes-responsibilities.md
       - name: Удаление данных пользователей
         href: concepts/data-deletion.md
+      - name: >-
+          Получение сведений для запроса на включение ресурса в белый список
+          Минцифры
+        href: concepts/info-for-federal-ip-whitelist.md
   - name: Сервисы {{ yandex-cloud }}
     expanded: true
     items:

@@ -37,7 +37,7 @@ sourcePath: en/monitoring_includes/metrics-ref/index.md
 * [{{ mos-full-name }}](managed-opensearch-ref.md)
 * [{{ mpg-full-name }}](managed-postgresql-ref.md)
 * [{{ mtr-full-name }}](managed-trino-ref.md)
-* [{{ mrd-full-name }}](managed-redis-ref.md)
+* [{{ mrd-full-name }}](managed-valkey-ref.md)
 * [{{ ydb-full-name }}](ydb-ref.md)
 * [{{ message-queue-full-name }}](message-queue-ref.md)
 * [{{ monitoring-full-name }}](monitoring-ref.md)

@@ -33,6 +33,7 @@ description: Различные сценарии использования по
 * [{#T}](export-logs-to-splunk.md)
 * [{#T}](export-logs-to-arcsight.md)
 * [{#T}](mgp-to-cloud-logging.md)
+* [{#T}](info-for-federal-ip-whitelist.md)
 
 ## Управление федерациями удостоверений {#federations}
 

@@ -51,7 +51,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ mmy-full-name }}](../managed-mysql/qa/all.md)
 * [{{ mos-full-name }}](../managed-opensearch/qa/index.md)
 * [{{ mpg-full-name }}](../managed-postgresql/qa/all.md)
-* [{{ mrd-full-name }}](../managed-redis/qa/general.md)
+* [{{ mrd-full-name }}](../managed-valkey/qa/general.md)
 * [{{ ydb-full-name }}](../ydb/faq.md)
 * [{{ message-queue-full-name }}](../message-queue/qa/index.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/qa/index.md)

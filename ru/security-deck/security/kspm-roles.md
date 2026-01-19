@@ -7,6 +7,8 @@ description: На данной странице приведен список с
 
 С помощью сервисных ролей [модуля Контроль {{ k8s }}®](../concepts/kspm.md) (KSPM) вы можете управлять доступом пользователей к ресурсам модуля и их настройкам, а также к данным, содержащимся в результатах контроля и алертам.
 
+{% include [roles-security-deck-kspm](../../_mermaid/roles/security-deck-kspm.md) %}
+
 #### kspm.worker {#kspm-worker}
 
 {% include [kspm.worker](../../_roles/kspm/worker.md) %}

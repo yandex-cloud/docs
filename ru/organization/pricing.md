@@ -27,6 +27,8 @@ description: В статье содержатся правила тарифик�
     serviceIds={['{{ pcs|identity-hub }}']}
     installationCode="ru"
     currency="RUB"
+    sortBy="price"
+    sortOrder="desc"
   />
 </MDX>
 

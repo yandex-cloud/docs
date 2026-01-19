@@ -1749,7 +1749,7 @@ For more information, see [{#T}](../managed-spqr/security.md).
 
 {% include [managed-redis.admin](../_roles/managed-redis/admin.md) %}
 
-For more information, see [{#T}](../managed-redis/security/index.md).
+For more information, see [{#T}](../managed-valkey/security/index.md).
 
 
 

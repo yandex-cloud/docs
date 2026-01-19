@@ -29,7 +29,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Cloud Load Balancing | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | Cloud Logging | [{{ cloud-logging-full-name }}](../../logging/) |
 | Cloud Marketplace | [{{ marketplace-full-name }}](../../marketplace/) |
-| Cloud Memorystore | [{{ mrd-full-name }}](../../managed-redis/) |
+| Cloud Memorystore | [{{ mrd-full-name }}](../../managed-valkey/) |
 | Cloud Pub/Sub | [{{ postbox-full-name }}](../../postbox/)<br/>[{{ yds-full-name }}](../../data-streams/)<br/>[{{ message-queue-full-name }}](../../message-queue/)<br/>[{{ cns-full-name }}](../../notifications/) |
 | Cloud Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | Cloud Run | [{{ cos-full-name }}](../../cos/)<br/>[{{ serverless-containers-full-name }}](../../serverless-containers/) |

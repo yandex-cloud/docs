@@ -15,7 +15,7 @@ If the charts indicate that the 100% upper limit is exceeded consistently, we re
 Metrics are described in our service guides, such as:
 * [{{ mpg-full-name }}](../../managed-postgresql/operations/monitoring.md).
 * [{{ mmy-full-name }}](../../managed-mysql/operations/monitoring.md).
-* [{{ mrd-full-name }}](../../managed-redis/operations/monitoring.md).
+* [{{ mrd-full-name }}](../../managed-valkey/operations/monitoring.md).
 
 You can see the most important metrics on a service dashboard. If you need a list of all service metrics, navigate to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. To export a full list of metrics, follow this [guide](../../monitoring/operations/metric/list.md).
 

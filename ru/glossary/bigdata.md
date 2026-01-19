@@ -112,7 +112,7 @@ Big Data — это крупные массивы разнообразной и�
 Запросы и отчеты | [{{ dataproc-name }}](/services/data-proc)<br>[{{ mgp-name }}](/services/managed-greenplum/)<br>[{{ mch-name }}](/services/managed-clickhouse/) | [Документация {{ dataproc-name }}](../data-proc/)<br>[Документация {{ mgp-name }}](../managed-greenplum/)<br>[Документация {{ mch-name }}](../managed-clickhouse/)
 New SQL | [{{ ydb-name }}](/services/ydb/) | [Документация {{ ydb-name }}](../ydb/)
 Документоориентированная СУБД | [{{ mmg-name }}](/services/storedoc/) | [Документация {{ mmg-name }}](../storedoc/)
-Резидентная СУБД | [{{ mrd-name }}](/services/managed-redis/) | [Документация {{ mrd-name }}](../managed-redis/)
+Резидентная СУБД | [{{ mrd-name }}](/services/managed-redis/) | [Документация {{ mrd-name }}](../managed-valkey/)
 БД «ключ — значение» | [{{ dataproc-name }}](/services/data-proc)<br>[{{ mgp-name }}](/services/managed-greenplum/)<br>[{{ mmg-name }}](/services/storedoc/) | [Документация {{ dataproc-name }}](../data-proc/)<br>[Документация {{ mgp-name }}](../managed-greenplum/)<br>[Документация {{ mmg-name }}](../storedoc/)
 БД временных рядов | [{{ mch-name }}](/services/managed-clickhouse/) | [Документация {{ mch-name }}](../managed-clickhouse/)
 Потоковая обработка | [{{ dataproc-name }}](/services/data-proc)<br>[{{ mkf-name }}](/services/managed-kafka/) | [Документация {{ dataproc-name }}](../data-proc/)<br>[Документация {{ mkf-name }}](../managed-kafka/)

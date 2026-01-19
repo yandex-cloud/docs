@@ -68,8 +68,11 @@ sourcePath: en/_events-ref/audit/compute/events-ref/DeleteSnapshotSchedule.md
     },
     // Includes only one of the fields `retentionPeriod`, `snapshotCount`
     "retentionPeriod": "string",
-    "snapshotCount": "string"
+    "snapshotCount": "string",
     // end of the list of possible fields
+    "diskIds": [
+      "string"
+    ]
   },
   "requestParameters": "object",
   "response": "object"
@@ -226,6 +229,7 @@ Includes only one of the fields `retentionPeriod`, `snapshotCount`. ||
 || snapshotCount | **string** (int64)
 
 Includes only one of the fields `retentionPeriod`, `snapshotCount`. ||
+|| diskIds[] | **string** ||
 |#
 
 ## SchedulePolicy {#yandex.cloud.compute.v1.SchedulePolicy}

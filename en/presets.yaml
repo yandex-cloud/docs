@@ -10349,9 +10349,30 @@ default:
         transfer-selected-projects: Transfer selected projects
     yc-ui-talkanalytics:
       assistants:
+        all-dialogs:
+          description: 'The assistant will be applied to each dialog loaded in the project. '
         applying: Enable assistant
         assistants: Assistants
+        create-assistant:
+          success: >-
+            The names of the fields in the API have been created, you can view
+            them in the "Result" column or on the assistant's page.
+        filtered-dialogs:
+          description: >-
+            The assistant will be applied to dialogs that meet the conditions
+            specified in the filters.
+        generate-prompt:
+          unknown-error: Failed to load the result. Please try again.
         prompt: Instructions
+        result:
+          description: >-
+            All values found in the dialogs (and taking instructions into
+            account) will be distributed among the fields added.  You can add
+            one or more fields and describe which data should be tracked in each
+            of them.
+        templates: Templates
+        testing:
+          description: Test your assistant before creating.
       common:
         add: Add
         add-filter: Add filter
@@ -10459,6 +10480,12 @@ default:
         dialogs: Dialogs
         projects: Projects
         sumarization: YandexGPT analysis
+      reinit:
+        action:
+          cancel:
+            title: Cancel recalculation
+        tab:
+          title: Recalculation tasks
       reports:
         add-parameter: Add parameter
         barchart: Chart
@@ -10512,6 +10539,7 @@ default:
         important-tag-key-value: Important tag
         key-phrases-key-value: Keywords
         new-channel: New channel
+        reinit: Recalculate
         restrict-search-area-key-value: Limit the search area
         search-area-key-value: Search direction
         search-area:

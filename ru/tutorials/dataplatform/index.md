@@ -141,10 +141,10 @@ description: На странице представлен список прак�
 * [{#T}](postgresql-to-opensearch.md)
 * [{#T}](postgresql-glibc-collation-issues.md)
 
-## {{ VLK }} {#redis}
+## {{ VLK }} {#valkey}
 
-* [{#T}](redis-data-migration.md)
-* [{#T}](redis-as-php-sessions-storage.md)
+* [{#T}](valkey-data-migration.md)
+* [{#T}](valkey-as-php-sessions-storage.md)
 
 ## {{ ydb-short-name }} {#ydb}
 

@@ -92,7 +92,6 @@ sourcePath: en/_api-ref/searchapi/v2/api-ref/Wordstat/getDynamics.md
 
 # Web Search API, REST: Wordstat.GetDynamics
 
-Not implemented.
 The method returns the frequency of queries over time for a given keyword.
 
 ## HTTP request

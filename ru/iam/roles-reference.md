@@ -1781,7 +1781,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-redis.admin](../_roles/managed-redis/admin.md) %}
 
-Подробнее см. [{#T}](../managed-redis/security/index.md).
+Подробнее см. [{#T}](../managed-valkey/security/index.md).
 
 
 ## {{ mms-full-name }} {#mms-roles}

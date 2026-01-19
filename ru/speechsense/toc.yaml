@@ -107,6 +107,12 @@ items:
             href: operations/dictionary/add.md
           - name: Удалить словарь
             href: operations/dictionary/delete.md
+      - name: Задачи на пересчет
+        items:
+          - name: Пересчет тегов
+            href: operations/task-recalculation/tags-recalc.md
+          - name: Пересчет ассистентов
+            href: operations/task-recalculation/assistants-recalc.md
       - name: Внешние интеграции
         items:
           - name: >-

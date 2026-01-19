@@ -29,6 +29,8 @@ You can [manage](#pricing-management) {{ org-name }} billing through the [{{ clo
     serviceIds={['{{ pcs|identity-hub }}']}
     installationCode="ru"
     currency="USD"
+    sortBy="price"
+    sortOrder="desc"
   />
 </MDX>
 

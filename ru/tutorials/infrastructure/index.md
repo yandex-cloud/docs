@@ -7,6 +7,7 @@ description: Различные сценарии использования си
 
 * [Архитектура и защита базового интернет-сервиса](../routing/web-service.md)
 * [{#T}](billing-resource-detailing.md)
+* [{#T}](./info-for-federal-ip-whitelist.md)
 
 ## Отказоустойчивость и масштабирование {#fault-tolerance}
 

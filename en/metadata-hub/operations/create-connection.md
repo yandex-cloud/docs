@@ -556,9 +556,9 @@ You can create connections of the following types:
       
       * `--managed-cluster-id`: Cluster ID.
 
-        You can get the cluster ID with the [list of clusters](../../managed-redis/operations/cluster-list.md#list-clusters) in the folder.
+        You can get the cluster ID with the [list of clusters](../../managed-valkey/operations/cluster-list.md#list-clusters) in the folder.
       
-      * `--databases`: Comma-separated list of databases. Make sure the user has the [required access permissions](../../managed-redis/security/index.md).
+      * `--databases`: Comma-separated list of databases. Make sure the user has the [required access permissions](../../managed-valkey/security/index.md).
 
 
 - {{ TF }} {#tf}
@@ -621,9 +621,9 @@ You can create connections of the following types:
 
         * `managed_cluster_id`: Cluster ID.
 
-          You can get the cluster ID with the [list of clusters](../../managed-redis/operations/cluster-list.md#list-clusters) in the folder.
+          You can get the cluster ID with the [list of clusters](../../managed-valkey/operations/cluster-list.md#list-clusters) in the folder.
 
-        * `databases`: List of databases. Make sure the user has the [required access permissions](../../managed-redis/security/index.md).
+        * `databases`: List of databases. Make sure the user has the [required access permissions](../../managed-valkey/security/index.md).
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
@@ -1843,7 +1843,7 @@ You can create connections of the following types:
     1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ RD }}**.
     1. Under **Connection to {{ RD }}**, specify the connection parameters:
        1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
-       1. In the **Hosts** field, specify the [FQDNs](../../managed-redis/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the shard name.
+       1. In the **Hosts** field, specify the [FQDNs](../../managed-valkey/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the shard name.
        1. Optionally, enable TLS.
     1. Under **Authentication**, specify a username and select how you want to set the password: 
         * **Enter manually**: Enter the password manually.
@@ -2032,7 +2032,7 @@ You can create connections of the following types:
     1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ VLK }}**.
     1. Under **Connection to {{ VLK }}**, specify the connection parameters:
        1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
-       1. In the **Hosts** field, specify the [FQDNs](../../managed-redis/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the [shard](../../managed-redis/operations/connect/sharded.md) name.
+       1. In the **Hosts** field, specify the [FQDNs](../../managed-valkey/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the [shard](../../managed-valkey/operations/connect/sharded.md) name.
 
            When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the hosts’ external IP addresses.
 

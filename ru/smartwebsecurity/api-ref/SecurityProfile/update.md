@@ -51,7 +51,6 @@ apiPlayground:
           description: |-
             **enum** (DefaultAction)
             Action to perform if none of rules matched.
-            - `DEFAULT_ACTION_UNSPECIFIED`
             - `ALLOW`: Pass request to service.
             - `DENY`: Deny request.
           type: string
@@ -89,31 +88,37 @@ apiPlayground:
           exactMatch:
             description: |-
               **string**
+              The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
           exactNotMatch:
             description: |-
               **string**
+              The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
           prefixMatch:
             description: |-
               **string**
+              The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
           prefixNotMatch:
             description: |-
               **string**
+              The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
           pireRegexMatch:
             description: |-
               **string**
+              The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
           pireRegexNotMatch:
             description: |-
               **string**
+              The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
         oneOf:
@@ -136,6 +141,7 @@ apiPlayground:
             description: |-
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               List of authorities. OR semantics implied.
+              The maximum number of elements is 20.
             type: array
             items:
               $ref: '#/definitions/StringMatcher'
@@ -146,6 +152,7 @@ apiPlayground:
             description: |-
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               List of HTTP methods. OR semantics implied.
+              The maximum number of elements is 20.
             type: array
             items:
               $ref: '#/definitions/StringMatcher'
@@ -156,6 +163,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Key of the query parameter.
+              The string length in characters must be 1-255.
             type: string
           value:
             description: |-
@@ -177,6 +185,7 @@ apiPlayground:
             description: |-
               **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
               List of query matchers. AND semantics implied.
+              The maximum number of elements is 20.
             type: array
             items:
               $ref: '#/definitions/QueryMatcher'
@@ -187,6 +196,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of header (case insensitive).
+              The string length in characters must be 1-255.
             type: string
           value:
             description: |-
@@ -203,6 +213,7 @@ apiPlayground:
             description: |-
               **string**
               List of IP ranges. OR semantics implied.
+              The maximum number of elements is 10000.
             type: array
             items:
               type: string
@@ -213,6 +224,7 @@ apiPlayground:
             description: |-
               **string**
               ISO 3166-1 alpha 2. OR semantics implied.
+              The minimum number of elements is 1.
             uniqueItems: true
             type: array
             items:
@@ -254,6 +266,7 @@ apiPlayground:
             description: |-
               **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
               Match HTTP headers.
+              The maximum number of elements is 20.
             type: array
             items:
               $ref: '#/definitions/HeaderMatcher'
@@ -269,7 +282,6 @@ apiPlayground:
             description: |-
               **enum** (Action)
               Action to perform if this rule matched.
-              - `ACTION_UNSPECIFIED`
               - `DENY`: Deny request.
             type: string
             enum:
@@ -287,7 +299,6 @@ apiPlayground:
             description: |-
               **enum** (Mode)
               Mode of protection.
-              - `MODE_UNSPECIFIED`
               - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
               with suspicious requests being sent to SmartCaptcha.
               - `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
@@ -309,7 +320,6 @@ apiPlayground:
             description: |-
               **enum** (Mode)
               Mode of protection.
-              - `MODE_UNSPECIFIED`
               - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
               with suspicious requests being sent to SmartCaptcha.
               - `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
@@ -338,6 +348,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the rule. The name is unique within the security profile. 1-50 characters long.
+              The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
             pattern: '[a-zA-Z0-9][a-zA-Z0-9-_.]*'
             type: string
           priority:
@@ -348,6 +359,7 @@ apiPlayground:
               The rule priority must be unique within the entire security profile.
               A lower numeric value means a higher priority.
               The default_action has the lowest priority.
+              Acceptable values are 1 to 999999, inclusive.
             type: string
             format: int64
           dryRun:
@@ -379,6 +391,7 @@ apiPlayground:
             description: |-
               **string**
               Optional description of the rule. 0-512 characters long.
+              The maximum string length in characters is 512.
             type: string
         required:
           - name
@@ -402,7 +415,6 @@ apiPlayground:
             description: |-
               **enum** (Action)
               Action to perform if maximum size of body exceeded.
-              - `ACTION_UNSPECIFIED`
               - `DENY`: Deny request.
             type: string
             enum:
@@ -775,7 +787,6 @@ Optional description of the security profile. ||
 
 Action to perform if none of rules matched.
 
-- `DEFAULT_ACTION_UNSPECIFIED`
 - `ALLOW`: Pass request to service.
 - `DENY`: Deny request. ||
 || securityRules[] | **[SecurityRule](#yandex.cloud.smartwebsecurity.v1.SecurityRule)**
@@ -800,14 +811,18 @@ A SecurityRule object, see [Rules](/docs/smartwebsecurity/concepts/rules).
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the rule. The name is unique within the security profile. 1-50 characters long. ||
+Required field. Name of the rule. The name is unique within the security profile. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || priority | **string** (int64)
 
 Determines the priority for checking the incoming traffic.
 Enter an integer within the range of 1 and 999999.
 The rule priority must be unique within the entire security profile.
 A lower numeric value means a higher priority.
-The default_action has the lowest priority. ||
+The default_action has the lowest priority.
+
+Acceptable values are 1 to 999999, inclusive. ||
 || dryRun | **boolean**
 
 This mode allows you to test your security profile or a single rule.
@@ -830,7 +845,9 @@ Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/conc
 Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
 || description | **string**
 
-Optional description of the rule. 0-512 characters long. ||
+Optional description of the rule. 0-512 characters long.
+
+The maximum string length in characters is 512. ||
 |#
 
 ## RuleCondition {#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition}
@@ -843,7 +860,6 @@ RuleCondition object.
 
 Action to perform if this rule matched.
 
-- `ACTION_UNSPECIFIED`
 - `ALLOW`: Pass request to service.
 - `DENY`: Deny request. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
@@ -869,7 +885,9 @@ Match HTTP method. ||
 Match Request URI. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
 
-Match HTTP headers. ||
+Match HTTP headers.
+
+The maximum number of elements is 20. ||
 || sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
 
 Match IP. ||
@@ -883,7 +901,9 @@ AuthorityMatcher object.
 ||Field | Description ||
 || authorities[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
-List of authorities. OR semantics implied. ||
+List of authorities. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher}
@@ -894,20 +914,32 @@ StringMatcher object.
 ||Field | Description ||
 || exactMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || exactNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 |#
@@ -920,7 +952,9 @@ HttpMethodMatcher object.
 ||Field | Description ||
 || httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
-List of HTTP methods. OR semantics implied. ||
+List of HTTP methods. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## RequestUriMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher}
@@ -934,7 +968,9 @@ RequestUriMatcher object. AND semantics implied.
 Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
 || queries[] | **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
 
-List of query matchers. AND semantics implied. ||
+List of query matchers. AND semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## QueryMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher}
@@ -945,7 +981,9 @@ QueryMatcher object.
 ||Field | Description ||
 || key | **string**
 
-Required field. Key of the query parameter. ||
+Required field. Key of the query parameter.
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
 Required field. Value of the query parameter. ||
@@ -959,7 +997,9 @@ HeaderMatcher object.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of header (case insensitive). ||
+Required field. Name of header (case insensitive).
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
 Required field. Value of the header. ||
@@ -985,7 +1025,9 @@ IpRangesMatcher object.
 ||Field | Description ||
 || ipRanges[] | **string**
 
-List of IP ranges. OR semantics implied. ||
+List of IP ranges. OR semantics implied.
+
+The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher}
@@ -996,7 +1038,9 @@ GeoIpMatcher object.
 ||Field | Description ||
 || locations[] | **string**
 
-ISO 3166-1 alpha 2. OR semantics implied. ||
+ISO 3166-1 alpha 2. OR semantics implied.
+
+The minimum number of elements is 1. ||
 |#
 
 ## SmartProtection {#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection}
@@ -1009,7 +1053,6 @@ SmartProtection object.
 
 Mode of protection.
 
-- `MODE_UNSPECIFIED`
 - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
 with suspicious requests being sent to SmartCaptcha.
 - `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
@@ -1029,7 +1072,6 @@ Waf object.
 
 Mode of protection.
 
-- `MODE_UNSPECIFIED`
 - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
 with suspicious requests being sent to SmartCaptcha.
 - `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
@@ -1053,7 +1095,6 @@ Maximum size of body to pass to analyzer. In kilobytes. ||
 
 Action to perform if maximum size of body exceeded.
 
-- `ACTION_UNSPECIFIED`
 - `IGNORE`: Ignore body.
 - `DENY`: Deny request. ||
 |#
@@ -1512,18 +1553,23 @@ ID of the security profile. ||
 ID of the folder that the security profile belongs to. ||
 || labels | **object** (map<**string**, **string**>)
 
-Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
+Labels as `` key:value `` pairs. Maximum of 64 per resource.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || name | **string**
 
-Required field. Name of the security profile. The name is unique within the folder. 1-50 characters long. ||
+Required field. Name of the security profile. The name is unique within the folder. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || description | **string**
 
-Optional description of the security profile. ||
+Optional description of the security profile.
+
+The maximum string length in characters is 512. ||
 || defaultAction | **enum** (DefaultAction)
 
 Required field. Action to perform if none of rules matched.
 
-- `DEFAULT_ACTION_UNSPECIFIED`
 - `ALLOW`: Pass request to service.
 - `DENY`: Deny request. ||
 || securityRules[] | **[SecurityRule](#yandex.cloud.smartwebsecurity.v1.SecurityRule2)**
@@ -1561,14 +1607,18 @@ A SecurityRule object, see [Rules](/docs/smartwebsecurity/concepts/rules).
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the rule. The name is unique within the security profile. 1-50 characters long. ||
+Required field. Name of the rule. The name is unique within the security profile. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || priority | **string** (int64)
 
 Determines the priority for checking the incoming traffic.
 Enter an integer within the range of 1 and 999999.
 The rule priority must be unique within the entire security profile.
 A lower numeric value means a higher priority.
-The default_action has the lowest priority. ||
+The default_action has the lowest priority.
+
+Acceptable values are 1 to 999999, inclusive. ||
 || dryRun | **boolean**
 
 This mode allows you to test your security profile or a single rule.
@@ -1591,7 +1641,9 @@ Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/conc
 Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
 || description | **string**
 
-Optional description of the rule. 0-512 characters long. ||
+Optional description of the rule. 0-512 characters long.
+
+The maximum string length in characters is 512. ||
 |#
 
 ## RuleCondition {#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition2}
@@ -1604,7 +1656,6 @@ RuleCondition object.
 
 Action to perform if this rule matched.
 
-- `ACTION_UNSPECIFIED`
 - `ALLOW`: Pass request to service.
 - `DENY`: Deny request. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition2)**
@@ -1630,7 +1681,9 @@ Match HTTP method. ||
 Match Request URI. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher2)**
 
-Match HTTP headers. ||
+Match HTTP headers.
+
+The maximum number of elements is 20. ||
 || sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher2)**
 
 Match IP. ||
@@ -1644,7 +1697,9 @@ AuthorityMatcher object.
 ||Field | Description ||
 || authorities[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
 
-List of authorities. OR semantics implied. ||
+List of authorities. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2}
@@ -1655,20 +1710,32 @@ StringMatcher object.
 ||Field | Description ||
 || exactMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || exactNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 |#
@@ -1681,7 +1748,9 @@ HttpMethodMatcher object.
 ||Field | Description ||
 || httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
 
-List of HTTP methods. OR semantics implied. ||
+List of HTTP methods. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## RequestUriMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher2}
@@ -1695,7 +1764,9 @@ RequestUriMatcher object. AND semantics implied.
 Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
 || queries[] | **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher2)**
 
-List of query matchers. AND semantics implied. ||
+List of query matchers. AND semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## QueryMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher2}
@@ -1706,7 +1777,9 @@ QueryMatcher object.
 ||Field | Description ||
 || key | **string**
 
-Required field. Key of the query parameter. ||
+Required field. Key of the query parameter.
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
 
 Required field. Value of the query parameter. ||
@@ -1720,7 +1793,9 @@ HeaderMatcher object.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of header (case insensitive). ||
+Required field. Name of header (case insensitive).
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
 
 Required field. Value of the header. ||
@@ -1746,7 +1821,9 @@ IpRangesMatcher object.
 ||Field | Description ||
 || ipRanges[] | **string**
 
-List of IP ranges. OR semantics implied. ||
+List of IP ranges. OR semantics implied.
+
+The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2}
@@ -1757,7 +1834,9 @@ GeoIpMatcher object.
 ||Field | Description ||
 || locations[] | **string**
 
-ISO 3166-1 alpha 2. OR semantics implied. ||
+ISO 3166-1 alpha 2. OR semantics implied.
+
+The minimum number of elements is 1. ||
 |#
 
 ## SmartProtection {#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection2}
@@ -1770,7 +1849,6 @@ SmartProtection object.
 
 Mode of protection.
 
-- `MODE_UNSPECIFIED`
 - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
 with suspicious requests being sent to SmartCaptcha.
 - `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
@@ -1790,7 +1868,6 @@ Waf object.
 
 Mode of protection.
 
-- `MODE_UNSPECIFIED`
 - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
 with suspicious requests being sent to SmartCaptcha.
 - `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
@@ -1814,7 +1891,6 @@ Maximum size of body to pass to analyzer. In kilobytes. ||
 
 Action to perform if maximum size of body exceeded.
 
-- `ACTION_UNSPECIFIED`
 - `IGNORE`: Ignore body.
 - `DENY`: Deny request. ||
 |#

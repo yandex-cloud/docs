@@ -30,7 +30,7 @@ Here is an example of setting up {{ monitoring-name }} metric collection in {{ p
    * `managed-mysql`: {{ mmy-name }}.
    * `managed-opensearch`: {{ mos-name }}.
    * `managed-postgresql`: {{ mpg-name }}.
-   * `managed-redis`: {{ mrd-name }}.
+   * `managed-valkey`: {{ mrd-name }}.
    * `managed-sqlserver`: {{ mms-name }}.
    * `message-queue`: {{ message-queue-name }}.
    * `monitoring`: {{ monitoring-name }}.

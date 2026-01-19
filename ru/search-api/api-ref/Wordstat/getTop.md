@@ -62,7 +62,6 @@ sourcePath: en/_api-ref/searchapi/v2/api-ref/Wordstat/getTop.md
 
 # Web Search API, REST: Wordstat.GetTop
 
-Not implemented.
 The method returns the last 30 days data about popular queries containing the specified keyword and queries that are similar to the specified one.
 
 ## HTTP request

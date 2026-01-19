@@ -72,6 +72,11 @@ description: Страница содержит все инструкции дл�
 * [{#T}](dictionary/add.md)
 * [{#T}](dictionary/delete.md)
 
+
+## Задачи на пересчет {#task-recalculation}
+* [{#T}](task-recalculation/tags-recalc.md)
+* [{#T}](task-recalculation/assistants-recalc.md)
+
 ## Внешние интеграции {#external-integrations}
 
 * [{#T}](external-integrations/create-datalens-connection.md)
