@@ -116,7 +116,7 @@ All the infrastructure components are scalable, both horizontally and vertically
 * The {{ managed-k8s-name }} cluster can be autoscaled by adding new nodes.
 * The {{ mpg-name }} cluster can autoscale its storage based on utilization, but adding additional cluster nodes is a manual operation.
 * {{ alb-name }} supports automatic and manual scaling depending on load. 
-* You can quickly expand the infrastructure using other managed services such as [{{ mrd-full-name }}](../managed-redis/index.yaml), [{{ mkf-full-name }}](../managed-kafka/index.yaml), [{{ objstorage-full-name }}](../storage/index.yaml), etc. 
+* You can quickly expand the infrastructure using other managed services such as [{{ mrd-full-name }}](../managed-valkey/index.yaml), [{{ mkf-full-name }}](../managed-kafka/index.yaml), [{{ objstorage-full-name }}](../storage/index.yaml), etc. 
 
 In addition to the built-in features, you can connect extra components:
 

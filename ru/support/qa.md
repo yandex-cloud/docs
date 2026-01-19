@@ -77,7 +77,7 @@ description: На странице представлены вопросы и о
     - [{{ mmg-full-name }}](../storedoc/index.yaml)
     - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
     - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
-    - [{{ mrd-full-name }}](../managed-redis/index.yaml)
+    - [{{ mrd-full-name }}](../managed-valkey/index.yaml)
     - [{{ mpg-full-name }}](../managed-postgresql/index.yaml)
 
 

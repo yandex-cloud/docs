@@ -153,9 +153,9 @@ links:
   - title: Managed Service for Trino
     description: Управление распределенным аналитическим SQL-движком Trino
     href: managed-trino/
-  - title: Yandex Managed Service for Valkey™
+  - title: '{{ mrd-full-name }}'
     description: Управление базой данных Valkey™
-    href: managed-redis/
+    href: managed-valkey/
   - title: Yandex Cloud Marketplace
     description: Инструменты и решения от ведущих вендоров
     href: marketplace/

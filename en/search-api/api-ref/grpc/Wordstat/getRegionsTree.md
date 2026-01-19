@@ -5,7 +5,6 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/Wordstat/getRegionsTree.m
 
 # Web Search API, gRPC: WordstatService.GetRegionsTree
 
-Not implemented.
 The method method returns a tree of Wordstat-supported regions.
 
 ## gRPC request

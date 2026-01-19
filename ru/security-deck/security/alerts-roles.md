@@ -7,6 +7,8 @@ description: На данной странице приведен список с
 
 С помощью сервисных ролей модуля [{{ alerts-name }}](../concepts/alerts.md) вы можете управлять ресурсами модуля и доступом к ним.
 
+{% include [roles-security-deck-alerts](../../_mermaid/roles/security-deck-alerts.md) %}
+
 #### security-deck.alertSinks.user {#security-deck-alertSinks-user}
 
 {% include [security-deck.alertSinks.user](../../_roles/security-deck/alertSinks/user.md) %}

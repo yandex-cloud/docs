@@ -18,6 +18,5 @@ Actions are performed by making RPC calls. For more information about API archit
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [WebSearchAsync](WebSearchAsync/index.md) | A set of methods for async search the Yandex search database. ||
 || [WebSearch](WebSearch/index.md) | A set of methods for searching the Yandex search database. ||
-|| [Wordstat](Wordstat/index.md) | Not implemented.
-A set of methods for viewing statistics on search queries to Yandex. ||
+|| [Wordstat](Wordstat/index.md) | A set of methods for viewing statistics on search queries to Yandex. ||
 |#

@@ -261,6 +261,10 @@ items:
         href: security/trails-logs-opensearch.md
       - name: Передача логов кластера {{ mgp-name }} в {{ cloud-logging-full-name }}
         href: security/mgp-to-cloud-logging.md
+      - name: >-
+          Получение сведений для запроса на включение ресурса в белый список
+          Минцифры
+        href: security/info-for-federal-ip-whitelist.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства
@@ -411,6 +415,10 @@ items:
           Анализ поресурсной детализации расходов с помощью {{ objstorage-name
           }}
         href: infrastructure/billing-resource-detailing.md
+      - name: >-
+          Получение сведений для запроса на включение ресурса в белый список
+          Минцифры
+        href: infrastructure/info-for-federal-ip-whitelist.md
       - name: Отказоустойчивость и масштабирование
         items:
           - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
@@ -1236,9 +1244,9 @@ items:
           в {{ GP }}
         href: dataplatform/pxf-named-queries.md
       - name: Миграция БД из стороннего кластера {{ VLK }} в {{ mrd-name }}
-        href: dataplatform/redis-data-migration.md
+        href: dataplatform/valkey-data-migration.md
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
-        href: dataplatform/redis-as-php-sessions-storage.md
+        href: dataplatform/valkey-as-php-sessions-storage.md
       - name: >-
           Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}

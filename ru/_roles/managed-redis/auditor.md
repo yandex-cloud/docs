@@ -1,1 +1,1 @@
-Роль `managed-redis.auditor` позволяет просматривать информацию о [хостах и кластерах](../../managed-redis/concepts/index.md) Valkey™, а также о [квотах](../../managed-redis/concepts/limits.md#mrd-quotas) и операциях с ресурсами сервиса Yandex Managed Service for Valkey™.
+Роль `managed-redis.auditor` позволяет просматривать информацию о [хостах и кластерах](../../managed-valkey/concepts/index.md) Valkey™, а также о [квотах](../../managed-valkey/concepts/limits.md#mrd-quotas) и операциях с ресурсами сервиса {{ mrd-full-name }}.

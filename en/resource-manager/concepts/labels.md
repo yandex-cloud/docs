@@ -65,7 +65,7 @@ Some service resources do not support labels, and some interfaces may not displa
 * [{{ mmy-full-name }}](../../managed-mysql/index.yaml)
 * [{{ mos-full-name }}](../../managed-opensearch/index.yaml)
 * [{{ mpg-full-name }}](../../managed-postgresql/index.yaml)
-* [{{ mrd-full-name }}](../../managed-redis/index.yaml)
+* [{{ mrd-full-name }}](../../managed-valkey/index.yaml)
 * [{{ ydb-full-name }}](../../ydb/index.yaml)
 * [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) ({{ connection-manager-full-name }} and {{ metastore-full-name }} clusters)
 

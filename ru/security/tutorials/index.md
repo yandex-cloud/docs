@@ -5,6 +5,8 @@ description: Различные практические руководства 
 
 # Практические руководства по безопасности в {{ yandex-cloud }}
 
+* [{#T}](./info-for-federal-ip-whitelist.md)
+
 ## Аутентификация и управление доступом {#authentication}
 
 * [{#T}](authentication/user-group-access-control.md)

@@ -55,7 +55,7 @@ Refer to service-specific migration guides:
 * [{{ mmy-name }}](../../managed-mysql/operations/host-migration.md).
 * [{{ mos-name }}](../../managed-opensearch/operations/host-migration.md).
 * [{{ mpg-name }}](../../managed-postgresql/operations/host-migration.md).
-* [{{ mrd-name }}](../../managed-redis/operations/host-migration.md).
+* [{{ mrd-name }}](../../managed-valkey/operations/host-migration.md).
 * [{{ ydb-name }}](../../ydb/operations/migration-to-an-availability-zone.md).
 * {{ mgp-name }}: To migrate, restore the cluster from a [backup](../../managed-greenplum/operations/cluster-backups.md).
 

@@ -30,7 +30,7 @@ sourcePath: ru/monitoring_includes/operations/metric/prometheusExport.md
    * `managed-mysql` — {{ mmy-name }}.
    * `managed-opensearch` — {{ mos-name }}.
    * `managed-postgresql` — {{ mpg-name }}.
-   * `managed-redis` — {{ mrd-name }}.
+   * `managed-valkey` — {{ mrd-name }}.
    * `managed-sqlserver` — {{ mms-name }}.
    * `message-queue` — {{ message-queue-name }}.
    * `monitoring` — {{ monitoring-name }}.

@@ -916,6 +916,7 @@ default:
   wiki-full-name: Яндекс Вики
   wiki-name: Вики
   wiki-short-name: Wiki
+  wordstat-name: Wordstat
   ya-360: Яндекс 360 для бизнеса
   ya-oauth-url: https://oauth.yandex.ru
   yagpt-full-name: YandexGPT API
@@ -10360,9 +10361,32 @@ default:
         transfer-selected-projects: Перенести выбранные проекты
     yc-ui-talkanalytics:
       assistants:
+        all-dialogs:
+          description: >-
+            Ассистент будет применяться к каждому загруженному диалогу в
+            проекте.
         applying: Использование
         assistants: Ассистенты
+        create-assistant:
+          success: >-
+            Названия полей в API созданы, вы можете их просмотреть в колонке
+            «Результат» или на странице ассистента.
+        filtered-dialogs:
+          description: >-
+            Ассистент будет применяться к диалогам, которые соответствуют
+            условиям, указанным в фильтрах.
+        generate-prompt:
+          unknown-error: Не удалось загрузить результат. Попробуйте ещё раз.
         prompt: Инструкция
+        result:
+          description: >-
+            Все значения, найденные в диалогах с учетом инструкции, будут
+            распределены по добавленным полям.  Вы можете добавить одно или
+            несколько полей и описать, какие данные нужно отслеживать в каждом
+            из них.
+        templates: Шаблоны
+        testing:
+          description: Возможность протестировать ассистента перед созданием.
       common:
         add: Добавить
         add-filter: Добавить фильтр
@@ -10470,6 +10494,12 @@ default:
         dialogs: Диалоги
         projects: Проекты
         sumarization: Анализ от YandexGPT
+      reinit:
+        action:
+          cancel:
+            title: Отменить пересчет
+        tab:
+          title: Задачи на пересчет
       reports:
         add-parameter: Добавить параметр
         barchart: График
@@ -10523,6 +10553,7 @@ default:
         important-tag-key-value: Важный тег
         key-phrases-key-value: Ключевые фразы
         new-channel: Новый канал
+        reinit: Пересчитать
         restrict-search-area-key-value: Ограничить область поиска
         search-area-key-value: Направление поиска
         search-area:

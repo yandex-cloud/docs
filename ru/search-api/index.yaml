@@ -32,12 +32,12 @@ links:
   - title: Ограничения и требования
     description: Ограничения и требования
     href: concepts/limits
-  - title: Выполнение запросов через API
-    description: Выполнение поисковых запросов с помощью API
-    href: operations/web-search
-  - title: XML-формат ответа
-    description: XML-формат ответа при текстовом поиске
-    href: concepts/response
+  - title: О сервисе {{ search-api-name }}
+    description: Обзор возможностей и интерфейсов сервиса
+    href: concepts/index
+  - title: '{{ wordstat-name }}'
+    description: API для просмотра статистики поисковых запросов
+    href: concepts/wordstat
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
@@ -57,3 +57,4 @@ meta:
     - интерфейс API v2
     - интерфейс API
     - генеративный ответ
+    - '{{ wordstat-name }} API'

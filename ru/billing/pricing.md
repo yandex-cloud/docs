@@ -75,7 +75,7 @@ editable: false
 * [{{ mos-full-name }}](../managed-opensearch/pricing.md)
 * [{{ mpg-full-name }}](../managed-postgresql/pricing.md)
 * [{{ mtr-full-name }}](../managed-trino/pricing.md)
-* [{{ mrd-full-name }}](../managed-redis/pricing.md)
+* [{{ mrd-full-name }}](../managed-valkey/pricing.md)
 * [{{ ydb-full-name }}](../ydb/pricing/index.md)
 * [{{ myt-full-name }}](../managed-ytsaurus/pricing.md)
 * [{{ message-queue-full-name }}](../message-queue/pricing.md)

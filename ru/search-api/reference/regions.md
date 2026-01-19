@@ -47,3 +47,5 @@
 || 213 | Москва | 16 | Ярославль ||
 || 23 | Мурманск | | ||
 |#
+
+Полный список всех регионов можно [получить](../operations/wordstat-getregiontree.md) с помощью метода Wordstat.getRegionsTree.

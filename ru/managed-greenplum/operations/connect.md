@@ -171,6 +171,68 @@ psql "host=c-{{ cluster-id }}.rw.{{ dns-zone }} \
 
 {% endlist %}
 
+
+## Подключение с авторизацией через IAM {#iam}
+
+К базе данных {{ GP }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../cli/quickstart.md#install), используя авторизацию через IAM. Для этого нужно привязать к пользователю {{ GP }} [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport) или [федеративный аккаунт](../../iam/concepts/users/accounts.md#saml-federation). Подключаться с авторизацией через IAM можно только к кластеру в публичном доступе, при этом использование SSL-сертификата не требуется.
+
+Перед подключением установите клиент {{ PG }}:
+
+```bash
+sudo apt update && sudo apt install --yes postgresql-client
+```
+
+Подготовьте кластер {{ mgp-name }} к подключению:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+
+  1. Нажмите на имя нужного кластера.
+
+  1. [Включите публичный доступ к кластеру](./update.md#change-public-access).
+ 
+  1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
+     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+     1. Введите электронную почту пользователя, к которой привязан аккаунт.
+     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** и выберите роль `managed-greenplum.clusters.connector`.
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+
+  1. Создайте пользователя {{ GP }} и предоставьте ему доступ к нужной БД:
+     1. Подключитесь к кластеру {{ mgp-name }} любым удобным методом.
+     1. Создайте пользователя {{ GP }}, указав в качестве его имени электронную почту, к которой привязан аккаунт:
+
+        ```sql
+        CREATE ROLE "<электронная_почта_аккаунта>"
+            LOGIN
+            ENCRYPTED PASSWORD '<пароль>';
+        ```
+     1. При необходимости [настройте привилегии](./roles-and-users.md#privileges) и атрибуты созданного пользователя {{ GP }}.
+
+  1. Добавьте правило аутентификации созданного пользователя:
+     1. Выберите вкладку **{{ ui-key.yacloud.greenplum.label_user-auth }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
+     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_add-rule }}** и задайте его параметры:
+
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-type }}** — тип соединения.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-databases }}** — имя БД.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-user }}** — электронная почта пользователя, к которой привязан аккаунт.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-address }}** — диапазон IP-адресов, с которых будет выполняться подключение к базе данных.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-method }}** — `iam`.
+
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
+
+Чтобы подключиться к БД {{ GP }}, выполните команду:
+
+```bash
+{{ yc-mdb-gp }} connect <имя_или_идентификатор_кластера> --db <имя_БД>
+```
+
+
 ## Подключение из {{ pgadmin }} {#connection-pgadmin}
 
 Подключение проверялось для [{{ pgadmin }}](https://www.pgadmin.org) версии 7.1 в macOS Ventura 13.0 и Microsoft Windows 10 Pro 21H1.

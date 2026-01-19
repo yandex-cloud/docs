@@ -36,7 +36,7 @@ These recommendations are addressed to architects, technical specialists, and in
 * [{{ mmg-full-name }}](../../../storedoc/)
 * [{{ mmy-full-name }}](../../../managed-mysql/)
 * [{{ mpg-full-name }}](../../../managed-postgresql/)
-* [{{ mrd-full-name }}](../../../managed-redis/)
+* [{{ mrd-full-name }}](../../../managed-valkey/)
 * [{{ ydb-full-name }}](../../../ydb/)
 * [{{ network-load-balancer-full-name }}](../../../network-load-balancer/)
 * [{{ objstorage-full-name }}](../../../storage/)

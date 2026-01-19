@@ -1198,9 +1198,9 @@ items:
       - name: >-
           Migrating a database from a third-party {{ VLK }} cluster to {{
           mrd-name }}
-        href: dataplatform/redis-data-migration.md
+        href: dataplatform/valkey-data-migration.md
       - name: Using a {{ mrd-name }} cluster as a PHP session storage
-        href: dataplatform/redis-as-php-sessions-storage.md
+        href: dataplatform/valkey-as-php-sessions-storage.md
       - name: >-
           Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
           data-transfer-name }}

@@ -59,7 +59,6 @@ sourcePath: en/_api-ref/searchapi/v2/api-ref/Wordstat/getRegionsDistribution.md
 
 # Web Search API, REST: Wordstat.GetRegionsDistribution
 
-Not implemented.
 The method returns the distribution of the number of queries containing the given keyword globally by region for the last 30 days.
 
 ## HTTP request
