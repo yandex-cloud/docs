@@ -11,6 +11,7 @@ description: This page provides a list of step-by-step guides for {{ mrd-name }}
 * [Creating a cluster](cluster-create.md)
 * [Updating cluster settings](update.md)
 * [{#T}](cluster-version-update.md)
+* [{#T}](modules.md)
 * [Stopping and starting a cluster](cluster-stop.md)
 * [Managing cluster hosts](hosts.md)
 * [Migrating hosts to a different availability zone](host-migration.md)
@@ -38,4 +39,4 @@ description: This page provides a list of step-by-step guides for {{ mrd-name }}
 ## Logs and monitoring {#logs-and-monitoring}
 
 * [Viewing cluster logs](cluster-logs.md)
-* [Monitoring the state of clusters and hosts](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)

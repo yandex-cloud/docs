@@ -1,9 +1,9 @@
 ---
-title: Monitoring the state of a {{ GP }} cluster and its hosts
+title: '{{ GP }} cluster and host status monitoring'
 description: Follow this guide to get detailed information about a {{ GP }} cluster's state.
 ---
 
-# Monitoring the state of a {{ GP }} cluster and its hosts
+# {{ GP }} cluster and host status monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -11,7 +11,7 @@ Charts are updated every {{ graph-update }}.
 
 {% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
-## Monitoring the cluster state {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view detailed information on the state of a {{ GP }} cluster:
 
@@ -19,10 +19,10 @@ To view detailed information on the state of a {{ GP }} cluster:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. Click the name of your cluster and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** tab.
       
-        The page that opens will display the performance charts for the {{ GP }} cluster.
+        The page that opens will display performance charts for the {{ GP }} cluster.
 
     1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -57,18 +57,18 @@ To view detailed information on the state of a {{ GP }} cluster:
 
         * **admin_group**: In the administrative group.
         * **default_group**: In the default group.
-
+    
     * **Master**: Definition of the primary master host.
     * **Alive hosts**: Availability of the cluster host.
     * **Alive segments**: Availability of the primary and backup master as well as of the primary and mirror segment.
     * **Connection pooler**:
-
+        
         * **Client connections**: Number of available and busy client connections in the pool.
         * **Server connections**: Number of available and busy server connections in the pool.
         * **TCP connections**: Number of TCP connections in the pool.
 
     * **Background activities**:
-
+    
         * Table maintenance:
 
           * **Tables vacuum age**: Number of custom tables that were [vacuumed](../concepts/maintenance.md#custom-table-vacuum) N days ago.
@@ -83,7 +83,7 @@ To view detailed information on the state of a {{ GP }} cluster:
             This chart will show the current progress, even if the data redistribution was started not as a [background process](../concepts/expand.md#setting-delay-redistribution).
 
             {% endnote %}
-
+        
         * System catalog bloat statistics:
 
           * **Total catalog size**: Catalog size for all segments.
@@ -93,7 +93,7 @@ To view detailed information on the state of a {{ GP }} cluster:
           The chart does not display all the [bloat metrics](../metrics.md#managed-greenplum-bloat-metrics). You can build the charts for the rest of the metrics yourself.
           
           > For example, to get the `live_tuple` count in a catalog on the master, [run this request](../../monitoring/operations/metric/metric-explorer.md#add-graph):
-
+          >
           > `alias(series_max("gp_vacuum.pg_attribute_live_tuples_master"{folderId = "b1g4unjqq856********", service = "managed-greenplum", resource_id = "c9q35r4odgeb********"}), "not_var{{ database }}")`
           
           See [{#T}](../metrics.md#managed-greenplum-bloat-metrics) for the list of available metrics.
@@ -111,7 +111,7 @@ To view detailed information on the state of a {{ GP }} cluster:
 
 {% endlist %}
 
-## Monitoring the state of hosts {#monitoring-hosts}
+## Host state monitoring {#monitoring-hosts}
 
 To view detailed information on the state of individual {{ GP }} hosts:
 
@@ -119,42 +119,68 @@ To view detailed information on the state of individual {{ GP }} hosts:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the cluster name and select the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
-    1. Select a host from the drop-down list.
+    1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+    1. Select the host you need.
 
-    This page displays charts showing the workload of an individual cluster host (master or segment):
+        The page that opens will display state charts for the cluster host.
 
-    * **CPU**: Processor core workload. As the load goes up, the `Idle` value goes down.
-    * **Disk IOPS in progress**: Number of pending disk operations.
-    * **Disk io time**: Duration of disk operations.
-    * **Disk read and write**: Amount of data in disk operations (in bytes).
-    * **Disk read and write time**: Duration of disk reads and writes.
-    * **Disk usage**: Disk space usage (two charts are displayed, in bytes and %).
+    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+
+    The page displays the following charts:
+    
+    * **Disk usage**: Amount of occupied disk space, in bytes.
+    * **Load Average**: Average load on CPU cores over one minute, five minutes, and 15 minutes.
+    * **CPU**: Processor core workload. As the workload goes up, the `Idle` value goes down.
+    * **Virtual memory usage**: Amount of VRAM used, in bytes.
+    * **Disk Await**: Average time per disk operation.
     * **Memory usage**: Amount of RAM used, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
-    * **Network**: Amount of network traffic, in bytes.
+    * **Disk IOPS**: Number of disk operations per second.
+    * **Network Bytes**: Network data exchange rate.
+    * **Disk IOPS in progress**: Number of pending disk operations.
+    * **Network Packets**: Network packet rate.
+    * **Disk Metrics Details**:
+      * **Disk used quota**: Disk operation quota usage.
+      * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, in percentiles.
+      * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, in percentiles.
+      * **Disk read latency (percentiles)**: Disk read time, in percentiles.
+      * **Disk write latency (percentiles)**: Disk write time, in percentiles.
+      * **Disk read operations**: Average and maximum number of read operations per second.
+      * **Disk write operations**: Average and maximum number of write operations per second.
+      * **Disk read bytes**: Average and maximum disk read rate.
+      * **Disk write bytes**: Average and maximum disk write rate.
 
 {% endlist %}
 
-## Monitoring the network state {#monitoring-network}
+## Network state monitoring {#monitoring-network}
 
-To view detailed information about the state of a {{ GP }} cluster's network:
+To view detailed information about the network state of each host in a {{ GP }} cluster:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_network }}** tab.
 
-    This page displays the following charts:
+        The page that opens will display network state charts for each cluster host.
+
+        {% note info %}
+        
+        You can select a host to see the network state charts for that host alone.
+
+        {% endnote %}
+
+    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+
+    The page displays the following charts:
 
     * **Interfaces**:
         * **Client Interface Packets**: Number of received and sent packets on the client network interface.
-        * **Client Interface Packets**: Total amount of received and sent data on the client network interface, in bytes.
-        * **Client Interface Drops and Errors**: Number of errors and drops on the client network interface when sending or transmitting packets.
         * **Service Interface Packets**: Number of received and sent packets on the service network interface.
+        * **Client Interface Packets**: Total amount of received and sent data on the client network interface, in bytes.
         * **Service Interface Packets**: Total amount of received and sent data on the service network interface, in bytes.
+        * **Client Interface Drops and Errors**: Number of errors and drops on the client network interface when sending or transmitting packets.
         * **Service Interface Drops and Errors**: Number of errors and drops on the service network interface when sending or transmitting packets.
 
     * **CPU**:
@@ -162,30 +188,30 @@ To view detailed information about the state of a {{ GP }} cluster's network:
 
     * **Ping and SSH response time**:
         * **Host Ping Average Response**: Average ping response time (in milliseconds).
-        * **Host Ping Packet Loss**: Lost ping packets (percentage).
         * **Host SSH Response Time**: Response time when connecting over SSH (in milliseconds).
-
+        * **Host Ping Packet Loss**: Lost ping packets (percentage).
+        
     * **TCP counters**:
         * **TcpActiveConnection**: Number of active TCP connections in the `ESTABLISHED` or `CLOSE-WAIT` state.
-        * **TCP Errors**: Number of errors when transmitting TCP packets.
         * **TcpEstabPresets**: Number of times TCP connections have made a direct transition to the `CLOSED` state from either the `ESTABLISHED` or `CLOSE-WAIT` state.
+        * **TCP Errors**: Number of errors when transmitting TCP packets.
         * **TCP Retransmission**: Number of retransmitted TCP packets.
 
     * **ICMP Counters**:
         * **IcmpErrors**: Number of ICMP error messages.
-        * **Icmp6PacketsTooBig**: Number of ICMPv6 Packet Too Big messages.
         * **IcmpDestUnreached**: Number of ICMP and ICMPv6 Destination Unreachable messages.
+        * **Icmp6PacketsTooBig**: Number of ICMPv6 Packet Too Big messages.
 
     * **UDP counters**:
         * **UdpSndbufErrors**: Number of buffer errors when sending UDP packets.
-        * **UDP Datagrams**: Number of UDP packets.
         * **UdpRcvbufErrors**: Number of buffer errors when receiving UDP packets.
+        * **UDP Datagrams**: Number of UDP packets.
         * **UDP NoPorts**: Number of UDP packets received without a listener on the destination port.
 
     * **IP**:
         * **IpMulticastPackets**: Number of received and sent multicast packets.
-        * **Ip6 Neighbor Discovery**: Number of sent requests and router advertisements.
         * **IpBroadcastPackets**: Number of received and sent broadcast packets.
+        * **Ip6 Neighbor Discovery**: Number of sent requests and router advertisements.
         * **Ip6NoRoutes**: Number of IPv6 packets discarded because no route could be found.
 
 {% endlist %}
@@ -198,33 +224,26 @@ To view detailed information about the [PXF](external-tables.md) state:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** tab.
 
-    This page displays the following charts:
+        The page that opens will display PXF state charts.
+
+    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+
+    The page displays the following charts:
 
     * **Liveness**: PXF state on hosts.
-
-    * **Connections**: Number of connections.
-
-    * **Log messages**: Number of messages of the `warn`, `trace`, `info`, `fatal`, `error`, and `debug` types.
-
-    * **File handles**: Number of files opened during the PXF process.
-
     * **JVM memory**: JVM PXF memory usage (in GB).
-
-    * **PXF threads**: Number of PXF threads.
-
-    * **Sent data**: Amount of sent data.
-
-    * **Sent records**: Number of records sent by PXF.
-
     * **JVM threads**: Number of JVM PXF threads.
-
+    * **Connections**: Number of connections.
+    * **PXF threads**: Number of PXF threads.
     * **PXF Busy threads**: Number of busy PXF threads.
-
+    * **Log messages**: Number of messages of the `warn`, `trace`, `info`, `fatal`, `error`, and `debug` types.
+    * **Sent data**: Amount of sent data.
     * **Received data**: Amount of received data.
-
+    * **File handles**: Number of files opened during the PXF process.
+    * **Sent records**: Number of records sent by PXF.
     * **Received records**: Number of records received by PXF.
 
 {% endlist %}
@@ -238,22 +257,26 @@ To view a dashboard for a {{ GP }} cluster, do the following:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Dashboard** tab.
 
-    This page displays the following charts:
+        The page that opens will display the cluster dashboard charts.
+
+    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+
+    The page displays the following charts:
 
     * **Running queries**:
         * **Test write query**: Execution time of a test write query with the `DISTRIBUTED REPLICATED` policy.
-        * **Test read query**: Execution time of a test read query where data is fetched from a random segment.
-        * **Overall cluster's query execution time**: Histogram of query execution time in the cluster.
+        * **Test read query**: Execution time of a test read query from a random segment.
+        * **Overall cluster's query execution time**: Cluster query execution time histogram.
 
     * **Cluster liveliness**:
         * **Cluster sessions**: Number of sessions in these states:
             * **active**: Processing a query.
-            * **waiting**: Waiting for a command.
-            * **idle in transaction**: Started the transaction, but the query is idle (e.g., pending `COMMIT`).
-        * **Number of live segments**: Number of running segment instances including mirrors.
+            * **waiting**: Awaiting a command.
+            * **idle in transaction**: Transaction started but no query is being executed (e.g., pending `COMMIT`).
+        * **Number of live segments**: Number of running segment instances, including mirrors.
         * **Queries sent to the cluster**: Number of accepted and interrupted (canceled) queries.
 
     * **Segments health**:
@@ -263,18 +286,18 @@ To view a dashboard for a {{ GP }} cluster, do the following:
         * **Number of network packets**: Number of received and sent packets on network interfaces by segment host. Values close to the limit may cause delays in processing queries.
         * **Number of network packets in queues**: Number of packets in queues on network interfaces by segment host. Values close to the limit may cause delays in processing queries.
         * **Network traffic**: Bandwidth utilization for incoming network traffic by segment host. Values close to the limit may cause delays in processing queries.
-        * **Ping time**: Time of running a ping from the master host to the cluster's segment hosts.
-        * **Query execution time per segment**: Total execution time for query slices on each of the cluster's segment hosts.
+        * **Ping time**: Ping time from the master host to the cluster's segment hosts.
+        * **Query execution time per segment**: Total time spent on query slices on each of the cluster's segment hosts.
 
     * **Database internal metrics**:
-        * **Free memory for resource groups**: Indicates available RAM by [resource group](../concepts/resource-groups.md).
-        * **Summary CPU usage for resource groups**: Total CPU usage by resource groups on the cluster. This value is collected from all cluster hosts and may exceed 100%.
-        * **CPU throttle time for cgroups**: Time period during which resource group processes need to wait for CPU time due to its full utilization (by host). An exponential increase in this value (from milliseconds to minutes) may cause delays in processing queries.
+        * **Free memory for resource groups**: Available RAM by [resource group](../concepts/resource-groups.md).
+        * **Summary CPU usage for resource groups**: Total CPU usage by the cluster's resource groups. This value is collected from all cluster hosts and may exceed 100%.
+        * **CPU throttle time for cgroups**: Time during which resource group processes get no CPU time due to its full utilization (by host). An exponential increase in this value (from milliseconds to minutes) may cause delays in processing queries.
         * **Summary spill size**: Total size of temporary (spill) files created as a result of RAM shortage.
-        * **Interconnect quality**: Percentage of packet retransmissions between segments ([{{ GP }} Interconnect]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect) traffic) in the total volume of packets sent from each segment host. The higher the value, the less stable the network.
+        * **Interconnect quality**: Packet retransmissions between segments ([{{ GP }} Interconnect]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect) traffic) as a percentage of the total volume of packets sent from each segment host. The higher the value, the less stable the network.
         * **Background activity - the number of sessions**: Number of system sessions on each segment in the following states:
             * **active**: Processing a query.
-            * **idle**: Waiting for a command.
+            * **idle**: Awaiting a command.
             * **aborted**: Terminated with an error.
         * **Background activity - the longest query**: Execution time of the longest system query on each segment.
 
@@ -290,8 +313,12 @@ To view information on {{ GP }} resource groups:
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ mgp-short-name }}**.
     1. Click the cluster name and select ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups**.
+      
+        The page that opens will display performance charts for resource groups.
 
-    This page displays the following charts:
+    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+
+    The page displays the following charts:
  
     * **CPU Usage**: Total CPU usage across all hosts in a resource group.
     * **Memory Usage**: Total memory usage across all hosts in a resource group.
@@ -311,8 +338,12 @@ You can also view information on resource groups for each {{ GP }} cluster host:
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ mgp-short-name }}**.
     1. Click the cluster name and select ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups per host**.
+      
+        The page that opens will display performance charts for resource groups by host.
 
-    This page displays the following charts:
+    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+
+    The page displays the following charts:
  
     * **CPU Usage**: Total CPU usage in a resource group within a host.
     * **Memory Usage**: Total memory usage in a resource group within a host.
@@ -333,7 +364,7 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
       * **{{ mgp-name }} — Cluster Overview** to set up cluster alerts.
       * **{{ mgp-name }} — Host Overview** to set up host alerts.
   1. In the indicator chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. If the chart shows multiple indicators, select a data query to create a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see this [{{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
+  1. If the chart shows multiple indicators, select a data query to create a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
@@ -341,7 +372,7 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-For a complete list of supported metrics, see this [{{ monitoring-name }} article](../../monitoring/metrics-ref/managed-greenplum-ref.md).
+For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-greenplum-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}
@@ -350,10 +381,10 @@ For a complete list of supported metrics, see this [{{ monitoring-name }} articl
 
 To check the cluster’s state and status:
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
 1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
-### Cluster health {#cluster-health}
+### Cluster states {#cluster-health}
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 

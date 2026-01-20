@@ -21,13 +21,17 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, you need the `mdb.admin` role, the `managed-greenplum.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, `managed-greenplum.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 ## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+To allow access to {{ mgp-name }} resources, assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
+
+You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../../cli), or [API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 
@@ -90,9 +94,9 @@ When you create a {{ GP }} cluster, an admin user with the `mdb_admin` role is c
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles are required {#required-roles}
+## Required roles {#required-roles}
 
-To use {{ maf-name }}, you need the [{{ roles.mgp.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder to house the new cluster. The `{{ roles.mgp.viewer }}` role only allows you to view the list of clusters.
+As a user, you need the [{{ roles.mgp.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mgp.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
 

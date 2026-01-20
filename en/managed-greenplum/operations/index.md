@@ -9,7 +9,7 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
-* [Editing cluster configuration](cluster-config.md)
+* [Editing a cluster's configuration](cluster-config.md)
 * [Updating cluster settings](update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
 * [{#T}](cluster-expand.md)
@@ -29,7 +29,7 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 * [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
 
-## PXF external tables {#pxf}
+## External PXF tables {#pxf}
 
 * [{#T}](external-tables.md)
 * [{#T}](pxf/create-s3-source.md)
@@ -46,15 +46,17 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 ## {{ GP }} extensions {#extensions}
 
 * [Managing extensions](./extensions/cluster-extensions.md)
-* [Using pgcrypto](./extensions/pgcrypto.md)
-* [Using uuid-cb](./extensions/uuid-cb.md)
+* [Using `gp_relsizes_stats`](./extensions/gp-relsizes-stats.md)
+* [Using `gp_url_tools`](./extensions/gp-url-tools.md)
+* [Using `pgcrypto`](./extensions/pgcrypto.md)
+* [Using `uuid-cb`](./extensions/uuid-cb.md)
 
 ## Logs and monitoring {#logs-and-monitoring}
 
 * [Viewing cluster logs](cluster-logs.md)
 * [Viewing cluster operations](cluster-operations.md)
 * [{#T}](performance-diagnostics.md)
-* [Monitoring the state of clusters and hosts](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)
 * [Transferring cluster logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md)
 
 ## Auxiliary utilities {#tools}

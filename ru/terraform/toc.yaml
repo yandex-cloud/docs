@@ -45,23 +45,8 @@ items:
             items:
               - name: Data Sources
                 items:
-                  - name: mdb_greenplum_cluster_v2
-                    href: data-sources/mdb_greenplum_cluster_v2.md
-                    title: ''
-                  - name: organizationmanager_mfa_enforcement
-                    href: data-sources/organizationmanager_mfa_enforcement.md
-                    title: ''
-                title: ''
-              - name: Resources
-                items:
-                  - name: mdb_greenplum_cluster_v2
-                    href: resources/mdb_greenplum_cluster_v2.md
-                    title: ''
-                  - name: organizationmanager_mfa_enforcement
-                    href: resources/organizationmanager_mfa_enforcement.md
-                    title: ''
-                  - name: organizationmanager_mfa_enforcement_audience
-                    href: resources/organizationmanager_mfa_enforcement_audience.md
+                  - name: datatransfer_endpoint
+                    href: data-sources/datatransfer_endpoint.md
                     title: ''
                 title: ''
             title: ''
@@ -307,6 +292,9 @@ items:
                   - name: organizationmanager_idp_userpool
                     href: data-sources/organizationmanager_idp_userpool.md
                     title: ''
+                  - name: organizationmanager_mfa_enforcement
+                    href: data-sources/organizationmanager_mfa_enforcement.md
+                    title: ''
                   - name: organizationmanager_os_login_settings
                     href: data-sources/organizationmanager_os_login_settings.md
                     title: ''
@@ -342,9 +330,19 @@ items:
                     href: >-
                       resources/organizationmanager_idp_application_oauth_application.md
                     title: ''
+                  - name: >-
+                      organizationmanager_idp_application_oauth_application_assignment
+                    href: >-
+                      resources/organizationmanager_idp_application_oauth_application_assignment.md
+                    title: ''
                   - name: organizationmanager_idp_application_saml_application
                     href: >-
                       resources/organizationmanager_idp_application_saml_application.md
+                    title: ''
+                  - name: >-
+                      organizationmanager_idp_application_saml_application_assignment
+                    href: >-
+                      resources/organizationmanager_idp_application_saml_application_assignment.md
                     title: ''
                   - name: >-
                       organizationmanager_idp_application_saml_signature_certificate
@@ -356,6 +354,12 @@ items:
                     title: ''
                   - name: organizationmanager_idp_userpool
                     href: resources/organizationmanager_idp_userpool.md
+                    title: ''
+                  - name: organizationmanager_mfa_enforcement
+                    href: resources/organizationmanager_mfa_enforcement.md
+                    title: ''
+                  - name: organizationmanager_mfa_enforcement_audience
+                    href: resources/organizationmanager_mfa_enforcement_audience.md
                     title: ''
                   - name: organizationmanager_organization_iam_binding
                     href: resources/organizationmanager_organization_iam_binding.md
@@ -872,6 +876,9 @@ items:
                   - name: mdb_clickhouse_cluster
                     href: resources/mdb_clickhouse_cluster.md
                     title: ''
+                  - name: mdb_clickhouse_cluster_v2
+                    href: resources/mdb_clickhouse_cluster_v2.md
+                    title: ''
                   - name: mdb_clickhouse_database
                     href: resources/mdb_clickhouse_database.md
                     title: ''
@@ -902,6 +909,9 @@ items:
                   - name: mdb_greenplum_cluster
                     href: data-sources/mdb_greenplum_cluster.md
                     title: ''
+                  - name: mdb_greenplum_cluster_v2
+                    href: data-sources/mdb_greenplum_cluster_v2.md
+                    title: ''
                   - name: mdb_greenplum_resource_group
                     href: data-sources/mdb_greenplum_resource_group.md
                     title: ''
@@ -913,6 +923,9 @@ items:
                 items:
                   - name: mdb_greenplum_cluster
                     href: resources/mdb_greenplum_cluster.md
+                    title: ''
+                  - name: mdb_greenplum_cluster_v2
+                    href: resources/mdb_greenplum_cluster_v2.md
                     title: ''
                   - name: mdb_greenplum_resource_group
                     href: resources/mdb_greenplum_resource_group.md

@@ -16,7 +16,7 @@ To use the service, log in to the management console with your [Yandex account](
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, you need the `mdb.admin` role, the `managed-opensearch.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, `managed-opensearch.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -26,7 +26,7 @@ To assign a role for a resource, you need the `mdb.admin` role, the `managed-ope
 
 To allow access to {{ mos-name }} resources (clusters and hosts, cluster backups, and accounts), assign the user the appropriate roles for a folder, cloud, or organization containing these resources.
 
-You can assign a role for a separate cluster from the [management console]({{ link-console-main }}) or via the [API](../api-ref/authentication.md).
+You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../../cli), or [API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 
@@ -85,7 +85,7 @@ The chart below shows the roles existing in the service and their permission inh
 
 ## Required roles {#required-roles}
 
-To use {{ maf-name }}, you need the [{{ roles.mos.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mos.viewer }}` role only allows you to view the list of clusters.
+As a user, you need the [{{ roles.mos.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mos.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mos.editor }}` role or higher.
 

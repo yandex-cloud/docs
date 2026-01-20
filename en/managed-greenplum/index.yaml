@@ -49,7 +49,7 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn about basic concepts and how the service works
+    description: Learn about basic concepts and how this service works
     href: concepts/
   - title: API reference
     description: HTTP API method descriptions
@@ -71,6 +71,7 @@ meta:
   keywords:
     - '{{ mgp-name }}'
     - '{{ mgp-full-name }}'
+    - '{{ mgp-name }}'
     - '{{ GP }} in {{ yandex-cloud }}'
     - '{{ GP }} cluster'
     - '{{ GP }}'

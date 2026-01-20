@@ -215,8 +215,7 @@ Read-Only:
 filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
 - `host` (String) package: yandex.cloud.connectionmanager.v1
 filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
-- `http_port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+- `http_port` (Number) depends on tls params may vary as http or https
 - `shard_name` (String) package: yandex.cloud.connectionmanager.v1
 filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
 - `tcp_port` (Number) package: yandex.cloud.connectionmanager.v1

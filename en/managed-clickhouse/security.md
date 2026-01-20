@@ -6,15 +6,15 @@ description: Access management in {{ CH }}, a database creation and management s
 # Access management in {{ mch-name }}
 
 
-In this section, you will learn:
+In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
-* [What roles are required for specific actions](#required-roles).
+* [Roles required for specific actions](#required-roles).
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, you need the `mdb.admin` role, the `managed-clickhouse.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, `managed-clickhouse.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
@@ -24,7 +24,7 @@ To assign a role for a resource, you need the `mdb.admin` role, the `managed-cli
 
 {% include [assign-roles-mdb](../_includes/iam/assign-roles-mdb.md) %}
 
-You can assign a role for a separate cluster in the [management console]({{ link-console-main }}) or via the [API](./api-ref/authentication.md).
+You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../cli), or [API](./api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 
@@ -80,9 +80,9 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [primitive-roles-footnote](../_includes/primitive-roles-footnote.md) %}
 
-## What roles are required {#required-roles}
+## Required roles {#required-roles}
 
-To use the service, you need the [{{ roles.mch.editor }} role or higher](../iam/concepts/access-control/roles.md) for the folder to house the new cluster. The `{{ roles.mch.viewer }}` role allows you only to view the list of clusters.
+As a user, you need the [{{ roles.mch.editor }} role or higher](../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mch.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the `{{ roles.mch.editor }}` role or higher.
 

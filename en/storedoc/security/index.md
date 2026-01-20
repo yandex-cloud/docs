@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mmg-full-name }}
-description: Access management in {{ SD }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ SD }}, a solution for creating and managing databases. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mmg-name }}
@@ -14,7 +14,7 @@ In this section, you will learn about:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `mdb.admin` role, `managed-mongodb.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, `managed-mongodb.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -23,6 +23,8 @@ To assign a role for a resource, a user should have the `mdb.admin` role, `manag
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
+
+You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../../cli), or [API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 
@@ -80,7 +82,7 @@ The chart below shows the roles existing in the service and their permission inh
 
 ## Required roles {#required-roles}
 
-To use {{ maf-name }}, you need the [{{ roles.mmg.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mmg.viewer }}` role only allows you to view the list of clusters.
+As a user, you need the [{{ roles.mmg.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mmg.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mmg.editor }}` role or higher.
 
