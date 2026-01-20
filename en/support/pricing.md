@@ -35,10 +35,22 @@ For a cost calculation, use [our calculator](https://yandex.cloud/en/prices?stat
 
 The cost depends on the service plan you choose, which covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support of multiple organizations that may have different support service plans. For the services available under various plans, see [Requesting technical support](overview.md).
 
+### Before December 31, 2025 {#prices-before-2026}
 
 
 
-Service plan | Basic           | Business                       | Premium 
+
+Service plan | Basic           | Business                       | Premium
+--- |-------------------|------------------------------|--------
+ **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month charged to the billing account selected at the time of service plan activation plus 5% of the organization's resource consumption cost, regardless of which billing account the resources are linked to. | Upon request
+
+
+### Starting January 1, 2026 {#prices-from-2026}
+
+
+
+
+Service plan | Basic           | Business                       | Premium
 --- |-------------------|------------------------------|--------
  **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month from the billing account selected at the time of service plan activation and 5% of the organization's resource consumption cost, regardless of which billing account the organization's resources are linked to. | Upon request
 
@@ -62,11 +74,7 @@ The price is calculated based on the amount of resources consumed over the curre
 {% include [usd.md](../_pricing/support/usd-business-2023.md) %}
 
 
-{% note warning %}
-
-Starting October 1, 2025, calculating the support fee (5% of the cost of consumed resources) will include your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. When calculating the support fee (5% of the cost of consumed resources), the cost of {{ marketplace-name }} products will be excluded. See [this example of cost calculation](#business-example-one-ba-cvos).
-
-{% endnote %}
+Calculating the support fee (5% of the cost of consumed resources) includes your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. When calculating the support fee (5% of the cost of consumed resources), the cost of {{ marketplace-name }} products is excluded. See [this example of cost calculation](#business-example-one-ba-cvos).
 
 #### Example of calculating the cost for an organization whose resources are paid from a single billing account {#business-example-one-ba}
 
@@ -88,12 +96,6 @@ If an organization with an activated support service plan uses resources paid fr
 
 
 #### Example of calculating the cost for an organization whose resources are paid from a single billing account, with a committed volume of services included {#business-example-one-ba-cvos}
-
-{% note warning %}
-
-Starting October 1, 2025, calculating the support fee will include a committed volume of services.
-
-{% endnote %}
 
 
 

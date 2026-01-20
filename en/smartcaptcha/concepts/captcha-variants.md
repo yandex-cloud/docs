@@ -4,7 +4,7 @@
 
 _Challenge options_ include various CAPTCHAs you can show depending on the basic properties of incoming requests. To flexibly split requests, you can use different combinations of [traffic conditions](#traffic-conditions).
 
-If you do not need to create multiple separate CAPTCHAs, configure only the [default](../operations/create-captcha.md) option. For all options, you can select the main and additional challenges and the CAPTCHA difficulty. The visual design is consistent for all CAPTCHA options.
+If you do not need to create multiple separate CAPTCHAs, configure only the [default](../operations/create-captcha.md) option. For all options, you can select the main and additional challenges, as well as the CAPTCHA complexity. The visual design is consistent for all CAPTCHA options.
 
 With multiple challenge options available, you can customize CAPTCHA based on threat likelihood for better user experience.
 
@@ -47,7 +47,39 @@ In a CAPTCHA show rule, you can configure the following:
 
   * `Host`: Domain receiving the request.
 
+  * `Metadata`: Additional data transmitted from the frontend.
+
 You can set one or more different conditions in a rule. You can also add multiple conditions of the same type using the `AND` or `OR` operators.
+
+### Adding an verifying metadata {#metadata}
+
+Under `metadata`, you can provide to the CAPTCHA any additional metadata from the frontend, such as user information or [anti-fraud](https://en.wikipedia.org/wiki/Fraud_deterrence) system results. This enables you to set up rules for displaying different challenge types, e.g., show more complex CAPTCHA challenges to suspicious users.
+
+Save the generated `metadata` values on your backend and verify them during CAPTCHA token validation to protect yourself against metadata forgery.
+
+The total length of all keys and values in `metadata` cannot exceed 512 characters.
+
+Example of adding a CAPTCHA with metadata:
+
+```javascript
+window.smartCaptcha.render(container, {
+  sitekey: sitekey,
+  hl: language,
+  callback: callback,
+  metadata: {
+    key1: 'value-1',
+    key2: 'value-2',
+  }
+});
+```
+
+{% cut "CAPTCHA with metadata flowchart" %}
+
+[Flowchart in a separate window](metadata-scheme.md)
+
+{% include [metadata](../../_mermaid/other/captcha/metadata.md) %}
+
+{% endcut %}
 
 ## Traffic conditions {#traffic-conditions}
 
@@ -59,10 +91,10 @@ You can set one or more different conditions in a rule. You can also add multipl
 * IP belongs to the region
 * IP does not belong to the region
 |
-* IP address (`1.2.33.44`)
-* [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) (`10::1234:1abc:1/64`)
-* Address range (`1.2.0.0-1.2.1.1`)
-* Two-letter country code as per [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) (`ru`, `kz`)
+* IP address (`1.2.33.44`).
+* [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) (`10::1234:1abc:1/64`).
+* Address range (`1.2.0.0-1.2.1.1`).
+* Two-letter country code as per [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) (`ru`, `kz`).
 | _or_ ||
 || `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` 
 * Matches
@@ -73,10 +105,10 @@ You can set one or more different conditions in a rule. You can also add multipl
 * Does not match regular expression
 |
 `key: value` format, where:
-* `key`: HTTP header
-* `value`: Specific header value, value prefix, or [PIRE](https://github.com/yandex/pire) library [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
+* `key`: HTTP header.
+* `value`: Specific header value, value prefix, or [PIRE](https://github.com/yandex/pire) library [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
 
-For example, `User-Agent: curl/7.55.1`
+For example, `User-Agent: curl/7.55.1`.
 | _and_ ||
 || `URI` 
 * Matches
@@ -86,9 +118,9 @@ For example, `User-Agent: curl/7.55.1`
 * Matches regular expression
 * Does not match regular expression
 | 
-Request path, initial part of the request path, or PIRE library regular expression
+Request path, initial part of the request path, or PIRE library regular expression.
 
-For example, `/`
+For example, `/`.
 | N/A ||
 || `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}` 
 * Matches
@@ -98,8 +130,22 @@ For example, `/`
 * Matches regular expression
 * Does not match regular expression
 |
-Values of the `Host` header for HTTP/1.1 or the `authority` pseudoheader for HTTP/2 used to select a virtual host, value prefix, or PIRE library regular expression
+Values of the `Host` header for HTTP/1.1 or the `authority` pseudoheader for HTTP/2 used to select a virtual host, value prefix, or PIRE library regular expression.
 
-For example, `example.com`
+For example, `example.com`.
 | _or_ ||
+|| `Metadata`
+* Matches
+* Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Does not match regular expression
+|
+Additional data transmitted from the frontend in `key: value` format, where:
+* `key`: Parameter key.
+* `value`: Specific value, value prefix, or PIRE library regular expression.
+
+For example, `user_type: premium` or `risk_score: high`.
+| _and_ ||
 |#

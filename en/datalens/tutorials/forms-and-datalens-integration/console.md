@@ -1,7 +1,7 @@
 ---
 noIndex: true
 title: Migrating data from {{ forms-full-name }} to {{ datalens-full-name }} using {{ sf-full-name }} and {{ yq-full-name }} via the management console
-description: Configure automatic data delivery from {{ forms-name }} to {{ datalens-name }} using {{ sf-name }} and {{ yq-name }} via the management console.
+description: Configure automated data deliveries from {{ forms-name }} to {{ datalens-name }} using {{ sf-name }} and {{ yq-name }} via the management console.
 canonical: '{{ link-docs }}/tutorials/serverless/forms-and-datalens-integration/console'
 ---
 

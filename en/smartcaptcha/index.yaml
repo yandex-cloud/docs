@@ -24,7 +24,7 @@ links:
     description: Detailed instructions on how to use SmartCaptcha
     href: tutorials/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
   - title: Demo page
     description: See how SmartCaptcha works

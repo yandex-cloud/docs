@@ -6,7 +6,7 @@ To update a [folder](../../concepts/resources-hierarchy.md#folder) name or descr
 
 - Management console {#console}
 
-  1. On the management console [home page]({{ link-console-cloud }}), select the folder. This page displays folders for the selected cloud. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
   1. Enter a new name and description for the folder.
   1. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
@@ -30,7 +30,7 @@ To update a [folder](../../concepts/resources-hierarchy.md#folder) name or descr
         --description "this is my default-folder"
       ```
 
-      The command will rename the `default` foulder to `myfolder` and update its description. The folder naming requirements are as follows:
+      The command will rename the `default` folder to `myfolder` and update its description. The folder naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -74,9 +74,9 @@ To update a [folder](../../concepts/resources-hierarchy.md#folder) name or descr
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```

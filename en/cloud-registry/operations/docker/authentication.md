@@ -18,37 +18,14 @@ For more information about roles, see [{#T}](../../security/index.md).
 You can authenticate:
 
 * [As a user](#user):
-  * Using an OAuth token (with a 12-month lifetime).
-  * Using an IAM token (with a {{ iam-token-lifetime }} lifetime or less).
+  * With an IAM token. The IAM token's lifetime may not exceed {{ iam-token-lifetime }}.
+  * With an OAuth token. The token is valid for one year.
+  * Using an API key and a service account. The API key maximum [lifetime](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) is set manually when you create it.
 
 
 ## Authenticating as a user {#user}
 
 {% list tabs group=registry_auth %}
-
-- Using an OAuth token {#oauth-token}
-
-  {% note info %}
-
-  {% include [oauth-token-lifetime](../../../_includes/oauth-token-lifetime.md) %}
-
-  {% endnote %}
-
-  1. If you do not have Docker yet, [install it](installation.md).
-  1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
-  1. Run the following command:
-
-     ```bash
-     echo <OAuth_token>|docker login \
-       --username oauth \
-       --password-stdin \
-      {{ cloud-registry }}
-     ```
-
-      Where:
-      * `<OAuth_token>`: Body of the previously obtained OAuth token.
-      * `--username`: Token type. `oauth` means that an OAuth token is used for authentication.
-      * `{{ cloud-registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 
 - Using an IAM token {#iam-token}
 
@@ -60,10 +37,10 @@ You can authenticate:
 
   1. If you do not have Docker yet, [install it](installation.md).
   1. Get an [IAM token](../../../iam/operations/iam-token/create.md).
-  1. Run the following command:
+  1. Run this command:
 
       ```bash
-      echo <IAM_token>|docker login \
+      echo <IAM_token> | docker login \
         --username iam \
         --password-stdin \
         {{ cloud-registry }}
@@ -72,6 +49,48 @@ You can authenticate:
       Where:
       * `<OAuth>`: Body of the previously obtained IAM token.
       * `--username`: Token type. `iam` means that an IAM token is used for authentication.
+      * `{{ cloud-registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
+
+- Using an OAuth token {#oauth-token}
+
+  {% note info %}
+
+  {% include [oauth-token-lifetime](../../../_includes/oauth-token-lifetime.md) %}
+
+  {% endnote %}
+
+  1. If you do not have Docker yet, [install it](installation.md).
+  1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
+  1. Run this command:
+
+     ```bash
+     echo <OAuth_token> | docker login \
+       --username oauth \
+       --password-stdin \
+      {{ cloud-registry }}
+     ```
+
+      Where:
+      * `<OAuth_token>`: Body of the previously obtained OAuth token.
+      * `--username`: Token type. `oauth` means that an OAuth token is used for authentication.
+      * `{{ cloud-registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
+
+- With an API key {#api-key}
+
+  1. If you do not have Docker yet, [install it](installation.md).
+  1. [Create](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the [service account](../../../iam/concepts/users/service-accounts.md) you are going to use for authentication.
+  1. Run this command:
+
+      ```bash
+      echo <API_key> | docker login \
+        --username api_key \
+        --password-stdin \
+        {{ cloud-registry }}
+      ```
+
+      Where:
+      * `<API_key>`: Body of the previously created API key.
+      * `--username`: Token type. `api_key` means that an API key is used for authentication.
       * `{{ cloud-registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 
 {% endlist %}

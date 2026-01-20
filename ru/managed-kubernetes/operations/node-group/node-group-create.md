@@ -97,7 +97,7 @@ description: Следуя данной инструкции, вы сможете
      * `--name` — имя группы узлов {{ managed-k8s-name }}.
      * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
        * `standard` — без ускорения.
-       * `software-accelerated` — программно-ускоренная сеть.
+       * `software-accelerated` — программно ускоренная сеть.
 
        {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
@@ -228,7 +228,7 @@ description: Следуя данной инструкции, вы сможете
 
        * `network_acceleration_type` — тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
          * `standard` — без ускорения.
-         * `software-accelerated` — программно-ускоренная сеть.
+         * `software-accelerated` — программно ускоренная сеть.
 
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 

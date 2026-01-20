@@ -5,7 +5,7 @@ description: This page describes the basic controls for Cloud Video Player in th
 
 # Getting started with the video player SDK for IFrame
 
-You can embed a [video player](../../concepts/player.md) with content from {{ video-name }} into your project using the Cloud Video Player SDK for IFrame. The SDK enables you to manage the player via the JavaScript API, using `postMessage` to communicate with the iframe.
+You can integrate a [video player](../../concepts/player.md) with content from Cloud Video into your project using the Cloud Video Player SDK for IFrame. The SDK enables you to manage the player via the JavaScript API, using `postMessage` to communicate with the iframe.
 
 ## Adding a player to your page {#add-player}
 
@@ -60,15 +60,13 @@ You can configure the player options when creating the iframe by adding them to 
 ></iframe>
 ```
 
-For more information about player initialization parameters, see the following sections:
-
-* [Player initialization parameters](./initialization.md)
+For more information, see [Player initialization parameters](./initialization.md).
 
 ## Player controls {#player-controls}
 
 For more info on how to manage the player, see [Player methods](./player-methods.md).
 
-Example of using methods:
+Example of method usage:
 
 ```javascript
 // Start playback

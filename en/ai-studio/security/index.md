@@ -6,7 +6,9 @@
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Roles existing in this service {#roles-list}
+## Roles this service has {#roles-list}
+
+{% include [ai-studio](../../_mermaid/roles/ai-studio.md) %}
 
 ### Service roles {#service-roles}
 

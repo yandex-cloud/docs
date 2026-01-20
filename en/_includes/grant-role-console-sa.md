@@ -1,5 +1,5 @@
-1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+1. In the [management console]({{ link-console-main }}), click ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../resource-manager/concepts/resources-hierarchy.md#folder).
+1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
 1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
 1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
 1. Select a service account from the list or use the search.

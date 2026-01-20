@@ -3790,7 +3790,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`.
 
-  Добавлен параметр `--network-acceleration-type`, который позволяет указать для группы узлов тип сети: стандартная или программно-ускоренная.
+  Добавлен параметр `--network-acceleration-type`, который позволяет указать для группы узлов тип сети: стандартная или программно ускоренная.
 
 * Команда `yc managed-kubernetes cluster create`.
 

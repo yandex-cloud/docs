@@ -9,7 +9,7 @@ The system logs all actions with {{ at-name }} resources as a list of operations
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder where the trail resides.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
   1. Select the trail you need.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected trail.
@@ -39,7 +39,7 @@ The system logs all actions with {{ at-name }} resources as a list of operations
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc audit-trails trail list-operations <trail_name_or_ID> --format yaml
@@ -78,7 +78,7 @@ The system logs all actions with {{ at-name }} resources as a list of operations
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

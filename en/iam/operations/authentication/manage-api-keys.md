@@ -61,13 +61,13 @@ To create a service account API key:
       Where:
       
       * `--service-account-name`: Service account name. This is a required setting.
-      * `--scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional parameter.
+      * `--scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional setting.
 
           If the scope is not specified, the API key will be assigned the following scopes by default:
 
           {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
 
-      * `--expires-at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2026-01-01T21:00:00Z`. This is an optional parameter.
+      * `--expires-at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format. For example, `2026-01-01T21:00:00Z`. This is an optional setting.
       * `api_key.yaml`: File to save the response to.
       
       As a result, you will get the `api_key.yaml` file with the API key value in the `secret` field:
@@ -91,7 +91,7 @@ To create a service account API key:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
@@ -109,27 +109,27 @@ To create a service account API key:
 
       Where:
 
-      * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
-      * `description`: Key description. This is an optional parameter.
-      * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional parameter.
+      * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required setting.
+      * `description`: Key description. This is an optional setting.
+      * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional setting.
 
           If the scope is not specified, the API key will be assigned the following scopes by default:
 
           {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
 
-      * `expires_at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2026-01-01T21:00:00Z`. This is an optional parameter.
-      * `pgp_key`: Additional PGP key for encrypting a private key. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format. This is an optional parameter.
-      * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the API key value to, in order to avoid its possible leak through the `terraform.tfstate` file. This is an optional parameter. Nested parameters:
+      * `expires_at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format. For example, `2026-01-01T21:00:00Z`. This is an optional setting.
+      * `pgp_key`: Additional PGP key for encrypting a private key. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format. This is an optional setting.
+      * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the API key value to, in order to avoid its possible leak through the `terraform.tfstate` file. This is an optional setting. Nested parameters:
           * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the API key value to. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
           * `entry_for_secret_key`: Secret key to assign to the API key value being saved.
 
-      For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/iam_service_account_api_key).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all required resources. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc iam api-key list --service-account-id <service_account_ID>
@@ -158,13 +158,13 @@ To create a service account API key:
 
   * `SERVICEACCOUNT_ID`: Service account [ID](../sa/get-id.md). This is a required setting.
   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required setting.
-  * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional parameter.
+  * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional setting.
 
       If the scope is not specified, the API key will be assigned the following scopes by default:
 
       {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
 
-  * `expiresAt`: Expiration date and time for the key with restricted access. This is an optional parameter.
+  * `expiresAt`: Expiration date and time for the key with restricted access. This is an optional setting.
 
   You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md) gRPC API call.
 
@@ -231,8 +231,8 @@ To add an API key description when creating the key:
   Where:
 
   * `--service-account-name`: Service account [name](../sa/get-id.md). This is a required setting.
-  * `--description`: API key description. This is an optional parameter.
-  * `--scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
+  * `--description`: API key description. This is an optional setting.
+  * `--scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional setting.
 
 - {{ TF }} {#tf}
 
@@ -246,9 +246,9 @@ To add an API key description when creating the key:
 
   Where:
 
-  * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
-  * `description`: Key description. This is an optional parameter.
-  * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
+  * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required setting.
+  * `description`: Key description. This is an optional setting.
+  * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional setting.
 
 - API {#api}
 
@@ -271,9 +271,9 @@ To add an API key description when creating the key:
 
   Where:
 
-  * `SERVICEACCOUNT_ID`: [Service account ID](../sa/get-id). This is a required setting.
+  * `SERVICEACCOUNT_ID`: [Service account ID](../sa/get-id.md). This is a required setting.
   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required setting.
-  * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
+  * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional setting.
 
 {% endlist %}
 
@@ -285,7 +285,7 @@ To delete a service account API key:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the API key to delete, and select **{{ ui-key.yacloud.common.delete }}**.
@@ -337,7 +337,7 @@ To delete a service account API key:
         }
         ```
 
-        For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_api_key).
+        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
     1. Make sure the configuration files are correct.
 
@@ -348,7 +348,7 @@ To delete a service account API key:
             terraform plan
             ```
 
-        If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
     1. Deploy the cloud resources.
 

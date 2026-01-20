@@ -25,7 +25,7 @@ To move a cloud to another organization, you need the `{{ roles-cloud-owner }}` 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the relevant cloud.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
   1. In the top-right corner, click ![***](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.component.console-dashboard.button_action-change-org }}**.
   1. Select a new organization from the list and click **{{ ui-key.yacloud.iam.cloud.change-org.button_change }}**.
 

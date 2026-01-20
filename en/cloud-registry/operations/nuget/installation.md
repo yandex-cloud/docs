@@ -5,6 +5,7 @@ description: Follow this guide to set up NuGet.
 
 # Setting up NuGet
 
+1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
 1. Set up the [NuGet](../../concepts/art-nuget.md) configuration file:
 
     {% list tabs %}
@@ -42,6 +43,7 @@ description: Follow this guide to set up NuGet.
           When using the dotnet CLI, the configuration file is located at `~/.nuget/NuGet/NuGet.Config`, while for the NuGet CLI, at `~/.config/NuGet/NuGet.Config`.
 
           {% endnote %}
+
       1. Update the configuration in the file as follows:
 
           ```xml
@@ -59,35 +61,5 @@ description: Follow this guide to set up NuGet.
             </packageSourceCredentials>
           </configuration>
           ```
-
-    {% endlist %}
-
-1. Depending on the authentication method:
-
-    {% list tabs group=registry_auth %}
-
-    - IAM token {#iam-token}
-
-      1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) for the [Yandex account](../../../iam/operations/iam-token/create.md) or [service account](../../../iam/operations/iam-token/create-for-sa.md) you are going to use for authentication.
-      1. Create environment variables named `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` containing data for IAM token authentication:
-
-          ```bash
-          export REGISTRY_USERNAME="iam"
-          export REGISTRY_PASSWORD="<IAM_token>"
-          ```
-
-          Where `<IAM_token>` is the IAM token you got earlier.
-
-    - OAuth token {#oauth-token}
-
-      1. [Get]({{ link-cloud-oauth }}) an OAuth token for the Yandex account you are going to use for authentication.
-      1. Create environment variables named `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` containing data for OAuth token authentication:
-
-          ```bash
-          export REGISTRY_USERNAME="oauth"
-          export REGISTRY_PASSWORD="<OAuth_token>"
-          ```
-
-          Where `<OAuth_token>` is the [OAuth token](../../../iam/concepts/authorization/oauth-token.md) you got earlier.
 
     {% endlist %}

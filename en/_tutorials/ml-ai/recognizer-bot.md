@@ -8,7 +8,7 @@ In this tutorial, you will create a Telegram bot that can:
 
 Authentication in {{ yandex-cloud }} services is performed under a service account using an [IAM token](../../iam/concepts/authorization/iam-token.md). The IAM token is contained in the handler context of the [function](../../functions/operations/function-sa.md) which manages user conversation with the bot.
 
-The {{ api-gw-full-name }} will receive requests from your bot and forward them to {{ sf-full-name }} for processing.
+The {{ api-gw-full-name }} [API gateway](../../api-gateway/concepts/index.md) will receive requests from your bot and forward them to [functions](../../functions/concepts/function.md) in {{ sf-full-name }} for processing.
 
 To create a bot:
 
@@ -38,7 +38,7 @@ The cost of Telegram bot support includes:
 ## Set up resources {#prepare}
 
 1. [Create a service account](../../iam/operations/sa/create.md) named `recognizer-bot-sa` and assign it the `ai.editor` and `{{ roles-functions-editor }}` [roles](../../iam/operations/sa/assign-role-for-sa.md) for your folder.
-1. [Download](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz) the archive with the FFmpeg package for the {{ speechkit-name }} Python SDK to work correctly in the [function execution environment](../../functions/concepts/runtime/index.md).
+1. [Download](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-09-30-15-36/ffmpeg-N-117275-g04182b5549-linux64-gpl.tar.xz) the archive with the FFmpeg package for the {{ speechkit-name }} Python SDK to work correctly in the [function execution environment](../../functions/concepts/runtime/index.md).
 1. Extract the `ffmpeg` and `ffprobe` binary files from the archive and run these commands to make them executable:
 
     ```bash
@@ -555,8 +555,8 @@ Install a webhook for your Telegram bot:
 
 ```bash
 curl --request POST \
-  --url https://api.telegram.org/bot<bot_token>/setWebhook \
-  --header 'content-type: application/json' \ 
+  --url 'https://api.telegram.org/bot<bot_token>/setWebhook' \
+  --header 'content-type: application/json' \
   --data '{"url": "<API_gateway_domain>/for-recognizer-bot-function"}'
 ```
 
@@ -600,7 +600,7 @@ Chat with the bot:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+Delete the resources you no longer need to avoid [paying](#paid-resources) for them:
 
 * [Delete](../../api-gateway/operations/api-gw-delete.md) the {{ api-gw-name }}.
 * [Delete](../../functions/operations/function/function-delete.md) the function in {{ sf-name }}.

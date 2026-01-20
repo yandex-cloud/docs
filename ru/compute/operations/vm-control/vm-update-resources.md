@@ -278,7 +278,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Включить программно-ускоренную сеть {#enable-software-accelerated-network}
+## Включить программно ускоренную сеть {#enable-software-accelerated-network}
 
 {% note warning %}
 
@@ -290,7 +290,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  Чтобы включить [программно-ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
+  Чтобы включить [программно ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.

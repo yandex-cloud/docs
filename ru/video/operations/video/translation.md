@@ -9,12 +9,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [free-neuro](../../../_includes/video/free-neuro.md) %}
 
-{% include [video-characteristic](../../../_includes/video/video-characteristic-multiple.md) %}
-
-{% include [video-multi-soundtracks](../../../_includes/video/video-multi-soundtracks.md) %}
-
-{% include [video-resolution-limits](../../../_includes/video/video-resolution-limits.md) %}
-
 ## Добавить нейроперевод {#add}
 
 {% list tabs group=instructions %}
@@ -29,6 +23,8 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите языки для перевода.
   1. Нажмите **{{ ui-key.yacloud_video.common.action_create }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
+
+  [Выбрать добавленную аудиодорожку](../player-control.md#audio) можно при просмотре видео в меню плеера.
 
 {% endlist %}
 

@@ -10,7 +10,7 @@ description: Follow this guide to create a CAPTCHA.
 When creating a CAPTCHA, you can:
 
 * Connect a CAPTCHA to multiple websites.
-* Customize the CAPTCHA appearance, i.e., the background, states, errors, and the **I'm not a robot** button style.
+* Set up the CAPTCHA appearance, such as background, states, errors, and the **I'm not a robot** button style.
 * Select the type and difficulty level of a CAPTCHA challenge.
 * Show various CAPTCHA options based on the incoming request properties, such as use different CAPTCHA for the users from different countries.
 
@@ -20,8 +20,8 @@ When creating a CAPTCHA, you can:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
   1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
      ![screen01](../../_assets/smartcaptcha/create-captcha/screen01.png)
@@ -73,13 +73,14 @@ When creating a CAPTCHA, you can:
          * Select a CAPTCHA option.
          * Specify the rule priority from `1` to `999999`.
           
-            Rules are checked in ascending priority order, starting from `1`, `2`, etc. If traffic matches multiple rules, the first rule to trigger will apply.
+            Rules are checked in the ascending priority order, starting from `1`, `2`, etc. If the traffic matches multiple rules, the first rule to trigger will apply.
           
          * Specify one or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions):
             * `IP`: IP address, IP address range, or IP address region.
             * `HTTP header`: HTTP header string.
             * `URI`: Path of the incoming request to the website.
             * `Host`: Domain receiving the request.
+            * `Metadata`: [Additional data](../concepts/captcha-variants.md#metadata) transmitted from the frontend.
            
          * Click **Add**.
           
@@ -87,7 +88,7 @@ When creating a CAPTCHA, you can:
 
      1. Add other CAPTCHA options and rules for incoming traffic in a similar way.
 
-  1. Optionally, enable or disable the use of HTTP request information to tune machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
+  1. Optionally, enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
    
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -124,9 +125,9 @@ When creating a CAPTCHA, you can:
  
      Where:
      * `--name`: CAPTCHA name.
-     * `--turn-off-hostname-check`: [Disable domain check](../concepts/domain-validation.md). This is an optional parameter.
-     * `--allowed-site`: List of hosts as IP addresses or domain names. without `http`/`https` or `/` at the end, e.g., `example.com`. The CAPTCHA will also be valid for all subdomains of the specified domain names. This is an optional parameter.
-     * `--style-json`: Appearance of the challenge window and other elements, in `JSON` format. For more details, see the `JSON` generated using the [management console]({{ link-console-main }}). This is an optional parameter.
+     * `--turn-off-hostname-check`: [Disable domain check](../concepts/domain-validation.md). This is an optional setting.
+     * `--allowed-site`: List of hosts as IP addresses or domain names. without `http`/`https` or `/` at the end, e.g., `example.com`. The CAPTCHA will also be valid for all subdomains of the specified domain names. This is an optional setting.
+     * `--style-json`: Appearance of the challenge window and other elements, in `JSON` format. For more details, see the `JSON` generated using the [management console]({{ link-console-main }}). This is an optional setting.
      * `--pre-check-type`: Type of the default [main challenge](../concepts/tasks.md#main-task) the user will get. The possible values are:
        * `CHECKBOX`: Checkbox.
        * `SLIDER`: Slider.
@@ -142,7 +143,7 @@ When creating a CAPTCHA, you can:
  
        {% include [note-preview-captcha-variants](../../_includes/smartcaptcha/note-preview-captcha-variants.md) %}
  
-     * `--override-variants-file`: Path to a `YAML` file with challenge [options](../concepts/captcha-variants.md). This is an optional parameter.
+     * `--override-variants-file`: Path to a `YAML` file with challenge [options](../concepts/captcha-variants.md). This is an optional setting.
  
        {% cut "Example of a file with challenge options" %}
  
@@ -168,7 +169,7 @@ When creating a CAPTCHA, you can:
  
        {% endcut %}
      
-     * `--security-rules-file`: Path to a `YAML` file containing the [rules for incoming traffic](../concepts/captcha-variants.md#captcha-view-rules) that will determine which CAPTCHA option to show. This is an optional parameter.
+     * `--security-rules-file`: Path to a `YAML` file containing the [rules for incoming traffic](../concepts/captcha-variants.md#captcha-view-rules) that will determine which CAPTCHA option to show. This is an optional setting.
  
        {% cut "Example of a file with rules for incoming traffic" %}
  
@@ -198,11 +199,11 @@ When creating a CAPTCHA, you can:
        * `name`: Rule name.
        * `priority`: Rule priority, from `1` to `999999`.
          
-         Rules are checked in ascending priority order, starting from `1`, `2`, etc. If traffic matches multiple rules, the first rule to trigger will apply.
+         Rules are checked in the ascending priority order, starting from `1`, `2`, etc. If traffic matches multiple rules, the first rule to trigger will apply.
  
-       * `description`: Rule description. This is an optional parameter.
+       * `description`: Rule description. This is an optional setting.
        * `override_variant_uuid`: ID of the challenge option to show if the traffic matches the rule. If the parameter is not specified, the user will get the default challenge.
-       * `condition`: One or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions). This is an optional parameter.
+       * `condition`: One or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions). This is an optional setting.
  
        {% endcut %}
 
@@ -222,8 +223,8 @@ When creating a CAPTCHA, you can:
 
      Where:
      * `name`: CAPTCHA name.
-     * `turn_off_hostname_check`: [Disable domain check](../concepts/domain-validation.md). This is an optional parameter.
-     * `style_json`: Appearance of the challenge window and other elements, in `JSON` format. For more details, see the `JSON` generated using the [management console]({{ link-console-main }}). This is an optional parameter.
+     * `turn_off_hostname_check`: [Disable domain check](../concepts/domain-validation.md). This is an optional setting.
+     * `style_json`: Appearance of the challenge window and other elements, in `JSON` format. For more details, see the `JSON` generated using the [management console]({{ link-console-main }}). This is an optional setting.
      * `complexity`: [Difficulty](../concepts/tasks.md#task-difficulty) level of the default challenge the user will get. The possible values are:
        * `EASY`: Simple challenge.
        * `MEDIUM`: Medium level challenge.
@@ -239,22 +240,22 @@ When creating a CAPTCHA, you can:
        * `IMAGE_TEXT`: Text recognition.
        * `SILHOUETTES`: Silhouettes.
        * `KALEIDOSCOPE`: Kaleidoscope.
-     * `allowed_sites`: List of hosts as IP addresses or domain names without `http`/`https` or `/` at the end, e.g., `example.com`. The CAPTCHA will also be valid for all subdomains of the specified domain names. This is an optional parameter.
-     * `override_variant`: Section containing the challenge [option](../concepts/captcha-variants.md) description. This is an optional parameter.
+     * `allowed_sites`: List of hosts as IP addresses or domain names without `http`/`https` or `/` at the end, e.g., `example.com`. The CAPTCHA will also be valid for all subdomains of the specified domain names. This is an optional setting.
+     * `override_variant`: Section containing the challenge [option](../concepts/captcha-variants.md) description. This is an optional setting.
        * `uuid`: Unique ID of the challenge option.
-       * `description`: Challenge option description. This is an optional parameter.
+       * `description`: Challenge option description. This is an optional setting.
        * `complexity`: Difficulty level of the challenge the user will get.
        * `pre_check_type`: Type of the main challenge the user will get.
        * `challenge_type`: Type of the additional challenge the user will get.
-     * `security_rule`: Section describing the [rule for incoming traffic](../concepts/captcha-variants.md#captcha-view-rules) that will determine which CAPTCHA option to show. This is an optional parameter.
+     * `security_rule`: Section describing the [rule for incoming traffic](../concepts/captcha-variants.md#captcha-view-rules) that will determine which CAPTCHA option to show. This is an optional setting.
        * `name`: Rule name.
        * `priority`: Rule priority, from `1` to `999999`.
 
-         Rules are checked in ascending priority order, starting from `1`, `2`, etc. If traffic matches multiple rules, the first rule to trigger will apply.
+         Rules are checked in the ascending priority order, starting from `1`, `2`, etc. If traffic matches multiple rules, the first rule to trigger will apply.
 
-       * `description`: Rule description. This is an optional parameter.
+       * `description`: Rule description. This is an optional setting.
        * `override_variant_uuid`: ID of the challenge option to show if the traffic matches the rule. If the parameter is not specified, the user will get the default challenge.
-       * `condition`: One or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions). This is an optional parameter.
+       * `condition`: One or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions). This is an optional setting.
 
      For more information about the `yandex_smartcaptcha_captcha` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 

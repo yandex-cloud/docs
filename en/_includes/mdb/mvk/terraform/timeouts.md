@@ -13,7 +13,7 @@ Operations exceeding the set timeout are interrupted.
 Add the `timeouts` block to the cluster description, for example:
 
 ```hcl
-resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
   ...
   timeouts {
     create = "1h30m" # 1 hour 30 minutes

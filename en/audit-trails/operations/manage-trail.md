@@ -17,7 +17,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
   To update a trail:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the trail.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. In the row with the trail you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the trail settings. For a list of trail settings you can edit, see [{#T}](../concepts/trail.md#trail-settings).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -177,7 +177,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
   To delete a trail:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the trail.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. In the row with the trail you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
 

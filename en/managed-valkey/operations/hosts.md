@@ -193,7 +193,7 @@ Public access to hosts can only be configured for clusters created with enabled 
 
      
      ```hcl
-     resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+     resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
        ...
        host {
          zone             = "<availability_zone>"
@@ -293,7 +293,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
      
      ```hcl
-     resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+     resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
        ...
        host {
          zone             = "<availability_zone>"

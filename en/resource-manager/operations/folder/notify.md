@@ -8,7 +8,7 @@ To add a user to the list of notification recipients:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-cloud }}), select the folder to configure. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
   1. Navigate to the **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}** tab.
   1. Click **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-dialog }}**.
   1. In the **{{ ui-key.yacloud_components.notify-subs.label_subscribers-dialog-header }}** window that opens, select:

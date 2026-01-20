@@ -296,7 +296,7 @@ description: Следуя данной инструкции, вы сможете
 
        
        ```hcl
-       resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+       resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
          name                = "<имя_кластера>"
          environment         = "<окружение>"
          network_id          = "<идентификатор_сети>"
@@ -377,7 +377,7 @@ description: Следуя данной инструкции, вы сможете
        Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
 
          ```hcl
-         resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
            ...
            disk_encryption_key_id = <идентификатор_ключа_KMS>
            ...
@@ -765,7 +765,7 @@ description: Следуя данной инструкции, вы сможете
     1. В той же рабочей директории разместите файл с расширением `.tf` и содержимым:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "old" { }
+        resource "yandex_mdb_redis_cluster_v2" "old" { }
         ```
 
     1. Запишите идентификатор первоначального кластера {{ VLK }} в переменную окружения:
@@ -779,7 +779,7 @@ description: Следуя данной инструкции, вы сможете
     1. Импортируйте настройки первоначального кластера {{ VLK }} в конфигурацию {{ TF }}:
 
         ```bash
-        terraform import yandex_mdb_redis_cluster.old ${REDIS_CLUSTER_ID}
+        terraform import yandex_mdb_redis_cluster_v2.old ${REDIS_CLUSTER_ID}
         ```
 
     1. Получите импортированную конфигурацию:
@@ -887,7 +887,7 @@ description: Следуя данной инструкции, вы сможете
 
   
   ```hcl
-  resource "yandex_mdb_redis_cluster" "myredis" {
+  resource "yandex_mdb_redis_cluster_v2" "myredis" {
     name                = "myredis"
     environment         = "PRODUCTION"
     network_id          = yandex_vpc_network.mynet.id
@@ -1002,7 +1002,7 @@ description: Следуя данной инструкции, вы сможете
 
   
   ```hcl
-  resource "yandex_mdb_redis_cluster" "myredis" {
+  resource "yandex_mdb_redis_cluster_v2" "myredis" {
     name                = "myredis"
     environment         = "PRODUCTION"
     sharded             = true
@@ -1085,7 +1085,7 @@ description: Следуя данной инструкции, вы сможете
 
     
     ```hcl
-    resource "yandex_mdb_redis_cluster" "myredis" {
+    resource "yandex_mdb_redis_cluster_v2" "myredis" {
       name                = "myredis"
       environment         = "PRODUCTION"
       network_id          = yandex_vpc_network.mynet.id

@@ -1,21 +1,23 @@
 ---
 title: Access management in {{ search-api-full-name }}
-description: Access management in {{ search-api-full-name }}. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
+description: Access management in {{ search-api-full-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ search-api-name }}
 
-In this section, you will learn:
+In this section, you will learn about:
 * [What resources you can assign a role for](#resources).
-* [Roles existing in this service](#roles-list).
+* [What roles exist in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Roles existing in this service {#roles-list}
+## Roles this service has {#roles-list}
+
+{% include [search-api](../../_mermaid/roles/search-api.md) %}
 
 ### Service roles {#service-roles}
 

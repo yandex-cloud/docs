@@ -10,7 +10,7 @@ description: Follow this guide to get information about a {{ captcha-full-name }
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [CAPTCHA](../concepts/validation.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
   1. Select a CAPTCHA. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the CAPTCHA.
 
 - CLI {#cli}
@@ -19,7 +19,7 @@ description: Follow this guide to get information about a {{ captcha-full-name }
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to view information about a [CAPTCHA](../concepts/validation.md):
+  1. View the description of the CLI command for viewing [CAPTCHA](../concepts/validation.md) info:
 
      ```bash
      yc smartcaptcha captcha get --help
@@ -74,15 +74,15 @@ description: Follow this guide to get information about a {{ captcha-full-name }
       * `data "yandex_smartcaptcha_captcha"`: Description of the CAPTCHA as a data source:
          * `resource_id`: Resource ID.
       * `output "ref_description"`: Output variable with information about the [client key](../concepts/keys) (`client_key`):
-         * `value`: Returned value.
+         * `value`: Return value.
 
-     You can replace `client_key` with any other parameter to get the information you need. For more information about the `yandex_smartcaptcha_captcha` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
+     You can replace `client_key` with any other parameter to get the information you need. For more information about the `yandex_smartcaptcha_captcha` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

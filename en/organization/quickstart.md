@@ -11,7 +11,7 @@ When working with {{ yandex-cloud }} services, you create resources, such as man
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or [sign up](../getting-started/) if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or [sign up](../getting-started/) if not signed up yet.
 1. Accept the user agreement.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 
@@ -118,9 +118,9 @@ To assign a role to a user:
 
   1. Log in to the [management console]({{ link-console-main }}) with the cloud administrator or owner account.
 
-  1. On the left side of the screen, click the line with the name of the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../resource-manager/concepts/resources-hierarchy.md#folder) for which you want to assign a role to a user group.
+  1. In the [management console]({{ link-console-main }}), click ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../resource-manager/concepts/resources-hierarchy.md#folder) for which you want to assign a role to a user group.
 
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
+  1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens, do the following:
 
       1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the [group](../organization/concepts/groups.md) you need or search by group name.
 

@@ -1,6 +1,5 @@
-1. Log in to the [management console]({{ link-console-main }}).
-1. On the left side of the screen, click the line with the name of the folder where you want to create a service account.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+1. In the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
 1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 1. Enter a name for the service account.
 

@@ -14,7 +14,7 @@ The number and location of PoPs depend on the [provider](providers.md) in use:
 
 ## {{ cdn-full-name }} {#yc}
 
-{{ cdn-full-name }} provides access to 26 points of presence with a total throughput exceeding 3 Tbps.
+{{ cdn-full-name }} provides access to 38 points of presence with a total throughput exceeding 3 Tbps.
 
 {% note info %}
 
@@ -38,25 +38,25 @@ PoP server performance also shapes the overall content delivery speed. Stable de
 
 Cities with at least one PoP:
 
-| **Russia** | **Kazakhstan** |
-|------------|---------------|
-| Alexandrov | Aktobe |
-| Vladivostok | Karaganda |
-| Voronezh | |
-| Yekaterinburg | |
-| Krasnodar | |
-| Moscow | |
-| Nizhny Novgorod | |
-| Novosibirsk | |
-| Petrozavodsk | |
-| Rostov-on-Don | |
-| Samara | |
-| Simferopol | |
-| Tambov | |
-| Tyumen | |
-| Khabarovsk | |
-| Chelyabinsk | |
-| Chita | |
+| **Russia** | **Kazakhstan** | **Uzbekistan** |
+|------------|---------------|----------------|
+| Alexandrov | Aktobe | Tashkent |
+| Vladivostok | Karaganda | |
+| Voronezh | | |
+| Yekaterinburg | | |
+| Krasnodar | | |
+| Moscow | | |
+| Nizhny Novgorod | | |
+| Novosibirsk | | |
+| Petrozavodsk | | |
+| Rostov-on-Don | | |
+| Samara | | |
+| Simferopol | | |
+| Tambov | | |
+| Tyumen | | |
+| Khabarovsk | | |
+| Chelyabinsk | | |
+| Chita | | |
 
 ### FAQ {#qa}
 
@@ -66,9 +66,9 @@ If your city does not host a {{ cdn-full-name }} PoP, traffic will be automatica
 
 {% endcut %}
 
-{% cut "Are these resources available outside Russia and Kazakhstan?" %}
+{% cut "Are these resources available outside Russia, Kazakhstan, and Uzbekistan?" %}
 
-Yes, {{ cdn-full-name }} resources are available worldwide, even though PoPs are only located in Russia and Kazakhstan. Users in other countries will receive content from PoPs in Russia and Kazakhstan. With high throughput and modern hardware, content delivery stays efficient even for users in other countries.
+Yes, {{ cdn-full-name }} resources are available worldwide, even though its PoPs can only be found in Russia, Kazakhstan, and Uzbekistan. Users in other countries will be receiving content from PoPs in Russia, Kazakhstan, and Uzbekistan. With high throughput and modern hardware, content delivery stays efficient even for users in other countries.
 
 {% endcut %}
 

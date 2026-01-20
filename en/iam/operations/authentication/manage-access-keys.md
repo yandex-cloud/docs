@@ -17,7 +17,7 @@ To create a service account static access key:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the service account to create a static access key for.
@@ -27,7 +27,7 @@ To create a service account static access key:
 
       {% note alert %}
 
-      After you close this dialog, the key value will not be shown again.
+      After you close this dialog, the key value will no longer be available.
 
       {% endnote %}
 
@@ -76,7 +76,7 @@ To create a service account static access key:
       secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
       ```
 
-  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key again.
+  1. Save `key_id` and `secret`. You will not be able to get the key again.
 
 - {{ TF }} {#tf}
 
@@ -100,15 +100,15 @@ To create a service account static access key:
      Where:
 
      * `service_account_id`: Service account ID. This is a required setting.
-     * `description`: Key description. This is an optional parameter.
-     * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format.
+     * `description`: Key description. This is an optional setting.
+     * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional setting. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format.
 
-     * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the secret key values in to prevent their possible leakage through the `terraform.tfstate` file. This is an optional parameter. Nested parameters:
+     * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the secret key values in to prevent their possible leakage through the `terraform.tfstate` file. This is an optional setting. Nested parameters:
          * `secret_id`: ID of the {{ lockbox-full-name }} secret to store the key ID and secret key in. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
          * `entry_for_access_key`: Secret key to assign to the static access key ID value you are saving.
          * `entry_for_secret_key`: Secret key to assign to the secret key value you are saving.
 
-     For more information about `yandex_iam_service_account_static_access_key` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+     For more information about the `yandex_iam_service_account_static_access_key` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Make sure the configuration files are correct.
 
@@ -119,7 +119,7 @@ To create a service account static access key:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -196,7 +196,7 @@ To delete a service account static access key:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_service-account-keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the key to delete, and select **{{ ui-key.yacloud.common.delete }}**.
@@ -253,7 +253,7 @@ To delete a service account static access key:
         }
         ```
 
-        For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
     1. Make sure the configuration files are correct.
 
@@ -264,7 +264,7 @@ To delete a service account static access key:
             terraform plan
             ```
 
-        If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
     1. Deploy the cloud resources.
 

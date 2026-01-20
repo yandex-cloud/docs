@@ -1,16 +1,16 @@
 ---
-title: How to get information about a trail
-description: Follow this tutorial to get information about {{ at-full-name }}.
+title: How to get trail info
+description: Follow this tutorial to get {{ at-full-name }} trail info.
 ---
 
-# Getting information about a trail
+# Getting trail info
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [trail](../concepts/trail.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Select the trail. The **{{ ui-key.yacloud.audit-trails.label_trail }}** page will display detailed information about the trail.
 
 - CLI {#cli}
@@ -19,7 +19,7 @@ description: Follow this tutorial to get information about {{ at-full-name }}.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for viewing information about a [trail](../concepts/trail.md):
+  1. See the description of the CLI command for viewing [trail](../concepts/trail.md) info:
 
      ```bash
      yc audit-trails trail get --help
@@ -82,7 +82,7 @@ description: Follow this tutorial to get information about {{ at-full-name }}.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To get information about a [trail](../concepts/trail.md) using {{ TF }}:
+  To get [trail](../concepts/trail.md) info using {{ TF }}:
 
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
@@ -101,7 +101,7 @@ description: Follow this tutorial to get information about {{ at-full-name }}.
       * `data "yandex_audit_trails_trail"`: Trail description as a data source:
          * `resource_id`: Resource ID.
       * `output "my-trail-status"`: Output variable that contains information about the current trail `status`:
-         * `value`: Returned value.
+         * `value`: Return value.
 
      You can replace `status` with any other parameter to get the information you need. For more information about the `yandex_audit_trails_trail` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/audit_trails_trail).
 
@@ -109,7 +109,7 @@ description: Follow this tutorial to get information about {{ at-full-name }}.
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

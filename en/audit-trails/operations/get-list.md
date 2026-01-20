@@ -10,7 +10,7 @@ description: Follow this guide to view a list of available trails in {{ at-full-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of [trails](../concepts/trail.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. The **{{ ui-key.yacloud.audit-trails.label_trails }}** page will display a list of trails.
 
 - CLI {#cli}
@@ -19,7 +19,7 @@ description: Follow this guide to view a list of available trails in {{ at-full-
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [CLI](../../cli/) command to view a list of [trails](../concepts/trail.md):
+  1. View the description of the [CLI](../../cli/) command for viewing the [trail](../concepts/trail.md) list:
 
       ```bash
       yc audit-trails trail list --help

@@ -54,6 +54,12 @@ items:
         href: operations/logging.md
       - name: Viewing operations with resources
         href: operations/operation-logs.md
+  - name: Tutorials
+    items:
+      - name: >-
+          Configuring printing from {{ cloud-desktop-name }} to a local printer
+          in Linux
+        href: tutorials/desktop-linux-printer.md
   - name: Concepts
     items:
       - name: Desktops and their groups

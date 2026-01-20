@@ -1,5 +1,5 @@
 ---
-title: How to delete Let's Encrypt certificates in {{ certificate-manager-full-name }}
+title: How to delete a Let's Encrypt certificate in {{ certificate-manager-full-name }}
 description: Follow this guide to delete a Let's Encrypt certificate.
 ---
 
@@ -12,7 +12,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Find the certificate to be deleted in the list.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -24,7 +24,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the command:
+  1. View the command description:
 
      ```bash
      yc certificate-manager certificates delete --help

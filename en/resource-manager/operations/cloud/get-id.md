@@ -9,13 +9,36 @@ description: In this tutorial, you will learn how to get a cloud ID in {{ yandex
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}) and [select](switch-cloud.md) the appropriate cloud. On the page that opens, the cloud ID is shown on top, next to the cloud name, and in the **{{ ui-key.yacloud.common.id }}** line of the **{{ ui-key.yacloud.iam.cloud.switch_overview }}** tab.
- 
-  1. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
+  You can get the cloud ID on the dashboard or on the **{{ ui-key.yacloud.dashboard.DashboardPage.CloudInfoDialog.title_cloud-info-dialog_ddcbY }}** tab.
+
+  **Getting ID on the dashboard**
+
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg) and select the [cloud](../../concepts/resources-hierarchy.md#cloud).
+  1. The cloud ID is specified at the top, below the cloud name. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
+
+     {% cut "ID location" %}
+    
+     ![cloud-dashboard-id](../../../_assets/resource-manager/cloud-dashboard-id.png)
+
+     {% endcut %}
+
+  **Getting ID on the {{ ui-key.yacloud.dashboard.DashboardPage.CloudInfoDialog.title_cloud-info-dialog_ddcbY }} tab**
+
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg) and select the [cloud](../../concepts/resources-hierarchy.md#cloud).
+  1. To the right of the cloud name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_cloud-info }}**.
+  1. In the window that opens, you will find the cloud ID in the **{{ ui-key.yacloud.dashboard.DashboardPage.CloudInfoTooltip.cloud-id_rncSU }}** field. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
+
+     {% cut "ID location" %}
+
+     ![cloud-info-menu](../../../_assets/resource-manager/cloud-info-option.png)
+    
+     ![cloud-info-id](../../../_assets/resource-manager/cloud-info-id.png)
+
+     {% endcut %}
 
 - CLI {#cli}
 
-  If you know the name of the cloud, provide it as a parameter in the `get` command:
+  If you know the [cloud's](../../concepts/resources-hierarchy.md#cloud) name, set it as a `get` command parameter:
 
   ```
   yc resource-manager cloud get <cloud_name>
@@ -33,6 +56,6 @@ description: In this tutorial, you will learn how to get a cloud ID in {{ yandex
 
 - API {#api}
 
-  To get the list of clouds with IDs, use the [list](../../api-ref/Cloud/list.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/List](../../api-ref/grpc/Cloud/list.md) gRPC API call.
+  To get a list of [clouds](../../concepts/resources-hierarchy.md#cloud) with their IDs, use the [list](../../api-ref/Cloud/list.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/List](../../api-ref/grpc/Cloud/list.md) gRPC API call.
 
 {% endlist %}

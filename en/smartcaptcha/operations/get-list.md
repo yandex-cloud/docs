@@ -3,14 +3,14 @@ title: How to get a list of captchas
 description: Follow this guide to view a list of available {{ captcha-full-name }} captchas.
 ---
 
-# Getting a list of CAPTCHAs
+# Getting a list of captchas
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of [captchas](../concepts/validation.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
   1. The **{{ ui-key.yacloud.smartcaptcha.label_captcha-settings-list }}** page will display a list of available captchas.
 
 - CLI {#cli}
@@ -19,7 +19,7 @@ description: Follow this guide to view a list of available {{ captcha-full-name 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [CLI](../../cli/) command to view a list of [captchas](../concepts/validation.md):
+  1. View the description of the [CLI](../../cli/) command for viewing the [CAPTCHA](../concepts/validation.md) list:
 
       ```bash
       yc smartcaptcha captcha list --help

@@ -51,6 +51,8 @@ items:
             href: operations/user-pools/activate-user.md
           - name: Deactivating a user
             href: operations/user-pools/deactivate-user.md
+          - name: Viewing user logs
+            href: operations/user-pools/user-get-logs.md
           - name: Deleting a user account
             href: operations/edit-account.md
           - name: Leaving an organization
@@ -239,6 +241,8 @@ items:
                 href: tutorials/single-sign-on/grafana/oidc-grafana.md
           - name: Grafana OSS
             href: tutorials/single-sign-on/oidc-grafana-oss.md
+          - name: 1C:Enterprise
+            href: tutorials/single-sign-on/oidc-1c-enterprise.md
           - name: '{{ mos-name }}'
             href: tutorials/single-sign-on/saml-opensearch.md
           - name: '{{ OS }}'
@@ -279,6 +283,8 @@ items:
         href: concepts/controlled-org.md
       - name: My account portal
         href: concepts/my-account.md
+      - name: Audit logs and login logs
+        href: concepts/logs.md
       - name: Syncing with {{ microsoft-idp.ad-short }}
         href: concepts/ad-sync.md
       - name: Quotas and limits

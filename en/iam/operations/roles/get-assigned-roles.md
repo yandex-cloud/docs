@@ -27,7 +27,7 @@ To view assigned roles:
 
   To view the roles of a [service account](../../concepts/users/service-accounts.md) for a folder and its child resources:
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. The service account roles are listed in the **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}** field.

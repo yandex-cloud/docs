@@ -9,6 +9,12 @@ description: Следуя данной инструкции, вы научите
 
 В [{{ mcp-hub-name }}](../../concepts/mcp-hub/index.md) вы можете с нуля создавать новые MCP-серверы, содержащие такие инструменты, как HTTPS-запрос к внешнему API, [функция](../../../functions/concepts/function.md) {{ sf-full-name }} или [рабочий процесс](../../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }}.
 
+{% note tip %}
+
+{% include [roles-to-invoke-mcp](../../../_includes/ai-studio/mcp-hub/roles-to-invoke-mcp.md) %}
+
+{% endnote %}
+
 Чтобы создать новый MCP-сервер:
 
 {% list tabs group=instructions %}

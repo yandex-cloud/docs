@@ -14,10 +14,12 @@ The general format of the `event_type` field value is as follows:
 {{ at-event-prefix }}.audit.compute.<event_name>
 ```
 
-## Management event reference {#control-plane-events}
+{% include [about-events-ref](../_includes/audit-trails/about-events-ref.md) %}
+
+## Control plane event reference {#control-plane-events}
 
 {% include [compute-events](../_includes/audit-trails/events/compute-events.md) %}
 
-## Data event reference {#data-plane-events}
+## Data plane event reference {#data-plane-events}
 
 {% include [compute-events-dp](../_includes/audit-trails/events/compute-events-dp.md) %}

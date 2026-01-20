@@ -27,8 +27,8 @@ To get started:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
     1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
        ![screen01](../_assets/smartcaptcha/quickstart/screen01.png)
@@ -37,7 +37,7 @@ To get started:
 
         {% include [name-format](../_includes/smartcaptcha/name-format.md) %}
 
-    1. (Optional) Disable [domain name validation](./concepts/domain-validation.md).
+    1. Optionally, disable [domain name validation](./concepts/domain-validation.md).
     1. Specify a list of sites where the CAPTCHA will be placed.
     1. Leave the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** as is.
 
@@ -63,8 +63,8 @@ To get started:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
     1. Click the name of the CAPTCHA or [create](#creat-captcha) a new one.
     1. In the **{{ ui-key.yacloud.common.overview }}** tab, copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values.
 

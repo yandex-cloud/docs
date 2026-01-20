@@ -9,4 +9,5 @@ description: Step-by-step guides on search queries and {{ search-api-name }} set
 * [{#T}](./web-search.md)
 * [{#T}](./search-images.md)
 * [{#T}](./search-images-by-pic.md)
+* [{#T}](./web-search-geo.md)
 * [{#T}](./v2-mobile.md)

@@ -6,7 +6,7 @@ description: Follow this guide to add a selector to a dashboard in {{ datalens-f
 # Adding a selector to a dashboard in {{ datalens-full-name }}
 
 
-Before adding a selector, make sure you have the `{{ permission-write }}` or `{{ permission-admin }}` permission for the dashboard. Learn more in [{#T}](../../security/manage-access.md).
+Before adding a selector, make sure you have the `{{ permission-write }}` or `{{ permission-admin }}` permission for the dashboard. For more information, see [{#T}](../../security/manage-access.md).
 
 
 To add a [selector](../../dashboard/selector.md) to a dashboard:
@@ -23,7 +23,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
    ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
 
 
-1. Under **Selector settings** choose the source and specify the selector parameters:
+1. Under **Selector settings**, set the source and specify the selector parameters:
 
    {% list tabs %}
 
@@ -31,6 +31,8 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
      * **Dataset**: Dataset with data for the selector. You can choose a dataset from the list of objects or provide a link. This is a required field.
      * **Field**: Dataset field with selector values. It can be either a dimension or a measure (for more information, see [{#T}](../../dataset/data-model.md#field)). This is a required field.
+
+     
      * **Selector type**: Drop-down list, input field, calendar, or checkbox.
 
        {% note info %}
@@ -73,6 +75,8 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
        ![image](../../../_assets/datalens/selector-settings/field-name.png)
 
+
+     
      * **Selector type**: Drop-down list, input field, calendar, or checkbox.
 
        {% note info %}
@@ -115,17 +119,18 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
    In [QL charts](../../concepts/chart/ql-charts.md), you can control [selector parameters](../chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
 
-1. Optionally, add another selector to the widget. To do this, on the left side under **Selectors**, click ![image](../../../_assets/console-icons/plus.svg) **Add selector** and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, under **Selectors**, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the selector and select:
+1. Optionally, add another selector to the widget. To to this, on the left side of the **Selectors** tab, click ![image](../../../_assets/console-icons/plus.svg) **Add selector** and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, on the **Selectors** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the selector and select:
 
    * **Duplicate**: This will add a new selector with the same parameters to the widget.
-   * **Copy to clipboard**: You can paste the selector you copied into a different widget using the **Paste** button in the **Selectors** section or to a dashboard using the **Insert** button on the bottom panel of the dashboard page.
+   * **Copy to clipboard**: You can paste the selector you copied into a different widget using the **Paste** button on the **Selectors** tab or to a dashboard using the **Insert** button on the bottom panel of the dashboard page.
 
-1. Optionally, click ![image](../../../_assets/console-icons/gear.svg) **Advanced settings** and specify widget settings:
+1. Optionally, go to the **Group settings** tab and specify the widget settings:
 
    * **Apply button**: Adds a widget button which applies the values of all selectors in the widget. The selector values are not applied until you click the button.
    * **Reset button**: Adds a widget button which resets the values of all the widget selectors to their defaults.
    * **Auto height**: Sets the automatic height for a widget on the dashboard. Available for widgets with multiple selectors.
-   * **Dependent selector autoupdate**: Enables dependent selectors to influence one another before you click the **Apply** button. Available for widgets with multiple selectors and the **Apply button** option enabled.
+
+     
    * Optionally, for a widget with multiple selectors, customize the selector arrangement. To do this, arrange the selectors as needed by dragging them and adjust the width of each one:
 
       * `Auto`: Automatic selector width.
@@ -134,7 +139,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
    Click **Save**.
 
-   ![image](../../../_assets/datalens/selector-settings/selector-extending-settings.png)
+   ![image](../../../_assets/datalens/selector-settings/selector-extending-settings.png =581x419)
 
 1. Click **Save**. The widget will be displayed on the dashboard.
 

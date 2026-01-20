@@ -54,3 +54,4 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 * [{#T}](../infrastructure-management/sap.md)
 * [{#T}](../infrastructure/minecraft-server.md)
 * [{#T}](../serverless/video-converting-queue.md)
+* [{#T}](./desktop-linux-printer.md)

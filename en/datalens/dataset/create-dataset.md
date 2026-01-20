@@ -214,7 +214,7 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
 ### Duplicating fields {#dublicate-fields}
 
-You can duplicate any dataset field, including the calculated field you previously created. Proceed as follows:
+You can duplicate any dataset field, including the calculated field you previously created. To do this:
 
 1. On the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) and select **Duplicate**. In the list on the left, you will see a new field with the same type and settings as the original one.
 1. Optionally, rename the duplicated field, change its type or formula.
@@ -364,6 +364,8 @@ Charts based on this dataset will no longer display the data export option in th
 
 To re-enable data export, click ![image](../../_assets/console-icons/gear.svg) in the upper right corner of the dataset and check **Allow data export**.
 
+
+
 ## Configuring access {#access}
 
 
@@ -383,9 +385,7 @@ Before assigning access permissions to a user, [add](../security/add-new-user.md
   1. In the window that opens, click **Dataset access**.
   1. Enter a username or select the **All** group.
 
-     
      {% include [datalens-workbooks-collections-access-note](../../_includes/datalens/operations/datalens-workbooks-collections-access-note.md) %}
-
 
   1. (Optional) Write a comment for the user you are granting permissions to.
   1. Specify the appropriate permissions and click **Add**.

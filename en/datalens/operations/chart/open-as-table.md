@@ -9,10 +9,10 @@ You can display the data used to render a chart as a table.
 
 This feature is not available for the following chart types:
 
-* [{#T}](../../visualization-ref/indicator-chart.md)
-* [{#T}](../../visualization-ref/table-chart.md)
-* [{#T}](../../visualization-ref/pivot-table-chart.md)
-* [{#T}](../../visualization-ref/map-chart.md)
+* [Indicator](../../visualization-ref/indicator-chart.md)
+* [Table](../../visualization-ref/table-chart.md)
+* [Pivot table](../../visualization-ref/pivot-table-chart.md)
+* [Map](../../visualization-ref/map-chart.md)
 
 To open a chart as a table, do one of the following:
 

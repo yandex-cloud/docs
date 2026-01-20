@@ -15,6 +15,8 @@ items:
         href: operations/search-images.md
       - name: Searching by image
         href: operations/search-images-by-pic.md
+      - name: Location-based search
+        href: operations/web-search-geo.md
       - name: Mobile search results
         href: operations/v2-mobile.md
       - name: API v1
@@ -87,7 +89,7 @@ items:
     href: pricing.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: API
         items:

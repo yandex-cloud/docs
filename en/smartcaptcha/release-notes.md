@@ -1,9 +1,19 @@
 ---
 title: '{{ captcha-full-name }} release notes'
-description: This section contains {{ captcha-name }} release notes.
+description: This section contains the {{ captcha-name }} release notes.
 ---
 
 # {{ captcha-full-name }} release notes
+
+<!-- Changelog begin -->
+
+
+
+<!-- Changelog end -->
+
+## December 2025 {#dec-2025}
+
+Added the ability to source [metadata](concepts/captcha-variants.md#metadata), e.g., user information or [anti-fraud](https://en.wikipedia.org/wiki/Fraud_deterrence) system results, from the frontend to the CAPTCHA.
 
 ## January 2025 {#jan-2025}
 

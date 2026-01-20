@@ -51,7 +51,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add a custom certificate to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
   1. In the window that opens, in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, enter a custom certificate name.
@@ -74,7 +74,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the command:
+  1. View the command description:
 
      ```bash
      yc certificate-manager certificate create --help
@@ -90,7 +90,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
      ```
 
      Where:
-     * `--name`: Certificate name
+     * `--name`: Certificate name.
      * `--chain`: Path to the certificate chain file.
      * `--key`: Path to the certificate private key file.
 
@@ -110,7 +110,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_cm_certificate" "user-certificate" {
@@ -132,12 +132,12 @@ To add a custom certificate to {{ certificate-manager-name }}:
      ```
 
      Where:
-     * `name`: Certificate name
+     * `name`: Certificate name.
      * `certificate`: [Certificate](../../concepts/imported-certificate.md) file contents.
      * `private_key`: Private key file contents.
 
-     For more information about the `yandex_cm_certificate` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cm_certificate).
-  1. Create resources:
+     For more information about the `yandex_cm_certificate` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/cm_certificate).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -166,7 +166,7 @@ To avoid storing a private key of the user certificate as plain text in the {{ T
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. [Create a secret](../../../lockbox/operations/secret-create.md) and write the private key to it.
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_cm_certificate" "example-lockbox" {
@@ -192,8 +192,8 @@ To avoid storing a private key of the user certificate as plain text in the {{ T
      * `id`: ID of the {{ lockbox-name }} secret the private key is located in.
      * `key`: Key of the {{ lockbox-name }} secret the private key is located in.
 
-     For more information about the `yandex_cm_certificate` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cm_certificate).
-  1. Create resources:
+     For more information about `yandex_cm_certificate` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cm_certificate).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

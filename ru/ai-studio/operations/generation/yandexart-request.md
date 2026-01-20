@@ -86,8 +86,6 @@
       * `message2` — уточняющая часть запроса на генерацию изображения.
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
-
-      Подробнее о том, как обращаться к модели генерации изображений, см. в разделе [{#T}](../../concepts/generation/models.md#addressing-models).
       
   1. Выполните созданный файл:
 

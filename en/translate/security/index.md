@@ -1,21 +1,23 @@
 ---
 title: Access management in {{ translate-full-name }}
-description: 'Access management in the service for integrating {{ translate-full-name }} algorithms into applications or web projects. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.clouds.owner.'
+description: 'Access management in the service for integrating {{ translate-full-name }} algorithms into applications or web projects. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. As a user, you need one of the following roles: editor, admin, or resource-manager.clouds.owner.'
 ---
 
 # Access management in {{ translate-name }}
 
-In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+In this section, you will learn about:
+* [What resources you can assign a role for](#resources).
+* [What roles exist in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
+
+{% include [vision](../../_mermaid/roles/translate.md) %}
 
 ### Service roles {#service-roles}
 
@@ -39,7 +41,7 @@ In this section, you will learn:
 
 {% include [ai-admin](../../_roles/ai/admin.md) %}
 
-For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
 
 ### Primitive roles {#primitive-roles}
 
@@ -52,4 +54,4 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

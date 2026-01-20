@@ -14,13 +14,10 @@ You will learn how to:
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 1. Make sure that you have the required [roles](./concepts/access-control/roles.md):
 
-    1. In the management console, select the appropriate cloud from the list on the left. Example:
-
-        ![image](../_assets/resource-manager/switch-cloud-n-n.png)
-
+    1. In the management console, click ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. Specify your account in the search bar.
     1. Check that your account has the following roles:

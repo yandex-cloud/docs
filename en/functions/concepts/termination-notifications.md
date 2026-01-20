@@ -5,7 +5,7 @@ description: This page covers some aspects of notifications about upcoming force
 
 # Function termination notifications
 
-In some cases, the service may forcibly terminate a [function instance](./function.md#scaling). In which case the custom code of the function will get a _notification of upcoming forced termination_. 
+In some cases, the service may forcibly terminate a [function instance](./function.md#function-instance). In which case the custom code of the function will get a _notification of upcoming forced termination_. 
 
 Depending on the timeout specified in the [function version](./function.md#version) and the current state of the function instance, you can see one of the two notification types:
 

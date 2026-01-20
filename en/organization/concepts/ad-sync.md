@@ -35,29 +35,33 @@ The {{ ad-sync-agent }} syncs the following objects with the {{ microsoft-idp.ad
 * **Users**.
 * **User attributes**.
 
-    Default user attribute mapping table:
+    User attribute mapping table:
 
-    Attribute in {{ microsoft-idp.ad-short }} | Attribute in {{ org-name }}
-    --- | ---
-    `displayName` | `full_name`
-    `givenName` | `given_name`
-    `sn` | `family_name`
-    `mail` | `email`
-    `telephoneNumber` | `phone_number`
-    `userPrincipalName` | `username`
-    `ObjectGUID` | `external_id`
+    Attribute name </br>in [agent configuration](#agent-config) | Attribute name in {{ microsoft-idp.ad-short }} </br>(default) | Attribute name </br>in {{ org-name }}
+    --- | --- | ---
+    `FullName` | `displayName` | `full_name`
+    `GivenName` | `givenName` | `given_name`
+    `FamilyName` | `sn` | `family_name`
+    `Email` | `mail` | `email`
+    `PhoneNumber` | `telephoneNumber` | `phone_number`
+    `Username` | `userPrincipalName` | `username`
+    no data | `ObjectGUID` | `external_id`
+
+    In the `user_attribute_mapping` [agent configuration](#agent-config) parameter, you can map user attribute names different from the {{ microsoft-idp.ad-short }} default ones or disable synchronization of individual attributes.
 * **User groups**.
 * **User group attributes**.
 
-    Default user group attribute mapping table:
+    User group attribute mapping table:
 
-    Attribute in {{ microsoft-idp.ad-short }} | Attribute in {{ org-name }}
-    --- | ---
-    `name` | `name`
-    `description` | `description`
-    `ObjectGUID` | `external_id`
+    Attribute name </br>in [agent configuration](#agent-config) | Attribute name in {{ microsoft-idp.ad-short }} </br>(default) | Attribute name </br>in {{ org-name }}
+    --- | --- | ---
+    `Name` | `name` | `name`
+    `Description` | `description` | `description`
+    no data | `ObjectGUID` | `external_id`
+
+    In the `group_attribute_mapping` [agent configuration](#agent-config) parameter, you can map user group attribute names different from the {{ microsoft-idp.ad-short }} default ones or disable synchronization of individual attributes.
 * **User memberships in groups**.
-* **User password [hashes](https://en.wikipedia.org/wiki/Hash_function)**.
+* **[User password hashes](https://en.wikipedia.org/wiki/Hash_function)**.
 
     {{ microsoft-idp.ad-short }} stores user passwords as hashes, not plaintext. {{ yandex-cloud }} collects the user password hash from the {{ microsoft-idp.ad-short }} folder and generates its own one based on it using the modern hack-proof [Argon2](https://en.wikipedia.org/wiki/Argon2) algorithm.
 
