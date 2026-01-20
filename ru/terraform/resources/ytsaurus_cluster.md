@@ -114,19 +114,13 @@ Optional:
 Optional:
 
 - `client_logging` (Attributes) Client Cloud logging configuration. (see [below for nested schema](#nestedatt--spec--client_logging))
-- `compute` (Attributes List) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--compute))
+- `compute` (Attributes List) Cluster exec nodes configuration. (see [below for nested schema](#nestedatt--spec--compute))
 - `cron` (Attributes) Cluster regular processing settings. (see [below for nested schema](#nestedatt--spec--cron))
-- `flavor` (String) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
-- `odin` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--odin))
-- `proxy` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--proxy))
-- `storage` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--storage))
-- `tablet` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--tablet))
+- `flavor` (String) Cluster flavor (type).
+- `odin` (Attributes) Odin configuration. (see [below for nested schema](#nestedatt--spec--odin))
+- `proxy` (Attributes) Cluster proxies configuration. (see [below for nested schema](#nestedatt--spec--proxy))
+- `storage` (Attributes) Cluster storage configuration. (see [below for nested schema](#nestedatt--spec--storage))
+- `tablet` (Attributes) Cluster tablet nodes configuration. (see [below for nested schema](#nestedatt--spec--tablet))
 
 <a id="nestedatt--spec--client_logging"></a>
 ### Nested Schema for `spec.client_logging`
@@ -144,25 +138,19 @@ Optional:
 
 Optional:
 
-- `disks` (Attributes List) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--compute--disks))
+- `disks` (Attributes List) Configuration of exec node strorage. (see [below for nested schema](#nestedatt--spec--compute--disks))
 - `name` (String) Name for exec pool.
-- `preset` (String) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
-- `scale_policy` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--compute--scale_policy))
+- `preset` (String) VM configuration preset name.
+- `scale_policy` (Attributes) Exec nodes scaling policy. (see [below for nested schema](#nestedatt--spec--compute--scale_policy))
 
 <a id="nestedatt--spec--compute--disks"></a>
 ### Nested Schema for `spec.compute.disks`
 
 Optional:
 
-- `locations` (List of String) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
-- `size_gb` (Number) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
-- `type` (String) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
+- `locations` (List of String) Locations on a disk.
+- `size_gb` (Number) Size of a single disk in GB.
+- `type` (String) Type of a disk.
 
 
 <a id="nestedatt--spec--compute--scale_policy"></a>
@@ -170,10 +158,8 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
 
 Optional:
 
-- `auto` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--compute--scale_policy--auto))
-- `fixed` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--compute--scale_policy--fixed))
+- `auto` (Attributes) Scale policy that can adjust number of running exec nodes within specified range based on some criteria. (see [below for nested schema](#nestedatt--spec--compute--scale_policy--auto))
+- `fixed` (Attributes) Scale policy that doesn't change number of running exec nodes over time. (see [below for nested schema](#nestedatt--spec--compute--scale_policy--fixed))
 
 <a id="nestedatt--spec--compute--scale_policy--auto"></a>
 ### Nested Schema for `spec.compute.scale_policy.auto`
@@ -221,8 +207,7 @@ Optional:
 
 Optional:
 
-- `checks_ttl` (String) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
+- `checks_ttl` (String) TTL of Odin check samples.
 
 
 <a id="nestedatt--spec--proxy"></a>
@@ -230,18 +215,15 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
 
 Optional:
 
-- `http` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--proxy--http))
-- `rpc` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--proxy--rpc))
+- `http` (Attributes) Configuration of HTTP proxies. (see [below for nested schema](#nestedatt--spec--proxy--http))
+- `rpc` (Attributes) Configuration of rpc proxies. (see [below for nested schema](#nestedatt--spec--proxy--rpc))
 
 <a id="nestedatt--spec--proxy--http"></a>
 ### Nested Schema for `spec.proxy.http`
 
 Optional:
 
-- `count` (Number) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
+- `count` (Number) Total amount of HTTP proxies.
 
 
 <a id="nestedatt--spec--proxy--rpc"></a>
@@ -249,8 +231,7 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
 
 Optional:
 
-- `count` (Number) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
+- `count` (Number) Total amount of RPC proxies.
 
 
 
@@ -259,20 +240,16 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
 
 Optional:
 
-- `hdd` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--storage--hdd))
-- `ssd` (Attributes) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto (see [below for nested schema](#nestedatt--spec--storage--ssd))
+- `hdd` (Attributes) Configuration of cluster HDD strorage. (see [below for nested schema](#nestedatt--spec--storage--hdd))
+- `ssd` (Attributes) Configuration of cluster SSD strorage (see [below for nested schema](#nestedatt--spec--storage--ssd))
 
 <a id="nestedatt--spec--storage--hdd"></a>
 ### Nested Schema for `spec.storage.hdd`
 
 Optional:
 
-- `count` (Number) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
-- `size_gb` (Number) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
+- `count` (Number) Total amount of HDD disks.
+- `size_gb` (Number) Size of a single HDD disk in GB.
 
 
 <a id="nestedatt--spec--storage--ssd"></a>
@@ -280,12 +257,19 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
 
 Optional:
 
-- `count` (Number) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
+- `changelogs` (Attributes) Configuration of dynamic table changelogs. (see [below for nested schema](#nestedatt--spec--storage--ssd--changelogs))
+- `count` (Number) Total amount of SSD disks.
+- `size_gb` (Number) Size of a single SSD disk in GB.
+- `type` (String) Type of a SSD disk.
+
+<a id="nestedatt--spec--storage--ssd--changelogs"></a>
+### Nested Schema for `spec.storage.ssd.changelogs`
+
+Optional:
+
 - `size_gb` (Number) package: yandex.cloud.ytsaurus.v1
 filename: yandex/cloud/ytsaurus/v1/cluster.proto
-- `type` (String) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
+
 
 
 
@@ -294,10 +278,8 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
 
 Optional:
 
-- `count` (Number) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
-- `preset` (String) package: yandex.cloud.ytsaurus.v1
-filename: yandex/cloud/ytsaurus/v1/cluster.proto
+- `count` (Number) Total amount of tablet nodes.
+- `preset` (String) VM configuration preset name.
 
 
 

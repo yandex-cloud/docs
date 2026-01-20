@@ -5559,7 +5559,6 @@ default:
           switch_databases: Базы данных
           switch_datalens: DataLens
           switch_dictionaries: Словари
-          switch_explore-websql: WebSQL
           switch_format-schemas: Схемы формата данных
           switch_hosts: Хосты
           switch_logs: Логи

@@ -1035,7 +1035,7 @@ Optional:
 * `read` - abort query execution, return an error.
 * `pread` - abort query execution, return an error.
 * `pread_threadpool` - stop query execution, return partial result. If the parameter is set to 0 (default), no hops is allowed.
-- `log_processors_profiles` (Boolean) Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table.
+- `log_processors_profiles` (Boolean) Enabled or disable logging of processors level profiling data to the the system.processors_profile_log table.
 - `log_queries_probability` (Number) Log queries with the specified probability.
 - `log_query_threads` (Boolean) Setting up query threads logging. Query threads log into the system.query_thread_log table. This setting has effect only when log_queries is true. Queries’ threads run by ClickHouse with this setup are logged according to the rules in the query_thread_log server configuration parameter. Default value: `true`.
 - `log_query_views` (Boolean) Enables or disables query views logging to the the system.query_views_log table.

@@ -1,9 +1,9 @@
 ---
-title: PostgreSQL cluster and host status monitoring
+title: PostgreSQL cluster and host state monitoring
 description: You can monitor the state of a {{ mpg-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster health monitoring.
 ---
 
-# {{ PG }} cluster and host status monitoring
+# {{ PG }} cluster and host state monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -17,74 +17,104 @@ description: You can monitor the state of a {{ mpg-name }} cluster and its indiv
 To identify potential issues in a cluster, [use other cluster diagnostic tools](../tutorials/performance-problems.md) alongside monitoring.
 
 
-## Monitoring the cluster state {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view detailed information on the state of a {{ mpg-name }} cluster:
 
 1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
-1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 You will see the following charts:
 
-* **Age of oldest transaction/statement**: Oldest transaction/statement execution time.
-* **Average transaction/statement time**: Average transaction/statement processing time.
-* **CPU usage**: Processor core utilization.
-* **Disk read/write bytes**: Speed of disk read and write operations (bytes per second).
-* **Disk read/write IOPS**: Intensity of disk read and write operations (operations per second).
-* **Disk usage by DB**: Disk space utilization, broken down by database (bytes).
-* **Disk usage on primary**: Disk space utilization on the master host (bytes).
-* **Inode usage by host**: Number of inodes used by each host.
-* **Inode usage on primary**: Number of inodes used on the master host.
-* **Is Primary, [boolean]**: Shows which host is the master and for how long.
-* **Free space**: Free disk space, broken down by host (bytes).
-* **Log errors**: Number of errors logged per second.
-* **Memory usage**: RAM utilization (bytes). At high loads, the value of the **Free space** metric decreases, while the others increase.
-* **Network received/sent bytes**: Network data transfer speed (bytes per second).
-* **OOM Count**: Indicates the presence of Out-Of-Memory Killer processes. These processes kill memory-exhausting applications, which prevents the OS from crashing.
-* **Packets received/sent**: Network packet rate (packets per second).
-* **Pooler is alive, [boolean]**: Connection pooler health for each host either as a master or as a replica.
-* **PostgreSQL Alive, [boolean]**: PostgreSQL health for each host either as a master or as a replica.
-* **Replication lag**: Replication delay time.
+* Under **Cluster**:
 
-    {% note warning %}
+   * **PostgreSQL Alive, [boolean]**: PostgreSQL health for each host either as a master or as a replica.
+   * **Is Primary, [boolean]**: Shows which host is the master and for how long.
+   * **Replication lag**: Replication delay time.
 
-    The replication lag is calculated with one-second accuracy. A lag of less than one second cannot be tracked using this metric.
+       {% note warning %}
 
-    {% endnote %}
+       The replication lag is calculated with one-second accuracy. A lag of less than one second cannot be tracked using this metric.
 
-* **Session CPU usage cores**: Number of used processor cores, broken down by session type.
-* **Sessions per wait event**: Number of waiting sessions, broken down by wait event type.
-* **Sessions read bytes**: Volume of data read in bytes, broken down by session type.
-* **Sessions write bytes**: Volume of data written in bytes, broken down by session type.
-* **Statement quantiles**: Statement execution time, broken down by percentile.
-* **TCP connections**: Number of TCP connections per second.
-* **Total pooler connections**: Number of pooler connections, both client and server.
-* **Total size of temporary files**: Total size of temporary files in bytes.
-* **Total size of WAL files**: Total size of [WAL files](../concepts/backup.md) in bytes.
-* **Transaction quantiles**: Transaction processing time, broken down by percentile.
-* **Transactions/statements per second**: Number of transactions and statements per second.
+       {% endnote %}
+    
+   * **Average CPU usage**: Average transaction processing and operator execution time.
+   * **Maximum CPU usage**: Peak processor core load.
+   * **Maximum memory usage**: Peak RAM usage (in bytes). At high loads, the value of the **Free space** metric decreases, while the others increase.
+   * **Log errors**: Number of errors logged per second.
+   * **OOM Count**: Indicates the presence of Out-Of-Memory Killer processes. OOM Killer mechanism terminates memory exhausting applications, preventing the OS from crashing.
 
-## Monitoring the state of hosts {#monitoring-hosts}
+* Under **Disk**:
+
+   * **Disk usage on primary**: Disk space utilization on the master host (bytes).
+   * **Disk read/write bytes**: Speed of disk read and write operations (bytes per second).
+   * **Disk read/write IOPS**: Intensity of disk read and write operations (operations per second).
+   * **Disk usage by DB**: Disk space utilization, broken down by database (bytes).
+   * **Inode usage on primary**: Number of inodes used on the master host.
+   * **Inode usage by host**: Number of inodes used by each host.
+   * **Total size of temporary files**: Total size of temporary files in bytes.
+   * **Total size of WAL files**: Total size of [WAL files](../concepts/backup.md) in bytes.
+   * **Free space**: Free disk space broken down by host, in bytes.
+   * **WAL rate in bytes**: WAL file write speed in bytes per second.
+
+* Under **Transactions**:
+
+   * **Transactions/statements per second**: Number of transactions and statements per second.
+   * **Average transaction/statement time**: Average transaction/statement processing time.
+   * **Age of oldest transaction/statement**: Age of the oldest transaction/request.
+   * **Statement quantiles**: Statement execution time, broken down by percentile.
+   * **Transaction quantiles**: Transaction processing time, broken down by percentile.
+   * **Used/Free Transaction IDs**: Used/free transaction IDs.
+   * **Transaction IDs left**: Remainder of available transaction IDs.
+
+* Under **Vacuum**:
+
+   * **Vacuum processes**: Number of processes performing the vacuuming operation.
+   * **Scanning progress**: Scanning progress during vacuuming.
+   * **Vacuuming progress**: Progress of the vacuuming operation.
+
+* Under **Sessions**:
+
+   * **Sessions read bytes per second**: Amount of data read in bytes, broken down by session type.
+   * **Sessions write bytes per second**: Amount of data written in bytes, broken down by session type.
+   * **Session CPU usage cores**: Number of used processor cores, broken down by session type.
+   * **Sessions per wait event**: Number of waiting sessions, broken down by wait event type.
+
+* Under **Connections**:
+
+   * **Pooler is alive, [boolean]**: Connection pooler health for each host either as a master or as a replica.
+   * **Total pooler connections**: Number of pooler connections, both client and server.
+   * **TCP connections**: Number of TCP connections per second.
+
+* Under **Network**:
+
+   * **Packets received/sent**: Network packet rate (packets per second).
+   * **Network received/sent bytes**: Network data exchange rate (bytes per second).
+
+
+## Host state monitoring {#monitoring-hosts}
 
 To view detailed information on the state of individual {{ mpg-name }} hosts:
 
 1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Click the name of your cluster and select **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
-1. Select the host you need from the drop-down list.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
+1. Click the line of the host in the list.
 
 This page displays the charts showing workloads of individual cluster hosts:
 
 * **CPU usage**: Processor core workload. With increased workload, the **Idle** value drops.
+* **Memory usage**: Amount of RAM used, in bytes. At high loads, the value of the **Free space** metric decreases, while the others increase.
+* **Disk usage**: Disk space usage (in bytes).
+* **Disk usage by DB**: Disk space utilization, broken down by database (bytes).
+* **Disk read/write bytes**: Speed of disk operations, in bytes per second.
 * **Disk IOPS**: Number of disk operations per second.
-* **Disk read/write bytes**: Speed of disk operations in bytes per second.
-* **Memory usage**: RAM utilization in bytes. At high loads, the value of the **Free space** metric decreases, while the others increase.
-* **Network bytes**: Network data transfer speed in bytes per second.
-* **Network packets**: Number of packets transferred over the network, per second.
+* **Network packets**: Network packet rate, in packets per second.
+* **Network bytes**: Network data exchange rate, in bytes per second.
 
-The **Disk read/write bytes** and the **Disk IOPS** charts show the increase of the **Read** metric during database read activity, and the increase of the **Write** metric during database write activity..
+The **Disk read/write bytes** and the **Disk IOPS** charts show the increase of the **Read** value during database read activity, and in **Write**, during database write activity..
 
 For **Replica** hosts, the value of the **Received** metric on the **Network Bytes** and **Network Packets** charts is usually higher than the **Sent** metric.
 

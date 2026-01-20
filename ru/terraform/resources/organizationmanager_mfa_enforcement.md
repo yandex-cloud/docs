@@ -1,7 +1,7 @@
 ---
-page_title: yandex_organizationmanager_mfa_enforcement Resource - yandex
-subcategory: ''
-description: MFA enforcement resource
+subcategory: Cloud Organization
+page_title: 'Yandex: yandex_organizationmanager_mfa_enforcement'
+description: MFA enforcement resource.
 sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_mfa_enforcement.md
 ---
 

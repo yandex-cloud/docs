@@ -41,7 +41,7 @@ items:
             href: operations/resource-groups.md
           - name: User authentication rules
             href: operations/user-auth-rules.md
-          - name: Monitoring and managing sessions and queries in the Command Center
+          - name: Using the command center
             href: operations/command-center.md
           - name: Managing client processes and user sessions
             href: operations/cluster-process.md
@@ -69,6 +69,8 @@ items:
         items:
           - name: Managing extensions
             href: operations/extensions/cluster-extensions.md
+          - name: gp_relsizes_stats
+            href: operations/extensions/gp-relsizes-stats.md
           - name: gp_url_tools
             href: operations/extensions/gp-url-tools.md
           - name: pgcrypto
@@ -91,7 +93,7 @@ items:
             href: operations/cluster-operations.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
           - name: Transferring cluster logs to {{ cloud-logging-full-name }}
             href: operations/mgp-to-cloud-logging.md
@@ -141,7 +143,7 @@ items:
         href: concepts/calculate-specs.md
       - name: Networking in {{ mgp-name }}
         href: concepts/network.md
-      - name: Storage in {{ mgp-name }}
+      - name: '{{ mgp-name }} storage'
         items:
           - name: Disk types
             href: concepts/storage.md

@@ -813,6 +813,8 @@ default:
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
   SPQR: Sharded PostgreSQL
+  spqr:
+    docs: https://docs.pg-sharding.tech
   SPRK: Apache Spark™
   src-full-name: SourceCraft
   src-name: SourceCraft
@@ -5549,7 +5551,6 @@ default:
           switch_databases: Databases
           switch_datalens: DataLens
           switch_dictionaries: Dictionaries
-          switch_explore-websql: WebSQL
           switch_format-schemas: Data format schemas
           switch_hosts: Hosts
           switch_logs: Logs

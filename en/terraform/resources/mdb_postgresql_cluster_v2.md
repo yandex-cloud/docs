@@ -133,6 +133,7 @@ Optional:
 - `data_transfer` (Boolean) Allow access for DataTransfer
 - `serverless` (Boolean) Allow access for connection to managed databases from functions
 - `web_sql` (Boolean) Allow access for SQL queries in the management console
+- `yandex_query` (Boolean) Allow access for YandexQuery
 
 
 <a id="nestedatt--config--backup_window_start"></a>

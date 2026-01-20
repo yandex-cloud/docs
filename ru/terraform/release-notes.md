@@ -5,6 +5,18 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.179.0 (January 19, 2026)
+##### FEATURES:
+* mdb: add `mdb_clickhouse_cluster_v2` resource
+* CloudOrganization: new resources for idp SAML and OAuth application assignments
+##### BUG FIXES:
+* CDN: fix browser_cache_settings.enabled behavior
+* redis: fix documentation
+* datatransfer: fix endpoint recreation on rename
+* yandex_vpc_security_group_rule: fixed update of cidr block properties
+##### ENHANCEMENTS:
+* ytsaurus: add `changelogs` option in `storage.ssd` for dynamic table changelogs configuration
+
 ## 0.178.0 (January 15, 2026)
 ##### FEATURES:
 * yandex_storage_bucket: parameter disabled_statickey_auth is added.

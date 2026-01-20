@@ -7,7 +7,8 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/datatransfer_endpoint.md
 
 # yandex_datatransfer_endpoint (Resource)
 
-Manages a Data Transfer endpoint. For more information, see [the official documentation](https://yandex.cloud/docs/data-transfer/).
+Data Transfer endpoint. For more information, see [the official
+ documentation](https://yandex.cloud/docs/data-transfer/)
 
 ## Example usage
 
@@ -61,84 +62,134 @@ resource "yandex_datatransfer_endpoint" "pg_target" {
 
 ### Optional
 
-- `description` (String) The resource description.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `name` (String) The resource name.
-- `settings` (Block List, Max: 1) DataTransfer Endpoint Settings block. (see [below for nested schema](#nestedblock--settings))
-
-### Read-Only
-
-- `id` (String) The ID of this resource.
+- `description` (String) Description of the endpoint.
+- `endpoint_id` (String) Identifier of the endpoint to return.
+ 
+ To get the endpoint ID, make an [EndpointService.List] request.
+- `folder_id` (String) ID of the folder to create the endpoint in.
+ 
+ To get the folder ID, make a
+ [yandex.cloud.resourcemanager.v1.FolderService.List] request.
+- `id` (String) Identifier of the endpoint to return.
+ 
+ To get the endpoint ID, make an [EndpointService.List] request.
+- `labels` (Map of String) Endpoint labels as `key:value` pairs.
+ 
+ For details about the concept, see [documentation]( api-url-prefix
+ /resource-manager/concepts/labels).
+- `name` (String) Name of the endpoint.
+ 
+ The name must be unique within the folder.
+- `settings` (Block List) DataTransfer Endpoint Settings block (see [below for nested schema](#nestedblock--settings))
+- `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 
 <a id="nestedblock--settings"></a>
 ### Nested Schema for `settings`
 
 Optional:
 
-- `clickhouse_source` (Block List, Max: 1) Settings specific to the ClickHouse source endpoint. (see [below for nested schema](#nestedblock--settings--clickhouse_source))
-- `clickhouse_target` (Block List, Max: 1) Settings specific to the ClickHouse target endpoint. (see [below for nested schema](#nestedblock--settings--clickhouse_target))
-- `kafka_source` (Block List, Max: 1) Settings specific to the Kafka source endpoint. (see [below for nested schema](#nestedblock--settings--kafka_source))
-- `kafka_target` (Block List, Max: 1) Settings specific to the Kafka target endpoint. (see [below for nested schema](#nestedblock--settings--kafka_target))
-- `metrika_source` (Block List, Max: 1) Settings specific to the Yandex Metrika source endpoint. (see [below for nested schema](#nestedblock--settings--metrika_source))
-- `mongo_source` (Block List, Max: 1) Settings specific to the MongoDB source endpoint. (see [below for nested schema](#nestedblock--settings--mongo_source))
-- `mongo_target` (Block List, Max: 1) Settings specific to the MongoDB target endpoint. (see [below for nested schema](#nestedblock--settings--mongo_target))
-- `mysql_source` (Block List, Max: 1) Settings specific to the MySQL source endpoint. (see [below for nested schema](#nestedblock--settings--mysql_source))
-- `mysql_target` (Block List, Max: 1) Settings specific to the MySQL target endpoint. (see [below for nested schema](#nestedblock--settings--mysql_target))
-- `postgres_source` (Block List, Max: 1) Settings specific to the PostgreSQL source endpoint. (see [below for nested schema](#nestedblock--settings--postgres_source))
-- `postgres_target` (Block List, Max: 1) Settings specific to the PostgreSQL target endpoint. (see [below for nested schema](#nestedblock--settings--postgres_target))
-- `ydb_source` (Block List, Max: 1) Settings specific to the YDB source endpoint. (see [below for nested schema](#nestedblock--settings--ydb_source))
-- `ydb_target` (Block List, Max: 1) Settings specific to the YDB target endpoint. (see [below for nested schema](#nestedblock--settings--ydb_target))
-- `yds_source` (Block List, Max: 1) Settings specific to the YDS source endpoint. (see [below for nested schema](#nestedblock--settings--yds_source))
-- `yds_target` (Block List, Max: 1) Settings specific to the YDS target endpoint. (see [below for nested schema](#nestedblock--settings--yds_target))
+- `clickhouse_source` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--clickhouse_source))
+- `clickhouse_target` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--clickhouse_target))
+- `kafka_source` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--kafka_source))
+- `kafka_target` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--kafka_target))
+- `metrika_source` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--metrika_source))
+- `mongo_source` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--mongo_source))
+- `mongo_target` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--mongo_target))
+- `mysql_source` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--mysql_source))
+- `mysql_target` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--mysql_target))
+- `postgres_source` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--postgres_source))
+- `postgres_target` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--postgres_target))
+- `ydb_source` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--ydb_source))
+- `ydb_target` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--ydb_target))
+- `yds_source` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--yds_source))
+- `yds_target` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/endpoint.proto (see [below for nested schema](#nestedblock--settings--yds_target))
 
 <a id="nestedblock--settings--clickhouse_source"></a>
 ### Nested Schema for `settings.clickhouse_source`
 
 Optional:
 
-- `clickhouse_cluster_name` (String)
-- `connection` (Block List, Max: 1) Connection settings. (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection))
-- `exclude_tables` (List of String) The list of tables that should not be transferred.
-- `include_tables` (List of String) The list of tables that should be transferred. Leave empty if all tables should be transferred.
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
+- `clickhouse_cluster_name` (String) Name of the ClickHouse cluster. For Managed ClickHouse that is name of
+ ShardGroup or managed cluster ID by default
+- `connection` (Block List) Connection settings (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection))
+- `exclude_tables` (List of String) Exclude list of tables for replication. If none or empty list is presented -
+ will replicate all tables. Can contain * patterns.
+- `include_tables` (List of String) White list of tables for replication. If none or empty list is presented - will
+ replicate all tables. Can contain * patterns.
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
 
 <a id="nestedblock--settings--clickhouse_source--connection"></a>
 ### Nested Schema for `settings.clickhouse_source.connection`
 
 Optional:
 
-- `connection_options` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options))
+- `connection_options` (Block List) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options))
 
 <a id="nestedblock--settings--clickhouse_source--connection--connection_options"></a>
 ### Nested Schema for `settings.clickhouse_source.connection.connection_options`
 
 Optional:
 
-- `database` (String)
-- `mdb_cluster_id` (String)
-- `on_premise` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--on_premise))
-- `password` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--password))
-- `user` (String)
+- `connection_manager_connection` (Block List) Get ClickHouse installation params and credentials from Connection Manager (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--connection_manager_connection))
+- `database` (String) Database name
+- `mdb_cluster_id` (String) Identifier of the Managed ClickHouse cluster
+- `on_premise` (Block List) Connection settings of the on-premise ClickHouse server (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--on_premise))
+- `password` (Block List) Password for the database access (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--password))
+- `user` (String) User for database access. Required unless connection_manager_connection is used
+
+<a id="nestedblock--settings--clickhouse_source--connection--connection_options--connection_manager_connection"></a>
+### Nested Schema for `settings.clickhouse_source.connection.connection_options.connection_manager_connection`
+
+Optional:
+
+- `connection_id` (String) ID of connection in Connection Manager with installation params and credetials
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+
 
 <a id="nestedblock--settings--clickhouse_source--connection--connection_options--on_premise"></a>
 ### Nested Schema for `settings.clickhouse_source.connection.connection_options.on_premise`
 
 Optional:
 
-- `http_port` (Number)
-- `native_port` (Number)
-- `shards` (Block List) (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--shards))
-- `tls_mode` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--tls_mode))
+- `http_port` (Number) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
+- `native_port` (Number) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
+- `shards` (Block List) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--shards))
+- `tls_mode` (Block List) TLS settings for server connection. Disabled by default (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--tls_mode))
 
 <a id="nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--shards"></a>
 ### Nested Schema for `settings.clickhouse_source.connection.connection_options.on_premise.shards`
 
 Optional:
 
-- `hosts` (List of String)
-- `name` (String)
+- `hosts` (List of String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
+- `name` (String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
 
 
 <a id="nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--tls_mode"></a>
@@ -146,8 +197,9 @@ Optional:
 
 Optional:
 
-- `disabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--tls_mode--disabled))
-- `enabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--tls_mode--enabled))
+- `disabled` (Block List) Empty block designating that the connection is not secured, i.e. plaintext
+ connection (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--tls_mode--disabled))
+- `enabled` (Block List) TLS is used for the server connection (see [below for nested schema](#nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--tls_mode--enabled))
 
 <a id="nestedblock--settings--clickhouse_source--connection--connection_options--on_premise--tls_mode--disabled"></a>
 ### Nested Schema for `settings.clickhouse_source.connection.connection_options.on_premise.tls_mode.disabled`
@@ -158,7 +210,12 @@ Optional:
 
 Optional:
 
-- `ca_certificate` (String)
+- `ca_certificate` (String) CA certificate
+ 
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 
 
@@ -168,7 +225,7 @@ Optional:
 
 Optional:
 
-- `raw` (String, Sensitive)
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -179,21 +236,27 @@ Optional:
 
 Optional:
 
-- `alt_names` (Block List) Table renaming rules. (see [below for nested schema](#nestedblock--settings--clickhouse_target--alt_names))
-- `cleanup_policy` (String) How to clean collections when activating the transfer. One of `CLICKHOUSE_CLEANUP_POLICY_DISABLED` or `CLICKHOUSE_CLEANUP_POLICY_DROP`.
-- `clickhouse_cluster_name` (String) Name of the ClickHouse cluster. For managed ClickHouse clusters defaults to managed cluster ID.
-- `connection` (Block List, Max: 1) Connection settings. (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection))
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `sharding` (Block List, Max: 1) Shard selection rules for the data being transferred. (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding))
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
+- `alt_names` (Block List) Table renaming rules in target (see [below for nested schema](#nestedblock--settings--clickhouse_target--alt_names))
+- `cleanup_policy` (String) How to clean collections when activating the transfer. One of
+ `CLICKHOUSE_CLEANUP_POLICY_DISABLED` or `CLICKHOUSE_CLEANUP_POLICY_DROP`
+- `clickhouse_cluster_name` (String) Name of the ClickHouse cluster. For Managed ClickHouse that is name of
+ ShardGroup or managed cluster ID by default.
+- `connection` (Block List) Connection settings (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection))
+- `is_schema_migration_disabled` (Boolean) Whether can change table schema if schema changed on source
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `sharding` (Block List) Shard selection rules for the data being transferred (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding))
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
 
 <a id="nestedblock--settings--clickhouse_target--alt_names"></a>
 ### Nested Schema for `settings.clickhouse_target.alt_names`
 
 Optional:
 
-- `from_name` (String)
-- `to_name` (String)
+- `from_name` (String) Source table name
+- `to_name` (String) Target table name
 
 
 <a id="nestedblock--settings--clickhouse_target--connection"></a>
@@ -201,36 +264,54 @@ Optional:
 
 Optional:
 
-- `connection_options` (Block List, Max: 1) Connection options. (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options))
+- `connection_options` (Block List) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options))
 
 <a id="nestedblock--settings--clickhouse_target--connection--connection_options"></a>
 ### Nested Schema for `settings.clickhouse_target.connection.connection_options`
 
 Optional:
 
-- `database` (String) Database name.
-- `mdb_cluster_id` (String) Identifier of the Managed ClickHouse cluster.
-- `on_premise` (Block List, Max: 1) Connection settings of the on-premise ClickHouse server. (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--on_premise))
-- `password` (Block List, Max: 1) Password for the database access. (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--password))
-- `user` (String) User for database access.
+- `connection_manager_connection` (Block List) Get ClickHouse installation params and credentials from Connection Manager (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--connection_manager_connection))
+- `database` (String) Database name
+- `mdb_cluster_id` (String) Identifier of the Managed ClickHouse cluster
+- `on_premise` (Block List) Connection settings of the on-premise ClickHouse server (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--on_premise))
+- `password` (Block List) Password for the database access (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--password))
+- `user` (String) User for database access. Required unless connection_manager_connection is used
+
+<a id="nestedblock--settings--clickhouse_target--connection--connection_options--connection_manager_connection"></a>
+### Nested Schema for `settings.clickhouse_target.connection.connection_options.connection_manager_connection`
+
+Optional:
+
+- `connection_id` (String) ID of connection in Connection Manager with installation params and credetials
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+
 
 <a id="nestedblock--settings--clickhouse_target--connection--connection_options--on_premise"></a>
 ### Nested Schema for `settings.clickhouse_target.connection.connection_options.on_premise`
 
 Optional:
 
-- `http_port` (Number) TCP port number for the HTTP interface of the ClickHouse server.
-- `native_port` (Number) TCP port number for the native interface of the ClickHouse server.
-- `shards` (Block List) The list of ClickHouse shards. (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--shards))
-- `tls_mode` (Block List, Max: 1) TLS settings for the server connection. (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--tls_mode))
+- `http_port` (Number) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
+- `native_port` (Number) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
+- `shards` (Block List) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--shards))
+- `tls_mode` (Block List) TLS settings for server connection. Disabled by default (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--tls_mode))
 
 <a id="nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--shards"></a>
 ### Nested Schema for `settings.clickhouse_target.connection.connection_options.on_premise.shards`
 
 Optional:
 
-- `hosts` (List of String) List of ClickHouse server host names.
-- `name` (String) Arbitrary shard name. This name may be used in `sharding` block to specify custom sharding rules.
+- `hosts` (List of String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
+- `name` (String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
 
 
 <a id="nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--tls_mode"></a>
@@ -238,8 +319,9 @@ Optional:
 
 Optional:
 
-- `disabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--tls_mode--disabled))
-- `enabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--tls_mode--enabled))
+- `disabled` (Block List) Empty block designating that the connection is not secured, i.e. plaintext
+ connection (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--tls_mode--disabled))
+- `enabled` (Block List) TLS is used for the server connection (see [below for nested schema](#nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--tls_mode--enabled))
 
 <a id="nestedblock--settings--clickhouse_target--connection--connection_options--on_premise--tls_mode--disabled"></a>
 ### Nested Schema for `settings.clickhouse_target.connection.connection_options.on_premise.tls_mode.disabled`
@@ -250,7 +332,12 @@ Optional:
 
 Optional:
 
-- `ca_certificate` (String)
+- `ca_certificate` (String) CA certificate
+ 
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 
 
@@ -260,7 +347,7 @@ Optional:
 
 Optional:
 
-- `raw` (String, Sensitive) Password for the database access.
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -270,17 +357,18 @@ Optional:
 
 Optional:
 
-- `column_value_hash` (Block List, Max: 1) Shard data by the hash value of the specified column. (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--column_value_hash))
-- `custom_mapping` (Block List, Max: 1) A custom shard mapping by the value of the specified column. (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--custom_mapping))
-- `round_robin` (Block List, Max: 1) Distribute incoming rows between ClickHouse shards in a round-robin manner. Specify as an empty block to enable. (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--round_robin))
-- `transfer_id` (Block List, Max: 1) Shard data by ID of the transfer. (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--transfer_id))
+- `column_value_hash` (Block List) Shard data by the hash value of the specified column (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--column_value_hash))
+- `custom_mapping` (Block List) A custom shard mapping by the value of the specified column (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--custom_mapping))
+- `round_robin` (Block List) Distribute incoming rows between ClickHouse shards in a round-robin manner.
+ Specify as an empty block to enable (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--round_robin))
+- `transfer_id` (Block List) Shard data by ID of the transfer (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--transfer_id))
 
 <a id="nestedblock--settings--clickhouse_target--sharding--column_value_hash"></a>
 ### Nested Schema for `settings.clickhouse_target.sharding.column_value_hash`
 
 Optional:
 
-- `column_name` (String) The name of the column to calculate hash from.
+- `column_name` (String) The name of the column to calculate hash from
 
 
 <a id="nestedblock--settings--clickhouse_target--sharding--custom_mapping"></a>
@@ -288,23 +376,27 @@ Optional:
 
 Optional:
 
-- `column_name` (String) The name of the column to inspect when deciding the shard to chose for an incoming row.
-- `mapping` (Block List) The mapping of the specified column values to the shard names. (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--custom_mapping--mapping))
+- `column_name` (String) The name of the column to inspect when deciding the shard to chose for an
+ incoming row
+- `mapping` (Block List) The mapping of the specified column values to the shard names (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--custom_mapping--mapping))
 
 <a id="nestedblock--settings--clickhouse_target--sharding--custom_mapping--mapping"></a>
 ### Nested Schema for `settings.clickhouse_target.sharding.custom_mapping.mapping`
 
 Optional:
 
-- `column_value` (Block List, Max: 1) The value of the column. Currently only the string columns are supported. (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--custom_mapping--mapping--column_value))
-- `shard_name` (String) The name of the shard into which all the rows with the specified `column_value` will be written.
+- `column_value` (Block List) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto (see [below for nested schema](#nestedblock--settings--clickhouse_target--sharding--custom_mapping--mapping--column_value))
+- `shard_name` (String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
 
 <a id="nestedblock--settings--clickhouse_target--sharding--custom_mapping--mapping--column_value"></a>
 ### Nested Schema for `settings.clickhouse_target.sharding.custom_mapping.mapping.column_value`
 
 Optional:
 
-- `string_value` (String) The string value of the column.
+- `string_value` (String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/common.proto
 
 
 
@@ -324,21 +416,23 @@ Optional:
 
 Optional:
 
-- `auth` (Block List, Max: 1) Authentication data. (see [below for nested schema](#nestedblock--settings--kafka_source--auth))
-- `connection` (Block List, Max: 1) Connection settings. (see [below for nested schema](#nestedblock--settings--kafka_source--connection))
-- `parser` (Block List, Max: 1) Data parsing parameters. If not set, the source messages are read in raw. (see [below for nested schema](#nestedblock--settings--kafka_source--parser))
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `topic_name` (String) **Deprecated**. Please use `topic_names` instead.
-- `topic_names` (List of String) The list of full source topic names.
-- `transformer` (Block List, Max: 1) Transform data with a custom Cloud Function. (see [below for nested schema](#nestedblock--settings--kafka_source--transformer))
+- `auth` (Block List) Authentication settings (see [below for nested schema](#nestedblock--settings--kafka_source--auth))
+- `connection` (Block List) Connection settings (see [below for nested schema](#nestedblock--settings--kafka_source--connection))
+- `parser` (Block List) Data parsing parameters. If not set, the source messages are read in raw (see [below for nested schema](#nestedblock--settings--kafka_source--parser))
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `topic_name` (String, Deprecated) **Deprecated**. Please use `topic_names` instead
+ Full source topic name
+- `topic_names` (List of String) List of full source topic names to read
+- `transformer` (Block List) Transform data with a custom Cloud Function (see [below for nested schema](#nestedblock--settings--kafka_source--transformer))
 
 <a id="nestedblock--settings--kafka_source--auth"></a>
 ### Nested Schema for `settings.kafka_source.auth`
 
 Optional:
 
-- `no_auth` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--kafka_source--auth--no_auth))
-- `sasl` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--kafka_source--auth--sasl))
+- `no_auth` (Block List) No authentication (see [below for nested schema](#nestedblock--settings--kafka_source--auth--no_auth))
+- `sasl` (Block List) Authentication with SASL (see [below for nested schema](#nestedblock--settings--kafka_source--auth--sasl))
 
 <a id="nestedblock--settings--kafka_source--auth--no_auth"></a>
 ### Nested Schema for `settings.kafka_source.auth.no_auth`
@@ -349,16 +443,17 @@ Optional:
 
 Optional:
 
-- `mechanism` (String)
-- `password` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--kafka_source--auth--sasl--password))
-- `user` (String)
+- `mechanism` (String) SASL mechanism for authentication, use one of: KAFKA_MECHANISM_SHA256,
+ KAFKA_MECHANISM_SHA512
+- `password` (Block List) Password for user (see [below for nested schema](#nestedblock--settings--kafka_source--auth--sasl--password))
+- `user` (String) User name
 
 <a id="nestedblock--settings--kafka_source--auth--sasl--password"></a>
 ### Nested Schema for `settings.kafka_source.auth.sasl.password`
 
 Optional:
 
-- `raw` (String, Sensitive)
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -368,25 +463,43 @@ Optional:
 
 Optional:
 
-- `cluster_id` (String)
-- `on_premise` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--kafka_source--connection--on_premise))
+- `cluster_id` (String) Managed Service for Kafka cluster ID. 
+ Set only one of: cluster_id/on_premise/connection_manager_connection
+- `connection_manager_connection` (Block List) Get Kafka installation params and credentials from Connection Manager
+ Set only one of: cluster_id/on_premise/connection_manager_connection (see [below for nested schema](#nestedblock--settings--kafka_source--connection--connection_manager_connection))
+- `on_premise` (Block List) Connection options for on-premise Kafka
+ Set only one of: cluster_id/on_premise/connection_manager_connection (see [below for nested schema](#nestedblock--settings--kafka_source--connection--on_premise))
+
+<a id="nestedblock--settings--kafka_source--connection--connection_manager_connection"></a>
+### Nested Schema for `settings.kafka_source.connection.connection_manager_connection`
+
+Optional:
+
+- `connection_id` (String) ID of connection in Connection Manager with installation params and credetials
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+
 
 <a id="nestedblock--settings--kafka_source--connection--on_premise"></a>
 ### Nested Schema for `settings.kafka_source.connection.on_premise`
 
 Optional:
 
-- `broker_urls` (List of String)
-- `subnet_id` (String)
-- `tls_mode` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--kafka_source--connection--on_premise--tls_mode))
+- `broker_urls` (List of String) Kafka broker URLs
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+- `tls_mode` (Block List) TLS settings for broker connection. Disabled by default. (see [below for nested schema](#nestedblock--settings--kafka_source--connection--on_premise--tls_mode))
 
 <a id="nestedblock--settings--kafka_source--connection--on_premise--tls_mode"></a>
 ### Nested Schema for `settings.kafka_source.connection.on_premise.tls_mode`
 
 Optional:
 
-- `disabled` (Block List, Max: 1) Empty block designating that the connection is not secured, i.e. plaintext connection. (see [below for nested schema](#nestedblock--settings--kafka_source--connection--on_premise--tls_mode--disabled))
-- `enabled` (Block List, Max: 1) If this attribute is not an empty block, then TLS is used for the server connection. (see [below for nested schema](#nestedblock--settings--kafka_source--connection--on_premise--tls_mode--enabled))
+- `disabled` (Block List) Empty block designating that the connection is not secured, i.e. plaintext
+ connection (see [below for nested schema](#nestedblock--settings--kafka_source--connection--on_premise--tls_mode--disabled))
+- `enabled` (Block List) TLS is used for the server connection (see [below for nested schema](#nestedblock--settings--kafka_source--connection--on_premise--tls_mode--enabled))
 
 <a id="nestedblock--settings--kafka_source--connection--on_premise--tls_mode--disabled"></a>
 ### Nested Schema for `settings.kafka_source.connection.on_premise.tls_mode.disabled`
@@ -397,7 +510,12 @@ Optional:
 
 Optional:
 
-- `ca_certificate` (String) X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. If empty, the server's certificate must be signed by a well-known CA.
+- `ca_certificate` (String) CA certificate
+ 
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 
 
@@ -408,10 +526,10 @@ Optional:
 
 Optional:
 
-- `audit_trails_v1_parser` (Block List, Max: 1) Parse Audit Trails data. Empty struct. (see [below for nested schema](#nestedblock--settings--kafka_source--parser--audit_trails_v1_parser))
-- `cloud_logging_parser` (Block List, Max: 1) Parse Cloud Logging data. Empty struct. (see [below for nested schema](#nestedblock--settings--kafka_source--parser--cloud_logging_parser))
-- `json_parser` (Block List, Max: 1) Parse data in `JSON` format. (see [below for nested schema](#nestedblock--settings--kafka_source--parser--json_parser))
-- `tskv_parser` (Block List, Max: 1) Parse data if `TSKV` format. (see [below for nested schema](#nestedblock--settings--kafka_source--parser--tskv_parser))
+- `audit_trails_v1_parser` (Block List) Parse Audit Trails data. Empty struct (see [below for nested schema](#nestedblock--settings--kafka_source--parser--audit_trails_v1_parser))
+- `cloud_logging_parser` (Block List) Parse Cloud Logging data. Empty struct (see [below for nested schema](#nestedblock--settings--kafka_source--parser--cloud_logging_parser))
+- `json_parser` (Block List) Parse data in json format (see [below for nested schema](#nestedblock--settings--kafka_source--parser--json_parser))
+- `tskv_parser` (Block List) Parse data in tskv format (see [below for nested schema](#nestedblock--settings--kafka_source--parser--tskv_parser))
 
 <a id="nestedblock--settings--kafka_source--parser--audit_trails_v1_parser"></a>
 ### Nested Schema for `settings.kafka_source.parser.audit_trails_v1_parser`
@@ -426,36 +544,37 @@ Optional:
 
 Optional:
 
-- `add_rest_column` (Boolean) Add fields, that are not in the schema, into the _rest column.
-- `data_schema` (Block List, Max: 1) Data parsing scheme. (see [below for nested schema](#nestedblock--settings--kafka_source--parser--json_parser--data_schema))
-- `null_keys_allowed` (Boolean) Allow null keys. If `false` - null keys will be putted to unparsed data.
-- `unescape_string_values` (Boolean) Allow unescape string values.
+- `add_rest_column` (Boolean) Will add _rest column for all unknown fields
+- `data_schema` (Block List) Data parsing scheme (see [below for nested schema](#nestedblock--settings--kafka_source--parser--json_parser--data_schema))
+- `null_keys_allowed` (Boolean) Allow null keys, if no - null keys will be putted to unparsed data
+- `unescape_string_values` (Boolean) Unescape string values
 
 <a id="nestedblock--settings--kafka_source--parser--json_parser--data_schema"></a>
 ### Nested Schema for `settings.kafka_source.parser.json_parser.data_schema`
 
 Optional:
 
-- `fields` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--kafka_source--parser--json_parser--data_schema--fields))
-- `json_fields` (String) Description of the data schema as JSON specification.
+- `fields` (Block List) Description of the data schema in the array of `fields` structure (see [below for nested schema](#nestedblock--settings--kafka_source--parser--json_parser--data_schema--fields))
+- `json_fields` (String, Deprecated) Description of the data schema as JSON specification
 
 <a id="nestedblock--settings--kafka_source--parser--json_parser--data_schema--fields"></a>
 ### Nested Schema for `settings.kafka_source.parser.json_parser.data_schema.fields`
 
 Optional:
 
-- `fields` (Block List) Description of the data schema in the array of `fields` structure. (see [below for nested schema](#nestedblock--settings--kafka_source--parser--json_parser--data_schema--fields--fields))
+- `fields` (Block List) Description of the column schema in the array of `fields` structure (see [below for nested schema](#nestedblock--settings--kafka_source--parser--json_parser--data_schema--fields--fields))
 
 <a id="nestedblock--settings--kafka_source--parser--json_parser--data_schema--fields--fields"></a>
 ### Nested Schema for `settings.kafka_source.parser.json_parser.data_schema.fields.fields`
 
 Optional:
 
-- `key` (Boolean) Mark field as Primary Key.
-- `name` (String) Field name.
-- `path` (String) Path to the field.
-- `required` (Boolean) Mark field as required.
-- `type` (String) Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`, `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
+- `key` (Boolean) Mark field as Primary Key
+- `name` (String) Field name
+- `path` (String) Path to the field
+- `required` (Boolean) Mark field as required
+- `type` (String) Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`,
+ `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
 
 
 
@@ -466,36 +585,37 @@ Optional:
 
 Optional:
 
-- `add_rest_column` (Boolean) Add fields, that are not in the schema, into the _rest column.
-- `data_schema` (Block List, Max: 1) Data parsing scheme. (see [below for nested schema](#nestedblock--settings--kafka_source--parser--tskv_parser--data_schema))
-- `null_keys_allowed` (Boolean) Allow null keys. If `false` - null keys will be putted to unparsed data.
-- `unescape_string_values` (Boolean) Allow unescape string values.
+- `add_rest_column` (Boolean) Will add _rest column for all unknown fields
+- `data_schema` (Block List) Data parsing scheme (see [below for nested schema](#nestedblock--settings--kafka_source--parser--tskv_parser--data_schema))
+- `null_keys_allowed` (Boolean) Allow null keys, if no - null keys will be putted to unparsed data
+- `unescape_string_values` (Boolean) Unescape string values
 
 <a id="nestedblock--settings--kafka_source--parser--tskv_parser--data_schema"></a>
 ### Nested Schema for `settings.kafka_source.parser.tskv_parser.data_schema`
 
 Optional:
 
-- `fields` (Block List, Max: 1) Description of the data schema in the array of `fields` structure. (see [below for nested schema](#nestedblock--settings--kafka_source--parser--tskv_parser--data_schema--fields))
-- `json_fields` (String) Description of the data schema as JSON specification.
+- `fields` (Block List) Description of the data schema in the array of `fields` structure (see [below for nested schema](#nestedblock--settings--kafka_source--parser--tskv_parser--data_schema--fields))
+- `json_fields` (String, Deprecated) Description of the data schema as JSON specification
 
 <a id="nestedblock--settings--kafka_source--parser--tskv_parser--data_schema--fields"></a>
 ### Nested Schema for `settings.kafka_source.parser.tskv_parser.data_schema.fields`
 
 Optional:
 
-- `fields` (Block List) (see [below for nested schema](#nestedblock--settings--kafka_source--parser--tskv_parser--data_schema--fields--fields))
+- `fields` (Block List) Description of the column schema in the array of `fields` structure (see [below for nested schema](#nestedblock--settings--kafka_source--parser--tskv_parser--data_schema--fields--fields))
 
 <a id="nestedblock--settings--kafka_source--parser--tskv_parser--data_schema--fields--fields"></a>
 ### Nested Schema for `settings.kafka_source.parser.tskv_parser.data_schema.fields.fields`
 
 Optional:
 
-- `key` (Boolean) Mark field as Primary Key.
-- `name` (String) Field name.
-- `path` (String) Path to the field.
-- `required` (Boolean) Mark field as required.
-- `type` (String) Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`, `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
+- `key` (Boolean) Mark field as Primary Key
+- `name` (String) Field name
+- `path` (String) Path to the field
+- `required` (Boolean) Mark field as required
+- `type` (String) Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`,
+ `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
 
 
 
@@ -507,12 +627,13 @@ Optional:
 
 Optional:
 
-- `buffer_flush_interval` (String)
-- `buffer_size` (String)
-- `cloud_function` (String)
-- `invocation_timeout` (String)
-- `number_of_retries` (Number)
-- `service_account_id` (String)
+- `buffer_flush_interval` (String) Flush interval
+- `buffer_size` (String) Buffer size for function. Maximum 4 GB.  Use value with units, i.e. 10 B, 20 kB,
+ 2.0 MB, 30 MB, 1.0 GB
+- `cloud_function` (String) Cloud function
+- `invocation_timeout` (String) Invocation timeout
+- `number_of_retries` (Number) Number of retries
+- `service_account_id` (String) Service account
 
 
 
@@ -521,19 +642,20 @@ Optional:
 
 Optional:
 
-- `auth` (Block List, Max: 1) Authentication data. (see [below for nested schema](#nestedblock--settings--kafka_target--auth))
-- `connection` (Block List, Max: 1) Connection settings. (see [below for nested schema](#nestedblock--settings--kafka_target--connection))
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `serializer` (Block List, Max: 1) Data serialization settings. (see [below for nested schema](#nestedblock--settings--kafka_target--serializer))
-- `topic_settings` (Block List, Max: 1) Target topic settings. (see [below for nested schema](#nestedblock--settings--kafka_target--topic_settings))
+- `auth` (Block List) Authentication settings (see [below for nested schema](#nestedblock--settings--kafka_target--auth))
+- `connection` (Block List) Connection settings (see [below for nested schema](#nestedblock--settings--kafka_target--connection))
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `serializer` (Block List) Data serialization format settings (see [below for nested schema](#nestedblock--settings--kafka_target--serializer))
+- `topic_settings` (Block List) Target topic settings (see [below for nested schema](#nestedblock--settings--kafka_target--topic_settings))
 
 <a id="nestedblock--settings--kafka_target--auth"></a>
 ### Nested Schema for `settings.kafka_target.auth`
 
 Optional:
 
-- `no_auth` (Block List, Max: 1) Connection without authentication data. (see [below for nested schema](#nestedblock--settings--kafka_target--auth--no_auth))
-- `sasl` (Block List, Max: 1) Authentication using sasl. (see [below for nested schema](#nestedblock--settings--kafka_target--auth--sasl))
+- `no_auth` (Block List) No authentication (see [below for nested schema](#nestedblock--settings--kafka_target--auth--no_auth))
+- `sasl` (Block List) Authentication with SASL (see [below for nested schema](#nestedblock--settings--kafka_target--auth--sasl))
 
 <a id="nestedblock--settings--kafka_target--auth--no_auth"></a>
 ### Nested Schema for `settings.kafka_target.auth.no_auth`
@@ -544,16 +666,17 @@ Optional:
 
 Optional:
 
-- `mechanism` (String)
-- `password` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--kafka_target--auth--sasl--password))
-- `user` (String)
+- `mechanism` (String) SASL mechanism for authentication, use one of: KAFKA_MECHANISM_SHA256,
+ KAFKA_MECHANISM_SHA512
+- `password` (Block List) Password for user (see [below for nested schema](#nestedblock--settings--kafka_target--auth--sasl--password))
+- `user` (String) User name
 
 <a id="nestedblock--settings--kafka_target--auth--sasl--password"></a>
 ### Nested Schema for `settings.kafka_target.auth.sasl.password`
 
 Optional:
 
-- `raw` (String, Sensitive)
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -563,25 +686,43 @@ Optional:
 
 Optional:
 
-- `cluster_id` (String) Identifier of the Managed Kafka cluster.
-- `on_premise` (Block List, Max: 1) Connection settings of the on-premise Kafka server. (see [below for nested schema](#nestedblock--settings--kafka_target--connection--on_premise))
+- `cluster_id` (String) Managed Service for Kafka cluster ID. 
+ Set only one of: cluster_id/on_premise/connection_manager_connection
+- `connection_manager_connection` (Block List) Get Kafka installation params and credentials from Connection Manager
+ Set only one of: cluster_id/on_premise/connection_manager_connection (see [below for nested schema](#nestedblock--settings--kafka_target--connection--connection_manager_connection))
+- `on_premise` (Block List) Connection options for on-premise Kafka
+ Set only one of: cluster_id/on_premise/connection_manager_connection (see [below for nested schema](#nestedblock--settings--kafka_target--connection--on_premise))
+
+<a id="nestedblock--settings--kafka_target--connection--connection_manager_connection"></a>
+### Nested Schema for `settings.kafka_target.connection.connection_manager_connection`
+
+Optional:
+
+- `connection_id` (String) ID of connection in Connection Manager with installation params and credetials
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+
 
 <a id="nestedblock--settings--kafka_target--connection--on_premise"></a>
 ### Nested Schema for `settings.kafka_target.connection.on_premise`
 
 Optional:
 
-- `broker_urls` (List of String) List of Kafka broker URLs.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
-- `tls_mode` (Block List, Max: 1) TLS settings for the server connection. Empty implies plaintext connection. (see [below for nested schema](#nestedblock--settings--kafka_target--connection--on_premise--tls_mode))
+- `broker_urls` (List of String) Kafka broker URLs
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+- `tls_mode` (Block List) TLS settings for broker connection. Disabled by default. (see [below for nested schema](#nestedblock--settings--kafka_target--connection--on_premise--tls_mode))
 
 <a id="nestedblock--settings--kafka_target--connection--on_premise--tls_mode"></a>
 ### Nested Schema for `settings.kafka_target.connection.on_premise.tls_mode`
 
 Optional:
 
-- `disabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--kafka_target--connection--on_premise--tls_mode--disabled))
-- `enabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--kafka_target--connection--on_premise--tls_mode--enabled))
+- `disabled` (Block List) Empty block designating that the connection is not secured, i.e. plaintext
+ connection (see [below for nested schema](#nestedblock--settings--kafka_target--connection--on_premise--tls_mode--disabled))
+- `enabled` (Block List) TLS is used for the server connection (see [below for nested schema](#nestedblock--settings--kafka_target--connection--on_premise--tls_mode--enabled))
 
 <a id="nestedblock--settings--kafka_target--connection--on_premise--tls_mode--disabled"></a>
 ### Nested Schema for `settings.kafka_target.connection.on_premise.tls_mode.disabled`
@@ -592,7 +733,12 @@ Optional:
 
 Optional:
 
-- `ca_certificate` (String)
+- `ca_certificate` (String) CA certificate
+ 
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 
 
@@ -603,9 +749,9 @@ Optional:
 
 Optional:
 
-- `serializer_auto` (Block List, Max: 1) Empty block. Select data serialization format automatically. (see [below for nested schema](#nestedblock--settings--kafka_target--serializer--serializer_auto))
-- `serializer_debezium` (Block List, Max: 1) Serialize data in json format. (see [below for nested schema](#nestedblock--settings--kafka_target--serializer--serializer_debezium))
-- `serializer_json` (Block List, Max: 1) Empty block. Serialize data in json format. (see [below for nested schema](#nestedblock--settings--kafka_target--serializer--serializer_json))
+- `serializer_auto` (Block List) Empty block. Select the serialization format automatically (see [below for nested schema](#nestedblock--settings--kafka_target--serializer--serializer_auto))
+- `serializer_debezium` (Block List) Serialize data in debezium json format (see [below for nested schema](#nestedblock--settings--kafka_target--serializer--serializer_debezium))
+- `serializer_json` (Block List) Empty block. Serialize data in json format (see [below for nested schema](#nestedblock--settings--kafka_target--serializer--serializer_json))
 
 <a id="nestedblock--settings--kafka_target--serializer--serializer_auto"></a>
 ### Nested Schema for `settings.kafka_target.serializer.serializer_auto`
@@ -616,15 +762,16 @@ Optional:
 
 Optional:
 
-- `serializer_parameters` (Block List) A list of Debezium parameters set by the structure of the `key` and `value` string fields. (see [below for nested schema](#nestedblock--settings--kafka_target--serializer--serializer_debezium--serializer_parameters))
+- `serializer_parameters` (Block List) A list of Debezium parameters set by the structure of the `key` and `value`
+ string fields (see [below for nested schema](#nestedblock--settings--kafka_target--serializer--serializer_debezium--serializer_parameters))
 
 <a id="nestedblock--settings--kafka_target--serializer--serializer_debezium--serializer_parameters"></a>
 ### Nested Schema for `settings.kafka_target.serializer.serializer_debezium.serializer_parameters`
 
 Optional:
 
-- `key` (String)
-- `value` (String)
+- `key` (String) Name of the serializer parameter
+- `value` (String) Value of the serializer parameter
 
 
 
@@ -638,16 +785,19 @@ Optional:
 
 Optional:
 
-- `topic` (Block List, Max: 1) All messages will be sent to one topic. (see [below for nested schema](#nestedblock--settings--kafka_target--topic_settings--topic))
-- `topic_prefix` (String) Topic name prefix. Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>.
+- `topic` (Block List) All messages will be sent to one topic (see [below for nested schema](#nestedblock--settings--kafka_target--topic_settings--topic))
+- `topic_prefix` (String) Topic prefix
+ Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>.
+ Analogue of the Debezium setting database.server.name.
 
 <a id="nestedblock--settings--kafka_target--topic_settings--topic"></a>
 ### Nested Schema for `settings.kafka_target.topic_settings.topic`
 
 Optional:
 
-- `save_tx_order` (Boolean) Not to split events queue into separate per-table queues.
-- `topic_name` (String) Full topic name.
+- `save_tx_order` (Boolean) Save transactions order
+ Not to split events queue into separate per-table queues.
+- `topic_name` (String) Full topic name
 
 
 
@@ -657,17 +807,18 @@ Optional:
 
 Optional:
 
-- `counter_ids` (List of Number)
-- `streams` (Block List) (see [below for nested schema](#nestedblock--settings--metrika_source--streams))
-- `token` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--metrika_source--token))
+- `counter_ids` (List of Number) Counter IDs
+- `streams` (Block List) Streams (see [below for nested schema](#nestedblock--settings--metrika_source--streams))
+- `token` (Block List) Authentication token (see [below for nested schema](#nestedblock--settings--metrika_source--token))
 
 <a id="nestedblock--settings--metrika_source--streams"></a>
 ### Nested Schema for `settings.metrika_source.streams`
 
 Optional:
 
-- `columns` (List of String)
-- `type` (String)
+- `columns` (List of String) Column names
+- `type` (String) Stream type, one of: METRIKA_STREAM_TYPE_HITS, METRIKA_STREAM_TYPE_VISITS,
+ METRIKA_STREAM_TYPE_HITS_V2
 
 
 <a id="nestedblock--settings--metrika_source--token"></a>
@@ -675,7 +826,7 @@ Optional:
 
 Optional:
 
-- `raw` (String, Sensitive)
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -684,20 +835,28 @@ Optional:
 
 Optional:
 
-- `collections` (Block List) The list of the MongoDB collections that should be transferred. If omitted, all available collections will be transferred. (see [below for nested schema](#nestedblock--settings--mongo_source--collections))
-- `connection` (Block List, Max: 1) Connection settings. (see [below for nested schema](#nestedblock--settings--mongo_source--connection))
-- `excluded_collections` (Block List) The list of the MongoDB collections that should not be transferred. (see [below for nested schema](#nestedblock--settings--mongo_source--excluded_collections))
-- `secondary_preferred_mode` (Boolean) Whether the secondary server should be preferred to the primary when copying data.
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
+- `collections` (Block List) List of collections for replication. Empty list implies replication of all
+ tables on the deployment. Allowed to use * as collection name. (see [below for nested schema](#nestedblock--settings--mongo_source--collections))
+- `connection` (Block List) Connection settings (see [below for nested schema](#nestedblock--settings--mongo_source--connection))
+- `excluded_collections` (Block List) List of forbidden collections for replication. Allowed to use * as collection
+ name for forbid all collections of concrete schema. (see [below for nested schema](#nestedblock--settings--mongo_source--excluded_collections))
+- `secondary_preferred_mode` (Boolean) Read mode for mongo client: whether the secondary server should be preferred to
+ the primary when copying data
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
 
 <a id="nestedblock--settings--mongo_source--collections"></a>
 ### Nested Schema for `settings.mongo_source.collections`
 
 Optional:
 
-- `collection_name` (String)
-- `database_name` (String)
+- `collection_name` (String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto
+- `database_name` (String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto
 
 
 <a id="nestedblock--settings--mongo_source--connection"></a>
@@ -705,36 +864,52 @@ Optional:
 
 Optional:
 
-- `connection_options` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options))
+- `connection_options` (Block List) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options))
 
 <a id="nestedblock--settings--mongo_source--connection--connection_options"></a>
 ### Nested Schema for `settings.mongo_source.connection.connection_options`
 
 Optional:
 
-- `auth_source` (String) Name of the database associated with the credentials.
-- `mdb_cluster_id` (String) Identifier of the Managed MongoDB cluster.
-- `on_premise` (Block List, Max: 1) Connection settings of the on-premise MongoDB server. (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--on_premise))
-- `password` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--password))
-- `user` (String)
+- `auth_source` (String) Database name associated with the credentials
+- `connection_manager_connection` (Block List) Get StoreDoc/MongoDB installation params and credentials from Connection Manager
+ Use one of:  mdb_cluster_id/on_premise/connection_manager_connection (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--connection_manager_connection))
+- `mdb_cluster_id` (String) Identifier of the Yandex StoreDoc cluster
+ Use one of:  mdb_cluster_id/on_premise/connection_manager_connection
+- `on_premise` (Block List) Connection settings of the on-premise MongoDB server
+ Use one of:  mdb_cluster_id/on_premise/connection_manager_connection (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--on_premise))
+- `password` (Block List) Password for user (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--password))
+- `user` (String) User name, required unless connection_manager_connection is used
+
+<a id="nestedblock--settings--mongo_source--connection--connection_options--connection_manager_connection"></a>
+### Nested Schema for `settings.mongo_source.connection.connection_options.connection_manager_connection`
+
+Optional:
+
+- `connection_id` (String) ID of connectionmanager connection with mongodb/Yandex Storedoc installation
+ parameters and credentials
+- `replica_set` (String) Replica set name, used only for on-premise mongodb installations
+
 
 <a id="nestedblock--settings--mongo_source--connection--connection_options--on_premise"></a>
 ### Nested Schema for `settings.mongo_source.connection.connection_options.on_premise`
 
 Optional:
 
-- `hosts` (List of String) Host names of the replica set.
-- `port` (Number) TCP Port number.
-- `replica_set` (String) Replica set name.
-- `tls_mode` (Block List, Max: 1) TLS settings for the server connection. Empty implies plaintext connection. (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--on_premise--tls_mode))
+- `hosts` (List of String) Host names of the replica set
+- `port` (Number) TCP Port number
+- `replica_set` (String) Replica set name
+- `tls_mode` (Block List) TLS settings for the server connection. Empty implies plaintext connection (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--on_premise--tls_mode))
 
 <a id="nestedblock--settings--mongo_source--connection--connection_options--on_premise--tls_mode"></a>
 ### Nested Schema for `settings.mongo_source.connection.connection_options.on_premise.tls_mode`
 
 Optional:
 
-- `disabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--on_premise--tls_mode--disabled))
-- `enabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--on_premise--tls_mode--enabled))
+- `disabled` (Block List) Empty block designating that the connection is not secured, i.e. plaintext
+ connection (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--on_premise--tls_mode--disabled))
+- `enabled` (Block List) TLS is used for the server connection (see [below for nested schema](#nestedblock--settings--mongo_source--connection--connection_options--on_premise--tls_mode--enabled))
 
 <a id="nestedblock--settings--mongo_source--connection--connection_options--on_premise--tls_mode--disabled"></a>
 ### Nested Schema for `settings.mongo_source.connection.connection_options.on_premise.tls_mode.disabled`
@@ -745,7 +920,12 @@ Optional:
 
 Optional:
 
-- `ca_certificate` (String)
+- `ca_certificate` (String) CA certificate
+ 
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 
 
@@ -755,7 +935,7 @@ Optional:
 
 Optional:
 
-- `raw` (String, Sensitive)
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -765,8 +945,10 @@ Optional:
 
 Optional:
 
-- `collection_name` (String)
-- `database_name` (String)
+- `collection_name` (String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto
+- `database_name` (String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto
 
 
 
@@ -775,47 +957,69 @@ Optional:
 
 Optional:
 
-- `cleanup_policy` (String) How to clean collections when activating the transfer. One of `DISABLED`, `DROP` or `TRUNCATE`.
-- `connection` (Block List, Max: 1) Connection settings. (see [below for nested schema](#nestedblock--settings--mongo_target--connection))
-- `database` (String) If not empty, then all the data will be written to the database with the specified name; otherwise the database name is the same as in the source endpoint.
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
+- `cleanup_policy` (String) How to clean collections when activating the transfer. One of `DISABLED`, `DROP`
+ or `TRUNCATE`
+- `connection` (Block List) Connection settings (see [below for nested schema](#nestedblock--settings--mongo_target--connection))
+- `database` (String) Database name. If not empty, then all the data will be written to the database
+ with the specified name; otherwise the database name is the same as in the
+ source endpoint
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
 
 <a id="nestedblock--settings--mongo_target--connection"></a>
 ### Nested Schema for `settings.mongo_target.connection`
 
 Optional:
 
-- `connection_options` (Block List, Max: 1) Connection options. (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options))
+- `connection_options` (Block List) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options))
 
 <a id="nestedblock--settings--mongo_target--connection--connection_options"></a>
 ### Nested Schema for `settings.mongo_target.connection.connection_options`
 
 Optional:
 
-- `auth_source` (String) Name of the database associated with the credentials.
-- `mdb_cluster_id` (String) Identifier of the Managed MongoDB cluster.
-- `on_premise` (Block List, Max: 1) Connection settings of the on-premise MongoDB server. (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--on_premise))
-- `password` (Block List, Max: 1) Password for the database access. (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--password))
-- `user` (String) User for database access.
+- `auth_source` (String) Database name associated with the credentials
+- `connection_manager_connection` (Block List) Get StoreDoc/MongoDB installation params and credentials from Connection Manager
+ Use one of:  mdb_cluster_id/on_premise/connection_manager_connection (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--connection_manager_connection))
+- `mdb_cluster_id` (String) Identifier of the Yandex StoreDoc cluster
+ Use one of:  mdb_cluster_id/on_premise/connection_manager_connection
+- `on_premise` (Block List) Connection settings of the on-premise MongoDB server
+ Use one of:  mdb_cluster_id/on_premise/connection_manager_connection (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--on_premise))
+- `password` (Block List) Password for user (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--password))
+- `user` (String) User name, required unless connection_manager_connection is used
+
+<a id="nestedblock--settings--mongo_target--connection--connection_options--connection_manager_connection"></a>
+### Nested Schema for `settings.mongo_target.connection.connection_options.connection_manager_connection`
+
+Optional:
+
+- `connection_id` (String) ID of connectionmanager connection with mongodb/Yandex Storedoc installation
+ parameters and credentials
+- `replica_set` (String) Replica set name, used only for on-premise mongodb installations
+
 
 <a id="nestedblock--settings--mongo_target--connection--connection_options--on_premise"></a>
 ### Nested Schema for `settings.mongo_target.connection.connection_options.on_premise`
 
 Optional:
 
-- `hosts` (List of String) Host names of the replica set.
-- `port` (Number) TCP Port number.
-- `replica_set` (String) Replica set name.
-- `tls_mode` (Block List, Max: 1) TLS settings for the server connection. Empty implies plaintext connection. (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--on_premise--tls_mode))
+- `hosts` (List of String) Host names of the replica set
+- `port` (Number) TCP Port number
+- `replica_set` (String) Replica set name
+- `tls_mode` (Block List) TLS settings for the server connection. Empty implies plaintext connection (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--on_premise--tls_mode))
 
 <a id="nestedblock--settings--mongo_target--connection--connection_options--on_premise--tls_mode"></a>
 ### Nested Schema for `settings.mongo_target.connection.connection_options.on_premise.tls_mode`
 
 Optional:
 
-- `disabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--on_premise--tls_mode--disabled))
-- `enabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--on_premise--tls_mode--enabled))
+- `disabled` (Block List) Empty block designating that the connection is not secured, i.e. plaintext
+ connection (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--on_premise--tls_mode--disabled))
+- `enabled` (Block List) TLS is used for the server connection (see [below for nested schema](#nestedblock--settings--mongo_target--connection--connection_options--on_premise--tls_mode--enabled))
 
 <a id="nestedblock--settings--mongo_target--connection--connection_options--on_premise--tls_mode--disabled"></a>
 ### Nested Schema for `settings.mongo_target.connection.connection_options.on_premise.tls_mode.disabled`
@@ -826,7 +1030,12 @@ Optional:
 
 Optional:
 
-- `ca_certificate` (String)
+- `ca_certificate` (String) CA certificate
+ 
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 
 
@@ -836,7 +1045,7 @@ Optional:
 
 Optional:
 
-- `raw` (String, Sensitive) Password for the database access.
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -847,42 +1056,73 @@ Optional:
 
 Optional:
 
-- `connection` (Block List, Max: 1) Connection settings. (see [below for nested schema](#nestedblock--settings--mysql_source--connection))
-- `database` (String) Name of the database to transfer.
-- `exclude_tables_regex` (List of String) Opposite of `include_table_regex`. The tables matching the specified regular expressions will not be transferred.
-- `include_tables_regex` (List of String) List of regular expressions of table names which should be transferred. A table name is formatted as schemaname.tablename. For example, a single regular expression may look like `^mydb.employees$`.
-- `object_transfer_settings` (Block List, Max: 1) Defines which database schema objects should be transferred, e.g. views, routines, etc. All of the attrubutes in the block are optional and should be either `BEFORE_DATA`, `AFTER_DATA` or `NEVER`. (see [below for nested schema](#nestedblock--settings--mysql_source--object_transfer_settings))
-- `password` (Block List, Max: 1) Password for the database access. (see [below for nested schema](#nestedblock--settings--mysql_source--password))
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `service_database` (String)
-- `timezone` (String) Timezone to use for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: `local timezone`.
-- `user` (String) User for the database access.
+- `connection` (Block List) Database connection settings (see [below for nested schema](#nestedblock--settings--mysql_source--connection))
+- `database` (String) Name of the database to transfer
+ 
+ You can leave it empty, then it will be possible to transfer tables from several
+ databases at the same time from this source.
+- `exclude_tables_regex` (List of String) Opposite of `include_table_regex`. The tables matching the specified regular
+ expressions will not be transferred
+- `include_tables_regex` (List of String) List of regular expressions of table names which should be transferred. A table
+ name is formatted as schemaname.tablename. For example, a single regular
+ expression may look like `^mydb.employees$`
+- `object_transfer_settings` (Block List) Schema migration
+ Defines which database schema objects should be transferred, e.g. views,
+ routines, etc. 
+ All of the attrubutes in the block are optional and should be either
+ `BEFORE_DATA`, `AFTER_DATA` or `NEVER`." (see [below for nested schema](#nestedblock--settings--mysql_source--object_transfer_settings))
+- `password` (Block List) Password for database access. (see [below for nested schema](#nestedblock--settings--mysql_source--password))
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `service_database` (String) Database for service tables
+ Default: data source database. Here created technical tables (__tm_keeper,
+ __tm_gtid_keeper).
+- `timezone` (String) Database timezone
+ 
+ Is used for parsing timestamps for saving source timezones. Accepts values from
+ IANA timezone database. Default: local timezone.
+- `user` (String) User for database access. Required unless connection manager connection is used
 
 <a id="nestedblock--settings--mysql_source--connection"></a>
 ### Nested Schema for `settings.mysql_source.connection`
 
 Optional:
 
-- `mdb_cluster_id` (String) Identifier of the Managed MySQL cluster.
-- `on_premise` (Block List, Max: 1) Connection settings of the on-premise MySQL server. (see [below for nested schema](#nestedblock--settings--mysql_source--connection--on_premise))
+- `connection_manager_connection` (Block List) Get Mysql installation params and credentials from Connection Manager (see [below for nested schema](#nestedblock--settings--mysql_source--connection--connection_manager_connection))
+- `mdb_cluster_id` (String) Managed Service for MySQL cluster ID
+- `on_premise` (Block List) Connection options for on-premise MySQL (see [below for nested schema](#nestedblock--settings--mysql_source--connection--on_premise))
+
+<a id="nestedblock--settings--mysql_source--connection--connection_manager_connection"></a>
+### Nested Schema for `settings.mysql_source.connection.connection_manager_connection`
+
+Optional:
+
+- `connection_id` (String) ID of connection in Connection Manager with installation params and credetials
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+
 
 <a id="nestedblock--settings--mysql_source--connection--on_premise"></a>
 ### Nested Schema for `settings.mysql_source.connection.on_premise`
 
 Optional:
 
-- `hosts` (List of String) List of host names of the MySQL server. Exactly one host is expected currently.
-- `port` (Number) Port for the database connection.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
-- `tls_mode` (Block List, Max: 1) TLS settings for the server connection. Empty implies plaintext connection. (see [below for nested schema](#nestedblock--settings--mysql_source--connection--on_premise--tls_mode))
+- `hosts` (List of String) List of host names of the MySQL server. Exactly one host is expected
+- `port` (Number) Port for the database connection
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database.
+ If omitted, the server has to be accessible via Internet
+- `tls_mode` (Block List) TLS settings for server connection. Disabled by default. (see [below for nested schema](#nestedblock--settings--mysql_source--connection--on_premise--tls_mode))
 
 <a id="nestedblock--settings--mysql_source--connection--on_premise--tls_mode"></a>
 ### Nested Schema for `settings.mysql_source.connection.on_premise.tls_mode`
 
 Optional:
 
-- `disabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--mysql_source--connection--on_premise--tls_mode--disabled))
-- `enabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--mysql_source--connection--on_premise--tls_mode--enabled))
+- `disabled` (Block List) Empty block designating that the connection is not secured, i.e. plaintext
+ connection (see [below for nested schema](#nestedblock--settings--mysql_source--connection--on_premise--tls_mode--disabled))
+- `enabled` (Block List) TLS is used for the server connection (see [below for nested schema](#nestedblock--settings--mysql_source--connection--on_premise--tls_mode--enabled))
 
 <a id="nestedblock--settings--mysql_source--connection--on_premise--tls_mode--disabled"></a>
 ### Nested Schema for `settings.mysql_source.connection.on_premise.tls_mode.disabled`
@@ -893,7 +1133,12 @@ Optional:
 
 Optional:
 
-- `ca_certificate` (String)
+- `ca_certificate` (String) CA certificate
+ 
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 
 
@@ -904,10 +1149,17 @@ Optional:
 
 Optional:
 
-- `routine` (String)
-- `tables` (String)
-- `trigger` (String)
-- `view` (String)
+- `routine` (String) Routines
+ 
+ CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
+- `tables` (String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/mysql.proto
+- `trigger` (String) Triggers
+ 
+ CREATE TRIGGER ...
+- `view` (String) Views
+ 
+ CREATE VIEW ...
 
 
 <a id="nestedblock--settings--mysql_source--password"></a>
@@ -915,7 +1167,7 @@ Optional:
 
 Optional:
 
-- `raw` (String, Sensitive) Password for the database access.
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -924,42 +1176,75 @@ Optional:
 
 Optional:
 
-- `cleanup_policy` (String) How to clean tables when activating the transfer. One of `DISABLED`, `DROP` or `TRUNCATE`.
-- `connection` (Block List, Max: 1) Connection settings. (see [below for nested schema](#nestedblock--settings--mysql_target--connection))
-- `database` (String) Name of the database to transfer.
-- `password` (Block List, Max: 1) Password for the database access. (see [below for nested schema](#nestedblock--settings--mysql_target--password))
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `service_database` (String) The name of the database where technical tables (`__tm_keeper`, `__tm_gtid_keeper`) will be created. Default is the value of the attribute `database`.
-- `skip_constraint_checks` (Boolean) When `true`, disables foreign key checks. See [foreign_key_checks](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_foreign_key_checks). `False` by default.
-- `sql_mode` (String) [sql_mode](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html) to use when interacting with the server. Defaults to `NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION`.
-- `timezone` (String) Timezone to use for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: `local timezone`.
-- `user` (String) User for the database access.
+- `cleanup_policy` (String) Cleanup policy for activate, reactivate and reupload processes.  
+ One of `DISABLED`, `DROP` or `TRUNCATE` Default is `DISABLED`.
+- `connection` (Block List) Database connection settings (see [below for nested schema](#nestedblock--settings--mysql_target--connection))
+- `database` (String) Database name
+ 
+ Allowed to leave it empty, then the tables will be created in databases with the
+ same names as on the source. If this field is empty, then you must fill below db
+ schema for service table.
+- `is_schema_migration_disabled` (Boolean) Whether can change table schema if schema changed on source
+- `password` (Block List) Password for database access. (see [below for nested schema](#nestedblock--settings--mysql_target--password))
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `service_database` (String) Database schema for service table
+ Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
+- `skip_constraint_checks` (Boolean) Disable constraints checks
+ When `true`, disables foreign key checks and unique checks. `False` by default.
+ See
+ [foreign_key_checks](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_foreign_key_checks).
+ Recommend to disable for increase replication speed unless schema contains
+ cascading operations
+- `sql_mode` (String) [sql_mode](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html) to use when
+ interacting with the server. 
+ Defaults to `NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION`
+- `timezone` (String) Database timezone
+ 
+ Is used for parsing timestamps for saving source timezones. Accepts values from
+ IANA timezone database. Default: local timezone.
+- `user` (String) User for database access. Required unless connection manager connection is used
 
 <a id="nestedblock--settings--mysql_target--connection"></a>
 ### Nested Schema for `settings.mysql_target.connection`
 
 Optional:
 
-- `mdb_cluster_id` (String) Identifier of the Managed MySQL cluster.
-- `on_premise` (Block List, Max: 1) Connection settings of the on-premise MySQL server. (see [below for nested schema](#nestedblock--settings--mysql_target--connection--on_premise))
+- `connection_manager_connection` (Block List) Get Mysql installation params and credentials from Connection Manager (see [below for nested schema](#nestedblock--settings--mysql_target--connection--connection_manager_connection))
+- `mdb_cluster_id` (String) Managed Service for MySQL cluster ID
+- `on_premise` (Block List) Connection options for on-premise MySQL (see [below for nested schema](#nestedblock--settings--mysql_target--connection--on_premise))
+
+<a id="nestedblock--settings--mysql_target--connection--connection_manager_connection"></a>
+### Nested Schema for `settings.mysql_target.connection.connection_manager_connection`
+
+Optional:
+
+- `connection_id` (String) ID of connection in Connection Manager with installation params and credetials
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+
 
 <a id="nestedblock--settings--mysql_target--connection--on_premise"></a>
 ### Nested Schema for `settings.mysql_target.connection.on_premise`
 
 Optional:
 
-- `hosts` (List of String) List of host names of the MySQL server. Exactly one host is expected currently.
-- `port` (Number) Port for the database connection.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
-- `tls_mode` (Block List, Max: 1) TLS settings for the server connection. Empty implies plaintext connection. (see [below for nested schema](#nestedblock--settings--mysql_target--connection--on_premise--tls_mode))
+- `hosts` (List of String) List of host names of the MySQL server. Exactly one host is expected
+- `port` (Number) Port for the database connection
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database.
+ If omitted, the server has to be accessible via Internet
+- `tls_mode` (Block List) TLS settings for server connection. Disabled by default. (see [below for nested schema](#nestedblock--settings--mysql_target--connection--on_premise--tls_mode))
 
 <a id="nestedblock--settings--mysql_target--connection--on_premise--tls_mode"></a>
 ### Nested Schema for `settings.mysql_target.connection.on_premise.tls_mode`
 
 Optional:
 
-- `disabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--mysql_target--connection--on_premise--tls_mode--disabled))
-- `enabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--mysql_target--connection--on_premise--tls_mode--enabled))
+- `disabled` (Block List) Empty block designating that the connection is not secured, i.e. plaintext
+ connection (see [below for nested schema](#nestedblock--settings--mysql_target--connection--on_premise--tls_mode--disabled))
+- `enabled` (Block List) TLS is used for the server connection (see [below for nested schema](#nestedblock--settings--mysql_target--connection--on_premise--tls_mode--enabled))
 
 <a id="nestedblock--settings--mysql_target--connection--on_premise--tls_mode--disabled"></a>
 ### Nested Schema for `settings.mysql_target.connection.on_premise.tls_mode.disabled`
@@ -970,7 +1255,12 @@ Optional:
 
 Optional:
 
-- `ca_certificate` (String)
+- `ca_certificate` (String) CA certificate
+ 
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 
 
@@ -981,7 +1271,7 @@ Optional:
 
 Optional:
 
-- `raw` (String, Sensitive) Password for the database access.
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -990,42 +1280,71 @@ Optional:
 
 Optional:
 
-- `connection` (Block List, Max: 1) Connection settings. (see [below for nested schema](#nestedblock--settings--postgres_source--connection))
-- `database` (String) Name of the database to transfer.
-- `exclude_tables` (List of String) List of tables which will not be transfered, formatted as `schemaname.tablename`.
-- `include_tables` (List of String) List of tables to transfer, formatted as `schemaname.tablename`. If omitted or an empty list is specified, all tables will be transferred.
-- `object_transfer_settings` (Block List, Max: 1) Defines which database schema objects should be transferred, e.g. views, functions, etc. All of the attributes in this block are optional and should be either `BEFORE_DATA`, `AFTER_DATA` or `NEVER`. (see [below for nested schema](#nestedblock--settings--postgres_source--object_transfer_settings))
-- `password` (Block List, Max: 1) Password for the database access. (see [below for nested schema](#nestedblock--settings--postgres_source--password))
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `service_schema` (String) Name of the database schema in which auxiliary tables needed for the transfer will be created. Empty `service_schema` implies schema `public`.
-- `slot_gigabyte_lag_limit` (Number) Maximum WAL size held by the replication slot, in gigabytes. Exceeding this limit will result in a replication failure and deletion of the replication slot. `Unlimited` by default.
-- `user` (String) User for the database access.
+- `connection` (Block List) Database connection settings (see [below for nested schema](#nestedblock--settings--postgres_source--connection))
+- `database` (String) Name of the database to transfer
+- `exclude_tables` (List of String) List of tables which will not be transfered, formatted as `schemaname.tablename`
+ If omitted or empty list is specified, all tables are replicated. 
+ Can contain schema_name.* patterns.
+- `include_tables` (List of String) List of tables to transfer, formatted as `schemaname.tablename`. 
+ If omitted or an empty list is specified, all tables will be transferred.
+ Can contain schema_name.* patterns.
+- `object_transfer_settings` (Block List) Defines which database schema objects should be transferred, e.g. views,
+ functions, etc. 
+ All of the attributes in this block are optional and should be either
+ `BEFORE_DATA`, `AFTER_DATA` or `NEVER` (see [below for nested schema](#nestedblock--settings--postgres_source--object_transfer_settings))
+- `password` (Block List) Password for database access. (see [below for nested schema](#nestedblock--settings--postgres_source--password))
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `service_schema` (String) Name of the database schema in which auxiliary tables needed for the transfer
+ will be created (__consumer_keeper, __data_transfer_mole_finder). 
+ Empty `service_schema` implies schema `public`
+- `slot_gigabyte_lag_limit` (Number) Maximum WAL size held by the replication slot (API - in bytes, terraform - in
+ gigabytes); 
+ Exceeding this limit will result in a replication failure and deletion of the
+ replication slot.
+ Default is 50 gigabytes
+- `user` (String) User for database access. Required unless Connection Manager connection is used.
 
 <a id="nestedblock--settings--postgres_source--connection"></a>
 ### Nested Schema for `settings.postgres_source.connection`
 
 Optional:
 
-- `mdb_cluster_id` (String)
-- `on_premise` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--postgres_source--connection--on_premise))
+- `connection_manager_connection` (Block List) Get Postgres installation params and credentials from Connection Manager (see [below for nested schema](#nestedblock--settings--postgres_source--connection--connection_manager_connection))
+- `mdb_cluster_id` (String) Managed Service for PostgreSQL cluster ID
+- `on_premise` (Block List) Connection options for on-premise PostgreSQL (see [below for nested schema](#nestedblock--settings--postgres_source--connection--on_premise))
+
+<a id="nestedblock--settings--postgres_source--connection--connection_manager_connection"></a>
+### Nested Schema for `settings.postgres_source.connection.connection_manager_connection`
+
+Optional:
+
+- `connection_id` (String) ID of connection in Connection Manager with installation params and credetials
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+
 
 <a id="nestedblock--settings--postgres_source--connection--on_premise"></a>
 ### Nested Schema for `settings.postgres_source.connection.on_premise`
 
 Optional:
 
-- `hosts` (List of String)
-- `port` (Number)
-- `subnet_id` (String)
-- `tls_mode` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--postgres_source--connection--on_premise--tls_mode))
+- `hosts` (List of String) PG installation hosts
+- `port` (Number) PG port. Will be used if the cluster ID is not specified.
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+- `tls_mode` (Block List) TLS settings for server connection. Disabled by default. (see [below for nested schema](#nestedblock--settings--postgres_source--connection--on_premise--tls_mode))
 
 <a id="nestedblock--settings--postgres_source--connection--on_premise--tls_mode"></a>
 ### Nested Schema for `settings.postgres_source.connection.on_premise.tls_mode`
 
 Optional:
 
-- `disabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--postgres_source--connection--on_premise--tls_mode--disabled))
-- `enabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--postgres_source--connection--on_premise--tls_mode--enabled))
+- `disabled` (Block List) Empty block designating that the connection is not secured, i.e. plaintext
+ connection (see [below for nested schema](#nestedblock--settings--postgres_source--connection--on_premise--tls_mode--disabled))
+- `enabled` (Block List) TLS is used for the server connection (see [below for nested schema](#nestedblock--settings--postgres_source--connection--on_premise--tls_mode--enabled))
 
 <a id="nestedblock--settings--postgres_source--connection--on_premise--tls_mode--disabled"></a>
 ### Nested Schema for `settings.postgres_source.connection.on_premise.tls_mode.disabled`
@@ -1036,7 +1355,12 @@ Optional:
 
 Optional:
 
-- `ca_certificate` (String)
+- `ca_certificate` (String) CA certificate
+ 
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 
 
@@ -1047,24 +1371,59 @@ Optional:
 
 Optional:
 
-- `cast` (String)
-- `collation` (String)
-- `constraint` (String)
-- `default_values` (String)
-- `fk_constraint` (String)
-- `function` (String)
-- `index` (String)
-- `materialized_view` (String)
-- `policy` (String)
-- `primary_key` (String)
-- `rule` (String)
-- `sequence` (String)
-- `sequence_owned_by` (String)
-- `sequence_set` (String)
-- `table` (String)
-- `trigger` (String)
-- `type` (String)
-- `view` (String)
+- `cast` (String) Casts
+ 
+ CREATE CAST ...
+- `collation` (String) Collations
+ 
+ CREATE COLLATION ...
+- `constraint` (String) Constraints
+ 
+ ALTER TABLE ... ADD CONSTRAINT ...
+- `default_values` (String) Default values
+ 
+ ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
+- `fk_constraint` (String) Foreign keys
+ 
+ ALTER TABLE ... ADD FOREIGN KEY ...
+- `function` (String) Functions
+ 
+ CREATE FUNCTION ...
+- `index` (String) Indexes
+ 
+ CREATE INDEX ...
+- `materialized_view` (String) Materialized views
+ 
+ CREATE MATERIALIZED VIEW ...
+- `policy` (String) Policies
+ 
+ CREATE POLICY ...
+- `primary_key` (String) Primary keys
+ 
+ ALTER TABLE ... ADD PRIMARY KEY ...
+- `rule` (String) Rules
+ 
+ CREATE RULE ...
+- `sequence` (String) Sequences
+ 
+ CREATE SEQUENCE ...
+- `sequence_owned_by` (String) Owned sequences
+ 
+ CREATE SEQUENCE ... OWNED BY ...
+- `sequence_set` (String) package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/postgres.proto
+- `table` (String) Tables
+ 
+ CREATE TABLE ...
+- `trigger` (String) Triggers
+ 
+ CREATE TRIGGER ...
+- `type` (String) Types
+ 
+ CREATE TYPE ...
+- `view` (String) Views
+ 
+ CREATE VIEW ...
 
 
 <a id="nestedblock--settings--postgres_source--password"></a>
@@ -1072,7 +1431,7 @@ Optional:
 
 Optional:
 
-- `raw` (String, Sensitive) Password for the database access.
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -1081,38 +1440,56 @@ Optional:
 
 Optional:
 
-- `cleanup_policy` (String)
-- `connection` (Block List, Max: 1) Connection settings. (see [below for nested schema](#nestedblock--settings--postgres_target--connection))
-- `database` (String) Name of the database to transfer.
-- `password` (Block List, Max: 1) Password for the database access. (see [below for nested schema](#nestedblock--settings--postgres_target--password))
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `user` (String) User for the database access.
+- `cleanup_policy` (String) Cleanup policy for activate, reactivate and reupload processes. 
+ One of: DISABLED, DROP, TRUNCATE. Default is TRUNCATE
+- `connection` (Block List) Database connection settings (see [below for nested schema](#nestedblock--settings--postgres_target--connection))
+- `database` (String) Target database name
+- `is_schema_migration_disabled` (Boolean) Whether can change table schema if schema changed on source
+- `password` (Block List) Password for database access. (see [below for nested schema](#nestedblock--settings--postgres_target--password))
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `user` (String) User for database access. Required unless Connection Manager connection is used
 
 <a id="nestedblock--settings--postgres_target--connection"></a>
 ### Nested Schema for `settings.postgres_target.connection`
 
 Optional:
 
-- `mdb_cluster_id` (String) Identifier of the Managed PostgreSQL cluster.
-- `on_premise` (Block List, Max: 1) Connection settings of the on-premise PostgreSQL server. (see [below for nested schema](#nestedblock--settings--postgres_target--connection--on_premise))
+- `connection_manager_connection` (Block List) Get Postgres installation params and credentials from Connection Manager (see [below for nested schema](#nestedblock--settings--postgres_target--connection--connection_manager_connection))
+- `mdb_cluster_id` (String) Managed Service for PostgreSQL cluster ID
+- `on_premise` (Block List) Connection options for on-premise PostgreSQL (see [below for nested schema](#nestedblock--settings--postgres_target--connection--on_premise))
+
+<a id="nestedblock--settings--postgres_target--connection--connection_manager_connection"></a>
+### Nested Schema for `settings.postgres_target.connection.connection_manager_connection`
+
+Optional:
+
+- `connection_id` (String) ID of connection in Connection Manager with installation params and credetials
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+
 
 <a id="nestedblock--settings--postgres_target--connection--on_premise"></a>
 ### Nested Schema for `settings.postgres_target.connection.on_premise`
 
 Optional:
 
-- `hosts` (List of String) List of host names of the PostgreSQL server. Exactly one host is expected currently.
-- `port` (Number) Port for the database connection.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
-- `tls_mode` (Block List, Max: 1) TLS settings for the server connection. Empty implies plaintext connection. (see [below for nested schema](#nestedblock--settings--postgres_target--connection--on_premise--tls_mode))
+- `hosts` (List of String) PG installation hosts
+- `port` (Number) PG port. Will be used if the cluster ID is not specified.
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
+- `tls_mode` (Block List) TLS settings for server connection. Disabled by default. (see [below for nested schema](#nestedblock--settings--postgres_target--connection--on_premise--tls_mode))
 
 <a id="nestedblock--settings--postgres_target--connection--on_premise--tls_mode"></a>
 ### Nested Schema for `settings.postgres_target.connection.on_premise.tls_mode`
 
 Optional:
 
-- `disabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--postgres_target--connection--on_premise--tls_mode--disabled))
-- `enabled` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--postgres_target--connection--on_premise--tls_mode--enabled))
+- `disabled` (Block List) Empty block designating that the connection is not secured, i.e. plaintext
+ connection (see [below for nested schema](#nestedblock--settings--postgres_target--connection--on_premise--tls_mode--disabled))
+- `enabled` (Block List) TLS is used for the server connection (see [below for nested schema](#nestedblock--settings--postgres_target--connection--on_premise--tls_mode--enabled))
 
 <a id="nestedblock--settings--postgres_target--connection--on_premise--tls_mode--disabled"></a>
 ### Nested Schema for `settings.postgres_target.connection.on_premise.tls_mode.disabled`
@@ -1123,7 +1500,12 @@ Optional:
 
 Optional:
 
-- `ca_certificate` (String)
+- `ca_certificate` (String) CA certificate
+ 
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 
 
@@ -1134,7 +1516,7 @@ Optional:
 
 Optional:
 
-- `raw` (String, Sensitive) Password for the database access.
+- `raw` (String, Sensitive) Raw secret value
 
 
 
@@ -1143,14 +1525,20 @@ Optional:
 
 Optional:
 
-- `changefeed_custom_name` (String) Custom name for changefeed.
-- `database` (String) Database path in YDB where tables are stored. Example: `/ru/transfer_manager/prod/data-transfer-yt`.
-- `instance` (String) Instance of YDB. Example: `my-cute-ydb.yandex.cloud:2135`.
-- `paths` (List of String) A list of paths which should be uploaded. When not specified, all available tables are uploaded.
-- `sa_key_content` (String, Sensitive) Authentication key.
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `service_account_id` (String) Service account ID for interaction with database.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
+- `changefeed_custom_consumer_name` (String) Consumer for pre-created change feed if any
+- `changefeed_custom_name` (String) Pre-created change feed if any
+- `database` (String) Database path in YDB where tables are stored. 
+ Example: `/ru/transfer_manager/prod/data-transfer-yt`
+- `instance` (String) Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+ If not specified, will be determined by database
+- `paths` (List of String) A list of paths which should be uploaded. When not specified, all available
+ tables are uploaded
+- `sa_key_content` (String, Sensitive) Authorization Key
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `service_account_id` (String) Service account ID for interaction with database
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. If omitted, the server has to be accessible via Internet
 
 
 <a id="nestedblock--settings--ydb_target"></a>
@@ -1158,16 +1546,26 @@ Optional:
 
 Optional:
 
-- `cleanup_policy` (String) How to clean collections when activating the transfer. One of `YDB_CLEANUP_POLICY_DISABLED` or `YDB_CLEANUP_POLICY_DROP`.
-- `database` (String) Database path in YDB where tables are stored. Example: `/ru/transfer_manager/prod/data-transfer-yt`.
-- `default_compression` (String) Compression that will be used for default columns family on YDB table creation One of `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`, `YDB_DEFAULT_COMPRESSION_DISABLED`, `YDB_DEFAULT_COMPRESSION_LZ4`.
-- `instance` (String) Instance of YDB. Example: `my-cute-ydb.yandex.cloud:2135`.
-- `is_table_column_oriented` (Boolean) Whether a column-oriented (i.e. OLAP) tables should be created. Default is `false` (create row-oriented OLTP tables).
-- `path` (String) A path where resulting tables are stored.
-- `sa_key_content` (String, Sensitive) Authentication key.
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `service_account_id` (String) Service account ID for interaction with database.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
+- `cleanup_policy` (String) Cleanup policy determine how to clean collections when activating the transfer. 
+ One of `YDB_CLEANUP_POLICY_DISABLED` or `YDB_CLEANUP_POLICY_DROP`
+- `database` (String) Database path in YDB where tables are stored. 
+ Example: `/ru/transfer_manager/prod/data-transfer`
+- `default_compression` (String) Compression that will be used for default columns family on YDB table creation.
+ One of `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`,
+ `YDB_DEFAULT_COMPRESSION_DISABLED`, `YDB_DEFAULT_COMPRESSION_LZ4`
+- `instance` (String) Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+ If not specified, will be determined by database
+- `is_schema_migration_disabled` (Boolean) Whether can change table schema if schema changed on source
+- `is_table_column_oriented` (Boolean) Whether a column-oriented (i.e. OLAP) tables should be created. 
+ Default is `false` (create row-oriented OLTP tables)
+- `path` (String) Path extension for database, each table will be layouted into this path
+- `sa_key_content` (String, Sensitive) Authentication key
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `service_account_id` (String) Service account ID for interaction with database
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. 
+ If omitted, the server has to be accessible via Internet
 
 
 <a id="nestedblock--settings--yds_source"></a>
@@ -1175,26 +1573,33 @@ Optional:
 
 Optional:
 
-- `allow_ttl_rewind` (Boolean) Should continue working, if consumer read lag exceed TTL of topic.
-- `consumer` (String) Consumer.
-- `database` (String) Database name.
-- `endpoint` (String) YDS Endpoint.
-- `parser` (Block List, Max: 1) Data parsing rules. (see [below for nested schema](#nestedblock--settings--yds_source--parser))
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `service_account_id` (String) Service account ID for interaction with database.
-- `stream` (String) Stream.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
-- `supported_codecs` (List of String) List of supported compression codec.
+- `allow_ttl_rewind` (Boolean) Should continue working, if consumer read lag exceed TTL of topic
+ False: stop the transfer in error state, if detected lost data. True: continue
+ working with losing part of data
+- `consumer` (String) Custom consumer - for important streams
+- `database` (String) Database path in YDB for streams 
+ Example: `/ru/transfer_manager/prod/data-transfer`
+- `endpoint` (String) YDS Endpoint for dedicated db
+- `parser` (Block List) Data parsing rules (see [below for nested schema](#nestedblock--settings--yds_source--parser))
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `service_account_id` (String) Service account ID which has read access to the stream.
+- `stream` (String) Stream to read
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. If omitted, the server has to be accessible via Internet
+- `supported_codecs` (List of String) List of supported compression codecs
+ Options: YDS_COMPRESSION_CODEC_RAW, YDS_COMPRESSION_CODEC_ZSTD,
+ YDS_COMPRESSION_CODEC_GZIP
 
 <a id="nestedblock--settings--yds_source--parser"></a>
 ### Nested Schema for `settings.yds_source.parser`
 
 Optional:
 
-- `audit_trails_v1_parser` (Block List, Max: 1) Parse Audit Trails data. Empty struct. (see [below for nested schema](#nestedblock--settings--yds_source--parser--audit_trails_v1_parser))
-- `cloud_logging_parser` (Block List, Max: 1) Parse Cloud Logging data. Empty struct. (see [below for nested schema](#nestedblock--settings--yds_source--parser--cloud_logging_parser))
-- `json_parser` (Block List, Max: 1) Parse data in json format. (see [below for nested schema](#nestedblock--settings--yds_source--parser--json_parser))
-- `tskv_parser` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--yds_source--parser--tskv_parser))
+- `audit_trails_v1_parser` (Block List) Parse Audit Trails data. Empty struct (see [below for nested schema](#nestedblock--settings--yds_source--parser--audit_trails_v1_parser))
+- `cloud_logging_parser` (Block List) Parse Cloud Logging data. Empty struct (see [below for nested schema](#nestedblock--settings--yds_source--parser--cloud_logging_parser))
+- `json_parser` (Block List) Parse data in json format (see [below for nested schema](#nestedblock--settings--yds_source--parser--json_parser))
+- `tskv_parser` (Block List) Parse data in tskv format (see [below for nested schema](#nestedblock--settings--yds_source--parser--tskv_parser))
 
 <a id="nestedblock--settings--yds_source--parser--audit_trails_v1_parser"></a>
 ### Nested Schema for `settings.yds_source.parser.audit_trails_v1_parser`
@@ -1209,36 +1614,37 @@ Optional:
 
 Optional:
 
-- `add_rest_column` (Boolean)
-- `data_schema` (Block List, Max: 1) Data parsing scheme. (see [below for nested schema](#nestedblock--settings--yds_source--parser--json_parser--data_schema))
-- `null_keys_allowed` (Boolean)
-- `unescape_string_values` (Boolean)
+- `add_rest_column` (Boolean) Will add _rest column for all unknown fields
+- `data_schema` (Block List) Data parsing scheme (see [below for nested schema](#nestedblock--settings--yds_source--parser--json_parser--data_schema))
+- `null_keys_allowed` (Boolean) Allow null keys, if no - null keys will be putted to unparsed data
+- `unescape_string_values` (Boolean) Unescape string values
 
 <a id="nestedblock--settings--yds_source--parser--json_parser--data_schema"></a>
 ### Nested Schema for `settings.yds_source.parser.json_parser.data_schema`
 
 Optional:
 
-- `fields` (Block List, Max: 1) Description of the data schema in the array of `fields` structure. (see [below for nested schema](#nestedblock--settings--yds_source--parser--json_parser--data_schema--fields))
-- `json_fields` (String) Description of the data schema as JSON specification.
+- `fields` (Block List) Description of the data schema in the array of `fields` structure (see [below for nested schema](#nestedblock--settings--yds_source--parser--json_parser--data_schema--fields))
+- `json_fields` (String, Deprecated) Description of the data schema as JSON specification
 
 <a id="nestedblock--settings--yds_source--parser--json_parser--data_schema--fields"></a>
 ### Nested Schema for `settings.yds_source.parser.json_parser.data_schema.fields`
 
 Optional:
 
-- `fields` (Block List) Description of the data schema in the array of `fields` structure. (see [below for nested schema](#nestedblock--settings--yds_source--parser--json_parser--data_schema--fields--fields))
+- `fields` (Block List) Description of the column schema in the array of `fields` structure (see [below for nested schema](#nestedblock--settings--yds_source--parser--json_parser--data_schema--fields--fields))
 
 <a id="nestedblock--settings--yds_source--parser--json_parser--data_schema--fields--fields"></a>
 ### Nested Schema for `settings.yds_source.parser.json_parser.data_schema.fields.fields`
 
 Optional:
 
-- `key` (Boolean) Mark field as Primary Key.
-- `name` (String) Field name.
-- `path` (String) Path to the field.
-- `required` (Boolean) Mark field as required.
-- `type` (String) Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`, `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
+- `key` (Boolean) Mark field as Primary Key
+- `name` (String) Field name
+- `path` (String) Path to the field
+- `required` (Boolean) Mark field as required
+- `type` (String) Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`,
+ `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
 
 
 
@@ -1249,36 +1655,37 @@ Optional:
 
 Optional:
 
-- `add_rest_column` (Boolean)
-- `data_schema` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--yds_source--parser--tskv_parser--data_schema))
-- `null_keys_allowed` (Boolean)
-- `unescape_string_values` (Boolean)
+- `add_rest_column` (Boolean) Will add _rest column for all unknown fields
+- `data_schema` (Block List) Data parsing scheme (see [below for nested schema](#nestedblock--settings--yds_source--parser--tskv_parser--data_schema))
+- `null_keys_allowed` (Boolean) Allow null keys, if no - null keys will be putted to unparsed data
+- `unescape_string_values` (Boolean) Unescape string values
 
 <a id="nestedblock--settings--yds_source--parser--tskv_parser--data_schema"></a>
 ### Nested Schema for `settings.yds_source.parser.tskv_parser.data_schema`
 
 Optional:
 
-- `fields` (Block List, Max: 1) (see [below for nested schema](#nestedblock--settings--yds_source--parser--tskv_parser--data_schema--fields))
-- `json_fields` (String)
+- `fields` (Block List) Description of the data schema in the array of `fields` structure (see [below for nested schema](#nestedblock--settings--yds_source--parser--tskv_parser--data_schema--fields))
+- `json_fields` (String, Deprecated) Description of the data schema as JSON specification
 
 <a id="nestedblock--settings--yds_source--parser--tskv_parser--data_schema--fields"></a>
 ### Nested Schema for `settings.yds_source.parser.tskv_parser.data_schema.fields`
 
 Optional:
 
-- `fields` (Block List) (see [below for nested schema](#nestedblock--settings--yds_source--parser--tskv_parser--data_schema--fields--fields))
+- `fields` (Block List) Description of the column schema in the array of `fields` structure (see [below for nested schema](#nestedblock--settings--yds_source--parser--tskv_parser--data_schema--fields--fields))
 
 <a id="nestedblock--settings--yds_source--parser--tskv_parser--data_schema--fields--fields"></a>
 ### Nested Schema for `settings.yds_source.parser.tskv_parser.data_schema.fields.fields`
 
 Optional:
 
-- `key` (Boolean)
-- `name` (String)
-- `path` (String)
-- `required` (Boolean)
-- `type` (String)
+- `key` (Boolean) Mark field as Primary Key
+- `name` (String) Field name
+- `path` (String) Path to the field
+- `required` (Boolean) Mark field as required
+- `type` (String) Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`,
+ `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
 
 
 
@@ -1291,23 +1698,32 @@ Optional:
 
 Optional:
 
-- `database` (String) Database.
-- `endpoint` (String) YDS Endpoint.
-- `save_tx_order` (Boolean) Save transaction order.
-- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should use.
-- `serializer` (Block List, Max: 1) Data serialization format. (see [below for nested schema](#nestedblock--settings--yds_target--serializer))
-- `service_account_id` (String) Service account ID for interaction with database.
-- `stream` (String) Stream.
-- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet.
+- `compression_codec` (String) Codec to use for output data compression. If not specified, no compression will
+ be done
+ Options: YDS_COMPRESSION_CODEC_RAW, YDS_COMPRESSION_CODEC_ZSTD,
+ YDS_COMPRESSION_CODEC_GZIP
+- `database` (String) Database path in YDB for streams 
+ Example: `/ru/transfer_manager/prod/data-transfer`
+- `endpoint` (String) YDS Endpoint for dedicated db
+- `save_tx_order` (Boolean) Save transaction order
+ Not to split events queue into separate per-table queues.
+ Incompatible with setting Topic prefix, only with Topic full name.
+- `security_groups` (List of String) List of security groups that the transfer associated with this endpoint should
+ use
+- `serializer` (Block List) Data serialization format (see [below for nested schema](#nestedblock--settings--yds_target--serializer))
+- `service_account_id` (String) Service account ID which has read access to the stream
+- `stream` (String) Stream to write to
+- `subnet_id` (String) Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
+ database. If omitted, the server has to be accessible via Internet
 
 <a id="nestedblock--settings--yds_target--serializer"></a>
 ### Nested Schema for `settings.yds_target.serializer`
 
 Optional:
 
-- `serializer_auto` (Block List, Max: 1) Empty block. Select data serialization format automatically. (see [below for nested schema](#nestedblock--settings--yds_target--serializer--serializer_auto))
-- `serializer_debezium` (Block List, Max: 1) Serialize data in json format. (see [below for nested schema](#nestedblock--settings--yds_target--serializer--serializer_debezium))
-- `serializer_json` (Block List, Max: 1) Empty block. Serialize data in json format. (see [below for nested schema](#nestedblock--settings--yds_target--serializer--serializer_json))
+- `serializer_auto` (Block List) Empty block. Select the serialization format automatically (see [below for nested schema](#nestedblock--settings--yds_target--serializer--serializer_auto))
+- `serializer_debezium` (Block List) Serialize data in debezium json format (see [below for nested schema](#nestedblock--settings--yds_target--serializer--serializer_debezium))
+- `serializer_json` (Block List) Empty block. Serialize data in json format (see [below for nested schema](#nestedblock--settings--yds_target--serializer--serializer_json))
 
 <a id="nestedblock--settings--yds_target--serializer--serializer_auto"></a>
 ### Nested Schema for `settings.yds_target.serializer.serializer_auto`
@@ -1318,20 +1734,35 @@ Optional:
 
 Optional:
 
-- `serializer_parameters` (Block List) A list of Debezium parameters set by the structure of the `key` and `value` string fields. (see [below for nested schema](#nestedblock--settings--yds_target--serializer--serializer_debezium--serializer_parameters))
+- `serializer_parameters` (Block List) A list of Debezium parameters set by the structure of the `key` and `value`
+ string fields (see [below for nested schema](#nestedblock--settings--yds_target--serializer--serializer_debezium--serializer_parameters))
 
 <a id="nestedblock--settings--yds_target--serializer--serializer_debezium--serializer_parameters"></a>
 ### Nested Schema for `settings.yds_target.serializer.serializer_debezium.serializer_parameters`
 
 Optional:
 
-- `key` (String)
-- `value` (String)
+- `key` (String) Name of the serializer parameter
+- `value` (String) Value of the serializer parameter
 
 
 
 <a id="nestedblock--settings--yds_target--serializer--serializer_json"></a>
 ### Nested Schema for `settings.yds_target.serializer.serializer_json`
+
+
+
+
+
+<a id="nestedatt--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+- `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

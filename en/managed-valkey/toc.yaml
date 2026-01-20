@@ -17,6 +17,8 @@ items:
             href: operations/update.md
           - name: '{{ VLK }} version upgrade'
             href: operations/cluster-version-update.md
+          - name: Working with {{ VLK }} modules
+            href: operations/modules.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
           - name: Managing cluster hosts
@@ -51,13 +53,13 @@ items:
         items:
           - name: Managing shards
             href: operations/shards.md
-          - name: Switching the master
+          - name: Master failover
             href: operations/failover.md
       - name: Logs and monitoring
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
   - name: Tutorials
     items:
@@ -93,6 +95,8 @@ items:
         href: concepts/memory-management.md
       - name: Available commands
         href: concepts/supported-features.md
+      - name: '{{ VLK }} modules'
+        href: concepts/modules.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Storage

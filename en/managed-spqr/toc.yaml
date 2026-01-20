@@ -32,6 +32,8 @@ items:
         href: concepts/storage.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: '{{ SPQR }} settings'
+        href: concepts/settings-list.md
   - name: Access management
     href: security.md
   - name: Pricing policy

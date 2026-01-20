@@ -1,7 +1,7 @@
 ---
-page_title: yandex_organizationmanager_mfa_enforcement_audience Resource - yandex
-subcategory: ''
-description: MFA enforcement audience resource
+subcategory: Cloud Organization
+page_title: 'Yandex: yandex_organizationmanager_mfa_enforcement_audience'
+description: MFA enforcement audience resource.
 sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_mfa_enforcement_audience.md
 ---
 
@@ -12,7 +12,7 @@ MFA enforcement audience resource
 ## Example usage
 
 ```terraform
-// 
+//
 // Example OrganizationManager MFA Enforcement.
 //
 resource "yandex_organizationmanager_mfa_enforcement" "example_mfa_enforcement" {
