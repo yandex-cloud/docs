@@ -84,6 +84,12 @@ items:
         href: concepts/ai-assistant.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Troubleshooting
+    items:
+      - name: Overview
+        href: diagnostics/index.md
+      - name: KSPM errors
+        href: diagnostics/kspm-diagnostics.md
   - name: Access management
     items:
       - name: Common {{ sd-name }} roles

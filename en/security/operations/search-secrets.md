@@ -7,22 +7,11 @@ description: Follow this guide to check your repositories.
 
 {{ yandex-cloud }} scans public sources for the following types of secrets:
 
-* [API keys](../../iam/concepts/authorization/api-key.md)
-* [{{ iam-short-name }} Cookies](../../iam/concepts/authorization/cookie.md)
-* [{{ iam-short-name }} tokens](../../iam/concepts/authorization/iam-token.md)
-* [Static access keys](../../iam/concepts/authorization/access-key.md)
-* [OAuth token](../../iam/concepts/authorization/oauth-token.md)
-* [{{ captcha-name }} server keys](../../smartcaptcha/concepts/keys.md)
-* [Refresh tokens](../../iam/concepts/authorization/refresh-token.md)
-* [OIDC app secrets](../../organization/concepts/applications.md#oidc-secret)
+{% include [secret-types](../../_includes/security/standard/secret-types.md) %}
 
 {{ yandex-cloud }} is connected to the following secret scanning tools:
 
-* [{{ yandex-cloud }} secret scanning partner program](#leak-detection-affiliate-program).
-* [GitHub Secret scanning partner program](#github-secret-scanning).
-* [GitLab Secret Detection](#gitlab-secret-detection).
-* [Yandex search index](#secret-is-leaked).
-* [Helm charts in {{ marketplace-full-name }}](#helm-charts).
+{% include [secret-sources](../../_includes/security/standard/secret-sources.md) %}
 
 ## {{ yandex-cloud }} secret scanning partner program {#leak-detection-affiliate-program}
 

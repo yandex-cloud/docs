@@ -9,9 +9,32 @@ description: In this tutorial, you will learn how to get a folder ID in {{ yande
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-cloud }}) and select the appropriate [folder](../../concepts/resources-hierarchy.md#folder) from the list on the left. On the page that opens, the folder ID is shown on top, next to the folder name.
-  
-  1. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
+  You can get the folder ID from the dashboard or the **{{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoTooltip.title_folder-info-dialog_c4F7i }}** tab.
+
+  **Getting the ID on the dashboard**
+
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../concepts/resources-hierarchy.md#folder).
+  1. You will find the folder ID at the top, below the folder name. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
+
+     {% cut "ID location" %}
+    
+     ![folder-dashboard-id](../../../_assets/resource-manager/folder-dashboard-id.png)
+
+     {% endcut %}
+
+  **Getting ID on the {{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoTooltip.title_folder-info-dialog_c4F7i }} tab**
+
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../concepts/resources-hierarchy.md#folder).
+  1. To the right of the folder name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_folder-info }}**.
+  1. In the window that opens, you will find the folder ID in the **{{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoDialog.folder-id_6KQJv }}** field. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
+
+     {% cut "ID location" %}
+
+     ![folder-info-menu](../../../_assets/resource-manager/folder-info-option.png)
+    
+     ![folder-info-id](../../../_assets/resource-manager/folder-info-id.png)
+
+     {% endcut %}
   
   You can also get the folder ID from the folder page URL in the management console:
   

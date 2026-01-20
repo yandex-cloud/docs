@@ -6,9 +6,9 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate cloud from the list on the left.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.delete }}**.
-  1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the suggested periods or `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default cloud deletion delay is 7 days.
+  1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the suggested periods or `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default period is seven days.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -35,7 +35,7 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 
       Where:
 
-      * `--delete-after`: Cloud deletion delay in `HhMmSs` format. Cloud deletion process will start after the specified delay, e.g., `--delete-after 22h30m50s`.
+      * `--delete-after`: Cloud deletion delay in `HhMmSs` format. Cloud deletion process will start after the specified delay. For example, `--delete-after 22h30m50s`.
       
           Specify `0s` to delete the cloud now.
       * `--async`: Asynchronous deletion flag.

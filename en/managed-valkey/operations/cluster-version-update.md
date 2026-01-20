@@ -91,7 +91,7 @@ Make sure the upgrade will not disrupt your applications:
     1. Under `config`, change the `version` parameter to the {{ VLK }} version you want to upgrade to.
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
             ...
             config {
                 version  = "<new_version_number>"

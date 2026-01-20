@@ -2077,6 +2077,166 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Audit log reference
+    items:
+      - name: AddInstanceOneToOneNat
+        href: events-ref/AddInstanceOneToOneNat.md
+      - name: AttachInstanceDisk
+        href: events-ref/AttachInstanceDisk.md
+      - name: AttachInstanceFilesystem
+        href: events-ref/AttachInstanceFilesystem.md
+      - name: AttachInstanceNetworkInterface
+        href: events-ref/AttachInstanceNetworkInterface.md
+      - name: ChangeDiskStatus
+        href: events-ref/ChangeDiskStatus.md
+      - name: ConnectSerialPort
+        href: events-ref/ConnectSerialPort.md
+      - name: CrashInstance
+        href: events-ref/CrashInstance.md
+      - name: CreateDisk
+        href: events-ref/CreateDisk.md
+      - name: CreateDiskPlacementGroup
+        href: events-ref/CreateDiskPlacementGroup.md
+      - name: CreateFilesystem
+        href: events-ref/CreateFilesystem.md
+      - name: CreateGpuCluster
+        href: events-ref/CreateGpuCluster.md
+      - name: CreateHostGroup
+        href: events-ref/CreateHostGroup.md
+      - name: CreateImage
+        href: events-ref/CreateImage.md
+      - name: CreateInstance
+        href: events-ref/CreateInstance.md
+      - name: CreateInstanceGroup
+        href: events-ref/CreateInstanceGroup.md
+      - name: CreatePlacementGroup
+        href: events-ref/CreatePlacementGroup.md
+      - name: CreateReservedInstancePool
+        href: events-ref/CreateReservedInstancePool.md
+      - name: CreateSnapshot
+        href: events-ref/CreateSnapshot.md
+      - name: CreateSnapshotSchedule
+        href: events-ref/CreateSnapshotSchedule.md
+      - name: DecommissionHost
+        href: events-ref/DecommissionHost.md
+      - name: DeleteDisk
+        href: events-ref/DeleteDisk.md
+      - name: DeleteDiskPlacementGroup
+        href: events-ref/DeleteDiskPlacementGroup.md
+      - name: DeleteFilesystem
+        href: events-ref/DeleteFilesystem.md
+      - name: DeleteGpuCluster
+        href: events-ref/DeleteGpuCluster.md
+      - name: DeleteHostGroup
+        href: events-ref/DeleteHostGroup.md
+      - name: DeleteImage
+        href: events-ref/DeleteImage.md
+      - name: DeleteInstance
+        href: events-ref/DeleteInstance.md
+      - name: DeleteInstanceGroup
+        href: events-ref/DeleteInstanceGroup.md
+      - name: DeleteInstanceGroupInstances
+        href: events-ref/DeleteInstanceGroupInstances.md
+      - name: DeleteNode
+        href: events-ref/DeleteNode.md
+      - name: DeletePlacementGroup
+        href: events-ref/DeletePlacementGroup.md
+      - name: DeleteReservedInstancePool
+        href: events-ref/DeleteReservedInstancePool.md
+      - name: DeleteSnapshot
+        href: events-ref/DeleteSnapshot.md
+      - name: DeleteSnapshotSchedule
+        href: events-ref/DeleteSnapshotSchedule.md
+      - name: DetachInstanceDisk
+        href: events-ref/DetachInstanceDisk.md
+      - name: DetachInstanceFilesystem
+        href: events-ref/DetachInstanceFilesystem.md
+      - name: DetachInstanceNetworkInterface
+        href: events-ref/DetachInstanceNetworkInterface.md
+      - name: DisableNode
+        href: events-ref/DisableNode.md
+      - name: DisableSnapshotSchedule
+        href: events-ref/DisableSnapshotSchedule.md
+      - name: DisableZones
+        href: events-ref/DisableZones.md
+      - name: EnableNode
+        href: events-ref/EnableNode.md
+      - name: EnableSnapshotSchedule
+        href: events-ref/EnableSnapshotSchedule.md
+      - name: EnableZones
+        href: events-ref/EnableZones.md
+      - name: EvacuateNode
+        href: events-ref/EvacuateNode.md
+      - name: GuestStopInstance
+        href: events-ref/GuestStopInstance.md
+      - name: MigrateInstance
+        href: events-ref/MigrateInstance.md
+      - name: MigrateNode
+        href: events-ref/MigrateNode.md
+      - name: PauseInstanceGroup
+        href: events-ref/PauseInstanceGroup.md
+      - name: PreemptInstance
+        href: events-ref/PreemptInstance.md
+      - name: RemoveInstanceOneToOneNat
+        href: events-ref/RemoveInstanceOneToOneNat.md
+      - name: RestartInstance
+        href: events-ref/RestartInstance.md
+      - name: ResumeInstanceGroup
+        href: events-ref/ResumeInstanceGroup.md
+      - name: RollingRecreateInstanceGroupInstances
+        href: events-ref/RollingRecreateInstanceGroupInstances.md
+      - name: RollingRestartInstanceGroupInstances
+        href: events-ref/RollingRestartInstanceGroupInstances.md
+      - name: SetInstanceGroupAccessBindings
+        href: events-ref/SetInstanceGroupAccessBindings.md
+      - name: StartInstance
+        href: events-ref/StartInstance.md
+      - name: StartInstanceGroup
+        href: events-ref/StartInstanceGroup.md
+      - name: StopInstance
+        href: events-ref/StopInstance.md
+      - name: StopInstanceGroup
+        href: events-ref/StopInstanceGroup.md
+      - name: StopInstanceGroupInstances
+        href: events-ref/StopInstanceGroupInstances.md
+      - name: UpdateDisk
+        href: events-ref/UpdateDisk.md
+      - name: UpdateDiskPlacementGroup
+        href: events-ref/UpdateDiskPlacementGroup.md
+      - name: UpdateFilesystem
+        href: events-ref/UpdateFilesystem.md
+      - name: UpdateGpuCluster
+        href: events-ref/UpdateGpuCluster.md
+      - name: UpdateHost
+        href: events-ref/UpdateHost.md
+      - name: UpdateHostGroup
+        href: events-ref/UpdateHostGroup.md
+      - name: UpdateImage
+        href: events-ref/UpdateImage.md
+      - name: UpdateInstance
+        href: events-ref/UpdateInstance.md
+      - name: UpdateInstanceGroup
+        href: events-ref/UpdateInstanceGroup.md
+      - name: UpdateInstanceGroupAccessBindings
+        href: events-ref/UpdateInstanceGroupAccessBindings.md
+      - name: UpdateInstanceMetadata
+        href: events-ref/UpdateInstanceMetadata.md
+      - name: UpdateInstanceNetworkInterface
+        href: events-ref/UpdateInstanceNetworkInterface.md
+      - name: UpdateInstanceUnderlayInterface
+        href: events-ref/UpdateInstanceUnderlayInterface.md
+      - name: UpdateNode
+        href: events-ref/UpdateNode.md
+      - name: UpdatePlacementGroup
+        href: events-ref/UpdatePlacementGroup.md
+      - name: UpdateReservedInstancePool
+        href: events-ref/UpdateReservedInstancePool.md
+      - name: UpdateSnapshot
+        href: events-ref/UpdateSnapshot.md
+      - name: UpdateSnapshotSchedule
+        href: events-ref/UpdateSnapshotSchedule.md
+      - name: UpdateSnapshotScheduleDisks
+        href: events-ref/UpdateSnapshotScheduleDisks.md
   - name: Release notes
     href: release-notes.md
   - name: FAQ

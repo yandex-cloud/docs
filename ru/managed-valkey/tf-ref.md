@@ -13,7 +13,7 @@ description: На этой странице приведен справочни�
 
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
-| [yandex_mdb_redis_cluster]({{ tf-provider-resources-link }}/mdb_redis_cluster) | [Кластер](./concepts/index.md) |
+| [yandex_mdb_redis_cluster_v2]({{ tf-provider-resources-link }}/mdb_redis_cluster_v2) | [Кластер](./concepts/index.md) |
 | [yandex_mdb_redis_user]({{ tf-provider-resources-link }}/mdb_redis_user) | Пользователь {{ VLK }} |
 
 ## Источники данных {#data-sources}
@@ -22,5 +22,5 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_mdb_redis_cluster]({{ tf-provider-datasources-link }}/mdb_redis_cluster) | Информация о [кластере](./concepts/index.md) |
+| [yandex_mdb_redis_cluster_v2]({{ tf-provider-datasources-link }}/mdb_redis_cluster_v2) | Информация о [кластере](./concepts/index.md) |
 | [yandex_mdb_redis_user]({{ tf-provider-datasources-link }}/mdb_redis_user) | Информация о пользователе {{ VLK }} |

@@ -95,7 +95,7 @@ Learn more about other cluster updates:
     1. Edit the `description` parameter in the {{ mrd-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
           name        = "<cluster_name>"
           description = "<new_cluster_description>"
           ...
@@ -237,7 +237,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
     1. Edit the `announce_hostnames` parameter in the {{ mrd-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
           name        = "<cluster_name>"
           ...
           announce_hostnames    = <using_FQDNs_instead_of_IP_addresses>
@@ -390,7 +390,7 @@ For more information about data persistence and its settings, see [Persistence](
     1. Edit the `persistence_mode` parameter in the {{ mrd-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
           name = "<cluster_name>"
           ...
           persistence_mode = "<persistence_mode>"
@@ -585,7 +585,7 @@ We recommend changing the host class only when your cluster has no active worklo
     1. Edit the `resource_preset_id` value in the `resources` section of your {{ mrd-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
           ...
           resources {
             resource_preset_id = "<host_class>"
@@ -752,7 +752,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
     1. Edit the `disk_size` value in the `resources` section of your {{ mrd-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
           ...
           resources {
             disk_size = <storage_size_in_GB>
@@ -1068,7 +1068,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
     1. Update the settings in the `config` section of your {{ mrd-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
           ...
           config {
             password         = "<password>"
@@ -1266,7 +1266,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
         * To set the backup start time, add the `backup_window_start` section:
         
             ```hcl
-            resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+            resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
                 ...
                 backup_window_start {
                     hours   = <hours>
@@ -1283,7 +1283,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
         * To set up the [maintenance window](../concepts/maintenance.md) (including for disabled clusters), add the `maintenance_window` section to the cluster description:
 
             ```hcl
-            resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+            resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
             ...
                 maintenance_window {
                     day  = <day_of_week>
@@ -1303,7 +1303,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
         * To activate cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to the cluster description:
 
             ```hcl
-            resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+            resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
             ...
                     deletion_protection = false
             }
@@ -1523,7 +1523,7 @@ You cannot disable sharding in a cluster where it is already enabled.
     1. Add the `sharded` argument set to `true` to the {{ mrd-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
             ...
             sharded = true
         }
@@ -1642,7 +1642,7 @@ You cannot disable sharding in a cluster where it is already enabled.
     1. In the {{ mrd-name }} cluster description, edit or add the `folder_id` parameter value:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
           ...
           folder_id = "<destination_folder_ID>"
         }
@@ -1761,7 +1761,7 @@ You cannot disable sharding in a cluster where it is already enabled.
     1. Edit the `security_group_ids` parameter in the {{ mrd-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
           ...
           security_group_ids = [<list_of_security_group_IDs>]
         }

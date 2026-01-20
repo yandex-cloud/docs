@@ -1,0 +1,4 @@
+* {% include [sec-rules-criticality-levels](./sec-rules-criticality-levels.md) %}
+* **{{ ui-key.yacloud_org.security.controls.rule-result.controlRule_kr2Bv }}** — имя правила контроля.
+* **{{ ui-key.yacloud_org.security.controls.rule-result.module_63uuk }}** — модуль {{ sd-name }}, который проверяет соответствие инфраструктуры данному правилу: `{{ ui-key.yacloud_org.security.workspaces.module-cspm_gozhj }}` или `{{ ui-key.yacloud_org.security.workspaces.module-kspm_n9o93 }}`.
+* **{{ ui-key.yacloud_org.security.controls.rule-result.violations_q7AcU }}** — количество нарушений правила, выявленных в выбранном [окружении](../../security-deck/concepts/workspace.md).

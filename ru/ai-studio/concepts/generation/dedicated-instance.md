@@ -37,3 +37,11 @@
 Рисунок ниже показывает зависимость задержек и количества токенов, обрабатываемых моделью, от количества параллельных генераций (Concurrency на рисунке): до определенного момента чем больше генераций модель будет обрабатывать параллельно, тем дольше будет длиться генерация и тем больше токенов будет сгенерировано за секунду.
 
 ![instances](../../../_assets/ai-studio/instances-chart.svg)
+
+## Примеры использования {#examples}
+
+* [{#T}](../../operations/resources/create-instance.md)
+* [{#T}](../../operations/resources/clone-instance.md)
+* [{#T}](../../operations/resources/get-instance.md)
+* [{#T}](../../operations/resources/start-stop-instance.md)
+* [{#T}](../../operations/resources/delete-instance.md)

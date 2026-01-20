@@ -8,9 +8,9 @@ description: Follow this tutorial to create {{ at-full-name }} to register and s
 
 You can create a trail that will upload both [management](../concepts/format.md) and [data](../concepts/format-data-plane.md) event audit logs into one of the [destination objects](../concepts/trail.md#target):
 
-* [{{ objstorage-full-name }}](../../storage/) bucket
-* [{{ cloud-logging-full-name }}](../../logging/) group
-* [{{ yds-full-name }}](../../data-streams/) data stream
+* [{{ objstorage-full-name }}](../../storage/) bucket.
+* [{{ cloud-logging-full-name }}](../../logging/) group.
+* [{{ yds-full-name }}](../../data-streams/) data stream.
 
 ## Getting started {#before-you-begin}
 
@@ -28,7 +28,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
+    1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) for the trail to be able to collect and upload logs:
 
         * `storage.uploader` for a bucket.
         * `kms.keys.encrypter` for a bucket encryption key.
@@ -45,7 +45,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
+    1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) to enable the trail to collect and upload logs:
 
         * `logging.writer` for a log group.
 
@@ -67,7 +67,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
+    1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) to enable the trail to collect and upload logs:
 
         * `yds.writer` for a data stream.
 
@@ -84,7 +84,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
     1. Enter a trail name. It must be unique within the folder.
     1. (Optional) Enter a description for your trail.
@@ -204,7 +204,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
               * `stream_name`: Name of the data stream you [created earlier](#before-you-begin). You can request the name with the [list of data streams in the folder](../../data-streams/operations/manage-streams.md#list-data-streams).
               * `database_id`: ID of the {{ ydb-short-name }} database used by {{ yds-name }}. You can request the ID with the [list of {{ ydb-short-name }} databases in the folder](../../ydb/operations/manage-databases.md#list-db).
-              * `codec`:  Event compression method when writing to {{ yds-name }}. The possible values are `RAW` (no compression, default), `GZIP`, `ZSTD`. Enable compression if you expect an event flow greater than 1 MB/s.
+              * `codec`: Event compression method when writing to {{ yds-name }}. The possible values are `RAW` (no compression, default), `GZIP`, and `ZSTD`. Enable compression if you expect an event flow greater than 1 MB/s.
       * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account you created [earlier](#before-you-begin).
 
       {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
@@ -299,7 +299,7 @@ The trail will be created and start uploading audit logs to the selected destina
 
 ## Examples {#examples}
 
-### Creating a trail with management and data event filters {#example-control-data-planes}
+### Creating a trail with management and data event filters{#example-control-data-planes}
 
 Create a trail with the following parameters:
 

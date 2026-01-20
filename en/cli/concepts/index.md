@@ -8,6 +8,8 @@ To get help information for a particular command, specify the `--help` global fl
 
 {% endnote %}
 
+Commands are executed after authentication, and the token is then saved in the file system. You can also get the token from the `YC_IAM_TOKEN` environment variable regardless of whether or not you have a saved token.
+
 ## Managing a CLI configuration {#manage-properties}
 
 Use one of the following to set or change the values of the CLI configuration parameters before executing a command:

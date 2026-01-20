@@ -3,6 +3,7 @@ title: Appearance settings in {{ datalens-full-name }}
 description: The {{ datalens-full-name }} appearance settings enable you to change how the interface looks.
 ---
 
+
 # Appearance settings in {{ datalens-full-name }}
 
 Appearance settings allow you to change how the interface looks for the entire organization:
@@ -19,6 +20,8 @@ To access the appearance settings:
 
    ![image](../../_assets/datalens/settings/customization.png)
 
+
+
 ## UI customization {#ui-customization}
 
 With UI customization, you can achieve a custom {{ datalens-short-name }} look by editing colors, logo, and redesigning individual elements.
@@ -32,11 +35,13 @@ For UI customization:
 1. Select the **Appearance** tab.
 1. In the **UI customization** section, click ![image](../../_assets/console-icons/palette.svg) **Configure**.
 
+
    {% cut "Customizing the UI" %}
 
    ![image](../../_assets/datalens/settings/ui-customization.png)
 
    {% endcut %}
+
 
 1. Customize the design:
 
@@ -101,3 +106,5 @@ In {{ datalens-full-name }}, you can [create](#create-palette), [edit](#edit-pal
 ### Setting the default color pallete {#default-palette}
 
 {% include [default-palette](../../_includes/datalens/settings/default-palette.md) %}
+
+

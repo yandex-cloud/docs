@@ -19,7 +19,7 @@ description: Из статьи вы узнаете, как удалить Docker
 
   Чтобы удалить Docker-образ:
   1. Перейдите в репозиторий, из которого надо удалить образ:
-     1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Откройте нужный реестр.
      1. Откройте нужный репозиторий.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке Docker-образа, который требуется удалить.

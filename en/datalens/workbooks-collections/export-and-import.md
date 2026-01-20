@@ -5,7 +5,7 @@ description: Follow this guide to export and import {{ datalens-full-name }} wor
 
 # Exporting and importing workbooks {{ datalens-full-name }}
 
-In {{ datalens-short-name }}, you can move [workbooks](./index.md) between installations using export and import tools. For example, you can export a ready-made workbook with its settings and connections from the cloud {{ datalens-full-name }} to an [open source](https://datalens.tech) installation.
+In {{ datalens-short-name }}, you can transfer [workbooks](./index.md) between installations using export and import tools. For example, you can export a ready-made workbook with its settings and connections from the cloud {{ datalens-full-name }} to an [open source](https://datalens.tech) installation.
 
 
 {% note info %}
@@ -33,7 +33,7 @@ To export a workbook:
 
    * Workbooks are exported to a JSON file.
    * This may take a few minutes.
-   * Sensitive [connection](../concepts/connection/index.md) data is not saved. During [import](#import-workbook), the user will have to set up connections again, e.g., specify a token or enter a password, and for connections to a [file](../operations/connection/create-file.md), [Yandex Documents](../operations/connection/create-yadocs.md), or [Google Sheets](../operations/connection/create-google-sheets.md), reupload the data.
+   * Sensitive [connection](../concepts/connection/index.md) data is not saved. During [import](#import-workbook), the user will have to set up connections again, e.g., specify a token or enter a password, and for connections to a [file](../operations/connection/create-file.md), [Yandex Documents](../operations/connection/create-yadocs.md), or [Google Sheets](../operations/connection/create-google-sheets.md), reupload the data.   
    * Other {{ datalens-short-name }} versions may not support certain connection types. During import, such connection will not work.
    
    If you try to close the indicator window before the export is complete, you will get the cancel export warning. Select:
@@ -92,19 +92,7 @@ If the workbook import fails, you will get an error [message](./export-import-no
 
 ## Disabling workbook export {#workbooks-export-disable}
 
-By default, users with the `{{ roles-datalens-admin }}` role can export workbooks. You can disable this option at the {{ datalens-short-name }} instance level. After you disable export:
-
-* ![icon](../../_assets/console-icons/file-arrow-up.svg) **Export** button will disappear from the workbook interface.
-* Users will not be able to export workbooks.
-* Any JSON export files created before you disable export may be imported to a new workbook.
-
-Only the {{ datalens-short-name }} instance [admin](../security/roles.md#datalens-admin) (the `{{ roles-datalens-admin }}` role) can disable export.
-
-To prohibit export of workbooks:
-
-1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
-1. Select the **Security** tab.
-1. Disable **Workbook export** (enabled by default).
+{% include [workbooks-export-disable](../../_includes/datalens/settings/disable-workbooks-export.md) %}
 
 
 

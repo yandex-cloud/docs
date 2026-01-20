@@ -21,3 +21,4 @@ When [creating](../operations/user-pools/create-userpool.md) a user pool, you sp
 * [{#T}](../operations/user-pools/create-userpool.md)
 * [Creating a local user](../operations/add-account.md#add-local-user)
 * [{#T}](../operations/user-pools/add-domain.md)
+* [{#T}](../operations/user-pools/user-get-logs.md)

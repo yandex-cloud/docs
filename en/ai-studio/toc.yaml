@@ -202,8 +202,6 @@ items:
             href: operations/mcp-servers/create-brand-new.md
   - name: Switching from the {{ assistant-api }} to {{ responses-api }}
     href: concepts/agents/assistant-responses-migration.md
-  - name: Compatibility with {{ openai }}
-    href: concepts/openai-compatibility.md
   - name: '{{ ml-sdk-full-name }}'
     items:
       - name: About {{ ml-sdk-full-name }}
@@ -375,6 +373,253 @@ items:
           - name: Result types for models
             href: sdk-ref/types/model_results
             hidden: true
+  - name: Compatibility with {{ openai }}
+    href: concepts/openai-compatibility.md
+  - name: OpenAI-compatible API
+    items:
+      - name: Chat
+        items:
+          - name: Overview
+            href: chat/index.md
+          - name: listChatCompletions
+            href: chat/listChatCompletions.md
+          - name: createChatCompletion
+            href: chat/createChatCompletion.md
+          - name: getChatCompletion
+            href: chat/getChatCompletion.md
+          - name: updateChatCompletion
+            href: chat/updateChatCompletion.md
+          - name: deleteChatCompletion
+            href: chat/deleteChatCompletion.md
+      - name: Conversations
+        items:
+          - name: Overview
+            href: conversations/index.md
+          - name: createConversationItems
+            href: conversations/createConversationItems.md
+          - name: listConversationItems
+            href: conversations/listConversationItems.md
+          - name: getConversationItem
+            href: conversations/getConversationItem.md
+          - name: deleteConversationItem
+            href: conversations/deleteConversationItem.md
+          - name: createConversation
+            href: conversations/createConversation.md
+          - name: getConversation
+            href: conversations/getConversation.md
+          - name: deleteConversation
+            href: conversations/deleteConversation.md
+          - name: updateConversation
+            href: conversations/updateConversation.md
+      - name: Embeddings
+        items:
+          - name: Overview
+            href: embeddings/index.md
+          - name: createEmbedding
+            href: embeddings/createEmbedding.md
+      - name: Files
+        items:
+          - name: Overview
+            href: files/index.md
+          - name: listFiles
+            href: files/listFiles.md
+          - name: createFile
+            href: files/createFile.md
+          - name: deleteFile
+            href: files/deleteFile.md
+          - name: retrieveFile
+            href: files/retrieveFile.md
+          - name: downloadFile
+            href: files/downloadFile.md
+      - name: Models
+        items:
+          - name: Overview
+            href: models/index.md
+          - name: listModels
+            href: models/listModels.md
+      - name: Realtime
+        items:
+          - name: Client events
+            items:
+              - name: Overview
+                href: clientEvents/index.md
+              - name: realtime.session.update
+                href: clientEvents/realtimeSessionUpdate.md
+              - name: realtime.input_audio_buffer.append
+                href: clientEvents/realtimeInputAudioBufferAppend.md
+              - name: realtime.input_audio_buffer.commit
+                href: clientEvents/realtimeInputAudioBufferCommit.md
+              - name: realtime.input_audio_buffer.clear
+                href: clientEvents/realtimeInputAudioBufferClear.md
+              - name: realtime.conversation.item.create
+                href: clientEvents/realtimeConversationItemCreate.md
+              - name: realtime.conversation.item.retrieve
+                href: clientEvents/realtimeConversationItemRetrieve.md
+              - name: realtime.conversation.item.truncate
+                href: clientEvents/realtimeConversationItemTruncate.md
+              - name: realtime.conversation.item.delete
+                href: clientEvents/realtimeConversationItemDelete.md
+              - name: realtime.response.create
+                href: clientEvents/realtimeResponseCreate.md
+              - name: realtime.response.cancel
+                href: clientEvents/realtimeResponseCancel.md
+              - name: realtime.output_audio_buffer.clear
+                href: clientEvents/realtimeOutputAudioBufferClear.md
+          - name: Server events
+            items:
+              - name: Overview
+                href: serverEvents/index.md
+              - name: realtime.server.error
+                href: serverEvents/realtimeServerError.md
+              - name: realtime.server.session.created
+                href: serverEvents/realtimeServerSessionCreated.md
+              - name: realtime.server.session.updated
+                href: serverEvents/realtimeServerSessionUpdated.md
+              - name: realtime.server.conversation.item.added
+                href: serverEvents/realtimeServerConversationItemAdded.md
+              - name: realtime.server.conversation.item.created
+                href: serverEvents/realtimeServerConversationItemCreated.md
+              - name: realtime.server.conversation.item.deleted
+                href: serverEvents/realtimeServerConversationItemDeleted.md
+              - name: realtime.server.conversation.item.done
+                href: serverEvents/realtimeServerConversationItemDone.md
+              - name: >-
+                  realtime.server.conversation.item.input_audio_transcription.completed
+                href: >-
+                  serverEvents/realtimeServerConversationItemInputAudioTranscriptionCompleted.md
+              - name: >-
+                  realtime.server.conversation.item.input_audio_transcription.delta
+                href: >-
+                  serverEvents/realtimeServerConversationItemInputAudioTranscriptionDelta.md
+              - name: >-
+                  realtime.server.conversation.item.input_audio_transcription.failed
+                href: >-
+                  serverEvents/realtimeServerConversationItemInputAudioTranscriptionFailed.md
+              - name: >-
+                  realtime.server.conversation.item.input_audio_transcription.segment
+                href: >-
+                  serverEvents/realtimeServerConversationItemInputAudioTranscriptionSegment.md
+              - name: realtime.server.conversation.item.retrieved
+                href: serverEvents/realtimeServerConversationItemRetrieved.md
+              - name: realtime.server.conversation.item.truncated
+                href: serverEvents/realtimeServerConversationItemTruncated.md
+              - name: realtime.server.input_audio_buffer.cleared
+                href: serverEvents/realtimeServerInputAudioBufferCleared.md
+              - name: realtime.server.input_audio_buffer.committed
+                href: serverEvents/realtimeServerInputAudioBufferCommitted.md
+              - name: realtime.server.input_audio_buffer.dtmf_event_received
+                href: >-
+                  serverEvents/realtimeServerInputAudioBufferDtmfEventReceived.md
+              - name: realtime.server.input_audio_buffer.speech_started
+                href: serverEvents/realtimeServerInputAudioBufferSpeechStarted.md
+              - name: realtime.server.input_audio_buffer.speech_stopped
+                href: serverEvents/realtimeServerInputAudioBufferSpeechStopped.md
+              - name: realtime.server.input_audio_buffer.timeout_triggered
+                href: serverEvents/realtimeServerInputAudioBufferTimeoutTriggered.md
+              - name: realtime.server.output_audio_buffer.cleared
+                href: serverEvents/realtimeServerOutputAudioBufferCleared.md
+              - name: realtime.server.output_audio_buffer.started
+                href: serverEvents/realtimeServerOutputAudioBufferStarted.md
+              - name: realtime.server.output_audio_buffer.stopped
+                href: serverEvents/realtimeServerOutputAudioBufferStopped.md
+              - name: realtime.server.response.content_part.added
+                href: serverEvents/realtimeServerResponseContentPartAdded.md
+              - name: realtime.server.response.content_part.done
+                href: serverEvents/realtimeServerResponseContentPartDone.md
+              - name: realtime.server.response.created
+                href: serverEvents/realtimeServerResponseCreated.md
+              - name: realtime.server.response.done
+                href: serverEvents/realtimeServerResponseDone.md
+              - name: realtime.server.response.function_call_arguments.delta
+                href: >-
+                  serverEvents/realtimeServerResponseFunctionCallArgumentsDelta.md
+              - name: realtime.server.response.function_call_arguments.done
+                href: >-
+                  serverEvents/realtimeServerResponseFunctionCallArgumentsDone.md
+              - name: realtime.server.response.mcp_call.completed
+                href: serverEvents/realtimeServerResponseMcpCallCompleted.md
+              - name: realtime.server.response.mcp_call.failed
+                href: serverEvents/realtimeServerResponseMcpCallFailed.md
+              - name: realtime.server.response.mcp_call.in_progress
+                href: serverEvents/realtimeServerResponseMcpCallInProgress.md
+              - name: realtime.server.response.mcp_call_arguments.delta
+                href: serverEvents/realtimeServerResponseMcpCallArgumentsDelta.md
+              - name: realtime.server.response.mcp_call_arguments.done
+                href: serverEvents/realtimeServerResponseMcpCallArgumentsDone.md
+              - name: realtime.server.response.output_audio.delta
+                href: serverEvents/realtimeServerResponseOutputAudioDelta.md
+              - name: realtime.server.response.output_audio.done
+                href: serverEvents/realtimeServerResponseOutputAudioDone.md
+              - name: realtime.server.response.output_audio_transcript.delta
+                href: >-
+                  serverEvents/realtimeServerResponseOutputAudioTranscriptDelta.md
+              - name: realtime.server.response.output_audio_transcript.done
+                href: >-
+                  serverEvents/realtimeServerResponseOutputAudioTranscriptDone.md
+              - name: realtime.server.response.output_item.added
+                href: serverEvents/realtimeServerResponseOutputItemAdded.md
+              - name: realtime.server.response.output_item.done
+                href: serverEvents/realtimeServerResponseOutputItemDone.md
+              - name: realtime.server.response.output_text.delta
+                href: serverEvents/realtimeServerResponseOutputTextDelta.md
+              - name: realtime.server.response.output_text.done
+                href: serverEvents/realtimeServerResponseOutputTextDone.md
+              - name: realtime.server.mcp_list_tools.completed
+                href: serverEvents/realtimeServerMcpListToolsCompleted.md
+              - name: realtime.server.mcp_list_tools.failed
+                href: serverEvents/realtimeServerMcpListToolsFailed.md
+              - name: realtime.server.mcp_list_tools.in_progress
+                href: serverEvents/realtimeServerMcpListToolsInProgress.md
+              - name: realtime.server.rate_limits.updated
+                href: serverEvents/realtimeServerRateLimitsUpdated.md
+      - name: Responses
+        items:
+          - name: Overview
+            href: responses/index.md
+          - name: createResponse
+            href: responses/createResponse.md
+          - name: getResponse
+            href: responses/getResponse.md
+          - name: deleteResponse
+            href: responses/deleteResponse.md
+          - name: cancelResponse
+            href: responses/cancelResponse.md
+          - name: listInputItems
+            href: responses/listInputItems.md
+      - name: Vector stores
+        items:
+          - name: Overview
+            href: vectorStores/index.md
+          - name: listVectorStores
+            href: vectorStores/listVectorStores.md
+          - name: createVectorStore
+            href: vectorStores/createVectorStore.md
+          - name: getVectorStore
+            href: vectorStores/getVectorStore.md
+          - name: modifyVectorStore
+            href: vectorStores/modifyVectorStore.md
+          - name: deleteVectorStore
+            href: vectorStores/deleteVectorStore.md
+          - name: createVectorStoreFileBatch
+            href: vectorStores/createVectorStoreFileBatch.md
+          - name: getVectorStoreFileBatch
+            href: vectorStores/getVectorStoreFileBatch.md
+          - name: listFilesInVectorStoreBatch
+            href: vectorStores/listFilesInVectorStoreBatch.md
+          - name: listVectorStoreFiles
+            href: vectorStores/listVectorStoreFiles.md
+          - name: createVectorStoreFile
+            href: vectorStores/createVectorStoreFile.md
+          - name: getVectorStoreFile
+            href: vectorStores/getVectorStoreFile.md
+          - name: deleteVectorStoreFile
+            href: vectorStores/deleteVectorStoreFile.md
+          - name: updateVectorStoreFileAttributes
+            href: vectorStores/updateVectorStoreFileAttributes.md
+          - name: retrieveVectorStoreFileContent
+            href: vectorStores/retrieveVectorStoreFileContent.md
+          - name: searchVectorStore
+            href: vectorStores/searchVectorStore.md
   - name: API references
     items:
       - name: Overview

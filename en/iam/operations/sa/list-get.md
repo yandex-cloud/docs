@@ -11,7 +11,7 @@ You can get a list of all [service accounts](../../concepts/users/service-accoun
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder whose list of service accounts you want to get.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder whose service accounts you want listed.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. The **{{ ui-key.yacloud.iam.folder.service-accounts.label_title }}** page will display a list of all the folder's service accounts.

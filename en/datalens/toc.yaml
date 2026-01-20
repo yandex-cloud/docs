@@ -37,15 +37,15 @@ items:
             href: tutorials/data-from-csv-visualization.md
           - name: Public chart with a map of Moscow from a CSV file
             href: tutorials/data-from-csv-to-public-visualization.md
-          - name: Retail chain's dashboard based on a {{ CH }} DB
+          - name: Retail chain's dashboard based on a {{ CH }} database
             href: tutorials/data-from-ch-visualization.md
       - name: Working with geodata
         items:
           - name: Analyzing public data on road accidents in Russia
             href: tutorials/data-from-csv-geo-visualization.md
           - name: >-
-              Analyzing sales and locations of pizzerias based on data from the
-              {{ CH }} database and Marketplace
+              Analyzing sales and locations of pizzerias based on data from a {{
+              CH }} database and Marketplace
             href: tutorials/data-from-ch-to-geolayers-visualization.md
           - name: >-
               Geocoding with the Yandex Maps API for data visualization in {{
@@ -70,7 +70,7 @@ items:
             href: tutorials/data-from-bitrix24-visualization.md
           - name: '{{ tracker-full-name }}: data export and visualization'
             href: tutorials/data-from-tracker.md
-          - name: Analyzing {{ objstorage-name }} logs with {{ datalens-name }}
+          - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
             href: tutorials/storage-logs-analysis.md
           - name: 'Yandex Music podcasts: Statistics'
             href: tutorials/data-from-podcasts.md

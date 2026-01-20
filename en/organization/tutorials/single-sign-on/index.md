@@ -9,6 +9,7 @@ description: Setting up integration between {{ org-full-name }} and external app
    * [{#T}](./grafana/saml-grafana.md)
    * [{#T}](./grafana/oidc-grafana.md)
 * [Grafana OSS](./oidc-grafana-oss.md)
+* [1C:Enterprise](./oidc-1c-enterprise.md)
 * [{{ mgl-name }}](./saml-managed-gitlab.md)
 * [Zabbix](./saml-zabbix.md)
 * [{{ mos-name }}](./saml-opensearch.md)

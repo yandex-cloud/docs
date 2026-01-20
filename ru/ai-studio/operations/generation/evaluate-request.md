@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы научите
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      * `model` — значение версии модели. Подробнее см. в разделе [{#T}](../../concepts/generation/models.md#addressing-models).
+      * `model` — URI модели. Подробнее см. в разделе [{#T}](../../sdk-ref/sync/chat/completions#yandex_cloud_ml_sdk._chat.completions.function.ChatCompletions.md).
 
   1. Выполните созданный файл:
 

@@ -99,6 +99,8 @@ items:
         items:
           - name: Setting up OIDC SSO in Grafana Cloud
             href: tutorials/single-sign-on/oidc-grafana.md
+          - name: Setting up OIDC SSO in 1C:Enterprise
+            href: tutorials/single-sign-on/oidc-1c-enterprise.md
           - name: Setting up SAML SSO in Grafana Cloud
             href: tutorials/single-sign-on/saml-grafana.md
           - name: Setting up SAML SSO in {{ mgl-name }}

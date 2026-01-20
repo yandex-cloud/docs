@@ -4,13 +4,10 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 1. Make sure that you have the required [roles](./concepts/access-control/roles.md):
 
-    1. In the management console, select the appropriate cloud from the list on the left. Example:
-
-        ![image](../_assets/resource-manager/switch-cloud-n-n.png)
-
+    1. In the management console, click ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. Specify your account in the search bar.
     1. Check that your account has the following roles:
@@ -18,7 +15,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
         * Organization owner (`organization-manager.organizations.owner`) or administrator (`organization-manager.admin`)
         * Cloud owner (`resource-manager.clouds.owner`) or administrator (`admin`)
 
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) with the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any users to add to the cloud, you can [create a new Yandex account](https://passport.yandex.ru/registration) and grant this account access to the cloud.
 
 ## Add a user with a Yandex account to your organization {#add-organization-member}
@@ -28,8 +25,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 - Management console {#console}
   
     1. [Log in]({{ link-passport-login }}) to the cloud administrator account.
-    1. Log in to the [management console]({{ link-console-main }}).
-    1. Select the appropriate cloud from the list on the left.
+    1. In the [management console]({{ link-console-main }}), click ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. In the top-right corner, click ![icon-users](../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
     1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).

@@ -7,7 +7,7 @@ To get the contents of a certificate:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where the certificate is located.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Next to the certificate, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
 
        You can only export certificates with the `Issued` status.
@@ -72,7 +72,7 @@ To get the contents of a certificate:
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To get the contents of a custom certificate using {{ TF }}:
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
      data "yandex_cm_certificate_content" "cert_by_id" {

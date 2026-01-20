@@ -216,7 +216,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
   1. Add the appropriate number of `host` sections to the {{ mrd-name }} cluster description and specify the shard name in the `shard_name` argument:
 
      ```hcl
-     resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+     resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
        ...
        host {
          zone             = "<availability_zone>"

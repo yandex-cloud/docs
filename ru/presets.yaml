@@ -876,7 +876,7 @@ default:
   tf-provider-mmy: https://yandex.cloud/ru/docs/terraform/resources/mdb_mysql_cluster
   tf-provider-mos: https://yandex.cloud/ru/docs/terraform/resources/mdb_opensearch_cluster
   tf-provider-mpg: https://yandex.cloud/ru/docs/terraform/resources/mdb_postgresql_cluster
-  tf-provider-mrd: https://yandex.cloud/ru/docs/terraform/resources/mdb_redis_cluster
+  tf-provider-mrd: https://yandex.cloud/ru/docs/terraform/resources/mdb_redis_cluster_v2
   tf-provider-msp: https://yandex.cloud/ru/docs/terraform/resources/spark_cluster
   tf-provider-mtr: https://yandex.cloud/ru/docs/terraform/resources/trino_cluster
   tf-provider-mtr-access: https://yandex.cloud/ru/docs/terraform/resources/trino_access_control
@@ -3724,7 +3724,6 @@ default:
       tickets:
         common:
           action_create-ticket: Создать обращение
-          label_ticket-type-critical: Критичный приоритет
           label_ticket-type-incident: Средний приоритет
           label_ticket-type-question: Вопрос
         filters:
@@ -4735,9 +4734,18 @@ default:
         kspm:
           title_clusters: Кластеры
           title_dashboard: Дашборд
+        label_comp: Соответствие требованиям
         label_kspm: Контроль Kubernetes®
         label_settings: Параметры Security Deck
       security:
+        comp:
+          SetsTable:
+            action_disable_5hgkz: Выключить проверку
+            action_enable_9LUFt: Включить проверку
+            field_count_rules: Правил в наборе
+            field_execution: Выполнение правил
+            field_set_title: Набор требований
+            not_verified: Не проверяется
         controls:
           ControlExceptionForm:
             allResources_2ax5E: Все ресурсы
@@ -4767,6 +4775,7 @@ default:
             info_type_1dxbZ: Тип исключения
           rule-result:
             controlRule_kr2Bv: Правило контроля
+            module_63uuk: Модуль контроля
             standards_iv6a5: Наборы требований
             verificationMethod_dS9B2: Способ проверки
             violations_q7AcU: Нарушения
@@ -4798,6 +4807,8 @@ default:
             labelDescriptionField: Описание
             labelNameField: Имя
             labelServiceAccountField: Сервисный аккаунт
+          module-cspm_gozhj: Контроль конфигурации (CSPM)
+          module-kspm_n9o93: Контроль Kubernetes® (KSPM)
           ServiceAccountResourceSelectDialog:
             action_save: Сохранить выбор
           WorkspaceEditPageLayout:
@@ -10360,32 +10371,16 @@ default:
         transfer-selected-projects: Перенести выбранные проекты
     yc-ui-talkanalytics:
       assistants:
-        all-dialogs:
-          description: >-
-            Ассистент будет применяться к каждому загруженному диалогу в
-            проекте.
+        all-dialogs-key-value: Все диалоги
         applying: Использование
         assistants: Ассистенты
-        create-assistant:
-          success: >-
-            Названия полей в API созданы, вы можете их просмотреть в колонке
-            «Результат» или на странице ассистента.
-        filtered-dialogs:
-          description: >-
-            Ассистент будет применяться к диалогам, которые соответствуют
-            условиям, указанным в фильтрах.
-        generate-prompt:
-          unknown-error: Не удалось загрузить результат. Попробуйте ещё раз.
+        create-assistant-key-value: Создать ассистента
+        filtered-dialogs-key-value: Выбранные диалоги
+        generate-prompt-key-value: Улучшить инструкцию
         prompt: Инструкция
-        result:
-          description: >-
-            Все значения, найденные в диалогах с учетом инструкции, будут
-            распределены по добавленным полям.  Вы можете добавить одно или
-            несколько полей и описать, какие данные нужно отслеживать в каждом
-            из них.
+        result-key-value: Результат
         templates: Шаблоны
-        testing:
-          description: Возможность протестировать ассистента перед созданием.
+        testing-key-value: Тестирование
       common:
         add: Добавить
         add-filter: Добавить фильтр

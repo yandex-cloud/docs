@@ -6,7 +6,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
 - Management console {#console}
 
-  1. On the management console [home page]({{ link-console-cloud }}), select the folder. This page displays folders for the selected cloud. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
   1. Select a folder deletion delay: a time period after which the folder will be deleted. Select one of the suggested periods or `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default folder deletion delay is 7 days.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
@@ -132,7 +132,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
 {% endlist %}
 
-Deletion starts from stopping the resources. The folder enters the `PENDING_DELETION` status. Preparation for deletion starts. The exact time in this status depends on selected deletion delay period. You can cancel the deletion of the folder while it is `PENDING_DELETION`. To do this, click the ![***](../../../_assets/console-icons/ellipsis.svg) icon to the right of the folder name in the [management console]({{ link-console-cloud }}) and select **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
+Deletion starts with stopping resources. The folder enters the `PENDING_DELETION` status. Preparation for deletion starts. The exact time in this status depends on the specified deletion delay. You can cancel the deletion of the folder while it is `PENDING_DELETION`. To do this, click the ![***](../../../_assets/console-icons/ellipsis.svg) icon to the right of the folder name in the [management console]({{ link-console-cloud }}) and select **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
 
 {% note alert %}
 

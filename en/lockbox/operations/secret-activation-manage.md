@@ -14,7 +14,7 @@ A secret can be either active or deactivated. When a secret is active, it enable
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Next to the secret you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.lockbox.button_deactivate-secret }}**.
     1. Confirm its deactivation.
 
@@ -24,7 +24,7 @@ A secret can be either active or deactivated. When a secret is active, it enable
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the CLI command description for information about deactivating a secret:
+  1. See the description of the CLI command for getting secret deactivation info:
 
       ```bash
       yc lockbox secret deactivate --help
@@ -64,7 +64,7 @@ A secret can be either active or deactivated. When a secret is active, it enable
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Next to the secret you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.lockbox.button_activate-secret }}**.
 
 - CLI {#cli}
@@ -73,7 +73,7 @@ A secret can be either active or deactivated. When a secret is active, it enable
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the CLI command description for information about activating a secret:
+  1. See the description of the CLI command for getting secret activation info:
 
       ```bash
       yc lockbox secret activate --help

@@ -1,6 +1,6 @@
 ---
 title: '{{ certificate-manager-full-name }} event reference in {{ at-full-name }}'
-description: This page gives a reference for {{ certificate-manager-name }} events tracked in {{ at-name }}.
+description: This page provides a reference for {{ certificate-manager-name }} events tracked in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference
@@ -13,10 +13,12 @@ The general format of the `event_type` field value is as follows:
 {{ at-event-prefix }}.audit.certificatemanager.<event_name>
 ```
 
-## Management event reference {#control-plane-events}
+{% include [about-events-ref](../_includes/audit-trails/about-events-ref.md) %}
+
+## Control plane event reference {#control-plane-events}
 
 {% include [cm-events](../_includes/audit-trails/events/cm-events.md) %}
 
-## Data event reference {#data-plane-events}
+## Data plane event reference {#data-plane-events}
 
 {% include [certificate-manager-events-dp](../_includes/audit-trails/events/certificate-manager-events-dp.md) %}

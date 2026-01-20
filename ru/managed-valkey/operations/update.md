@@ -95,7 +95,7 @@ description: Из статьи вы узнаете, как изменить на
     1. Измените в описании кластера {{ mrd-name }} значение параметра `description`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           name        = "<имя_кластера>"
           description = "<новое_описание_кластера>"
           ...
@@ -237,7 +237,7 @@ description: Из статьи вы узнаете, как изменить на
     1. Измените в описании кластера {{ mrd-name }} значение параметра `announce_hostnames`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           name        = "<имя_кластера>"
           ...
           announce_hostnames    = <использование_FQDN_вместо_IP-адресов>
@@ -390,7 +390,7 @@ description: Из статьи вы узнаете, как изменить на
     1. Измените в описании кластера {{ mrd-name }} значение параметра `persistence_mode`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           name = "<имя_кластера>"
           ...
           persistence_mode = "<режим_персистентности>"
@@ -585,7 +585,7 @@ description: Из статьи вы узнаете, как изменить на
     1. Измените в описании кластера {{ mrd-name }} значение параметра `resource_preset_id` в блоке `resources`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           ...
           resources {
             resource_preset_id = "<класс_хоста>"
@@ -752,7 +752,7 @@ description: Из статьи вы узнаете, как изменить на
     1. Измените в описании кластера {{ mrd-name }} значение параметра `disk_size` в блоке `resources`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           ...
           resources {
             disk_size = <размер_хранилища_ГБ>
@@ -1068,7 +1068,7 @@ description: Из статьи вы узнаете, как изменить на
     1. Измените в описании кластера {{ mrd-name }} значения параметров в блоке `config`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           ...
           config {
             password         = "<пароль>"
@@ -1266,7 +1266,7 @@ description: Из статьи вы узнаете, как изменить на
         * Для настройки времени начала резервного копирования добавьте блок `backup_window_start`:
         
             ```hcl
-            resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+            resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
                 ...
                 backup_window_start {
                     hours   = <часы>
@@ -1283,7 +1283,7 @@ description: Из статьи вы узнаете, как изменить на
         * Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
 
             ```hcl
-            resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+            resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
             ...
                 maintenance_window {
                     day  = <день_недели>
@@ -1303,7 +1303,7 @@ description: Из статьи вы узнаете, как изменить на
         * Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
             ```hcl
-            resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+            resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
             ...
                     deletion_protection = false
             }
@@ -1523,7 +1523,7 @@ description: Из статьи вы узнаете, как изменить на
     1. Добавьте к описанию кластера {{ mrd-name }} параметр `sharded` со значением `true`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
             ...
             sharded = true
         }
@@ -1642,7 +1642,7 @@ description: Из статьи вы узнаете, как изменить на
     1. Измените или добавьте в описании кластера {{ mrd-name }} значение параметра `folder_id`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           ...
           folder_id = "<идентификатор_каталога_назначения>"
         }
@@ -1761,7 +1761,7 @@ description: Из статьи вы узнаете, как изменить на
     1. Измените в описании кластера {{ mrd-name }} значение параметра `security_group_ids`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           ...
           security_group_ids = [<список_идентификаторов_групп_безопасности>]
         }

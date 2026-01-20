@@ -91,7 +91,7 @@
     1. В блоке `config` измените параметр `version` на номер версии {{ VLK }}, до которой хотите обновиться:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
             ...
             config {
                 version  = "<номер_новой_версии>"

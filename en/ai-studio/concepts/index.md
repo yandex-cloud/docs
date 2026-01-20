@@ -16,6 +16,6 @@ The [{{ agents-atelier-name }}](./agents/index.md) development environment suppo
 
 For those who prefer creating agents in a graphical editor, {{ ai-studio-name }} offers a {{ sw-full-name }} builder.
 
-The {{ ai-studio-name }} API is fully compatible with the {{ openai }} API: use the {{ responses-api }} to create text agents, the {{ realtime-api }} to create voice agents, and the {{ vector-store-name }} API to search through documents. The APIs support integration with such widely used frameworks as LangChain and LangGraph.
+The {{ ai-studio-name }} API is compatible with the {{ openai }} API: use the {{ responses-api }} to create text agents, the {{ realtime-api }} to create voice agents, and the {{ vector-store-name }} API to search for documents. The APIs support integration with such widely used frameworks as LangChain and LangGraph.
 
 For information on the {{ foundation-models-name }} restrictions, refer to [{#T}](limits.md).

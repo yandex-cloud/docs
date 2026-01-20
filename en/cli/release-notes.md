@@ -7,6 +7,22 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.185.0 (22/12/25) {#version0.185.0}
+
+#### Changes to the CLI {#cli}
+
+Fixed an error when calling commands in the {{ yandex-cloud }} CLI beta version.
+
+## Previous releases {#previous-release}
+
+### Version 0.184.0 (22/12/25) {#version0.184.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ container-registry-name }}
+
+Fixed Docker version parsing in the `yc container registry configure-docker` command.
+
 ### Version 0.183.0 (18/12/25) {#version0.183.0}
 
 #### Changes to {{ yandex-cloud }} services {#services-0.183.0}
@@ -14,16 +30,14 @@ description: This page presents a list of CLI releases and the updates of each.
 ##### {{ objstorage-name }} {#objstorage-name-0.183.0}
 
 * Added the following parameters to the `yc storage bucket update` command:
-  * `--disable-statickey-auth=<true_or_false>`: Static key authentication in the bucket.
-  * `--private-endpoints-force-cloudconsole-access=<true_or_false>`: Access from the management console to the bucket accessible only from {{ vpc-short-name }} service connections.
+  * `--disable-statickey-auth=<true_or_false>`: Whether users can authenticate in a bucket using static keys.
+  * `--private-endpoints-force-cloudconsole-access=<true_or_false>`: Whether a bucket with access limited to {{ vpc-short-name }} service connections can be accessed from the management console.
  
 ##### {{ mtr-name }} {#mtr-name-0.183.0}
 
 * Added the following commands for creating and updating {{ GP }} catalogs in {{ mtr-name }}:
   * `yc managed trino catalog create greenplum`
   * `yc managed trino catalog update greenplum`
-
-## Previous releases {#previous-release}
 
 ### Version 0.182.0 (15/12/25) {#version0.182.0}
 
@@ -35,7 +49,7 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ##### {{ iam-name }} {#iam-name-0.182.0}
 
-* For the `yc iam whoami` command, fixed the error when getting the current subject's ID.
+* For the `yc iam whoami` command, fixed the error when getting the current subject ID.
 
 ##### {{ mkf-name }} {#mkf-name-0.182.0}
 
@@ -83,7 +97,7 @@ Added the `yc iam access-key issue-ephemeral` command for issuing ephemeral stat
 
 ##### {{ org-name }} {#org-name-0.181.0}
 
-Added a list of supported values ​​for the `--acr-id` parameter in the `yc organization-manager mfa-enforcement create` and `yc organization-manager mfa-enforcement update` commands.
+Added a list of supported values for the `--acr-id` parameter in the `yc organization-manager mfa-enforcement create` and `yc organization-manager mfa-enforcement update` commands.
 
 ##### {{ maf-name }} {#maf-name-0.181.0}
 

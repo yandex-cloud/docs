@@ -198,6 +198,8 @@ items:
         href: concepts/conditions.md
       - name: Lists
         href: concepts/lists.md
+      - name: Managing bot traffic
+        href: concepts/botes.md
       - name: Protecting domains
         href: concepts/domain-protect.md
       - name: Logging

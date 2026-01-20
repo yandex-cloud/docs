@@ -6,9 +6,9 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate cloud from the list on the left.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
   1. Click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.edit }}**.
-  1. In the window that opens, enter a new cloud name. The naming requirements are as follows:
+  1. In the window that opens, enter a new cloud name. Follow these naming requirements:
 
 	 {% include [name-format.md](../../../_includes/name-format.md) %}
 
@@ -106,8 +106,8 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
       terraform plan
       ```
 
-      The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply

@@ -37,9 +37,9 @@ To use {{ foundation-models-name }}'s [text generation models](generation/models
 
 {% endlist %}
 
-To use the Completions API, specify `https://llm.api.cloud.yandex.net/v1`.
-For requests to the Responses API or Vector Store API, use `https://rest-assistant.api.cloud.yandex.net/v1`.
-To create a voice agent and use the Realtime API via web sockets, specify `wss://rest-assistant.api.cloud.yandex.net/v1/realtime/openai?model=gpt://<folder_ID>/speech-realtime-250923`.
+All services are available at `https://ai.api.cloud.yandex.net/v1`.
+
+To create a voice agent and use the Realtime API via web sockets, specify `wss://ai.api.cloud.yandex.net/v1/realtime/openai?model=gpt://<folder_ID>/speech-realtime-250923`.
 
 [How to get an API key](../operations/get-api-key.md) for {{ foundation-models-name }}. 
 

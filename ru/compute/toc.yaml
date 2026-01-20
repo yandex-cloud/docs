@@ -652,7 +652,7 @@ items:
             href: concepts/preemptible-vm.md
           - name: Сетевые интерфейсы виртуальных машин
             href: concepts/network.md
-          - name: Программно-ускоренная сеть
+          - name: Программно ускоренная сеть
             href: concepts/software-accelerated-network.md
           - name: Динамическая миграция
             href: concepts/live-migration.md

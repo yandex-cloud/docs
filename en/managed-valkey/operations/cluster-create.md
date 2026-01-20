@@ -293,7 +293,7 @@ There are no restrictions for non-sharded clusters.
 
        
        ```hcl
-       resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+       resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
          name                = "<cluster_name>"
          environment         = "<environment>"
          network_id          = "<network_ID>"
@@ -374,7 +374,7 @@ There are no restrictions for non-sharded clusters.
        To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` parameter:
 
          ```hcl
-         resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+         resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
            ...
            disk_encryption_key_id = <KMS_key_ID>
            ...
@@ -762,7 +762,7 @@ To create a {{ VLK }} cluster copy:
     1. In the same working directory, place a `.tf` file with the following contents:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "old" { }
+        resource "yandex_mdb_redis_cluster_v2" "old" { }
         ```
 
     1. Save the ID of the original {{ VLK }} cluster to an environment variable:
@@ -776,7 +776,7 @@ To create a {{ VLK }} cluster copy:
     1. Import the original {{ VLK }} cluster settings to the {{ TF }} configuration:
 
         ```bash
-        terraform import yandex_mdb_redis_cluster.old ${REDIS_CLUSTER_ID}
+        terraform import yandex_mdb_redis_cluster_v2.old ${REDIS_CLUSTER_ID}
         ```
 
     1. Get the imported configuration:
@@ -884,7 +884,7 @@ To create a {{ VLK }} cluster copy:
 
   
   ```hcl
-  resource "yandex_mdb_redis_cluster" "myredis" {
+  resource "yandex_mdb_redis_cluster_v2" "myredis" {
     name                = "myredis"
     environment         = "PRODUCTION"
     network_id          = yandex_vpc_network.mynet.id
@@ -999,7 +999,7 @@ To create a {{ VLK }} cluster copy:
 
   
   ```hcl
-  resource "yandex_mdb_redis_cluster" "myredis" {
+  resource "yandex_mdb_redis_cluster_v2" "myredis" {
     name                = "myredis"
     environment         = "PRODUCTION"
     sharded             = true
@@ -1082,7 +1082,7 @@ To create a {{ VLK }} cluster copy:
 
     
     ```hcl
-    resource "yandex_mdb_redis_cluster" "myredis" {
+    resource "yandex_mdb_redis_cluster_v2" "myredis" {
       name                = "myredis"
       environment         = "PRODUCTION"
       network_id          = yandex_vpc_network.mynet.id

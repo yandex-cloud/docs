@@ -116,13 +116,13 @@ cloud-instance-types:
 
 # Extended working directory configuration.
 working-storage:
-  type: SSD    # Disk type in use. Optional, the default type is SSD. The possible values are: SSD
+  type: SSD    # Disk type in use. Optional, the default type is SSD. Possible values: SSD
   size: 150Gb  # Working directory size from 100 GB to 10 TB.
 
 # Configuring graceful shutdown.
 graceful-shutdown:
   signal: SIGTERM  # Signal to be sent to the job process on pressing Ctrl + C (cancel); SIGTERM by default.
-                   # The possible values are: SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2
+                   # Possible values: SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2
   timeout: 15s     # Timeout after which the job process gets SIGKILL if it has not finished yet.
 
 # List of datasets to create upon a successful job completion.
@@ -151,6 +151,8 @@ The `config.yaml` file has multiple sections.
 1. The `output` section specifies files to save the computation results to. Once the job is executed, these files will appear on your PC. The file paths are specified in the same way as in `input`.
 
 1. {{ ml-platform-name }} resources used in jobs are specified in the `s3-mounts` ([S3 connectors](../s3-connector.md)) and `datasets`([datasets](../dataset.md)) sections. To use an S3 connector or a dataset in a job, specify the ID of an available project resource and, optionally, define a variable for it. If no variable is set, resources in the `cmd` section can be accessed by their ID.
+
+   To access files in an {{ objstorage-name }} bucket connected via an S3 connector, use the `/job/s3/<connector_ID>/<object_in_bucket>` path.
 
    You can also use project storage in your job. To do this, set the `attach-project-disk` flag in the `flags` section. The project storage will be mounted to the VM the job is running on as an external disk for data reads. The storage path will be available in the `DS_PROJECT_HOME` environment variable.
 

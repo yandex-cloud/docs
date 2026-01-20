@@ -11,9 +11,9 @@ The longer the function runs, the higher is the probability of related network f
 
 ### Forced termination of a long-lived function instance {#possible-termination}
 
-In some cases, the service may forcibly terminate a long-lived function [instance](./function.md#scaling) processing a call before the timeout specified in the function version settings is reached.
+In some cases, the service may forcibly terminate a long-lived function [instance](./function.md#function-instance) processing a call before the timeout specified in the function version settings is reached.
 
-In such cases, the custom code of the function will receive a [notification](./termination-notifications.md#notify-when-active) about the upcoming forced termination of the function instance. Such a notification is sent to the function ten minutes before the actual forced termination.
+In such cases, the custom code of the function will receive a [notification](./termination-notifications.md#notify-when-active) about the upcoming forced termination of the function instance. This notification is sent ten minutes before the actual forced termination of the instance.
 
 Once the notification about the upcoming forced termination of the function instance is sent:
 

@@ -1,6 +1,6 @@
 # Canceling cloud deletion
 
-This section explains how to cancel cloud deletion if [initiated](delete.md) by mistake. You cannot cancel the deletion of a cloud linked to a billing account with the `SUSPENDED` status. For information about canceling deletion due to outstanding payments, see [Billing cycle for individuals](../../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../../billing/payment/billing-cycle-business.md).
+This section explains how to cancel cloud deletion if [initiated](delete.md) by mistake. You cannot delete a cloud linked to a billing account with the `SUSPENDED` status. For information about canceling deletion due to outstanding payments, see [Billing cycle for individuals](../../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../../billing/payment/billing-cycle-business.md).
 
 You can cancel deletion while the cloud status is `PENDING_DELETION`.
 
@@ -12,7 +12,7 @@ To be able to cancel the deletion of a cloud, you must have the `{{ roles-cloud-
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate cloud from the list on the left.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
   
   1. In the upper-right corner, click ![***](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.component.console-dashboard.button_cancel-deletion }}**.
 

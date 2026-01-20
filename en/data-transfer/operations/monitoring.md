@@ -26,7 +26,8 @@ Some errors you may see on the selected transfer timeline:
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}).
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Click the transfer name and open the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab.
   1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** in the top panel.
@@ -38,12 +39,12 @@ The following charts open on the page:
 ### Number of source events {#publisher.data.changeitems}
 `publisher.data.changeitems`
 
-Number of source events generated for a transfer (apart from the data to transfer, these events may include housekeeping operations).
+Number of source events generated for a transfer. Apart from the data to transfer, these events may include housekeeping operations.
 
 ### Number of target events {#sinker.pusher.data.changeitems}
 `sinker.pusher.data.changeitems`
 
-Number of events written to the target (apart from the data to transfer, these events may include housekeeping operations).
+Number of events written to the target. Apart from the data to transfer, these events may include housekeeping operations.
 
 ### Maximum data transfer delay {#sinker.pusher.time.row_max_lag_sec}
 `sinker.pusher.time.row_max_lag_sec`
@@ -78,7 +79,7 @@ Full time it takes to write a batch to the target, including data preprocessing 
 ### Rows awaiting transfer, by table {#task.snapshot.remainder.table}
 `task.snapshot.remainder.table`
 
-The number of rows awaiting transfer.
+Number of rows awaiting transfer.
 
 ### Operation status {#task.status}
 `task.status`
@@ -86,18 +87,18 @@ The number of rows awaiting transfer.
 Type of the operation in progress: `1`, meaning the task is active.
 
 
-## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
+## Setting up alerts in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the transfer you want to set up alerts for.
-  1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}**.
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
-  1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-  1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` threshold values to trigger the alert.
+  1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
+  1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger the alert.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
@@ -123,9 +124,9 @@ Alert parameters:
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
     You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
 
@@ -153,9 +154,9 @@ Alert parameters:
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
     You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
 
@@ -183,7 +184,7 @@ Alert parameters:
 * Alert settings:
 
     * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `15`. If the target database is slow, or large blocks of data are being replicated at a time, set the maximum possible value.
+    *  {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `15`. If the target database is slow, or large blocks of data are being replicated at a time, set the maximum possible value.
     * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
     Additional settings:
@@ -209,15 +210,15 @@ Alert parameters:
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
     Additional settings:
 
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `15 minutes`. If the source database changes less frequently than once every 15 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
 
-## Specifics of working with alerts {#alert-specifics}
+## Working with alerts {#alert-specifics}
 
 * To determine the causes of the transfer failure, check all available alerts. Information about which alerts worked and which did not will enable you to determine the cause more accurately. For example, if the [Number of source events](#source-change-items) alert has fired, and the [Number of target events](#target-change-items) alert has not, in all probability the problem is not on the source.

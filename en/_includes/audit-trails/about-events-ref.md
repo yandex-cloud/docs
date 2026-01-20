@@ -1,0 +1,1 @@
+You can find the detailed JSON structure of the event record in the audit log reference. The events in it are sorted alphabetically without division into levels and contain all possible fields. In real logs, the field set depends on the parameters of the event and particular object.

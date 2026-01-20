@@ -17,6 +17,7 @@ What you can do in the [_My account_](../concepts/my-account.md) portal depends 
 [Deleting refresh tokens](#delete-refresh-token) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Managing login authentication methods](#manage-mfa) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Viewing groups](#view-groups) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg)
+[Viewing logs](#view-logs) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg)
 
 ## Viewing attributes {#view-profile}
 
@@ -26,7 +27,7 @@ What you can do in the [_My account_](../concepts/my-account.md) portal depends 
 
   1. Go to the [_My account_]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
-  1. Under **{{ ui-key.yacloud_org.my-account.ProfileEditPageLayout.main_breadcrumb }}**, you will see the user attributes.
+  1. Under **{{ ui-key.yacloud_org.my-account.ProfileEditPageLayout.main_breadcrumb }}**, you will see your account’s attributes.
 
 {% endlist %}
 
@@ -111,6 +112,23 @@ To manage login authentication methods, a user must be added to the [MFA policy]
 
   1. Go to the [_My account_]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.groups_pqQRu }}**.
-  1. On the **{{ ui-key.yacloud_org.my-account.GroupsPageLayout.header }}** page, you will see all the user’s groups and their IDs.
+  1. On the **{{ ui-key.yacloud_org.my-account.GroupsPageLayout.header }}** page, you will see all your groups and their IDs.
+
+{% endlist %}
+
+## Viewing logs {#view-logs}
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Go to the [My account]({{ link-my-account }}) portal.
+  1. In the left-hand panel, select ![alt](../../_assets/console-icons/clock.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.activity_kyqSv }}**.
+  1. The page that opens will show your audit [logs](../concepts/logs.md).
+  1. Click an entry to view more details about the event.
+
+     You can use also use filters at the top of the page to find the logs you need.
+
+  To view logs of all the users of the [organization](../concepts/organization.md) or [pool](../concepts/user-pools.md) you administer, see [{#T}](./user-pools/user-get-logs.md).
 
 {% endlist %}
