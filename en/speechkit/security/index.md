@@ -1,13 +1,13 @@
 ---
 title: Access management in {{ speechkit-full-name }}
-description: 'Access management in {{ speechkit-full-name }}, the speech technology, speech recognition and synthesis service. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.clouds.owner.'
+description: 'Access management in {{ speechkit-full-name }}, the speech technology, speech recognition and synthesis service. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. As a user, you need one of the following roles: editor, admin, or resource-manager.clouds.owner.'
 ---
 
 # Access management in {{ speechkit-name }}
 
-In this section, you will learn:
+In this section, you will learn about:
 * [What resources you can assign a role for](#resources).
-* [Roles existing in this service](#roles-list).
+* [What roles exist in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -15,7 +15,9 @@ In this section, you will learn:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Roles existing in this service {#roles-list}
+## Roles this service has {#roles-list}
+
+{% include [speechkit](../../_mermaid/roles/speechkit.md) %}
 
 ### Service roles {#service-roles}
 

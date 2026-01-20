@@ -12,7 +12,7 @@ A secret is a set of versions that store your data. A version contains sets of k
 * A key is a non-secret name that identifies a value.
 * The value is your secret data.
 
-Versions can't be changed. Whenever you need to change the number of key-value pairs or their contents, you must create a new version.
+Versions cannot be changed. Whenever you need to change the number of key-value pairs or their contents, you must create a new version.
 
 ## Creating a secret {#secret}
 
@@ -31,7 +31,7 @@ Versions can't be changed. Whenever you need to change the number of key-value p
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click the secret version you need.
@@ -61,9 +61,9 @@ Versions can't be changed. Whenever you need to change the number of key-value p
 
       Where:
 
-      * `--id`: Secret ID. This is a required parameter.
-      * `--key`: Secret contents key required to get the single value. This is an optional parameter.
-      * `--version-id`: Secret version. This is an optional parameter. Defaults to the current secret version.
+      * `--id`: Secret ID. This is a required setting.
+      * `--key`: Secret contents key required to get the single value. This is an optional setting.
+      * `--version-id`: Secret version. This is an optional setting. Defaults to the current secret version.
 
       An example of a command used to get the contents of a secret:
 

@@ -1,20 +1,22 @@
-# Authentication with the {{ foundation-models-full-name }} API
+# Authentication with the {{ ai-studio-full-name }} API
 
-To use the {{ foundation-models-full-name }} API, you need to get authenticated:
+To use the {{ ai-studio-full-name }} API, you need to get authenticated:
 
 {% list tabs group=authentication %}
 
 - Yandex account, federated account, or local account {#yandex-account}
 
   1. Get an IAM token for a [Yandex account](../../iam/operations/iam-token/create.md), [federated account](../../iam/operations/iam-token/create-for-federation.md), or [local account](../../iam/operations/iam-token/create-for-local.md).
-  1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the minimum required role to work with the model:
+  1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has at least the minimum role for the functionality:
      * `{{ roles-yagpt-user }}` or higher: For text generation models.
      * `{{ roles-yaart-user }}` or higher: For {{ yandexart-name }}.
-     * `ai.assistants.editor` and `{{ roles-yagpt-user }}` or higher: For {{ assistant-api }}.
+     * `ai.assistants.editor` and `{{ roles-yagpt-user }}` or higher: For {{ responses-api }}.
+     * `ai.models.user` or higher: For {{ realtime-api }}.
+     * `serverless.mcpGateways.editor` or higher: To manage MCP servers.
      
      You will need the folder ID to get the model's URI.
 
-  1. When accessing {{ foundation-models-name }} via the API, specify the IAM token in the `Authorization` header of each request:
+  1. When accessing {{ ai-studio-name }} via the API, specify the IAM token in the `Authorization` header of each request:
 
       ```bash
       Authorization: Bearer <IAM_token>
@@ -22,12 +24,14 @@ To use the {{ foundation-models-full-name }} API, you need to get authenticated:
 
 - Service account {#service-account}
 
-   To access {{ foundation-models-name }}, your service account needs at least the minimum required role:
+   To access {{ ai-studio-name }}, your service account needs at least the minimum required role:
      * `{{ roles-yagpt-user }}` or higher: For text generation models.
      * `{{ roles-yaart-user }}` or higher: For {{ yandexart-name }}.
-     * `ai.assistants.editor` and `{{ roles-yagpt-user }}` or higher: For {{ assistant-api }}.
-      
-   The {{ foundation-models-name }} API supports two methods of authentication with a service account:
+     * `ai.assistants.editor` and `{{ roles-yagpt-user }}` or higher: For {{ responses-api }}.
+     * `ai.models.user` or higher: For {{ realtime-api }}.
+     * `serverless.mcpGateways.editor` or higher: To manage MCP servers. The {{ mcp-hub-name }} API supports only IAM token authentication.
+
+   The {{ ai-studio-name }} APIs support two service account authentication methods:
 
    * With an [IAM token](../../iam/concepts/authorization/iam-token.md):
 

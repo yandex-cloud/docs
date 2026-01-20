@@ -58,7 +58,7 @@ The data file will be generated immediately and downloaded in your browser. The 
 
 Before initiating a background data export, make sure that:
 
-* Export is not [disabled](#data-export-disable) at the {{ datalens-short-name }} instance level or  connection or dataset level.
+* Export is not [disabled](#data-export-disable) at the {{ datalens-short-name }} instance level,  connection or dataset level.
 * The user has the `{{ permission-execute }}` permission for both the connection and dataset used to create the chart with the data you want to export.
 
 ### Limitations {#restrictions}
@@ -98,7 +98,7 @@ To initiate a background export, do the following:
   
   If the export fails, you will get an error message. Make sure that data export is not [disabled](#data-export-disable) for this chart at any level and the user has the required permissions, then try again.
 
-The user who initiated the export can download the export file from the [data export history](#data-export-history) page. To download the file, the user must have the `{{ permission-execute }}` access permissions for both the connection and dataset used to generate the chart with exported data.
+The user who initiated the export can download the export file from the [data export history](#data-export-history) page. To download the file, the user must have the `{{ permission-execute }}` access permissions for both the connection and dataset used to generate the chart with the export data.
 
 ### Export page {#export-page}
 
@@ -118,7 +118,7 @@ The export page displays the following information:
 You can open the history window for background data export in one of the following ways:
 
 * In the left-hand panel, select ![sliders](../../../_assets/console-icons/arrow-up-from-square.svg) **Background data export**.
-* In the left-hand panel, select ![sliders](../../../_assets/console-icons/sliders.svg) **Service settings**, then click **Background data export** under **Data export**.
+* In the left-hand panel, select ![sliders](../../../_assets/console-icons/sliders.svg) **Service settings**, go to the **Security** tab, and click **Background data export** under **Data export**.
 * Open the [chart export](#how-to-background-export) window and click **Export history**.
 * After your export completes, follow the **Export page** link in the **Chart export complete** notification.
 
@@ -159,10 +159,13 @@ By default, users can export data from charts. You can disable this option at th
   To disable data export, you need the `{{ roles-datalens-admin }}` role. An instance-level ban also prohibits data export from [non-publicly embedded](../../security/private-embedded-objects.md) charts and charts with [public access](../datalens-public.md) configured within this instance.
   
   1. In the left-hand panel, select ![sliders](../../../_assets/console-icons/sliders.svg) **Service settings**.
+
+  
   1. Select the **Security** tab.
-  1. Disable the **Data export** option (enabled by default).
+  1. Disable the **Data export** option (on by default).
   
      ![image](../../../_assets/datalens/settings/data-export-disable.png)
+  
   
   After you ban export:
   
@@ -172,7 +175,7 @@ By default, users can export data from charts. You can disable this option at th
 
 - Connection level
 
-  To disable data export, you need the `{{ permission-write }}` access permissions for the connection.
+  To disable data export, you need the `{{ permission-write }}` access permission for the connection.
 
   1. Go to the connection page.
   1. Under **Advanced connection settings**, activate the **Disable data export** option.
@@ -188,7 +191,7 @@ By default, users can export data from charts. You can disable this option at th
 
 - Dataset level
  
-  To disable data export, you need the `{{ permission-write }}` access permissions for the dataset.
+  To disable data export, you need the `{{ permission-write }}` access permission for the dataset.
   
   1. Go to the dataset page.
   1. Click ![icon](../../../_assets/console-icons/gear.svg) at the top right and uncheck **Allow data export**.

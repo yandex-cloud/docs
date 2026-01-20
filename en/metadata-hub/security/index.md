@@ -18,7 +18,11 @@ To assign a role for a resource, you need the `connection-manager.admin` [role](
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+To allow access to {{ metadata-hub-name }} resources, assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
+
 You can assign a role for a [connection](../concepts/connection-manager.md) or [metadata catalog](../concepts/data-catalog.md) in the [management console]({{ link-console-main }}).
+
+You can assign a role for a separate [cluster](../concepts/metastore.md) in the [management console]({{ link-console-main }}) or via the [CLI](../../cli).
 
 ## Roles existing in {{ metadata-hub-name }} {#roles-list}
 

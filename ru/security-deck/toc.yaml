@@ -42,6 +42,8 @@ items:
             href: operations/kspm/use-kspm.md
           - name: Посмотреть правила контроля
             href: operations/kspm/view-rules.md
+          - name: Проверить соответствие стандартам безопасности
+            href: operations/kspm/check-compliance.md
           - name: Управлять исключениями из правил контроля
             href: operations/kspm/manage-exceptions.md
       - name: Диагностика доступов ({{ ciem-name }})
@@ -58,6 +60,8 @@ items:
             href: operations/cspm/index.md
           - name: Посмотреть правила контроля и нарушения
             href: operations/cspm/view-rules.md
+          - name: Проверить соответствие стандартам безопасности
+            href: operations/cspm/check-compliance.md
           - name: Управлять исключениями из правил контроля
             href: operations/cspm/manage-exceptions.md
   - name: Концепции
@@ -68,6 +72,8 @@ items:
         href: concepts/workspace.md
       - name: '{{ alerts-name }} в {{ sd-name }}'
         href: concepts/alerts.md
+      - name: Интерфейс соответствия требованиям
+        href: concepts/standard-compliance.md
       - name: '{{ ycdr-full-name }} ({{ ycdr-name }})'
         href: concepts/ycdr.md
       - name: Контроль данных ({{ dspm-name }})

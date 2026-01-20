@@ -23,7 +23,7 @@ items:
             href: operations/get-list.md
           - name: Getting information about a CAPTCHA
             href: operations/get-info.md
-      - name: Viewing operations with resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -51,6 +51,9 @@ items:
         href: concepts/tasks.md
       - name: Challenge options
         href: concepts/captcha-variants.md
+      - name: CAPTCHA with metadata flowchart
+        href: concepts/metadata-scheme.md
+        hidden: true
       - name: Widget connection methods
         href: concepts/widget-methods.md
       - name: CAPTCHA keys

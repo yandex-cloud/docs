@@ -5,7 +5,7 @@ description: This page covers some aspects of notifications about upcoming force
 
 # Container termination notifications
 
-In some cases, the service may forcibly terminate a [container instance](./container.md#scaling). In which case the [Docker image](../../container-registry/concepts/docker-image.md) code gets a _notification of upcoming forced termination_. 
+In some cases, the service may forcibly terminate a [container instance](./container.md#container-instance). In which case the user app will get a _notification about the upcoming forced termination_. 
 
 Depending on the timeout specified in the [container revision](./container.md#revision) settings and the current state of the container instance, you can see one of the two notification types:
 
@@ -16,13 +16,13 @@ The most important difference between these types of notifications is the amount
 
 ## Notifying the Docker image code in an active instance of a long-lived container {#notify-when-active}
 
-This type of notification is sent to the Docker image code if the following conditions are met:
+This type of notification is sent to the user app if the following conditions are met:
 
 * The container is a [long-lived](./long-lived-containers.md) one.
 * More than ten minutes are left before expiry of the timeout specified in the container revision settings.
 * The container instance is currently active, i.e., it is processing at least one call.
 
-The Docker image code receives a notification about the upcoming forced termination of the container instance ten minutes before the forced termination. The [SIGTERM](https://en.wikipedia.org/wiki/Signal_(IPC)#SIGTERM) [POSIX signal](https://man7.org/linux/man-pages/man7/signal.7.html) (`Termination signal`) is sent as the notification.
+The user app receives a notification about the upcoming forced termination of the container instance ten minutes before the forced termination. The [SIGTERM](https://en.wikipedia.org/wiki/Signal_(IPC)#SIGTERM) [POSIX signal](https://man7.org/linux/man-pages/man7/signal.7.html) (`Termination signal`) is sent as the notification.
 
 Add to the application code in the Docker image a listener that will respond to the incoming `SIGTERM` POSIX signal from the operating system. This will allow you to prevent data loss in case of abnormal abort of call processing due to forced termination of the container instance.
 
@@ -32,9 +32,9 @@ You can disable signals about the upcoming forced termination of the container i
 
 ## Notifying the Docker image code in an inactive container instance {#notify-when-idle}
 
-This type of notification is sent to the Docker image code if the instance is inactive, i.e., it is not processing any calls at the moment.
+This type of notification is sent to the user app if the instance is inactive, i.e., it is not processing any calls at the moment.
 
-Upon a decision to forcibly terminate an inactive container instance, the Docker image code will first get the `SIGTERM` POSIX signal and then (50 milliseconds later) the `SIGKILL` POSIX signal that will forcibly terminate the process.
+Upon a decision to forcibly terminate an inactive container instance, the user app will first get the `SIGTERM` POSIX signal and then (50 milliseconds later) the `SIGKILL` POSIX signal that will forcibly terminate the process.
 
 Such container instance termination will forcibly terminate all network connections at the L3 level of the [OSI network model](https://en.wikipedia.org/wiki/OSI_model).
 
@@ -46,4 +46,4 @@ Once the `SIGTERM` signal is sent, the Docker image will have not more than 50 m
 
 {% endnote %}
 
-Notifications to the Docker image code of an inactive container instance are not subject to any conditions. The timeout value specified in the container revision does not apply. You cannot disable such notifications or adjust the wait time.
+Notifications to the user app of an inactive container instance are not subject to any conditions. The timeout value specified in the container revision does not apply. You cannot disable such notifications or adjust the wait time.

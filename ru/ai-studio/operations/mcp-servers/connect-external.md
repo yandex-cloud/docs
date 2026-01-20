@@ -9,6 +9,12 @@ description: Следуя данной инструкции, вы научите
 
 Если у вас уже есть развернутый внешний MCP-сервер, например, на [smithery.ai](https://smithery.ai/), в [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}) или на [виртуальной машине](../../../compute/concepts/vm.md) {{ compute-full-name }}, вы можете подключить его к [{{ mcp-hub-name }}](../../concepts/mcp-hub/index.md).
 
+{% note tip %}
+
+{% include [roles-to-invoke-mcp](../../../_includes/ai-studio/mcp-hub/roles-to-invoke-mcp.md) %}
+
+{% endnote %}
+
 Чтобы добавить существующий внешний MCP-сервер в {{ mcp-hub-name }}:
 
 {% list tabs group=instructions %}

@@ -20,7 +20,6 @@
 
 - Python {#python}
 
-  1. [Создайте поисковый индекс](./manage-searchindex.md#create-index).
   1. Создайте файл `index.py` и добавьте в него код:
 
      ```python
@@ -72,7 +71,6 @@
       ```bash
       export YANDEX_CLOUD_FOLDER=<идентификатор_каталога>
       export YANDEX_CLOUD_API_KEY=<API-ключ>
-      export VECTOR_STORE_ID=<идентификатор_поискового_индекса>
       ```
 
   1. Выполните созданный файл:

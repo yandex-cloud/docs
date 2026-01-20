@@ -10,6 +10,8 @@ description: In this tutorial, you will learn how to delete a VM or {{ baremetal
 
 To delete backups, make sure the folder contains at least one VM or {{ baremetal-name }} server connected to {{ backup-name }}. If there are no such VMs or servers, temporarily [create](../create-vm.md) a new VM with a connection to {{ backup-name }} and delete the backups.
 
+The deletion process is asynchronous, so wait until it is over. Before stopping or removing the last VM or server connected to {{ backup-name }}, make sure the the backup list is empty.
+
 {% endnote %}
 
 To delete a backup:

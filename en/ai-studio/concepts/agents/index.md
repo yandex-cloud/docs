@@ -13,11 +13,11 @@ Such architecture enables the creation of text and voice agents that behave more
 
 ## Developing agents in {{ ai-studio-name }} {#agent-development}
 
-{{ ai-studio-name }} has everything you need to create AI agents: models that support [function calling](../generation/function-call.md) and [response formatting](../generation/structured-output.md), ready-made customizable RAG and web search [tools](#tools), as well as {{ mcp-hub-name }} that allows connecting external APIs via MCP servers.
+{{ ai-studio-name }} has everything you need to create AI agents: models that support [function calling](../generation/function-call.md) and [response formatting](../generation/structured-output.md), ready-made customizable [tools](#tools) for RAG-enabled web and file search, as well as {{ mcp-hub-name }} allowing you to connect external APIs via MCP servers.
 
 {{ ai-studio-name }} allows you to create agents in various ways:
 
-* In [{{ ai-playground }}]({{ link-console-main }}/link/foundation-models/playground).
+* In [{{ ai-playground }}]({{ link-console-main }}/link/ml/ai-studio/agents).
 * Using the {{ sw-full-name }} [specification constructor]({{ link-console-main }}/link/serverless-integrations/workflows/workflows).
 * Using the {{ responses-api }} or {{ realtime-api }}.
 * Via open source frameworks, for example, OpenAI SDK, LangGraph, or LangChain.
@@ -33,7 +33,7 @@ Agents can automatically invoke tools to get additional info for generation or p
 ### Agent creation API {#api}
 
 {{ ai-studio-name }} provides two {{ openai }}-compatible APIs for development of different types of agents. Both APIs save data on client states between requests and basically perform the same functions of connecting models, tools, and memory, but are optimized for different types of interactions depending on the agent.
-* The {{ responses-api }} is an API for text scenarios. Agents created using the {{ responses-api }} take note of the conversation context and can automatically invoke connected tools. The {{ responses-api }} supports [any models](../generation/models.md).
+* The {{ responses-api }} is an API for text scenarios. Agents created using the {{ responses-api }} consider the conversation context and can automatically invoke connected tools. The {{ responses-api }} supports all [text models](../generation/models.md).
 * The {{ realtime-api }} is an API for voice scenarios. This API is designed to work with specialized multimodal models accepting audio input and synthesizing an audio response. The {{ realtime-api }} supports all available tools, including {{ retrieval-tool-name }} and WebSearch.
  
 ### Workflow constructor {#workflows}

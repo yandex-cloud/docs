@@ -874,7 +874,7 @@ default:
   tf-provider-mmy: https://yandex.cloud/en/docs/terraform/resources/mdb_mysql_cluster
   tf-provider-mos: https://yandex.cloud/en/docs/terraform/resources/mdb_opensearch_cluster
   tf-provider-mpg: https://yandex.cloud/en/docs/terraform/resources/mdb_postgresql_cluster
-  tf-provider-mrd: https://yandex.cloud/en/docs/terraform/resources/mdb_redis_cluster
+  tf-provider-mrd: https://yandex.cloud/en/docs/terraform/resources/mdb_redis_cluster_v2
   tf-provider-msp: https://yandex.cloud/en/docs/terraform/resources/spark_cluster
   tf-provider-mtr: https://yandex.cloud/en/docs/terraform/resources/trino_cluster
   tf-provider-resources-link: https://yandex.cloud/en/docs/terraform/resources
@@ -3720,7 +3720,6 @@ default:
       tickets:
         common:
           action_create-ticket: Create ticket
-          label_ticket-type-critical: Critical priority
           label_ticket-type-incident: Medium priority
           label_ticket-type-question: Question
         filters:
@@ -4731,9 +4730,18 @@ default:
         kspm:
           title_clusters: Clusters
           title_dashboard: Dashboard
+        label_comp: Compliance
         label_kspm: KSPM
         label_settings: Security Deck parameters
       security:
+        comp:
+          SetsTable:
+            action_disable_5hgkz: Disable verification
+            action_enable_9LUFt: Enable verification
+            field_count_rules: Rules in set
+            field_execution: Rule execution
+            field_set_title: Rule set
+            not_verified: Not verified
         controls:
           ControlExceptionForm:
             allResources_2ax5E: All resources
@@ -4763,6 +4771,7 @@ default:
             info_type_1dxbZ: Exception type
           rule-result:
             controlRule_kr2Bv: Control rule
+            module_63uuk: Module of control
             standards_iv6a5: Rule sets
             verificationMethod_dS9B2: Verification method
             violations_q7AcU: Violations
@@ -4794,6 +4803,8 @@ default:
             labelDescriptionField: Description
             labelNameField: Name
             labelServiceAccountField: Service account
+          module-cspm_gozhj: Configuration Monitoring (CSPM)
+          module-kspm_n9o93: Kubernetes® Security Posture Management (KSPM)
           ServiceAccountResourceSelectDialog:
             action_save: Save selection
           WorkspaceEditPageLayout:
@@ -10350,30 +10361,16 @@ default:
         transfer-selected-projects: Transfer selected projects
     yc-ui-talkanalytics:
       assistants:
-        all-dialogs:
-          description: 'The assistant will be applied to each dialog loaded in the project. '
+        all-dialogs-key-value: All dialogs
         applying: Enable assistant
         assistants: Assistants
-        create-assistant:
-          success: >-
-            The names of the fields in the API have been created, you can view
-            them in the "Result" column or on the assistant's page.
-        filtered-dialogs:
-          description: >-
-            The assistant will be applied to dialogs that meet the conditions
-            specified in the filters.
-        generate-prompt:
-          unknown-error: Failed to load the result. Please try again.
+        create-assistant-key-value: Create assistant
+        filtered-dialogs-key-value: Selected dialogs
+        generate-prompt-key-value: Generate instructions
         prompt: Instructions
-        result:
-          description: >-
-            All values found in the dialogs (and taking instructions into
-            account) will be distributed among the fields added.  You can add
-            one or more fields and describe which data should be tracked in each
-            of them.
+        result-key-value: Result
         templates: Templates
-        testing:
-          description: Test your assistant before creating.
+        testing-key-value: Testing
       common:
         add: Add
         add-filter: Add filter

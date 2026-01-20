@@ -451,9 +451,9 @@ By default, all data on {{ compute-full-name }} disks is encrypted at the storag
 
 We also recommend encrypting disks and [disk snapshots](../../../compute/concepts/snapshot.md) using {{ kms-full-name }} custom [symmetric keys](../../../kms/concepts/key.md). This approach allows you to:
 * Protect against the potential threats of data isolation breach and compromise at the virtual infrastructure level.
-* Control the encryption and lifecycle of {{ kms-short-name }} keys, as well as manage them. Learn more in [{#T}](../../../kms/operations/key.md).
-* Improve access control to the data on your disk by setting permissions for {{ kms-short-name }} keys. Learn more in [{#T}](../../../kms/operations/key-access.md).
-* Use {{ at-full-name }} to track encryption and decryption operations performed using your {{ kms-short-name }} key. Learn more in [{#T}](../../../kms/concepts/index.md#keys-audit).
+* Control the encryption and lifecycle of {{ kms-short-name }} keys, as well as manage them. For more information, see [{#T}](../../../kms/operations/key.md).
+* Improve access control to the data on your disk by setting permissions for {{ kms-short-name }} keys. For more information, see [{#T}](../../../kms/operations/key-access.md).
+* Use {{ at-full-name }} to track encryption and decryption operations performed using your {{ kms-short-name }} key. For more information, see [{#T}](../../../kms/concepts/index.md#keys-audit).
 
 You can encrypt the following types of disks:
 * Network SSD (`network-ssd`)
@@ -849,21 +849,13 @@ For other recommendations on how to use {{ TF }} safely, see [Secure configurati
 #### 4.16 There is a guide for cloud administrators on handling compromised secrets {#secrets-scanning}
 
 In {{ yandex-cloud }}, the [Secret Scanning Service](../../../security/operations/search-secrets.md) is enabled for everyone by default.
-It detects structured cloud secrets that are available in the public domain in the following sources:
+Sources for detecting publicly available cloud structured secrets:
 
-* Public GitHub repositories
-* Yandex search index
-* Helm charts in the {{ k8s }} marketplace
+{% include [secret-sources](./secret-sources.md) %}
 
 The following cloud secrets are detected:
 
-* {{ yandex-cloud }} Session Cookie
-* {{ yandex-cloud }} {{ iam-short-name }} token
-* {{ yandex-cloud }} API Key
-* Yandex Passport OAuth token
-* {{ yandex-cloud }} AWS API compatible Access Secret
-* {{ yandex-cloud }} {{ captcha-name }} Server Key
-* {{ lockbox-short-name }} structured secrets
+{% include [secret-types](./secret-types.md) %}
 
 The service automatically notifies a customer of any found secrets belonging to their infrastructure:
 

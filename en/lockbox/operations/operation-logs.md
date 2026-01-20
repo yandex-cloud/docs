@@ -9,7 +9,7 @@ The system logs all actions with {{ lockbox-name }} resources as a list of opera
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Click the name of the secret you need.
     1. In the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
@@ -37,7 +37,7 @@ The system logs all actions with {{ lockbox-name }} resources as a list of opera
   +----------------------+---------------------+----------------------+---------------------+--------+---------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc lockbox secret list-operations <secret_name_or_ID> --format yaml
@@ -82,7 +82,7 @@ The system logs all actions with {{ lockbox-name }} resources as a list of opera
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

@@ -1,0 +1,5 @@
+The user’s [role](../../organization/security/index.md) in the [organization](../../organization/concepts/organization.md) or [user pool](../../organization/concepts/user-pools.md) determines which [logs](../../organization/concepts/logs.md) they have permissions to view:
+
+* `organization-manager.viewer`, `organization-manager.editor`, `organization-manager.admin`, or `organization-manager.organizations.owner`: Logs of any organization user on the [user page](../../organization/operations/user-pools/user-get-logs.md#organization).
+* `organization-manager.userpools.admin` or higher: Logs of all pool users on the [pool page](../../organization/operations/user-pools/user-get-logs.md#pool).
+* Other users: Only their own logs in the [My account](../../organization/concepts/my-account.md) portal.

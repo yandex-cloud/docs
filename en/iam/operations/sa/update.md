@@ -15,13 +15,13 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
 
   To update a service account:
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the line with the service account you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-edit }}**.
+  1. In the row with the service account you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-edit }}**.
   1. Change the name of your service account.
 
-     The name format requirements are as follows:
+     Follow these naming requirements:
       
      {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -65,7 +65,7 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
         --description "this is my service account"
       ```
       
-      The name format requirements are as follows:
+      Follow these naming requirements:
       
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -102,9 +102,9 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```bash
      terraform apply
      ```

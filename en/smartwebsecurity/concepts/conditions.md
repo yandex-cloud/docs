@@ -18,12 +18,15 @@ You can set the following rule [conditions](rules.md):
 * IP does not belong to the region
 * IP belongs to the list
 * IP does not belong to the list
+* IP belongs to the ASN
+* IP does not belong to the ASN
 |
 * IP address
 * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 * Address range
 * Two-letter country code as per [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 * Name of the preset or custom address list
+* [ASN](https://wikipedia.org/wiki/Autonomous_system_(Internet)) value as an integer without the `as` prefix
 |
 * `1.2.33.44`
 * `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
@@ -31,6 +34,7 @@ You can set the following rule [conditions](rules.md):
 * `1.2.0.0-1.2.1.1`
 * `ru`
 * `kz`
+* 12345
 | _or_ ||
 || `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` |
 * Matches
@@ -136,6 +140,32 @@ regular expression of the PIRE library
 |
 * `<br><input type='submit'>`
 | _or_ ||
+|| `Bot name` |
+* Belongs to the list
+* Does not belong to the list
+|
+List of legitimate bots of various companies and services
+|
+* `YandexBot`, `SEMrushBot`
+| _or_ ||
+|| `Bot category` |
+* Belongs to the list
+* Does not belong to the list
+| List of bots of a certain category
+|
+`AccessibilityBot`, `SearchEngineCrawlerBot`
+| _or_ ||
+|| `Verified bot` |
+* Yes
+* No
+| Whether this bot is verified and approved
+| | ||
+|| `Bot score` | |
+When analyzing traffic, the system assigns it a score from `0` to `100`. You can filter traffic by specifying a score value or a range of values using the following operators: `>=`, `<=`, `=`, and `!=`.
+Score ranges: `up to 20`: human; `20–40`: likely human; `40–60`: undetermined; `60–80`: likely bot; `over 80`: bot.
+|
+`=10`, `>=20, and <=40`
+| _and_ ||
 |#
 
 ## Regular expression format {#regular-expressions}

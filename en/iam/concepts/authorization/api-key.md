@@ -83,6 +83,7 @@ The following services support authentication based on API keys:
 * {{ yds-full-name }}: [Kafka API](../../../data-streams/kafkaapi/index.md).
 * {{ ydb-full-name }}: Only in {{ PG }}-compatible mode. Use a suitable [authentication method](../../../ydb/operations/connection.md#auth) for other modes.
 * [{{ metadata-hub-full-name }}](../../../metadata-hub/concepts/index.md): Within [{{ schema-registry-full-name }}](../../../metadata-hub/operations/connect-to-namespace.md).
+* [{{ cloud-registry }}](../../../cloud-registry/)
 
 ## Use cases {#examples}
 

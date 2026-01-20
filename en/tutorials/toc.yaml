@@ -232,6 +232,8 @@ items:
                 href: security/single-sign-on/grafana/oidc-grafana.md
           - name: Grafana OSS
             href: security/single-sign-on/oidc-grafana-oss.md
+          - name: 1C:Enterprise
+            href: security/single-sign-on/oidc-1c-enterprise.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'
@@ -821,6 +823,10 @@ items:
             href: infrastructure/gta-v-server.md
           - name: Converting a video to a GIF in Python
             href: serverless/video-converting-queue.md
+          - name: >-
+              Configuring printing from {{ cloud-desktop-name }} to a local
+              printer in Linux
+            href: applied/desktop-linux-printer.md
   - name: Building a data platform
     items:
       - name: All tutorials
@@ -909,7 +915,7 @@ items:
             href: dataplatform/schema-registry-overview.md
           - name: Using {{ mkf-msr }} with {{ mkf-name }}
             href: dataplatform/managed-schema-registry.md
-          - name: Using {{ mkf-msr }} with {{ mkf-name }} via REST API
+          - name: Using {{ mkf-msr }} with {{ mkf-name }} via the REST API
             href: dataplatform/managed-schema-registry-rest.md
           - name: Using Confluent Schema Registry with {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
@@ -1014,7 +1020,7 @@ items:
         href: dataplatform/metastore-import.md
       - name: >-
           Importing data from {{ objstorage-name }}, processing, and exporting
-          to {{ mch-name }}
+          it to {{ mch-name }}
         href: dataplatform/s3-data-processing-ch.md
       - name: Working with jobs {{ dataproc-name }}
         items:
@@ -1420,7 +1426,7 @@ items:
                 href: datalens/data-from-csv-visualization.md
               - name: Public chart with a map of Moscow from a CSV file
                 href: datalens/data-from-csv-to-public-visualization.md
-              - name: Retail chain's dashboard based on a {{ CH }} DB
+              - name: Retail chain's dashboard based on a {{ CH }} database
                 href: datalens/data-from-ch-visualization.md
           - name: Working with geodata
             items:
@@ -1428,7 +1434,7 @@ items:
                 href: datalens/data-from-csv-geo-visualization.md
               - name: >-
                   Analyzing sales and locations of pizzerias based on data from
-                  the {{ CH }} database and Marketplace
+                  a {{ CH }} database and Marketplace
                 href: datalens/data-from-ch-to-geolayers-visualization.md
               - name: >-
                   Geocoding with the Yandex Maps API for data visualization in
@@ -1453,7 +1459,7 @@ items:
                 href: datalens/data-from-bitrix24-visualization.md
               - name: '{{ tracker-name }}: data export and visualization'
                 href: datalens/data-from-tracker.md
-              - name: Analyzing {{ objstorage-name }} logs with {{ datalens-name }}
+              - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
                 href: datalens/storage-logs-analysis.md
               - name: 'Yandex Music podcasts: Statistics'
                 href: datalens/data-from-podcasts.md

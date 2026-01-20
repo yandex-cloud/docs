@@ -21,40 +21,14 @@ To do the setting up:
         - IAM token (Base64)
 
           1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) for the [Yandex account](../../../iam/operations/iam-token/create.md) or [service account](../../../iam/operations/iam-token/create-for-sa.md) you are going to use for authentication.
-          1. Add the following lines to the previously created `.npmrc` file:
-
-              ```text
-              registry=https://{{ cloud-registry }}/npm/<registry_ID>
-              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
-              always-auth=true
-              ```
-          1. Create the `NPM_AUTH` environment variable containing the [Base64-encoded](https://www.base64encode.org/) `iam:<IAM_token>` line:
+          1. Create the `NPM_AUTH` environment variable:
 
               ```bash
               export NPM_AUTH=$(echo -n 'iam:<IAM_token>' | base64)
               ```
 
-              Where `<IAM_token>` is the IAM token you got earlier.
+              Where `NPM_AUTH` is the body of the previously obtained IAM token, [Base64](https://www.base64encode.org/)-encoded.
 
-        - IAM_token
-
-          1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) for the [Yandex account](../../../iam/operations/iam-token/create.md) or [service account](../../../iam/operations/iam-token/create-for-sa.md) you are going to use for authentication.
-          1. Add the following lines to the previously created `.npmrc` file:
-
-              ```text
-              registry=https://{{ cloud-registry }}/npm/<registry_ID>
-              //{{ cloud-registry }}/npm/:_authToken=${NPM_AUTH_TOKEN}
-              always-auth=true
-              ```
-          1. Create the `NPM_AUTH_TOKEN` environment variable containing the previously obtained IAM token:
-
-              ```bash
-              export NPM_AUTH_TOKEN="<IAM_token>"
-              ```
-
-        - OAuth token (Base64)
-
-          1. [Get]({{ link-cloud-oauth }}) an OAuth token for the Yandex account you are going to use for authentication.
           1. Add the following lines to the previously created `.npmrc` file:
 
               ```text
@@ -62,12 +36,62 @@ To do the setting up:
               //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
               always-auth=true
               ```
-          1. Create the `NPM_AUTH` environment variable containing the [Base64-encoded](https://www.base64encode.org/) `oauth:<OAuth_token>` line:
+
+        - IAM_token
+
+          1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) for the [Yandex account](../../../iam/operations/iam-token/create.md) or [service account](../../../iam/operations/iam-token/create-for-sa.md) you are going to use for authentication.
+          1. Create the `NPM_AUTH` environment variable:
 
               ```bash
-              export NPM_AUTH=$(echo -n 'oauth:<OAuth token>' | base64)
+              export NPM_AUTH="<IAM_token>"
               ```
 
-              Where `<OAuth_token>` is the [OAuth token](../../../iam/concepts/authorization/oauth-token.md) you got earlier.
+              Where `NPM_AUTH` is the body of the previously obtained IAM token.
+
+          1. Add the following lines to the previously created `.npmrc` file:
+
+              ```text
+              registry=https://{{ cloud-registry }}/npm/<registry_ID>
+              //{{ cloud-registry }}/npm/:_authToken=${NPM_AUTH}
+              always-auth=true
+              ```
+
+        - OAuth token (Base64)
+
+          1. [Get]({{ link-cloud-oauth }}) an OAuth token for the [Yandex account](../../../iam/concepts/users/accounts.md#passport) you are going to use for authentication.
+          1. Create the `NPM_AUTH` environment variable:
+
+              ```bash
+              export NPM_AUTH=$(echo -n 'oauth:<OAuth_token>' | base64)
+              ```
+
+              Where `NPM_AUTH` is the body of the previously obtained [OAuth token](../../../iam/concepts/authorization/oauth-token.md), [Base64](https://www.base64encode.org/)-encoded.
+
+          1. Add the following lines to the previously created `.npmrc` file:
+
+              ```text
+              registry=https://{{ cloud-registry }}/npm/<registry_ID>
+              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
+              always-auth=true
+              ```
+
+        - API key (Base64)
+
+          1. [Create](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the [service account](../../../iam/concepts/users/service-accounts.md) you are going to use for authentication.
+          1. Create the `NPM_AUTH` environment variable:
+
+              ```bash
+              export NPM_AUTH=$(echo -n 'api_key:<API_key>' | base64)
+              ```
+
+              Where `NPM_AUTH` is the body of the previously created [API key](../../../iam/concepts/authorization/api-key.md), [Base64](https://www.base64encode.org/)-encoded.
+
+          1. Add the following lines to the previously created `.npmrc` file:
+
+              ```text
+              registry=https://{{ cloud-registry }}/npm/<registry_ID>
+              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
+              always-auth=true
+              ```
 
         {% endlist %}

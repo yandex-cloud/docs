@@ -13,6 +13,8 @@ The general value format is as follows:
 {{ at-event-prefix }}.audit.<service_name>.<event_name>
 ```
 
+{% include [about-events-ref](../../_includes/audit-trails/about-events-ref.md) %}
+
 On this page, you will find events for the following services:
 
 {% include [dp-events-service-list](../../_includes/audit-trails/dp-events-service-list.md) %}

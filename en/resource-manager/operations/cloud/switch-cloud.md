@@ -9,9 +9,7 @@ description: In this tutorial, you will learn how to switch over to another clou
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate cloud or folder from the list on the left.
-
-      ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
 
 - CLI {#cli}
 

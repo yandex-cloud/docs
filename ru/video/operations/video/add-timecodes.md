@@ -5,14 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить таймкоды к видео
 
-{% include [video-characteristic](../../../_includes/video/video-characteristic-multiple.md) %}
-
-{% include [video-multi-soundtracks](../../../_includes/video/video-multi-soundtracks.md) %}
-
-{% include [video-resolution-limits](../../../_includes/video/video-resolution-limits.md) %}
-
-Чтобы добавить таймкоды к видео:
-
 {% list tabs group=instructions %}
 
 - Интерфейс {{ video-name }} {#console}

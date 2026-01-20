@@ -67,9 +67,16 @@ Prior to the checks, make sure that:
 * You have logged in to the [management console]({{ link-console-main }}).
 * The jq utility is installed.
 
-You can automate the audit of compliance with all the recommendations using available solutions from our partners:
-* [Cloud Advisor](/marketplace/products/cloudadvisor/cloudadvisor): Agentless CNAPP that provides vulnerability scanning, malware detection, configuration auditing, asset inventory, and compliance validation for VMs and containers.
-* [Neocat](/marketplace/products/neoflex/neocat): Cloud security management product by Neoflex. Operates as an isolated installation within the user's cloud perimeter and requires no administrator privileges.
+You can automate the audit of compliance with all recommendations using [{{ sd-full-name }}](../../../security-deck/), a comprehensive CNAPP solution featuring the following modules:
+* [{{ atr-name }} to monitor {{ yandex-cloud }} team actions on user resources](../../../security-deck/concepts/access-transparency.md).
+* [Data Security Posture Management](../../../security-deck/concepts/dspm.md) ({{ dspm-name }}).
+* [Cloud Security Posture Management](../../../security-deck/concepts/cspm.md) ({{ cspm-name }}).
+* [{{ k8s }} Security Posture Management](../../../security-deck/concepts/kspm.md) (KSPM).
+* [Cloud Infrastructure Entitlement Management](../../../security-deck/concepts/ciem.md) ({{ ciem-name }}).
+* [Alerts](../../../security-deck/concepts/alerts.md).
+
+{{ sd-full-name }} also offers a {{ yagpt-name }}-powered [AI assistant](../../../security-deck/concepts/ai-assistant.md) to provide you with security recommendations.
+
 
 ### Limitation of responsibility {#liability-limit}
 

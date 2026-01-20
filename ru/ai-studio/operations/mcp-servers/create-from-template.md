@@ -9,6 +9,12 @@ description: Следуя данной инструкции, вы научите
 
 {{ foundation-models-full-name }} предлагает набор [шаблонов](../../concepts/mcp-hub/templates.md) MCP-серверов от внешних партнеров {{ yandex-cloud }}, которые вы можете использовать в ваших AI-агентах для доступа к сервисам этих партнеров.
 
+{% note tip %}
+
+{% include [roles-to-invoke-mcp](../../../_includes/ai-studio/mcp-hub/roles-to-invoke-mcp.md) %}
+
+{% endnote %}
+
 Чтобы добавить в [{{ mcp-hub-name }}](../../concepts/mcp-hub/index.md) MCP-сервер из готового шаблона:
 
 {% list tabs group=instructions %}

@@ -1,7 +1,7 @@
 To set up the [maintenance window](../../../../managed-valkey/concepts/maintenance.md) (for example, for disabled clusters), add the `maintenance_window` section to the cluster description:
 
 ```hcl
-resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
   ...
   maintenance_window {
     type = <maintenance_type>

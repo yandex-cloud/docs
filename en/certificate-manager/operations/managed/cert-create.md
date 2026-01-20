@@ -9,7 +9,7 @@ You can use a [certificate](../../concepts/managed-certificate.md) from {{ certi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add a certificate to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
   1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
@@ -26,7 +26,7 @@ You can use a [certificate](../../concepts/managed-certificate.md) from {{ certi
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the command:
+  1. View the command description:
 
      ```bash
      yc certificate-manager certificate request --help
@@ -60,7 +60,7 @@ You can use a [certificate](../../concepts/managed-certificate.md) from {{ certi
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, define the parameters of the resource you want to create:
+  1. In the {{ TF }} configuration file, specify your new resource settings:
 
      ```hcl
      resource "yandex_cm_certificate" "le-certificate" {
@@ -80,7 +80,7 @@ You can use a [certificate](../../concepts/managed-certificate.md) from {{ certi
        * `DNS_TXT`: Create a DNS record in [TXT](../../../dns/concepts/resource-record.md#txt) format with the specified value.
        * `HTTP`: Place the specified value in the specified URL.
 
-     For more information about the `yandex_cm_certificate` resource properties, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/cm_certificate).
+     For more information about `yandex_cm_certificate` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/cm_certificate).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -109,7 +109,7 @@ A new certificate with the `Validating` status will appear in the certificate li
 
 You can view the certificate issue status and possible issue errors in the [management console]({{ link-console-main }}):
 
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. Select the certificate from the list.
    
    The certificate's current issue stage will be shown next to the **Validation** field.

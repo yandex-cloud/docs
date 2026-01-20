@@ -120,7 +120,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -488,6 +488,46 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Audit log reference
+    items:
+      - name: CreateCaUsageRestriction
+        href: events-ref/CreateCaUsageRestriction.md
+      - name: CreateCertificate
+        href: events-ref/CreateCertificate.md
+      - name: CreateDomain
+        href: events-ref/CreateDomain.md
+      - name: DeleteCaUsageRestriction
+        href: events-ref/DeleteCaUsageRestriction.md
+      - name: DeleteCertificate
+        href: events-ref/DeleteCertificate.md
+      - name: DeleteDomain
+        href: events-ref/DeleteDomain.md
+      - name: GetCertificateContent
+        href: events-ref/GetCertificateContent.md
+      - name: GetExCertificateContent
+        href: events-ref/GetExCertificateContent.md
+      - name: SetCaUsageRestrictionAccessBindings
+        href: events-ref/SetCaUsageRestrictionAccessBindings.md
+      - name: SetCertificateAccessBindings
+        href: events-ref/SetCertificateAccessBindings.md
+      - name: SetCertificateAuthorityAccessBindings
+        href: events-ref/SetCertificateAuthorityAccessBindings.md
+      - name: SetDomainPrimaryCertificate
+        href: events-ref/SetDomainPrimaryCertificate.md
+      - name: UpdateCaUsageRestriction
+        href: events-ref/UpdateCaUsageRestriction.md
+      - name: UpdateCaUsageRestrictionAccessBindings
+        href: events-ref/UpdateCaUsageRestrictionAccessBindings.md
+      - name: UpdateCertificate
+        href: events-ref/UpdateCertificate.md
+      - name: UpdateCertificateAccessBindings
+        href: events-ref/UpdateCertificateAccessBindings.md
+      - name: UpdateCertificateAuthorityAccessBindings
+        href: events-ref/UpdateCertificateAuthorityAccessBindings.md
+      - name: UpdateDomain
+        href: events-ref/UpdateDomain.md
+      - name: UpdateDomainAccessBindings
+        href: events-ref/UpdateDomainAccessBindings.md
   - name: Release notes
     href: release-notes.md
   - name: FAQ

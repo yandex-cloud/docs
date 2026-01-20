@@ -13,7 +13,7 @@ To grant access to a resource, assign a [role](../../concepts/access-control/rol
 * [Service accounts](../../concepts/users/service-accounts.md)
 * [User groups](../../../organization/concepts/groups.md)
 
-You can assign a role not only for the resource itself but also for its parent resource, as the former inherits access permissions from the latter. For example, if a service account gets a role for a cloud, it will also get permissions for all resources across the cloud's folders. Learn more in [{#T}](../../concepts/access-control/index.md).
+You can assign a role not only for the resource itself but also for its parent resource, as the former inherits access permissions from the latter. For example, if a service account gets a role for a cloud, it will also get permissions for all resources across the cloud's folders. For more information, see [{#T}](../../concepts/access-control/index.md).
 
 [Learn](../../concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
 
@@ -25,7 +25,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the cloud or folder.
+   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud or folder.
    1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
    1. Select the group, user, or service account you want to grant access to a cloud or folder.
@@ -240,8 +240,8 @@ To assign a role for an organization:
 
       Where:
 
-      * `organization_id`: [Organization ID](../../../organization/operations/organization-get-id.md). This is a required parameter.
-      * `role`: Role being assigned. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required parameter.
+      * `organization_id`: [Organization ID](../../../organization/operations/organization-get-id.md). This is a required setting.
+      * `role`: Role being assigned. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required setting.
       * `members`: Users getting the role. Specify the following:
 
          * `members = ["userAccount:<user_ID>"]`: For a Yandex account user or local user.
@@ -288,7 +288,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    To assign a role for a resource:
 
-   1. In the [management console]({{ link-console-main }}), select the folder the resource resides in.
+   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder your resource resides in.
    1. Open its page.
    1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to a resource.

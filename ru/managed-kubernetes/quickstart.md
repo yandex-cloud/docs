@@ -75,7 +75,7 @@ description: В этой инструкции вы создадите класт
    * Выберите [платформу](../compute/concepts/vm-platforms.md).
    * Укажите необходимое количество vCPU и [гарантированную долю vCPU](../compute/concepts/performance-levels.md), а также объем RAM.
    * (Опционально) Укажите, что ВМ должна быть [прерываемой](../compute/concepts/preemptible-vm.md).
-   * (Опционально) Включите [программно-ускоренную сеть](../compute/concepts/software-accelerated-network.md).
+   * (Опционально) Включите [программно ускоренную сеть](../compute/concepts/software-accelerated-network.md).
 
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
    * Укажите **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** для узлов группы {{ managed-k8s-name }}:

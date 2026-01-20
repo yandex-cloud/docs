@@ -60,7 +60,7 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
       1. Add a host manifest to the {{ TF }} configuration file describing your infrastructure:
 
          ```hcl
-         resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+         resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
            ...
            host {
              zone             = "<availability_zone>"

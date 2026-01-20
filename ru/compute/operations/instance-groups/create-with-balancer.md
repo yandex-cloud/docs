@@ -50,7 +50,7 @@ description: Следуя данной инструкции, вы сможете
        * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
        * Укажите необходимое количество vCPU, [гарантированную долю vCPU](../../concepts/performance-levels.md) и объем RAM.
        * {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
-       * (опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
+       * (опционально) Включите [программно ускоренную сеть](../../concepts/software-accelerated-network.md).
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
        {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}

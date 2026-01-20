@@ -179,7 +179,7 @@ description: Следуя этой инструкции, с помощью {{ ve
 
       ```text
       Создаем поисковый индекс...
-      Vector store создан: fvt9ef7q28n5b2c9quh8
+      Vector store создан: fvt9ef7q28n5********
       Статус vector store: in_progress
       Статус vector store: in_progress
       Статус vector store: in_progress

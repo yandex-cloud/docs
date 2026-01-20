@@ -11,10 +11,10 @@ To [check domain rights](../../concepts/challenges.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to which you added the [certificate](../../concepts/managed-certificate.md).
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Select and click the certificate you need checked.
-  1. In the window that opens, you will find the info you will need to pass the rights check under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**.
+  1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, you will see the details required to pass the domain rights check.
   1. As soon as the domain rights check is passed, the check status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
   1. After the check status for all the domains changes to `Valid`, the certificate will be issued and its status will change to `Issued`.
 
@@ -24,7 +24,7 @@ To [check domain rights](../../concepts/challenges.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the command:
+  1. View the command description:
 
      ```bash
      yc certificate-manager certificate get --help
@@ -110,7 +110,7 @@ To [check domain rights](../../concepts/challenges.md):
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   With {{ TF }}, you can create a [DNS record](../../../dns/concepts/resource-record.md) required to check your rights to a domain. To do this:
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_cm_certificate" "le-certificate" {
@@ -161,8 +161,8 @@ To [check domain rights](../../concepts/challenges.md):
        * `certificate_id`: Certificate ID.
        * `wait_validation`: Certificate validation wait flag. If `true`, the operation will not be completed until the certificate is in `VALIDATING` status. The default value is `false`.
 
-     For more information about resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-link }}).
-  1. Create resources:
+     For more information about resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-link }}).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -174,7 +174,7 @@ To [check domain rights](../../concepts/challenges.md):
 
 - API {#api}
 
-  To get the information required to pass the permission check for a domain, use the [get](../../api-ref/Certificate/get.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Get](../../api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
+  To get the information required to pass the domain rights check, use the [get](../../api-ref/Certificate/get.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Get](../../api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
 
 {% endlist %}
 

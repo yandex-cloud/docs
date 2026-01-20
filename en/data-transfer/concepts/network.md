@@ -8,7 +8,7 @@ description: In this article, you will learn about network in {{ data-transfer-f
 
 When creating endpoints of certain types, you can select a [cloud subnet](../../vpc/concepts/network.md). The transfer will use the above subnet to access source or target endpoint hosts.
 
-You can specify the subnet manually in the endpoint settings (for **On-Premise** endpoints) or have one selected automatically for [MDB endpoints](#managed-cluster-subnets). This subnet is referred to as the __selected subnet__. The network the selected subnet belongs to is referred to as the __selected network__.
+You can specify a subnet manually in the endpoint settings (for **Custom installation** endpoints) or have one selected automatically for [MDB endpoints](#managed-cluster-subnets). This subnet is referred to as the __selected subnet__. The network the selected subnet belongs to is referred to as the __selected network__.
 
 If hosts are referenced by domain names in the endpoint settings, the DNS servers specified in the selected subnet DHCP settings will be used to resolve them into IP addresses. All the subnet's DNS servers must resolve the host domain name into an IP address; otherwise, the transfer may fail to start because the transfer services use an arbitrary subnet DNS server for name resolution. For more information, see [IP addresses and domain names in endpoint settings](#ip-addresses-and-domain-names).
 
@@ -16,14 +16,14 @@ The subnets selected for both endpoints of the same transfer must belong to the 
 
 ## MDB cluster subnets {#managed-cluster-subnets}
 
-You can only specify a subnet for endpoints with the **On-Premise** connection type. If the endpoint settings contain an MDB cluster ID rather than a host, one of the subnets that the database cluster is connected to will be selected for endpoint access.
+You can only specify a subnet for **Custom installation** endpoints. If the endpoint settings contain an MDB cluster ID rather than a host, one of the subnets that the database cluster is connected to will be selected for endpoint access.
 
 {% note info %}
 
 If both endpoints of the transfer are MDB clusters, and the [availability zones](../../overview/concepts/geo-scope.md) of the source and target subnets do not intersect, you will not be able to initiate a transfer. There are two workarounds for this situation:
 
-* Adding a host to one of the clusters and selecting an appropriate availability zone.
-* Configuring one of the endpoints as **On-Premise** and connecting it to any subnet with an availability zone matching that of the other endpoint. If there is no suitable network, create a new one in a required zone and specify it in the On-Premise endpoint settings.
+* Add a host to one of the clusters by assigning it a suitable availability zone.
+* Select the **Custom installation** type for one of the endpoints and assign it any subnet with the same availability zone as one of the zones of the other endpoint. If there is no suitable network, create a new one in a required zone and specify it in the **Custom installation** endpoint settings.
 
 {% endnote %}
 
@@ -50,9 +50,11 @@ An IP address is __available via a subnet__ if it belongs to this subnet's netwo
 
 ## IP addresses and domain names in endpoint settings {#ip-addresses-and-domain-names}
 
-If a host is specified as an IP address in the endpoint settings, the selected endpoint subnet will be used for access to a cluster even if the specified IP [does not belong](#ip-address-availability) to the network selected for the endpoint.
+If the endpoint settings identify the host as an IP address, the endpoint's subnet will be used for access to the cluster even if the specified IP [does not belong](#ip-address-availability) to the network selected for the endpoint.
 
-If an **On-Premise** endpoint with a host specified as a domain name or an MDB endpoint is being used, the host name will be resolved into an IP address using a DNS server specified in the DHCP settings for the selected subnet or a default DNS server (second address in the subnet range). For a transfer to be successful, the address that the host domain name resolves into must belong to the network selected for the endpoint while the DNS server address must be [available](#ip-address-availability) via the selected subnet.
+If a **Custom installation** endpoint with a host specified as a domain name or an MDB endpoint is used, the host name will be resolved into an IP address using the DNS server specified in the DHCP settings for the selected subnet or the default DNS server (second address in the subnet range). For a transfer to be successful, the address that the host domain name resolves into must belong to the network selected for the endpoint while the DNS server address must be [available](#ip-address-availability) via the selected subnet.
+
+For connections to custom installations, {{ data-transfer-name }} can use only A record FQDNs; CNAME records are not supported. Which means you cannot connect to custom installations via special FQDNs, such as `…rw.mdb.yandexcloud.net` or `…ro.mdb.yandexcloud.net`. Therefore, when configuring **Custom installation** endpoints, you should specify only direct A record FQDNs.
 
 ## Security groups {#security-groups}
 

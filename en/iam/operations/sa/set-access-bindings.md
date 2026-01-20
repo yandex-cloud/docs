@@ -14,7 +14,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
+    1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -103,8 +103,8 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
     1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
        * `service_account_id`: ID of the service account to configure access for.
-       * `role`: Role being assigned. This is a required parameter.
-       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
+       * `role`: Role being assigned. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
        Here is an example of the configuration file structure:
 
@@ -118,7 +118,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
        }
        ```
 
-       For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Make sure the configuration files are correct.
 
@@ -233,7 +233,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     {% note alert %}
 
-    The `set-access-binding` command completely rewrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
+    The `set-access-binding` command completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
     {% endnote %}
 
@@ -260,7 +260,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
   1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
        * `service_account_id`: ID of the service account to configure access for.
-       * `role`: Role being assigned. This is a required parameter.
+       * `role`: Role being assigned. This is a required setting.
 
        {% note info %}
 
@@ -268,7 +268,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
        {% endnote %}
 
-       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
+       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 
@@ -293,7 +293,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
      {% endcut %}
 
-     For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
  
   1. Check the configuration using this command:
      ```
@@ -360,7 +360,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     {% note alert %}
 
-    The `setAccessBindings` method completely rewrites access permissions for the resource. All roles previously assigned for this resource will be deleted.
+    The `setAccessBindings` method completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
     {% endnote %}
 
@@ -426,8 +426,8 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
     1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
        * `service_account_id`: ID of the service account to configure access for.
-       * `role`: Role being assigned. This is a required parameter.
-       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
+       * `role`: Role being assigned. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
      {% cut "Example of granting the `test-sa` service account permissions to manage the `my-robot` service account using {{ TF }}" %}
 
@@ -445,7 +445,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
      {% endcut %}
 
-     For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
   1. Check the configuration using this command:
      ```
