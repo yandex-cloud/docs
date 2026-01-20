@@ -22,12 +22,12 @@ Either `cluster_id` or `name` should be specified.
 //
 // Get information about existing MDB Greenplum Cluster.
 //
-data "yandex_mdb_greenplum_cluster_v2" "foo" {
+data "yandex_mdb_greenplum_cluster" "foo" {
   name = "test"
 }
 
 output "network_id" {
-  value = data.yandex_mdb_greenplum_cluster_v2.foo.network_id
+  value = data.yandex_mdb_greenplum_cluster.foo.network_id
 }
 ```
 

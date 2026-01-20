@@ -8,7 +8,7 @@ description: Follow this guide to update {{ SD }} cluster settings.
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
-* [Change the disk type and increase the storage size](#change-disk-size).
+* [Change the disk type and expand the storage](#change-disk-size).
 * [Configure](#change-mongod-config) {{ SD }} servers as described in the {{ MG }} documentation.
 * [Change additional cluster settings](#change-additional-settings).
 * [Move the cluster](#move-cluster) to another folder.
@@ -36,7 +36,15 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
-  1. {% include [mmg-settings-host-class](../../_includes/mdb/mmg/settings-host-class.md) %}
+  1. Depending on the [sharding type](../concepts/sharding.md#shard-management) you select, go to the section of the cluster resources you need to update: **Resources**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**, or **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
+
+  
+  1. Select:
+
+     * One of the available [platforms](../../compute/concepts/vm-platforms.md).
+     * Configuration type: **Memory-optimized**, **cpu-optimized**, **standard**, or **burstable**.
+     * [Host class](../../storedoc/concepts/instance-types.md): Defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
+
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -48,13 +56,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the [host class](../concepts/instance-types.md) for a cluster:
 
-  1. View the description of the CLI command for updating a cluster:
+  1. See the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster update --help
       ```
 
-  1. Get the list of available host classes (the `ZONE IDS` column lists the availability zones you can select a class in):
+  1. Get the list of available host classes. The `ZONE IDS` column lists the availability zones where you can select the appropriate class:
 
      
      ```bash
@@ -71,7 +79,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
 
 
-  1. Specify the class in the update cluster command. When changing the class, keep in mind the host role: it depends on the [sharding type](../concepts/sharding.md#shard-management). You can use parameters for hosts with different roles in a single command.
+  1. Specify the relevant class in the cluster update command. When changing the class, keep in mind the host role: it depends on the [sharding type](../concepts/sharding.md#shard-management). You can use parameters for hosts with different roles in a single command.
 
       * For `MONGOD` hosts:
 
@@ -103,11 +111,12 @@ We recommend changing the host class only when your cluster has no active worklo
 
       {{ mmg-short-name }} will start updating the host class for your cluster.
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-      Learn how to create this file in [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
   1. In the {{ mmg-name }} cluster description, change the `resource_preset_id` parameter value for `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, or `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
@@ -134,6 +143,7 @@ We recommend changing the host class only when your cluster has no active worklo
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -244,10 +254,11 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. Go to the [folder]({{ link-console-main }}) page.
+  1. Go to the [folder page]({{ link-console-main }}).
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+  1. Depending on the [sharding type](../concepts/sharding.md#shard-management) you select, go to the section of the cluster resources you need to update: **Resources**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**, or **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
       * Select the [disk type](../concepts/storage.md).
       * Specify the disk size.
@@ -262,7 +273,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. View the description of the CLI command for updating a cluster:
+  1. See the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster update --help
@@ -306,13 +317,14 @@ We recommend changing the host class only when your cluster has no active worklo
 
       If all the conditions are met, {{ mmg-short-name }} will start the storage reconfiguration operation.
 
+
 - {{ TF }} {#tf}
 
   To change the disk type and increase the storage size for a cluster:
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      Learn how to create this file in [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. In the {{ mmg-name }} cluster description, change the values of the `disk_type_id` and `disk_size` parameters for the following resources: `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, and `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
@@ -340,6 +352,7 @@ We recommend changing the host class only when your cluster has no active worklo
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -609,13 +622,13 @@ You can change the DBMS settings for the hosts in your cluster.
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-mg }} cluster update --help
         ```
 
-    1. Run the following command with the list of settings to update:
+    1. Run the following command with the list of settings you want to update:
 
         ```bash
         {{ yc-mdb-mg }} cluster update <cluster_ID_or_name> \
@@ -653,11 +666,12 @@ You can change the DBMS settings for the hosts in your cluster.
 
     You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
       
-       Learn how to create this file in [Creating a cluster](cluster-create.md).
+       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To change the backup start time, add a `backup_window_start` section to the {{ mmg-name }} cluster description under `cluster_config`:
   
@@ -684,7 +698,7 @@ You can change the DBMS settings for the hosts in your cluster.
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
           ...
-          deletion_protection = <protect_cluster_from_deletion>
+          deletion_protection = <protect_cluster_against_deletion>
         }
         ```
 
@@ -703,6 +717,7 @@ You can change the DBMS settings for the hosts in your cluster.
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -735,8 +750,8 @@ You can change the DBMS settings for the hosts in your cluster.
             "day": "<day_of_week>",
             "hour": "<hour>"
           }
-        },
-        "deletionProtection": <protect_cluster_from_deletion>
+        },    
+        "deletionProtection": <protect_cluster_against_deletion>
       }
       ```
     
@@ -829,7 +844,7 @@ You can change the DBMS settings for the hosts in your cluster.
             "hour": "<hour>"
           }
         },
-        "deletion_protection": <protect_cluster_from_deletion>
+        "deletion_protection": <protect_cluster_against_deletion>
       }
       ```
 
@@ -912,7 +927,7 @@ You can change the DBMS settings for the hosts in your cluster.
         {{ yc-mdb-mg }} cluster move --help
         ```
 
-    1. Specify the destination folder in the command for moving a cluster:
+    1. Specify the destination folder in the cluster move command:
 
         ```bash
         {{ yc-mdb-mg }} cluster move <cluster_name_or_ID> \
@@ -921,13 +936,14 @@ You can change the DBMS settings for the hosts in your cluster.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](./cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](./cluster-create.md).
 
-    1. In the {{ mmg-name }} cluster description, edit the `folder_id` value. If the argument does not exist, add it:
+    1. In the {{ mmg-name }} cluster description, edit or add the `folder_id` parameter value:
 
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
@@ -947,6 +963,7 @@ You can change the DBMS settings for the hosts in your cluster.
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -1026,13 +1043,13 @@ You can change the DBMS settings for the hosts in your cluster.
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-mg }} cluster update --help
         ```
 
-    1. Specify the required security groups in the cluster update command:
+    1. Specify the security groups in the cluster update command:
 
         ```bash
         {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
@@ -1043,7 +1060,7 @@ You can change the DBMS settings for the hosts in your cluster.
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
       
-       Learn how to create this file in [Creating a cluster](cluster-create.md).
+       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `security_group_ids` parameter in the {{ mmg-name }} cluster description:
   
@@ -1066,6 +1083,7 @@ You can change the DBMS settings for the hosts in your cluster.
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

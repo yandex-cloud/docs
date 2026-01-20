@@ -838,7 +838,7 @@ Optional:
 * `read` - abort query execution, return an error.
 * `pread` - abort query execution, return an error.
 * `pread_threadpool` - stop query execution, return partial result. If the parameter is set to 0 (default), no hops is allowed.
-- `log_processors_profiles` (Boolean) Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table. Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table.
+- `log_processors_profiles` (Boolean) Enabled or disable logging of processors level profiling data to the the system.processors_profile_log table. Enabled or disable logging of processors level profiling data to the the system.processors_profile_log table.
 
 - `log_queries_probability` (Number) Log queries with the specified probability. Log queries with the specified probability.
 

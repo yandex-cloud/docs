@@ -65,6 +65,9 @@ Contains functions used to establish the degree of similarity and distance betwe
 || [gp_internal_tools]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-managing-monitor.html#creating-the-session_level_memory_consumption-view)
 Contains various internal utilities for {{ GP }}.
 | 1.0.0 ||
+|| [gp_relsizes_stats](https://github.com/open-gpdb/gp_relsizes_stats)
+Collects file and table size statistics. For more information, see [Using gp_relsizes_stats](./gp-relsizes-stats.md).
+| 1.0 ||
 || [gp_url_tools](https://github.com/open-gpdb/gp_url_tools)
 Contains functions for working with URLs. For more information, see [Using `gp_url_tools`](./gp-url-tools.md).
 | 1.0 ||

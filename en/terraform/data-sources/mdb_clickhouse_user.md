@@ -204,7 +204,7 @@ Optional:
 
 - `local_filesystem_read_method` (String) Method of reading data from local filesystem. Possible values:
 
-- `log_processors_profiles` (Boolean) Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table. Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table.
+- `log_processors_profiles` (Boolean) Enabled or disable logging of processors level profiling data to the the system.processors_profile_log table. Enabled or disable logging of processors level profiling data to the the system.processors_profile_log table.
 
 - `log_queries_probability` (Number) Log queries with the specified probability. Log queries with the specified probability.
 

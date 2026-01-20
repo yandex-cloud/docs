@@ -113,7 +113,7 @@ There are no restrictions for non-sharded clusters.
   
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
        * [Cloud network](../../vpc/concepts/network.md#network) for cluster deployment.
-       * Security groups for the cluster network traffic. You may need to [set up security groups](connect/index.md#configuring-security-groups) to be able to connect to the cluster.
+       * Security groups for the cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able connect to the cluster.
 
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, configure the hosts:
@@ -197,14 +197,19 @@ There are no restrictions for non-sharded clusters.
         --resource-preset <host_class> \
         --disk-size <storage_size_in_GB> \
         --disk-size-autoscaling disk-size-limit=<maximum_storage_size_in_GB>,`
-                                `planned-usage-threshold=<scheduled_increase_percentage>,`
-                                `emergency-usage-threshold=<immediate_increase_percentage> \
+                                `planned-usage-threshold=<scheduled_expansion_percentage>,`
+                                `emergency-usage-threshold=<immediate_expansion_percentage> \
         --disk-type-id <network-ssd|network-ssd-nonreplicated|local-ssd> \
         --password=<user_password> \
         --backup-window-start <time> \
         --disk-encryption-key-id <KMS_key_ID> \
         --deletion-protection \
-        --announce-hostnames <using_FQDNs_instead_of_IP_addresses>
+        --announce-hostnames <using_FQDNs_instead_of_IP_addresses> \
+        --valkey-modules enable-valkey-search=<enable_Valkey-Search_module>,`
+                         `valkey-search-reader-threads=<number_of_request_processing_threads>,`
+                         `valkey-search-writer-threads=<number_of_indexing_threads>,`
+                         `enable-valkey-json=<enable_Valkey-JSON_module>,`
+                         `enable-valkey-bloom=<enable_Valkey-Bloom_module>
       ```
 
 
@@ -245,6 +250,15 @@ There are no restrictions for non-sharded clusters.
       * `--announce-hostnames`: [Use of FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
+
+      * `--valkey-modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
+         * `enable-valkey-search`: Enable the `Valkey-Search` module, `true` or `false`.
+         * `valkey-search-reader-threads`: Number of request processing threads in the `Valkey-Search` module.
+         * `valkey-search-writer-threads`: Number of indexing threads in the `Valkey-Search` module.
+         * `enable-valkey-json`: Enable the `Valkey-JSON` module, `true` or `false`.
+         * `enable-valkey-bloom`: Enable the `Valkey-Bloom` module, `true` or `false`.
+
+         {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
 
       You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
 
@@ -290,8 +304,8 @@ There are no restrictions for non-sharded clusters.
          persistence_mode    = "<persistence_mode>"
 
          disk_size_autoscaling {
-           planned_usage_threshold   = "<scheduled_increase_percentage>"
-           emergency_usage_threshold = "<immediate_increase_percentage>"
+           planned_usage_threshold   = "<scheduled_expansion_percentage>"
+           emergency_usage_threshold = "<immediate_expansion_percentage>"
            disk_size_limit           = "<maximum_storage_size_in_GiB>"
          }
 
@@ -406,15 +420,28 @@ There are no restrictions for non-sharded clusters.
               "diskTypeId": "<disk_type>"
             },
             "diskSizeAutoscaling": {
-              "plannedUsageThreshold": "<scheduled_increase_percentage>",
-              "emergencyUsageThreshold": "<immediate_increase_percentage>",
+              "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+              "emergencyUsageThreshold": "<immediate_expansion_percentage>",
               "diskSizeLimit": "<maximum_storage_size_in_bytes>"
             },
             "access": {
               "webSql": <access_from_{{ websql-name }}>
             },
             "redis": {
-              "password": "<user_password>"
+              "password": "<user_password>."
+            },
+            "modules": {
+              "valkeySearch": {
+                "enabled": "<enable_Valkey-Search_module>",
+                "readerThreads": "<number_of_request_processing_threads>",
+                "writerThreads": "<number_of_indexing_threads>"
+              },
+              "valkeyJson": {
+                "enabled": "<enable_Valkey-JSON_module>"
+              },
+              "valkeyBloom": {
+                "enabled": "<enable_Valkey-Bloom_module>"
+              }
             }
           },
           "hostSpecs": [
@@ -469,11 +496,21 @@ There are no restrictions for non-sharded clusters.
 
             * `redis.password`: User password.
 
+            * `modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
+
+               * `valkeySearch.enabled`: Enable the `Valkey-Search` module, `true` or `false`. What you can set up for the module:
+                   * `valkeySearch.readerThreads`: Number of request processing threads.
+                   * `valkeySearch.writerThreads`: Number of indexing threads.
+               * `valkeyJson.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
+               * `valkeyBloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
+
+               {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
+
         * `hostSpecs`: Host settings:
 
             * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
-            * `shardName`: Shard name for the host. This setting only applies when `pathType` is set to `Exact`.
+            * `shardName`: Shard name for the host. This setting only applies when `sharded` is set to `true`.
             * `replicaPriority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
             * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if `tlsEnabled` is set to `true`.
 
@@ -550,15 +587,28 @@ There are no restrictions for non-sharded clusters.
               "disk_type_id": "<disk_type>"
             },
             "disk_size_autoscaling": {
-              "planned_usage_threshold": "<scheduled_increase_percentage>",
-              "emergency_usage_threshold": "<immediate_increase_percentage>",
+              "planned_usage_threshold": "<scheduled_expansion_percentage>",
+              "emergency_usage_threshold": "<immediate_expansion_percentage>",
               "disk_size_limit": "<maximum_storage_size_in_bytes>"
             },
             "access": {
               "web_sql": <access_from_{{ websql-name }}>
             },
             "redis": {
-              "password": "<user_password>"
+              "password": "<user_password>."
+            },
+            "modules": {
+              "valkey_search": {
+                "enabled": "<enable_Valkey-Search_module>",
+                "reader_threads": "<number_of_request_processing_threads>",
+                "writer_threads": "<number_of_indexing_threads>"
+              },
+              "valkey_json": {
+                "enabled": "<enable_Valkey-JSON_module>"
+              },
+              "valkey_bloom": {
+                "enabled": "<enable_Valkey-Bloom_module>"
+              }
             }
           },
           "host_specs": [
@@ -593,7 +643,7 @@ There are no restrictions for non-sharded clusters.
 
         Where:
 
-        * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
         * `config_spec`: Cluster settings:
@@ -613,11 +663,21 @@ There are no restrictions for non-sharded clusters.
 
             * `redis.password`: User password.
 
+            * `modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
+
+               * `valkey_search.enabled`: Enable the `Valkey-Search` module, `true` or `false`. What you can set up for the module:
+                   * `valkey_search.reader_threads`: Number of request processing threads.
+                   * `valkey_search.writer_threads`: Number of indexing threads.
+               * `valkey_json.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
+               * `valkey_bloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
+
+               {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
+
         * `host_specs`: Host settings:
 
             * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
-            * `shard_name`: Shard name for the host. Only used if the `sharded` parameter is set to `true`.
+            * `shard_name`: Shard name for the host. This setting only applies when `sharded` is set to `true`.
             * `replica_priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
             * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if `tls_enabled` is set to `true`.
 
@@ -654,7 +714,7 @@ There are no restrictions for non-sharded clusters.
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
 
         * `persistence_mode`: [Data persistence mode](../concepts/replication.md#persistence).
-        
+
             {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
     1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
@@ -711,7 +771,7 @@ To create a {{ VLK }} cluster copy:
         export REDIS_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-valkey/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../managed-valkey/operations/cluster-list.md#list-clusters).
 
     1. Import the original {{ VLK }} cluster settings to the {{ TF }} configuration:
 
@@ -734,7 +794,7 @@ To create a {{ VLK }} cluster copy:
         * Add the `password` parameter to the `config` section.
         * If you have `notify_keyspace_events = "\"\""` in the `config` section, delete this parameter.
         * If `sharded = false`, delete the `shard_name` parameters from the `host` sections.
-        * If you have `type = "ANYTIME"` in the `maintenance_window` section, delete the `hour` argument.
+        * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` setting.
         * Optionally, make further changes if you need a customized configuration.
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
@@ -820,7 +880,7 @@ To create a {{ VLK }} cluster copy:
     * Password: `user1user1`.
     * Deletion protection: Enabled.
 
-  The configuration file for this cluster looks like this:
+  The configuration file for this cluster is as follows:
 
   
   ```hcl
@@ -935,7 +995,7 @@ To create a {{ VLK }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
   * Password: `user1user1`.
 
-  The configuration file for this cluster looks like this:
+  The configuration file for this cluster is as follows:
 
   
   ```hcl
@@ -1018,7 +1078,7 @@ To create a {{ VLK }} cluster copy:
     * Password: `user1user1`.
     * Deletion protection: Enabled.
 
-    The configuration file for this cluster looks like this:
+    The configuration file for this cluster is as follows:
 
     
     ```hcl
