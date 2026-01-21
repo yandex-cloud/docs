@@ -46,8 +46,6 @@ editable: false
 
 ## Примеры расчета стоимости {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Стоимость использования {{ search-api-name }} для инициированных поисковых запросов через [API v2](./concepts/index.md#api-v2) со следующими параметрами:
 
 * **Количество синхронных запросов в дневное время, отправленных за месяц**: 250 000.

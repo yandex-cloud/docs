@@ -54,7 +54,7 @@ keywords:
 1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
 1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.common.create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
-1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ maf-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
+1. Дождитесь, когда кластер будет готов к работе: его статус сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время. Чтобы проверить состояние, наведите курсор на статус кластера в столбце **{{ ui-key.yacloud.common.availability }}**.
 
 ## Откройте веб-интерфейс {{ AF }} {#web-gui}
 

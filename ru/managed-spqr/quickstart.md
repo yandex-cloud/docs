@@ -1,6 +1,13 @@
 ---
 title: Начало работы с {{ mspqr-full-name }}
 description: В этой инструкции вы научитесь создавать кластер {{ SPQR }} и подключаться к нему.
+keywords:
+  - keyword: первый кластер {{ mspqr-name }}
+  - keyword: как создать шардированный кластер для PostgreSQL
+  - keyword: SPQR
+  - keyword: шардирование в PostgreSQL
+  - keyword: шардированный PostgreSQL
+  - keyword: шард PostgreSQL
 ---
 
 # Как начать работать с {{ mspqr-name }}
