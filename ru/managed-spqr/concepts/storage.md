@@ -1,6 +1,9 @@
 ---
 title: Хранилище в {{ mspqr-full-name }}
 description: Из статьи вы узнаете, что такое хранилище в {{ mspqr-name }}, и ознакомитесь с особенностями выбора типа дисков при создании кластера.
+keywords:
+  - keyword: Хранилище в {{ mspqr-full-name }}
+  - keyword: Диски в {{ mspqr-full-name }}
 ---
 
 # Хранилище в {{ mspqr-full-name }}

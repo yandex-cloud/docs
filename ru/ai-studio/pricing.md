@@ -61,8 +61,6 @@ editable: false
 
 {#example-generating}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 {% cut "Пример расчета стоимости работы модели в синхронном режиме" %}
 
 > Параметры запроса:
@@ -194,8 +192,6 @@ _{{ price-per-hour-count-per-second }}_
 
 {#price-example-embedding}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 {% cut "Пример расчета стоимости векторизации текста" %}
 
 > Стоимость векторизации текста в 2000 токенов составит:
@@ -289,8 +285,6 @@ _{{ price-per-hour-count-per-second }}_
 
 
 {#price-example-voice-assistant}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 {% cut "Пример расчета стоимости использования голосового агента" %}
 

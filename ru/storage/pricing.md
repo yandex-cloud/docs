@@ -75,8 +75,6 @@ editable: false
 
 ## Примеры расчета стоимости {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 ### Хранение данных {#prices-storage}
 
 #### Стандартное хранилище {#standard-storage}
@@ -182,8 +180,6 @@ editable: false
 
 
 ## Примеры сравнения стоимости использования классов хранилищ {#comparison-examples}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 **Пример 1**
 

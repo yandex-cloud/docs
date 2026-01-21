@@ -27,6 +27,18 @@ Syntax:
 |`--bruteforce-window`|<b>`duration`</b><br/>Time window for counting failed authentication attempts.|
 |`--bruteforce-block`|<b>`duration`</b><br/>Duration of the block after too many failed attempts.|
 |`--bruteforce-attempts`|<b>`int`</b><br/>Number of failed attempts allowed within the window before blocking.|
+|`--password-allow-similar`|Whether passwords similar to previous ones are allowed.|
+|`--password-max-length`|<b>`int`</b><br/>Maximum password length. Zero means no maximum length is enforced.|
+|`--password-match-length`|<b>`int`</b><br/>Minimum length of substrings to check for similarity to vulnerable sequences.|
+|`--password-fixed-lowers-required`|Whether lowercase letters are required in passwords (fixed policy).|
+|`--password-fixed-uppers-required`|Whether uppercase letters are required in passwords (fixed policy).|
+|`--password-fixed-digits-required`|Whether digits are required in passwords (fixed policy).|
+|`--password-fixed-specials-required`|Whether special characters are required in passwords (fixed policy).|
+|`--password-fixed-min-length`|<b>`int`</b><br/>Minimum password length (fixed policy).|
+|`--password-smart-one-class`|<b>`int`</b><br/>Minimum length for passwords with one character class (smart policy).|
+|`--password-smart-two-classes`|<b>`int`</b><br/>Minimum length for passwords with two character classes (smart policy).|
+|`--password-smart-three-classes`|<b>`int`</b><br/>Minimum length for passwords with three character classes (smart policy).|
+|`--password-smart-four-classes`|<b>`int`</b><br/>Minimum length for passwords with four character classes (smart policy).|
 
 #### Global Flags
 

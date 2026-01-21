@@ -1,6 +1,11 @@
 ---
 title: Взаимосвязь ресурсов сервиса {{ mspqr-full-name }}
 description: '{{ SPQR }} — система для горизонтального масштабирования {{ PG }} через шардирование. Кластер {{ SPQR }} состоит из шардов, роутера и координатора.'
+keywords:
+  - keyword: SPQR
+  - keyword: шардирование в PostgreSQL
+  - keyword: шардированный PostgreSQL
+  - keyword: шард PostgreSQL
 ---
 
 # Взаимосвязь ресурсов в {{ mspqr-full-name }}

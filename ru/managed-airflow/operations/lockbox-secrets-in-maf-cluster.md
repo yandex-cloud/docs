@@ -41,14 +41,6 @@ description: 'При работе с {{ maf-full-name }} вы можете ис�
 
    {% endnote %}
 
-1. Выдайте своему сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
-
-   {% note info }
-
-   Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет {{ lockbox-name }}](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
-
-   {% endnote %}
-
 ## Создайте секрет {{ lockbox-full-name }} {#create-lockbox-secret}
 
 {% include [lockbox-description](../../_includes/mdb/maf/lockbox-description.md) %}
