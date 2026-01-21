@@ -1,6 +1,9 @@
 ---
 title: Инструкции по работе с {{ mspqr-name }}
 description: Из статьи вы узнаете, как работать с {{ mspqr-name }} в {{ yandex-cloud }}.
+keywords:
+  - keyword: работа с кластером {{ SPQR }}
+  - keyword: '{{ SPQR }}'
 ---
 
 # Пошаговые инструкции для {{ mspqr-name }}

@@ -53,8 +53,6 @@ editable: false
 
 ### Пример расчета стоимости инстанса {#example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Стоимость использования инстанса со следующими параметрами в течение 30 дней:
 
 * **Тип инстанса**: `s2.micro` (2 vCPU Intel Cascade Lake, 8 ГБ RAM).

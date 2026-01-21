@@ -141,7 +141,7 @@
      Где:
 
      * `--environment` — окружение кластера: `prestable` или `production`.
-     * `--version` — версия {{ KF }}: {{ versions.cli.str }}. Дополнительно передайте [конфигурацию хостов {{ ZK }}](../concepts/index.md#zookeeper).
+     * `--version` — версия {{ KF }}: {{ versions.cli.zookeeper }}. Дополнительно передайте [конфигурацию хостов {{ ZK }}](../concepts/index.md#zookeeper).
      * `--schema-registry` — управление схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
@@ -251,7 +251,7 @@
      Где:
 
      * `environment` — окружение кластера: `PRESTABLE` или `PRODUCTION`.
-     * `version` — версия {{ KF }}: {{ versions.tf.str }}. Дополнительно передайте [конфигурацию хостов {{ ZK }}](../concepts/index.md#zookeeper).
+     * `version` — версия {{ KF }}: {{ versions.tf.zookeeper }}. Дополнительно передайте [конфигурацию хостов {{ ZK }}](../concepts/index.md#zookeeper).
      * `zones` и `brokers_count` — зоны доступности и число хостов-брокеров в каждой зоне.
      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -417,7 +417,7 @@
 
             * `configSpec` — конфигурация кластера:
 
-                * `version` — версия {{ KF }}: {{ versions.cli.str }}. Дополнительно передайте [конфигурацию хостов {{ ZK }}](../concepts/index.md#zookeeper).
+                * `version` — версия {{ KF }}: {{ versions.cli.zookeeper }}. Дополнительно передайте [конфигурацию хостов {{ ZK }}](../concepts/index.md#zookeeper).
                 * `kafka` — конфигурация {{ KF }}:
 
                     * `resources.resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
@@ -612,7 +612,7 @@
 
             * `config_spec` — конфигурация кластера:
 
-                * `version` — версия {{ KF }}: {{ versions.cli.str }}. Дополнительно передайте [конфигурацию хостов {{ ZK }}](../concepts/index.md#zookeeper).
+                * `version` — версия {{ KF }}: {{ versions.cli.zookeeper }}. Дополнительно передайте [конфигурацию хостов {{ ZK }}](../concepts/index.md#zookeeper).
                 * `kafka` — конфигурация {{ KF }}:
 
                     * `resources.resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью вызова [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md).

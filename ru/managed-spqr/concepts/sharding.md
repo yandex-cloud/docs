@@ -1,6 +1,11 @@
 ---
 title: Шардирование в {{ mspqr-name }}
 description: Сервис {{ mspqr-name }} позволяет организовать горизонтальное масштабирование данных {{ PG }} с помощью шардирования.
+keywords:
+  - keyword: SPQR
+  - keyword: шардирование в PostgreSQL
+  - keyword: шардированный PostgreSQL
+  - keyword: шард PostgreSQL
 ---
 
 # Шардирование в {{ mspqr-name }}

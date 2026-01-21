@@ -41,8 +41,6 @@ editable: false
 
 ## Примеры расчета стоимости {#examples}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Все примеры ниже приведены без учета уровня бесплатного потребления.
 
 

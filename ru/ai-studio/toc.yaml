@@ -41,6 +41,8 @@ items:
         href: concepts/agents/index.md
       - name: Голосовые агенты
         href: concepts/agents/realtime.md
+      - name: Текстовые агенты
+        href: concepts/agents/text-agents.md
       - name: '{{ assistant-api }}'
         hidden: true
         items:

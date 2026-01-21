@@ -2,13 +2,16 @@ default:
   api: show
   versions:
     tf:
-      latest: '3.9'
-      str: 3.5, 3.6, 3.7, 3.8 или 3.9
-      str-without-latest: 3.5, 3.6, 3.7 или 3.8
+      latest: '4.0'
+      str: 3.6, 3.7, 3.8, 3.9 или 4.0
+      str-without-latest: 3.6, 3.7, 3.8 или 3.9
+      zookeeper: 3.6, 3.7, 3.8 или 3.9
     cli:
-      latest: '3.9'
-      str: 3.5, 3.6, 3.7, 3.8 или 3.9
-      str-without-latest: 3.5, 3.6, 3.7 или 3.8
+      latest: '4.0'
+      str: 3.6, 3.7, 3.8, 3.9 или 4.0
+      str-without-latest: 3.6, 3.7, 3.8 или 3.9
+      zookeeper: 3.6, 3.7, 3.8 или 3.9
     console:
-      latest: '3.9'
-      str: 3.5, 3.6, 3.7, 3.8 или 3.9
+      latest: '4.0'
+      str: 3.6, 3.7, 3.8, 3.9 или 4.0
+      zookeeper: 3.6, 3.7, 3.8 или 3.9
