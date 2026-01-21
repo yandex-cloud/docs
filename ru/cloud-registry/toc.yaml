@@ -67,6 +67,8 @@ items:
         href: concepts/index.md
       - name: Реестр
         href: concepts/registry.md
+      - name: Политики жизненного цикла
+        href: concepts/lifecycle-policy.md
       - name: Артефакты
         items:
           - name: Обзор
