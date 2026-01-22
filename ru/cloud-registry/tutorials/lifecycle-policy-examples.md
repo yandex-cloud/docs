@@ -158,6 +158,6 @@ yc cloud-registry registry lifecycle-policy create \
 
 #### См. также {#see-also}
 
-* [{#T}](../operations/lifecycle-policy/create.md) — создание политики жизненного цикла
-* [{#T}](../concepts/lifecycle-policy.md) — концепции политик жизненного цикла
-* [{#T}](../concepts/registry.md) — работа с реестрами
+* [{#T}](../operations/lifecycle-policy/create.md)
+* [{#T}](../concepts/lifecycle-policy.md)
+* [{#T}](../concepts/registry.md)

@@ -84,13 +84,6 @@ description: Следуя данной инструкции, вы сможете
        modified_by: bfb7vsfljr3jq6s25o12
        ```
 
-    1. (Опционально) Проверьте, что политика создалась, получив список политик реестра:
-
-       ```bash
-       yc cloud-registry registry lifecycle-policy list \
-         --registry-id <идентификатор_реестра>
-       ```
-
 - API {#api}
 
     Чтобы создать политику жизненного цикла, воспользуйтесь методом REST API [Create](../../api-ref/LifecyclePolicy/create.md) для ресурса [LifecyclePolicy](../../api-ref/LifecyclePolicy/index.md) или вызовом gRPC API [LifecyclePolicyService/Create](../../api-ref/grpc/LifecyclePolicy/create.md).
@@ -99,6 +92,6 @@ description: Следуя данной инструкции, вы сможете
 
 #### См. также {#see-also}
 
-* [{#T}](../../tutorials/lifecycle-policy-examples.md) — примеры политик жизненного цикла
-* [{#T}](../../concepts/lifecycle-policy.md) — концепции политик жизненного цикла
+* [{#T}](../../tutorials/lifecycle-policy-examples.md)
+* [{#T}](../../concepts/lifecycle-policy.md)
 
