@@ -32,7 +32,7 @@ description: '{{ ai-studio-full-name }} — это платформа {{ yandex-
 
 {{ ai-studio-name }} предоставляет REST API, совместимые с {{ openai }}:
 * {{ responses-api }} — для создания текстовых агентов; 
-* {{ realtime-api }} — для голосовы агентов;
+* {{ realtime-api }} — для голосовых агентов;
 * Files API и {{ vector-store-name }} API — для загрузки файлов и поиска по по ним. 
 
 {{ openai }}-совместимые API поддерживают интеграцию с популярными фреймворками LangChain и LangGraph.
