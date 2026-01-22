@@ -11,7 +11,8 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
 
 - Management console {#console}
 
-    1. On the [resource folder]({{ link-console-main }}) page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [resource folder]({{ link-console-main }}) page.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
 
@@ -28,7 +29,7 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
         --cluster-id <cluster_ID>
     ```
 
-    You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
 
     Result:
 
@@ -42,7 +43,7 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -55,19 +56,19 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
             --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>/catalogs'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Catalog/list.md#yandex.cloud.trino.v1.ListCatalogsResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/Catalog/list.md#yandex.cloud.trino.v1.ListCatalogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [CatalogService.List](../api-ref/grpc/Catalog/list.md) call and run the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [CatalogService.List](../api-ref/grpc/Catalog/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -83,9 +84,9 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
             yandex.cloud.trino.v1.CatalogService.List
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Catalog/list.md#yandex.cloud.trino.v1.ListCatalogsResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Catalog/list.md#yandex.cloud.trino.v1.ListCatalogsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -95,7 +96,8 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
 
 - Management console {#console}
 
-    1. On the [resource folder]({{ link-console-main }}) page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [resource folder]({{ link-console-main }}) page.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
     1. Click the {{ TR }} catalog name.
@@ -115,7 +117,7 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
 
     You can get the {{ TR }} catalog ID and name together with the [list of {{ TR }} catalogs in the cluster](#list-catalogs.md).
 
-    You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
 
     Result:
 
@@ -132,7 +134,7 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -147,17 +149,17 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
-    1. View the [server response](../api-ref/Catalog/get.md#yandex.cloud.trino.v1.Catalog) to make sure the request was successful.
+    1. View the [server response](../api-ref/Catalog/get.md#yandex.cloud.trino.v1.Catalog) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [CatalogService.Get](../api-ref/grpc/Catalog/get.md) call and run the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [CatalogService.Get](../api-ref/grpc/Catalog/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -176,6 +178,6 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
-    1. View the [server response](../api-ref/grpc/Catalog/get.md#yandex.cloud.trino.v1.Catalog) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Catalog/get.md#yandex.cloud.trino.v1.Catalog) to make sure your request was successful.
 
 {% endlist %}

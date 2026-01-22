@@ -2,9 +2,9 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI {#cli}
 
@@ -12,21 +12,21 @@
 
   {% include [default-catalogue](../../default-catalogue.md) %}
 
-  To get a list of cluster hosts, run the command:
+  To get a list of cluster hosts, run this command:
 
   ```bash
   {{ yc-mdb-kf }} cluster list-hosts <cluster_name_or_ID>
   ```
 
-  You can request the cluster ID and name with a [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../../managed-kafka/api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../../managed-kafka/api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.listHosts](../../../managed-kafka/api-ref/Cluster/listHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.listHosts](../../../managed-kafka/api-ref/Cluster/listHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -35,19 +35,19 @@
             --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/hosts'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
 
-    1. View the [server response](../../../managed-kafka/api-ref/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure the request was successful.
+    1. Check the [server response](../../../managed-kafka/api-ref/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../../managed-kafka/api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../../managed-kafka/api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/ListHosts](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService/ListHosts](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -63,8 +63,8 @@
             yandex.cloud.mdb.kafka.v1.ClusterService.ListHosts
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
 
-    1. View the [server response](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure the request was successful.
+    1. Check the [server response](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 {% endlist %}

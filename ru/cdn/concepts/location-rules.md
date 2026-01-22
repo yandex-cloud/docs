@@ -5,8 +5,6 @@ description: В данном разделе описана функционал�
 
 # Локационные правила {{ cdn-full-name }}
 
-{% include [location-rules-disclaimer](../../_includes/cdn/location-rules-disclaimer.md) %}
-
 {% include [location-rules-description](../../_includes/cdn/location-rules-description.md) %}
 
 С помощью локационных правил вы можете переопределить следующие настройки CDN-ресурса:
@@ -40,7 +38,6 @@ description: В данном разделе описана функционал�
 ## См. также {#see-also}
 
 * [{#T}](./resource.md)
-* [{#T}](./providers.md)
 * [{#T}](./caching.md)
 * [{#T}](./http-rewrite.md)
 * [{#T}](./secure-tokens.md)

@@ -97,7 +97,8 @@
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} и {{ mkf-name }} — идентификатор хоста в кластере.
    * {{ message-queue-name }} — идентификатор запроса.
    * {{ sf-name }} — идентификатор функции.
-   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} и {{ vision-short-name }} — пустое значение.
+   * {{ monitoring-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} и {{ vision-short-name }} — пустое значение.
+   * {{ datalens-short-name }} — идентификатор экземпляра {{ datalens-short-name }}.
    * Техническая поддержка — идентификатор подписки.
 * `service_id` — идентификатор сервиса, которому принадлежит потребленный продукт.
 * `service_name` — имя сервиса, которому принадлежит потребленный продукт.

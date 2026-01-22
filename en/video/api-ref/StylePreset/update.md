@@ -118,7 +118,6 @@ apiPlayground:
           description: |-
             **enum** (WidgetLocation)
             Playlist widget location.
-            - `WIDGET_LOCATION_UNSPECIFIED`: The widget location is not specified.
             - `RIGHT`: Position the widget to the right of the player.
             - `BOTTOM`: Position the widget below the player.
           type: string
@@ -310,7 +309,6 @@ Acceptable values are 0 to 50, inclusive. ||
 
 Playlist widget location.
 
-- `WIDGET_LOCATION_UNSPECIFIED`: The widget location is not specified.
 - `RIGHT`: Position the widget to the right of the player.
 - `BOTTOM`: Position the widget below the player. ||
 || rightWidgets[] | **[Widget](#yandex.cloud.video.v1.Widget)**
@@ -555,7 +553,6 @@ Spacing between playlist items in pixels. ||
 
 Position of the playlist widget relative to the player.
 
-- `WIDGET_LOCATION_UNSPECIFIED`: The widget location is not specified.
 - `RIGHT`: Position the widget to the right of the player.
 - `BOTTOM`: Position the widget below the player. ||
 || rightWidgets[] | **[Widget](#yandex.cloud.video.v1.Widget2)**

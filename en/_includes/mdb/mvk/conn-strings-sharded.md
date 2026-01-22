@@ -8,12 +8,12 @@
 
     **Connecting directly to the master host**:
 
-    Specify the FQDN of the master host in the desired shard:
+    Specify the FQDN of the master host in the target shard:
 
     ```bash
     redis-cli \
         -c \
-        -h <FQDN_of_master_host_in_required_shard> \
+        -h <FQDN_of_master_host_in_target_shard> \
         -a <password>
     ```
 
@@ -23,12 +23,12 @@
 
     **Connecting directly to the master host**:
 
-    Specify the FQDN of the master host in the desired shard:
+    Specify the FQDN of the master host in the target shard:
 
     ```bash
     redis-cli \
         -c \
-        -h <FQDN_of_master_host_in_required_shard> \
+        -h <FQDN_of_master_host_in_target_shard> \
         -a <password> \
         -p {{ port-mrd-tls }} \
         --tls \
@@ -39,14 +39,14 @@
 
 {% include [see-fqdn](../../../_includes/mdb/mvk/fqdn-host.md) %}
 
-When you are connected to the cluster, run the commands:
+Once connected to the cluster, run these commands:
 
 ```bash
 SET foo bar
 GET foo
 ```
 
-If the `GET` request returns `nil`, it means that the entry for the `foo` key has been moved to a different shard. Connect to it and repeat the request: it will return `bar`.
+If the `GET` request returns `nil`, it means that the `foo` key has been moved to a different shard. Connect to that shard and repeat the request: it will return `bar`.
 
 ### C# {#csharp}
 
@@ -234,7 +234,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 ### Go {#go}
 
-**Before connecting, install the following dependencies**:
+**Before connecting, install the required dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes golang git && \

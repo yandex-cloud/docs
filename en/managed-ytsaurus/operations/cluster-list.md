@@ -40,11 +40,11 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.list](../api-ref/Cluster/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.List](../api-ref/Cluster/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -60,13 +60,13 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.List](../api-ref/grpc/Cluster/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.List](../api-ref/grpc/Cluster/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -84,7 +84,7 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
 
         You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-    1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.ytsaurus.v1.ListClustersResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.ytsaurus.v1.ListClustersResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -114,11 +114,11 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Get](../api-ref/Cluster/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Get](../api-ref/Cluster/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -129,17 +129,17 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
 
         You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.ytsaurus.v1.Cluster) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.ytsaurus.v1.Cluster) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -163,7 +163,7 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
 
 ## Viewing cluster operations {#list-operations}
 
-All actions with {{ ytsaurus-name }} clusters are logged as a list of operations. Each operation gets a unique ID.
+All actions with {{ ytsaurus-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -173,13 +173,13 @@ All actions with {{ ytsaurus-name }} clusters are logged as a list of operations
 
     To get a list of operations for a {{ ytsaurus-name }} cluster:
 
-    1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
+    1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
     1. Select the cluster you need.
     1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-       You will see a list of operations with the this cluster.
+       You will see the list of operations with this cluster.
 
 
 {% endlist %}
@@ -223,7 +223,7 @@ All actions with {{ ytsaurus-name }} clusters are logged as a list of operations
 
     - REST API {#api}
 
-        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -236,17 +236,17 @@ All actions with {{ ytsaurus-name }} clusters are logged as a list of operations
                 --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
             ```
 
-        1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. View the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     - gRPC API {#grpc-api}
 
-        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
         1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-        1. Use the [OperationService.Get](../api-ref/grpc/Operation/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [OperationService.Get](../api-ref/grpc/Operation/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -262,7 +262,7 @@ All actions with {{ ytsaurus-name }} clusters are logged as a list of operations
                 yandex.cloud.operation.OperationService.Get
             ```
 
-        1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. View the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     {% endlist %}
 

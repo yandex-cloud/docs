@@ -8,7 +8,7 @@ description: Follow this guide to create a {{ msp-full-name }} cluster and run j
 To get started:
 
 * [Get your cloud ready](#prepare-cloud).
-* [Set up your infrastructure](#prepare-infrastructure).
+* [Prepare the infrastructure](#prepare-infrastructure).
 * [Create a cluster](#cluster-create).
 * [Prepare a PySpark job](#prepare-task).
 * [Run the job in the cluster](#run-task).
@@ -34,7 +34,7 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
-## Set up the infrastructure {#prepare-infrastructure}
+## Set up your infrastructure {#prepare-infrastructure}
 
 1. [Create a service account](../iam/operations/sa/create.md#create-sa) and assign the following roles to it:
 
@@ -46,7 +46,7 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
 1. Grant the service account access to the {{ objstorage-name }} that will be storing your code and data for cluster-specific jobs:
 
    1. In the [management console]({{ link-console-main }}), select the folder you need.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Open the bucket you [created earlier](#create-s3-bucket).
       1. Navigate to **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
       1. Click ![image](../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
@@ -64,7 +64,7 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
 - Management console
 
   1. In the management console, select the folder where you want to create a cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Give the cluster a name.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the [previously created](#before-you-begin) service account.
@@ -78,7 +78,7 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
      1. Select **{{ ui-key.yacloud.logging.label_minlevel }}**: **INFO**.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Wait until the cluster is ready for use, i.e., its status on the {{ msp-full-name }} dashboard switches to **Running** and its state, to **Alive**. This may take some time.
+  1. Wait until the cluster is ready: its status on the {{ msp-full-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.
 
 {% endlist %}
 
@@ -91,7 +91,7 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
 ## Run your PySpark job {#run-task}
 
 1. In the [management console]({{ link-console-main }}), open the cluster you created earlier.
-1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
 1. Click **{{ ui-key.yacloud.spark.jobs.create_action }}**.
 1. Select the **Job type**: **{{ ui-key.yacloud.dataproc.jobs.field_pyspark-job-type }}**.
 1. In the **Main python file** field, specify the path to `pi.py` in the following format: `s3a://<Object_Storage_bucket_name>/<file_name>`.

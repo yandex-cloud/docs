@@ -26,16 +26,22 @@ Retrieves the list of backups available for the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to list backups in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListBackupsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListBackupsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) returned by the previous list request. ||
+[ListBackupsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListBackupsResponse {#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse}
@@ -107,7 +113,6 @@ Size of backup in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || journal_size | **int64**

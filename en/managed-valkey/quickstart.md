@@ -21,7 +21,7 @@ To get started:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account to be able to create a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -31,15 +31,15 @@ To get started:
 
     * **{{ ui-key.yacloud.compute.instances.create.section_image }}**: `Ubuntu 24.04` from {{ marketplace-short-name }}.
     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-    * **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}**: Leave the field empty.
+    * **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}**: Leave this field empty.
 
         The VM will be assigned [the default security group](../vpc/concepts/security-groups.md) with the `default-sg` prefix. This security group enables SSH connections to the VM and allows any outgoing traffic.
 
-    Set the other parameters as you need.
+    Configure the other settings as needed.
 
-1. [Create a security group](../vpc/operations/security-group-create.md) in the same network as the VM. This security group will be assigned to the {{ VLK }} cluster when creating it.
+1. [Create a security group](../vpc/operations/security-group-create.md) in the same network as the VM. This security group will be assigned to the new {{ VLK }} cluster.
 
-    In the security group, add a [rule](./operations/connect/index.md#configuring-security-groups) that allows connections to a [non-sharded {{ VLK }} cluster](./concepts/sharding.md). Configuire the rule to allow incoming traffic from the default security group assigned to the VM.
+    In the security group, add a [rule](./operations/connect/index.md#configuring-security-groups) to allow [non-sharded {{ VLK }} cluster](./concepts/sharding.md) connections. Configure the rule to allow incoming traffic from the default security group assigned to the VM.
 
 
 ## Create a cluster {#cluster-create}
@@ -53,7 +53,7 @@ To create a cluster:
 1. In the management console, select the folder where you want to create a {{ VLK }} cluster.
 1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Specify the following cluster parameters:
+1. Specify the following cluster settings:
 
     * **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -74,14 +74,14 @@ To create a cluster:
         {% include [requirements-to-password](../_includes/mdb/mvk/requirements-to-password.md) %}
 
 1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
-1. Wait until the cluster is ready: its status on the {{ mrd-name }} dashboard will switch to **Running** and its state, to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mrd-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.
 
-For more information about creating a cluster, see [{#T}](./operations/cluster-create.md).
+To learn more about creating a cluster, see [this guide](./operations/cluster-create.md).
 
 
 ## Connect to the cluster {#connect}
 
-1. [Use](../compute/operations/vm-connect/ssh.md) SSH to [connect to the previously created VM](#before-you-begin).
+1. [Connect](../compute/operations/vm-connect/ssh.md) over SSH to the [virtual machine you created earlier](#before-you-begin).
 
 1. Install `redis-cli`:
 

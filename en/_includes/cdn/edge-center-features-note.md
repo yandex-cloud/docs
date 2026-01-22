@@ -1,1 +1,0 @@
-For a CDN resource with the EdgeCDN provider, you can configure advanced settings. For a complete description of its features, see the CDN provider's [API documentation](https://apidocs.edgecenter.ru/cdn). To enable additional options, [request]({{ link-console-support }}) access to them from technical support.

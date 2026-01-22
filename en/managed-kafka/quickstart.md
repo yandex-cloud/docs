@@ -1,5 +1,5 @@
 ---
-title: How to get started with {{ mkf-full-name }}
+title: Getting started with {{ mkf-full-name }}
 description: Follow this guide to set up and configure an {{ KF }} cluster.
 ---
 
@@ -24,7 +24,7 @@ To get started:
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
-1. You can connect to an {{ KF }} cluster from both inside and outside {{ yandex-cloud }}:
+1. You can access a {{ KF }} cluster both from within the {{ yandex-cloud }} infrastructure and from external networks:
 
    * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based VM in the same network as the cluster.
 
@@ -44,17 +44,17 @@ To get started:
    sudo apt-get install kafkacat
    ```
 
-   Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../managed-kafka/operations/connect/clients.md#bash-zsh).
+   Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 
 ## Create a cluster {#cluster-create}
 
 To create a cluster:
 1. In the management console, select the folder where you want to create a cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Specify your cluster settings and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take some time.
+1. Configure your cluster and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
+1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take a while.
 
 Then create a topic in the cluster.
 
@@ -64,7 +64,7 @@ A [topic](concepts/topics.md) is a way to group message streams into categories.
 
 To create a topic:
 1. In the management console, select the folder where the cluster is located.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click the name of the cluster you created and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
 1. Specify the topic settings and click **{{ ui-key.yacloud.common.create }}**. This process is described in detail in [{#T}](operations/cluster-topics.md).
@@ -79,7 +79,7 @@ User settings let you manage [producer and consumer](concepts/producers-consumer
 
 To create a user:
 1. In the management console, select the folder where the cluster is located.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click the name of the cluster you created and select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
 1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 1. Enter a username and password (from 8 to 128 characters).
@@ -96,7 +96,7 @@ You can connect the producer and consumer to the cluster on behalf of one user. 
 To connect to your cluster:
 
 
-1. If you are using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+1. If using security groups for your cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to allow all relevant traffic between the cluster and the connecting host.
 
 
 1. Install an SSL certificate on the VM:
@@ -123,5 +123,5 @@ For more information about connecting to a {{ mkf-name }} cluster, see [Connecti
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](concepts/index.md).
+* Read about the [service concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a cluster](operations/connect/index.md).

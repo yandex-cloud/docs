@@ -16,11 +16,11 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
     1. Select **{{ ui-key.yacloud.kafka.label_filter_origin }}**, **{{ ui-key.yacloud.mdb.cluster.logs.label_hosts }}**, and **{{ ui-key.yacloud.mdb.cluster.logs.label_severity }}**.
-    1. Specify the time period for which you want to display the log.
+    1. Specify a time period for the log entries you want to view.
 
 - CLI {#cli}
 
@@ -28,13 +28,13 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View the description of the CLI command to view cluster logs:
+    1. See the description of the CLI command for viewing cluster logs:
 
         ```bash
         {{ yc-mdb-kf }} cluster list-logs --help
         ```
 
-    1. Run the following command to get cluster logs (our example does not contain a complete list of available parameters):
+    1. Run the following command to get cluster logs (our example only shows some of the available parameters):
 
         ```bash
         {{ yc-mdb-kf }} cluster list-logs <cluster_name_or_ID> \
@@ -58,29 +58,29 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.listLogs](../api-ref/Cluster/listLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.listLogs](../api-ref/Cluster/listLogs.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>:logs' \
-            --url-query columnFilter=<list_of_data_columns> \
+            --url-query columnFilter=<list_of_output_data_columns> \
             --url-query fromTime=<time_range_left_boundary> \
             --url-query toTime=<time_range_right_boundary>
         ```
 
         Where:
 
-        * `columnFilter`: List of data columns:
+        * `columnFilter`: List of output data columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -88,23 +88,23 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
 
         {% include [from-time-rest](../../_includes/mdb/api/from-time-rest.md) %}
 
-        * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
+        * `toTime`: End of the time range in the same format as `fromTime`.
 
         
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
-    1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -115,7 +115,7 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
                     "cluster_id": "<cluster_ID>",
-                    "column_filter": [<list_of_data_columns>],
+                    "column_filter": [<list_of_output_data_columns>],
                     "from_time": "<time_range_left_boundary>" \
                     "to_time": "<time_range_right_boundary>"
                 }' \
@@ -125,8 +125,8 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
 
         Where:
 
-        * `service_type`: Type of the service to request logs for. The only valid value is `CLICKHOUSE`.
-        * `column_filter`: List of data columns:
+        * `service_type`: Type of service to request logs for. The only valid value is `CLICKHOUSE`.
+        * `column_filter`: List of output data columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -134,13 +134,13 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
 
         {% include [from-time-grpc](../../_includes/mdb/api/from-time-grpc.md) %}
 
-        * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
+        * `to_time`: End of the time range in the same format as `from_time`.
 
         
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
-    1. View the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -156,28 +156,28 @@ This method allows you to get cluster logs in real time.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To view cluster logs as they become available, run this command:
+    To view cluster logs in real time, run this command:
 
     ```bash
     {{ yc-mdb-kf }} cluster list-logs <cluster_name_or_ID> --follow
     ```
 
-    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>:stream_logs' \
-            --url-query columnFilter=<list_of_data_columns> \
+            --url-query columnFilter=<list_of_output_data_columns> \
             --url-query fromTime=<time_range_left_boundary> \
             --url-query toTime=<time_range_right_boundary> \
             --url-query filter=<log_filter>
@@ -185,7 +185,7 @@ This method allows you to get cluster logs in real time.
 
         Where:
 
-        * `columnFilter`: List of data columns:
+        * `columnFilter`: List of output data columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -193,7 +193,7 @@ This method allows you to get cluster logs in real time.
 
         {% include [from-time-rest](../../_includes/mdb/api/from-time-rest.md) %}
 
-        * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
+        * `toTime`: End of the time range in the same format as `fromTime`.
 
             {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
 
@@ -204,20 +204,20 @@ This method allows you to get cluster logs in real time.
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
         
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
-    1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.kafka.v1.StreamLogRecord) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.kafka.v1.StreamLogRecord) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -228,7 +228,7 @@ This method allows you to get cluster logs in real time.
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
                     "cluster_id": "<cluster_ID>",
-                    "column_filter": [<list_of_data_columns>],
+                    "column_filter": [<list_of_output_data_columns>],
                     "from_time": "<time_range_left_boundary>",
                     "to_time": "<time_range_right_boundary>",
                     "filter": "<log_filter>"
@@ -239,7 +239,7 @@ This method allows you to get cluster logs in real time.
 
         Where:
 
-        * `column_filter`: List of data columns:
+        * `column_filter`: List of output data columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -247,7 +247,7 @@ This method allows you to get cluster logs in real time.
 
         {% include [from-time-grpc](../../_includes/mdb/api/from-time-grpc.md) %}
 
-        * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
+        * `to_time`: End of the time range in the same format as `from_time`.
 
             {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
 
@@ -258,9 +258,9 @@ This method allows you to get cluster logs in real time.
             For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
         
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
-    1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.kafka.v1.StreamLogRecord) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.kafka.v1.StreamLogRecord) to make sure your request was successful.
 
 {% endlist %}

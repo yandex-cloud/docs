@@ -54,7 +54,7 @@ The maximum string length in characters is 300. ||
 
 New description for the video.
 
-The maximum string length in characters is 4000. ||
+The maximum string length in characters is 5000. ||
 || thumbnail_id | **string**
 
 New thumbnail ID for the video.
@@ -65,7 +65,6 @@ The maximum string length in characters is 50. ||
 New auto-transcoding setting for the video.
 Controls whether transcoding starts automatically after upload.
 
-- `AUTO_TRANSCODE_UNSPECIFIED`: The auto-transcoding setting is not specified.
 - `ENABLE`: Automatically start transcoding after the video upload is complete.
 - `DISABLE`: Do not automatically transcode; requires manual initiation via the Transcode() method. ||
 || style_preset_id | **string**
@@ -268,7 +267,6 @@ Identifier of the thumbnail image used to represent the video visually. ||
 
 Current processing status of the video.
 
-- `VIDEO_STATUS_UNSPECIFIED`: The video status is not specified.
 - `WAIT_UPLOADING`: The video upload is in progress, waiting for all bytes to be received.
 - `UPLOADED`: The video has been fully uploaded and is ready for transcoding.
 - `PROCESSING`: The video is currently being processed.
@@ -281,7 +279,6 @@ Error message describing the reason for video processing failure, if any. ||
 
 Current visibility status controlling whether the video is publicly available.
 
-- `VISIBILITY_STATUS_UNSPECIFIED`: The visibility status is not specified.
 - `PUBLISHED`: The video is publicly available, subject to its access permission settings.
 - `UNPUBLISHED`: The video is available only to administrators. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -294,7 +291,6 @@ Auto-transcoding setting that controls the video processing workflow.
 Set ENABLE to automatically initiate transcoding after upload,
 or DISABLE for manual initiation via the Transcode() method.
 
-- `AUTO_TRANSCODE_UNSPECIFIED`: The auto-transcoding setting is not specified.
 - `ENABLE`: Automatically start transcoding after the video upload is complete.
 - `DISABLE`: Do not automatically transcode; requires manual initiation via the Transcode() method. ||
 || style_preset_id | **string**
@@ -368,7 +364,6 @@ Contains the results of video summarization.
 
 Current status of the summarization process.
 
-- `FEATURE_RESULT_UNSPECIFIED`: The feature result status is not specified.
 - `NOT_REQUESTED`: The feature processing has not been requested.
 - `PROCESSING`: The feature is currently being processed.
 - `SUCCESS`: The feature processing has completed successfully.

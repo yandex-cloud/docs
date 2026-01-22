@@ -42,7 +42,7 @@ apiPlayground:
             **string**
             New description for the playlist.
             Optional field that can provide additional information about the playlist.
-            The maximum string length in characters is 4000.
+            The maximum string length in characters is 5000.
           type: string
         items:
           description: |-
@@ -163,7 +163,7 @@ The maximum string length in characters is 300. ||
 New description for the playlist.
 Optional field that can provide additional information about the playlist.
 
-The maximum string length in characters is 4000. ||
+The maximum string length in characters is 5000. ||
 || items[] | **[PlaylistItem](#yandex.cloud.video.v1.PlaylistItem)**
 
 New list of items to include in the playlist.

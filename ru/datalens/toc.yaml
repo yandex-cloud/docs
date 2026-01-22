@@ -978,6 +978,66 @@ items:
             href: pricing-old.md
           - name: Тарифные планы до 1 декабря 2025
             href: concepts/service-plans-comparison.md
+  - name: '{{ datalens-name }} Public API'
+    items:
+      - name: Как пользоваться Public API
+        href: operations/api-start.md
+      - name: '{{ datalens-name }} API (англ.)'
+        items:
+          - name: Overview
+            href: openapi-ref/index.md
+          - name: getConnection
+            href: openapi-ref/getConnection.md
+          - name: createConnection
+            href: openapi-ref/createConnection.md
+          - name: updateConnection
+            href: openapi-ref/updateConnection.md
+          - name: deleteConnection
+            href: openapi-ref/deleteConnection.md
+          - name: getDashboard
+            href: openapi-ref/getDashboard.md
+          - name: createDashboard
+            href: openapi-ref/createDashboard.md
+          - name: updateDashboard
+            href: openapi-ref/updateDashboard.md
+          - name: deleteDashboard
+            href: openapi-ref/deleteDashboard.md
+          - name: getDataset
+            href: openapi-ref/getDataset.md
+          - name: createDataset
+            href: openapi-ref/createDataset.md
+          - name: updateDataset
+            href: openapi-ref/updateDataset.md
+          - name: deleteDataset
+            href: openapi-ref/deleteDataset.md
+          - name: validateDataset
+            href: openapi-ref/validateDataset.md
+          - name: getEntriesRelations
+            href: openapi-ref/getEntriesRelations.md
+          - name: getEntries
+            href: openapi-ref/getEntries.md
+          - name: getQLChart
+            href: openapi-ref/getQlChart.md
+          - name: deleteQLChart
+            href: openapi-ref/deleteQlChart.md
+          - name: getWizardChart
+            href: openapi-ref/getWizardChart.md
+          - name: deleteWizardChart
+            href: openapi-ref/deleteWizardChart.md
+          - name: getEditorChart
+            href: openapi-ref/getEditorChart.md
+          - name: deleteEditorChart
+            href: openapi-ref/deleteEditorChart.md
+          - name: createEditorChart
+            href: openapi-ref/createEditorChart.md
+          - name: updateEditorChart
+            href: openapi-ref/updateEditorChart.md
+          - name: getEntriesPermissions
+            href: openapi-ref/getEntriesPermissions.md
+          - name: getAuditEntriesUpdates
+            href: openapi-ref/getAuditEntriesUpdates.md
+          - name: listDirectory
+            href: openapi-ref/listDirectory.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

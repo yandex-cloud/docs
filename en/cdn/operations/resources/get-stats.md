@@ -9,7 +9,7 @@ description: Follow this guide to view the CDN resource statistics.
 
 On average, {{ cdn-short-name }} metrics are updated every three minutes.
 
-For a full list of metrics, see [this reference](../../metrics.md).
+For a full list of metrics, see [this reference](../../metrics-yc.md).
 
 ## Viewing overall statistics on the CDN resource page {#cdn-ui}
 

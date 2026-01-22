@@ -16,10 +16,8 @@ items:
         href: operations/ri-create.md
       - name: Updating parameters of a routing instance
         href: operations/ri-update.md
-      - name: Updating the list of IP prefixes in a routing instance
+      - name: Managing networks and IP prefixes in a routing instance
         href: operations/ri-prefixes-upsert.md
-      - name: Deleting IP prefixes from a routing instance
-        href: operations/ri-prefixes-remove.md
       - name: Adding a private connection to a routing instance
         href: operations/ri-priv-con-add.md
       - name: Deleting a private connection from a routing instance
@@ -37,7 +35,7 @@ items:
         href: operations/cr-cic-ops.md
       - name: Terminology
         href: concepts/terms.md
-      - name: Routing instance
+      - name: Routing Instance
         href: concepts/routing-instance.md
       - name: IP prefix announcements
         href: concepts/announces.md

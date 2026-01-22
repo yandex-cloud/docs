@@ -6,8 +6,6 @@ You can configure the access policy when [creating](../operations/resources/crea
 
 The IP-based access policy is defined by the [policy type](#policy-type) and the [list of IP addresses](#ip-list) to exclude from the policy.
 
-For more information about IP-based access policies, see the EdgeCenter [CDN provider documentation](https://support.edgecenter.ru/knowledge_base/item/257918?sid=57227).
-
 ## Policy type {#policy-type}
 
 You can set up an _allow_ or _block_ policy for a resource.

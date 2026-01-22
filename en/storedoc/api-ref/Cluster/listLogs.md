@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the MongoDB cluster to request logs for.
             To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -30,7 +31,6 @@ apiPlayground:
           description: |-
             **enum** (ServiceType)
             Type of the service to request logs about.
-            - `SERVICE_TYPE_UNSPECIFIED`
             - `MONGOD`: Logs of MongoDB activity.
             - `MONGOS`
             - `MONGOCFG`
@@ -71,6 +71,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Acceptable values are 0 to 1000, inclusive. Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -79,6 +80,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -104,7 +106,9 @@ GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:logs
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to request logs for.
-To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request. ||
+To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.mongodb.v1.ListClusterLogsRequest}
@@ -119,7 +123,6 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `MONGOD`: Logs of MongoDB activity.
 - `MONGOS`
 - `MONGOCFG`
@@ -149,11 +152,15 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) returned by the previous list request. ||
+[ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse}

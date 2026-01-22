@@ -7,13 +7,6 @@ description: A {{ cdn-name }} point of presence is the physical location of CDN 
 
 _Points of presence_, or PoPs, are geographically distributed physical CDN servers that cache and deliver content to end users. They reside in strategic geographic locations with efficient access to communication links, enabling content delivery via the shortest route with minimal latency.
 
-The number and location of PoPs depend on the [provider](providers.md) in use:
-
-* [{{ cdn-full-name }}](#yc)
-* [EdgeCDN](#edge)
-
-## {{ cdn-full-name }} {#yc}
-
 {{ cdn-full-name }} provides access to 38 points of presence with a total throughput exceeding 3 Tbps.
 
 {% note info %}
@@ -34,7 +27,7 @@ PoP server performance also shapes the overall content delivery speed. Stable de
 
 {{ cdn-full-name }} uses state-of-the-art hardware to provide reliable and highly efficient performance for each PoP.
 
-### List of cities with PoPs {#yc-pop-list}
+## List of cities with PoPs {#yc-pop-list}
 
 Cities with at least one PoP:
 
@@ -58,7 +51,7 @@ Cities with at least one PoP:
 | Chelyabinsk | | |
 | Chita | | |
 
-### FAQ {#qa}
+## FAQ {#qa}
 
 {% cut "What if my city does not host a PoP?" %}
 
@@ -86,12 +79,7 @@ To reduce the number of networks sending requests to the origin, [enable](../ope
 
 {% endcut %}
 
-## EdgeCDN {#edge}
-
-The current list of EdgeCDN PoPs is available on the [official EdgeCenter website](https://edgecenter.ru/en/cdn#map).
-
 #### See also {#see-also}
 
-* [{#T}](./providers.md)
 * [{#T}](./resource.md)
 * [{#T}](./origins.md)

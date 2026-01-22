@@ -1,9 +1,9 @@
 ---
-title: '{{ VLK }} cluster and host status monitoring'
+title: Monitoring the state of a {{ VLK }} cluster and its hosts
 description: You can monitor the state of a {{ mrd-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts.
 ---
 
-# {{ VLK }} cluster and host status monitoring
+# Monitoring the state of a {{ VLK }} cluster and its hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -52,7 +52,7 @@ To view detailed information on the state of a {{ mrd-name }} cluster:
   * **Connected Clients**: Number of open connections for each cluster host.
 
       If the cluster is [sharded](../concepts/sharding.md) or uses [replication](../concepts/replication.md), some of the connections will be used for inter-host communication within the cluster.
-      If you encounter errors when connecting to the cluster, inactive applications may be keeping connections open for too long. If this is the case, [update the {{ VLK }}](../operations/update.md#change-valkey-config) settings by editing the [Timeout](../concepts/settings-list.md#settings-timeout) value.
+      If you encounter errors when connecting to the cluster, inactive applications may be keeping connections open for too long. If this is the case, [update the {{ VLK }} settings](../operations/update.md#change-valkey-config) by editing the [Timeout](../concepts/settings-list.md#settings-timeout) value.
 
   * **Copy-on-write allocation**: Memory consumption by {{ VLK }} processes when using [COW (copy-on-write)](https://en.wikipedia.org/wiki/Copy-on-write), in bytes.
 
@@ -68,7 +68,7 @@ To view detailed information on the state of a {{ mrd-name }} cluster:
 
   * **Evicted keys**: Number of keys deleted from memory when inserting new data.
 
-      By default, {{ VLK }} applies the **noeviction** memory policy, which prevents key deletion and returns an error if memory is too low to insert new data. To use a different memory management policy, adjust the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value in the [{{ VLK }}](./update.md#change-valkey-config) settings.
+      By default, {{ VLK }} applies the **noeviction** memory policy, which prevents key deletion and returns an error if memory is too low to insert new data. To use a different memory management policy, adjust the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value in the [{{ VLK }} settings](./update.md#change-valkey-config).
 
   * **Inner memory limit**: Amount of RAM available for {{ VLK }} processes, in bytes:
 
@@ -90,7 +90,7 @@ To view detailed information on the state of a {{ mrd-name }} cluster:
 
       If **used_memory_rss** approaches **memory_limit**, the operating system may forcibly terminate the relevant {{ VLK }} process. To avoid this:
       * Change the application logic to reduce the amount of data stored in {{ VLK }}.
-      * Change the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value defining the RAM management policy when low on memory in the [{{ VLK }}](./update.md#change-valkey-config) settings.
+      * Change the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value defining the RAM management policy when low on memory in the [{{ VLK }} settings](./update.md#change-valkey-config).
       * [Upgrade the host to a higher class](./update.md#change-resource-preset).
 
   * **Redis Used Memory on Masters**: RAM usage on master hosts, in bytes:
@@ -100,7 +100,7 @@ To view detailed information on the state of a {{ mrd-name }} cluster:
       * **mem_aof_buffer**: For the [AOF](../concepts/replication.md#setting-appendonly) buffer.
       * **mem_clients_normal**: For handling external client connections.
       * **mem_clients_slaves**: For handling replication connections.
-      * **mem_replication_backlog**: For the replication backlog.
+      * **mem_replication_backlog**: For the replication backlog buffer.
       * **used_memory_startup**: For {{ VLK }} processes at startup, e.g., after restarting a cluster.
       * **used_memory_dataset**: For storing data.
       * **mem_cluster_links**: For network connections in cluster mode.
@@ -121,7 +121,7 @@ To view detailed information on the state of a {{ mrd-name }} cluster:
 
       To reduce the number of terminated processes:
       * Change the application logic to reduce the amount of data stored in {{ VLK }}.
-      * Change the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value defining the RAM management policy when low on RAM in the [{{ VLK }}](./update.md#change-valkey-config) settings.
+      * Change the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value defining the RAM management policy when low on RAM in the [{{ VLK }} settings](./update.md#change-valkey-config).
       * [Upgrade the host to a higher class](./update.md#change-resource-preset).
 
   * **Replication buffer size**: [Replication](../concepts/replication.md#replication) backlog size, in bytes:

@@ -450,7 +450,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.ycprojectblue.example`).
-     1. On the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the generated domain name to the clipboard in `{{ cname-example-yc }}` or `{{ cname-example-edge }}` format, depending on your [CDN provider](../../cdn/concepts/providers.md).
+     1. On the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the generated domain name to the clipboard in `{{ cname-example-yc }}` format.
 
    {% endlist %}
 

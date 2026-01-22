@@ -315,7 +315,7 @@ To set up DNS for a CDN resource:
 
      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. From the list of CDN resources, select the one with `cdn.yandexcloud.example` as its primary domain name.
-     1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `{{ cname-example-yc }}` or `{{ cname-example-edge }}` format depending on your [CDN provider](../../cdn/concepts/providers.md).
+     1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `{{ cname-example-yc }}`.
 
    {% endlist %}
 
@@ -351,7 +351,7 @@ To set up DNS for a CDN resource:
         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn`.
         1. In the **{{ ui-key.yacloud.common.type }}** field, specify `CNAME`.
-        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `{{ cname-example-yc }}.` or `{{ cname-example-edge }}.` format (depending on your [CDN provider](../../cdn/concepts/providers.md)) with a trailing dot.
+        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `{{ cname-example-yc }}.` format with a trailing dot.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {% endlist %}

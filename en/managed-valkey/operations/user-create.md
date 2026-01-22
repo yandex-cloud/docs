@@ -19,13 +19,13 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
   To create a {{ VLK }} user:
 
-  1. View the description of the CLI command to create s user:
+  1. See the description of the CLI command for creating a user:
 
       ```bash
       {{ yc-mdb-rd }} user create --help
       ```
   
-  1. To create a user, run the command below. Note that some flags are omitted:
+  1. Run this command to create a user (our example lists only some flags):
 
       ```bash
       {{ yc-mdb-rd }} user create <username> \
@@ -35,7 +35,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
         --raw="<permissions>" \
         --categories="<permissions_for_command_categories>" \
         --commands="<permissions_for_commands>" \
-        --patterns="<permissions_for_key_templates>" \
+        --patterns="<permissions_for_key_patterns>" \
         --pub-sub-channels="<permissions_for_channels>" \
         --sanitize-payload=<data_cleanup>
       ```
@@ -46,7 +46,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-      * `--password`: Password. The password must be from 8 to 128 characters long.
+      * `--password`: User password. It must be from 8 to 128 characters long.
       
       * `--disabled`: Disables the user. The default value is `false`.
       
@@ -67,7 +67,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
       
       * `--commands`: String of space-separated permissions for commands.
       
-      * `--patterns`: String of space-separated permissions for key templates.
+      * `--patterns`: String of space-separated permissions for key patterns.
       
       * `--pub-sub-channels`: String of space-separated permissions for Pub/Sub channels.
       
@@ -84,7 +84,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-      For more information about creating this file, see [this guide](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
   1. To create a user, add the `yandex_mdb_redis_user` resource:
   
@@ -98,7 +98,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
         permissions = {
           categories       = "<permissions_for_command_categories>"
           commands         = "<permissions_for_commands>"
-          patterns         = "<permissions_for_key_templates>"
+          patterns         = "<permissions_for_key_patterns>"
           pub_sub_channels = "<permissions_for_channels>"
           sanitize_payload = "<data_cleanup>"
         }
@@ -111,7 +111,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
       
       * `name`: Username.
         
-      * `passwords`: Password. The password must be from 8 to 128 characters long.
+      * `passwords`: User password. It must be from 8 to 128 characters long.
           
         You can specify only one password.
 
@@ -126,7 +126,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
         
         * `commands`: String of space-separated permissions for commands.
         
-        * `patterns`: String of space-separated permissions for key templates.
+        * `patterns`: String of space-separated permissions for key patterns.
           
         * `pub_sub_channels`: String of space-separated permissions for Pub/Sub channels.
           
@@ -139,11 +139,11 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
         For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
   
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -174,7 +174,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
             "<user_password>"
           ],
           "permissions": {
-            "patterns": "<permissions_for_key_templates>",
+            "patterns": "<permissions_for_key_patterns>",
             "pubSubChannels": "<permissions_for_channels>",
             "categories": "<permissions_for_command_categories>",
             "commands": "<permissions_for_commands>",
@@ -185,17 +185,17 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
       }
       ```
 
-      Where `userSpec` represents the user settings:
+      Where `userSpec` stands for the user settings:
       
       * `name`: Username.
 
-      * `passwords`: Password. The password must be from 8 to 128 characters long.
+      * `passwords`: User password. It must be from 8 to 128 characters long.
       
         You can specify only one password.
       
       * `permissions`: User permission settings:
 
-        * `patterns`: String of space-separated permissions for key templates.
+        * `patterns`: String of space-separated permissions for key patterns.
         * `pubSubChannels`: String of space-separated permissions for Pub/Sub channels.
         * `categories`: String of space-separated permissions for command categories.
         * `commands`: String of space-separated permissions for commands.
@@ -213,7 +213,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
         * `true`: User is enabled.
         * `false`: User is disabled. 
 
-  1. Use the [User.Create](../api-ref/User/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.Create](../api-ref/User/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -247,7 +247,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
             "<user_password>"
           ],
           "permissions": {
-            "patterns": "<permissions_for_key_templates>",
+            "patterns": "<permissions_for_key_patterns>",
             "pub_sub_channels": "<permissions_for_channels>",
             "categories": "<permissions_for_command_categories>",
             "commands": "<permissions_for_commands>",
@@ -268,13 +268,13 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
       
         * `name`: Username.
         
-        * `passwords`: Password. The password must be from 8 to 128 characters long.
+        * `passwords`: User password. It must be from 8 to 128 characters long.
           
           You can specify only one password.
       
         * `permissions`: User permission settings:
 
-          * `patterns`: String of space-separated permissions for key templates.
+          * `patterns`: String of space-separated permissions for key patterns.
           
           * `pub_sub_channels`: String of space-separated permissions for Pub/Sub channels.
           
@@ -296,7 +296,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
           * `true`: User is enabled.
           * `false`: User is disabled.
 
-  1. Use the [UserService.Create](../api-ref/grpc/User/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.Create](../api-ref/grpc/User/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -311,6 +311,6 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
         < body.json
         ```
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

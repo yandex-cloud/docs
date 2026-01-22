@@ -36,12 +36,6 @@ description: Следуя данной инструкции, вы сможете
             1. Добавьте другие источники, если необходимо.
             1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. В поле **{{ ui-key.yacloud.cdn.label_origins-group }}** вы увидите название созданной группы источников.
 
-          {% note info %}
-
-          Если CDN-ресурс относится к одному [провайдеру CDN](../../concepts/providers.md), а выбранная существующая группа источников — к другому, будет создан дубликат группы источников под провайдер CDN-ресурса.
-
-          {% endnote %}
-
           Подробнее см. в разделе [{#T}](../../concepts/origins.md).
         * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите протокол для источников.
         * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите основное доменное имя, которое будете использовать в ссылках с сайта на контент, размещенный в CDN. Например: `cdn.example.com`.
@@ -90,12 +84,6 @@ description: Следуя данной инструкции, вы сможете
           [Подробнее о доступе по защищенному токену](enable-secure-token.md)
 
         * {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
-
-        * (опционально) Чтобы задать [провайдера CDN](../../concepts/providers.md), включите опцию **Выбрать провайдера** и укажите предпочитаемый вариант.
-
-          По умолчанию выбран провайдер `{{ cdn-full-name }}`.
-
-          {% include [provider-binding](../../../_includes/cdn/provider-binding.md) %}
 
   1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
   1. (опционально) В разделе **{{ ui-key.yacloud.cdn.label_resource-cache }}**:
@@ -277,8 +265,6 @@ description: Следуя данной инструкции, вы сможете
 {% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}
 
 {% include [note-dns-aname](../../../_includes/cdn/note-dns-aname.md) %}
-
-{% include [edge-center-features-note](../../../_includes/cdn/edge-center-features-note.md) %}
 
 ## Примеры {#examples}
 

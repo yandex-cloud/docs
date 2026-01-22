@@ -6,7 +6,7 @@ description: In this article, you will learn what a storage is in {{ mkf-name }}
 # Storage in {{ mkf-name }}
 
 
-{{ mkf-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).
+{{ mkf-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).
 
 {% include [storage-type-nrd](../../_includes/mdb/mkf/storage-type.md) %}
 
@@ -29,6 +29,28 @@ The number of broker hosts you can create together with an {{ KF }} cluster depe
     * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of broker hosts per cluster, see [Quotas and limits](./limits.md).
+
+
+
+## Disk encryption {#disk-encryption}
+
+When creating a cluster, you can encrypt the storage disk with a [custom KMS key](../../kms/concepts/key.md).
+
+{% note warning %}
+
+Encryption is not available for local disks (`local-hdd` and `local-ssd`).
+
+{% endnote %}
+
+{% include [encryption-role](../../_includes/compute/encryption-role.md) %}
+
+If you deactivate the key used to encrypt a disk, access to the data will be suspended until you reactivate the key.
+
+{% note alert %}
+
+If you delete the key used to encrypt a disk or its [version](../../kms/concepts/version.md), you will irrevocably lose access to your data. For more information, see [this {{ kms-name }} guide](../../kms/concepts/version.md#version-distruct).
+
+{% endnote %}
 
 
 ## Minimum storage size {#minimal-storage-size}
@@ -57,7 +79,7 @@ Thus, the minimum storage size for all topics is: `2 × maximum log segment size
 
 By default, the segment size is 1 GB.
 
-## Disk space management {#manage-storage-space}
+## Managing disk space {#manage-storage-space}
 
 As soon as {{ KF }} logs take up 97% of storage capacity, the host automatically enters read-only mode. The {{ mkf-name }} cluster blocks requests to write to the topic.
 
@@ -70,20 +92,20 @@ You can monitor storage utilization on cluster hosts [by setting up alerts in {{
 Use one of these methods:
 
 * [Increase the storage capacity](../operations/storage-space.md#change-disk-size) to exceed the threshold value. The {{ mkf-name }} cluster will then automatically clear read-only mode.
-* [Set up](../operations/storage-space.md#disk-size-autoscale) automatic increase of storage size.
+* [Configure](../operations/storage-space.md#disk-size-autoscale) automatic storage expansion.
 
-### Automatic increase of storage size {#auto-rescale}
+### Automatic storage expansion {#auto-rescale}
 
 Automatic increase of storage size prevents situations where the disk runs out of free space and the host switches to read-only mode. The storage size increases upon reaching the specified threshold percentage of the total capacity. There are two thresholds:
 
-* Scheduled increase threshold: When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
-* Immediate increase threshold: When reached, the storage size increases immediately.
+* Scheduled expansion threshold: When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
+* Immediate expansion threshold: When reached, the storage size increases immediately.
 
 You can use either one or both thresholds. If you set both, make sure the immediate increase threshold is higher than the scheduled one.
 
 {% include [storage-resize-steps](../../_includes/mdb/mkf/storage-resize-steps.md) %}
 
-You can configure automatic increase of storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
+You can configure automatic storage expansion when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 

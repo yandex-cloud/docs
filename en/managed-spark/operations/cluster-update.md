@@ -17,9 +17,10 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Navigate to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Go to the [folder page]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
        * Edit the cluster name and description.
@@ -54,7 +55,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -74,7 +75,7 @@ After creating a cluster, you can edit its basic and advanced settings.
           name                = "my-spark-cluster"
           folder_id           = "<folder_ID>"
           service_account_id  = "<service_account_ID>"
-          deletion_protection = <protect_cluster_from_deletion>
+          deletion_protection = <protect_cluster_against_deletion>
 
           labels = {
             <label_list>
@@ -126,7 +127,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `description`: Cluster description.
         * `service_account_id`: Service account ID.
-        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+        * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
         * `labels`: List of labels. Provide labels in `<key> = "<value>"` format.
         * `security_group_ids`: List of security group IDs.
         * `driver`: Host configuration to run {{ SPRK }} drivers. In this section, specify:
@@ -142,10 +143,10 @@ After creating a cluster, you can edit its basic and advanced settings.
         * `maintenance_window`: Maintenance window settings (including for disabled clusters). In this section, specify:
 
           * Maintenance type in the `type` parameter. The possible values include:
-            * `ANYTIME`: Any time.
-            * `WEEKLY`: On a schedule.
+            * `ANYTIME`: At any time.
+            * `WEEKLY`: On schedule.
           * Day of week for the `WEEKLY` maintenance type in the `day` parameter, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-          * UTC hour for the `WEEKLY` maintenance type in the `hour` parameter, from `1` to `24`.
+          * UTC hour from `1` to `24` for the `WEEKLY` maintenance type in the `hour` parameter.
 
         * `history_server`: Connecting {{ SPRK }} History Server. To use the service, set the `enabled` parameter to `true`.
 
@@ -163,7 +164,7 @@ After creating a cluster, you can edit its basic and advanced settings.
              * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
              * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -177,7 +178,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -188,7 +189,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         ```json
         {
           "cluster_id": "<cluster_ID>",
-          "update_mask": "<list_of_parameters_to_update>",
+          "update_mask": "<list_of_settings_to_update>",
           "name": "<cluster_name>",
           "description": "<cluster_description>",
           "labels": { <label_list> },
@@ -238,8 +239,8 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         Where:
 
-        * `cluster_id`: Cluster ID. You can get it with the [list of clusters in a folder](cluster-list.md#list-clusters).
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `cluster_id`: Cluster ID. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -264,7 +265,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `name`: Cluster name.
         * `description`: Cluster description.
-        * `labels`: List of labels. Provide labels in `"<key>": "<value>"` format.
+        * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `config_spec`: Cluster configuration:
 
            * `resource_pools`: Resource pool configuration:
@@ -331,20 +332,20 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                * `security_group_ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
 
-           * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are: `true` or `false`.
+           * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
               Even if it is enabled, one can still connect to the cluster manually and delete it.
 
            * `service_account_id`: ID of the service account for access to {{ yandex-cloud }} services. Make sure to assign the `managed-spark.integrationProvider` role to this service account:
 
            * `logging`: Logging parameters:
-               * `enabled`: Enables logging. The possible values are: `true` or `false`. Logs generated by {{ SPRK }} components will be sent to {{ cloud-logging-full-name }}. The possible values are: `true` or `false`.
+               * `enabled`: Enables logging. The possible values are `true` or `false`. Logs generated by {{ SPRK }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
                * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
                * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
                Specify either `folder_id` or `log_group_id`.
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -359,6 +360,6 @@ After creating a cluster, you can edit its basic and advanced settings.
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

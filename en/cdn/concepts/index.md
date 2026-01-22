@@ -24,7 +24,6 @@
 || **Term** | **Description** ||
 || [Resource](./resource.md) | The main entity in the service that allows you to configure and control content distribution from origins over the CDN. ||
 || [Origins and origin groups](./origins.md) | The servers that are origins of content. CDN servers access them to load files. ||
-|| [Providers](./providers.md) | CDN providers. ||
 || [Points of presence](./points-of-presence.md) | Points of presence, or PoPs, are physical locations of CDN servers that cache and deliver content to end users. ||
 || [Exchanging data between clients and the CDN](./clients-to-servers.md) | Receiving client requests by the CDN load balancer and sending response data from CDN servers. ||
 || [TLS certificates](./clients-to-servers-tls.md) | Certificates used for HTTPS connections between clients and the CDN load balancer. ||
@@ -38,11 +37,7 @@
 || [Content caching](./caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or on the client side. ||
 || [Secure tokens](./secure-tokens.md) | Setting up access to files on CDN servers based on time and IP using secure tokens. ||
 || [IP-based access policy](./ip-address-acl.md) | Configuring access to CDN resources using an allow or block policy. ||
-|| [Location rules](./location-rules.md) | It is a mechanism used to selectively redefine CDN resource settings for requests whose paths match specific templates.
-
-{% include [location-rules-disclaimer](../../_includes/cdn/location-rules-disclaimer.md) %}
-
-||
+|| [Location rules](./location-rules.md) | It is a mechanism used to selectively redefine CDN resource settings for requests whose paths match specific templates. ||
 || [Log export](./logs.md) | Exporting CDN and shielding server request logs to object storage. ||
 || [Labels](./labels.md) | CDN resource [labels](../../resource-manager/concepts/labels.md) in `<label_name>: <label_value>` format. ||
 || [Quotas and limits](./limits.md) | Service use restrictions. ||

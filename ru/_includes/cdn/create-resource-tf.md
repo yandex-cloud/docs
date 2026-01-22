@@ -28,12 +28,7 @@ resource "yandex_cdn_resource" "my_resource" {
 * `origin_protocol` — протокол для источников. Значение по умолчанию: `http`. Необязательный параметр.
 * `origin_group_id` — идентификатор [группы источников](../../cdn/concepts/origins.md). Обязательный параметр. Используйте идентификатор из описания группы источников в ресурсе `yandex_cdn_origin_group`.
 * `secondary_hostnames` — дополнительные доменные имена. Необязательный параметр.
-* `provider_type` — [провайдер CDN](../../cdn/concepts/providers.md), должен совпадать с провайдером CDN у группы источников. Необязательный параметр. Возможные значения:
-    * `ourcdn` (значение по умолчанию) — провайдер {{ cdn-full-name }}. 
-    * `gcore` — EdgeCDN-провайдер.
-
-        {% include [provider-binding](provider-binding.md) %}
-
+* `provider_type` — провайдер CDN. Необязательный параметр. Единственное возможное значение: `ourcdn` — провайдер {{ cdn-full-name }}.
 * `ssl_certificate` — параметры SSL-сертификата. Необязательный параметр. Возможные значения:
 
     * `type` — тип сертификата:

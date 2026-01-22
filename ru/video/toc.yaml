@@ -392,6 +392,8 @@ items:
                 href: api-ref/grpc/Video/batchGetPlayerURLs.md
               - name: GetManifests
                 href: api-ref/grpc/Video/getManifests.md
+              - name: GenerateDownloadURL
+                href: api-ref/grpc/Video/generateDownloadURL.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -582,6 +584,8 @@ items:
                 href: api-ref/Video/batchGetPlayerURLs.md
               - name: GetManifests
                 href: api-ref/Video/getManifests.md
+              - name: GenerateDownloadURL
+                href: api-ref/Video/generateDownloadURL.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

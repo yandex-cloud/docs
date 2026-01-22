@@ -27,11 +27,15 @@ Retrieves the list of available ResourcePreset resources.
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListResourcePresetsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListResourcePresetsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsResponse) returned by the previous list request. ||
+[ListResourcePresetsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListResourcePresetsResponse {#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsResponse}

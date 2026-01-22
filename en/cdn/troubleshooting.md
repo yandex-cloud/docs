@@ -79,9 +79,3 @@ ERROR: operation (id=bcdb6qaiw8mb********) failed: rpc error: code = InvalidArgu
 In this case, the CDN cache saves the compressed file, which all clients will receive. Also, it is irrelevant whether their devices support compression or whether they add the `Accept-Encoding: gzip` header to their requests.
 
 To avoid this, [enable file compression](./operations/resources/enable-compression.md). This way, Cloud CDN will always request non-compressed content from the origin, and if the client request has the `Accept-Encoding: gzip` header, it will compress files on its own without sending the header to the origin.
-
-## How to enable WebSocket protocol support {#websocket-support}
-
-You can enable [WebSocket](https://en.wikipedia.org/wiki/WebSocket) protocol support only for the [EdgeCDN provider](./concepts/providers.md) and only for businesses.
-
-To request WebSocket activation, contact [support]({{ link-console-support }}). In your request, describe in detail your planned use of WebSocket, tasks you will be solving, and approximate amount of traffic.

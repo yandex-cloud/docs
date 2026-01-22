@@ -315,7 +315,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. В списке CDN-ресурсов выберите ресурс с основным доменным именем `cdn.yandexcloud.example`.
-     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `{{ cname-example-yc }}` или `{{ cname-example-edge }}` в зависимости от используемого [провайдера CDN](../../cdn/concepts/providers.md).
+     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `{{ cname-example-yc }}`.
 
    {% endlist %}
 
@@ -351,7 +351,7 @@
         1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn`.
         1. В поле **{{ ui-key.yacloud.common.type }}** укажите `CNAME`.
-        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `{{ cname-example-yc }}.` или `{{ cname-example-edge }}.` (в зависимости от используемого [провайдера CDN](../../cdn/concepts/providers.md)) с точкой на конце.
+        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `{{ cname-example-yc }}.` с точкой на конце.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    {% endlist %}

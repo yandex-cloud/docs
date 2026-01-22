@@ -212,7 +212,9 @@ A [software-accelerated network](./concepts/software-accelerated-network.md) in 
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. If the relevant CVoS columns under [Prices for the Russia region](#prices) are blank, this means the resource is not supported. Currently, you cannot order storage or web traffic this way.
+For resources available via CVoS, separate prices are listed in the [Prices for the Russia region](#prices) section, marked with CVoS and the commitment period.
+
+Currently, you cannot order storage or internet traffic this way.
 
 {% endnote %}
 

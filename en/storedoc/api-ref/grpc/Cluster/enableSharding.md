@@ -59,7 +59,9 @@ that would support adding and using shards in the cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to enable sharding for. ||
+Required field. ID of the MongoDB cluster to enable sharding for.
+
+The maximum string length in characters is 50. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoCfg)**
 
 mongocfg specification for sharding. ||
@@ -68,7 +70,9 @@ mongocfg specification for sharding. ||
 mongos specification for sharding. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
 
-Configurations for mongos and mongocfg hosts. ||
+Configurations for mongos and mongocfg hosts.
+
+The number of elements must be greater than 0. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoInfra)**
 
 mongos specification for sharding. ||
@@ -119,12 +123,16 @@ Required field. Resources for mongos hosts. ||
 || zone_id | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.network_id](/docs/managed-mongodb/api-ref/grpc/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field. ||
+The network ID is set in the [Cluster.network_id](/docs/managed-mongodb/api-ref/grpc/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+
+The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
@@ -139,14 +147,15 @@ Possible values:
 
 Type of the host to be deployed.
 
-- `TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.
 - `MONGOD`: A mongod host.
 - `MONGOS`: A mongos host.
 - `MONGOCFG`: A mongocfg host.
 - `MONGOINFRA`: A mongoinfra (mongos+mongocfg) host. ||
 || shard_name | **string**
 
-Name of the shard that the host belongs to. ||
+Name of the shard that the host belongs to.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Is host hidden in replSet ||

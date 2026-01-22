@@ -8,7 +8,7 @@
 
     **Connecting via Sentinel:**
 
-    1. Get the address of the master host by using Sentinel and any {{ VLK }} host:
+    1. Get the master host address by using Sentinel and any {{ VLK }} host:
 
         ```bash
         redis-cli \
@@ -56,7 +56,7 @@
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel:**
+    **Code example for connecting via Sentinel:**
 
     `Program.cs`
 
@@ -320,7 +320,7 @@
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel:**
+    **Code example for connecting via Sentinel:**
 
     `connect.go`
 
@@ -463,7 +463,7 @@
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel:**
+    **Code example for connecting via Sentinel:**
 
     `src/java/com/example/App.java`
 
@@ -584,7 +584,7 @@
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel:**
+    **Code example for connecting via Sentinel:**
 
     `app.js`
 
@@ -704,7 +704,7 @@
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel:**
+    **Code example for connecting via Sentinel:**
 
     `connect.php`
 
@@ -799,7 +799,7 @@
 
 ### Python {#python}
 
-**Before connecting, install the dependencies:**
+**Before connecting, install the required dependencies**:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip && \
@@ -810,7 +810,7 @@ pip3 install redis
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel:**
+    **Code example for connecting via Sentinel:**
 
     `connect.py`
 
@@ -833,7 +833,7 @@ pip3 install redis
     print(slave.get("foo"))
     ```
 
-    **Sample code for connecting without an SSL connection directly to the master host:**
+    **Code example for connecting directly to the master without SSL**:
 
     `connect.py`
 
@@ -883,7 +883,7 @@ pip3 install redis
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel:**
+    **Code example for connecting via Sentinel:**
 
     `connect.rb`
 
@@ -911,7 +911,7 @@ pip3 install redis
     conn.close
     ```
 
-    **Sample code for connecting without an SSL connection directly to the master host:**
+    **Code example for connecting directly to the master without SSL**:
 
     `connect.rb`
 

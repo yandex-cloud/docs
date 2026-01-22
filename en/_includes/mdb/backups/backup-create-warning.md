@@ -1,5 +1,5 @@
 {% note warning %}
 
-While you are creating your backup, the cluster performance might degrade.
+While you are creating a backup, the cluster performance may degrade.
 
 {% endnote %}

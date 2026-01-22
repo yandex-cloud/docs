@@ -67,9 +67,10 @@ Before connecting:
 
 ## WebSQL {#websql}
 
-1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+1. Go to the [folder page]({{ link-console-main }}).
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 1. Open your {{ mtr-name }} cluster.
-1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
+1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
 1. Click **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
 1. In the SQL query editor that opens, run the following query:
 
@@ -127,7 +128,7 @@ Before connecting:
           get_version()
       ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Connecting:
 
@@ -272,7 +273,7 @@ Before connecting:
 
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Building and connecting:
 
@@ -322,7 +323,7 @@ Before connecting:
     get_version();
     ```
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 

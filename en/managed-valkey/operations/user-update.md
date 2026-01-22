@@ -12,7 +12,7 @@ After creating a {{ VLK }} user, you can:
 * [Configure data cleanup](#change-sanitize-payload).
 * [Assign user permissions](#change-permissions).
 
-## Changing the user password {#change-password}
+## Changing a user password {#change-password}
 
 {% list tabs group=instructions %}
 
@@ -22,9 +22,9 @@ After creating a {{ VLK }} user, you can:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change a {{ VLK }} user's password:
+  To change a {{ VLK }} user password:
 
-  1. See the description of the CLI command for updating the user settings:
+  1. See the description of the CLI command for updating user settings:
 
       ```bash
       {{ yc-mdb-rd }} user update --help
@@ -44,7 +44,7 @@ After creating a {{ VLK }} user, you can:
 
         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-      * `--password`: Password. The password must be from 8 to 128 characters long.
+      * `--password`: User password. It must be from 8 to 128 characters long.
       
       You can get the username with the [list of users](user-list.md#list) in the cluster.
 
@@ -52,9 +52,9 @@ After creating a {{ VLK }} user, you can:
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-      For more information about creating this file, see [this guide](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
-  1. Update the `passwords` parameter in the `yandex_mdb_redis_user` resource description:
+  1. Update the `passwords` argument in the `yandex_mdb_redis_user` resource description:
   
       ```hcl
       resource "yandex_mdb_redis_user" "<local_resource_name>" {
@@ -64,15 +64,15 @@ After creating a {{ VLK }} user, you can:
       }
       ```
 
-      Where `passwords` is the user password. The password must be from 8 to 128 characters long.
+      Where `passwords` is the user password. It must be from 8 to 128 characters long.
       
       You can specify only one password.
   
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -97,15 +97,15 @@ After creating a {{ VLK }} user, you can:
 
       Where:
 
-      * `updateMask`: Comma-separated list of parameters to update.
+      * `updateMask`: Comma-separated string of settings you want to update.
 
         {% include [update-mask-note-rest](../../_includes/mdb/mvk/update-mask-note-rest.md) %}
 
-      * `passwords`: Password. The password must be from 8 to 128 characters long.
+      * `passwords`: User password. It must be from 8 to 128 characters long.
       
         You can specify only one password.
 
-  1. Use the [User.Update](../api-ref/User/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.Update](../api-ref/User/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -157,7 +157,7 @@ After creating a {{ VLK }} user, you can:
 
         You can get the username with the [list of users](user-list.md#list) in the cluster.
 
-      * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
+      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
         
         {% cut "Format for listing settings" %}
 
@@ -176,11 +176,11 @@ After creating a {{ VLK }} user, you can:
 
         {% include [update-mask-note-grpc](../../_includes/mdb/mvk/update-mask-note-grpc.md) %}
 
-      * `passwords`: Password. The password must be from 8 to 128 characters long.
+      * `passwords`: User password. It must be from 8 to 128 characters long.
           
         You can specify only one password.  
 
-  1. Use the [UserService.Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -199,7 +199,7 @@ After creating a {{ VLK }} user, you can:
 
 {% endlist %}
 
-## Changing the user status {#change-status}
+## Changing a user status {#change-status}
 
 {% list tabs group=instructions %}
 
@@ -209,9 +209,9 @@ After creating a {{ VLK }} user, you can:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change a {{ VLK }} user’s status:
+  To change a {{ VLK }} user status:
 
-  1. See the description of the CLI command for updating the user settings:
+  1. See the description of the CLI command for updating user settings:
 
       ```bash
       {{ yc-mdb-rd }} user update --help
@@ -242,9 +242,9 @@ After creating a {{ VLK }} user, you can:
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-      For more information about creating this file, see [this guide](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
-  1. Update the `enabled` parameter in the `yandex_mdb_redis_user` resource description:
+  1. Update the `enabled` argument in the `yandex_mdb_redis_user` resource description:
   
       ```hcl
       resource "yandex_mdb_redis_user" "<local_resource_name>" {
@@ -259,11 +259,11 @@ After creating a {{ VLK }} user, you can:
       * `true`: User is enabled.
       * `false`: User is disabled.
   
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -286,7 +286,7 @@ After creating a {{ VLK }} user, you can:
 
       Where:
 
-      * `updateMask`: Comma-separated list of parameters to update.
+      * `updateMask`: Comma-separated string of settings you want to update.
 
         {% include [update-mask-note-rest](../../_includes/mdb/mvk/update-mask-note-rest.md) %}
 
@@ -295,7 +295,7 @@ After creating a {{ VLK }} user, you can:
         * `true`: User is enabled.
         * `false`: User is disabled.
 
-  1. Use the [User.Update](../api-ref/User/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.Update](../api-ref/User/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -345,7 +345,7 @@ After creating a {{ VLK }} user, you can:
 
         You can get the username with the [list of users](user-list.md#list) in the cluster.
 
-      * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
+      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
         
         {% cut "Format for listing settings" %}
 
@@ -369,7 +369,7 @@ After creating a {{ VLK }} user, you can:
           * `true`: User is enabled.
           * `false`: User is disabled.
 
-  1. Use the [UserService.Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -400,7 +400,7 @@ After creating a {{ VLK }} user, you can:
 
   To configure data cleanup:
 
-  1. See the description of the CLI command for updating the user settings:
+  1. See the description of the CLI command for updating user settings:
 
       ```bash
       {{ yc-mdb-rd }} user update --help
@@ -431,9 +431,9 @@ After creating a {{ VLK }} user, you can:
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-      For more information about creating this file, see [this guide](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
-  1. Update the `sanitize_payload` parameter in the `yandex_mdb_redis_user` resource description:
+  1. Update the `sanitize_payload` argument in the `yandex_mdb_redis_user` resource description:
   
       ```hcl
       resource "yandex_mdb_redis_user" "<local_resource_name>" {
@@ -443,16 +443,16 @@ After creating a {{ VLK }} user, you can:
       }
       ```
 
-      Where `--sanitize-payload` represents data cleanup. The possible values are:
+      Where `--sanitize-payload` stands for data cleanup. The possible values are:
           
       * `sanitize-payload`: Data cleanup is enabled. This is the default value.
       * `skip-sanitize-payload`: Data cleanup is disabled.
   
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -477,7 +477,7 @@ After creating a {{ VLK }} user, you can:
 
       Where:
 
-      * `updateMask`: Comma-separated list of parameters to update.
+      * `updateMask`: Comma-separated string of settings you want to update.
 
         {% include [update-mask-note-rest](../../_includes/mdb/mvk/update-mask-note-rest.md) %}
 
@@ -486,7 +486,7 @@ After creating a {{ VLK }} user, you can:
         * `sanitize-payload`: Data cleanup is enabled. This is the default value.
         * `skip-sanitize-payload`: Data cleanup is disabled.
 
-  1. Use the [User.Update](../api-ref/User/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.Update](../api-ref/User/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -538,7 +538,7 @@ After creating a {{ VLK }} user, you can:
 
         You can get the username with the [list of users](user-list.md#list) in the cluster.
 
-      * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
+      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
         
         {% cut "Format for listing settings" %}
 
@@ -562,7 +562,7 @@ After creating a {{ VLK }} user, you can:
         * `sanitize-payload`: Data cleanup is enabled. This is the default value.
         * `skip-sanitize-payload`: Data cleanup is disabled.
           
-  1. Use the [UserService.Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -593,13 +593,13 @@ After creating a {{ VLK }} user, you can:
 
   To assign permissions to a {{ VLK }} user:
 
-  1. See the description of the CLI command for updating the user settings:
+  1. See the description of the CLI command for updating user settings:
 
       ```bash
       {{ yc-mdb-rd }} user update --help
       ```
   
-  1. To assign permissions to a user, run this command:
+  1. Run this command to assign permissions to a user:
 
       ```bash
       {{ yc-mdb-rd }} user update <username> \
@@ -607,7 +607,7 @@ After creating a {{ VLK }} user, you can:
         --raw="<permissions>" \
         --categories="<permissions_for_command_categories>" \
         --commands="<permissions_for_commands>" \
-        --patterns="<permissions_for_key_templates>" \
+        --patterns="<permissions_for_key_patterns>" \
         --pub-sub-channels="<permissions_for_channels>"
       ```
 
@@ -626,7 +626,7 @@ After creating a {{ VLK }} user, you can:
 
         {% note info %}
 
-        The `--raw` flag cannot be used with separate permission flags or with the `--disabled` and `--enabled` flags.
+        The `--raw` flag cannot be used with separate permission flags or with `--disabled` and `--enabled`.
       
         {% endnote %}
         
@@ -634,7 +634,7 @@ After creating a {{ VLK }} user, you can:
       
       * `--commands`: String of space-separated permissions for commands.
       
-      * `--patterns`: String of space-separated permissions for key templates.
+      * `--patterns`: String of space-separated permissions for key patterns.
       
       * `--pub-sub-channels`: String of space-separated permissions for Pub/Sub channels.
 
@@ -648,9 +648,9 @@ After creating a {{ VLK }} user, you can:
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-      For more information about creating this file, see [this guide](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
-  1. Update the parameters under `permissions` in the `yandex_mdb_redis_user` resource description:
+  1. Update the arguments in the `permissions` section of the `yandex_mdb_redis_user` resource description:
   
       ```hcl
       resource "yandex_mdb_redis_user" "<local_resource_name>" {
@@ -658,7 +658,7 @@ After creating a {{ VLK }} user, you can:
         permissions = {
           categories       = "<permissions_for_command_categories>"
           commands         = "<permissions_for_commands>"
-          patterns         = "<permissions_for_key_templates>"
+          patterns         = "<permissions_for_key_patterns>"
           pub_sub_channels = "<permissions_for_channels>"
           ...
         }
@@ -666,13 +666,13 @@ After creating a {{ VLK }} user, you can:
       }
       ```
 
-      Where `permissions` represents the user permission settings:
+      Where `permissions` is the user permission settings:
 
       * `categories`: String of space-separated permissions for command categories.
         
       * `commands`: String of space-separated permissions for commands.
         
-      * `patterns`: String of space-separated permissions for key templates.
+      * `patterns`: String of space-separated permissions for key patterns.
           
       * `pub_sub_channels`: String of space-separated permissions for Pub/Sub channels.
 
@@ -680,11 +680,11 @@ After creating a {{ VLK }} user, you can:
 
       For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
   
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -700,9 +700,9 @@ After creating a {{ VLK }} user, you can:
 
       ```json
       {
-        "updateMask": "<list_of_parameters_to_update>",
+        "updateMask": "<list_of_settings_to_update>",
         "permissions": {
-          "patterns": "<permissions_for_key_templates>",
+          "patterns": "<permissions_for_key_patterns>",
           "pubSubChannels": "<permissions_for_channels>",
           "categories": "<permissions_for_command_categories>",
           "commands": "<permissions_for_commands>"
@@ -712,11 +712,11 @@ After creating a {{ VLK }} user, you can:
 
       Where:
 
-      * `updateMask`: Comma-separated list of parameters to update.
+      * `updateMask`: Comma-separated string of settings you want to update.
 
         {% include [update-mask-note-rest](../../_includes/mdb/mvk/update-mask-note-rest.md) %}
 
-      * `permissions.patterns`: String of space-separated permissions for key templates.
+      * `permissions.patterns`: String of space-separated permissions for key patterns.
 
       * `permissions.pubSubChannels`: String of space-separated permissions for Pub/Sub channels.
       
@@ -728,7 +728,7 @@ After creating a {{ VLK }} user, you can:
 
       For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
 
-  1. Use the [User.Update](../api-ref/User/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.Update](../api-ref/User/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -761,11 +761,11 @@ After creating a {{ VLK }} user, you can:
         "user_name": "<username>",
         "update_mask": {
           "paths": [
-            <list_of_parameters_to_update>
+            <list_of_settings_to_update>
           ]
         },
         "permissions": {
-          "patterns": "<permissions_for_key_templates>",
+          "patterns": "<permissions_for_key_patterns>",
           "pub_sub_channels": "<permissions_for_channels>",
           "categories": "<permissions_for_command_categories>",
           "commands": "<permissions_for_commands>"
@@ -783,7 +783,7 @@ After creating a {{ VLK }} user, you can:
 
         You can get the username with the [list of users](user-list.md#list) in the cluster.
 
-      * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
+      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
         
         {% cut "Format for listing settings" %}
 
@@ -802,7 +802,7 @@ After creating a {{ VLK }} user, you can:
 
         {% include [update-mask-note-grpc](../../_includes/mdb/mvk/update-mask-note-grpc.md) %}
 
-      * `permissions.patterns`: String of space-separated permissions for key templates.
+      * `permissions.patterns`: String of space-separated permissions for key patterns.
           
       * `permissions.pub_sub_channels`: String of space-separated permissions for Pub/Sub channels.
           
@@ -814,7 +814,7 @@ After creating a {{ VLK }} user, you can:
 
       For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
           
-  1. Use the [UserService.Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -829,6 +829,6 @@ After creating a {{ VLK }} user, you can:
         < body.json
         ```
 
-  1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

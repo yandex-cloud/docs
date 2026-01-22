@@ -18,7 +18,7 @@ The applicable {{ sd-name }} pricing depends on the module you are using:
 * [For {{ dspm-name }})](concepts/dspm.md), see [below](#dspm-rules).
 * For [{{ atr-name }}](concepts/access-transparency.md), see [{{ atr-name }}](#atr-rules) below.
 * For [{{ ycdr-full-name }}](concepts/ycdr.md), upon agreement with your account manager.
-* [KSPM](./concepts/kspm.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
+* For [KSPM](./concepts/kspm.md), see [Kubernetes® Security Posture Management (KSPM)](#kspm-rules) below.
 * [{{ cspm-name }}](./concepts/cspm.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
 * [AI assistant](./concepts/ai-assistant.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
 
@@ -37,6 +37,10 @@ If you cancel your {{ atr-name }} subscription in the [management console]({{ li
 ### Data Security Posture Management ({{ dspm-name }}) {#dspm-rules}
 
 When performing [data scan](operations/dspm/create-scan.md), {{ dspm-name }} sends requests to files in {{ objstorage-full-name }} buckets. Such requests are charged as per the [{{ objstorage-name }} pricing policy](../storage/pricing.md). Using {{ dspm-name }} is charged separately.
+
+### Kubernetes® Security Posture Management (KSPM) {#kspm-rules}
+
+The cost of using the {{ k8s }}® Security Posture Management (KSPM) module is calculated monthly based on the number of worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters that are connected for scanning. Payment is made for each KSPM worker node per month.
 
 ## Prices for the Russia region {#prices}
 
@@ -73,3 +77,18 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 {% include [usd-scan-by-amount](../_pricing_examples/security-deck/usd-scan-by-amount.md) %}
 
+
+### Kubernetes® Security Posture Management (KSPM) {#kspm-pricing}
+
+{% note warning %}
+
+These prices apply starting February 2, 2026.
+
+{% endnote %}
+
+
+
+{% include notitle [usd.md](../_pricing/security-deck/kspm/usd.md) %}
+
+
+The monthly price is calculated based on 720 hours per month.

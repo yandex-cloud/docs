@@ -1,6 +1,6 @@
 title: Ready-made solutions for known use cases
 description:
-  - '"Known solutions and tips for optimal use of {{ yandex-cloud }} services."'
+  - Known solutions and tips for optimal use of {{ yandex-cloud }} services.
 links:
   - title: '{{ alb-name }}'
     description: Solutions for {{ alb-name }}

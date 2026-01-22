@@ -66,7 +66,6 @@ URL where the manifest file can be accessed. ||
 
 Format of the manifest file.
 
-- `MANIFEST_TYPE_UNSPECIFIED`: The manifest type is not specified.
 - `DASH`: Dynamic Adaptive Streaming over HTTP (DASH) format.
 @see https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP
 - `HLS`: HTTP Live Streaming (HLS) format.

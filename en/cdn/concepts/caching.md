@@ -65,13 +65,6 @@ Examples of paths:
   * `/image/foo*`: All files in the `/image/` folder with names starting with `foo`.
   * `/static/*`: All files in the `/static/` folder.
 
-- EdgeCDN {#edge}
-
-  * `/image/foobar.png`: An individual file.
-  * `/image/*.jpg`: All files in the `/image` folder with the `.jpg` extension.
-  * `*.jpg`: All files with the `.jpg` extension.
-  * `*/static/*`: All files that have the `/static/` substring in the path.
-
 {% endlist %}
 
 If the file is cached based on the [query parameters](#cookie-and-query) (that is, for each request with new parameters, a separate copy was saved), all copies of the file are deleted by default. To delete only specific copies, you need to explicitly specify their query parameters, e.g., `/image/foo.png?id=12345`.

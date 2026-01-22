@@ -1,6 +1,9 @@
   * **URI**: URI for connection to the {{ metastore-name }} cluster in `thrift://<cluster_IP_address>:9083` format.
 
-    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** in the left-hand panel.
+    To find out the IP address of your {{ metastore-name }} cluster:
+      1. Go to the [resource folder]({{ link-console-main }}) page.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. In the left-hand panel, select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
     {% include [metastore version](metastore-version-catalog-create.md) %}
 

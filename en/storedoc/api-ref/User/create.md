@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the MongoDB cluster to create a user in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -48,12 +49,14 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the MongoDB user.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
             pattern: '[a-zA-Z0-9_]*'
             type: string
           password:
             description: |-
               **string**
               Required field. Password of the MongoDB user.
+              The string length in characters must be 8-128.
             type: string
           permissions:
             description: |-
@@ -85,7 +88,9 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to create a user in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mongodb.v1.CreateUserRequest}
@@ -120,10 +125,14 @@ Properties of the user to be created. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the MongoDB user. ||
+Required field. Name of the MongoDB user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 || password | **string**
 
-Required field. Password of the MongoDB user. ||
+Required field. Password of the MongoDB user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions to grant to the user. ||

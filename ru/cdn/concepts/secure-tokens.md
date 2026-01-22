@@ -10,10 +10,6 @@
 
 Если для CDN-ресурса включен доступ по защищенному токену, контент доступен только по подписанным ссылкам. Чтобы сохранить доступ к части контента по обычным ссылкам, [создайте](../operations/resources/create-resource.md) для этого контента еще один CDN-ресурс с отдельным [источником](./origins.md).
 
-Подробности о защищенном токене см. в документации CDN-провайдера EdgeЦентр:
-* [Secure token. Обзор функции](https://support.edgecenter.ru/knowledge_base/item/268821?sid=57227)
-* [Документация API](https://apidocs.edgecenter.ru/cdn#tag/Resources/operation/change_cdn_resource)
-
 
 ## Подписанная ссылка {#protected-link}
 

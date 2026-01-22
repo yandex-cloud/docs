@@ -6,7 +6,7 @@
     sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
-1. Create a folder for the Maven project:
+1. Create a directory for the Maven project:
 
     ```bash
     cd ~/ && mkdir --parents project/src/java/com/example && cd project/
@@ -94,21 +94,21 @@
 
     {% endcut %}
 
-    Up-to-date versions of dependencies for Maven:
+    Current versions of Maven dependencies:
 
     * [jedis](https://mvnrepository.com/artifact/redis.clients/jedis)
     * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
-1. To connect using SSL:
+1. To connect with SSL:
 
     1. [Get an SSL certificate](../../../../../managed-valkey/operations/connect/index.md#get-ssl-cert).
     1. Create secure storage for certificates:
 
         ```bash
         keytool -importcert \
-            -alias YARootCrt \
-            -file ~/.redis/{{ crt-local-file }} \
-            -keystore ~/.redis/YATrustStore \
-            -storepass <password_of_secure_certificate_storage> \
-            --noprompt && chmod 0655 ~/.redis/YATrustStore
+                -alias YARootCrt \
+                -file ~/.redis/{{ crt-local-file }} \
+                -keystore ~/.redis/YATrustStore \
+                -storepass <secure_store_password> \
+                --noprompt && chmod 0655 ~/.redis/YATrustStore
         ```

@@ -21,9 +21,7 @@ To create an [origin group](../../concepts/origins.md):
      * Specify an origin.
      * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` or `{{ ui-key.yacloud.cdn.value_backup }}`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
      * Add other origins if needed.
-  1. Select the [CDN provider](../../concepts/providers.md). The default provider is `{{ cdn-full-name }}`.
-
-      {% include [provider-binding](../../../_includes/cdn/provider-binding.md) %}
+  1. Select the CDN provider. The default provider is `{{ cdn-full-name }}`.
 
       A CDN resource and its origin group must be associated with the same CDN provider.
   1. Click **{{ ui-key.yacloud.common.create }}**.

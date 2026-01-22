@@ -1,1 +1,1 @@
-Backup storage is not subject to [quotas]({{ link-console-quotas }}) or limits for cluster storage space.
+[Quotas]({{ link-console-quotas }}) and limits for cluster storage do not apply to backup storage.
