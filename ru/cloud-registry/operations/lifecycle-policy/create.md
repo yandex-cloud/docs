@@ -97,3 +97,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+#### См. также {#see-also}
+
+* [{#T}](../../tutorials/lifecycle-policy-examples.md) — примеры политик жизненного цикла
+* [{#T}](../../concepts/lifecycle-policy.md) — концепции политик жизненного цикла
+

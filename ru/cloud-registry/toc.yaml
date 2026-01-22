@@ -63,6 +63,8 @@ items:
           Запуск Docker-образа на виртуальной машине с помощью {{
           cloud-registry-name }}
         href: tutorials/docker-cloud-registry.md
+      - name: Примеры политик жизненного цикла
+        href: tutorials/lifecycle-policy-examples.md
   - name: Концепции
     items:
       - name: Обзор
