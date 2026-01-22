@@ -61,7 +61,7 @@ The list below shows all the roles used for access control in this service.
 
 ## Required roles {#required-roles}
 
-To use the service, the user needs the `managed-ytsaurus.editor` role or higher for the folder in which the cluster is created. The `managed-ytsaurus.viewer` role only allows you to view the list of clusters.
+As a user, you need the `managed-ytsaurus.editor` role or higher for the folder that will contain the new cluster. The `managed-ytsaurus.viewer` role only allows you to view the list of clusters.
 
 To create an {{ myt-name }} cluster, the following roles are required: [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user), [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user), and `managed-ytsaurus.admin` or higher.
 

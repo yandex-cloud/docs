@@ -25,7 +25,8 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [folder page]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, change the cluster's name and description.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -38,7 +39,7 @@ After you create a cluster, you can update its settings:
 
     To change the cluster name and description:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -93,7 +94,7 @@ After you create a cluster, you can update its settings:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -136,7 +137,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -214,7 +215,8 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [folder page]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `managed-trino.integrationProvider` and `storage.editor` roles. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
@@ -232,7 +234,7 @@ After you create a cluster, you can update its settings:
 
     To update a service account:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -277,7 +279,7 @@ After you create a cluster, you can update its settings:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -318,7 +320,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -394,7 +396,8 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [folder page]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select {{ TR }}. You can either upgrade or downgrade the version.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -407,7 +410,7 @@ After you create a cluster, you can update its settings:
 
     To change the {{ TR }} version:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -452,7 +455,7 @@ After you create a cluster, you can update its settings:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -495,7 +498,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -573,7 +576,8 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [folder page]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for the cluster.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -586,7 +590,7 @@ After you create a cluster, you can update its settings:
 
     To update security groups:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -631,7 +635,7 @@ After you create a cluster, you can update its settings:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -678,7 +682,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -758,7 +762,8 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [folder page]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **Retry policy**, update the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
         
@@ -778,7 +783,7 @@ After you create a cluster, you can update its settings:
 
     To update [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -832,7 +837,7 @@ After you create a cluster, you can update its settings:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -893,7 +898,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -989,7 +994,8 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [folder page]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change the configuration of the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -1002,7 +1008,7 @@ After you create a cluster, you can update its settings:
 
     To change the configuration of the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers):
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -1096,7 +1102,7 @@ After you create a cluster, you can update its settings:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1174,7 +1180,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1287,7 +1293,8 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [folder page]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change additional cluster settings:
         
@@ -1322,7 +1329,7 @@ After you create a cluster, you can update its settings:
 
     To change additional cluster settings:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -1415,7 +1422,7 @@ After you create a cluster, you can update its settings:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1469,7 +1476,7 @@ After you create a cluster, you can update its settings:
 
             {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the following:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of these two parameters:
 
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
@@ -1502,7 +1509,7 @@ After you create a cluster, you can update its settings:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1582,7 +1589,7 @@ After you create a cluster, you can update its settings:
 
             {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the following:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of these two parameters:
 
             * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:

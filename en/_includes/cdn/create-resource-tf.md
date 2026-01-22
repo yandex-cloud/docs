@@ -28,11 +28,7 @@ Where:
 * `origin_protocol`: Protocol for origins. The default value is `http`. This is an optional setting.
 * `origin_group_id`: [Origin group](../../cdn/concepts/origins.md) ID. This is a required setting. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
 * `secondary_hostnames`: Additional domain names. This is an optional setting.
-* `provider_type`: [CDN provider](../../cdn/concepts/providers.md), must match the origin group CDN provider. This is an optional setting. The possible values are:
-    * `ourcdn` (default): {{ cdn-full-name }} provider. 
-    * `gcore`: EdgeCDN provider.
-
-        {% include [provider-binding](provider-binding.md) %}
+* `provider_type`: CDN provider, must match the origin group CDN provider. This is an optional setting. The possible value is: `ourcdn` (default): {{ cdn-full-name }} provider.
 
 * `ssl_certificate`: SSL certificate parameters. This is an optional setting. The possible values are:
 

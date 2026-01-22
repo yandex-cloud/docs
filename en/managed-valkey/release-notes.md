@@ -34,7 +34,7 @@ A new version is out: {{ VLK }} 8.1. For more information about the updates, see
 
 ## April 2025 {#apr-2025}
 
-A new version is out: {{ VLK }} 8.0. For more information about the updates, see [this {{ VLK }} guide](https://github.com/valkey-io/valkey/releases).
+A new version is out: {{ VLK }} 8.0. For more information about the updates, see [this {{ VLK }} article](https://github.com/valkey-io/valkey/releases).
 
 ## December 2024 {#dec-2024}
 

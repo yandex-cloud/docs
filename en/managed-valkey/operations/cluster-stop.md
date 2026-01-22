@@ -27,11 +27,11 @@ You can stop and restart a {{ VLK }} cluster as needed. While your cluster is id
     {{ yc-mdb-rd }} cluster stop <cluster_name_or_ID>
     ```
 
-    You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -45,13 +45,13 @@ You can stop and restart a {{ VLK }} cluster as needed. While your cluster is id
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:stop'
         ```
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -73,7 +73,7 @@ You can stop and restart a {{ VLK }} cluster as needed. While your cluster is id
             yandex.cloud.mdb.redis.v1.ClusterService.Stop
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -104,11 +104,11 @@ You can restart **STOPPED** clusters.
     {{ yc-mdb-rd }} cluster start <cluster_name_or_ID>
     ```
 
-    You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -122,13 +122,13 @@ You can restart **STOPPED** clusters.
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:start'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -149,7 +149,7 @@ You can restart **STOPPED** clusters.
             yandex.cloud.mdb.redis.v1.ClusterService.Start
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

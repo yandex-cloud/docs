@@ -66,14 +66,12 @@ Display label for the subtitle track shown in the video player's subtitle select
 
 Current processing status of the subtitle.
 
-- `SUBTITLE_STATUS_UNSPECIFIED`: The subtitle status is not specified.
 - `WAIT_UPLOADING`: The subtitle file upload is in progress, waiting for all bytes to be received.
 - `UPLOADED`: The subtitle file has been fully uploaded and is ready for use. ||
 || source_type | enum **SubtitleSourceType**
 
 Indicates how the subtitle was created or obtained.
 
-- `SUBTITLE_SOURCE_TYPE_UNSPECIFIED`: The subtitle source type is not specified.
 - `MANUAL`: The subtitle was manually created and uploaded by a user.
 - `GENERATED`: The subtitle was automatically generated through speech recognition. ||
 || filename | **string**

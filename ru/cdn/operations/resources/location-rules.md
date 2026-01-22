@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить локационные правила {{ cdn-full-name }}
 
-{% include [location-rules-disclaimer](../../../_includes/cdn/location-rules-disclaimer.md) %}
-
 {% include [location-rules-description](../../../_includes/cdn/location-rules-description.md) %}
 
 [Подробнее о локационных правилах](../../concepts/location-rules.md)

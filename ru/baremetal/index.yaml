@@ -34,6 +34,11 @@ description:
     Все возможности сервиса более детально описаны в разделе <a
     href="https://yandex.cloud/ru/docs/baremetal/concepts/">Концепции</a>.
   - >-
+    Инфраструктура Yandex Cloud <a
+    href="https://yandex.cloud/ru/security/standards/152-fz">защищена</a> в
+    соответствии с Федеральным законом Российской Федерации «О персональных
+    данных» № 152-ФЗ.
+  - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. 
   - >-

@@ -4,7 +4,7 @@ description: '{{ myt-name }} has limits and quotas for the number of clusters, t
 editable: false
 ---
 
-# Quotas and limits in {{ myt-name }}
+# {{ myt-name }} quotas and limits
 
 {{ myt-name }} has the following limitations:
 

@@ -27,7 +27,9 @@ Creates a new MongoDB database in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to create a database in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_spec | **[DatabaseSpec](#yandex.cloud.mdb.mongodb.v1.DatabaseSpec)**
 
 Required field. Configuration of the database to create. ||
@@ -39,7 +41,9 @@ Required field. Configuration of the database to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the MongoDB database. 1-63 characters long. ||
+Required field. Name of the MongoDB database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]{1,63} `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

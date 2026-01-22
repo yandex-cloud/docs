@@ -26,4 +26,5 @@ and generating playback URLs.
 || [GetPlayerURL](getPlayerURL.md) | Generates a standard player URL for watching the video. ||
 || [BatchGetPlayerURLs](batchGetPlayerURLs.md) | Generates multiple player URLs for a list of videos in a specific channel in a single request. ||
 || [GetManifests](getManifests.md) | Retrieves the manifest URLs for a specific video. ||
+|| [GenerateDownloadURL](generateDownloadURL.md) | Generates a URL for downloading the original video file. ||
 |#

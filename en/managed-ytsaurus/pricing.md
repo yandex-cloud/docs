@@ -72,7 +72,7 @@ You are charged for the following:
       * Assuming the storage node is for a `non-replicated SSD` with `N` size, the service disk size is `0,1 × N`, rounded up in increments of 93 GB.
 
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
 
 ### Example of cluster cost calculation {#example}
 

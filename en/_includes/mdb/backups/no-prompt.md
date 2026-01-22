@@ -1,1 +1,1 @@
-The service will start creating a backup without an additional confirmation.
+This will initiate creating a backup without any additional confirmation.

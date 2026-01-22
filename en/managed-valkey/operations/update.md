@@ -16,7 +16,7 @@ After creating a cluster, you can:
 * [Change the host class](#change-resource-preset).
 
 
-* [Change the disk type and expand the storage](#change-disk-size).
+* [Change the disk type and increase the storage size](#change-disk-size).
 
 
 * [Set up automatic storage expansion](#disk-size-aut0scale).
@@ -141,7 +141,7 @@ Learn more about other cluster updates:
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -176,7 +176,7 @@ Learn more about other cluster updates:
 
         Where `update_mask` is the list of parameters to update as an array of strings (`paths[]`).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -215,7 +215,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
         {{ yc-mdb-rd }} cluster update --help
         ```
 
-    1. Specify proper values in the cluster update command:
+    1. Run this command, specifying the setting value as needed:
 
         ```bash
         {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
@@ -289,9 +289,9 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         * `announceHostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -333,7 +333,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -368,7 +368,7 @@ For more information about data persistence and its settings, see [Persistence](
         {{ yc-mdb-rd }} cluster update --help
         ```
 
-    1.  Specify proper values in the cluster update command:
+    1.  Run this command, specifying the setting value as needed:
 
         ```bash
         {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
@@ -446,7 +446,7 @@ For more information about data persistence and its settings, see [Persistence](
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -490,7 +490,7 @@ For more information about data persistence and its settings, see [Persistence](
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -640,9 +640,9 @@ We recommend changing the host class only when your cluster has no active worklo
 
         * `configSpec.resources.resourcePresetId`: New [host class](../concepts/instance-types.md). To get the list of supported values, call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -682,13 +682,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
         * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-            Only one parameter is provided in this case.
+            Here, we provide only one setting.
 
         * `config_spec.resources.resource_preset_id`: New [host class](../concepts/instance-types.md). To get the list of supported values, call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -732,7 +732,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
      {{ yc-mdb-rd }} cluster update --help
      ```
 
-  1. Specify the required storage size in the cluster update command. The new size must be at least as large as the current `disk_size` in the cluster properties.
+  1. Run this command below, specifying the storage size as needed. The new size must be at least as large as the current `disk_size` in the cluster properties.
 
      ```bash
      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
@@ -815,7 +815,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -868,7 +868,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
             * `disk_size`: New storage size, in bytes.
 
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -989,7 +989,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1035,7 +1035,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1100,7 +1100,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1133,11 +1133,11 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         * `configSpec.redisConfig_<{{ VLK }}_version>`: {{ VLK }} settings. Specify each setting on a new line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for this parameter. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1187,11 +1187,11 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         * `config_spec.redis_config_<{{ VLK }}_version>`: {{ VLK }} settings. Specify each setting on a new line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for this parameter. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1280,7 +1280,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
             * `hours`: Backup start hour (UTC) in `HH` format, from `0` to `23`.
             * `minutes`: Backup start minute (UTC) in `mm` format, from `0` to `59`.
 
-        * To set up the [maintenance window](../concepts/maintenance.md) (including for disabled clusters), add the `maintenance_window` section to the cluster description:
+        * To set up the [maintenance window](../concepts/maintenance.md) that will also apply to disabled clusters, add the `maintenance_window` section to the cluster description:
 
             ```hcl
             resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -1384,7 +1384,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1461,7 +1461,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1560,11 +1560,11 @@ You cannot disable sharding in a cluster where it is already enabled.
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:enable_sharding'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
-    1. View the [server response](../api-ref/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1590,7 +1590,7 @@ You cannot disable sharding in a cluster where it is already enabled.
             yandex.cloud.mdb.redis.v1.ClusterService.EnableSharding
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
@@ -1814,9 +1814,9 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1861,9 +1861,9 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

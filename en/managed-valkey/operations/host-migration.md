@@ -9,14 +9,14 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
 
-{{ mrd-name }} cluster hosts reside in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). To move hosts from one zone to another, add hosts residing in the target availability zone to the cluster and delete the hosts in the source availability zone:
+{{ mrd-name }} cluster hosts reside in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). To migrate hosts from one availability zone to another, add hosts in the target availability zone to the cluster and delete hosts in the source availability zone:
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move your hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in your target availability zone.
 1. If your cluster uses the `b2.medium` or `b3-c1-m4` [host class](../concepts/instance-types.md#available-flavors), [change it](update.md#change-resource-preset). Otherwise, you will not be able to add hosts to the cluster and perform migration.
 
    The cluster is unavailable for about five to seven minutes after changing the host class.
 
-   You can restore the original class after migration.
+   You can revert to the previous host class after the migration is complete.
 
 1. Add a host to your cluster:
 
@@ -98,7 +98,7 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
    {{ yc-mdb-rd }} host list --cluster-name <cluster_name>
    ```
 
-   You will see the FQDN in the command output under `NAME`.
+   You will see the FQDN under `NAME` in the command output.
 
 1. Delete the hosts in the source availability zone:
 

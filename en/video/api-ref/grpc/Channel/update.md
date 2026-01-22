@@ -163,7 +163,7 @@ List of domains allowed to embed content from this channel.
 Only relevant when enable is set to true.
 Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
 
-Each value must match the regular expression ` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$\|^\*\.[a-zA-Z]{2,}$ `. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
+Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ ```. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -409,5 +409,5 @@ List of domains allowed to embed content from this channel.
 Only relevant when enable is set to true.
 Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
 
-Each value must match the regular expression ` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$\|^\*\.[a-zA-Z]{2,}$ `. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
+Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ ```. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
 |#

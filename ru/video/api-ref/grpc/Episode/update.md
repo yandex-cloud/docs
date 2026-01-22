@@ -54,7 +54,7 @@ The maximum string length in characters is 300. ||
 
 Episode description.
 
-The maximum string length in characters is 4000. ||
+The maximum string length in characters is 5000. ||
 || thumbnail_id | **string**
 
 ID of the thumbnail.
@@ -261,7 +261,6 @@ Possible values:
 
 Current visibility status controlling whether the episode is publicly available.
 
-- `VISIBILITY_STATUS_UNSPECIFIED`: The visibility status is not specified.
 - `PUBLISHED`: The episode is publicly available, subject to its access permission settings.
 - `UNPUBLISHED`: The episode is available only to administrators. ||
 || style_preset_id | **string**

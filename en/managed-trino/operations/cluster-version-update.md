@@ -15,7 +15,8 @@ Updates and fixes within a version are installed automatically during [maintenan
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [folder page]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** on the top panel. This will open the cluster editing page.
       
         You can see the list of available versions in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
@@ -26,7 +27,7 @@ Updates and fixes within a version are installed automatically during [maintenan
 
 Make sure the update does not affect your applications:
 
-1. Look up {{ TR }} [release notes](https://trino.io/docs/current/release.html) for info on how upgrades may affect your applications.
+1. Check the {{ TR }} [release notes](https://trino.io/docs/current/release.html) to learn how upgrades may affect your applications.
 1. Try upgrading the {{ TR }} version on a test cluster.
 
 ## Upgrading the version {#update}
@@ -35,7 +36,8 @@ Make sure the update does not affect your applications:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [folder page]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** on the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select {{ TR }}.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -48,7 +50,7 @@ Make sure the update does not affect your applications:
 
     To change the {{ TR }} version:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -67,7 +69,7 @@ Make sure the update does not affect your applications:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
         
     1. Edit the `version` parameter in the cluster's description:
       
@@ -89,7 +91,7 @@ Make sure the update does not affect your applications:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -132,7 +134,7 @@ Make sure the update does not affect your applications:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -185,7 +187,7 @@ Make sure the update does not affect your applications:
 
         * `version`: {{ TR }} version.
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -200,6 +202,6 @@ Make sure the update does not affect your applications:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

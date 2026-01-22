@@ -22,8 +22,8 @@ To view detailed information on the state of a {{ mtr-name }} cluster:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -69,7 +69,7 @@ To view detailed information on the state of a {{ mtr-name }} cluster:
 
 {% endlist %}
 
-## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
+## Setting up alerts in {{ monitoring-full-name }} {#monitoring-integration}
 
 To configure [cluster](#monitoring-cluster) state indicator alerts:
 
@@ -77,11 +77,11 @@ To configure [cluster](#monitoring-cluster) state indicator alerts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
-  1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster for which you want to set up alerts.
+  1. [Go](../../console/operations/select-service.md#select-service) to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ mtr-name }} — Cluster Overview**.
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+  1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.label_warning }}` threshold values to trigger the alert.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
@@ -95,9 +95,10 @@ For a complete list of supported metrics, see [this {{ monitoring-name }} articl
 
 A cluster’s _{{ ui-key.yacloud.mdb.cluster.overview.label_health }}_ indicates its health, while its _{{ ui-key.yacloud.mdb.cluster.overview.label_status }}_ shows whether the cluster is started, stopped, or in a transitory state.
 
-To view a state and status of a cluster:
+To check the cluster’s state and status:
 
-1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+1. Go to the [folder page]({{ link-console-main }}).
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 ### Cluster states {#cluster-health}

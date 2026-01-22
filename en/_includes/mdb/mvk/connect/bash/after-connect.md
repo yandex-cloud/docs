@@ -1,9 +1,8 @@
-When you are connected to the cluster, run the commands:
+Once connected to the cluster, run these commands:
 
 ```text
 SET foo bar
 GET foo
 ```
 
-If the connection to the cluster and the test query are successful, the `bar` string is output.
-
+If your cluster connection and test command are successful, you will see the `bar` string in the output.

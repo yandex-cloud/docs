@@ -4,7 +4,7 @@
 
 1. В поле **{{ ui-key.yacloud_portal.marketplace_v2.version.label_tariff }}** выберите созданный тариф или создайте новый.
 
-1. В поле **{{ ui-key.yacloud_portal.marketplace_v2.version.label_k8s-manifest }}** вставьте действующую ссылку на манифест, предварительно загруженный в {{ objstorage-full-name }}. Подробнее о манифесте и требованиям к продуктам для {{ managed-k8s-name }} см. [{#T}](../../marketplace/operations/create-container.md).
+1. В поле **{{ ui-key.yacloud_portal.marketplace_v2.version.label_k8s-manifest }}** вставьте действующую ссылку на спецификацию продукта, предварительно загруженную в {{ objstorage-full-name }}. Подробнее о спецификации и требованиям к продуктам для {{ managed-k8s-name }} см. [{#T}](../../marketplace/operations/create-container.md).
 
 1. {% include [product-info](product-info.md) %}
 

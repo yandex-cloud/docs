@@ -5,8 +5,6 @@ description: Follow this guide to set up {{ cdn-full-name }} location rules to s
 
 # Setting up {{ cdn-full-name }} location rules
 
-{% include [location-rules-disclaimer](../../../_includes/cdn/location-rules-disclaimer.md) %}
-
 {% include [location-rules-description](../../../_includes/cdn/location-rules-description.md) %}
 
 [Learn more about location rules](../../concepts/location-rules.md)

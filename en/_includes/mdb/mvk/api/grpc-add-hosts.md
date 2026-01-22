@@ -1,10 +1,10 @@
-1. [Get an IAM token for API authentication](../../../../managed-valkey/api-ref/authentication.md) and place it in an environment variable:
+1. [Get an IAM token for API authentication](../../../../managed-valkey/api-ref/authentication.md) and save it as an environment variable:
 
     {% include [api-auth-token](../../api-auth-token.md) %}
 
 1. {% include [grpc-api-setup-repo](../../grpc-api-setup-repo.md) %}
 
-1. Use the [ClusterService.AddHosts](../../../../managed-valkey/api-ref/grpc/Cluster/addHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+1. Call the [ClusterService.AddHosts](../../../../managed-valkey/api-ref/grpc/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
     
     ```bash
@@ -31,7 +31,7 @@
     ```
 
 
-    Where `host_specs` represents the host parameters:
+    Where `host_specs` sets the host parameters:
 
     * `zone_id`: [Availability zone](../../../../overview/concepts/geo-scope.md).
     * `subnet_id`: [Subnet ID](../../../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.

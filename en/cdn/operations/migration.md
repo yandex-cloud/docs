@@ -8,7 +8,7 @@ Starting January 22, 2026, our {{ cdn-name }} partner, EdgeCenter, will stop pro
 
 For this reason, you will need to migrate your CDN resources from EdgeCDN to {{ yandex-cloud }}. When switching, the [cost of using the service](../pricing.md) will remain the same. You can either do it on your own or as part of the [partial auto-migration process](#auto) we will complete by January 17, 2026.
 
-To migrate your CDN resources and origin groups from the EdgeCDN [provider](../concepts/providers.md) to {{ cdn-full-name }}:
+To migrate your CDN resources and origin groups from the EdgeCDN provider to {{ cdn-full-name }}:
 1. [Migrate the existing resource configuration](#copy-configuration).
 1. [Edit the CNAME record](#cname).
 1. [Check whether your resource works correctly](#check).
@@ -123,6 +123,5 @@ All you will need to do is [replace](#cname) the CNAME domain record in your DNS
 
 ### See also {#see-also}
 
-* [{#T}](../concepts/providers.md)
 * [{#T}](./resources/copy-resource.md)
 * [{#T}](./resources/get-stats.md)

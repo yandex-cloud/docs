@@ -1,10 +1,10 @@
-# Switching the master
+# Master failover
 
-In a failover {{ mrd-name }} cluster with multiple hosts, you can switch the master role from the current master host to the replica host. Once this operation is complete, the former master host will act as a replica to the new master.
+In a fault-tolerant multi-host {{ mrd-name }} cluster, you can perform a manual failover from the current master host to a replica host. After the failover, the current master host becomes a replica for the new master.
 
-It takes several minutes on average to switch, and the cluster is available during that time.
+Master failover normally takes a few minutes, with no downtime for the cluster.
 
-A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: one per [shard](../concepts/sharding.md#valkey-cluster-structure). Switching the master for a sharded cluster is done for each shard one by one.
+A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: one per [shard](../concepts/sharding.md#valkey-cluster-structure). Master failover in a sharded cluster is performed sequentially for each shard.
 
 {% list tabs group=instructions %}
 
@@ -16,7 +16,7 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
     1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Next to the host with the `MASTER` role, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label-title }}**.
-    1. In the window that opens, select the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label_confirmation }}** option and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
+    1. In the window that opens, select **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label_confirmation }}** and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
 
     To switch the master in a sharded cluster:
 
@@ -32,14 +32,14 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To switch the master in a non-sharded cluster, run the command:
+    To switch the master in a non-sharded cluster, run this command:
 
     ```bash
     {{ yc-mdb-rd }} cluster start-failover \
       --name <cluster_name>
     ```
 
-    To switch the master in a sharded cluster, run the command:
+    To switch the master in a sharded cluster, run this command:
 
     ```bash
     {{ yc-mdb-rd }} cluster start-failover \
@@ -47,11 +47,11 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
       --hostnames <current_master_name>
     ```
 
-    You can request the cluster name with a [list of clusters in the folder](cluster-list.md) and the name of the master host for the desired shard with a [list of hosts in the cluster](hosts.md#list).
+    You can get the cluster name with the [list of clusters in the folder](cluster-list.md), and the master name for the shard, with the [list of hosts in the cluster](hosts.md#list).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -81,13 +81,13 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
                     }'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the current master with the [list of hosts in the cluster](hosts.md#list).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the current master, with the [list of hosts in the cluster](hosts.md#list).
 
     1. Check the [server response](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -130,7 +130,7 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
             yandex.cloud.mdb.redis.v1.ClusterService.StartFailover
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the current master with the [list of hosts in the cluster](hosts.md#list).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the current master, with the [list of hosts in the cluster](hosts.md#list).
 
     1. Check the [server response](../api-ref/grpc/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

@@ -211,7 +211,6 @@ Result access binding deltas. ||
 
 Required field. The action that is being performed on an access binding.
 
-- `ACCESS_BINDING_ACTION_UNSPECIFIED`
 - `ADD`: Addition of an access binding.
 - `REMOVE`: Removal of an access binding. ||
 || access_binding | **[AccessBinding](#yandex.cloud.access.AccessBinding2)**

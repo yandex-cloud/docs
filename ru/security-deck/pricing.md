@@ -17,7 +17,7 @@ editable: false
 * [Модуль контроля данных ({{ dspm-name }})](concepts/dspm.md) — см. [Модуль контроля данных ({{ dspm-name }})](#dspm-rules) в разделе ниже.
 * [{{ atr-name }}](concepts/access-transparency.md) — см. [{{ atr-name }}](#atr-rules) в разделе ниже.
 * [{{ ycdr-full-name }}](concepts/ycdr.md) — по согласованию с вашим аккаунт-менеджером.
-* [KSPM](./concepts/kspm.md) — не тарифицируется на стадии [Preview](../overview/concepts/launch-stages.md).
+* [KSPM](./concepts/kspm.md) — см. [Модуль контроля {{ k8s }}® (KSPM)](#kspm-rules) в разделе ниже.
 * [{{ cspm-name }}](./concepts/cspm.md) — не тарифицируется на стадии [Preview](../overview/concepts/launch-stages.md).
 * [AI-ассистент](./concepts/ai-assistant.md) — не тарифицируется на стадии [Preview](../overview/concepts/launch-stages.md).
 
@@ -36,6 +36,10 @@ editable: false
 ### Модуль контроля данных ({{ dspm-name }}) {#dspm-rules}
 
 При [сканировании данных](operations/dspm/create-scan.md) модуль контроля данных ({{ dspm-name }}) выполняет запросы к файлам в бакетах {{ objstorage-full-name }}. Запросы тарифицируются по [правилам тарификации](../storage/pricing.md) {{ objstorage-name }}. Использование модуля тарифицируется дополнительно.
+
+### Модуль контроля {{ k8s }}® (KSPM) {#kspm-rules}
+
+Стоимость использования модуля контроля {{ k8s }}® (KSPM) рассчитывается ежемесячно исходя из количества рабочих узлов в кластерах [{{ managed-k8s-full-name }}](../managed-kubernetes/), которые подключены к сканированию.
 
 ## Цены для региона Россия {#prices}
 
@@ -93,3 +97,28 @@ editable: false
 {% endlist %}
 
 
+
+### Модуль контроля {{ k8s }}® (KSPM) {#kspm-pricing}
+
+{% note warning %}
+
+Цены действуют с 2 февраля 2026 года.
+
+{% endnote %}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub.md](../_pricing/security-deck/kspm/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt.md](../_pricing/security-deck/kspm/kzt.md) %}
+
+{% endlist %}
+
+
+
+Цена за месяц использования формируется из расчета 720 часов в месяц.

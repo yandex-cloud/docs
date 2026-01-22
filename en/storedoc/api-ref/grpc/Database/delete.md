@@ -25,11 +25,15 @@ Deletes the specified MongoDB database.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to delete a database in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_name | **string**
 
 Required field. Name of the database to delete.
-To get the name of the database, use a [DatabaseService.List](/docs/managed-mongodb/api-ref/grpc/Database/list#List) request. ||
+To get the name of the database, use a [DatabaseService.List](/docs/managed-mongodb/api-ref/grpc/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

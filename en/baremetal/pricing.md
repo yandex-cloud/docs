@@ -79,14 +79,7 @@ You can rent servers with these configuration options until December 29, 2025, o
 
 
 
-<MDX>
-  <PriceList
-    serviceIds={['{{ pcs|baremetal }}']}
-    skuIds={['{{ pc|baremetal.server.bf25_i201_h.1_day }}', '{{ pc|baremetal.server.bf25_i201_h.1_month }}', '{{ pc|baremetal.server.bf25_i201_h.3_month }}', '{{ pc|baremetal.server.bf25_i201_h.6_month }}', '{{ pc|baremetal.server.bf25_i201_h.12_month }}', '{{ pc|baremetal.server.bf25_i202_s.1_day }}', '{{ pc|baremetal.server.bf25_i202_s.1_month }}', '{{ pc|baremetal.server.bf25_i202_s.3_month }}', '{{ pc|baremetal.server.bf25_i202_s.6_month }}', '{{ pc|baremetal.server.bf25_i202_s.12_month }}', '{{ pc|baremetal.server.bf25_i204_s.1_day }}', '{{ pc|baremetal.server.bf25_i204_s.1_month }}', '{{ pc|baremetal.server.bf25_i204_s.3_month }}', '{{ pc|baremetal.server.bf25_i204_s.6_month }}', '{{ pc|baremetal.server.bf25_i204_s.12_month }}', '{{ pc|baremetal.server.bf25_i205_s.1_day }}', '{{ pc|baremetal.server.bf25_i205_s.1_month }}', '{{ pc|baremetal.server.bf25_i205_s.3_month }}', '{{ pc|baremetal.server.bf25_i205_s.6_month }}', '{{ pc|baremetal.server.bf25_i205_s.12_month }}']}
-    installationCode="ru"
-    currency="USD"
-  />
-</MDX>
+{% include [usd-servers.md](../_pricing/baremetal/promo/2025-black-friday/usd-servers-promo.md) %}
 
 
 ##### Reduced prices from 24/09/2025 to 24/10/2025 as part of Yandex Scale 2025 {#scale2025}

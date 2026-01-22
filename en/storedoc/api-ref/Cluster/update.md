@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the MongoDB Cluster resource to update.
             To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -35,6 +36,7 @@ apiPlayground:
           description: |-
             **string**
             New description of the MongoDB cluster.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
@@ -43,6 +45,7 @@ apiPlayground:
             For example, "project": "mvp" or "source": "dictionary".
             The new set of labels will completely replace the old ones. To add a label, request the current
             set with the [ClusterService.Get](/docs/managed-mongodb/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -61,6 +64,7 @@ apiPlayground:
           description: |-
             **string**
             New name for the cluster.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         maintenanceWindow:
@@ -84,6 +88,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the network to move the cluster to.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     definitions:
@@ -96,6 +101,12 @@ apiPlayground:
               The maximum size of the internal cache that WiredTiger will use for all data.
             type: number
             format: double
+          cacheSize:
+            description: |-
+              **number** (double)
+              The maximum size of the internal cache that WiredTiger will use for all data in percents.
+            type: number
+            format: double
       CollectionConfig:
         type: object
         properties:
@@ -103,7 +114,6 @@ apiPlayground:
             description: |-
               **enum** (Compressor)
               Default type of compression to use for collection data.
-              - `COMPRESSOR_UNSPECIFIED`
               - `NONE`: No compression.
               - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-snappy) compression.
               - `ZLIB`: The [zlib](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zlib) compression.
@@ -149,6 +159,7 @@ apiPlayground:
               **string** (int64)
               Commit interval between journal operations, in milliseconds.
               Default: 100.
+              Acceptable values are 1 to 500, inclusive.
             default: '100'
             type: string
             format: int64
@@ -172,7 +183,6 @@ apiPlayground:
             description: |-
               **enum** (Mode)
               Mode which specifies operations that should be profiled.
-              - `MODE_UNSPECIFIED`
               - `OFF`: The profiler is off and does not collect any data.
               - `SLOW_OP`: The profiler collects data for operations that take longer than the value of [slowOpThreshold](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling).
               - `ALL`: The profiler collects data for all operations.
@@ -188,6 +198,7 @@ apiPlayground:
               The slow operation time threshold, in milliseconds. Operations that run
               for longer than this threshold are considered slow, and are processed by the profiler
               running in the SLOW_OP mode.
+              Value must be greater than 0.
             type: string
             format: int64
           slowOpSampleRate:
@@ -195,6 +206,7 @@ apiPlayground:
               **number** (double)
               The fraction of slow operations that should be profiled or logged.
               operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+              Acceptable values are 0 to 1, inclusive.
             type: number
             format: double
       Compression:
@@ -208,7 +220,7 @@ apiPlayground:
               - mongosh
               - drivers that support the OP_COMPRESSED message format.
               MongoDB supports the following compressors:
-              - `COMPRESSOR_UNSPECIFIED`
+              The number of elements must be in the range 1-3.
               - `NONE`: No compression.
               - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-snappy) compression.
               - `ZLIB`: The [zlib](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zlib) compression.
@@ -229,6 +241,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               The maximum number of simultaneous connections that mongod will accept.
+              Acceptable values are 10 to 32768, inclusive.
             type: string
             format: int64
           compression:
@@ -285,12 +298,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
           emergencyUsageThreshold:
             description: |-
               **string** (int64)
               Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
           diskSizeLimit:
@@ -713,6 +728,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Retain period of automatically created backup in days
+              Acceptable values are 7 to 35, inclusive.
             type: string
             format: int64
           performanceDiagnostics:
@@ -759,7 +775,6 @@ apiPlayground:
             description: |-
               **enum** (WeekDay)
               Day of the week (in `DDD` format).
-              - `WEEK_DAY_UNSPECIFIED`
               - `MON`
               - `TUE`
               - `WED`
@@ -781,6 +796,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Hour of the day in UTC (in `HH` format).
+              Acceptable values are 1 to 24, inclusive.
             type: string
             format: int64
       MaintenanceWindow:
@@ -825,7 +841,9 @@ PATCH https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ID of the MongoDB Cluster resource to update.
-To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request. ||
+To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mongodb.v1.UpdateClusterRequest}
@@ -2090,7 +2108,8 @@ To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/
           "storage": {
             "wiredTiger": {
               "engineConfig": {
-                "cacheSizeGb": "number"
+                "cacheSizeGb": "number",
+                "cacheSize": "number"
               },
               "collectionConfig": {
                 "blockCompressor": "string"
@@ -2133,8 +2152,25 @@ To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/
           "setParameter": {
             "auditAuthorizationSuccess": "boolean",
             "enableFlowControl": "boolean",
-            "minSnapshotHistoryWindowInSeconds": "string"
-          }
+            "minSnapshotHistoryWindowInSeconds": "string",
+            "flowControlTargetLagSeconds": "string",
+            "flowControlWarnThresholdSeconds": "string",
+            "migrateCloneInsertionBatchDelayMs": "string",
+            "migrateCloneInsertionBatchSize": "string",
+            "orphanCleanupDelaySecs": "string",
+            "persistedChunkCacheUpdateMaxBatchSize": "string",
+            "rangeDeleterBatchDelayMs": "string",
+            "rangeDeleterBatchSize": "string",
+            "mirrorReads": {
+              "samplingRate": "number",
+              "maxTimeMs": "string"
+            }
+          },
+          "oplog": {
+            "maxSizePercent": "string",
+            "minRetentionHours": "number"
+          },
+          "chainingAllowed": "boolean"
         },
         "resources": {
           "resourcePresetId": "string",
@@ -2152,7 +2188,8 @@ To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/
           "storage": {
             "wiredTiger": {
               "engineConfig": {
-                "cacheSizeGb": "number"
+                "cacheSizeGb": "number",
+                "cacheSize": "number"
               }
             }
           },
@@ -2162,7 +2199,19 @@ To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/
           },
           "net": {
             "maxIncomingConnections": "string"
-          }
+          },
+          "setParameter": {
+            "enableFlowControl": "boolean",
+            "auditAuthorizationSuccess": "boolean"
+          },
+          "auditLog": {
+            "filter": "string"
+          },
+          "oplog": {
+            "maxSizePercent": "string",
+            "minRetentionHours": "number"
+          },
+          "chainingAllowed": "boolean"
         },
         "resources": {
           "resourcePresetId": "string",
@@ -2184,7 +2233,26 @@ To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/
                 "string"
               ]
             }
-          }
+          },
+          "setParameter": {
+            "auditAuthorizationSuccess": "boolean",
+            "readHedgingMode": "string",
+            "shardingTaskExecutorPoolMaxSize": "string",
+            "shardingTaskExecutorPoolMaxConnecting": "string",
+            "shardingTaskExecutorPoolMinSize": "string",
+            "shardingTaskExecutorPoolReplicaSetMatching": "string",
+            "shardingTaskExecutorPoolHostTimeoutMs": "string",
+            "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+            "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+            "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+            "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+            "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+            "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+          },
+          "auditLog": {
+            "filter": "string"
+          },
+          "chunkSize": "string"
         },
         "resources": {
           "resourcePresetId": "string",
@@ -2206,13 +2274,33 @@ To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/
                 "string"
               ]
             }
-          }
+          },
+          "setParameter": {
+            "auditAuthorizationSuccess": "boolean",
+            "readHedgingMode": "string",
+            "shardingTaskExecutorPoolMaxSize": "string",
+            "shardingTaskExecutorPoolMaxConnecting": "string",
+            "shardingTaskExecutorPoolMinSize": "string",
+            "shardingTaskExecutorPoolReplicaSetMatching": "string",
+            "shardingTaskExecutorPoolHostTimeoutMs": "string",
+            "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+            "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+            "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+            "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+            "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+            "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+          },
+          "auditLog": {
+            "filter": "string"
+          },
+          "chunkSize": "string"
         },
         "configMongocfg": {
           "storage": {
             "wiredTiger": {
               "engineConfig": {
-                "cacheSizeGb": "number"
+                "cacheSizeGb": "number",
+                "cacheSize": "number"
               }
             }
           },
@@ -2222,7 +2310,19 @@ To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/
           },
           "net": {
             "maxIncomingConnections": "string"
-          }
+          },
+          "setParameter": {
+            "enableFlowControl": "boolean",
+            "auditAuthorizationSuccess": "boolean"
+          },
+          "auditLog": {
+            "filter": "string"
+          },
+          "oplog": {
+            "maxSizePercent": "string",
+            "minRetentionHours": "number"
+          },
+          "chainingAllowed": "boolean"
         },
         "resources": {
           "resourcePresetId": "string",
@@ -2269,20 +2369,26 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || description | **string**
 
-New description of the MongoDB cluster. ||
+New description of the MongoDB cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary".
 
 The new set of labels will completely replace the old ones. To add a label, request the current
-set with the [ClusterService.Get](/docs/managed-mongodb/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. ||
+set with the [ClusterService.Get](/docs/managed-mongodb/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || configSpec | **[ConfigSpec](#yandex.cloud.mdb.mongodb.v1.ConfigSpec)**
 
 New configuration and resources for hosts in the cluster. ||
 || name | **string**
 
-New name for the cluster. ||
+New name for the cluster.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
 
 New maintenance window settings for the cluster. ||
@@ -2294,7 +2400,9 @@ User security groups ||
 Deletion Protection inhibits deletion of the cluster ||
 || networkId | **string**
 
-ID of the network to move the cluster to. ||
+ID of the network to move the cluster to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.mongodb.v1.ConfigSpec}
@@ -2365,7 +2473,9 @@ Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSp
 Time to start the daily backup, in the UTC timezone. ||
 || backupRetainPeriodDays | **string** (int64)
 
-Retain period of automatically created backup in days ||
+Retain period of automatically created backup in days
+
+Acceptable values are 7 to 35, inclusive. ||
 || performanceDiagnostics | **[PerformanceDiagnosticsConfig](#yandex.cloud.mdb.mongodb.v1.PerformanceDiagnosticsConfig)**
 
 Performance Diagnosics configuration ||
@@ -2471,7 +2581,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v3.6/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v3.6/reference/glossary/#term-zlib) compression. ||
@@ -2490,7 +2599,9 @@ Possible values:
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.OperationProfiling}
@@ -2501,7 +2612,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -2509,7 +2619,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Network}
@@ -2518,7 +2630,9 @@ running in the SLOW_OP mode. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mongodb.v1.Resources}
@@ -2547,10 +2661,14 @@ Possible values:
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -2623,7 +2741,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Operation profiling level. For details, see [MongoDB documentation](https://docs.mongodb.com/v3.6/tutorial/manage-the-database-profiler/).
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data. This is the default
 profiler level.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
@@ -2632,7 +2749,9 @@ profiler level.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.Network}
@@ -2641,7 +2760,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of incoming connections. ||
+The maximum number of incoming connections.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongos}
@@ -2674,7 +2795,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of incoming connections. ||
+The maximum number of incoming connections.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.MongoInfra}
@@ -2787,7 +2910,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.0/reference/glossary/#term-zlib) compression. ||
@@ -2800,7 +2922,9 @@ Default type of compression to use for collection data.
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.OperationProfiling}
@@ -2811,7 +2935,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -2819,7 +2942,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Network}
@@ -2828,7 +2953,9 @@ running in the SLOW_OP mode. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0.MongoCfg}
@@ -2898,7 +3025,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -2906,7 +3032,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.Network}
@@ -2915,7 +3043,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0.Mongos}
@@ -2948,7 +3078,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0.MongoInfra}
@@ -3067,7 +3199,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
@@ -3090,7 +3221,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.OperationProfiling}
@@ -3101,7 +3234,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3109,11 +3241,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Network}
@@ -3122,7 +3258,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Network.Compression)**
 
 Compression settings ||
@@ -3140,7 +3278,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -3225,7 +3364,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3233,7 +3371,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.Network}
@@ -3242,7 +3382,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_2.Mongos}
@@ -3275,7 +3417,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2.Network.Compression)**
 
 Compression settings ||
@@ -3293,7 +3437,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -3416,7 +3561,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
@@ -3439,7 +3583,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.OperationProfiling}
@@ -3450,7 +3596,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3458,11 +3603,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Network}
@@ -3471,7 +3620,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Network.Compression)**
 
 Compression settings ||
@@ -3489,7 +3640,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -3574,7 +3726,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3582,7 +3733,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.Network}
@@ -3591,7 +3744,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4.Mongos}
@@ -3624,7 +3779,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4.Network.Compression)**
 
 Compression settings ||
@@ -3642,7 +3799,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -3765,7 +3923,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
@@ -3788,7 +3945,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.OperationProfiling}
@@ -3799,7 +3958,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3807,11 +3965,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Network}
@@ -3820,7 +3982,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Network.Compression)**
 
 Compression settings ||
@@ -3838,7 +4002,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -3856,7 +4021,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0.MongoCfg}
@@ -3926,7 +4093,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3934,7 +4100,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.Network}
@@ -3943,7 +4111,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0.Mongos}
@@ -3976,7 +4146,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0.Network.Compression)**
 
 Compression settings ||
@@ -3994,7 +4166,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -4117,7 +4290,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
@@ -4140,7 +4312,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.OperationProfiling}
@@ -4151,7 +4325,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -4159,11 +4332,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Network}
@@ -4172,7 +4349,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Network.Compression)**
 
 Compression settings ||
@@ -4190,7 +4369,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -4208,7 +4388,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0.MongoCfg}
@@ -4278,7 +4460,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -4286,7 +4467,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.Network}
@@ -4295,7 +4478,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0.Mongos}
@@ -4328,7 +4513,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0.Network.Compression)**
 
 Compression settings ||
@@ -4346,7 +4533,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -4475,7 +4663,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
@@ -4498,7 +4685,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.OperationProfiling}
@@ -4509,7 +4698,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -4517,11 +4705,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Network}
@@ -4530,7 +4722,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -4548,7 +4742,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -4678,7 +4873,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -4686,7 +4880,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.Network}
@@ -4695,7 +4891,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4_enterprise.Mongos}
@@ -4728,7 +4926,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -4746,7 +4946,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -4875,7 +5076,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
@@ -4898,7 +5098,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.OperationProfiling}
@@ -4909,7 +5111,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -4917,11 +5118,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Network}
@@ -4930,7 +5135,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -4948,7 +5155,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -5014,7 +5222,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0_enterprise.MongoCfg}
@@ -5084,7 +5294,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -5092,7 +5301,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.Network}
@@ -5101,7 +5312,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0_enterprise.Mongos}
@@ -5134,7 +5347,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -5152,7 +5367,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -5281,7 +5497,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
@@ -5304,7 +5519,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.OperationProfiling}
@@ -5315,7 +5532,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -5323,11 +5539,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Network}
@@ -5336,7 +5556,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -5354,7 +5576,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -5420,7 +5643,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0_enterprise.MongoCfg}
@@ -5490,7 +5715,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -5498,7 +5722,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.Network}
@@ -5507,7 +5733,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0_enterprise.Mongos}
@@ -5540,7 +5768,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -5558,7 +5788,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -5683,6 +5914,12 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog)**
+
+`Oplog` section of mongod configuration. ||
+|| chainingAllowed | **boolean**
+
+Chained replication setting ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -5721,6 +5958,9 @@ Index configuration for WiredTiger ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cacheSize | **number** (double)
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig}
@@ -5731,7 +5971,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zlib) compression.
@@ -5754,7 +5993,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling}
@@ -5765,7 +6006,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -5773,11 +6013,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network}
@@ -5786,7 +6030,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network.Compression)**
 
 Compression settings ||
@@ -5804,7 +6050,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -5870,7 +6117,72 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
+|| flowControlTargetLagSeconds | **string** (int64)
+
+The target maximum majority committed lag when running with flow control
+
+Value must be greater than 0. ||
+|| flowControlWarnThresholdSeconds | **string** (int64)
+
+The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved.
+
+The minimum value is 0. ||
+|| migrateCloneInsertionBatchDelayMs | **string** (int64)
+
+Time in milliseconds to wait between batches of insertions during cloning step of the migration process.
+
+The minimum value is 0. ||
+|| migrateCloneInsertionBatchSize | **string** (int64)
+
+The maximum number of documents to insert in a single batch during the cloning step of the migration process.
+
+The minimum value is 0. ||
+|| orphanCleanupDelaySecs | **string** (int64)
+
+Minimum delay before a migrated chunk is deleted from the source shard. ||
+|| persistedChunkCacheUpdateMaxBatchSize | **string** (int64)
+
+Specifies the maximum batch size used for updating the persisted chunk cache. ||
+|| rangeDeleterBatchDelayMs | **string** (int64)
+
+The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command).
+
+The minimum value is 0. ||
+|| rangeDeleterBatchSize | **string** (int64)
+
+The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command).
+
+The minimum value is 0. ||
+|| mirrorReads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)**
+
+Specifies the settings for mirrored reads for the mongod instance ||
+|#
+
+## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
+
+#|
+||Field | Description ||
+|| samplingRate | **number** (double)
+
+The sampling rate used to mirror a subset of operations that support mirroring. ||
+|| maxTimeMs | **string** (int64)
+
+The maximum time in milliseconds for the mirrored reads. ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog}
+
+#|
+||Field | Description ||
+|| maxSizePercent | **string** (int64)
+
+Oplog maxsize in percents. ||
+|| minRetentionHours | **number** (double)
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.MongoCfg}
@@ -5901,6 +6213,18 @@ Disk size autoscaling settings ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network)**
 
 `net` section of mongocfg configuration. ||
+|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter)**
+
+`setParameter` section of mongocfg configuration. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog)**
+
+`AuditLog` section of mongocfg configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog)**
+
+`Oplog` section of mongod configuration. ||
+|| chainingAllowed | **boolean**
+
+Chained replication setting ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage}
@@ -5930,6 +6254,9 @@ Engine configuration for WiredTiger. ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cacheSize | **number** (double)
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling}
@@ -5940,7 +6267,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -5948,7 +6274,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/v7.0/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/v7.0/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network}
@@ -5957,7 +6285,45 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://www
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
+|#
+
+## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter}
+
+#|
+||Field | Description ||
+|| enableFlowControl | **boolean**
+
+Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
+goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
+lag under a configurable maximum value. ||
+|| auditAuthorizationSuccess | **boolean**
+
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog}
+
+#|
+||Field | Description ||
+|| filter | **string**
+
+Audit filter, should be valid JSON object string ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog}
+
+#|
+||Field | Description ||
+|| maxSizePercent | **string** (int64)
+
+Oplog maxsize in percents. ||
+|| minRetentionHours | **number** (double)
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.Mongos}
@@ -5982,6 +6348,15 @@ Disk size autoscaling settings ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network)**
 
 Network settings for mongos. ||
+|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter)**
+
+`setParameter` section of mongos configuration. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)**
+
+`AuditLog` section of mongos configuration. ||
+|| chunkSize | **string** (int64)
+
+`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -5990,7 +6365,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network.Compression)**
 
 Compression settings ||
@@ -6008,11 +6385,67 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
 - `DISABLED`: No compression ||
+|#
+
+## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter}
+
+#|
+||Field | Description ||
+|| auditAuthorizationSuccess | **boolean**
+
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| readHedgingMode | **string**
+
+Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
+|| shardingTaskExecutorPoolMaxSize | **string** (int64)
+
+Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| shardingTaskExecutorPoolMaxConnecting | **string** (int64)
+
+Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
+|| shardingTaskExecutorPoolMinSize | **string** (int64)
+
+Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| shardingTaskExecutorPoolReplicaSetMatching | **string**
+
+On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
+|| shardingTaskExecutorPoolHostTimeoutMs | **string** (int64)
+
+Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
+|| shardingTaskExecutorPoolRefreshRequirementMs | **string** (int64)
+
+Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
+|| shardingTaskExecutorPoolRefreshTimeoutMs | **string** (int64)
+
+Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
+|| warmMinConnectionsInShardingTaskExecutorPoolOnStartup | **boolean**
+
+Configures a mongos instance to prewarm its connection pool on startup. ||
+|| warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs | **string** (int64)
+
+Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
+|| shardingTaskExecutorPoolMaxSizeForConfigServers | **string** (int64)
+
+Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| shardingTaskExecutorPoolMinSizeForConfigServers | **string** (int64)
+
+Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}
+
+#|
+||Field | Description ||
+|| filter | **string**
+
+Audit filter, should be valid JSON object string ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.MongoInfra}
@@ -6063,7 +6496,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -6073,7 +6505,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -9034,7 +9468,8 @@ Hour of the day in UTC (in `HH` format). ||
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -9077,14 +9512,32 @@ Hour of the day in UTC (in `HH` format). ||
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string"
-              }
+                "minSnapshotHistoryWindowInSeconds": "string",
+                "flowControlTargetLagSeconds": "string",
+                "flowControlWarnThresholdSeconds": "string",
+                "migrateCloneInsertionBatchDelayMs": "string",
+                "migrateCloneInsertionBatchSize": "string",
+                "orphanCleanupDelaySecs": "string",
+                "persistedChunkCacheUpdateMaxBatchSize": "string",
+                "rangeDeleterBatchDelayMs": "string",
+                "rangeDeleterBatchSize": "string",
+                "mirrorReads": {
+                  "samplingRate": "number",
+                  "maxTimeMs": "string"
+                }
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
+              },
+              "chainingAllowed": "boolean"
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -9127,14 +9580,32 @@ Hour of the day in UTC (in `HH` format). ||
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string"
-              }
+                "minSnapshotHistoryWindowInSeconds": "string",
+                "flowControlTargetLagSeconds": "string",
+                "flowControlWarnThresholdSeconds": "string",
+                "migrateCloneInsertionBatchDelayMs": "string",
+                "migrateCloneInsertionBatchSize": "string",
+                "orphanCleanupDelaySecs": "string",
+                "persistedChunkCacheUpdateMaxBatchSize": "string",
+                "rangeDeleterBatchDelayMs": "string",
+                "rangeDeleterBatchSize": "string",
+                "mirrorReads": {
+                  "samplingRate": "number",
+                  "maxTimeMs": "string"
+                }
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
+              },
+              "chainingAllowed": "boolean"
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -9177,8 +9648,25 @@ Hour of the day in UTC (in `HH` format). ||
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string"
-              }
+                "minSnapshotHistoryWindowInSeconds": "string",
+                "flowControlTargetLagSeconds": "string",
+                "flowControlWarnThresholdSeconds": "string",
+                "migrateCloneInsertionBatchDelayMs": "string",
+                "migrateCloneInsertionBatchSize": "string",
+                "orphanCleanupDelaySecs": "string",
+                "persistedChunkCacheUpdateMaxBatchSize": "string",
+                "rangeDeleterBatchDelayMs": "string",
+                "rangeDeleterBatchSize": "string",
+                "mirrorReads": {
+                  "samplingRate": "number",
+                  "maxTimeMs": "string"
+                }
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
+              },
+              "chainingAllowed": "boolean"
             }
           },
           "resources": {
@@ -9198,7 +9686,8 @@ Hour of the day in UTC (in `HH` format). ||
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   }
                 }
               },
@@ -9208,13 +9697,26 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "maxIncomingConnections": "string"
-              }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
+              },
+              "chainingAllowed": "boolean"
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   }
                 }
               },
@@ -9224,13 +9726,26 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "maxIncomingConnections": "string"
-              }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
+              },
+              "chainingAllowed": "boolean"
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   }
                 }
               },
@@ -9240,7 +9755,19 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "maxIncomingConnections": "string"
-              }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
+              },
+              "chainingAllowed": "boolean"
             }
           },
           "resources": {
@@ -9264,7 +9791,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "chunkSize": "string"
             },
             "userConfig": {
               "net": {
@@ -9274,7 +9820,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "chunkSize": "string"
             },
             "defaultConfig": {
               "net": {
@@ -9284,7 +9849,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "chunkSize": "string"
             }
           },
           "resources": {
@@ -9308,7 +9892,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "chunkSize": "string"
             },
             "userConfig": {
               "net": {
@@ -9318,7 +9921,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "chunkSize": "string"
             },
             "defaultConfig": {
               "net": {
@@ -9328,7 +9950,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "chunkSize": "string"
             }
           },
           "configMongocfg": {
@@ -9336,7 +9977,8 @@ Hour of the day in UTC (in `HH` format). ||
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   }
                 }
               },
@@ -9346,13 +9988,26 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "maxIncomingConnections": "string"
-              }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
+              },
+              "chainingAllowed": "boolean"
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   }
                 }
               },
@@ -9362,13 +10017,26 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "maxIncomingConnections": "string"
-              }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
+              },
+              "chainingAllowed": "boolean"
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   }
                 }
               },
@@ -9378,7 +10046,19 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "maxIncomingConnections": "string"
-              }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
+              },
+              "chainingAllowed": "boolean"
             }
           },
           "resources": {
@@ -9392,7 +10072,8 @@ Hour of the day in UTC (in `HH` format). ||
             "diskSizeLimit": "string"
           }
         }
-      }
+      },
+      "fullVersion": "string"
     },
     "networkId": "string",
     "health": "string",
@@ -9596,7 +10277,6 @@ Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per r
 
 Deployment environment of the MongoDB cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -9763,6 +10443,9 @@ Access policy to DB ||
 || mongodbConfig | **[Mongodb](#yandex.cloud.mdb.mongodb.v1.Mongodb)**
 
 Configuration and resource allocation for a MongoDB Enterprise cluster. ||
+|| fullVersion | **string**
+
+Full version ||
 |#
 
 ## Mongodb3_6 {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6}
@@ -9875,7 +10558,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v3.6/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v3.6/reference/glossary/#term-zlib) compression. ||
@@ -9894,7 +10576,9 @@ Possible values:
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.OperationProfiling2}
@@ -9905,7 +10589,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -9913,7 +10596,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Network2}
@@ -9922,7 +10607,9 @@ running in the SLOW_OP mode. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mongodb.v1.Resources2}
@@ -9951,10 +10638,14 @@ Possible values:
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -10041,7 +10732,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Operation profiling level. For details, see [MongoDB documentation](https://docs.mongodb.com/v3.6/tutorial/manage-the-database-profiler/).
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data. This is the default
 profiler level.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
@@ -10050,7 +10740,9 @@ profiler level.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.Network2}
@@ -10059,7 +10751,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of incoming connections. ||
+The maximum number of incoming connections.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6.Mongos}
@@ -10106,7 +10800,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of incoming connections. ||
+The maximum number of incoming connections.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6.MongoInfra}
@@ -10233,7 +10929,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.0/reference/glossary/#term-zlib) compression. ||
@@ -10246,7 +10941,9 @@ Default type of compression to use for collection data.
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.OperationProfiling2}
@@ -10257,7 +10954,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -10265,7 +10961,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Network2}
@@ -10274,7 +10972,9 @@ running in the SLOW_OP mode. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.MongoCfg}
@@ -10360,7 +11060,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -10368,7 +11067,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.Network2}
@@ -10377,7 +11078,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.Mongos}
@@ -10426,7 +11129,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.MongoInfra}
@@ -10559,7 +11264,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
@@ -10582,7 +11286,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.OperationProfiling2}
@@ -10593,7 +11299,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -10601,11 +11306,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Network2}
@@ -10614,7 +11323,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Network.Compression2)**
 
 Compression settings ||
@@ -10632,7 +11343,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -10733,7 +11445,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -10741,7 +11452,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.Network2}
@@ -10750,7 +11463,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb4_2.Mongos}
@@ -10799,7 +11514,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2.Network.Compression2)**
 
 Compression settings ||
@@ -10817,7 +11534,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -10954,7 +11672,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
@@ -10977,7 +11694,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.OperationProfiling2}
@@ -10988,7 +11707,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -10996,11 +11714,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Network2}
@@ -11009,7 +11731,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Network.Compression2)**
 
 Compression settings ||
@@ -11027,7 +11751,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -11128,7 +11853,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -11136,7 +11860,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.Network2}
@@ -11145,7 +11871,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb4_4.Mongos}
@@ -11194,7 +11922,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4.Network.Compression2)**
 
 Compression settings ||
@@ -11212,7 +11942,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -11349,7 +12080,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
@@ -11372,7 +12102,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.OperationProfiling2}
@@ -11383,7 +12115,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -11391,11 +12122,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Network2}
@@ -11404,7 +12139,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Network.Compression2)**
 
 Compression settings ||
@@ -11422,7 +12159,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -11440,7 +12178,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb5_0.MongoCfg}
@@ -11526,7 +12266,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -11534,7 +12273,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.Network2}
@@ -11543,7 +12284,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb5_0.Mongos}
@@ -11592,7 +12335,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0.Network.Compression2)**
 
 Compression settings ||
@@ -11610,7 +12355,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -11747,7 +12493,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
@@ -11770,7 +12515,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.OperationProfiling2}
@@ -11781,7 +12528,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -11789,11 +12535,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Network2}
@@ -11802,7 +12552,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Network.Compression2)**
 
 Compression settings ||
@@ -11820,7 +12572,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -11838,7 +12591,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb6_0.MongoCfg}
@@ -11924,7 +12679,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -11932,7 +12686,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.Network2}
@@ -11941,7 +12697,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb6_0.Mongos}
@@ -11990,7 +12748,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0.Network.Compression2)**
 
 Compression settings ||
@@ -12008,7 +12768,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -12151,7 +12912,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
@@ -12174,7 +12934,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.OperationProfiling2}
@@ -12185,7 +12947,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -12193,11 +12954,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Network2}
@@ -12206,7 +12971,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -12224,7 +12991,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -12370,7 +13138,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -12378,7 +13145,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.Network2}
@@ -12387,7 +13156,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise.Mongos}
@@ -12436,7 +13207,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -12454,7 +13227,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -12597,7 +13371,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
@@ -12620,7 +13393,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.OperationProfiling2}
@@ -12631,7 +13406,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -12639,11 +13413,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Network2}
@@ -12652,7 +13430,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -12670,7 +13450,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -12736,7 +13517,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise.MongoCfg}
@@ -12822,7 +13605,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -12830,7 +13612,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.Network2}
@@ -12839,7 +13623,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise.Mongos}
@@ -12888,7 +13674,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -12906,7 +13694,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -13049,7 +13838,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
@@ -13072,7 +13860,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.OperationProfiling2}
@@ -13083,7 +13873,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -13091,11 +13880,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Network2}
@@ -13104,7 +13897,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -13122,7 +13917,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -13188,7 +13984,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise.MongoCfg}
@@ -13274,7 +14072,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -13282,7 +14079,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.Network2}
@@ -13291,7 +14090,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise.Mongos}
@@ -13340,7 +14141,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -13358,7 +14161,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -13499,6 +14303,12 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter2)**
 
 `SetParameter` section of mongod configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog2)**
+
+`Oplog` section of mongod configuration. ||
+|| chainingAllowed | **boolean**
+
+Chained replication setting ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage2}
@@ -13537,6 +14347,9 @@ Index configuration for WiredTiger ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cacheSize | **number** (double)
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig2}
@@ -13547,7 +14360,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zlib) compression.
@@ -13570,7 +14382,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commitInterval | **string** (int64)
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling2}
@@ -13581,7 +14395,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -13589,11 +14402,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network2}
@@ -13602,7 +14419,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network.Compression2)**
 
 Compression settings ||
@@ -13620,7 +14439,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -13686,7 +14506,72 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
+|| flowControlTargetLagSeconds | **string** (int64)
+
+The target maximum majority committed lag when running with flow control
+
+Value must be greater than 0. ||
+|| flowControlWarnThresholdSeconds | **string** (int64)
+
+The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved.
+
+The minimum value is 0. ||
+|| migrateCloneInsertionBatchDelayMs | **string** (int64)
+
+Time in milliseconds to wait between batches of insertions during cloning step of the migration process.
+
+The minimum value is 0. ||
+|| migrateCloneInsertionBatchSize | **string** (int64)
+
+The maximum number of documents to insert in a single batch during the cloning step of the migration process.
+
+The minimum value is 0. ||
+|| orphanCleanupDelaySecs | **string** (int64)
+
+Minimum delay before a migrated chunk is deleted from the source shard. ||
+|| persistedChunkCacheUpdateMaxBatchSize | **string** (int64)
+
+Specifies the maximum batch size used for updating the persisted chunk cache. ||
+|| rangeDeleterBatchDelayMs | **string** (int64)
+
+The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command).
+
+The minimum value is 0. ||
+|| rangeDeleterBatchSize | **string** (int64)
+
+The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command).
+
+The minimum value is 0. ||
+|| mirrorReads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads2)**
+
+Specifies the settings for mirrored reads for the mongod instance ||
+|#
+
+## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads2}
+
+#|
+||Field | Description ||
+|| samplingRate | **number** (double)
+
+The sampling rate used to mirror a subset of operations that support mirroring. ||
+|| maxTimeMs | **string** (int64)
+
+The maximum time in milliseconds for the mirrored reads. ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog2}
+
+#|
+||Field | Description ||
+|| maxSizePercent | **string** (int64)
+
+Oplog maxsize in percents. ||
+|| minRetentionHours | **number** (double)
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}
@@ -13733,6 +14618,18 @@ Default mongocfg configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network2)**
 
 `net` section of mongocfg configuration. ||
+|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter2)**
+
+`setParameter` section of mongocfg configuration. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog2)**
+
+`AuditLog` section of mongocfg configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog2)**
+
+`Oplog` section of mongod configuration. ||
+|| chainingAllowed | **boolean**
+
+Chained replication setting ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage2}
@@ -13762,6 +14659,9 @@ Engine configuration for WiredTiger. ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cacheSize | **number** (double)
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling2}
@@ -13772,7 +14672,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -13780,7 +14679,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/v7.0/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/v7.0/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network2}
@@ -13789,7 +14690,45 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://www
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
+|#
+
+## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter2}
+
+#|
+||Field | Description ||
+|| enableFlowControl | **boolean**
+
+Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
+goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
+lag under a configurable maximum value. ||
+|| auditAuthorizationSuccess | **boolean**
+
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog2}
+
+#|
+||Field | Description ||
+|| filter | **string**
+
+Audit filter, should be valid JSON object string ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog2}
+
+#|
+||Field | Description ||
+|| maxSizePercent | **string** (int64)
+
+Oplog maxsize in percents. ||
+|| minRetentionHours | **number** (double)
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongos}
@@ -13830,6 +14769,15 @@ Default mongos configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network2)**
 
 Network settings for mongos. ||
+|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter2)**
+
+`setParameter` section of mongos configuration. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog2)**
+
+`AuditLog` section of mongos configuration. ||
+|| chunkSize | **string** (int64)
+
+`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network2}
@@ -13838,7 +14786,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || maxIncomingConnections | **string** (int64)
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network.Compression2)**
 
 Compression settings ||
@@ -13856,11 +14806,67 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
 - `DISABLED`: No compression ||
+|#
+
+## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter2}
+
+#|
+||Field | Description ||
+|| auditAuthorizationSuccess | **boolean**
+
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| readHedgingMode | **string**
+
+Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
+|| shardingTaskExecutorPoolMaxSize | **string** (int64)
+
+Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| shardingTaskExecutorPoolMaxConnecting | **string** (int64)
+
+Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
+|| shardingTaskExecutorPoolMinSize | **string** (int64)
+
+Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| shardingTaskExecutorPoolReplicaSetMatching | **string**
+
+On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
+|| shardingTaskExecutorPoolHostTimeoutMs | **string** (int64)
+
+Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
+|| shardingTaskExecutorPoolRefreshRequirementMs | **string** (int64)
+
+Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
+|| shardingTaskExecutorPoolRefreshTimeoutMs | **string** (int64)
+
+Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
+|| warmMinConnectionsInShardingTaskExecutorPoolOnStartup | **boolean**
+
+Configures a mongos instance to prewarm its connection pool on startup. ||
+|| warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs | **string** (int64)
+
+Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
+|| shardingTaskExecutorPoolMaxSizeForConfigServers | **string** (int64)
+
+Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| shardingTaskExecutorPoolMinSizeForConfigServers | **string** (int64)
+
+Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog2}
+
+#|
+||Field | Description ||
+|| filter | **string**
+
+Audit filter, should be valid JSON object string ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoInfra}
@@ -13909,7 +14915,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -13919,7 +14924,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.mongodb.v1.MaintenanceOperation}
@@ -13930,7 +14937,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Time until which this maintenance operation is delayed.

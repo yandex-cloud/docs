@@ -13,9 +13,6 @@ description: В данном разделе описана опция CDN-рес
 
 Чтобы настроить перенаправление запросов, необходимо задать [правило Rewrite](#rewrite-rule) и указать [флаг](#flag).
 
-Подробности о перенаправлении запросов см. в документации CDN-провайдера EdgeЦентр:
-* [Rewrite. Настроить перенаправление запросов](https://edgecenter.ru/knowledge-base/cdn/cdn-rewrite?c=17)
-* [Документация API](https://apidocs.edgecenter.ru/cdn#tag/Resources/operation/change_cdn_resource)
 
 ## Правило Rewrite {#rewrite-rule}
 

@@ -10,8 +10,7 @@ description: Следуя данной инструкции, вы сможете
 Способ подключения профиля безопасности зависит от того, кто управляет балансировщиком [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md):
 
 * Если балансировщик управляется вами, то используйте интерфейсы {{ yandex-cloud }}.
-
-* Если балансировщик управляется [Ingress-контроллером](../../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, используйте [аннотацию ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+* Если балансировщик управляется [контроллером](../../application-load-balancer/tools/index.md), используйте аннотацию.
 
     {% note warning %}
 
@@ -20,12 +19,6 @@ description: Следуя данной инструкции, вы сможете
     Если вы подключите профиль через интерфейсы {{ yandex-cloud }} и затем обновите ресурс Ingress, из-за отсутствия аннотации Ingress-контроллер отключит поддержку профиля безопасности.
 
     {% endnote %}
-
-    О настройке Ingress-контроллера читайте в [документации {{ managed-k8s-full-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
-
-    {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
-
-    {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
 {% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
 
@@ -175,6 +168,17 @@ description: Следуя данной инструкции, вы сможете
 - API {#api}
 
   {% include [api-host](../../_includes/smartwebsecurity/api-host.md) %}
+
+- Аннотация {#annotation}
+
+  {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
+  Используйте аннотации:
+
+  * для [контроллера Gwin](../../application-load-balancer/tools/gwin/index.md) — [HTTPRoute](../../application-load-balancer/gwin-ref/httproute.md#security-configuration) или [RoutePolicy](../../application-load-balancer/gwin-ref/routepolicy.md#cheatsheet);
+  * для [Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md) — [аннотацию ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+
+      {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
 {% endlist %}
 

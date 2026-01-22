@@ -7,16 +7,17 @@ description: In this tutorial, you will learn how to view the {{ KF }} cluster�
 
 You can manage the [technical maintenance](../concepts/maintenance.md) of a {{ mkf-full-name }} cluster.
 
-## Getting the maintenance list {#list-maintenance}
+## Getting the maintenance job list {#list-maintenance}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
 
-    To view maintenance events with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. To find a specific maintenance, enter its ID or task name in the field above the list of maintenances.
+    To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. To find a specific maintenance, enter its ID or task name in the field above the list of maintenances.
 
 {% endlist %}
 
@@ -26,9 +27,10 @@ You can manage the [technical maintenance](../concepts/maintenance.md) of a {{ m
 
 - Management console {#console}
 
-    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
-    1. Click the ID of the maintenance event you need.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+    1. Click the ID of the maintenance job you need.
     1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
 
 {% endlist %}
@@ -43,8 +45,9 @@ Maintenance sessions with the **{{ ui-key.yacloud.mdb.maintenance.label_task-sta
 
     To reschedule maintenance for a new date and time:
 
-    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
     1. In the drop-down menu, select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
     1. In the window that opens, do the following:
@@ -101,7 +104,7 @@ Maintenance sessions with the **{{ ui-key.yacloud.mdb.maintenance.label_task-sta
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -126,7 +129,7 @@ Maintenance sessions with the **{{ ui-key.yacloud.mdb.maintenance.label_task-sta
 
             Do not use this option with the `NEXT_AVAILABLE_WINDOW` reschedule type.
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -142,7 +145,7 @@ Maintenance sessions with the **{{ ui-key.yacloud.mdb.maintenance.label_task-sta
   
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   
-    1. Use the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -171,7 +174,7 @@ Maintenance sessions with the **{{ ui-key.yacloud.mdb.maintenance.label_task-sta
 
             Do not use this option with the `NEXT_AVAILABLE_WINDOW` reschedule type.
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
 
@@ -187,8 +190,9 @@ You can run a maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label
 
     To start a scheduled maintenance job immediately, do the following:
 
-    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job.
     1. In the drop-down menu, select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
 
@@ -224,7 +228,7 @@ You can run a maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -237,7 +241,7 @@ You can run a maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label
           }'
         ```
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -252,7 +256,7 @@ You can run a maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -269,7 +273,7 @@ You can run a maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label
           yandex.cloud.mdb.kafka.v1.ClusterService.RescheduleMaintenance
         ```
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
 
@@ -289,8 +293,9 @@ A scheduled maintenance job will be cancelled automatically if its time falls ou
 
 - Management console {#console}
 
-    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
     1. In the window that opens, do the following:
         * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}**, which is also the default option.
@@ -328,13 +333,13 @@ A scheduled maintenance job will be cancelled automatically if its time falls ou
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of editable {{ mkf-name }} cluster configuration fields, refer to the [{{ TF }}]({{ tf-provider-mkf }}) provider guides.
+        For a complete list of updatable {{ mkf-name }} cluster configuration fields, see [this {{ TF }} provider guide]({{ tf-provider-mkf }}).
 
     1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -352,7 +357,7 @@ A scheduled maintenance job will be cancelled automatically if its time falls ou
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -379,15 +384,15 @@ A scheduled maintenance job will be cancelled automatically if its time falls ou
 
             Here, we provide only one setting.
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for disabled clusters. Possible values:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. The possible values are:
 
             * `anytime`: Maintenance can take place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week on the specified day and time:
 
-                * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -400,7 +405,7 @@ A scheduled maintenance job will be cancelled automatically if its time falls ou
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -433,16 +438,16 @@ A scheduled maintenance job will be cancelled automatically if its time falls ou
 
             Here, we provide only one setting.
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for disabled clusters. Possible values:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. The possible values are:
 
             * `anytime`: Maintenance can take place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week on the specified day and time:
 
-                * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}

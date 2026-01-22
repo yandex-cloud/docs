@@ -450,12 +450,12 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojectblue.example`).
-     1. На вкладке **{{ ui-key.yacloud.common.overview }}** в разделе **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** скопируйте в буфер обмена сгенерированное сервисом доменное имя вида `{{ cname-example-yc }}` или `{{ cname-example-edge }}`в зависимости от используемого [провайдера CDN](../../cdn/concepts/providers.md).
+     1. На вкладке **{{ ui-key.yacloud.common.overview }}** в разделе **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** скопируйте в буфер обмена сгенерированное сервисом доменное имя вида `{{ cname-example-yc }}`.
 
    {% endlist %}
 
 1. Перейдите в настройки DNS вашего домена на сайте компании, которая предоставляет вам услуги DNS-хостинга.
-1. Измените [CNAME-запись](../../dns/concepts/resource-record.md#cname) для `cdn` таким образом, чтобы она указывала на скопированный ранее адрес в домене `.yccdn.cloud.yandex.net` или `.edgecdn.ru`, например:
+1. Измените [CNAME-запись](../../dns/concepts/resource-record.md#cname) для `cdn` таким образом, чтобы она указывала на скопированный ранее адрес в домене `.yccdn.cloud.yandex.net`, например:
 
    ```http
    cdn CNAME {{ cname-example-yc }}.
@@ -483,7 +483,7 @@
         1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn`, чтобы запись соответствовала доменному имени `cdn.ycprojectblue.example`.
         1. Выберите **{{ ui-key.yacloud.common.type }}** записи — `CNAME`.
-        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированный адрес в домене `.yccdn.cloud.yandex.net` или `.edgecdn.ru` с точкой на конце.
+        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированный адрес в домене `.yccdn.cloud.yandex.net` с точкой на конце.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}

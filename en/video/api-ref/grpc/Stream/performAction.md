@@ -206,7 +206,6 @@ Identifier of the thumbnail image used to represent the stream visually. ||
 
 Current status of the stream.
 
-- `STREAM_STATUS_UNSPECIFIED`: The stream status is not specified.
 - `OFFLINE`: The stream is offline and not broadcasting.
 - `PREPARING`: The system is preparing the infrastructure for receiving the video signal.
 - `READY`: The infrastructure is ready to launch the stream.

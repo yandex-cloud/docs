@@ -7,6 +7,11 @@ description: В разделе представлена история изме�
 
 {% include [preview](../_includes/note-service-preview.md) %}
 
+## Январь 2026 {#jan-2026}
+
+* Сервис {{ mspqr-full-name }} вышел в [Public Preview](../overview/concepts/launch-stages.md).
+* Поддержаны интерфейсы [{{ TF }}](tf-ref.md) и [YC CLI](../cli/cli-ref/managed-sharded-postgresql/cli-ref/index.md).
+
 ## Ноябрь 2025 {#nov-2025}
 
 * Добавлена возможность задавать настройки СУБД при создании и изменении кластера.
@@ -14,4 +19,4 @@ description: В разделе представлена история изме�
 
 ## Июль 2025 {#jul-2025}
 
-Сервис {{ mspqr-full-name }} вышел в [Public Preview](../overview/concepts/launch-stages.md).
+Сервис {{ mspqr-full-name }} вышел в Technical Preview.

@@ -36,7 +36,7 @@ using the URL obtained from the GenerateUploadURL method.
 
 Subtitle language represented as a three-letter code according to ISO 639-2/T.
 
-Value must match the regular expression ` ara\|deu\|eng\|fra\|ita\|jpn\|kaz\|kor\|rus\|spa\|tur\|ukr\|zho `. ||
+Value must match the regular expression ``` ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho ```. ||
 || label | **string**
 
 Contains the subtitle label (or title) that will be displayed on screen during video playback.
@@ -186,14 +186,12 @@ Display label for the subtitle track shown in the video player's subtitle select
 
 Current processing status of the subtitle.
 
-- `SUBTITLE_STATUS_UNSPECIFIED`: The subtitle status is not specified.
 - `WAIT_UPLOADING`: The subtitle file upload is in progress, waiting for all bytes to be received.
 - `UPLOADED`: The subtitle file has been fully uploaded and is ready for use. ||
 || source_type | enum **SubtitleSourceType**
 
 Indicates how the subtitle was created or obtained.
 
-- `SUBTITLE_SOURCE_TYPE_UNSPECIFIED`: The subtitle source type is not specified.
 - `MANUAL`: The subtitle was manually created and uploaded by a user.
 - `GENERATED`: The subtitle was automatically generated through speech recognition. ||
 || filename | **string**

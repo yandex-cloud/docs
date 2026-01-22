@@ -12,6 +12,6 @@
 
    The certificate will be saved to the `$HOME\.redis\{{ crt-local-file }}` file.
 
-   Corporate policies and antivirus software can block the download of certificates. For more information, see [FAQ](../../../managed-valkey/qa/general.md#get-ssl-error).
+   Your corporate security policies and antivirus software may block the certificate download. For more information, see [FAQ](../../../managed-valkey/qa/general.md#get-ssl-error).
 
 {% endlist %}

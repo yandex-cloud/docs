@@ -1,25 +1,25 @@
 # Migrating a database from a third-party {{ VLK }} cluster to {{ mrd-full-name }}
 
 
-For data migration, {{ VLK }} uses a _logical dump_: this is a file with a sequence of commands to restore the state of databases in the cluster. There are several ways to create a dump. The following example will use [redis-dump-go](https://github.com/yannh/redis-dump-go/).
+For data migration, {{ VLK }} uses a _logical dump_. A _logical dump_ is a file with a sequence of commands that restore the database state. There are several ways to create a dump. The following example will use [redis-dump-go](https://github.com/yannh/redis-dump-go/).
 
 {% note info %}
 
-A binary RDB dump cannot be used for migration, because {{ mrd-name }} does not permit accessing file systems on cluster hosts.
+You cannot use a binary RDB dump for migration, as {{ mrd-name }} does not provide access to the file system on cluster hosts.
 
 {% endnote %}
 
 To migrate {{ VLK }} databases from the _source cluster_ to the _target cluster_:
 
 1. [Connect to the source cluster and create a logical dump](#create-dump).
-1. (Optional) [Upload the dump to the intermediate virtual machine](#load-vm).
+1. Optionally, [upload the dump to the intermediate VM](#load-vm).
 
-    You must transfer data to {{ compute-full-name }} using a virtual machine if:
+    You need to use a VM in {{ compute-full-name }} to transfer data if:
 
     * Your {{ mrd-name }} cluster is not accessible from the internet.
-    * Your hardware or connection to the cluster in {{ yandex-cloud }} is not very reliable.
+    * Your local hardware or {{ yandex-cloud }} cluster connection is not reliable enough.
 
-1. [Restore the dump on the target cluster](#restore-dump).
+1. [Restore the dump in the target cluster](#restore-dump).
 1. [Make sure the dump is fully restored](#check-data).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -27,34 +27,34 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mrd-name }} target cluster fee: Using computing resources allocated to hosts, and its disk space (see [{{ VLK }} pricing](../../managed-valkey/pricing.md)).
+* {{ mrd-name }} target cluster fee, which covers the use of computing resources allocated to hosts, and disk space (see [{{ VLK }} pricing](../../managed-valkey/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* When creating a VM to download a dump: Fee for using the computing resources, storage, OS (for specific operating systems), and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* When creating a VM for dump upload: fee for the use of computing resources, storage, operating system (for certain OS types), and optionally public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mrd-name }} cluster](../../managed-valkey/operations/cluster-create.md) with any suitable configuration. To connect to a cluster from a user's local machine rather than a {{ yandex-cloud }} cloud network, enable TLS support and public host access when creating your cluster.
+    1. [Create](../../managed-valkey/operations/cluster-create.md) a {{ mrd-name }} cluster with any suitable configuration. To connect to the cluster from your local machine outside {{ yandex-cloud }}, enable TLS and public access for cluster hosts when creating the cluster.
 
-    1. (Optional) [Create an intermediate Linux virtual machine](../../compute/operations/vm-create/create-linux-vm.md) in {{ compute-full-name }} on the same network as the {{ mrd-name }} cluster using the following configuration:
+    1. Optionally, [create an intermediate Linux VM](../../compute/operations/vm-create/create-linux-vm.md) in {{ compute-full-name }} in the same network as the {{ mrd-name }} cluster using the following configuration:
 
-        * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image.
+        * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
         * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
             * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
             * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-            * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: Select the same security group as for the {{ mrd-name }} cluster.
+            * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: Same as for the {{ mrd-name }} cluster.
 
     
-    1. If you use {{ vpc-name }} security groups, [configure them](../../managed-valkey/operations/connect/index.md#configuring-security-groups).
+    1. If using {{ vpc-name }} security groups, [configure them](../../managed-valkey/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -64,26 +64,26 @@ The support cost includes:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the configuration file for the appropriate cluster type to the same working directory:
+    1. Download the configuration file matching your cluster type to the same working directory:
 
-        * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud-examples/yc-redis-data-migration-from-on-premise/blob/main/redis-cluster-non-sharded.tf): For an unsharded cluster.
+        * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud-examples/yc-redis-data-migration-from-on-premise/blob/main/redis-cluster-non-sharded.tf): For a non-sharded cluster.
         * [redis-cluster-sharded.tf](https://github.com/yandex-cloud-examples/yc-redis-data-migration-from-on-premise/blob/main/redis-cluster-sharded.tf): For a [sharded](../../managed-valkey/concepts/sharding.md) cluster.
 
         Each file describes the following:
 
         * Network.
         * Subnet.
-        * Default security group and rules required to connect to the cluster and the virtual machine.
+        * Default security group and rules for connecting to your cluster and VM.
         * {{ mrd-name }} cluster with public internet access.
-        * (Optional) Virtual machine with public internet access.
+        * VM with public internet access, if required.
 
     1. Specify the following in the configuration file:
 
         * Password to access the {{ mrd-name }} cluster.
-        * (Optional) VM parameters:
+        * Optionally, VM settings:
 
-            * Public virtual machine [image](../../compute/operations/images-with-pre-installed-software/get-list) ID, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-            * Login and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
+            * VM public [image](../../compute/operations/images-with-pre-installed-software/get-list) ID, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+            * Username and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the virtual machine. By default, [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) ignores the specified username and automatically creates a user named `ubuntu`. Use it to connect to the VM.
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -91,7 +91,7 @@ The support cost includes:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -103,14 +103,14 @@ The support cost includes:
 
 ### Install additional software {#install-extra-software}
 
-1. (Optional) Install utilities on the local machine for downloading and uploading files over SSH, such as:
+1. Optionally, install SSH file transfer tools on your local machine, such as the following:
 
     * [WinSCP](https://winscp.net/eng/index.php)
     * [Putty SCP](https://www.putty.org/)
 
-1. Make sure that [GNU Screen](https://www.gnu.org/software/screen/) is installed on the source cluster.
+1. Make sure [GNU Screen](https://www.gnu.org/software/screen/) is installed on the source cluster.
 
-    It might take a long time to create and restore a dump. To keep these processes alive when your SSH session times out, start them using this utility. If your SSH connection breaks while creating or restoring the dump, reconnect and restore the session state using the command:
+    Creating and restoring a dump may take a long time. To keep these processes running when your SSH session times out, start them with this tool. If your SSH connection drops during these operations, reconnect and resume the session using this command:
 
     ```bash
     screen -R
@@ -118,7 +118,7 @@ The support cost includes:
 
 ## Connect to the source cluster and create a logical dump {#create-dump}
 
-1. Connect to the source cluster's master host via SSH.
+1. Connect to the source cluster master host over SSH.
 1. Download the archive with `redis-dump-go` from the [project page](https://github.com/yannh/redis-dump-go/releases). The examples below use version `0.5.1`.
 
     ```bash
@@ -131,7 +131,7 @@ The support cost includes:
     tar xf redis-dump-go_0.5.1_linux_amd64.tar.gz
     ```
 
-1. Get familiar with the utility launch parameters:
+1. Review the tool’s command-line options:
 
     ```bash
     ./redis-dump-go -h
@@ -149,7 +149,7 @@ The support cost includes:
     screen
     ```
 
-1. Launch the creation of a logical dump:
+1. Start creating a logical dump:
 
     ```bash
     ./redis-dump-go \
@@ -159,27 +159,27 @@ The support cost includes:
 
     {% note tip %}
 
-    As the dump is created, the number of processed keys is shown on the screen. Remember or write down the last output value: you will need it to check whether the dump has been restored completely in the target cluster.
+    While the dump is being created, the number of processed keys will appear on the screen. Remember or write down the last output value, as you will need it to check whether the dump has been fully restored in the target cluster.
 
     {% endnote %}
 
-1. When the dump has been created, download it to your computer.
+1. Once the dump is created, download it to your computer.
 
-1. Complete the interactive `screen` session:
+1. Terminate the interactive `screen` session:
 
     ```bash
     exit
     ```
 
-## (Optional) Upload the dump to the intermediate virtual machine {#load-vm}
+## Optionally, upload the dump to the intermediate VM {#load-vm}
 
 
-1. [Connect to the intermediate VM via SSH](../../compute/operations/vm-connect/ssh.md).
+1. [Connect to the intermediate VM over SSH](../../compute/operations/vm-connect/ssh.md).
 
 
-1. Upload the dump from your computer to an intermediate virtual machine however is convenient.
+1. Upload the dump from your computer to the intermediate VM in any way you like.
 
-## Restore the dump on the target cluster {#restore-dump}
+## Restore the dump in the target cluster {#restore-dump}
 
 1. [Connect to the cluster](../../managed-valkey/operations/connect/index.md) and run an interactive `screen` session:
 
@@ -187,7 +187,7 @@ The support cost includes:
     screen
     ```
 
-1. Start the dump recovery process:
+1. Start the dump recovery:
 
     {% list tabs group=connection %}
 
@@ -225,7 +225,7 @@ The support cost includes:
 
         **Connecting to a sharded cluster**
 
-        1. Create a script containing the dump-loading commands:
+        1. Create a script with commands to load the dump:
 
             `load-dump.sh`
 
@@ -248,9 +248,9 @@ The support cost includes:
             bash ./load-dump.sh
             ```
 
-            As you run the script, you will see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. To learn more, see [{#T}](../../managed-valkey/concepts/sharding.md).
+            While the script runs, you may see data insertion error messages. This is normal behavior for the `redis-cli` command, as each shard in a sharded cluster stores only a portion of the data. For more information, see [{#T}](../../managed-valkey/concepts/sharding.md).
 
-    - Connecting via TLS {#with-tls}
+    - Connecting with TLS {#with-tls}
 
         {% include [Install requirements SSL](../../_includes/mdb/mvk/connect/bash/install-requirements-ssl.md) %}
 
@@ -288,7 +288,7 @@ The support cost includes:
 
         **Connecting to a sharded cluster**
 
-        1. Create a script containing the dump-loading commands:
+        1. Create a script with commands to load the dump:
 
             `load-dump.sh`
 
@@ -313,27 +313,27 @@ The support cost includes:
             bash ./load-dump.sh
             ```
 
-            As you run the script, you will see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. To learn more, see [{#T}](../../managed-valkey/concepts/sharding.md).
+            While the script runs, you may see data insertion error messages. This is normal behavior for the `redis-cli` command, as each shard in a sharded cluster stores only a portion of the data. For more information, see [{#T}](../../managed-valkey/concepts/sharding.md).
 
         {% endcut %}
 
     {% endlist %}
 
-1. Complete the interactive `screen` session:
+1. Terminate the interactive `screen` session:
 
     ```bash
     exit
     ```
 
-## Make sure that the dump is restored completely {#check-data}
+## Make sure the dump is fully restored {#check-data}
 
-1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to restore the cluster.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Click the cluster name and open the [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-valkey/operations/monitoring.md) tab.
 
-Pay attention to the **DB Keys** chart showing the number of keys stored in the cluster. If the cluster is [sharded](../../managed-valkey/concepts/sharding.md), the chart will show the number of keys in each shard. In this case, the number of keys in the cluster is equal to the total number of keys in the shards.
+Pay attention to the **DB Keys** chart showing the number of keys stored in the cluster. If the cluster is [sharded](../../managed-valkey/concepts/sharding.md), the chart will show the number of keys in each shard. In this case, the number of keys in the cluster is equal to the total number of keys across all shards.
 
-The total number of keys in the cluster must be equal to the number of keys processed by `redis-dump-go` when creating the dump.
+The total number of keys in the cluster must match the number of keys processed by `redis-dump-go` when creating the dump.
 
 ## Delete the resources you created {#clear-out}
 
@@ -344,7 +344,7 @@ Delete the resources you no longer need to avoid paying for them:
 - Manually {#manual}
 
     * [Delete the {{ mrd-full-name }} cluster](../../managed-valkey/operations/cluster-delete.md).
-    * If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
+    * If you created an intermediate VM, [delete it](../../compute/operations/vm-control/vm-delete.md).
     * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
 - {{ TF }} {#tf}

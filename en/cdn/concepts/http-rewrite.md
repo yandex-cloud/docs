@@ -13,9 +13,6 @@ You can enable request redirection for a CDN resource using the [management cons
 
 To configure request redirection, you need to set a [rewrite rule](#rewrite-rule) and specify a [flag](#flag).
 
-For more information about redirecting requests, see the documentation of the EdgeCenter CDN provider:
-* [Rewrite. Configuring request redirection](https://edgecenter.ru/knowledge-base/cdn/cdn-rewrite?c=17)
-* [API documentation](https://apidocs.edgecenter.ru/cdn#tag/Resources/operation/change_cdn_resource)
 
 ## Rewrite rule {#rewrite-rule}
 

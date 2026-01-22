@@ -43,8 +43,6 @@ items:
             href: operations/resources/enable-secure-token.md
           - name: Настроить локационные правила
             href: operations/resources/location-rules.md
-          - name: Управлять дополнительными настройками ресурса
-            href: operations/resources/configure-additions.md
           - name: Отключить ресурс
             href: operations/resources/disable-resource.md
           - name: Управление метками ресурса
@@ -104,8 +102,6 @@ items:
     items:
       - name: Обзор сервиса
         href: concepts/index.md
-      - name: Провайдеры
-        href: concepts/providers.md
       - name: Точки присутствия
         href: concepts/points-of-presence.md
       - name: Ресурс
@@ -432,9 +428,7 @@ items:
                 href: api-ref/Resource/delete.md
               - name: GetProviderCName
                 href: api-ref/Resource/getProviderCName.md
-  - name: Метрики {{ monitoring-name }} для провайдера EdgeCDN
-    href: metrics.md
-  - name: Метрики {{ monitoring-name }} для провайдера {{ cdn-full-name }}
+  - name: Метрики {{ monitoring-name }}
     href: metrics-yc.md
   - name: Логи запросов
     href: logs-ref.md

@@ -12,7 +12,7 @@ description: Videos of conferences and webinars on {{ mrd-full-name }}.
 
 * How we built fault-tolerant {{ RD }} in {{ yandex-cloud }}.
 
-  * Click [here](https://highload.ru/moscow/2022/abstracts/9667) for the video.
+  * Click [here](https://highload.ru/moscow/2022/abstracts/9667) to watch the recording.
 
 ### 2022: {{ yandex-cloud }} {#yc-2022}
 
@@ -24,29 +24,29 @@ description: Videos of conferences and webinars on {{ mrd-full-name }}.
 
 * Data platform updates and future plans.
 
-  * Click [here](https://www.youtube.com/watch?v=34azYnDBiYY) for the video.
+  * Click [here](https://www.youtube.com/watch?v=34azYnDBiYY) to watch the recording.
 
 ### 2021: Yandex for Developers {#yfd-2021}
 
 * Why your service needs a database.
 
-  * Click [here](https://www.youtube.com/watch?v=cddm8I0UgjU) for the video.
+  * Click [here](https://www.youtube.com/watch?v=cddm8I0UgjU) to watch the recording.
 
 ### 2019: HighLoad++ {#highload-2019}
 
 * Backing up heavily loaded DBMS's.
 
-  * Click [here](https://highload.ru/moscow/2019/abstracts/5981) for the video.
+  * Click [here](https://highload.ru/moscow/2019/abstracts/5981) to watch the recording.
 
 ### 2019: {{ yandex-cloud }} {#yc-2019}
 
 * What's new in the {{ yandex-cloud }} database platform.
 
-  * Click [here](https://www.youtube.com/watch?v=5OcUo3J4Wdc) for the video.
+  * Click [here](https://www.youtube.com/watch?v=5OcUo3J4Wdc) to watch the recording.
 
 * {{ yandex-cloud }} database platform architecture.
 
-  * Click [here](https://www.youtube.com/watch?v=Cwdg425a_cw) for the video.
+  * Click [here](https://www.youtube.com/watch?v=Cwdg425a_cw) to watch the recording.
 
 ### 2019: Articles {#article-2019}
 
@@ -58,4 +58,4 @@ description: Videos of conferences and webinars on {{ mrd-full-name }}.
 
 * Cloud databases.
 
-  * Click [here](https://www.youtube.com/watch?v=xyMN1EA9p5Y) for the video.
+  * Click [here](https://www.youtube.com/watch?v=xyMN1EA9p5Y) to watch the recording.

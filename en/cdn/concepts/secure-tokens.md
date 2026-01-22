@@ -10,10 +10,6 @@ You can [enable](../operations/resources/enable-secure-token.md#enable-secure-to
 
 If you enable access to a CDN resource via a secure token, content is only available via signed links. If you want some content to be accessible via regular links, [create](../operations/resources/create-resource.md) another CDN resource with a separate [origin](./origins.md) for this content.
 
-For more information about secure tokens, see the documentation of the EdgeCenter CDN provider:
-* [Secure token. Feature overview](https://support.edgecenter.ru/knowledge_base/item/268821?sid=57227)
-* [API documentation](https://apidocs.edgecenter.ru/cdn#tag/Resources/operation/change_cdn_resource)
-
 
 ## Signed links {#protected-link}
 

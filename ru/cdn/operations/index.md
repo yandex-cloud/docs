@@ -24,7 +24,6 @@ description: На странице представлен список поша�
 * [{#T}](resources/setup-http-rewrite.md)
 * [{#T}](resources/enable-secure-token.md)
 * [{#T}](resources/location-rules.md)
-* [{#T}](resources/configure-additions.md)
 * [{#T}](resources/disable-resource.md)
 * [{#T}](resources/labeling.md)
 * [{#T}](resources/delete-resource.md)

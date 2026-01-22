@@ -191,9 +191,9 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `http.count`: Number of HTTP proxies.
                 * `rpc.count`: Number of RPC proxies.
 
-        For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-ytsaurus }}).
+        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-ytsaurus }}).
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -205,7 +205,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -327,7 +327,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `http.count`: Number of HTTP proxies.
                 * `rpc.count`: Number of RPC proxies.
 
-    1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -341,7 +341,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -465,7 +465,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `http.count`: Number of HTTP proxies.
                 * `rpc.count`: Number of RPC proxies.
 
-    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -480,7 +480,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
             < body.json
         ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -515,7 +515,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
     1. Under **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.filestore-section_title_tYMR7 }}**, click **{{ ui-key.yacloud.common.add }}** and select the disk type, size, and number.
 
-       The selected type determines the increments in which you can change your disk size:
+       The type you select determines the increments for changing the disk size:
           * Network HDD and SSD storage: In increments of 1 GB.
           * Non-replicated SSD storage: In increments of 93 GB.
 
@@ -722,9 +722,9 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             * `odin.checks_ttl`: Frequency of checks by Odin, an internal monitoring tool. Provide with units of measurement: `h` (hours), `m` (minutes), `s` (seconds). Here is an example: `336h0m0s` (2 weeks).
 
-        For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-ytsaurus }}).
+        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-ytsaurus }}).
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -736,7 +736,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -879,7 +879,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             * `odin.checksTtl`: Frequency of checks by Odin, an internal monitoring tool. Specify it in seconds (`s`), e.g., `1209600s` (2 weeks).
 
-    1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -893,7 +893,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1038,7 +1038,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             * `odin.checks_ttl`: Frequency of checks by Odin, an internal monitoring tool. Specify it in seconds (`s`), e.g., `1209600s` (2 weeks).
 
-    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -1053,7 +1053,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
             < body.json
         ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1086,7 +1086,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
     * HTTP and RPC proxies: `5` of each type.
 
-    The configuration file for this cluster looks like this:
+    The configuration file for this cluster is as follows:
 
     ```hcl
     resource "yandex_ytsaurus_cluster" "my-ytsaurus-cluster" {

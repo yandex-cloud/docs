@@ -12,8 +12,8 @@
 
     1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mdb.cluster.logs.label_title }}** tab.
-    1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
-    1. Select the hosts in the line with the date input field if needed.
+    1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
+    1. Select the hosts in the row with the date input field, if required.
 
     You will see a list of log entries for the time period you specified. To view detailed information about an event, click the relevant entry in the list.
 
@@ -25,7 +25,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View the description of the CLI command for viewing cluster logs:
+    1. See the description of the CLI command for viewing cluster logs:
 
         ```bash
         {{ yc-mdb-rd }} cluster list-logs --help
@@ -36,7 +36,7 @@
         ```bash
         {{ yc-mdb-rd }} cluster list-logs <cluster_name_or_ID> \
            --limit <entry_number_limit> \
-           --columns <list_of_data_columns> \
+           --columns <list_of_output_data_columns> \
            --filter <entry_filtration_settings> \
            --since <time_range_start> \
            --until <time_range_end>
@@ -48,17 +48,17 @@
         * `--columns`: List of output data columns:
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
-            * `pid`: ID of the current session's server process.
+            * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
         * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -77,13 +77,13 @@
 
         Where:
 
-        * `serviceType`: Type of service to request logs for. The possible value is `REDIS`.
+        * `serviceType`: Type of service to request logs for. The valid value is `REDIS`.
 
         * `columnFilter`: List of output data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
-            * `pid`: ID of the current session's server process.
+            * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
 
             {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
@@ -92,13 +92,13 @@
 
         * `toTime`: End of the time range in the same format as `fromTime`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -119,8 +119,8 @@
                     "<column_1>", "<column_2>", ..., "<column_N>"
                   ],
                   "service_type": "<service_type>",
-                  "from_time": "<time_range_left_boundary>",
-                  "to_time": "<time_range_right_boundary>"
+                  "from_time": "<time_range_start>",
+                  "to_time": "<time_range_end>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.ClusterService.ListLogs
@@ -128,13 +128,13 @@
 
         Where:
 
-        * `service_type`: Type of service to request logs for. The possible value is `REDIS`.
+        * `service_type`: Type of service to request logs for. The valid value is `REDIS`.
 
         * `column_filter`: List of output data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
-            * `pid`: ID of the current session's server process.
+            * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
 
             {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
@@ -143,7 +143,7 @@
 
         * `to_time`: End of the time range in the same format as `from_time`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/listLogs#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) to make sure your request was successful.
 
@@ -167,11 +167,11 @@ This method allows you to get cluster logs in real time.
     {{ yc-mdb-rd }} cluster list-logs <cluster_name_or_ID> --follow
     ```
 
-    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -185,19 +185,19 @@ This method allows you to get cluster logs in real time.
             --url-query serviceType=<service_type> \
             --url-query columnFilter=<column_list> \
             --url-query fromTime=<time_range_start> \
-            --url-query toTime=<time_range_right_boundary> \
+            --url-query toTime=<time_range_end> \
             --url-query filter=<log_filter>
         ```
 
         Where:
 
-        * `serviceType`: Type of service to request logs for. The possible value is `REDIS`.
+        * `serviceType`: Type of service to request logs for. The valid value is `REDIS`.
 
         * `columnFilter`: List of output data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
-            * `pid`: ID of the current session's server process.
+            * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
 
             {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
@@ -212,13 +212,13 @@ This method allows you to get cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#query_params).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.redis.v1.StreamLogRecord) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.redis.v1.StreamLogRecord) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -239,8 +239,8 @@ This method allows you to get cluster logs in real time.
                     "<column_1>", "<column_2>", ..., "<column_N>"
                   ],
                   "service_type": "<service_type>",
-                  "from_time": "<time_range_left_boundary>",
-                  "to_time": "<time_range_right_boundary>",
+                  "from_time": "<time_range_start>",
+                  "to_time": "<time_range_end>",
                   "filter": "<log_filter>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
@@ -249,13 +249,13 @@ This method allows you to get cluster logs in real time.
 
         Where:
 
-        * `service_type`: Type of service to request logs for. The possible value is `REDIS`.
+        * `service_type`: Type of service to request logs for. The valid value is `REDIS`.
 
         * `column_filter`: List of output data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
-            * `pid`: ID of the current session's server process.
+            * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
 
             {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
@@ -270,7 +270,7 @@ This method allows you to get cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.redis.v1.StreamLogRecord) to make sure your request was successful.
 
