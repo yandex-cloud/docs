@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the MongoDB cluster to add a shard to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,12 +24,14 @@ apiPlayground:
           description: |-
             **string**
             Required field. Name of the MongoDB shard to create.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         hostSpecs:
           description: |-
             **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
             Configurations for mongod hosts to be created with the shard.
+            The number of elements must be greater than 0.
           type: array
           items:
             $ref: '#/definitions/HostSpec'
@@ -44,6 +47,7 @@ apiPlayground:
               **string**
               ID of the availability zone where the host resides.
               To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+              The maximum string length in characters is 50.
             type: string
           subnetId:
             description: |-
@@ -51,6 +55,7 @@ apiPlayground:
               ID of the subnet that the host should belong to. This subnet should be a part
               of the network that the cluster belongs to.
               The network ID is set in the [Cluster.networkId](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+              The maximum string length in characters is 50.
             type: string
           assignPublicIp:
             description: |-
@@ -66,7 +71,6 @@ apiPlayground:
             description: |-
               **enum** (Type)
               Type of the host to be deployed.
-              - `TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.
               - `MONGOD`: A mongod host.
               - `MONGOS`: A mongos host.
               - `MONGOCFG`: A mongocfg host.
@@ -82,6 +86,7 @@ apiPlayground:
             description: |-
               **string**
               Name of the shard that the host belongs to.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           hidden:
@@ -128,7 +133,9 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/shards
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to add a shard to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mongodb.v1.AddClusterShardRequest}
@@ -156,10 +163,14 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
 ||Field | Description ||
 || shardName | **string**
 
-Required field. Name of the MongoDB shard to create. ||
+Required field. Name of the MongoDB shard to create.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
 
-Configurations for mongod hosts to be created with the shard. ||
+Configurations for mongod hosts to be created with the shard.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.mongodb.v1.HostSpec}
@@ -169,12 +180,16 @@ Configurations for mongod hosts to be created with the shard. ||
 || zoneId | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnetId | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.networkId](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field. ||
+The network ID is set in the [Cluster.networkId](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+
+The maximum string length in characters is 50. ||
 || assignPublicIp | **boolean**
 
 Whether the host should get a public IP address on creation.
@@ -189,14 +204,15 @@ Possible values:
 
 Type of the host to be deployed.
 
-- `TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.
 - `MONGOD`: A mongod host.
 - `MONGOS`: A mongos host.
 - `MONGOCFG`: A mongocfg host.
 - `MONGOINFRA`: A mongoinfra (mongos+mongocfg) host. ||
 || shardName | **string**
 
-Name of the shard that the host belongs to. ||
+Name of the shard that the host belongs to.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || hidden | **boolean**
 
 Is host hidden in replSet ||

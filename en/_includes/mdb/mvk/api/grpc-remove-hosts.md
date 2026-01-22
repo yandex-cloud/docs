@@ -1,10 +1,10 @@
-1. [Get an IAM token for API authentication](../../../../managed-valkey/api-ref/authentication.md) and put it into the environment variable:
+1. [Get an IAM token for API authentication](../../../../managed-valkey/api-ref/authentication.md) and save it as an environment variable:
 
     {% include [api-auth-token](../../api-auth-token.md) %}
 
 1. {% include [grpc-api-setup-repo](../../grpc-api-setup-repo.md) %}
 
-1. Use the [ClusterService.DeleteHosts](../../../../managed-valkey/api-ref/grpc/Cluster/deleteHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+1. Call the [ClusterService.DeleteHosts](../../../../managed-valkey/api-ref/grpc/Cluster/deleteHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
     ```bash
     grpcurl \
@@ -21,8 +21,8 @@
         yandex.cloud.mdb.redis.v1.ClusterService.DeleteHosts
     ```
 
-    Where `host_names` is the name of the host to delete. To find out the name, [get a list of hosts in the cluster](../../../../managed-valkey/operations/hosts.md#list).
+    Where `host_names` is the name of the host to delete. To find out the name, [get the list of hosts in the cluster](../../../../managed-valkey/operations/hosts.md#list).
 
-    You can get the cluster ID with a [list of clusters in the folder](../../../../managed-valkey/operations/cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](../../../../managed-valkey/operations/cluster-list.md#list-clusters).
 
-1. View the [server response](../../../../managed-valkey/api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+1. Check the [server response](../../../../managed-valkey/api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.

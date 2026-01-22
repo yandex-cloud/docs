@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the MongoDB cluster.
             To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -25,6 +26,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Acceptable values are 0 to 1000, inclusive. Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -33,6 +35,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -57,7 +60,9 @@ GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/hosts
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster.
-To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request. ||
+To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.mongodb.v1.ListClusterHostsRequest}
@@ -69,11 +74,15 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) returned by the previous list request. ||
+[ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse}
@@ -179,7 +188,6 @@ Shard which this host belongs to. ||
 
 Host type. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.
 - `MONGOD`: A mongod host.
 - `MONGOS`: A mongos host.
 - `MONGOCFG`: A mongocfg host.
@@ -217,7 +225,6 @@ Possible values:
 
 Type of the service provided by the host. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Service type of the host is unspecified. Default value.
 - `MONGOD`: The host is running a mongod daemon.
 - `MONGOS`: The host is running a mongos daemon.
 - `MONGOCFG`: The host is running a MongoDB config server. ||

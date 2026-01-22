@@ -1,4 +1,4 @@
 You can use CDN resource settings from a configuration of another CDN resource. To do this, in the **Copy a configuration** field, select an existing CDN resource. Keep in mind the following:
-* You can migrate the **{{ ui-key.yacloud.cdn.label_personal-domain }}** setting from a CDN resource of one [CDN provider](../../cdn/concepts/providers.md) to another. The name must be unique across the resources of a single provider.
+* You can migrate the **{{ ui-key.yacloud.cdn.label_personal-domain }}** setting from a CDN resource of one CDN provider to another. The name must be unique across the resources of a single provider.
 * Сopying settings between resources of different providers creates a copy of the [origin group](../../cdn/concepts/origins.md) in the provider of the new resource.
 * If you uploaded a TLS certificate for the original resource, the system will re-use it in the new resource. You do not need to upload it again.

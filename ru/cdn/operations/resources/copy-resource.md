@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% note warning %}
 
-      Параметр **{{ ui-key.yacloud.cdn.label_personal-domain }}** должен быть уникальным в рамках ресурсов одного [провайдера CDN](../../concepts/providers.md).
+      Параметр **{{ ui-key.yacloud.cdn.label_personal-domain }}** должен быть уникальным для каждого ресурса.
 
       {% endnote %}
 
@@ -33,5 +33,3 @@ description: Следуя данной инструкции, вы сможете
 {% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}
 
 {% include [note-dns-aname](../../../_includes/cdn/note-dns-aname.md) %}
-
-{% include [edge-center-features-note](../../../_includes/cdn/edge-center-features-note.md) %}

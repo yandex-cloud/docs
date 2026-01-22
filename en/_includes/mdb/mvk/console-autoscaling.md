@@ -6,11 +6,11 @@
 
         {% note warning %}
 
-        If you set both conditions, make sure the immediate increase threshold is higher than the scheduled one.
+        If you set both conditions, make sure the immediate expansion threshold is higher than the scheduled one.
 
         {% endnote %}
 
-* In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set during automatic scaling.
+* In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set during autoscaling.
 
 
 {% include [warn-storage-resize](warn-storage-resize.md) %}

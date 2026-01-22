@@ -26,6 +26,8 @@ To assign a role for a resource, a user should have the `managed-trino.admin` ro
 
 To allow access to {{ mtr-name }} resources, such as clusters and accounts, give the user the relevant roles for the folder, cloud, or organization containing those resources.
 
+You can assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../cli), or [API](./api-ref/authentication.md).
+
 ## Roles this service has {#roles-list}
 
 The list below shows all the roles used for access control in this service.
@@ -66,7 +68,7 @@ The list below shows all the roles used for access control in this service.
 
 ## Required roles {#required-roles}
 
-To use the service, the user needs the `managed-trino.editor` role or higher for the folder in which the cluster is created. The `managed-trino.viewer` role only allows you to view the list of clusters.
+As a user, you need the `managed-trino.editor` role or higher for the folder that will contain the new cluster. The `managed-trino.viewer` role only allows you to view the list of clusters.
 
 To create an {{ mtr-name }} cluster, the following roles are required: [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user), [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user), and `managed-trino.admin` or higher.
 

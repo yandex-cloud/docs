@@ -19,15 +19,11 @@ resource "yandex_cdn_origin_group" "my_group" {
 Where:
 * `name`: Origin group name.
 * `use_next`: Indicates whether to use the next [origin](../../cdn/concepts/resource.md) on the list.
-* `provider_type`: [CDN provider](../../cdn/concepts/providers.md), must match the origin group CDN provider. This is an optional setting. The possible values are:
-    * `ourcdn` (default): {{ cdn-full-name }} provider.
-    * `gcore`: EdgeCDN provider.
-
-        {% include [provider-binding](provider-binding.md) %}
+* `provider_type`: CDN provider, must match the origin group CDN provider. This is an optional setting. The possible value is: `ourcdn` (default): {{ cdn-full-name }} provider.
 
 * `origin`: Origin specification:
-  * `source`: Origin [IP address](../../vpc/concepts/address.md) or domain name.
-  * `enabled`: Flag showing whether the origin is enabled.
-  * `backup`: Flag showing whether the origin as a backup one. For more information about priorities, see [{#T}](../../cdn/concepts/origins.md#groups).
+    * `source`: Origin [IP address](../../vpc/concepts/address.md) or domain name.
+    * `enabled`: Flag showing whether the origin is enabled.
+    * `backup`: Flag showing whether the origin as a backup one. For more information about priorities, see [{#T}](../../cdn/concepts/origins.md#groups).
 
 For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_origin_group).

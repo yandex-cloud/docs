@@ -38,13 +38,19 @@ Creates a new shard.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to add a shard to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shard_name | **string**
 
-Required field. Name of the MongoDB shard to create. ||
+Required field. Name of the MongoDB shard to create.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
 
-Configurations for mongod hosts to be created with the shard. ||
+Configurations for mongod hosts to be created with the shard.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.mongodb.v1.HostSpec}
@@ -54,12 +60,16 @@ Configurations for mongod hosts to be created with the shard. ||
 || zone_id | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.network_id](/docs/managed-mongodb/api-ref/grpc/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field. ||
+The network ID is set in the [Cluster.network_id](/docs/managed-mongodb/api-ref/grpc/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+
+The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
@@ -74,14 +84,15 @@ Possible values:
 
 Type of the host to be deployed.
 
-- `TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.
 - `MONGOD`: A mongod host.
 - `MONGOS`: A mongos host.
 - `MONGOCFG`: A mongocfg host.
 - `MONGOINFRA`: A mongoinfra (mongos+mongocfg) host. ||
 || shard_name | **string**
 
-Name of the shard that the host belongs to. ||
+Name of the shard that the host belongs to.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Is host hidden in replSet ||

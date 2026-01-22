@@ -12,8 +12,6 @@ CORS settings apply to all files of the resource.
 
 {% include [cors-note](../../_includes/cdn/cors-note.md) %}
 
-{% include [edge-cors-note](../../_includes/cdn/edge-cors-note.md) %}
-
 
 #### See also {#see-also}
 

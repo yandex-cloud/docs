@@ -90,7 +90,6 @@ apiPlayground:
             description: |-
               **enum** (AccessBindingAction)
               Required field. The action that is being performed on an access binding.
-              - `ACCESS_BINDING_ACTION_UNSPECIFIED`
               - `ADD`: Addition of an access binding.
               - `REMOVE`: Removal of an access binding.
             type: string
@@ -167,7 +166,6 @@ The number of elements must be in the range 1-1000. ||
 
 Required field. The action that is being performed on an access binding.
 
-- `ACCESS_BINDING_ACTION_UNSPECIFIED`
 - `ADD`: Addition of an access binding.
 - `REMOVE`: Removal of an access binding. ||
 || accessBinding | **[AccessBinding](#yandex.cloud.access.AccessBinding)**
@@ -380,7 +378,6 @@ Result access binding deltas. ||
 
 Required field. The action that is being performed on an access binding.
 
-- `ACCESS_BINDING_ACTION_UNSPECIFIED`
 - `ADD`: Addition of an access binding.
 - `REMOVE`: Removal of an access binding. ||
 || accessBinding | **[AccessBinding](#yandex.cloud.access.AccessBinding2)**

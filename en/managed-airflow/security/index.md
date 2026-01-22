@@ -23,7 +23,9 @@ To assign a role for a resource, a user should have the `managed-airflow.admin` 
 
 To allow access to {{ maf-name }} resources, assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 
-## What roles exist in this service {#roles-list}
+You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../../cli), or [API](../api-ref/authentication.md).
+
+## Roles this service has {#roles-list}
 
 {% include [roles-managed-airflow](../../_mermaid/roles/managed-airflow.md) %}
 
@@ -73,9 +75,9 @@ Users with the `{{ roles-admin }}` role can manage resource access permissions, 
 
 This role includes the `{{ roles-editor }}` role.
 
-## What roles are required {#required-roles}
+## Required roles {#required-roles}
 
-To use {{ maf-name }}, you need the [{{ roles.maf.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder to house the new cluster. The `{{ roles.maf.viewer }}` role allows you only to view the list of clusters.
+As a user, you need the [{{ roles.maf.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.maf.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.maf.editor }}` role or higher.
 

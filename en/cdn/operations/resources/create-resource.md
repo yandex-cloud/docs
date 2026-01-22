@@ -36,12 +36,6 @@ To create a [resource](../../concepts/resource.md):
             1. Add other origins if needed.
             1. Click **{{ ui-key.yacloud.common.create }}**. In the **{{ ui-key.yacloud.cdn.label_origins-group }}** field, you will see the name of the created origin group.
 
-          {% note info %}
-
-          If the CDN resource is from one [CDN provider](../../concepts/providers.md) and the selected existing origin group is from another, a duplicate origin group will be created for the CDN resource provider.
-
-          {% endnote %}
-
           For more information, see [{#T}](../../concepts/origins.md).
         * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select a protocol for the origins.
         * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify the primary domain name you will use in your website links to CDN-hosted content, e.g., `cdn.example.com`.
@@ -90,12 +84,6 @@ To create a [resource](../../concepts/resource.md):
           [Learn more about access via a secure token](enable-secure-token.md).
 
         * {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
-
-        * Optionally, to set a [CDN provider](../../concepts/providers.md), enable **Select provider** and specify the one you need.
-
-          The default provider is `{{ cdn-full-name }}`.
-
-          {% include [provider-binding](../../../_includes/cdn/provider-binding.md) %}
 
   1. Click **{{ ui-key.yacloud.common.continue }}**.
   1. Optionally, under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, do the following:
@@ -275,8 +263,6 @@ To create a [resource](../../concepts/resource.md):
 {% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}
 
 {% include [note-dns-aname](../../../_includes/cdn/note-dns-aname.md) %}
-
-{% include [edge-center-features-note](../../../_includes/cdn/edge-center-features-note.md) %}
 
 ## Examples {#examples}
 

@@ -106,7 +106,6 @@ The actual height may be smaller to maintain the aspect ratio. ||
 Format of the scaled image (JPEG, WebP, etc.).
 Different formats offer different trade-offs between quality and file size.
 
-- `IMAGE_FORMAT_UNSPECIFIED`: The image format is not specified.
 - `JPEG`: JPEG image format.
 Provides good compression with some quality loss.
 Widely supported across all platforms and browsers.

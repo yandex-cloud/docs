@@ -1,6 +1,6 @@
 You can use [{{ websql-full-name }}](../../../websql) to run {{ mrd-name }} cluster database operations.
 
-{{ websql-name }} is a {{ yandex-cloud }} service that enables you to connect to managed database clusters, work with databases, tables, and schemas, and run queries. It is a web-based tool that requires no additional authorization and simplifies working with {{ VLK }} commands by prompting the user.
+{{ websql-name }} is a {{ yandex-cloud }} service that enables you to connect to managed database clusters, work with databases, tables, and schemas, and run queries. It is a web-based tool that requires no additional authorization and simplifies working with {{ VLK }} commands by suggesting prompts.
 
 To connect from {{ websql-name }}, you must enable the **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** option in the cluster settings. You can enable this option when [creating](../../../managed-valkey/operations/cluster-create.md) or [updating a cluster](../../../managed-valkey/operations/update.md#change-additional-settings).
 

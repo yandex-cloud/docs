@@ -306,7 +306,6 @@ Possible values:
 
 Current visibility status controlling whether the episode is publicly available.
 
-- `VISIBILITY_STATUS_UNSPECIFIED`: The visibility status is not specified.
 - `PUBLISHED`: The episode is publicly available, subject to its access permission settings.
 - `UNPUBLISHED`: The episode is available only to administrators. ||
 || stylePresetId | **string**

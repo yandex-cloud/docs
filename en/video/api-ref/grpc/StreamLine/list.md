@@ -79,11 +79,14 @@ The maximum string length in characters is 1000. ||
       "id": "string",
       "channel_id": "string",
       "title": "string",
-      // Includes only one of the fields `rtmp_push`, `rtmp_pull`
+      // Includes only one of the fields `rtmp_push`, `rtmp_pull`, `srt_pull`
       "rtmp_push": {
         "url": "string"
       },
       "rtmp_pull": {
+        "url": "string"
+      },
+      "srt_pull": {
         "url": "string"
       },
       // end of the list of possible fields
@@ -133,14 +136,21 @@ Title of the stream line. ||
 
 Real-Time Messaging Protocol (RTMP) push input type.
 
-Includes only one of the fields `rtmp_push`, `rtmp_pull`.
+Includes only one of the fields `rtmp_push`, `rtmp_pull`, `srt_pull`.
 
 Specifies the input type and settings for the video signal source. ||
 || rtmp_pull | **[RTMPPullInput](#yandex.cloud.video.v1.RTMPPullInput)**
 
 Real-Time Messaging Protocol (RTMP) pull input type.
 
-Includes only one of the fields `rtmp_push`, `rtmp_pull`.
+Includes only one of the fields `rtmp_push`, `rtmp_pull`, `srt_pull`.
+
+Specifies the input type and settings for the video signal source. ||
+|| srt_pull | **[SRTPullInput](#yandex.cloud.video.v1.SRTPullInput)**
+
+Secure Reliable Transport (SRT) pull input type.
+
+Includes only one of the fields `rtmp_push`, `rtmp_pull`, `srt_pull`.
 
 Specifies the input type and settings for the video signal source. ||
 || manual_line | **[ManualLine](#yandex.cloud.video.v1.ManualLine)**
@@ -196,6 +206,19 @@ Used when the service pulls the video stream from an RTMP source.
 RTMP url for receiving video signal. ||
 |#
 
+## SRTPullInput {#yandex.cloud.video.v1.SRTPullInput}
+
+Settings for an SRT pull input.
+Used when the service pulls the video stream from an SRT source.
+@see https://en.wikipedia.org/wiki/Secure_Reliable_Transport
+
+#|
+||Field | Description ||
+|| url | **string**
+
+SRT url for receiving video signal. ||
+|#
+
 ## ManualLine {#yandex.cloud.video.v1.ManualLine}
 
 Represents a manual line type where the stream control is handled manually.
@@ -216,7 +239,6 @@ Represents an automatic line type where the stream control is handled automatica
 
 The status of the automatic line.
 
-- `AUTO_LINE_STATUS_UNSPECIFIED`: Auto line status unspecified.
 - `DEACTIVATED`: The automatic line is deactivated and not currently active.
 - `ACTIVE`: The automatic line is active and operational. ||
 |#

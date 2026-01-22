@@ -11,8 +11,6 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
 {% endnote %}
 
-{% include [edge-cdn-restrictions](../../../_includes/cdn/edge-cdn-restrictions.md) %}
-
 To configure HTTP request and response headers for a resource:
 
 {% list tabs group=instructions %}

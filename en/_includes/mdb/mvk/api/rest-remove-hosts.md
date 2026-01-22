@@ -1,8 +1,8 @@
-1. [Get an IAM token for API authentication](../../../../managed-valkey/api-ref/authentication.md) and put it into the environment variable:
+1. [Get an IAM token for API authentication](../../../../managed-valkey/api-ref/authentication.md) and save it as an environment variable:
 
     {% include [api-auth-token](../../api-auth-token.md) %}
 
-1. Use the [Cluster.DeleteHosts](../../../../managed-valkey/api-ref/Cluster/deleteHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+1. Call the [Cluster.DeleteHosts](../../../../managed-valkey/api-ref/Cluster/deleteHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
     ```bash
     curl \

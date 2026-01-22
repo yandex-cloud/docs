@@ -3,7 +3,7 @@ title: How to connect to a {{ ytsaurus-name }} cluster
 description: Follow this guide to connect to a {{ ytsaurus-name }} cluster.
 ---
 
-# Connecting to a cluster {{ ytsaurus-name }}
+# Connecting to a {{ ytsaurus-name }} cluster
 
 You can connect to a {{ ytsaurus-name }} cluster:
 

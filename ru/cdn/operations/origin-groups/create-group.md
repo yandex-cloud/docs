@@ -21,11 +21,7 @@ description: Следуя данной инструкции, вы сможете
      * Укажите источник.
      * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` или `{{ ui-key.yacloud.cdn.value_backup }}`. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
      * Добавьте другие источники, если необходимо.
-  1. Выберите [провайдера CDN](../../concepts/providers.md). По умолчанию выбран провайдер `{{ cdn-full-name }}`.
-
-      {% include [provider-binding](../../../_includes/cdn/provider-binding.md) %}
-
-      За CDN-ресурсом и его группой источников должен быть закреплен один и тот же провайдер CDN.
+  1. Выберите провайдера CDN. Единственное возможное значение — `{{ cdn-full-name }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -95,8 +91,6 @@ description: Следуя данной инструкции, вы сможете
      ```
 
 - API {#api}
-
-  Если вы создаете первую группу источников, подключитесь к провайдеру CDN. Для этого воспользуйтесь методом REST API [activate](../../api-ref/Provider/activate.md) для ресурса [Provider](../../api-ref/Provider/index.md) или вызовом gRPC API [ProviderService/Activate](../../api-ref/grpc/Provider/activate.md).
 
   Воспользуйтесь методом REST API [create](../../api-ref/OriginGroup/create.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Create](../../api-ref/grpc/OriginGroup/create.md).
 

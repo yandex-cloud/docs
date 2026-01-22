@@ -11,8 +11,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-{% include [edge-cdn-restrictions](../../../_includes/cdn/edge-cdn-restrictions.md) %}
-
 Чтобы настроить для ресурса HTTP-заголовки запросов и ответов:
 
 {% list tabs group=instructions %}

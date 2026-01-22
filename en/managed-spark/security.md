@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ msp-full-name }}
-description: Access management in {{ SPRK }}, a cluster creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ SPRK }}, a cluster creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Managing access to {{ msp-full-name }}
@@ -9,7 +9,7 @@ description: Access management in {{ SPRK }}, a cluster creation and management 
 In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Roles this service has](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
 To use the service, log in to the management console with your [Yandex account](../iam/concepts/users/accounts.md#passport), [federated account](../iam/concepts/users/accounts.md#saml-federation), or [local account](../iam/concepts/users/accounts.md#local).
@@ -26,9 +26,13 @@ To assign a role for a resource, a user should have the `managed-spark.admin` ro
 
 To allow access to {{ msp-full-name }} resources, such as clusters and accounts, give the user the relevant roles for the folder, cloud, or organization containing those resources.
 
-## What roles this service has {#roles-list}
+You can also assign a role for an individual cluster from the [management console]({{ link-console-main }}), via the [CLI](../cli), or [API](api-ref/authentication.md).
+
+## Roles this service has {#roles-list}
 
 The list below shows all the roles used for access control in this service.
+
+{% include [roles-managed-spark](../_mermaid/roles/managed-spark.md) %}
 
 ### Service roles {#service-roles}
 
@@ -62,9 +66,9 @@ The list below shows all the roles used for access control in this service.
 
 {% include [primitive-roles-footnote](../_includes/primitive-roles-footnote.md) %}
 
-## What roles are required {#required-roles}
+## Required roles {#required-roles}
 
-To use the service, the user needs the `managed-spark.editor` role or higher for the folder in which the cluster is created. The `managed-spark.viewer` role only allows you to view the list of clusters.
+As a user, you need the `managed-spark.editor` role or higher for the folder that will contain the new cluster. The `managed-spark.viewer` role only allows you to view the list of clusters.
 
 To create an {{ msp-full-name }} cluster, the following roles are required: [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user), [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user), and `managed-spark.admin` or higher.
 

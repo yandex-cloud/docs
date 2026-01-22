@@ -5,8 +5,6 @@ description: This section describes location rules, which enable targeted overri
 
 # Location rules {{ cdn-full-name }}
 
-{% include [location-rules-disclaimer](../../_includes/cdn/location-rules-disclaimer.md) %}
-
 {% include [location-rules-description](../../_includes/cdn/location-rules-description.md) %}
 
 You can use location rules to override the following CDN resource settings:
@@ -40,7 +38,6 @@ You can configure location rules in the [management console]({{ link-console-mai
 ## See also {#see-also}
 
 * [{#T}](./resource.md)
-* [{#T}](./providers.md)
 * [{#T}](./caching.md)
 * [{#T}](./http-rewrite.md)
 * [{#T}](./secure-tokens.md)

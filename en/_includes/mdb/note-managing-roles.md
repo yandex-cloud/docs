@@ -1,5 +1,5 @@
 {% note info %}
 
-If you are unable to manage roles, contact your cloud or organization administrator.
+If you cannot manage roles, contact your cloud or organization administrator.
 
 {% endnote %}

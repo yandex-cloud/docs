@@ -167,7 +167,7 @@ Every constraint in {{ speechsense-name }} is associated with a particular event
 * The agent interrupted the customer.
 * The customer interrupted the agent.
 * End of the dialog.
-* Main tag triggered (for dependent tag).
+* Main tag counted (for dependent tag).
 
 By default, the maximum search area size is set to 1,000 utterances. To further refine the search area, specify the search direction from the event (forward, backward, or both) and the number of utterances to include in the search.
 
@@ -194,9 +194,9 @@ When creating or editing a dictionary tag, you can test it on a selection of dia
 
 For more information about tag testing, see [this guide](../operations/project/tag/test.md).
 
-## Dependent tags {#dependent-tags}
+## Main and dependent tags {#dependent-tags}
 
-You can [create](../operations/project/tag/create-dependent-tag.md) a _dependent tag_ for any {{ speechsense-name }} tag. A dependent tag is one that triggers only if the _main_ tag has done so. A main tag is one for which a dependent tag was created. 
+You can [create](../operations/project/tag/create-dependent-tag.md) a _dependent tag_ for any {{ speechsense-name }} tag. A dependent tag is one that is counted only if the _main_ tag is counted. A main tag is one for which a dependent tag was created.
 
 Dictionary, semantic, and semantic Pro tags can act as basic and dependent tags, in any combination. Dependent tags can be nested down to any depth.
 
@@ -205,3 +205,15 @@ Dictionary tag dependency is implemented through the **{{ ui-key.yc-ui-talkanaly
 You can edit dependent tags in accordance with their type as basic [semantic](../operations/project/tag/change-sense-tag.md), [semantic Pro](../operations/project/tag/change-sense-pro-tag.md), or [dictionary](../operations/project/tag/change-dictionary-tag.md) tags.
 
 When you delete the main tag, all its dependent tags will also be deleted.
+
+### Tag remainder {#remaining-tags}
+
+For the main tag, you can [turn on](#disable-yandexgpt-training) its remainder display. This remainder collects the main tag hits not counted as dependent tag hits throughout the dialog. You can use the remainder, for example, to analyze new topics, causes and problems in dialogs.
+
+Let’s say, we have the main tag **Destinations** and dependent tags **Europe** and **Asia** for a travel agency's dialogs. The remainder display is on for the main tag. Tagging will depend on what countries the dialog is about:
+
+* If the dialog mentions only European or Asian countries, it will be tagged **Europe** or **Asia**, respectively.
+* If the dialog mentions only Latin American countries, it will get the **Remainder** system tag.
+* If the dialog mentions European, Asian, and Latin American countries, it will end up tagged **Europe** and **Asia** only because the dependent tag hits were counted.
+
+You can also use the tag remainder in filters for your dialogs and reports.

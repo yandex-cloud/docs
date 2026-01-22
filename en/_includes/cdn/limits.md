@@ -16,10 +16,3 @@
 | Number of requests for [preloading files](../../cdn/concepts/caching.md#prefetch) per minute | 1 |
 | Number of paths to preloaded files per request | 100 |
 | Number of IP addresses (subnet prefixes) in the IP-based access policy [list](../../cdn/concepts/ip-address-acl.md#ip-list) | 100 |
-| Number of CORS domains when responding to client ([EdgeCDN provider](../../cdn/concepts/providers.md)) requests | 20 |
-
-
-#### Other restrictions {#other-restrictions}
-
-{% include [edge-cdn-restrictions](edge-cdn-restrictions.md) %}
-

@@ -26,6 +26,8 @@ In the [{{ speechsense-name }} interface]({{ link-speechsense-main }}), you can 
 
 ## Roles this service has {#roles-list}
 
+{% include [speechsense](../../_mermaid/roles/speechsense.md) %}
+
 ### Service roles {#service-roles}
 
 #### speech-sense.auditor {#speechsense-auditor}

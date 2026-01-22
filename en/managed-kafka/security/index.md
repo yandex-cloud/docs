@@ -14,7 +14,7 @@ In this section, you will learn about:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, you need the `mdb.admin` role, the `managed-kafka.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, `managed-kafka.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -24,7 +24,7 @@ To assign a role for a resource, you need the `mdb.admin` role, the `managed-kaf
 
 To allow access to {{ mkf-name }} resources (clusters, hosts, cluster backups, partitions, topics, and users), assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 
-You can assign a role for a separate cluster from the [management console]({{ link-console-main }}) or via the [API](../api-ref/authentication.md).
+You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../../cli), or [API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 
@@ -80,7 +80,7 @@ The chart below shows the roles existing in the service and their permission inh
 
 ## Required roles {#required-roles}
 
-To use {{ maf-name }}, you need the [{{ roles.mkf.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mkf.viewer }}` role only allows you to view the list of clusters.
+As a user, you need the [{{ roles.mkf.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mkf.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mkf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mkf.editor }}` role or higher.
 

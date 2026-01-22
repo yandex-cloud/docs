@@ -43,8 +43,6 @@ items:
             href: operations/resources/enable-secure-token.md
           - name: Setting up location rules
             href: operations/resources/location-rules.md
-          - name: Managing additional resource settings
-            href: operations/resources/configure-additions.md
           - name: Disabling a resource
             href: operations/resources/disable-resource.md
           - name: Managing resource labels
@@ -104,8 +102,6 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Providers
-        href: concepts/providers.md
       - name: Points of presence
         href: concepts/points-of-presence.md
       - name: Resource
@@ -432,9 +428,7 @@ items:
                 href: api-ref/Resource/delete.md
               - name: GetProviderCName
                 href: api-ref/Resource/getProviderCName.md
-  - name: '{{ monitoring-name }} metrics for the EdgeCDN provider'
-    href: metrics.md
-  - name: '{{ monitoring-name }} metrics for the {{ cdn-full-name }} provider'
+  - name: '{{ monitoring-name }} metrics'
     href: metrics-yc.md
   - name: Request logs
     href: logs-ref.md

@@ -53,7 +53,7 @@ There are no restrictions for non-sharded clusters.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-     * Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
+     * Specify a cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
      * Optionally, add a cluster description.
      * Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
        * `PRODUCTION`: For stable versions of your applications.
@@ -166,7 +166,7 @@ There are no restrictions for non-sharded clusters.
      If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-  1. View the description of the CLI command for creating a cluster:
+  1. See the description of the CLI command for creating a cluster:
 
       ```bash
       {{ yc-mdb-rd }} cluster create --help
@@ -228,7 +228,7 @@ There are no restrictions for non-sharded clusters.
       * `--websql-access`: Enables running [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
 
-      * `--disk-size-autoscaling`: Automatic storage expansion settings:
+      * `--disk-size-autoscaling`: Storage autoscaling settings:
 
         {% include [autoscale-description](../../_includes/mdb/mvk/cli-autoscaling.md) %}
 
@@ -247,7 +247,7 @@ There are no restrictions for non-sharded clusters.
         To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
-      * `--announce-hostnames`: [Use of FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
+      * `--announce-hostnames`: Enables or disables [using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
 
@@ -349,7 +349,7 @@ There are no restrictions for non-sharded clusters.
 
             {% include [autoscale-description](../../_includes/mdb/mvk/terraform/terraform-autoscaling.md) %}
 
-       * `announce_hostnames`: [Use of FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
+       * `announce_hostnames`: Enables or disables [using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
 
@@ -371,7 +371,7 @@ There are no restrictions for non-sharded clusters.
        {% include [Maintenance window](../../_includes/mdb/mvk/terraform/maintenance-window.md) %}
 
        
-       To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` parameter:
+       To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` argument:
 
          ```hcl
          resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -400,7 +400,7 @@ There are no restrictions for non-sharded clusters.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -561,11 +561,11 @@ There are no restrictions for non-sharded clusters.
             --data "@body.json"
         ```
 
-    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -732,7 +732,7 @@ There are no restrictions for non-sharded clusters.
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -746,7 +746,7 @@ If you specified security group IDs when creating a cluster, you may need to add
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ VLK }} cluster with the settings of another one created earlier. Do it by importing the original {{ VLK }} cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is useful when you need to replicate a {{ VLK }} cluster packed with settings.
+You can create a {{ VLK }} cluster with the settings of another one created earlier. Do it by importing the original {{ VLK }} cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea if the original {{ VLK }} cluster has lots of settings and you want to create a similar one.
 
 To create a {{ VLK }} cluster copy:
 
@@ -789,7 +789,7 @@ To create a {{ VLK }} cluster copy:
     1. Place the file in the new `imported-cluster` directory.
     1. Edit the copied configuration so that you can create a new cluster from it:
 
-        * Specify the new cluster name in the `resource` string and the `name` parameter.
+        * Specify the new cluster name in the `resource` name and the `name` parameter.
         * Delete `created_at`, `health`, `id`, and `status`.
         * Add the `password` parameter to the `config` section.
         * If you have `notify_keyspace_events = "\"\""` in the `config` section, delete this parameter.
@@ -809,7 +809,7 @@ To create a {{ VLK }} cluster copy:
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 

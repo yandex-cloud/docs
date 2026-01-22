@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the MongoDB cluster the user belongs to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         userName:
           description: |-
             **string**
             Required field. Name of the user to revoke a permission from.
             To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-ref/User/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
           pattern: '[a-zA-Z0-9_]*'
           type: string
       required:
@@ -31,6 +33,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Name of the database that the user should lose access to.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -57,11 +60,15 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{u
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to revoke a permission from.
-To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-ref/User/list#List) request. ||
+To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-ref/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mongodb.v1.RevokeUserPermissionRequest}
@@ -76,7 +83,9 @@ To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-
 ||Field | Description ||
 || databaseName | **string**
 
-Required field. Name of the database that the user should lose access to. ||
+Required field. Name of the database that the user should lose access to.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

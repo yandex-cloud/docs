@@ -78,7 +78,6 @@ Size of backup in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || journal_size | **int64**

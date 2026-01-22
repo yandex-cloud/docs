@@ -26,16 +26,22 @@ Retrieves the list of MongoDB Database resources in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to list databases in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListDatabasesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListDatabasesResponse) returned by the previous list request. ||
+[ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListDatabasesResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListDatabasesResponse {#yandex.cloud.mdb.mongodb.v1.ListDatabasesResponse}

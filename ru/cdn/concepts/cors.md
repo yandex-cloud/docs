@@ -12,8 +12,6 @@
 
 {% include [cors-note](../../_includes/cdn/cors-note.md) %}
 
-{% include [edge-cors-note](../../_includes/cdn/edge-cors-note.md) %}
-
 
 #### См. также {#see-also}
 

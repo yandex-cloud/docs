@@ -1,5 +1,5 @@
 ---
-title: How do I connect to a non-sharded {{ VLK }} cluster in {{ mrd-full-name }}?
+title: How to connect to a non-sharded {{ VLK }} cluster in {{ mrd-full-name }}
 description: Follow this guide to connect to a non-sharded {{ VLK }} cluster.
 ---
 
@@ -9,33 +9,33 @@ You can connect to a non-sharded {{ VLK }} cluster:
 
 * Using {{ VLK }} Sentinel.
 
-    {{ VLK }} Sentinel is a {{ VLK }} host management system that provides monitoring, notification, [automatic failover](../failover.md), and reporting of up-to-date host addresses to the clients.
+    {{ VLK }} Sentinel is a {{ VLK }} host management system that enables monitoring, notification, [automatic failover](../failover.md), and providing clients with the current host addresses.
 
-    Unencrypted connection is supported via port `{{ port-mrd-sentinel }}` for clusters with any version of {{ VLK }}.
+    Clusters of any {{ VLK }} version support unencrypted connections on port `{{ port-mrd-sentinel }}`.
 
-    If a client application does not support connecting via Sentinel, connect directly to the master host. If there is no need for a direct connection, use Sentinel for more reliable cluster host management.
+    If your client application does not support connecting via Sentinel, connect directly to the master. Otherwise, use Sentinel for more reliable cluster host management.
 
-    For more information about Sentinel, see [{#T}](../../concepts/replication.md) and the [{{ VLK }} documentation](https://valkey.io/topics/sentinel).
+    For more information about Sentinel, see [{#T}](../../concepts/replication.md) and [this {{ VLK }} guide](https://valkey.io/topics/sentinel).
 
-* Directly to the master host.
+* Directly to the master.
 
-    Encrypted connection is supported via port `{{ port-mrd-tls }}` and unencrypted via port `{{ port-mrd }}`.
+    Encrypted connections use port `{{ port-mrd-tls }}`, while unencrypted ones, port `{{ port-mrd }}`.
 
     {% include [How to use TLS](../../../_includes/mdb/mvk/connect/how-to-use-tls.md) %}
 
-    To always connect to the master host in a non-sharded cluster, use a [special FQDN](#special-fqdns) that always points to the master host, or track the roles of all the cluster hosts yourself.
+    To always connect to the master in a non-sharded cluster, use a [special FQDN](#special-fqdns) that always points to the master, or track the roles of all cluster hosts yourself.
 
 ## Special FQDN {#special-fqdns}
 
 {{ mrd-name }} provides a special FQDN that can be used instead of [regular host FQDNs](index.md#fqdn) to connect to non-sharded clusters.
 
-In a non-sharded cluster, an FQDN of `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host. You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters). When connecting to this FQDN, both read and write operations are allowed.
+In a non-sharded cluster, an FQDN of `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host. You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters). When connecting to this FQDN, you can perform read and write operations.
 
-In multi-host clusters, a special FQDN might temporarily point to a replica host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your write request returns an error, repeat it later.
+In multi-host clusters, a special FQDN may temporarily point to a replica host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your write request returns an error, repeat it later.
 
 {% note warning %}
 
-If, when the [master host is changed automatically](../../concepts/replication.md#master-failover), a host with no public access becomes a new master host, you will not be able to connect to it from the internet. To avoid this, [enable public access](../hosts.md#update) for all the cluster hosts.
+If [automatic failover](../../concepts/replication.md#master-failover) promotes a host without public access to master, you will not be able to connect to that host from the internet. To avoid this, [enable public access](../hosts.md#update) for all cluster hosts.
 
 {% endnote %}
 
@@ -55,7 +55,7 @@ redis-cli -h c-c9qash3nb1v9********.rw.{{ dns-zone }} \
 
 {% include [IDE environment settings](../../../_includes/mdb/mvk/ide-envs.md) %}
 
-You can only use graphical IDEs to connect to cluster hosts through an SSL tunnel using a [created VM](./index.md#connect). Before connecting, [prepare a certificate](./index.md#get-ssl-cert).
+You can only use graphical IDEs to connect to cluster hosts through an SSL tunnel using the [VM you created](./index.md#connect). Before connecting, [prepare a certificate](./index.md#get-ssl-cert).
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -67,28 +67,28 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
     To connect to your cluster:
 
-    1. Create a new DB connection:
+    1. Create a new database connection:
         1. In the **Database** menu, select **New connection**.
-        1. Select **{{ VLK }}** from the DB list.
+        1. Select **{{ VLK }}** from the database list.
         1. Click **Next**.
-        1. Specify the connection parameters on the **Main** tab:
+        1. Specify the connection settings on the **Main** tab:
             * **Host**: [FQDN of the master host](./index.md#fqdn) or a [special FQDN](./non-sharded.md#special-fqdns) always pointing to the current master host.
-            * **Port**: `{{ port-mrd }}` for a regular cluster or `{{ port-mrd-tls }}` for a cluster with SSL encryption enabled.
-            * Under **Authentication**, specify the cluster password.
+            * **Port**: `{{ port-mrd }}` for a regular cluster, or `{{ port-mrd-tls }}` for a cluster with SSL encryption enabled.
+            * Under **Authentication**, enter the cluster password.
         1. On the **SSH** tab:
-            1. Enable the **Use SSL tunnel** setting.
-            1. Specify the SSH tunnel parameters:
-                * **Host/IP**: Public IP address of the [VM for connection](./index.md#connect).
+            1. Enable **Use SSL tunnel**.
+            1. Configure the SSH tunnel:
+                * **Host/IP**: Public IP address of the [VM to connect to](./index.md#connect).
                 * **Username**: Username for connecting to the VM.
                 * **Authentication method**: `Public key`.
-                * **Secret key**: Path to the file with the private key used for connecting to the VM.
+                * **Secret key**: Path to the private key file for the VM connection.
                 * **Passphrase**: Private key password.
         1. On the **SSL** tab:
-            1. Enable the **Use SSL** and **Skip hostname validation** settings.
+            1. Enable **Use SSL** and **Skip hostname validation** settings.
             1. Under **Parameters**:
                 1. Select **Method**: **Set of certificates**.
                 1. In the **Root certificate** field, specify the path to the saved [SSL certificate](./index.md#get-ssl-cert) file.
-    1. Click **Test Connection ...** to test the DB connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+    1. Click **Test Connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
     1. Click **Ready** to save the database connection settings.
 
 {% endlist %}

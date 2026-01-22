@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the MongoDB cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -27,7 +28,6 @@ apiPlayground:
         serviceType:
           description: |-
             **enum** (ServiceType)
-            - `SERVICE_TYPE_UNSPECIFIED`
             - `MONGOD`: Logs of MongoDB activity.
             - `MONGOS`
             - `MONGOCFG`
@@ -68,6 +68,7 @@ apiPlayground:
             **string**
             Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
             request to start streaming from next log record.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -78,6 +79,7 @@ apiPlayground:
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
             Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`, `message.severity IN ('E', 'F')`
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -101,7 +103,9 @@ GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:stream_lo
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the MongoDB cluster. ||
+Required field. Required. ID of the MongoDB cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.mongodb.v1.StreamClusterLogsRequest}
@@ -113,7 +117,6 @@ Required field. Required. ID of the MongoDB cluster. ||
 Columns from logs table to get in the response. ||
 || serviceType | **enum** (ServiceType)
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `MONGOD`: Logs of MongoDB activity.
 - `MONGOS`
 - `MONGOCFG`
@@ -143,7 +146,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || recordToken | **string**
 
 Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
-request to start streaming from next log record. ||
+request to start streaming from next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -151,7 +156,9 @@ The expression must specify:
 1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.severity] fields.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
-Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`, `message.severity IN ('E', 'F')` ||
+Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`, `message.severity IN ('E', 'F')`
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mongodb.v1.StreamLogRecord}

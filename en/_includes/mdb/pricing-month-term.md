@@ -1,1 +1,1 @@
-The monthly usage rate is based on 720 hours a month.
+The monthly prices are based on 720 hours per month.

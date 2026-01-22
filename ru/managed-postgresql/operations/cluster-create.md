@@ -455,7 +455,8 @@ description: Следуя данной инструкции, вы сможете
          "resources": {
            "resourcePresetId": "<класс_хостов>",
            "diskSize": "<размер_хранилища_в_байтах>",
-           "diskTypeId": "<тип_диска>"
+           "diskTypeId": "<тип_диска>",
+           "diskEncryptionKeyId": "<идентификатор_ключа_KMS>"
          },
          "access": {
            "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
@@ -548,6 +549,7 @@ description: Следуя данной инструкции, вы сможете
          * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
          * `diskSize` — размер диска в байтах;
          * `diskTypeId` — [тип диска](../concepts/storage.md).
+         * `diskEncryptionKeyId` — идентификатор ключа KMS для шифрования диска.
 
        
        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
@@ -640,7 +642,8 @@ description: Следуя данной инструкции, вы сможете
          "resources": {
            "resource_preset_id": "<класс_хостов>",
            "disk_size": "<размер_хранилища_в_байтах>",
-           "disk_type_id": "<тип_диска>"
+           "disk_type_id": "<тип_диска>",
+           "disk_encryption_key_id": "<идентификатор_ключа_KMS>"
          },
          "access": {
            "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
@@ -733,6 +736,7 @@ description: Следуя данной инструкции, вы сможете
          * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
          * `disk_size` — размер диска в байтах;
          * `disk_type_id` — [тип диска](../concepts/storage.md).
+         * `disk_encryption_key_id` — идентификатор ключа KMS для шифрования диска.
 
        
        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:

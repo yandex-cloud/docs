@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the MongoDB cluster to delete a shard in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         shardName:
           description: |-
             **string**
             Required field. Name of the MongoDB shard to delete.
             To get the name of the shard use a [ClusterService.ListShards](/docs/managed-mongodb/api-ref/Cluster/listShards#ListShards) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -46,11 +48,15 @@ DELETE https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/shards
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to delete a shard in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shardName | **string**
 
 Required field. Name of the MongoDB shard to delete.
-To get the name of the shard use a [ClusterService.ListShards](/docs/managed-mongodb/api-ref/Cluster/listShards#ListShards) request. ||
+To get the name of the shard use a [ClusterService.ListShards](/docs/managed-mongodb/api-ref/Cluster/listShards#ListShards) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

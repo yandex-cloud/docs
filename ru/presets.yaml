@@ -1977,6 +1977,10 @@ default:
         cpu|string: "9,3960\_₸"
         ram|number: 2.5168
         ram|string: "2,5168\_₸"
+  sku|KZT|identity-hub:
+    users:
+      101-500|number: 2536.6512
+      501-1000|number: 2276.8736
   sku|KZT|kms:
     api:
       asymmetric:
@@ -2535,6 +2539,12 @@ default:
         cpu|string: "1,8446\_₽"
         ram|number: 0.4941
         ram|string: "0,4941\_₽"
+  sku|RUB|identity-hub:
+    users:
+      101-500|number: 498
+      101-500|string: "498,00\_₽"
+      501-1000|number: 447
+      501-1000|string: "447,00\_₽"
   sku|RUB|interconnect:
     trunk:
       direct:
@@ -3017,6 +3027,32 @@ default:
     used_space:
       v1|month|number: 0.0378
       v1|month|string: "0,037800\_$"
+  sku|USD|baremetal:
+    server:
+      bf25_i201_h:
+        1_day|string: "124,147521\_$"
+        1_month|string: "124,147521\_$"
+        12_month|string: "124,147521\_$"
+        3_month|string: "124,147521\_$"
+        6_month|string: "124,147521\_$"
+      bf25_i202_s:
+        1_day|string: "129,999979\_$"
+        1_month|string: "129,999979\_$"
+        12_month|string: "129,999979\_$"
+        3_month|string: "129,999979\_$"
+        6_month|string: "129,999979\_$"
+      bf25_i204_s:
+        1_day|string: "133,122930\_$"
+        1_month|string: "133,122930\_$"
+        12_month|string: "133,122930\_$"
+        3_month|string: "133,122930\_$"
+        6_month|string: "133,122930\_$"
+      bf25_i205_s:
+        1_day|string: "154,532762\_$"
+        1_month|string: "154,532762\_$"
+        12_month|string: "154,532762\_$"
+        3_month|string: "154,532762\_$"
+        6_month|string: "154,532762\_$"
   sku|USD|cloud_desktop:
     hdd:
       v1|month|number: 0.036

@@ -1,1 +1,1 @@
-Once sharding is enabled, all the existing cluster hosts will be added to the single `shard1`.
+Enabling sharding will place all existing cluster hosts into a single shard named `shard1`.

@@ -26,17 +26,23 @@ Retrieves a list of hosts for the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster.
-To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request. ||
+To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) returned by the previous list request. ||
+[ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListClusterHostsResponse {#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse}
@@ -140,7 +146,6 @@ Shard which this host belongs to. ||
 
 Host type. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.
 - `MONGOD`: A mongod host.
 - `MONGOS`: A mongos host.
 - `MONGOCFG`: A mongocfg host.
@@ -178,7 +183,6 @@ Possible values:
 
 Type of the service provided by the host. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Service type of the host is unspecified. Default value.
 - `MONGOD`: The host is running a mongod daemon.
 - `MONGOS`: The host is running a mongos daemon.
 - `MONGOCFG`: The host is running a MongoDB config server. ||

@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the MongoDB cluster the user belongs to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         userName:
           description: |-
             **string**
             Required field. Name of the user to be updated.
             To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-ref/User/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
           pattern: '[a-zA-Z0-9_]*'
           type: string
       required:
@@ -43,6 +45,7 @@ apiPlayground:
           description: |-
             **string**
             New password for the user.
+            The string length in characters must be 8-128.
           type: string
         permissions:
           description: |-
@@ -88,11 +91,15 @@ PATCH https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to be updated.
-To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-ref/User/list#List) request. ||
+To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-ref/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mongodb.v1.UpdateUserRequest}
@@ -126,7 +133,9 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || password | **string**
 
-New password for the user. ||
+New password for the user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 New set of permissions for the user. ||

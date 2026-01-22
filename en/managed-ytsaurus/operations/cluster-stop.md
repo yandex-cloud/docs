@@ -5,7 +5,7 @@ description: You can stop and restart a {{ ytsaurus-name }} cluster as needed. W
 
 # Stopping and starting a {{ ytsaurus-name }} cluster
 
-If necessary, you can stop and restart an {{ ytsaurus-name }} cluster. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
+You can stop and restart a {{ ytsaurus-name }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
 
 ## Stopping a cluster {#stop-cluster}
 
@@ -24,7 +24,7 @@ If necessary, you can stop and restart an {{ ytsaurus-name }} cluster. When stop
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To stop a {{ ytsaurus-name }} cluster, run the command:
+    To stop a {{ ytsaurus-name }} cluster, run this command:
 
     ```bash
     {{ yc-ytsaurus }} cluster stop <cluster_name_or_ID>
@@ -34,11 +34,11 @@ If necessary, you can stop and restart an {{ ytsaurus-name }} cluster. When stop
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Stop](../api-ref/Cluster/stop.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Stop](../api-ref/Cluster/stop.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -54,13 +54,13 @@ If necessary, you can stop and restart an {{ ytsaurus-name }} cluster. When stop
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Stop](../api-ref/grpc/Cluster/stop.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Stop](../api-ref/grpc/Cluster/stop.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -78,7 +78,7 @@ If necessary, you can stop and restart an {{ ytsaurus-name }} cluster. When stop
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/grpc/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -111,11 +111,11 @@ You can restart clusters with the `Stopped` status.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Start](../api-ref/Cluster/start.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Start](../api-ref/Cluster/start.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -131,12 +131,12 @@ You can restart clusters with the `Stopped` status.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Start](../api-ref/grpc/Cluster/start.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Start](../api-ref/grpc/Cluster/start.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \

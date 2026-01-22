@@ -27,7 +27,7 @@ Below, we provide a list of operations you can perform on [Cloud Interconnect](.
 Action | Support | YC CLI
 --- | --- | ---
 Getting information about a trunk | — | [Description](../../interconnect/operations/trunk-get-info.md)
-Getting a list of trunk operations | — | [Description](../../interconnect/operations/trunk-operations.md)
+Get a list of trunk operations | — | [Description](../../interconnect/operations/trunk-operations.md)
 Creating a direct trunk | [Description](../../interconnect/tutorials/trunk-priv-add.md) | [Description](../../interconnect/operations/trunk-create.md#direct)
 Updating trunk parameters | Yes | [Description](../../interconnect/operations/trunk-update.md)
 Updating trunk capacity | [Description](../../interconnect/tutorials/trunk-capacity-change.md) | Not supported
@@ -38,9 +38,9 @@ Deleting a trunk | [Description](../../interconnect/tutorials/trunk-del.md) | [D
 
 Action | Support | YC CLI
 --- | --- | ---
-Getting information about a private connection | — | [Description](../../interconnect/operations/priv-con-get-info.md)
+Get information about a private connection | — | [Description](../../interconnect/operations/priv-con-get-info.md)
 Getting a list of operations for a private connection | — | [Description](../../interconnect/operations/priv-con-operations.md)
-Creating a private connection | [Description](../../interconnect/tutorials/trunk-priv-add.md#priv-create) | [Description](../../interconnect/operations/priv-con-create.md)
+Create a private connection | [Description](../../interconnect/tutorials/trunk-priv-add.md#priv-create) | [Description](../../interconnect/operations/priv-con-create.md)
 Updating private connection parameters | Yes | [Description](../../interconnect/operations/priv-con-update.md)
 Deleting a private connection | [Description](../../interconnect/tutorials/priv-del.md) | [Description](../../interconnect/operations/priv-con-delete.md)
 **Adding static routes to a private connection** (VPC stitching) | **Yes** | [Description](../../interconnect/operations/priv-con-static-upsert.md)
@@ -56,7 +56,7 @@ Getting a list of routing instance operations | — | [Description](../../cloud-
 Creating a routing instance | Yes | [Description](../../cloud-router/operations/ri-create.md)
 Updating routing instance parameters | Yes | [Description](../../cloud-router/operations/ri-update.md)
 Updating a list of IP prefixes in a routing instance | [Description](../../cloud-router/tutorials/ri-prefixes-upsert.md) | [Description](../../cloud-router/operations/ri-prefixes-upsert.md)
-Deleting IP prefixes from a routing instance | Yes | [Description](../../cloud-router/operations/ri-prefixes-remove.md)
+Deleting IP prefixes from a routing instance | Yes | [Description](../../cloud-router/operations/ri-prefixes-upsert.md#remove-prefixes)
 Adding a private connection to a routing instance | Yes | [Description](../../cloud-router/operations/ri-priv-con-add.md)
 Deleting a private connection from a routing instance | Yes | [Description](../../cloud-router/operations/ri-priv-con-del.md)
 Deleting a routing instance | Yes | [Description](../../cloud-router/operations/ri-delete.md)

@@ -35,10 +35,14 @@ Updates the specified parameters for the host.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to update hosts from.
-To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request. ||
+To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_host_specs[] | **[UpdateHostSpec](#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec)**
 
-New configurations to apply to hosts of a Managed Service for MongoDB cluster. ||
+New configurations to apply to hosts of a Managed Service for MongoDB cluster.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## UpdateHostSpec {#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec}
@@ -47,7 +51,9 @@ New configurations to apply to hosts of a Managed Service for MongoDB cluster. |
 ||Field | Description ||
 || host_name | **string**
 
-Required field. Host to be updated. Specify the [host FQDN](https://yandex.cloud/en/docs/managed-mongodb/operations/connect/#fqdn). ||
+Required field. Host to be updated. Specify the [host FQDN](https://yandex.cloud/en/docs/managed-mongodb/operations/connect/#fqdn).
+
+The maximum string length in characters is 253. ||
 || hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines if the host is a hidden replica set member.

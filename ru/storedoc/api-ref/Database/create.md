@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the MongoDB cluster to create a database in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -35,6 +36,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the MongoDB database. 1-63 characters long.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]{1,63} `.
             pattern: '[a-zA-Z0-9_-]{1,63}'
             type: string
         required:
@@ -59,7 +61,9 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/database
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to create a database in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mongodb.v1.CreateDatabaseRequest}
@@ -85,7 +89,9 @@ Required field. Configuration of the database to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the MongoDB database. 1-63 characters long. ||
+Required field. Name of the MongoDB database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]{1,63} `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

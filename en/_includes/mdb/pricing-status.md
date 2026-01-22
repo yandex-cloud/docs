@@ -1,7 +1,6 @@
 ## Cluster status {#running-stopped}
 
-Pricing is applied differently depending on the cluster status:
+The prices apply differently depending on the cluster status:
 
-* For a `Running` cluster, you are charged both for the computing resources and the size of storage and backup.
-* For a `Stopped` cluster, you are only charged for the storage and backup size.
-
+* For a `Running` cluster, you pay for both the computing resources and the size of your storage and backups.
+* For a `Stopped` cluster, you only pay for the size of your storage and backups.

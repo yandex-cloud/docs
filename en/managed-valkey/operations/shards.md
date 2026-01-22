@@ -26,7 +26,7 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of shards in a cluster, run this command:
+  To get a list of shards in a cluster, run the following command:
 
   ```bash
   {{ yc-mdb-rd }} shards list --cluster-name <cluster_name>
@@ -46,7 +46,7 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -59,13 +59,13 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/shards'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.redis.v1.ListClusterShardsResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.redis.v1.ListClusterShardsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -87,7 +87,7 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
             yandex.cloud.mdb.redis.v1.ClusterService.ListShards
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.redis.v1.ListClusterShardsResponse) to make sure your request was successful.
 
@@ -111,7 +111,7 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -130,7 +130,7 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -212,7 +212,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
   1. Add the appropriate number of `host` sections to the {{ mrd-name }} cluster description and specify the shard name in the `shard_name` argument:
 
      ```hcl
@@ -244,7 +244,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -266,9 +266,9 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
                           "replicaPriority": "<host_priority>",
                           "assignPublicIp": <public_access_to_cluster_host>
                         },
-                        { <similar_configuration_for_host_2> },
+                        { <similar_settings_for_host_2> },
                         { ... },
-                        { <similar_configuration_for_host_N> }
+                        { <similar_settings_for_host_N> }
                       ]
                     }'
         ```
@@ -284,13 +284,13 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
             * `replicaPriority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
             * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can only enable public access if your cluster supports TLS.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -316,9 +316,9 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
                       "replica_priority": "<host_priority>",
                       "assign_public_ip": <public_access_to_cluster_host>
                     },
-                    { <similar_configuration_for_host_2> },
+                    { <similar_settings_for_host_2> },
                     { ... },
-                    { <similar_configuration_for_host_N> }
+                    { <similar_settings_for_host_N> }
                   ]
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
@@ -336,7 +336,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
             * `replica_priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
             * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can only enable public access if your cluster supports TLS.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 1. Check the [server response](../api-ref/grpc/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -382,7 +382,7 @@ To enable data placement on the new shard, run {{ mrd-name }} cluster [rebalanci
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
   1. Delete all shard-related `host` sections from the {{ mrd-name }} cluster description.
   1. Make sure the settings are correct.
 
@@ -398,7 +398,7 @@ To enable data placement on the new shard, run {{ mrd-name }} cluster [rebalanci
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -417,7 +417,7 @@ To enable data placement on the new shard, run {{ mrd-name }} cluster [rebalanci
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -485,7 +485,7 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -498,13 +498,13 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:rebalance'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/rebalance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/rebalance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -526,7 +526,7 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
             yandex.cloud.mdb.redis.v1.ClusterService.Rebalance
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/rebalance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

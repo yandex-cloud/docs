@@ -25,7 +25,7 @@ description: You can get information about {{ VLK }} users and their permissions
       {{ yc-mdb-rd }} user list --help
       ```
   
-  1. Get a list of users by running this command:
+  1. Get the list of users by running this command:
 
       ```bash
       {{ yc-mdb-rd }} user list \
@@ -38,11 +38,11 @@ description: You can get information about {{ VLK }} users and their permissions
 
 - REST API {#api}
     
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [User.List](../api-ref/User/list.md) method to execute the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.List](../api-ref/User/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -57,13 +57,13 @@ description: You can get information about {{ VLK }} users and their permissions
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Use the [UserService.List](../api-ref/grpc/User/list.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.List](../api-ref/grpc/User/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -118,11 +118,11 @@ description: You can get information about {{ VLK }} users and their permissions
 
 - REST API {#api}
   
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [User.Get](../api-ref/User/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [User.Get](../api-ref/User/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -139,13 +139,13 @@ description: You can get information about {{ VLK }} users and their permissions
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Use the [UserService.Get](../api-ref/grpc/User/get.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [UserService.Get](../api-ref/grpc/User/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \

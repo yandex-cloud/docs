@@ -9,7 +9,8 @@ description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster
 
 - Management console {#console}
 
-  1. On the [resource folder]({{ link-console-main }}) page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Go to the [resource folder]({{ link-console-main }}) page.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. Next to the {{ TR }} catalog, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
@@ -30,11 +31,11 @@ description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster
 
     You can get the {{ TR }} catalog ID and name together with the [list of {{ TR }} catalogs in the cluster](catalog-list.md#list-catalogs).
 
-    You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -47,19 +48,19 @@ description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster
             --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>/catalogs/<{{ TR }}_catalog_ID>'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the folder ID, with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
-    1. View the [server response](../api-ref/Catalog/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Catalog/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [CatalogService.Delete](../api-ref/grpc/Catalog/delete.md) call and run the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [CatalogService.Delete](../api-ref/grpc/Catalog/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -76,8 +77,8 @@ description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster
             yandex.cloud.trino.v1.ClusterService.Delete
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the folder ID, with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
-    1. View the [server response](../api-ref/grpc/Catalog/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Catalog/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

@@ -277,7 +277,7 @@ For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-m
 1. Configure a CNAME record for your domain:
 
    1. Navigate to your domain’s DNS settings on your DNS hosting provider’s website.
-   1. Prepare a CNAME record so that it points to the address on the `.yccdn.cloud.yandex.net` or `.edgecdn.ru` domain (depending on the employed [CDN provider](../../cdn/concepts/providers.md)) you copied earlier. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
+   1. Prepare a CNAME record so that it points to the address on the `.topology.gslb.yccdn.ru` domain you copied earlier. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
 
       ```http
       cdn CNAME {{ cname-example-yc }}.

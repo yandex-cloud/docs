@@ -1,15 +1,15 @@
 ---
-title: Deleting Apache Kafka clusters
-description: You can delete an Apache Kafka® cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from.
+title: Deleting {{ KF }} clusters
+description: You can delete an {{ KF }} cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder where you want to delete a cluster.
 ---
 
-# Deleting a {{ KF }} cluster
+# Deleting an {{ KF }} cluster
 
 You can delete an {{ KF }} cluster if you no longer need it. All data in the cluster will be deleted.
 
 ## Before deleting a cluster {#before-you-delete}
 
-[Disable deletion protection](cluster-update.md#change-additional-settings) for the cluster if it is enabled.
+If deletion protection is on for the cluster, [disable it](cluster-update.md#change-additional-settings).
 
 ## Deleting a cluster {#delete}
 
@@ -17,9 +17,9 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to delete a cluster from.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a cluster.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. Read the warning displayed.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
@@ -29,7 +29,7 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete a cluster, run the command:
+  To delete a cluster, run this command:
 
   ```bash
   {{ yc-mdb-kf }} cluster delete <cluster_name_or_ID>
@@ -43,11 +43,11 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.delete](../api-ref/Cluster/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.delete](../api-ref/Cluster/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -56,18 +56,18 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>'
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -83,8 +83,8 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
        yandex.cloud.mdb.kafka.v1.ClusterService.Delete
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

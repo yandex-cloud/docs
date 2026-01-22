@@ -26,10 +26,14 @@ Restarts hosts.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the MongoDB cluster. ||
+Required field. Required. ID of the MongoDB cluster.
+
+The maximum string length in characters is 50. ||
 || host_names[] | **string**
 
-Required. Name of the hosts to restart. ||
+Required. Name of the hosts to restart.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 253. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

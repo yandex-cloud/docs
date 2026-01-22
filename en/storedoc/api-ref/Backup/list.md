@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to list backups in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -19,6 +20,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -26,6 +28,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       required:
         - folderId
@@ -52,16 +55,22 @@ GET https://{{ api-host-mdb }}/managed-mongodb/v1/backups
 || folderId | **string**
 
 Required field. ID of the folder to list backups in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) returned by the previous list request. ||
+[ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse}
@@ -149,7 +158,6 @@ Size of backup in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || journalSize | **string** (int64)

@@ -1,13 +1,13 @@
 ---
 title: '{{ myt-full-name }} release notes'
-description: This section contains {{ myt-name }} release notes.
+description: This section contains the {{ myt-name }} release notes.
 ---
 
 # {{ myt-full-name }} release notes
 
 ## December 2025 {#december-2025}
 
-The {{ myt-full-name }} service is now in [General Availability](../overview/concepts/launch-stages.md).
+{{ myt-full-name }} has entered the [General Availability](../overview/concepts/launch-stages.md) stage.
 
 ## October 2025 {#october-2025}
 

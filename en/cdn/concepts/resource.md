@@ -19,10 +19,6 @@ You can restrict access to the resource with [secure tokens](./secure-tokens.md)
 
 You can configure [redirection of requests](./http-rewrite.md) from a CDN resource to an origin by changing the request [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) using the `Rewrite` [rule](./http-rewrite.md#rewrite-rule).
 
-{% include [provider-binding](../../_includes/cdn/provider-binding.md) %}
-
-{% include [edge-center-features-note](../../_includes/cdn/edge-center-features-note.md) %}
-
 Resource settings [apply a short while after](#delay) you create or update the resource.
 
 
@@ -39,7 +35,7 @@ For the resource to run properly, you must have:
 * Rights to all the domain names you entered.
 * Access to DNS settings for domain names. 
 
-  In the settings of your DNS hosting, create a CNAME record for each name linking this name with the CDN load balancer's domain name in `{{ cname-example-yc }}` or `{{ cname-example-edge }}` format depending on the [CDN provider](providers.md) you use. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). Here is an example of a record for the `cdn.example.com` domain name:
+  In the settings of your DNS hosting, create a CNAME record for each name linking this name with the CDN load balancer's domain name in `{{ cname-example-yc }}` format. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). Here is an example of a record for the `cdn.example.com` domain name:
 
   ``` 
   cdn.example.com. CNAME {{ cname-example-yc }}
@@ -98,7 +94,7 @@ You can view performance statistics on the [resource page](../operations/resourc
 
 {% include [metrics-note](../../_includes/cdn/metrics-note.md) %}
 
-For the list of metrics delivered to {{ monitoring-name }}, see the [reference](../metrics.md).
+For the list of metrics delivered to {{ monitoring-name }}, see the [reference](../metrics-yc.md).
 
 
 ## Use cases {#examples}

@@ -19,7 +19,7 @@ description: Follow this guide to copy a configuration from one resource to anot
 
       {% note warning %}
 
-      The **{{ ui-key.yacloud.cdn.label_personal-domain }}** parameter must be unique within the resources of one [CDN provider](../../concepts/providers.md).
+      The **{{ ui-key.yacloud.cdn.label_personal-domain }}** parameter must be unique.
 
       {% endnote %}
 
@@ -33,5 +33,3 @@ description: Follow this guide to copy a configuration from one resource to anot
 {% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}
 
 {% include [note-dns-aname](../../../_includes/cdn/note-dns-aname.md) %}
-
-{% include [edge-center-features-note](../../../_includes/cdn/edge-center-features-note.md) %}

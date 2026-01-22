@@ -1310,7 +1310,7 @@ To configure DNS:
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. From the list of CDN resources, select the one with `cdn.yandexcloud.example` as its primary domain name.
-     1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `{{ cname-example-yc }}` or `{{ cname-example-edge }}` format depending on the [CDN provider](../../cdn/concepts/providers.md) you use.
+     1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `{{ cname-example-yc }}` format.
 
    {% endlist %}
 

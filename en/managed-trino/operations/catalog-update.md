@@ -9,7 +9,8 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
 - Management console {#console}
 
-    1. On the [resource folder]({{ link-console-main }}) page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Go to the [resource folder]({{ link-console-main }}) page.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
     1. Next to the {{ TR }} catalog, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
@@ -42,13 +43,13 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
         You can get the {{ TR }} catalog name together with the [list of {{ TR }} catalogs in the cluster](catalog-list#list-catalogs.md).
 
-        In the command, you can also provide {{ TR }} catalog settings depending on the connector type. [Learn more about settings for various connector types](catalog-create.md#catalog-settings).
+        In the command, you can also provide the settings for your {{ TR }} catalog depending on the connector type. [Learn more about settings for various connector types](catalog-create.md#catalog-settings).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the {{ TR }} catalog settings in the `yandex_trino_catalog` section:
 
@@ -73,7 +74,7 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -100,23 +101,23 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
                     }'
         ```
 
-        Where `updateMask` is the list of parameters to update as a single string, separated by commas.
+        Where `updateMask` is a comma-separated string of parameters to update.
 
         [Learn more about the {{ TR }}](#catalog-settings) catalog settings for various connector types.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
-    1. View the [server response](../api-ref/Catalog/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Catalog/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [CatalogService.Update](../api-ref/grpc/Catalog/update.md) call and run the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [CatalogService.Update](../api-ref/grpc/Catalog/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -152,12 +153,12 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
             yandex.cloud.trino.v1.CatalogService.Update
         ```
 
-        Where `update_mask` is the list of parameters to update as an array of `paths[]` strings.
+        Where `update_mask` is the list of parameters to update as an array of strings (`paths[]`).
 
         [Learn more about the {{ TR }}](#catalog-settings) catalog settings for various connector types.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
-    1. View the [server response](../api-ref/grpc/Catalog/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Catalog/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

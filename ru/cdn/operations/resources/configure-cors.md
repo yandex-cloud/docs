@@ -28,8 +28,6 @@ description: Следуя данной инструкции, вы сможете
       * В поле **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-access }}** укажите, нужно ли добавлять этот заголовок к ответам.
       * При добавлении заголовка выберите, при каких значениях заголовка `Origin` разрешен доступ к контенту. Чтобы разрешить доступ только определенным источникам, выберите `{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-settings-http-origin-for-source-domains }}`, укажите доменные имена источников и нажмите кнопку **{{ ui-key.yacloud.cdn.button_add-domain }}**.
 
-          {% include [edge-cors-note](../../../_includes/cdn/edge-cors-note.md) %}
-
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -98,8 +96,6 @@ description: Следуя данной инструкции, вы сможете
       ```
       Значения `*` и `"$http_origin"` разрешают доступ к контенту при любом значении заголовка `Origin`. Чтобы разрешить доступ только определенным источникам, укажите `"$http_origin"` и доменные имена источников: `["domain.com", "second.dom.com"]`.
 
-      {% include [edge-cors-note](../../../_includes/cdn/edge-cors-note.md) %}
-
       Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
@@ -145,9 +141,6 @@ description: Следуя данной инструкции, вы сможете
       * `active` — флаг, указывающий на доступ к контенту для конечных пользователей. `True` — контент из CDN будет доступен клиентам. Необязательный параметр, значение по умолчанию: `true`.
       * `origin_protocol` — протокол для источников. Необязательный параметр, значение по умолчанию: `http`.
       * `secondary_hostnames` — дополнительные доменные имена. Необязательный параметр.
-
-          {% include [edge-cors-note](../../../_includes/cdn/edge-cors-note.md) %}
-
       * `origin_group_id` — идентификатор [группы источников](../../concepts/origins.md). Обязательный параметр. Используйте идентификатор из описания группы источников в ресурсе `yandex_cdn_origin_group`.
       * Блок `options` содержит дополнительные параметры CDN-ресурсов:
          * `cors` — значение, которое CDN отправит в заголовке `Access-Control-Allow-Origin` в ответ на [CORS-запрос](../../concepts/cors.md).

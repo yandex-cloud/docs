@@ -1269,7 +1269,8 @@ Updates the specified MongoDB cluster.
           "storage": {
             "wired_tiger": {
               "engine_config": {
-                "cache_size_gb": "google.protobuf.DoubleValue"
+                "cache_size_gb": "google.protobuf.DoubleValue",
+                "cache_size": "google.protobuf.DoubleValue"
               },
               "collection_config": {
                 "block_compressor": "Compressor"
@@ -1312,8 +1313,25 @@ Updates the specified MongoDB cluster.
           "set_parameter": {
             "audit_authorization_success": "google.protobuf.BoolValue",
             "enable_flow_control": "google.protobuf.BoolValue",
-            "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
-          }
+            "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value",
+            "flow_control_target_lag_seconds": "google.protobuf.Int64Value",
+            "flow_control_warn_threshold_seconds": "google.protobuf.Int64Value",
+            "migrate_clone_insertion_batch_delay_ms": "google.protobuf.Int64Value",
+            "migrate_clone_insertion_batch_size": "google.protobuf.Int64Value",
+            "orphan_cleanup_delay_secs": "google.protobuf.Int64Value",
+            "persisted_chunk_cache_update_max_batch_size": "google.protobuf.Int64Value",
+            "range_deleter_batch_delay_ms": "google.protobuf.Int64Value",
+            "range_deleter_batch_size": "google.protobuf.Int64Value",
+            "mirror_reads": {
+              "sampling_rate": "google.protobuf.DoubleValue",
+              "max_time_ms": "google.protobuf.Int64Value"
+            }
+          },
+          "oplog": {
+            "max_size_percent": "google.protobuf.Int64Value",
+            "min_retention_hours": "google.protobuf.DoubleValue"
+          },
+          "chaining_allowed": "google.protobuf.BoolValue"
         },
         "resources": {
           "resource_preset_id": "string",
@@ -1331,7 +1349,8 @@ Updates the specified MongoDB cluster.
           "storage": {
             "wired_tiger": {
               "engine_config": {
-                "cache_size_gb": "google.protobuf.DoubleValue"
+                "cache_size_gb": "google.protobuf.DoubleValue",
+                "cache_size": "google.protobuf.DoubleValue"
               }
             }
           },
@@ -1341,7 +1360,19 @@ Updates the specified MongoDB cluster.
           },
           "net": {
             "max_incoming_connections": "google.protobuf.Int64Value"
-          }
+          },
+          "set_parameter": {
+            "enable_flow_control": "google.protobuf.BoolValue",
+            "audit_authorization_success": "google.protobuf.BoolValue"
+          },
+          "audit_log": {
+            "filter": "string"
+          },
+          "oplog": {
+            "max_size_percent": "google.protobuf.Int64Value",
+            "min_retention_hours": "google.protobuf.DoubleValue"
+          },
+          "chaining_allowed": "google.protobuf.BoolValue"
         },
         "resources": {
           "resource_preset_id": "string",
@@ -1363,7 +1394,26 @@ Updates the specified MongoDB cluster.
                 "Compressor"
               ]
             }
-          }
+          },
+          "set_parameter": {
+            "audit_authorization_success": "google.protobuf.BoolValue",
+            "read_hedging_mode": "google.protobuf.StringValue",
+            "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+            "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+            "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+            "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+          },
+          "audit_log": {
+            "filter": "string"
+          },
+          "chunk_size": "google.protobuf.Int64Value"
         },
         "resources": {
           "resource_preset_id": "string",
@@ -1385,13 +1435,33 @@ Updates the specified MongoDB cluster.
                 "Compressor"
               ]
             }
-          }
+          },
+          "set_parameter": {
+            "audit_authorization_success": "google.protobuf.BoolValue",
+            "read_hedging_mode": "google.protobuf.StringValue",
+            "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+            "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+            "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+            "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+            "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+          },
+          "audit_log": {
+            "filter": "string"
+          },
+          "chunk_size": "google.protobuf.Int64Value"
         },
         "config_mongocfg": {
           "storage": {
             "wired_tiger": {
               "engine_config": {
-                "cache_size_gb": "google.protobuf.DoubleValue"
+                "cache_size_gb": "google.protobuf.DoubleValue",
+                "cache_size": "google.protobuf.DoubleValue"
               }
             }
           },
@@ -1401,7 +1471,19 @@ Updates the specified MongoDB cluster.
           },
           "net": {
             "max_incoming_connections": "google.protobuf.Int64Value"
-          }
+          },
+          "set_parameter": {
+            "enable_flow_control": "google.protobuf.BoolValue",
+            "audit_authorization_success": "google.protobuf.BoolValue"
+          },
+          "audit_log": {
+            "filter": "string"
+          },
+          "oplog": {
+            "max_size_percent": "google.protobuf.Int64Value",
+            "min_retention_hours": "google.protobuf.DoubleValue"
+          },
+          "chaining_allowed": "google.protobuf.BoolValue"
         },
         "resources": {
           "resource_preset_id": "string",
@@ -1439,26 +1521,34 @@ Updates the specified MongoDB cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB Cluster resource to update.
-To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request. ||
+To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the MongoDB Cluster resource should be updated. ||
 || description | **string**
 
-New description of the MongoDB cluster. ||
+New description of the MongoDB cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary".
 
 The new set of labels will completely replace the old ones. To add a label, request the current
-set with the [ClusterService.Get](/docs/managed-mongodb/api-ref/grpc/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. ||
+set with the [ClusterService.Get](/docs/managed-mongodb/api-ref/grpc/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || config_spec | **[ConfigSpec](#yandex.cloud.mdb.mongodb.v1.ConfigSpec)**
 
 New configuration and resources for hosts in the cluster. ||
 || name | **string**
 
-New name for the cluster. ||
+New name for the cluster.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
 
 New maintenance window settings for the cluster. ||
@@ -1470,7 +1560,9 @@ User security groups ||
 Deletion Protection inhibits deletion of the cluster ||
 || network_id | **string**
 
-ID of the network to move the cluster to. ||
+ID of the network to move the cluster to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.mongodb.v1.ConfigSpec}
@@ -1541,7 +1633,9 @@ Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb
 Time to start the daily backup, in the UTC timezone. ||
 || backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Retain period of automatically created backup in days ||
+Retain period of automatically created backup in days
+
+Acceptable values are 7 to 35, inclusive. ||
 || performance_diagnostics | **[PerformanceDiagnosticsConfig](#yandex.cloud.mdb.mongodb.v1.PerformanceDiagnosticsConfig)**
 
 Performance Diagnosics configuration ||
@@ -1647,7 +1741,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v3.6/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v3.6/reference/glossary/#term-zlib) compression. ||
@@ -1666,7 +1759,9 @@ Possible values:
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.OperationProfiling}
@@ -1677,7 +1772,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -1685,7 +1779,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Network}
@@ -1694,7 +1790,9 @@ running in the SLOW_OP mode. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mongodb.v1.Resources}
@@ -1723,10 +1821,14 @@ Possible values:
 ||Field | Description ||
 || planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -1799,7 +1901,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Operation profiling level. For details, see [MongoDB documentation](https://docs.mongodb.com/v3.6/tutorial/manage-the-database-profiler/).
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data. This is the default
 profiler level.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
@@ -1808,7 +1909,9 @@ profiler level.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.Network}
@@ -1817,7 +1920,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of incoming connections. ||
+The maximum number of incoming connections.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongos}
@@ -1850,7 +1955,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of incoming connections. ||
+The maximum number of incoming connections.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.MongoInfra}
@@ -1963,7 +2070,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.0/reference/glossary/#term-zlib) compression. ||
@@ -1976,7 +2082,9 @@ Default type of compression to use for collection data.
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.OperationProfiling}
@@ -1987,7 +2095,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -1995,7 +2102,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Network}
@@ -2004,7 +2113,9 @@ running in the SLOW_OP mode. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0.MongoCfg}
@@ -2074,7 +2185,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -2082,7 +2192,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.Network}
@@ -2091,7 +2203,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0.Mongos}
@@ -2124,7 +2238,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0.MongoInfra}
@@ -2243,7 +2359,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
@@ -2266,7 +2381,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.OperationProfiling}
@@ -2277,7 +2394,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -2285,11 +2401,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Network}
@@ -2298,7 +2418,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Network.Compression)**
 
 Compression settings ||
@@ -2316,7 +2438,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -2401,7 +2524,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -2409,7 +2531,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.Network}
@@ -2418,7 +2542,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_2.Mongos}
@@ -2451,7 +2577,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2.Network.Compression)**
 
 Compression settings ||
@@ -2469,7 +2597,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -2592,7 +2721,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
@@ -2615,7 +2743,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.OperationProfiling}
@@ -2626,7 +2756,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -2634,11 +2763,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Network}
@@ -2647,7 +2780,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Network.Compression)**
 
 Compression settings ||
@@ -2665,7 +2800,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -2750,7 +2886,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -2758,7 +2893,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.Network}
@@ -2767,7 +2904,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4.Mongos}
@@ -2800,7 +2939,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4.Network.Compression)**
 
 Compression settings ||
@@ -2818,7 +2959,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -2941,7 +3083,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
@@ -2964,7 +3105,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.OperationProfiling}
@@ -2975,7 +3118,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -2983,11 +3125,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Network}
@@ -2996,7 +3142,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Network.Compression)**
 
 Compression settings ||
@@ -3014,7 +3162,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -3032,7 +3181,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0.MongoCfg}
@@ -3102,7 +3253,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3110,7 +3260,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.Network}
@@ -3119,7 +3271,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0.Mongos}
@@ -3152,7 +3306,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0.Network.Compression)**
 
 Compression settings ||
@@ -3170,7 +3326,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -3293,7 +3450,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
@@ -3316,7 +3472,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.OperationProfiling}
@@ -3327,7 +3485,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3335,11 +3492,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Network}
@@ -3348,7 +3509,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Network.Compression)**
 
 Compression settings ||
@@ -3366,7 +3529,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -3384,7 +3548,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0.MongoCfg}
@@ -3454,7 +3620,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3462,7 +3627,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.Network}
@@ -3471,7 +3638,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0.Mongos}
@@ -3504,7 +3673,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0.Network.Compression)**
 
 Compression settings ||
@@ -3522,7 +3693,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -3651,7 +3823,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
@@ -3674,7 +3845,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.OperationProfiling}
@@ -3685,7 +3858,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3693,11 +3865,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Network}
@@ -3706,7 +3882,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -3724,7 +3902,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -3854,7 +4033,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -3862,7 +4040,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.Network}
@@ -3871,7 +4051,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4_enterprise.Mongos}
@@ -3904,7 +4086,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -3922,7 +4106,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -4051,7 +4236,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
@@ -4074,7 +4258,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.OperationProfiling}
@@ -4085,7 +4271,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -4093,11 +4278,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Network}
@@ -4106,7 +4295,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -4124,7 +4315,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -4190,7 +4382,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0_enterprise.MongoCfg}
@@ -4260,7 +4454,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -4268,7 +4461,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.Network}
@@ -4277,7 +4472,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0_enterprise.Mongos}
@@ -4310,7 +4507,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -4328,7 +4527,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -4457,7 +4657,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
@@ -4480,7 +4679,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.OperationProfiling}
@@ -4491,7 +4692,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -4499,11 +4699,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Network}
@@ -4512,7 +4716,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -4530,7 +4736,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -4596,7 +4803,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0_enterprise.MongoCfg}
@@ -4666,7 +4875,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -4674,7 +4882,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.Network}
@@ -4683,7 +4893,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0_enterprise.Mongos}
@@ -4716,7 +4928,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise.Network.Compression)**
 
 Compression settings ||
@@ -4734,7 +4948,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -4835,6 +5050,12 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog)**
+
+`Oplog` section of mongod configuration. ||
+|| chaining_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Chained replication setting ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -4873,6 +5094,9 @@ Index configuration for WiredTiger ||
 || cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cache_size | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig}
@@ -4883,7 +5107,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zlib) compression.
@@ -4906,7 +5129,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling}
@@ -4917,7 +5142,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -4925,11 +5149,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network}
@@ -4938,7 +5166,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network.Compression)**
 
 Compression settings ||
@@ -4956,7 +5186,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -5022,7 +5253,72 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
+|| flow_control_target_lag_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The target maximum majority committed lag when running with flow control
+
+Value must be greater than 0. ||
+|| flow_control_warn_threshold_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved.
+
+The minimum value is 0. ||
+|| migrate_clone_insertion_batch_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Time in milliseconds to wait between batches of insertions during cloning step of the migration process.
+
+The minimum value is 0. ||
+|| migrate_clone_insertion_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of documents to insert in a single batch during the cloning step of the migration process.
+
+The minimum value is 0. ||
+|| orphan_cleanup_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum delay before a migrated chunk is deleted from the source shard. ||
+|| persisted_chunk_cache_update_max_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies the maximum batch size used for updating the persisted chunk cache. ||
+|| range_deleter_batch_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command).
+
+The minimum value is 0. ||
+|| range_deleter_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command).
+
+The minimum value is 0. ||
+|| mirror_reads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)**
+
+Specifies the settings for mirrored reads for the mongod instance ||
+|#
+
+## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
+
+#|
+||Field | Description ||
+|| sampling_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The sampling rate used to mirror a subset of operations that support mirroring. ||
+|| max_time_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum time in milliseconds for the mirrored reads. ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog}
+
+#|
+||Field | Description ||
+|| max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Oplog maxsize in percents. ||
+|| min_retention_hours | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.MongoCfg}
@@ -5053,6 +5349,18 @@ Disk size autoscaling settings ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network)**
 
 `net` section of mongocfg configuration. ||
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter)**
+
+`setParameter` section of mongocfg configuration. ||
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog)**
+
+`AuditLog` section of mongocfg configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog)**
+
+`Oplog` section of mongod configuration. ||
+|| chaining_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Chained replication setting ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage}
@@ -5082,6 +5390,9 @@ Engine configuration for WiredTiger. ||
 || cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cache_size | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling}
@@ -5092,7 +5403,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -5100,7 +5410,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/v7.0/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/v7.0/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network}
@@ -5109,7 +5421,45 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://www
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
+|#
+
+## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter}
+
+#|
+||Field | Description ||
+|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
+goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
+lag under a configurable maximum value. ||
+|| audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog}
+
+#|
+||Field | Description ||
+|| filter | **string**
+
+Audit filter, should be valid JSON object string ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog}
+
+#|
+||Field | Description ||
+|| max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Oplog maxsize in percents. ||
+|| min_retention_hours | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.Mongos}
@@ -5134,6 +5484,15 @@ Disk size autoscaling settings ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network)**
 
 Network settings for mongos. ||
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter)**
+
+`setParameter` section of mongos configuration. ||
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)**
+
+`AuditLog` section of mongos configuration. ||
+|| chunk_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -5142,7 +5501,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network.Compression)**
 
 Compression settings ||
@@ -5160,11 +5521,67 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
 - `DISABLED`: No compression ||
+|#
+
+## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter}
+
+#|
+||Field | Description ||
+|| audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| read_hedging_mode | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
+|| sharding_task_executor_pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| sharding_task_executor_pool_max_connecting | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
+|| sharding_task_executor_pool_min_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| sharding_task_executor_pool_replica_set_matching | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
+|| sharding_task_executor_pool_host_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
+|| sharding_task_executor_pool_refresh_requirement_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
+|| sharding_task_executor_pool_refresh_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
+|| warm_min_connections_in_sharding_task_executor_pool_on_startup | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Configures a mongos instance to prewarm its connection pool on startup. ||
+|| warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
+|| sharding_task_executor_pool_max_size_for_config_servers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| sharding_task_executor_pool_min_size_for_config_servers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}
+
+#|
+||Field | Description ||
+|| filter | **string**
+
+Audit filter, should be valid JSON object string ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.MongoInfra}
@@ -5222,7 +5639,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -5232,7 +5648,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -8180,7 +8598,8 @@ Hour of the day in UTC (in `HH` format). ||
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "collection_config": {
                     "block_compressor": "Compressor"
@@ -8223,14 +8642,32 @@ Hour of the day in UTC (in `HH` format). ||
               "set_parameter": {
                 "audit_authorization_success": "google.protobuf.BoolValue",
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
-              }
+                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value",
+                "flow_control_target_lag_seconds": "google.protobuf.Int64Value",
+                "flow_control_warn_threshold_seconds": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_delay_ms": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_size": "google.protobuf.Int64Value",
+                "orphan_cleanup_delay_secs": "google.protobuf.Int64Value",
+                "persisted_chunk_cache_update_max_batch_size": "google.protobuf.Int64Value",
+                "range_deleter_batch_delay_ms": "google.protobuf.Int64Value",
+                "range_deleter_batch_size": "google.protobuf.Int64Value",
+                "mirror_reads": {
+                  "sampling_rate": "google.protobuf.DoubleValue",
+                  "max_time_ms": "google.protobuf.Int64Value"
+                }
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
+              },
+              "chaining_allowed": "google.protobuf.BoolValue"
             },
             "user_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "collection_config": {
                     "block_compressor": "Compressor"
@@ -8273,14 +8710,32 @@ Hour of the day in UTC (in `HH` format). ||
               "set_parameter": {
                 "audit_authorization_success": "google.protobuf.BoolValue",
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
-              }
+                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value",
+                "flow_control_target_lag_seconds": "google.protobuf.Int64Value",
+                "flow_control_warn_threshold_seconds": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_delay_ms": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_size": "google.protobuf.Int64Value",
+                "orphan_cleanup_delay_secs": "google.protobuf.Int64Value",
+                "persisted_chunk_cache_update_max_batch_size": "google.protobuf.Int64Value",
+                "range_deleter_batch_delay_ms": "google.protobuf.Int64Value",
+                "range_deleter_batch_size": "google.protobuf.Int64Value",
+                "mirror_reads": {
+                  "sampling_rate": "google.protobuf.DoubleValue",
+                  "max_time_ms": "google.protobuf.Int64Value"
+                }
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
+              },
+              "chaining_allowed": "google.protobuf.BoolValue"
             },
             "default_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "collection_config": {
                     "block_compressor": "Compressor"
@@ -8323,8 +8778,25 @@ Hour of the day in UTC (in `HH` format). ||
               "set_parameter": {
                 "audit_authorization_success": "google.protobuf.BoolValue",
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
-              }
+                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value",
+                "flow_control_target_lag_seconds": "google.protobuf.Int64Value",
+                "flow_control_warn_threshold_seconds": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_delay_ms": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_size": "google.protobuf.Int64Value",
+                "orphan_cleanup_delay_secs": "google.protobuf.Int64Value",
+                "persisted_chunk_cache_update_max_batch_size": "google.protobuf.Int64Value",
+                "range_deleter_batch_delay_ms": "google.protobuf.Int64Value",
+                "range_deleter_batch_size": "google.protobuf.Int64Value",
+                "mirror_reads": {
+                  "sampling_rate": "google.protobuf.DoubleValue",
+                  "max_time_ms": "google.protobuf.Int64Value"
+                }
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
+              },
+              "chaining_allowed": "google.protobuf.BoolValue"
             }
           },
           "resources": {
@@ -8344,7 +8816,8 @@ Hour of the day in UTC (in `HH` format). ||
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -8354,13 +8827,26 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "max_incoming_connections": "google.protobuf.Int64Value"
-              }
+              },
+              "set_parameter": {
+                "enable_flow_control": "google.protobuf.BoolValue",
+                "audit_authorization_success": "google.protobuf.BoolValue"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
+              },
+              "chaining_allowed": "google.protobuf.BoolValue"
             },
             "user_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -8370,13 +8856,26 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "max_incoming_connections": "google.protobuf.Int64Value"
-              }
+              },
+              "set_parameter": {
+                "enable_flow_control": "google.protobuf.BoolValue",
+                "audit_authorization_success": "google.protobuf.BoolValue"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
+              },
+              "chaining_allowed": "google.protobuf.BoolValue"
             },
             "default_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -8386,7 +8885,19 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "max_incoming_connections": "google.protobuf.Int64Value"
-              }
+              },
+              "set_parameter": {
+                "enable_flow_control": "google.protobuf.BoolValue",
+                "audit_authorization_success": "google.protobuf.BoolValue"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
+              },
+              "chaining_allowed": "google.protobuf.BoolValue"
             }
           },
           "resources": {
@@ -8410,7 +8921,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "Compressor"
                   ]
                 }
-              }
+              },
+              "set_parameter": {
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             },
             "user_config": {
               "net": {
@@ -8420,7 +8950,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "Compressor"
                   ]
                 }
-              }
+              },
+              "set_parameter": {
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             },
             "default_config": {
               "net": {
@@ -8430,7 +8979,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "Compressor"
                   ]
                 }
-              }
+              },
+              "set_parameter": {
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             }
           },
           "resources": {
@@ -8454,7 +9022,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "Compressor"
                   ]
                 }
-              }
+              },
+              "set_parameter": {
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             },
             "user_config": {
               "net": {
@@ -8464,7 +9051,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "Compressor"
                   ]
                 }
-              }
+              },
+              "set_parameter": {
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             },
             "default_config": {
               "net": {
@@ -8474,7 +9080,26 @@ Hour of the day in UTC (in `HH` format). ||
                     "Compressor"
                   ]
                 }
-              }
+              },
+              "set_parameter": {
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             }
           },
           "config_mongocfg": {
@@ -8482,7 +9107,8 @@ Hour of the day in UTC (in `HH` format). ||
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -8492,13 +9118,26 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "max_incoming_connections": "google.protobuf.Int64Value"
-              }
+              },
+              "set_parameter": {
+                "enable_flow_control": "google.protobuf.BoolValue",
+                "audit_authorization_success": "google.protobuf.BoolValue"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
+              },
+              "chaining_allowed": "google.protobuf.BoolValue"
             },
             "user_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -8508,13 +9147,26 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "max_incoming_connections": "google.protobuf.Int64Value"
-              }
+              },
+              "set_parameter": {
+                "enable_flow_control": "google.protobuf.BoolValue",
+                "audit_authorization_success": "google.protobuf.BoolValue"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
+              },
+              "chaining_allowed": "google.protobuf.BoolValue"
             },
             "default_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -8524,7 +9176,19 @@ Hour of the day in UTC (in `HH` format). ||
               },
               "net": {
                 "max_incoming_connections": "google.protobuf.Int64Value"
-              }
+              },
+              "set_parameter": {
+                "enable_flow_control": "google.protobuf.BoolValue",
+                "audit_authorization_success": "google.protobuf.BoolValue"
+              },
+              "audit_log": {
+                "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
+              },
+              "chaining_allowed": "google.protobuf.BoolValue"
             }
           },
           "resources": {
@@ -8538,7 +9202,8 @@ Hour of the day in UTC (in `HH` format). ||
             "disk_size_limit": "google.protobuf.Int64Value"
           }
         }
-      }
+      },
+      "full_version": "string"
     },
     "network_id": "string",
     "health": "Health",
@@ -8690,7 +9355,6 @@ Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per r
 
 Deployment environment of the MongoDB cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -8857,6 +9521,9 @@ Access policy to DB ||
 || mongodb_config | **[Mongodb](#yandex.cloud.mdb.mongodb.v1.Mongodb)**
 
 Configuration and resource allocation for a MongoDB Enterprise cluster. ||
+|| full_version | **string**
+
+Full version ||
 |#
 
 ## Mongodb3_6 {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6}
@@ -8969,7 +9636,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v3.6/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v3.6/reference/glossary/#term-zlib) compression. ||
@@ -8988,7 +9654,9 @@ Possible values:
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.OperationProfiling2}
@@ -8999,7 +9667,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -9007,7 +9674,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Network2}
@@ -9016,7 +9685,9 @@ running in the SLOW_OP mode. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mongodb.v1.Resources2}
@@ -9045,10 +9716,14 @@ Possible values:
 ||Field | Description ||
 || planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -9135,7 +9810,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Operation profiling level. For details, see [MongoDB documentation](https://docs.mongodb.com/v3.6/tutorial/manage-the-database-profiler/).
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data. This is the default
 profiler level.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
@@ -9144,7 +9818,9 @@ profiler level.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.Network2}
@@ -9153,7 +9829,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of incoming connections. ||
+The maximum number of incoming connections.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6.Mongos}
@@ -9200,7 +9878,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of incoming connections. ||
+The maximum number of incoming connections.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6.MongoInfra}
@@ -9327,7 +10007,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.0/reference/glossary/#term-zlib) compression. ||
@@ -9340,7 +10019,9 @@ Default type of compression to use for collection data.
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.OperationProfiling2}
@@ -9351,7 +10032,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -9359,7 +10039,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Network2}
@@ -9368,7 +10050,9 @@ running in the SLOW_OP mode. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.MongoCfg}
@@ -9454,7 +10138,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -9462,7 +10145,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.Network2}
@@ -9471,7 +10156,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.Mongos}
@@ -9520,7 +10207,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.MongoInfra}
@@ -9653,7 +10342,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
@@ -9676,7 +10364,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.OperationProfiling2}
@@ -9687,7 +10377,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -9695,11 +10384,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Network2}
@@ -9708,7 +10401,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Network.Compression2)**
 
 Compression settings ||
@@ -9726,7 +10421,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -9827,7 +10523,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -9835,7 +10530,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.Network2}
@@ -9844,7 +10541,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb4_2.Mongos}
@@ -9893,7 +10592,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2.Network.Compression2)**
 
 Compression settings ||
@@ -9911,7 +10612,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -10048,7 +10750,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
@@ -10071,7 +10772,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.OperationProfiling2}
@@ -10082,7 +10785,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -10090,11 +10792,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Network2}
@@ -10103,7 +10809,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Network.Compression2)**
 
 Compression settings ||
@@ -10121,7 +10829,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -10222,7 +10931,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -10230,7 +10938,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.Network2}
@@ -10239,7 +10949,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb4_4.Mongos}
@@ -10288,7 +11000,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4.Network.Compression2)**
 
 Compression settings ||
@@ -10306,7 +11020,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -10443,7 +11158,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
@@ -10466,7 +11180,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.OperationProfiling2}
@@ -10477,7 +11193,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -10485,11 +11200,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Network2}
@@ -10498,7 +11217,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Network.Compression2)**
 
 Compression settings ||
@@ -10516,7 +11237,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -10534,7 +11256,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb5_0.MongoCfg}
@@ -10620,7 +11344,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -10628,7 +11351,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.Network2}
@@ -10637,7 +11362,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb5_0.Mongos}
@@ -10686,7 +11413,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0.Network.Compression2)**
 
 Compression settings ||
@@ -10704,7 +11433,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -10841,7 +11571,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
@@ -10864,7 +11593,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.OperationProfiling2}
@@ -10875,7 +11606,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -10883,11 +11613,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Network2}
@@ -10896,7 +11630,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Network.Compression2)**
 
 Compression settings ||
@@ -10914,7 +11650,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -10932,7 +11669,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb6_0.MongoCfg}
@@ -11018,7 +11757,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -11026,7 +11764,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.Network2}
@@ -11035,7 +11775,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb6_0.Mongos}
@@ -11084,7 +11826,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0.Network.Compression2)**
 
 Compression settings ||
@@ -11102,7 +11846,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -11245,7 +11990,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
@@ -11268,7 +12012,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.OperationProfiling2}
@@ -11279,7 +12025,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -11287,11 +12032,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Network2}
@@ -11300,7 +12049,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -11318,7 +12069,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -11464,7 +12216,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -11472,7 +12223,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.Network2}
@@ -11481,7 +12234,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise.Mongos}
@@ -11530,7 +12285,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -11548,7 +12305,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -11691,7 +12449,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
@@ -11714,7 +12471,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.OperationProfiling2}
@@ -11725,7 +12484,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -11733,11 +12491,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Network2}
@@ -11746,7 +12508,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -11764,7 +12528,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -11830,7 +12595,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise.MongoCfg}
@@ -11916,7 +12683,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -11924,7 +12690,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.Network2}
@@ -11933,7 +12701,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise.Mongos}
@@ -11982,7 +12752,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -12000,7 +12772,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -12143,7 +12916,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
@@ -12166,7 +12938,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.OperationProfiling2}
@@ -12177,7 +12951,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -12185,11 +12958,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Network2}
@@ -12198,7 +12975,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -12216,7 +12995,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -12282,7 +13062,9 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise.MongoCfg}
@@ -12368,7 +13150,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -12376,7 +13157,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.Network2}
@@ -12385,7 +13168,9 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise.Mongos}
@@ -12434,7 +13219,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise.Network.Compression2)**
 
 Compression settings ||
@@ -12452,7 +13239,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -12569,6 +13357,12 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter2)**
 
 `SetParameter` section of mongod configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog2)**
+
+`Oplog` section of mongod configuration. ||
+|| chaining_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Chained replication setting ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage2}
@@ -12607,6 +13401,9 @@ Index configuration for WiredTiger ||
 || cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cache_size | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig2}
@@ -12617,7 +13414,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Default type of compression to use for collection data.
 
-- `COMPRESSOR_UNSPECIFIED`
 - `NONE`: No compression.
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zlib) compression.
@@ -12640,7 +13436,9 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 || commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
-Default: 100. ||
+Default: 100.
+
+Acceptable values are 1 to 500, inclusive. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling2}
@@ -12651,7 +13449,6 @@ Default: 100. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -12659,11 +13456,15 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. ||
+running in the SLOW_OP mode.
+
+Value must be greater than 0. ||
 || slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
-operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network2}
@@ -12672,7 +13473,9 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongod will accept. ||
+The maximum number of simultaneous connections that mongod will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network.Compression2)**
 
 Compression settings ||
@@ -12690,7 +13493,8 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
@@ -12756,7 +13560,72 @@ goal of keeping the secondary members [majority committed](https://www.mongodb.c
 lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+The minimum time window in seconds for which the storage engine keeps the snapshot history.
+
+The minimum value is 0. ||
+|| flow_control_target_lag_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The target maximum majority committed lag when running with flow control
+
+Value must be greater than 0. ||
+|| flow_control_warn_threshold_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved.
+
+The minimum value is 0. ||
+|| migrate_clone_insertion_batch_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Time in milliseconds to wait between batches of insertions during cloning step of the migration process.
+
+The minimum value is 0. ||
+|| migrate_clone_insertion_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of documents to insert in a single batch during the cloning step of the migration process.
+
+The minimum value is 0. ||
+|| orphan_cleanup_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum delay before a migrated chunk is deleted from the source shard. ||
+|| persisted_chunk_cache_update_max_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies the maximum batch size used for updating the persisted chunk cache. ||
+|| range_deleter_batch_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command).
+
+The minimum value is 0. ||
+|| range_deleter_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command).
+
+The minimum value is 0. ||
+|| mirror_reads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads2)**
+
+Specifies the settings for mirrored reads for the mongod instance ||
+|#
+
+## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads2}
+
+#|
+||Field | Description ||
+|| sampling_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The sampling rate used to mirror a subset of operations that support mirroring. ||
+|| max_time_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum time in milliseconds for the mirrored reads. ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog2}
+
+#|
+||Field | Description ||
+|| max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Oplog maxsize in percents. ||
+|| min_retention_hours | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}
@@ -12803,6 +13672,18 @@ Default mongocfg configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network2)**
 
 `net` section of mongocfg configuration. ||
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter2)**
+
+`setParameter` section of mongocfg configuration. ||
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog2)**
+
+`AuditLog` section of mongocfg configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog2)**
+
+`Oplog` section of mongod configuration. ||
+|| chaining_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Chained replication setting ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage2}
@@ -12832,6 +13713,9 @@ Engine configuration for WiredTiger. ||
 || cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cache_size | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling2}
@@ -12842,7 +13726,6 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 Mode which specifies operations that should be profiled.
 
-- `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
 - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
@@ -12850,7 +13733,9 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/v7.0/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs). ||
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/v7.0/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
+
+Value must be greater than 0. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network2}
@@ -12859,7 +13744,45 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://www
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongocfg will accept. ||
+The maximum number of simultaneous connections that mongocfg will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
+|#
+
+## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter2}
+
+#|
+||Field | Description ||
+|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
+goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
+lag under a configurable maximum value. ||
+|| audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog2}
+
+#|
+||Field | Description ||
+|| filter | **string**
+
+Audit filter, should be valid JSON object string ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog2}
+
+#|
+||Field | Description ||
+|| max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Oplog maxsize in percents. ||
+|| min_retention_hours | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongos}
@@ -12900,6 +13823,15 @@ Default mongos configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network2)**
 
 Network settings for mongos. ||
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter2)**
+
+`setParameter` section of mongos configuration. ||
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog2)**
+
+`AuditLog` section of mongos configuration. ||
+|| chunk_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network2}
@@ -12908,7 +13840,9 @@ Network settings for mongos. ||
 ||Field | Description ||
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections that mongos will accept. ||
+The maximum number of simultaneous connections that mongos will accept.
+
+Acceptable values are 10 to 32768, inclusive. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network.Compression2)**
 
 Compression settings ||
@@ -12926,11 +13860,67 @@ Specifies the default compressor(s) to use for communication between this mongod
 - drivers that support the OP_COMPRESSED message format.
 MongoDB supports the following compressors:
 
-- `COMPRESSOR_UNSPECIFIED`
+The number of elements must be in the range 1-3.
+
 - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
 - `DISABLED`: No compression ||
+|#
+
+## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter2}
+
+#|
+||Field | Description ||
+|| audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| read_hedging_mode | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
+|| sharding_task_executor_pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| sharding_task_executor_pool_max_connecting | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
+|| sharding_task_executor_pool_min_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| sharding_task_executor_pool_replica_set_matching | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
+|| sharding_task_executor_pool_host_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
+|| sharding_task_executor_pool_refresh_requirement_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
+|| sharding_task_executor_pool_refresh_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
+|| warm_min_connections_in_sharding_task_executor_pool_on_startup | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Configures a mongos instance to prewarm its connection pool on startup. ||
+|| warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
+|| sharding_task_executor_pool_max_size_for_config_servers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| sharding_task_executor_pool_min_size_for_config_servers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog2}
+
+#|
+||Field | Description ||
+|| filter | **string**
+
+Audit filter, should be valid JSON object string ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoInfra}
@@ -12986,7 +13976,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -12996,7 +13985,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.mongodb.v1.MaintenanceOperation}
@@ -13007,7 +13998,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time until which this maintenance operation is delayed. ||

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the MongoDB cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             Required. Name of the hosts to restart.
+            The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
           type: array
           items:
             type: string
@@ -46,7 +48,9 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:restartH
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the MongoDB cluster. ||
+Required field. Required. ID of the MongoDB cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mongodb.v1.RestartHostsRequest}
@@ -63,7 +67,9 @@ Required field. Required. ID of the MongoDB cluster. ||
 ||Field | Description ||
 || hostNames[] | **string**
 
-Required. Name of the hosts to restart. ||
+Required. Name of the hosts to restart.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 253. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

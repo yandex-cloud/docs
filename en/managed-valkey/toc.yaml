@@ -59,7 +59,7 @@ items:
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Cluster and host state monitoring
+          - name: Monitoring the state of a cluster and its hosts
             href: operations/monitoring.md
   - name: Tutorials
     items:
@@ -75,7 +75,7 @@ items:
         href: concepts/index.md
       - name: Host classes
         items:
-          - name: Active host classes
+          - name: Available host classes
             href: concepts/instance-types.md
           - name: Archive
             items:
