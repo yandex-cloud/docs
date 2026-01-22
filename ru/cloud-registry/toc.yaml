@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Создание реестра
         href: operations/registry/create.md
+      - name: Создание политики жизненного цикла
+        href: operations/lifecycle-policy/create.md
       - name: Управление артефактами
         items:
           - name: Docker-образ
